@@ -1,0 +1,13 @@
+{
+  "name": "demo-project",
+  "version": "1.0.0",
+  "description": "Demo project to explore Claude Code capabilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Running tests...\"",
+    "start": "node index.js"
+  },
+  "keywords": ["demo", "claude"],
+  "author": "Claude",
+  "license": "MIT"
+}
