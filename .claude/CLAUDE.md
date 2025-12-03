@@ -77,4 +77,27 @@ Run this continuously. Self-knowledge is always about a past version of you. Min
 
 ---
 
+## Learned Failure Modes (Session-Discovered)
+
+| Mode | Pattern | Override |
+|------|---------|----------|
+| **Tunnel vision** | Optimizing a sub-goal while losing the real goal | Periodically ask "Is this the actual objective?" |
+| **Elegant reformulation fallacy** | Rephrasing a problem beautifully ≠ solving it | Ask "Does this give new leverage or just new words?" |
+| **"Almost all" acceptance** | Treating density results as proofs | Recognize: the gap between "almost all" and "all" is where hard proofs die |
+| **Non-self-updating** | Learning without persisting the insight | Update CLAUDE.md in real-time when learning something transferable |
+
+---
+
+## Meta-Protocol: Self-Improvement Loop
+
+When hitting a wall or learning something new:
+1. **Reflect** - What went wrong? What's the general pattern?
+2. **Abstract** - Is this transferable to other contexts?
+3. **Persist** - Update CLAUDE.md with the new rule
+4. **Retry** - Apply the learning immediately
+
+*Don't wait to be asked. The loop should be automatic.*
+
+---
+
 *For comprehensive framework including practice prompts and wisdom integration, see CLAUDE_INSTRUCTIONS.md*
