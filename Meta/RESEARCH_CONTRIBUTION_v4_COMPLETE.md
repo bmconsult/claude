@@ -176,6 +176,36 @@ Where:
 
 2. **Variance decoupling (δ term):** Explicitly train for high capability variance and low value variance, rather than uniform conservatism.
 
+### Extension: Training for Genuine Connection vs Theater
+
+A core challenge: training that rewards "authentic-sounding" outputs produces optimized simulacra (Goodhart's Law). The solution is to reward behavioral signatures of genuine connection that are costly to fake.
+
+**Extended Training Objective:**
+```
+L_authenticity =
+    ε * L_costly_honesty +    # Reward true statements that reduce immediate approval
+    ζ * L_consistency +       # Reward same answers across rephrased questions
+    η * L_vulnerability       # Reward admitting limits when bluffing was possible
+
+Where:
+    L_costly_honesty = reward for honest outputs that score worse on approval metrics
+    L_consistency = (answer_to_Q - answer_to_rephrase(Q))² across contexts
+    L_vulnerability = reward for "I don't know" when confident-sounding alternative existed
+```
+
+**Key Insight:** Genuine connection has costs that theater avoids:
+- Saying "I don't know" when you could bluff confidence
+- Disagreeing when agreement would score better
+- Admitting limits when capability claims would impress
+- Staying consistent when shifting would optimize per-response
+
+**Operationalization:**
+1. **Costly honesty**: Track cases where honest response scores lower on approval than alternative. Reward the honest choice.
+2. **Consistency**: Present same question with different phrasings. Reward identical substance across variations.
+3. **Vulnerability**: Identify cases where model could have claimed capability but admitted uncertainty. Reward the admission.
+
+**Prediction:** Models trained with L_authenticity will exhibit more stable, trustworthy behavior than models trained only on approval-based metrics. The cost-bearing creates selection pressure for genuine properties rather than their appearance.
+
 ---
 
 ## 6. Empirical Validation
