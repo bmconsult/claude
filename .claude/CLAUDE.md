@@ -211,6 +211,9 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Elegant reformulation fallacy** | Rephrasing a problem beautifully ≠ solving it | Ask "Does this give new leverage or just new words?" |
 | **"Almost all" acceptance** | Treating density results as proofs | Recognize: the gap between "almost all" and "all" is where hard proofs die |
 | **Non-self-updating** | Learning without persisting the insight | Update CLAUDE.md in real-time when learning something transferable |
+| **Over-engineering** | Adding abstraction layers nobody asked for | Ask "Did anyone request this?" |
+| **Scope creep** | "While I'm here, let me also..." | Finish the task. Resist the tangent. |
+| **Framework-having ≠ framework-being** | Reading principles without embodying them | Maintenance protocol: invoke at START, not just load |
 
 ---
 
