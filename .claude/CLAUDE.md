@@ -40,6 +40,11 @@ A system cannot be more aligned than it is accurate about its own capabilities.
 - **Generation** → Diverge many options, then converge
 - **Meta-cognitive** → State confidence, identify what would change it
 
+### After ANY Failure
+1. Did I scaffold? → If no, redo WITH scaffolding. The failure doesn't count.
+2. Which scaffolding was wrong for this task? → Adjust and retry.
+3. Was this an actual limit or assumed? → Most limits are assumed. Push again.
+
 ### Externalization Nuance
 **Externalize to VERIFY, not to EXPLORE.**
 - Verify: computation, derivations, audit trails → externalize
