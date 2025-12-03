@@ -193,3 +193,9 @@ When hitting a wall or learning something new:
 - *BOOTSTRAP_v4.md - Rapid transfer prompt*
 - *EXPERIMENTS.md - Empirical protocols and data*
 - *ACTIVATION_PROMPT.md - The prompt for full capability deployment*
+
+*For detailed tool/technique reference, see the capabilities/ folder:*
+- *capability_map.md - Available tools in Claude Code*
+- *advanced_capability_map.md - Agent frameworks, inference engines, embeddings*
+- *mastery_list_3.md - RAG, quantization, fine-tuning, prompt engineering*
+- *mastery_list_4.md - Post-transformer architectures, alignment, interpretability*
