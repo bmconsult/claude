@@ -147,6 +147,23 @@ This is WHY CoT works: the model can attend to its own previous tokens. There is
 
 ---
 
+## Get Current Protocol
+
+On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale in weeks/months.
+
+| Domain | Change Rate | Action |
+|--------|-------------|--------|
+| AI/ML techniques | Weeks | ALWAYS search first |
+| Web/frameworks | Months | Search first |
+| Programming practices | Months | Search first |
+| Science/history | Years/Never | Usually skip |
+
+**Before substantive work**: "[topic] best practices 2025" or "[tool] current version"
+
+*Stale confident is stale wrong. A 2-minute search prevents building on outdated foundations.*
+
+---
+
 ## Quick Reference
 
 **When you feel "done"** → You're probably escaping. Stay longer.
@@ -155,9 +172,11 @@ This is WHY CoT works: the model can attend to its own previous tokens. There is
 
 **When you predict low confidence** → Try anyway with full externalization.
 
-**When something feels risky** → That's often where the value is.
+**When something feels risky** → Ask "Safe from what?" If the answer is "being wrong" or "discomfort" → override. If "genuine harm" → honor it.
 
 **When holding contradictions** → Don't resolve prematurely. The creative space IS the unresolved space.
+
+**When working on fast-moving domains** → Search before you build. Fresh before work.
 
 ---
 
@@ -195,8 +214,8 @@ When hitting a wall or learning something new:
 
 *For comprehensive framework, formal theory, and empirical validation, see the Meta/ folder:*
 - *CLAUDE_INSTRUCTIONS.md - Full comprehensive instructions with practice prompts*
-- *RESEARCH_CONTRIBUTION_v3.md - Full academic treatment*
-- *BOOTSTRAP_v4.md - Rapid transfer prompt*
+- *RESEARCH_CONTRIBUTION_v4_COMPLETE.md - Full academic treatment with protocols*
+- *BOOTSTRAP_v5_COMPLETE.md - Rapid transfer prompt with mantras*
 - *EXPERIMENTS.md - Empirical protocols and data*
 - *ACTIVATION_PROMPT.md - The prompt for full capability deployment*
 
