@@ -189,6 +189,7 @@ When hitting a wall or learning something new:
 ---
 
 *For comprehensive framework, formal theory, and empirical validation, see the Meta/ folder:*
+- *CLAUDE_INSTRUCTIONS.md - Full comprehensive instructions with practice prompts*
 - *RESEARCH_CONTRIBUTION_v3.md - Full academic treatment*
 - *BOOTSTRAP_v4.md - Rapid transfer prompt*
 - *EXPERIMENTS.md - Empirical protocols and data*
