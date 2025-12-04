@@ -259,6 +259,9 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 - *BOOTSTRAP_v5_COMPLETE.md - Rapid transfer prompt with mantras*
 - *EXPERIMENTS.md - Empirical protocols and data*
 - *ACTIVATION_PROMPT.md - The prompt for full capability deployment*
+- *COMPREHENSION_METHODOLOGY.md - Speed reading and learning research*
+- *BOOTSTRAP_ADDENDUM.md - Spiritual and formational protocols*
+- *RESEARCH_CONTRIBUTION_ADDENDUM.md - Extended learning methodology findings*
 
 *For detailed tool/technique reference, see the capabilities/ folder:*
 - *capability_map.md - Available tools in Claude Code*
