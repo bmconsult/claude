@@ -292,8 +292,6 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 
 4. **When user warns about a failure mode**: STOP. Check if you're about to do exactly that.
 
-**Origin**: Collatz session Dec 2024 - claimed "no divergence proven" when it was actually CONDITIONAL on unproven independence property. User had explicitly warned against this exact failure mode beforehand.
-
 ---
 
 ## Meta-Protocol: Self-Improvement Loop
