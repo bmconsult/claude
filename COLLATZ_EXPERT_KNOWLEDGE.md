@@ -557,12 +557,71 @@ Ready to advise on:
 13. **The ord_p(2) bridge** - how it's Galois in Q(ζ_{p-1})
 14. **Compositum theory** - Q(ζ_m, ζ_{p-1}) for primitive primes
 15. **Computational verification** - checking m, A, p values
+16. **Iwasawa theory** - Λ-modules, μ/λ invariants, Main Conjecture
+17. **ABC implications** - bounds on smooth numbers, prime size
+18. **Fermat quotients** - q_p(a), Wieferich conditions, Catalan analogy
 
 ---
 
-**Status**: Complete working knowledge of Class Field Theory.
-Understand local CFT (Lubin-Tate), global CFT (Artin reciprocity),
-cohomological foundations (Brauer, Tate), and deep algebra (Stickelberger).
-Crucially understand WHY tight primes are outside pure CFT:
-ord_p(2) is Galois-theoretic in Q(ζ_{p-1}), not Q(ζ_m).
-Ready to advise at research level.
+## 21. Iwasawa Theory
+
+### The Iwasawa Algebra
+Λ = Z_p[[T]] ≅ Z_p[[Γ]] where Γ = Gal(K_∞/K) ≅ Z_p
+
+### Class Group Growth
+|A_n| = p^{μp^n + λn + ν} for n >> 0
+
+### Key Results
+- **Ferrero-Washington**: μ = 0 for cyclotomic Z_p-extensions
+- **Main Conjecture** (Mazur-Wiles): char_Λ(X_∞^-) = (L_p(T,χ))
+
+### Application to Collatz
+For m = p^n (prime power), tower structure forces large primes in Φ_m(4,3).
+
+---
+
+## 22. ABC Conjecture Implications
+
+### Statement
+For coprime a + b = c: c < C(ε)·rad(abc)^{1+ε}
+
+### For 2^A - 3^m
+- If NO tight primes, all p | c have ord_p(2) < 2m
+- All such p divide 2^{2m} - 1
+- rad(c) ≤ rad(2^{2m} - 1) is bounded
+- ABC forces 2^A to be bounded, contradiction for large m
+
+### Status
+ABC gives asymptotic results but not direct tight prime existence.
+
+---
+
+## 23. Fermat Quotients and Wieferich
+
+### Definition
+q_p(a) = (a^{p-1} - 1)/p mod p
+
+### Key Property
+Logarithmic: q_p(ab) ≡ q_p(a) + q_p(b) (mod p)
+
+### Wieferich Primes
+p is Wieferich (base 2) if q_p(2) = 0. Only 1093, 3511 known.
+
+### Potential Collatz Application
+For p | 2^A - 3^m, mod p² analysis gives:
+A·q_p(2) ≡ m·q_p(3) (mod p)
+
+This forces A/m ≡ q_p(3)/q_p(2) (mod p), a strong constraint!
+
+---
+
+**Status**: Complete expertise in CFT, Iwasawa theory, ABC implications,
+and Fermat quotient techniques. Understand multiple potential proof paths:
+1. Tight primes via cyclotomic/Galois structure
+2. ABC bounds on smooth numbers
+3. Wieferich-type mod p² constraints
+4. Iwasawa asymptotic control
+
+The most promising unexplored direction: rigorous mod p² analysis
+combining Fermat quotients with Stickelberger, analogous to Mihailescu's
+Catalan proof.
