@@ -136,7 +136,87 @@ Empirically: for m ≥ 5, at least one valid A has tight primes.
 
 ---
 
-## 6. Open Questions for Investigation
+## 6. Chebotarev Density Theorem Connection
+
+### Statement
+
+For K/Q a Galois extension with group G:
+- Primes p split according to conjugacy class of Frobenius σ_p
+- Density of primes with σ_p in conjugacy class C is |C|/|G|
+
+For **cyclotomic fields** Q(ζ_m):
+- G ≅ (Z/mZ)* has order φ(m)
+- Density of primes p ≡ a (mod m) is 1/φ(m) (Dirichlet's theorem!)
+
+### Application to Collatz
+
+Primitive primes p | Φ_m(4,3) satisfy p ≡ 1 (mod m).
+These are primes that **split completely** in Q(ζ_m).
+
+The smallest such prime determines whether we get immediate tightness:
+- If min{p ≡ 1 (mod m)} > 2m, then all primitives are automatically tight candidates
+- If min{p ≡ 1 (mod m)} ≤ 2m, need to check other A values
+
+Sources: [Chebotarev density theorem](https://en.wikipedia.org/wiki/Chebotarev's_density_theorem)
+
+---
+
+## 7. CRUCIAL: Φ_m(4,3) vs 2^A - 3^m
+
+### The Key Distinction
+
+**Φ_m(4,3)**: The primitive part of 4^m - 3^m
+- All primes p | Φ_m(4,3) satisfy p ≡ 1 (mod m)
+- Only "new" primes first appearing at m
+
+**2^A - 3^m**: The ACTUAL cycle equation denominator
+- A varies over valid range: ⌈m·log₂(3)⌉ + 1 ≤ A ≤ some_upper_bound
+- Different A values give completely different factorizations
+- May include primes from DIFFERENT congruence classes
+
+### Why This Matters
+
+Even when Φ_m(4,3) has NO tight primes, other A values provide them!
+
+**Verified examples** (problematic m values):
+- m=4, A=8: 175 = 5²×7 → NO tight (ord_5(2)=4, ord_7(2)=3)
+- m=4, A=9: 431 prime → ord_431(2)=43 ≥ 8 ✓ TIGHT
+
+All tested m values (up to 60) have at least one A value with tight primes.
+
+### Implication
+
+The tight prime approach works **empirically for all m**, even when the "obvious" Φ_m(4,3) primes fail tightness. The proof needs to establish this works **for all m** by considering the full (m, A) search space.
+
+---
+
+## 8. Zsygmondy's Theorem
+
+### Statement
+
+For coprime integers a > b > 0, a^n - b^n has a **primitive prime divisor** for all n > 1, except:
+- a = 2, b = 1, n = 6: 2^6 - 1 = 63 = 7 × 9 (all primes divide 2^k - 1 for k < 6)
+- a - b = 1, n = 2, and a + b is a power of 2 (perfect square case)
+
+### Application to Collatz
+
+For 4^m - 3^m with m ≥ 2:
+- gcd(4,3) = 1, so Zsygmondy applies
+- We're not in the exceptional cases
+- **Therefore**: 4^m - 3^m always has a primitive prime p with ord_p(4/3) = m
+
+This **guarantees** the existence of primitive primes for the cyclotomic factorization.
+
+### Strength and Limitation
+
+**Strength**: Unconditional existence of primitive primes
+**Limitation**: Says nothing about the SIZE of these primes or ord_p(2)
+
+For tight primes, we need ord_p(2) ≥ 2m, which Zsygmondy doesn't address.
+
+---
+
+## 8.5. Open Questions for Investigation
 
 ### Q1: Stickelberger for Collatz?
 Can Stickelberger-type annihilation results be applied to ideals arising from 4^m - 3^m?
@@ -154,7 +234,7 @@ If trajectories can't sustain growth, and can't cycle, they must descend.
 
 ---
 
-## 6. Techniques NOT to Pursue (Failed Approaches)
+## 9. Techniques NOT to Pursue (Failed Approaches)
 
 See COLLATZ_FAILED_APPROACHES_ANALYSIS.md for details:
 
@@ -165,7 +245,7 @@ See COLLATZ_FAILED_APPROACHES_ANALYSIS.md for details:
 
 ---
 
-## 7. Key Computational Tools
+## 10. Key Computational Tools
 
 ### Multiplicative order
 ```python
