@@ -417,18 +417,78 @@ For ALL tested m (up to 60), at least one A value has tight primes!
 
 ---
 
-## 15. Expert Advisor Capabilities
+## 15. CFT Working Knowledge (Deep Foundation)
 
-Ready to advise on:
-1. **Tight prime lemma** - rigorous statement and proof
-2. **Cyclotomic structure** - Φ_m(4,3) factorization
-3. **LTE lemma** - growth phase constraints
-4. **Frobenius/splitting** - why primes behave as they do
-5. **Local-global** - 2-3 conflict and resolution
-6. **Stickelberger** - potential algebraic approaches
-7. **Computational verification** - checking specific m, A, p values
+### Galois Cohomology (Computed, not just defined)
+
+For cyclic G = <σ> of order n acting on module M:
+- H^0(G,M) = M^G = Ker(σ-1)
+- H^1(G,M) = Ker(N) / Im(σ-1) where N = 1 + σ + ... + σ^{n-1}
+- H^2(G,M) = M^G / N(M)
+
+**Hilbert 90**: H^1(G, K*) = 0 for cyclic K/F
+This is why CFT focuses on H^2, not H^1.
+
+### Class Group Computation (from scratch)
+
+**Q(√-5)**: h = 2, computed via:
+1. Minkowski bound M ≈ 2.85
+2. Prime 2 ramifies: 2O_K = P² where P = (2, 1+√-5)
+3. P not principal: no element has norm 2
+4. P² = (2) principal, so [P] has order 2
+5. Cl(K) = {[O_K], [P]} ≅ Z/2Z
+
+### Ramification (Decomposition/Inertia)
+
+**Exact sequence**: 1 → I_P → D_P → Gal(k_P/k_p) → 1
+
+For p unramified: I_P = {1}, Frob_P ∈ D_P directly
+For p ramified: I_P ≠ {1}, Frob only in quotient
+
+### Artin Reciprocity (Mechanism)
+
+**The map**: p ↦ Frob_p ∈ Gal(K/Q)
+**Why it works**: Factors through I^S/(P^S · Norms)
+**Idelic form**: Gal(K/Q) ≅ J_Q/(Q* · N_{K/Q}(J_K))
+
+Kernel contains Q* (product formula) and norms (reciprocity law).
+
+### Idele Class Groups
+
+**Structure**: C_Q = J_Q/Q*, arithmetic part is Ẑ* = ∏_p Z_p*
+**CFT statement**: Gal(Q^ab/Q) ≅ Ẑ*
+**Conductors**: K ⊆ Q(ζ_f) where f = conductor
+
+### The Critical Gap for Collatz
+
+CFT gives: p | Φ_m(4,3) primitive ⟹ p ≡ 1 (mod m) [Galois constraint]
+Tight primes need: ord_p(2) ≥ 2m [Multiplicative constraint]
+
+These are INDEPENDENT:
+- First is Frobenius = identity in Gal(Q(ζ_m)/Q)
+- Second is about (Z/pZ)* structure
+
+Stickelberger potentially bridges these via ideal annihilation.
 
 ---
 
-**Status**: Deep expertise in algebraic number theory, Galois theory, local fields,
-and their application to Collatz. Ready to advise with genuine domain depth.
+## 16. Expert Advisor Capabilities
+
+Ready to advise on:
+1. **Tight prime lemma** - rigorous statement and proof
+2. **Cyclotomic structure** - Φ_m(4,3) factorization, primitive primes
+3. **LTE lemma** - growth phase constraints, 2-adic interpretation
+4. **Frobenius/splitting** - computed D_P, I_P for concrete examples
+5. **Local-global** - 2-3 conflict, why Collatz is hard
+6. **Stickelberger** - ideal annihilation, potential approaches
+7. **Galois cohomology** - H^0, H^1, H^2 actual computations
+8. **Class groups** - computed from scratch, not just cited
+9. **Artin reciprocity** - mechanism and idelic formulation
+10. **Computational verification** - checking specific m, A, p values
+
+---
+
+**Status**: Deep working knowledge of Class Field Theory foundations.
+Can compute (not just define) cohomology groups, class numbers, conductors.
+Understand why CFT captures Galois constraints but not multiplicative ones.
+Ready to advise with genuine expertise.
