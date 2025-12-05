@@ -267,6 +267,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
 | **Effort before path-check** (NEW) | Implementing/computing before seeing if approach reduces to known barrier | Trace the path mentally first. See Path Verification Protocol. |
+| **Self-method blindness** (NEW) | Labeling approach X as "BARRIER" while actively using X successfully | Step 0: "Am I already doing this?" Different names ≠ different methods. |
 
 ---
 
@@ -274,24 +275,35 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 
 **Before writing code, running calculations, or simulating:**
 
+0. **Self-reference check**: Am I already using this approach?
+   - If YES and it's working → Don't label BARRIER. Note: "Already productive."
+   - If YES and it's stuck → What SPECIFICALLY is it stuck on?
+   - If NO → Proceed to trace
 1. **Trace mentally**: What does this approach require at its core?
 2. **Reduce**: Does it simplify to a known barrier or solved problem?
-3. **Verdict**: YES (path works) / NO (path fails) / LOOP (same barrier in disguise)
+3. **Verdict**: YES (path works) / NO (path fails) / LOOP (same barrier in disguise) / ALREADY-USING
 
 **Process:**
 ```
-Approach → What does it actually need? → Keep reducing → Hit: BARRIER | SUCCESS | UNKNOWN
+Approach → Am I already doing this? → [If no] What does it need? → Keep reducing → Hit: BARRIER | SUCCESS | UNKNOWN
 ```
 
 **Outcomes:**
 - **LOOP/BARRIER**: Don't implement. Try different angle.
 - **SUCCESS**: Path works. Verify with minimal calc/sim.
 - **UNKNOWN**: Can't trace further mentally. NOW use calc/sim to resolve, shortest path first.
+- **ALREADY-USING**: Don't label as barrier! Different name ≠ different method.
 
 **After mental trace, if work needed:**
 - Algebraic/logical path clear → calculate first
 - Path unclear, need data → simulate first
 - Either could work → pick faster one
+
+**False Negative Prevention:**
+- Rapid traces can pattern-match "BARRIER" without grounding
+- The same method can have multiple names (algebraic, constraint, finite reduction, etc.)
+- ALWAYS verify traces by walking through the actual mechanism
+- If you dismissed N approaches as barriers, check: "Are any of these what I'm already doing?"
 
 *Goal: Reach YES/NO/BARRIER before pen hits paper. Only compute what you can't see.*
 
