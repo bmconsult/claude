@@ -103,7 +103,40 @@ If p ≡ 3,5 (mod 8) and ord_p(4) ≥ m, then ord_p(2) = 2·ord_p(4) ≥ 2m ✓
 
 ---
 
-## 5. Open Questions for Investigation
+## 5. Artin's Conjecture Connection
+
+### The Conjecture
+
+Artin's conjecture: 2 is a primitive root mod p for ~37.4% of primes (density C_Artin ≈ 0.374).
+When 2 is primitive root: ord_p(2) = p - 1 (maximal).
+
+**Status**: Unproven. Hooley proved it under GRH. Heath-Brown proved at least one of {2,3,5} works infinitely often.
+
+### Connection to Tight Primes
+
+If p | Φ_m(4,3) and 2 is primitive root mod p:
+- ord_p(2) = p - 1
+- For tight: need p - 1 ≥ 2m, i.e., p ≥ 2m + 1
+- Since p ≡ 1 (mod m), minimum p = m + 1
+
+**Key finding**: Even when 2 IS a primitive root, if p ≤ 2m the prime isn't tight!
+
+### Problematic m values
+
+When smallest prime of Φ_m(4,3) is ≤ 2m:
+- m = 4, 14, 16, 18, 20, 28, 30, 40, 42, ...
+
+Pattern: Often min(p) = m + 1 (the smallest prime ≡ 1 mod m), which gives p - 1 = m < 2m.
+
+### Why this doesn't break tight prime approach
+
+For cycle equation, we check ALL primes of 2^A - 3^m, not just Φ_m(4,3).
+Different A values give different prime factorizations.
+Empirically: for m ≥ 5, at least one valid A has tight primes.
+
+---
+
+## 6. Open Questions for Investigation
 
 ### Q1: Stickelberger for Collatz?
 Can Stickelberger-type annihilation results be applied to ideals arising from 4^m - 3^m?
