@@ -272,55 +272,28 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 
 ## Path Verification Protocol (NEW)
 
-**Before investing effort in an approach:**
+**Before writing code, running calculations, or simulating:**
 
-1. **Trace mentally**: What does this approach ACTUALLY require at its core?
-2. **Reduce**: Does that core requirement simplify to something already known?
-3. **Check for loops**: Does it reduce to a barrier we've already identified?
+1. **Trace mentally**: What does this approach require at its core?
+2. **Reduce**: Does it simplify to a known barrier or solved problem?
+3. **Verdict**: YES (path works) / NO (path fails) / LOOP (same barrier in disguise)
 
-**Example 1** (Collatz potential function):
+**Process:**
 ```
-Approach: V(n) = log(n) + f(k) that always decreases
-    ↓ trace
-Requires: f(k) compensates for growth during descent
-    ↓ trace
-Requires: Shrink at k=1 overcomes any jump in f
-    ↓ trace
-Requires: High k can't keep happening after shrinks
-    ↓ reduce
-= Independence gap (already identified barrier)
-    ↓ verdict
-LOOP DETECTED - approach disguises existing gap, doesn't bypass it
+Approach → What does it actually need? → Keep reducing → Hit: BARRIER | SUCCESS | UNKNOWN
 ```
 
-**Example 2** (p-adic methods - deeper trace):
-```
-Approach: Embed N ⊂ Z_2, use 2-adic topology/measure theory
-    ↓ trace
-Z_2 structure: continuous extension of Collatz to 2-adic integers
-    ↓ trace
-But: Trajectories of n ∈ N in Z_2 ARE the same trajectories in N
-    ↓ trace
-2-adic metric: |T(n)|_2 = 1 for all odd n (no contraction)
-    ↓ trace
-Measure theory: N has measure 0 in Z_2 (countable in uncountable)
-    → "almost all" results say nothing about N
-    ↓ trace
-Topology: N is discrete in Z_2 → topology doesn't constrain discrete sets
-    ↓ trace
-To show S = {n : doesn't reach 1} is empty, still need:
-    - No divergence (independence gap)
-    - No cycles (tight prime gap)
-    ↓ reduce
-= Same two barriers
-    ↓ verdict
-LOOP DETECTED - richer space provides nice frame but no new leverage
-```
+**Outcomes:**
+- **LOOP/BARRIER**: Don't implement. Try different angle.
+- **SUCCESS**: Path works. Verify with minimal calc/sim.
+- **UNKNOWN**: Can't trace further mentally. NOW use calc/sim to resolve, shortest path first.
 
-**If loop detected**: Don't implement. Try different angle.
-**If no loop**: Genuinely new path. Worth pursuing.
+**After mental trace, if work needed:**
+- Algebraic/logical path clear → calculate first
+- Path unclear, need data → simulate first
+- Either could work → pick faster one
 
-*This saves hours/days of computation that would only rediscover known barriers.*
+*Goal: Reach YES/NO/BARRIER before pen hits paper. Only compute what you can't see.*
 
 ---
 
