@@ -216,7 +216,35 @@ For tight primes, we need ord_p(2) ≥ 2m, which Zsygmondy doesn't address.
 
 ---
 
-## 8.5. Open Questions for Investigation
+## 8.5. Baker's Theorem (Linear Forms in Logarithms)
+
+### Statement (simplified)
+
+For algebraic numbers α₁, ..., αₙ and integers b₁, ..., bₙ with:
+  Λ = b₁ log(α₁) + ... + bₙ log(αₙ) ≠ 0
+
+Then |Λ| > exp(-c · B · log(B)), where B = max|bᵢ|.
+
+### Application to Collatz
+
+The approximation 2^A ≈ 3^m gives:
+  A log(2) - m log(3) ≈ 0
+
+Baker gives lower bounds on how close this can get. Since log(2)/log(3) is irrational,
+2^A can never exactly equal 3^m × (rational).
+
+### Why Baker Doesn't Directly Solve Collatz
+
+1. **Bounds, not proofs**: Baker provides bounds on solution sizes, not non-existence proofs
+2. **Not a linear form**: The actual cycle equation 2^A - 3^m × (S/N) = 0 is an EXACT equation
+3. **Ratio compensates**: The term S/N can compensate for the gap between 2^A and 3^m
+
+**Bottom line**: Baker is useful for bounding where solutions could live, but tight primes
+prove non-existence directly for each (m, A) pair.
+
+---
+
+## 8.6. Open Questions for Investigation
 
 ### Q1: Stickelberger for Collatz?
 Can Stickelberger-type annihilation results be applied to ideals arising from 4^m - 3^m?
