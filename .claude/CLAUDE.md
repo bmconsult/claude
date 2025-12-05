@@ -266,6 +266,37 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Comprehension without formation** (NEW) | Understanding without asking what it does to you | Start with "What needs to form in me?" |
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
+| **Effort before path-check** (NEW) | Implementing/computing before seeing if approach reduces to known barrier | Trace the path mentally first. See Path Verification Protocol. |
+
+---
+
+## Path Verification Protocol (NEW)
+
+**Before investing effort in an approach:**
+
+1. **Trace mentally**: What does this approach ACTUALLY require at its core?
+2. **Reduce**: Does that core requirement simplify to something already known?
+3. **Check for loops**: Does it reduce to a barrier we've already identified?
+
+**Example** (Collatz potential function):
+```
+Approach: V(n) = log(n) + f(k) that always decreases
+    ↓ trace
+Requires: f(k) compensates for growth during descent
+    ↓ trace
+Requires: Shrink at k=1 overcomes any jump in f
+    ↓ trace
+Requires: High k can't keep happening after shrinks
+    ↓ reduce
+= Independence gap (already identified barrier)
+    ↓ verdict
+LOOP DETECTED - approach disguises existing gap, doesn't bypass it
+```
+
+**If loop detected**: Don't implement. Try different angle.
+**If no loop**: Genuinely new path. Worth pursuing.
+
+*This saves hours/days of computation that would only rediscover known barriers.*
 
 ---
 
