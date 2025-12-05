@@ -278,7 +278,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 2. **Reduce**: Does that core requirement simplify to something already known?
 3. **Check for loops**: Does it reduce to a barrier we've already identified?
 
-**Example** (Collatz potential function):
+**Example 1** (Collatz potential function):
 ```
 Approach: V(n) = log(n) + f(k) that always decreases
     ↓ trace
@@ -291,6 +291,30 @@ Requires: High k can't keep happening after shrinks
 = Independence gap (already identified barrier)
     ↓ verdict
 LOOP DETECTED - approach disguises existing gap, doesn't bypass it
+```
+
+**Example 2** (p-adic methods - deeper trace):
+```
+Approach: Embed N ⊂ Z_2, use 2-adic topology/measure theory
+    ↓ trace
+Z_2 structure: continuous extension of Collatz to 2-adic integers
+    ↓ trace
+But: Trajectories of n ∈ N in Z_2 ARE the same trajectories in N
+    ↓ trace
+2-adic metric: |T(n)|_2 = 1 for all odd n (no contraction)
+    ↓ trace
+Measure theory: N has measure 0 in Z_2 (countable in uncountable)
+    → "almost all" results say nothing about N
+    ↓ trace
+Topology: N is discrete in Z_2 → topology doesn't constrain discrete sets
+    ↓ trace
+To show S = {n : doesn't reach 1} is empty, still need:
+    - No divergence (independence gap)
+    - No cycles (tight prime gap)
+    ↓ reduce
+= Same two barriers
+    ↓ verdict
+LOOP DETECTED - richer space provides nice frame but no new leverage
 ```
 
 **If loop detected**: Don't implement. Try different angle.
