@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (136 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (142 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (136 sections)
+## Knowledge Base Contents (142 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -304,10 +304,17 @@ Complete any of:
 | §133 | Cyclic cohomology computation: M_n(ℂ), Morita invariance, trace cocycles |
 | §134 | **MORI 2024: Collatz ⟺ O_2 irreducibility (BREAKTHROUGH)** |
 | §135-136 | Open NCG problems for Collatz, complete synthesis |
+| **§137-142** | **ADVANCED IRREDUCIBILITY TECHNIQUES** |
+| §137 | Mori's three formulations: T, (S₁,S₂), O₂ - technical details |
+| §138 | Explicit Collatz O₂ representation: operator definitions, matrix elements |
+| §139 | Pythagorean dimension theory (Brothier-Wijesena 2024) |
+| §140 | Irreducibility criteria: reducing subspace, commutant, von Neumann |
+| §141 | Orbit-based irreducibility: permutation reps, Collatz graph |
+| §142 | Attack strategy via irreducibility: three paths |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (136 sections) - NCG UNIFIED FRAMEWORK + MORI 2024*
+*Knowledge base: COMPREHENSIVE (142 sections) - IRREDUCIBILITY ATTACK READY*
