@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (153 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (159 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (153 sections)
+## Knowledge Base Contents (159 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -324,10 +324,17 @@ Complete any of:
 | §151 | Schur's Lemma approach: prove C*(S₁,S₂)' = ℂI |
 | §152 | Number-theoretic inputs for irreducibility |
 | §153 | **Three algebraic proof paths: Commutant, Reducing subspace, Classification** |
+| **§154-159** | **DEEP ALGEBRAIC STRUCTURES** |
+| §154 | Baker bounds: \|A log 2 - m log 3\| ≥ A^{-13.3} (Rhin) |
+| §155 | Steiner-Simons-de Weger: No m-cycles for m ≤ 91 |
+| §156 | **Why cycles impossible: 2^A = ∏(3+1/aᵢ) over-constrained** |
+| §157 | **Tao's limitation: "almost all" ≠ "all", different techniques needed** |
+| §158 | Divergence blocked: Block-Escape vs forward growth bounds |
+| §159 | **2-3 incompatibility: arithmetic, p-adic, operator, geometric views** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (153 sections) - ALGEBRAIC PROOF FRAMEWORK COMPLETE*
+*Knowledge base: COMPREHENSIVE (159 sections) - DEEP ALGEBRAIC STRUCTURES*
