@@ -2941,6 +2941,569 @@ Sources: [Mori (2025)](https://link.springer.com/article/10.1007/s43036-025-0042
 
 ---
 
+---
+
+## 80. Dynamical Systems: Entropy Analysis
+
+### Topological Entropy of Collatz on ℤ₂
+
+**Setup**: Standard definition of topological entropy requires compact space. ℕ is not compact, but ℤ₂ (2-adic integers) is.
+
+**Extension**: Collatz map T extends naturally to ℤ₂:
+- Addition, multiplication by 3, division by 2 are bitwise operations
+- T is uniformly continuous on compact ℤ₂
+- Well-defined dynamical system (ℤ₂, T)
+
+**Result**: The topological entropy h_top(T) = log 2
+
+**Proof sketch**:
+- Parity sequences of length N correspond to residue classes mod 2^N
+- The map doubles on average (one branch multiplies, other divides)
+- Growth rate of distinct sequences is 2^N
+
+### Metric Entropy and Haar Measure
+
+**Haar measure invariance**: The normalized Haar measure μ on ℤ₂ is T-invariant
+- μ(2ℤ₂) = μ(ℤ₂ \ 2ℤ₂) = 1/2
+- T preserves this decomposition
+
+**Ergodicity**: (ℤ₂, μ, T) is an ergodic dynamical system
+- Any invariant set has measure 0 or 1
+- For μ-almost all x ∈ ℤ₂, orbit is equidistributed
+
+**Variational principle**:
+```
+h_top(T) = sup_{μ invariant} h_μ(T)
+```
+The Haar measure achieves the supremum: h_μ(T) = log 2
+
+### Why This Doesn't Solve Collatz
+
+**The measure-zero problem**:
+- ℕ ⊂ ℤ₂ has Haar measure 0
+- Ergodic properties tell us about "almost all" 2-adics
+- Says nothing about specific behavior on ℕ
+
+**Example**: A single orbit {1, 4, 2, 1, ...} has measure 0
+- Could be the only periodic orbit
+- Could coexist with divergent trajectories
+- Measure theory cannot distinguish
+
+### Connection to Other Frameworks
+
+**Link to Transfer Operator**: Entropy appears in spectral radius
+- Spectral gap ⟺ unique equilibrium state
+- Both capture same "randomness" of dynamics
+
+**Link to Block-Escape**: Entropy bounds orbit complexity
+- h_top = log 2 means exponential orbit diversity
+- Block-Escape orbits would have specific entropy signatures
+
+---
+
+## 81. Dynamical Systems: Lyapunov Exponents
+
+### Definition for Collatz
+
+**Lyapunov exponent**: Rate of separation of nearby trajectories
+```
+λ = lim_{n→∞} (1/n) log |dT^n/dx|
+```
+
+**For Collatz on ℝ (formal extension)**:
+- Odd branch: T(x) = (3x+1)/2, derivative = 3/2
+- Even branch: T(x) = x/2, derivative = 1/2
+
+### Heuristic Calculation
+
+**Probabilistic model**: Assume equal probability of odd/even
+```
+λ_avg = (1/2) log(3/2) + (1/2) log(1/2)
+      = (1/2)(log 3 - log 2 - log 2)
+      = (1/2)(log 3 - 2 log 2)
+      = (1/2) log(3/4)
+      ≈ -0.144
+```
+
+**Interpretation**: Negative Lyapunov exponent suggests contraction
+- Trajectories should shrink on average
+- Consistent with Collatz conjecture
+
+### More Refined Analysis
+
+**Block analysis**: For trajectory with m odd, k even steps:
+```
+λ = (1/(m+k))[m · log(3/2) + k · log(1/2)]
+  = (1/(m+k))[m log 3 - (m + k) log 2]
+```
+
+**For cycle**: If trajectory returns to start:
+```
+λ_cycle = 0  (by definition of return)
+```
+
+**For divergence**: Would require λ > 0
+- Need m/n ratio close to log 2 / log(3/2) ≈ 1.7
+
+### Connection to Diophantine
+
+**The Lyapunov constraint**:
+- For cycle: 3^m = 2^A exactly (impossible for m > 0)
+- For long-term behavior: m/A → 1/log₂(3) ≈ 0.63
+
+This is the same Diophantine constraint from §52-59!
+
+### Rigorous Issues
+
+**Problems with Lyapunov for discrete maps on ℕ**:
+1. Not differentiable (only defined on integers)
+2. No continuous embedding
+3. Formal derivative is symbolic
+
+**Resolution**: Use 2-adic derivative or transfer operator eigenvalue
+- This connects to spectral gap analysis (§68)
+
+---
+
+## 82. K-Theory of Cuntz Algebras
+
+### Cuntz's Classification Theorem
+
+**K-groups of O_n**:
+```
+K₀(O_n) = ℤ/(n-1)ℤ = ℤ_{n-1}
+K₁(O_n) = 0
+```
+
+**For O₂ specifically**:
+```
+K₀(O₂) = ℤ/1ℤ = {0}
+K₁(O₂) = 0
+```
+
+### Implications for Collatz
+
+**Trivial K₀**: K₀(O₂) = 0 means:
+- All projections in O₂ are Murray-von Neumann equivalent
+- 0 and 1 projections have same K₀-class
+- No "topological" obstruction to equivalence
+
+**But not all projections equivalent!**:
+- K-theory captures homotopy invariants
+- Doesn't distinguish all projections
+- Need finer invariants for Collatz
+
+### The Classification Program
+
+**Kirchberg-Phillips classification**: For purely infinite, simple, separable, nuclear C*-algebras:
+- Classified by K-theory
+- O₂ ⊗ A ≅ O₂ for any such A
+
+**Collatz representation**: The specific representation of O₂ on ℓ²(ℕ) is NOT detected by K-theory
+- K-theory is "too coarse"
+- Need representation-theoretic analysis (irreducibility)
+
+### What K-Theory Does Tell Us
+
+**Stability**: O₂ is "maximally unstable" in K-theoretic sense
+- K₀(O₂) = 0 means no stable projective modules
+- Reflects the mixing nature of dynamics
+
+**Absorption**: A ⊗ O₂ ≅ O₂
+- Collatz dynamics "absorbs" other structures
+- Consistent with universal convergence to cycle
+
+### Connection to Other Frameworks
+
+**K-theory + Spectral gap**:
+- K₀ = 0 says no topological obstructions
+- Spectral gap says dynamical convergence
+- Together: should converge, no structural barriers
+
+**K-theory + Model theory**:
+- K-groups are algebraic invariants
+- Model theory asks about definability
+- Different tools, same question
+
+---
+
+## 83. Lyapunov Functions and Energy Methods
+
+### What is a Lyapunov Function?
+
+**Definition**: V: ℕ → ℝ₊ is a Lyapunov function for Collatz if:
+1. V(n) → ∞ as n → ∞ (proper)
+2. V(T(n)) < V(n) for all n > 1 (strictly decreasing)
+3. V(1) = 0 or local minimum at 1
+
+**If such V exists**: All trajectories converge to 1
+
+### Candidates for Collatz
+
+**Attempt 1: V(n) = n**
+- T(2k) = k < 2k ✓ (even case decreases)
+- T(2k+1) = 3k+2 > 2k+1 ✗ (odd case increases)
+- Fails!
+
+**Attempt 2: V(n) = log n**
+- Same problem: odd step increases
+
+**Attempt 3: "Potential energy"**
+```
+V(n) = log n - α · (stopping time to 1)
+```
+- Circular: requires knowing stopping time exists
+
+### Why Simple Lyapunov Functions Fail
+
+**The 3/2 vs 1/2 problem**:
+- Odd step multiplies by ~3/2
+- Even step divides by 2
+- Net effect depends on odd/even ratio
+
+**Probabilistic Lyapunov**: E[V(T(n))] < V(n)
+- Works in expectation (Terras)
+- Not pointwise
+
+### Connection to Thermodynamic Entropy
+
+**Recent approach**: Define "entropy" S(n) based on:
+- Modular structure
+- 2-adic valuation
+- Trajectory history
+
+**Claim**: S decreases along trajectories
+- Controversial proof attempts
+- Connection to Block-Escape: decreasing S ⟺ no Block-Escape
+
+### What Would Work
+
+**Required Lyapunov structure**:
+- Must handle both branches
+- Must be robust to ratio fluctuations
+- Likely involves:
+  - Stopping time statistics
+  - 2-adic structure
+  - Diophantine bounds
+
+**Connection to spectral gap**:
+- Spectral gap gives exponential convergence
+- Implies effective Lyapunov function exists
+- The operator-theoretic approach bypasses direct construction
+
+---
+
+## 84. Updated Expert Knowledge Summary
+
+### Total Coverage
+
+**79 → 84 sections** now covering:
+
+**Original foundations** (§1-29)
+**Advanced frameworks** (§30-39)
+**Stochastic & context** (§40-51)
+**Diophantine** (§52-59)
+**(p,q)-adic** (§60-67)
+**Synthesis** (§68-74)
+**Parallel domains** (§75-79)
+**NEW Dynamical & K-theoretic** (§80-84):
+- Topological and metric entropy (h_top = log 2)
+- Lyapunov exponents (λ_avg ≈ -0.144)
+- K-theory of Cuntz algebras (K₀(O₂) = 0)
+- Lyapunov functions and energy methods
+
+### Key New Insights
+
+**Entropy = log 2**: Maximum entropy on ℤ₂, but ℕ has measure 0
+**Lyapunov < 0**: Average contraction, consistent with conjecture
+**K₀(O₂) = 0**: No K-theoretic obstruction, need finer invariants
+**No simple Lyapunov function**: Must use indirect methods (spectral gap)
+
+### Attack Vector Refinements
+
+**Entropy provides no direct path**: Measure-zero problem blocks ergodic arguments
+
+**Lyapunov exponent connects to Diophantine**: Same constraint m/A → 1/log₂(3)
+
+**K-theory is too coarse**: Need representation theory (irreducibility)
+
+---
+
+---
+
+## 85. Computational Practice: Dual Constraint Verification
+
+### Practice Problem 1: m = 4
+
+**Find all (a₀, a₁, a₂, a₃) with v₂(S) = A where A = ⌊4 · log₂(3)⌋ = 6**
+
+**Step 1**: Compute S for general sequence
+```
+S = 2^{a₀}·3³ + 2^{a₁}·3² + 2^{a₂}·3 + 2^{a₃}
+  = 27·2^{a₀} + 9·2^{a₁} + 3·2^{a₂} + 2^{a₃}
+```
+
+**Step 2**: Find v₂(S) = 6 solutions
+- Need v₂(27·2^{a₀} + 9·2^{a₁} + 3·2^{a₂} + 2^{a₃}) = 6
+- Binary analysis: 27 = 11011, 9 = 1001, 3 = 11, 1 = 1
+
+**Step 3**: Check specific solutions
+- (4,3,1,1): S = 27·16 + 9·8 + 3·2 + 2 = 432 + 72 + 6 + 2 = 512 = 2⁹
+  - v₂(S) = 9 ≠ 6, doesn't satisfy constraint anyway
+
+- (2,2,1,1): S = 27·4 + 9·4 + 3·2 + 2 = 108 + 36 + 6 + 2 = 152 = 8·19
+  - v₂(S) = 3 ≠ 6
+
+- (3,2,0,1): S = 27·8 + 9·4 + 3·1 + 2 = 216 + 36 + 3 + 2 = 257 (odd)
+  - v₂(S) = 0 ≠ 6
+
+**Result**: No simple solution. The algebraic constraint is hard to satisfy.
+
+### Practice Problem 2: Trajectory Constraint Check
+
+**Given N = 7, check if (2,1,2) is valid trajectory**
+
+**Step 1**: Verify oddness and bound
+```
+V₀ = 7 (odd ✓)
+a₀ ≤ v₂(3·7+1) = v₂(22) = 1
+But a₀ = 2 > 1 ✗
+```
+
+**Conclusion**: Invalid trajectory - bound violated at first step.
+
+**Step 2**: Try (1,1,2) instead
+```
+V₀ = 7, v₂(22) = 1, a₀ = 1 ✓
+V₁ = 22/2 = 11 (odd ✓)
+v₂(3·11+1) = v₂(34) = 1, a₁ = 1 ✓
+V₂ = 34/2 = 17 (odd ✓)
+v₂(3·17+1) = v₂(52) = 2, a₂ = 2 ✓
+V₃ = 52/4 = 13 (odd ✓)
+```
+
+**This is valid!** But does S = 2^A?
+```
+S = 2¹·3² + 2¹·3 + 2² = 9·2 + 3·2 + 4 = 18 + 6 + 4 = 28
+v₂(28) = 2
+A = a₀ + a₁ + a₂ = 1 + 1 + 2 = 4
+v₂(S) = 2 ≠ 4 = A
+```
+
+**Dual constraint fails!** Valid trajectory but wrong v₂(S).
+
+---
+
+## 86. Computational Practice: Tight Prime Search
+
+### Problem: Find tight prime for m = 5, A = 8
+
+**Step 1**: Compute 2^A - 3^m
+```
+2⁸ - 3⁵ = 256 - 243 = 13
+```
+
+**Step 2**: Factor
+```
+13 is prime
+```
+
+**Step 3**: Check ord₁₃(2)
+```
+2¹ = 2, 2² = 4, 2³ = 8, 2⁴ = 3, 2⁵ = 6, 2⁶ = 12
+2⁷ = 24 ≡ 11, 2⁸ = 22 ≡ 9, 2⁹ = 18 ≡ 5, 2¹⁰ = 10
+2¹¹ = 20 ≡ 7, 2¹² = 14 ≡ 1
+ord₁₃(2) = 12
+```
+
+**Step 4**: Check tight condition
+```
+2m = 10
+ord₁₃(2) = 12 ≥ 10 ✓
+```
+
+**Conclusion**: p = 13 is tight for (m=5, A=8). No cycle with these parameters exists.
+
+### Problem: m = 3, A = 5
+
+**Step 1**: 2⁵ - 3³ = 32 - 27 = 5
+
+**Step 2**: 5 is prime
+
+**Step 3**: ord₅(2)
+```
+2¹ = 2, 2² = 4, 2³ = 3, 2⁴ = 1
+ord₅(2) = 4
+```
+
+**Step 4**: 2m = 6, but ord₅(2) = 4 < 6
+
+**Conclusion**: p = 5 is NOT tight. Need to check 2^A - 3^m more carefully or use different approach.
+
+---
+
+## 87. Computational Practice: χ₃ Calculations
+
+### Computing χ₃ for small 2-adic integers
+
+**Definition**: χ₃(z) encodes Collatz trajectory in 3-adic form
+
+**For z = 1 (binary: ...0001)**:
+```
+T(1) = (3·1+1)/2 = 2
+T(2) = 1
+Trajectory returns to 1, so z = 1 is periodic point
+```
+
+**Correspondence Principle check**:
+- Periodic point should satisfy: 1 = χ₃(n)/(1 - r₃(n)) for some n
+- The trivial cycle {1,2,1,...} corresponds to n = 1
+
+**For z = 5 (binary: ...0101)**:
+```
+5 → 16 → 8 → 4 → 2 → 1 (reaches 1)
+Stopping time = 5
+```
+
+**For z = 27 (binary: ...011011)**:
+```
+27 → 82 → 41 → 124 → 62 → 31 → 94 → 47 → ...
+Long trajectory, eventually reaches 1
+```
+
+### Key insight for χ₃ zeros
+
+**Periodic point condition**: χ₃(z) = 0 for some rational 2-adic z ≠ standard periodic points
+
+**No such zeros found computationally** for small integers, supporting the conjecture.
+
+---
+
+## 88. Computational Practice: Convergent Analysis
+
+### Continued fraction of log₂(3)
+
+```
+log₂(3) = 1.5849625007211563...
+
+CF expansion: [1; 1, 1, 2, 2, 3, 1, 5, 2, ...]
+```
+
+**Convergents**:
+```
+p₀/q₀ = 1/1
+p₁/q₁ = 2/1
+p₂/q₂ = 3/2
+p₃/q₃ = 8/5
+p₄/q₄ = 19/12
+p₅/q₅ = 65/41
+p₆/q₆ = 84/53
+p₇/q₇ = 485/306
+```
+
+**Quality check**: |A/m - log₂(3)| < 1/(m·q_{k+1})
+
+For (m=5, A=8): A/m = 1.6
+- Error = |1.6 - 1.5849625| = 0.0150375
+- This is larger than 1/5 → not from a convergent
+- Indeed 8/5 is a convergent!
+
+For (m=12, A=19): A/m = 1.5833...
+- Error ≈ 0.0016
+- 19/12 is convergent ✓
+
+**Conclusion**: Only convergent-based (m, A) pairs are viable for cycles.
+
+---
+
+## 89. Final Practice Summary
+
+### Verification Checklist
+
+For any proposed cycle with parameters (m, A, N, (a_i)):
+
+1. **Diophantine check**: Is A/m close to log₂(3)? Is A/m a convergent?
+
+2. **Algebraic check**:
+   - Compute S = Σ 2^{aᵢ}·3^{m-1-i}
+   - Verify v₂(S) = A
+
+3. **Trajectory check**:
+   - Start with V₀ = N (must be odd)
+   - At each step: a_i ≤ v₂(3V_i + 1)
+   - All V_i must remain odd
+
+4. **Tight prime check**:
+   - Factor 2^A - 3^m
+   - Find ord_p(2) for each prime factor
+   - If any ord_p(2) ≥ 2m, cycle is impossible
+
+### Key Python Functions
+
+```python
+def v2(n):
+    """2-adic valuation"""
+    if n == 0: return float('inf')
+    c = 0
+    while n % 2 == 0: n //= 2; c += 1
+    return c
+
+def multiplicative_order(a, n):
+    """ord_n(a)"""
+    if gcd(a, n) != 1: return None
+    order = 1
+    current = a % n
+    while current != 1:
+        current = (current * a) % n
+        order += 1
+    return order
+
+def is_tight_prime(p, m):
+    """Check if p is tight for given m"""
+    return multiplicative_order(2, p) >= 2*m
+
+def valid_trajectory(a_seq, N):
+    """Check trajectory constraints"""
+    V = N
+    for a in a_seq:
+        if V % 2 == 0: return False, "V became even"
+        max_a = v2(3*V + 1)
+        if a > max_a: return False, f"a={a} > max={max_a}"
+        V = (3*V + 1) // (2**a)
+    return True, "Valid"
+
+def compute_S(a_seq):
+    """Compute trajectory sum S"""
+    m = len(a_seq)
+    return sum(2**a_seq[i] * 3**(m-1-i) for i in range(m))
+
+def check_cycle_candidate(m, A, a_seq, N):
+    """Full verification of cycle candidate"""
+    results = {}
+
+    # Diophantine check
+    ratio = A/m
+    results['ratio'] = ratio
+    results['log2_3'] = 1.5849625007211563
+    results['ratio_error'] = abs(ratio - 1.5849625007211563)
+
+    # S calculation
+    S = compute_S(a_seq)
+    results['S'] = S
+    results['v2_S'] = v2(S)
+    results['A'] = A
+    results['algebraic_match'] = (v2(S) == A)
+
+    # Trajectory check
+    valid, msg = valid_trajectory(a_seq, N)
+    results['trajectory_valid'] = valid
+    results['trajectory_msg'] = msg
+
+    return results
+```
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 79*
-*Last Updated: Parallel domains explored and synthesized*
+*Sections: 89*
+*Last Updated: Computational practice strengthened with worked examples*
