@@ -1,7 +1,8 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (79 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (100 sections)*
+*Status: COMPREHENSIVE - Ready for consultation*
 
 ---
 
@@ -22,18 +23,20 @@
 
 ### TIER 1: Most Concrete
 
-**1. Dual Constraint Algebraic Completion** (§28-29, §38-39)
+**1. Dual Constraint Algebraic Completion** (§28-29, §38-39, §85, §95-96)
 ```
 Target: Prove v_2(S) = A conflicts with trajectory bounds
 Status: 695k+ cases verified, needs general algebraic proof
 Key: LTE gives a_i ≤ 2 + v_2(odd correction), but v_2(S) = A needs specific distribution
+NEW: Modular analysis (§95-96) shows residue class constraints
 ```
 
-**2. Block-Escape Forward Analysis** (§68-69)
+**2. Block-Escape Forward Analysis** (§68-69, §90, §93)
 ```
 Target: Prove no orbit has Block-Escape + linear block growth
-Status: Spectral machinery COMPLETE, forward dynamics needed
+Status: Spectral machinery COMPLETE (Nov 2025 preprint)
 Key: Forward has exp upper bound; B-E + linear gives exp lower bound = contradiction
+NEW: Conjectures 14-15 from spectral calculus preprint specify exact conditions
 ```
 
 ### TIER 2: Deeper Tools Required
@@ -264,8 +267,27 @@ Complete any of:
 
 **The gap**: Need algebraic proof handling all non-uniform a_i distributions.
 
-**Full details**: COLLATZ_EXPERT_KNOWLEDGE.md (79 sections)
+---
+
+## Knowledge Base Contents (100 sections)
+
+| Sections | Topic |
+|----------|-------|
+| §1-29 | Foundations: LTE, tight primes, Galois, CFT, trajectory structure |
+| §30-39 | Advanced: Ergodic, (p,q)-adic, transfer operator, Cuntz algebra |
+| §40-51 | Context: Stochastic models, stopping times, computational limits |
+| §52-59 | Diophantine: Continued fractions, Baker, approximation theory |
+| §60-67 | (p,q)-adic: Numen function, Correspondence Principle, Wiener Tauberian |
+| §68-74 | Synthesis: Cross-framework connections, master picture |
+| §75-79 | Parallel domains: Tropical, model theory, Cuntz K-theory |
+| §80-84 | Dynamical: Entropy (h=log 2), Lyapunov (λ≈-0.144), K-theory |
+| §85-89 | Practice: Worked examples, verification code |
+| §90-94 | Recent: Nov 2025 preprint, Block-Escape deepened |
+| §95-100 | Modular: Residue analysis, Syracuse, formula reference |
+
+**Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
+*Knowledge base: COMPREHENSIVE (100 sections)*
