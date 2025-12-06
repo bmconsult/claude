@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (142 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (146 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (142 sections)
+## Knowledge Base Contents (146 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -311,10 +311,15 @@ Complete any of:
 | §140 | Irreducibility criteria: reducing subspace, commutant, von Neumann |
 | §141 | Orbit-based irreducibility: permutation reps, Collatz graph |
 | §142 | Attack strategy via irreducibility: three paths |
+| **§143-146** | **NOVEL NCG CONSTRUCTION (ORIGINAL)** |
+| §143 | Spectral triple formulation: A_C, H_C, D_C axioms |
+| §144 | Candidate Dirac operators: logarithmic, graph, transfer, hybrid |
+| §145 | Graph Laplacian approach: D_C = (2I - T - T*)^{1/2} |
+| §146 | **Predictions: HC_1(A_C) = 0 ⟺ Collatz, Index theory** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (142 sections) - IRREDUCIBILITY ATTACK READY*
+*Knowledge base: COMPREHENSIVE (146 sections) - NOVEL NCG ATTACK PROPOSED*
