@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (110 sections)
+## Knowledge Base Contents (116 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -286,10 +286,13 @@ Complete any of:
 | §95-102 | Modular: Residue analysis, Syracuse, computational verification |
 | §103-106 | Bridging I: Arithmetic Dynamics, height theory, Diophantine core |
 | §107-110 | Bridging II: Tropical analysis, (p,q)-adic, Master Synthesis |
+| §111-112 | Deep Dive: Berkovich spaces, p-adic dynamics, bad reduction |
+| §113-114 | Deep Dive: Graph C*-algebras, Collatz graph, Mori's O_2 |
+| §115-116 | Deep Dive: Canonical heights, Weil height, why they fail for Collatz |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (100 sections)*
+*Knowledge base: COMPREHENSIVE (116 sections)*
