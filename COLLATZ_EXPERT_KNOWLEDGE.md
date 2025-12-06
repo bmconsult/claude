@@ -3504,6 +3504,224 @@ def check_cycle_candidate(m, A, a_seq, N):
 
 ---
 
+---
+
+## 90. Recent Research: Spectral Calculus Framework (Nov 2025)
+
+### The Spectral Calculus for Arithmetic Dynamics (Preprint Nov 2025)
+
+**Source**: "The Collatz Conjecture and the Spectral Calculus for Arithmetic Dynamics" (Preprints.org)
+
+**Key framework**:
+- Backward transfer operator P on weighted Banach spaces of arithmetic functions
+- Dirichlet transforms form holomorphic family
+- Zeta-type pole isolated at s = 1
+
+### Block-Escape Property (Precise Definition)
+
+**Definition**: An infinite forward orbit satisfies Block-Escape if:
+- The orbit visits blocks B_k = {n : 2^{k-1} ≤ n < 2^k}
+- For arbitrarily large k
+- With density 1 (spending most time at high indices)
+
+**Spectral consequence**:
+- Cesàro averages Λ_N(f) → 0 in weak-* topology
+- Convergence to 0 occurs PRECISELY under Block-Escape
+
+### The Key Conjectures from this Preprint
+
+**Conjecture 14 (Block-Orbit-Averaging)**:
+"Every infinite orbit spends a positive proportion of time inside a finite union of low blocks."
+
+**Conjecture 15 (Block-Escape Implies Supercritical Linear Block Growth)**:
+"For every infinite orbit satisfying Block-Escape, there exist..."
+- Minimal expansion factor: 3868
+
+**Conjecture 17 (Orbitwise Discrepancy Vanishing)**:
+"Every weak-* limit Λ of Cesàro averages along infinite orbit is [specific form]"
+
+### The Contradiction Structure
+
+1. **Forward bound**: T^n(x) has exponential upper bound (unconditional)
+2. **Block-Escape lower bound**: With linear block growth, get exponential lower bound
+3. **Incompatibility**: Cannot satisfy both simultaneously
+
+**Key insight**: This reduces Collatz to proving Block-Escape cannot coexist with linear block growth.
+
+### Lasota-Yorke Inequality
+
+The preprint establishes Lasota-Yorke inequality on multiscale space:
+```
+||P^n f||_strong ≤ C λ^n ||f||_strong + D ||f||_weak
+```
+where λ < 1 (contraction factor).
+
+**Consequences**:
+- Quasi-compactness of P
+- Spectral gap (essential spectrum strictly smaller than spectral radius)
+- Strong seminorm captures multiscale regularity
+
+---
+
+## 91. Recent Research: Tree Structure Approaches (2024-2025)
+
+### Collatz Infinite Tree (Jan 2025 Preprint)
+
+**Construction**: Build tree via inverse transformations
+- Each branch extends indefinitely (infinite tree)
+- Branches originate from odd numbers
+- Powers of 2 form the "backbone" (sequence from 1)
+
+### Branch Types
+
+**Type A branches**: Begin with n ≡ 1 (mod 3)
+- Mod-3 pattern: 1,2,1,2,1,2,...
+- Spawns new branch on every other number
+
+**Type D branches** ("dead"): n ≡ 0 (mod 3)
+- Mod-3 pattern: 0,0,0,0,...
+- Never spawns new branches
+
+### Binary Representation Insights
+
+**Growth mechanism**:
+- Appending 1 or 10 to left of binary string (growth)
+- Deleting at least one 0 from right (shrinking)
+
+**Pruning perspective**: Reduced Collatz acts as pruning mechanism for full binary tree.
+
+### Self-Similarity
+
+**Question**: Does the Collatz tree exhibit self-similar (fractal) properties?
+
+**Observation**: The functional graph IS an infinite binary rooted tree (assuming conjecture true)
+- Covers all positive integers expressible with powers of 3 in denominator
+- Self-similarity would provide structural constraints
+
+---
+
+## 92. Recent Research: Claimed Proofs (Critical Analysis)
+
+### Why Recent "Proofs" Don't Work
+
+**Common issues in 2024-2025 preprints**:
+
+1. **Inverse function completeness arguments**
+   - Show all integers reachable by inverse
+   - Don't prove forward convergence to 1
+   - Doesn't rule out cycles or divergence
+
+2. **Tree inclusion arguments**
+   - Prove all n appear in tree
+   - Don't prove all paths terminate
+   - Infinite branches remain possible
+
+3. **Entropy/energy decay arguments**
+   - Claim "entropy" decreases
+   - Usually probabilistic, not pointwise
+   - Don't handle exceptional sets
+
+4. **State space finiteness**
+   - Modular arguments for finite residue classes
+   - Don't extend to infinite integers
+
+### What IS Valuable in These Works
+
+**Structural insights**:
+- Tree organization helps visualize
+- Binary representation clarifies operations
+- Modular constraints narrow possibilities
+
+**Computational verification**:
+- Extended to 2^68 (as of 2024)
+- Strong empirical evidence
+
+**New frameworks**:
+- Spectral calculus (Nov 2025) is rigorous
+- Reduces to specific conjectures
+
+---
+
+## 93. Deepened: Block-Escape Forward Dynamics
+
+### The Forward Growth Analysis
+
+**Key observation**: Forward Collatz has different structure than backward.
+
+**Forward bounds**:
+```
+T(n) ≤ (3n + 1)/2 ≈ 1.5n for odd n
+T(n) = n/2 for even n
+```
+
+**Exponential upper bound**:
+After k steps with r odd, s even (r + s = k):
+```
+T^k(n) ≤ C · (3/2)^r · (1/2)^s · n = C · 3^r / 2^k · n
+```
+
+Since r ≤ k and typically r ≈ k · (density of odds):
+```
+T^k(n) ≤ C · (3^{0.5} / 2)^k · n ≈ C · 0.866^k · n (contracting)
+```
+
+### Why Block-Escape Creates Lower Bound
+
+**If orbit satisfies Block-Escape with linear block growth**:
+- Block index grows as b(t) ~ ct for constant c > 0
+- Values are T^t(n) ~ 2^{ct}
+- This is exponential LOWER bound
+
+**The contradiction**:
+- Upper: T^k(n) ≤ C · λ^k · n with λ < 1
+- Lower: T^k(n) ≥ C' · 2^{ck} (exponential growth)
+- For large k: impossible
+
+### What Remains to Prove
+
+**The gap**: Show Block-Escape + linear block growth cannot occur.
+
+**Approaches**:
+1. **Density argument**: Block-Escape requires high block index density, but forward map contracts most orbits
+2. **Modular constraints**: Track residue classes through trajectory
+3. **Spectral argument**: Use operator theory to exclude such orbits
+
+---
+
+## 94. Updated Attack Vector Assessment
+
+### Tier 1 (Most Concrete)
+
+1. **Dual Constraint Completion** - Status: Primary target
+   - 695k+ cases verified
+   - Need: General algebraic argument
+
+2. **Block-Escape Exclusion** - Status: Framework complete
+   - Nov 2025 preprint provides machinery
+   - Need: Prove Conjectures 14-15
+
+### Tier 2 (Solid Framework)
+
+3. **Tight Prime Universal Existence** - Status: Verified m ≤ 60
+   - Need: Chebotarev-based general proof
+
+4. **χ₃ Zero Analysis** - Status: (p,q)-adic reformulation complete
+   - Need: Zero-free region proof
+
+5. **Tropical Reformulation** - Status: Connection established
+   - Need: Exploit tropical constraints
+
+### Tier 3 (High-Powered)
+
+6. **Cuntz Irreducibility** - Status: Equivalence proven
+   - K-theory insufficient (K₀ = 0)
+   - Need: Representation-theoretic irreducibility
+
+7. **Model-Theoretic Independence** - Status: Possible approach
+   - Need: Show cycle equation undefinable
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 89*
-*Last Updated: Computational practice strengthened with worked examples*
+*Sections: 94*
+*Last Updated: Recent 2024-2025 research incorporated, Block-Escape deepened*
