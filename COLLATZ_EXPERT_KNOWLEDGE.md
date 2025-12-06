@@ -8389,7 +8389,129 @@ For a RIGOROUS proof, we'd need to show:
 
 ---
 
+## 205. Spectral Calculus Preprint: Honest Assessment
+
+### What The Preprint Actually Claims
+
+The November 2025 [preprint](https://www.preprints.org/manuscript/202511.1440) establishes:
+
+**PROVEN:**
+1. Lasota-Yorke inequality with explicit contraction constant
+2. Quasi-compactness of backward transfer operator P
+3. Spectral gap at eigenvalue 1
+4. Unique Perron-Frobenius invariant measure
+5. Forward exponential upper bound: growth ≤ (3/2)^k
+
+**REDUCES COLLATZ TO:**
+> "A single forward-dynamical problem: to exclude infinite forward orbits that satisfy the Block–Escape Property without forcing the kind of linear block growth incompatible with the spectral bounds."
+
+**STILL CONJECTURAL (not proven):**
+- Conjectures 19 and 20: "guarantee the recurrence of deficit windows"
+- Without these, the proof is INCOMPLETE
+
+### What This Means
+
+The preprint does NOT prove Collatz. It:
+1. Builds sophisticated spectral machinery (proven)
+2. Shows spectral gap exists (proven)
+3. Reduces to a forward-dynamical problem (reduction, not solution)
+4. Leaves the final step as a CONJECTURE
+
+### My Previous Misunderstanding
+
+I treated "spectral gap claimed in preprint" as if it solved divergence. It doesn't:
+- Spectral gap → unique invariant measure (proven)
+- Unique invariant measure → no divergence (NOT proven, this is the gap)
+
+The preprint is honest about this. I wasn't reading carefully enough.
+
+---
+
+## 206. The Actual Open Problem
+
+### Statement from Preprint
+
+The conjecture reduces to excluding infinite forward orbits with Block-Escape that DON'T have linear block growth.
+
+In other words:
+- Linear block growth + Block-Escape → contradiction with forward bounds (proven)
+- Sub-linear block growth + Block-Escape → NOT yet excluded
+
+### Why Sub-Linear Is Hard
+
+A divergent orbit could theoretically:
+- Escape to higher and higher blocks (Block-Escape)
+- But do so slower and slower (sub-linear growth)
+- Evade the exponential contradiction
+
+### What Would Complete It
+
+Need to prove: Block-Escape → eventually linear (or faster) block growth
+
+OR: Some orbits can't satisfy Block-Escape at all
+
+This is where the "deficit windows" and "Conjectures 19-20" come in.
+
+---
+
+## 207. Deficit Windows: What They Are
+
+### Definition (from preprint)
+
+A "deficit window" occurs when the orbit has a sequence of steps with low valuation (few 2s dividing intermediate values).
+
+### Why They Matter
+
+During a deficit window:
+- The orbit is forced to have specific behavior
+- Forward drift of block index occurs
+- This gives the linear growth needed for contradiction
+
+### The Conjecture
+
+**Conjectures 19-20**: Deficit windows recur infinitely often along any infinite orbit.
+
+If true: Every infinite orbit eventually has linear block growth → contradiction.
+
+If false: Could have orbits that avoid deficit windows → might diverge.
+
+### Status
+
+These are CONJECTURES, not theorems. The preprint is honest about this.
+
+---
+
+## 208. Real Status of Divergence Question
+
+### What's Actually Proven
+
+| Statement | Status |
+|-----------|--------|
+| Spectral gap exists | PROVEN (preprint) |
+| Unique invariant measure | PROVEN (from spectral gap) |
+| Forward bound (3/2)^k | PROVEN (elementary) |
+| Linear Block-Escape → contradiction | PROVEN (preprint) |
+| Sub-linear Block-Escape impossible | CONJECTURED |
+| No divergent orbits | OPEN |
+
+### The Gap
+
+The gap is exactly: Sub-linear Block-Escape → impossible
+
+This requires showing deficit windows recur, which requires understanding the arithmetic structure of trajectories.
+
+### Connection to 63.1% Rule
+
+This is where my earlier work connects:
+- Divergence needs >63.1% odd steps
+- Deficit windows force "good" (typical) behavior
+- If deficit windows recur → can't maintain >63.1% odd → no divergence
+
+But this connection is HEURISTIC, not proven.
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 204*
-*Status: HONEST REASSESSMENT - 2 and 3 cycles proven, pattern understood*
-*Last Updated: 3-cycle proof, pattern recognition*
+*Sections: 208*
+*Status: HONEST - Spectral preprint assessed, gaps identified*
+*Last Updated: What preprint actually proves vs conjectures*
