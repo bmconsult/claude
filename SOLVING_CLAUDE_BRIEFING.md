@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (159 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (161 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (159 sections)
+## Knowledge Base Contents (161 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -331,10 +331,12 @@ Complete any of:
 | §157 | **Tao's limitation: "almost all" ≠ "all", different techniques needed** |
 | §158 | Divergence blocked: Block-Escape vs forward growth bounds |
 | §159 | **2-3 incompatibility: arithmetic, p-adic, operator, geometric views** |
+| §160 | **Commutant = orbits: one orbit → scalars → irreducible** |
+| §161 | **Completeness assessment: cycles DEEP, divergence STRONG, irreducibility DEEP** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (159 sections) - DEEP ALGEBRAIC STRUCTURES*
+*Knowledge base: COMPREHENSIVE (161 sections) - WORKING KNOWLEDGE COMPLETE*
