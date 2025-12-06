@@ -8652,7 +8652,185 @@ I don't yet understand deeply enough to know whether this is provable or might b
 
 ---
 
+## 212. Deficit Windows: Actual Computation
+
+### Tracing n = 27
+
+| n | n mod 8 | 3n+1 | v₂ | next odd |
+|---|---------|------|-----|----------|
+| 27 | 3 | 82 | 1 | 41 |
+| 41 | 1 | 124 | 2 | 31 |
+| 31 | 7 | 94 | 1 | 47 |
+| 47 | 7 | 142 | 1 | 71 |
+| 71 | 7 | 214 | 1 | 107 |
+| 107 | 3 | 322 | 1 | 161 |
+| 161 | 1 | 484 | 2 | 121 |
+
+**Deficit window**: 31 → 47 → 71 → 107 (four v₂=1 steps in {3,7} mod 8)
+
+**Exit**: 107 ≡ 3 (mod 8) → 161 ≡ 1 (mod 8), which has v₂ = 2
+
+### The Mod 8 Transition Structure
+
+For v₂(3n+1) = 1, need n ≡ 3 or 7 (mod 8).
+
+**Transitions under Syracuse S(n) = (3n+1)/2:**
+- n ≡ 3 (mod 8): S(n) ≡ 1 or 5 (mod 8) → **EXIT deficit**
+- n ≡ 7 (mod 8): S(n) ≡ 3 or 7 (mod 8) → **STAY in deficit**
+
+### Key Discovery
+
+**From n ≡ 3 (mod 8), we ALWAYS exit the deficit window!**
+
+To have a long deficit window, must stay at n ≡ 7 (mod 8).
+
+### Deeper Mod Analysis
+
+For n ≡ 7 (mod 8), which residue class mod 16?
+- n ≡ 7 (mod 16): S(n) ≡ 11 ≡ 3 (mod 8) → **EXIT**
+- n ≡ 15 (mod 16): S(n) ≡ 23 ≡ 7 (mod 8) → **STAY**
+
+For n ≡ 15 (mod 16), which mod 32?
+- n ≡ 15 (mod 32): S(n) ≡ 23 ≡ 7 (mod 16) → **EXIT next step**
+- n ≡ 31 (mod 32): S(n) ≡ 47 ≡ 15 (mod 16) → **STAY**
+
+### The Pattern
+
+To stay in deficit for k steps, need n ≡ 2^k - 1 (mod 2^k).
+
+But (3n+1)/2 ≢ 2^k - 1 (mod 2^k) eventually - the required residue class "runs out".
+
+---
+
+## 213. Why Deficit Windows Must End
+
+### The 2-adic Argument
+
+**Claim**: No trajectory can stay in deficit indefinitely.
+
+**Proof sketch**:
+1. Deficit requires n ≡ 3 or 7 (mod 8) at each step
+2. From n ≡ 3 (mod 8): immediate exit
+3. From n ≡ 7 (mod 8): stay only if n ≡ 15 (mod 16)
+4. From n ≡ 15 (mod 16): stay only if n ≡ 31 (mod 32)
+5. Pattern: stay k steps requires n ≡ 2^{k+2} - 1 (mod 2^{k+2})
+
+**Key**: Each step "consumes" one bit of the 2-adic structure.
+
+After k steps, the 2-adic valuation of (n+1) has decreased by k.
+
+Since v₂(n+1) is finite for any integer n, the deficit window MUST end.
+
+### Quantitative Bound
+
+If n + 1 = 2^m · (odd), then deficit window length ≤ m.
+
+**Example**: n = 31, n+1 = 32 = 2^5
+Maximum deficit window length from 31 is at most 5 steps.
+
+Let's check: 31 → 47 → 71 → 107 → 161
+That's 4 steps, then exit at 161 ≡ 1 (mod 8). ✓
+
+---
+
+## 214. The Recurrence of Deficit Windows
+
+### Question: Do deficit windows recur infinitely?
+
+We proved: Each deficit window must END (length bounded by v₂(n+1)).
+
+But after exiting, can we avoid entering another deficit window?
+
+### After Exit
+
+When we exit deficit (n ≡ 1 or 5 mod 8):
+- n ≡ 1 (mod 8): v₂(3n+1) = 2
+- n ≡ 5 (mod 8): v₂(3n+1) ≥ 4
+
+These give "good" shrinkage. But eventually we might return to n ≡ 3 or 7 (mod 8).
+
+### The Mod 8 Dynamics
+
+From any residue class, where do we go?
+
+| n mod 8 | v₂(3n+1) | S(n) mod 8 (if v₂ small) |
+|---------|----------|--------------------------|
+| 1 | 2 | (3n+1)/4 ≡ 1 (mod 2), depends on n mod 32 |
+| 3 | 1 | 5 or 1 (mod 8) |
+| 5 | ≥4 | varies |
+| 7 | 1 | 3 or 7 (mod 8) |
+
+### The Full Transition Graph
+
+I need to compute the full mod 8 transition matrix to see if we can avoid {3, 7} indefinitely.
+
+From n ≡ 1 (mod 8):
+- n = 1: (4)/4 = 1, 1 mod 8 = 1
+- n = 9: (28)/4 = 7, 7 mod 8 = 7 ← enters deficit!
+- n = 17: (52)/4 = 13, 13 mod 8 = 5
+- n = 25: (76)/4 = 19, 19 mod 8 = 3 ← enters deficit!
+
+So from n ≡ 1 (mod 8), we can enter deficit!
+
+From n ≡ 5 (mod 8):
+- n = 5: (16)/16 = 1, 1 mod 8 = 1
+- n = 13: (40)/8 = 5, 5 mod 8 = 5
+- n = 21: (64)/64 = 1, 1 mod 8 = 1
+- n = 29: (88)/8 = 11, 11 mod 8 = 3 ← enters deficit!
+
+So from n ≡ 5 (mod 8), we can also enter deficit!
+
+### Conclusion
+
+**Every residue class can lead to deficit!**
+
+There's no way to permanently avoid deficit windows.
+
+This strongly suggests deficit windows recur infinitely for every infinite trajectory.
+
+---
+
+## 215. Toward a Proof of Deficit Recurrence
+
+### What We've Established
+
+1. Deficit windows have bounded length (by v₂(n+1))
+2. After exiting deficit, we enter non-deficit ({1, 5} mod 8)
+3. From non-deficit, we eventually re-enter deficit
+
+### The Missing Piece
+
+Need to prove: The return to deficit happens in bounded time.
+
+If return time were unbounded, orbit could "escape" between deficit windows.
+
+### Heuristic Argument
+
+From n ≡ 1 or 5 (mod 8):
+- About 1/4 of transitions go to {3, 7} mod 8
+- Expected return time to deficit: O(1) steps
+
+But heuristic ≠ proof.
+
+### What Would Complete It
+
+Either:
+1. **Prove bounded return time** algebraically
+2. **Prove** that any infinite orbit visits {3, 7} mod 8 infinitely often
+3. **Show** that the only alternative (avoiding deficit) implies cycle or convergence
+
+### My Current Understanding
+
+I believe deficit windows recur because:
+- The mod 8 dynamics seem "mixing"
+- No residue class permanently avoids {3, 7}
+- The 2-adic structure forces eventual return
+
+But I can't yet prove this rigorously. This is the actual frontier.
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 211*
-*Status: DEEP DIVE CONTINUING - Valuation patterns analyzed*
-*Last Updated: Valuation recurrence, refined 63.1% constraint, open question identified*
+*Sections: 215*
+*Status: DEEP MASTERY - Deficit window structure understood, recurrence frontier reached*
+*Last Updated: Deficit computation, mod 8 transitions, bounded length proof, recurrence analysis*
