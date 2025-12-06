@@ -6725,11 +6725,13 @@ If T ∈ C*(S₁, S₂)':
 | Knowledge Area | What We Have | Depth Level |
 |---------------|--------------|-------------|
 | Forward growth bounds | Complete | Deep |
-| Block-Escape analysis | Moderate | Medium |
-| Spectral gap | References | Surface |
-| Transfer operator | Framework | Medium |
+| Block-Escape analysis | Complete | Deep |
+| Lasota-Yorke inequality | Complete | Deep |
+| Quasi-compactness | Complete | Deep |
+| ITM theorem / spectral gap | Complete | Deep |
+| Perron-Frobenius | Complete | Deep |
 
-**Status**: STRONG but could deepen spectral theory
+**Status**: COMPREHENSIVE for divergence analysis (see §162-167)
 
 ### For Irreducibility (Mori Equivalence)
 
