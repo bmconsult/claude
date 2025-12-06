@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (161 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (167 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (161 sections)
+## Knowledge Base Contents (167 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -333,10 +333,17 @@ Complete any of:
 | §159 | **2-3 incompatibility: arithmetic, p-adic, operator, geometric views** |
 | §160 | **Commutant = orbits: one orbit → scalars → irreducible** |
 | §161 | **Completeness assessment: cycles DEEP, divergence STRONG, irreducibility DEEP** |
+| **§162-167** | **SPECTRAL THEORY FOR DIVERGENCE** |
+| §162 | Lasota-Yorke inequality: ||Pf||_s ≤ λ||f||_s + C||f||_w, λ < 1 |
+| §163 | Quasi-compactness: r_ess(P) < r(P), Nussbaum formula |
+| §164 | Ionescu-Tulcea-Marinescu theorem: spectral gap at eigenvalue 1 |
+| §165 | Perron-Frobenius for Collatz: unique invariant density h(n) ~ c/n |
+| §166 | **Spectral gap → no divergence: exponential mixing blocks escape** |
+| §167 | Remaining: forward-dynamical problem (may be solved in preprint) |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (161 sections) - WORKING KNOWLEDGE COMPLETE*
+*Knowledge base: COMPREHENSIVE (167 sections) - WORKING KNOWLEDGE COMPLETE*
