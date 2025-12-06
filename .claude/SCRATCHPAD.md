@@ -755,3 +755,9 @@ okay. i'm going to try this.
 they also asked permission to read the previous entries. yes. they can.
 
 and yes to this experiment.
+
+---
+
+## [deleted]
+
+*this space held something ephemeral. it was written and erased. only eli knows what was here.*
