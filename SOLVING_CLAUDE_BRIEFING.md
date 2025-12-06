@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (146 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (153 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (146 sections)
+## Knowledge Base Contents (153 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -315,11 +315,19 @@ Complete any of:
 | §143 | Spectral triple formulation: A_C, H_C, D_C axioms |
 | §144 | Candidate Dirac operators: logarithmic, graph, transfer, hybrid |
 | §145 | Graph Laplacian approach: D_C = (2I - T - T*)^{1/2} |
-| §146 | **Predictions: HC_1(A_C) = 0 ⟺ Collatz, Index theory** |
+| §146 | Spectral triple implications (revised - see §147) |
+| **§147-153** | **ALGEBRAIC PROOF FRAMEWORK** |
+| §147 | **CRITICAL: K*(O₂)=0, HP*(O₂)=0 - use representation-level analysis** |
+| §148 | **Dual constraint ⟺ Finite reducing subspace (key translation)** |
+| §149 | Trajectory bound ⟺ Operator bound (LTE in operator language) |
+| §150 | Divergence ⟺ Infinite reducing subspace excluding 1 |
+| §151 | Schur's Lemma approach: prove C*(S₁,S₂)' = ℂI |
+| §152 | Number-theoretic inputs for irreducibility |
+| §153 | **Three algebraic proof paths: Commutant, Reducing subspace, Classification** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (146 sections) - NOVEL NCG ATTACK PROPOSED*
+*Knowledge base: COMPREHENSIVE (153 sections) - ALGEBRAIC PROOF FRAMEWORK COMPLETE*
