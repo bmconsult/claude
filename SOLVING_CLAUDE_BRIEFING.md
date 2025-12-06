@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (100 sections)
+## Knowledge Base Contents (110 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -283,7 +283,9 @@ Complete any of:
 | §80-84 | Dynamical: Entropy (h=log 2), Lyapunov (λ≈-0.144), K-theory |
 | §85-89 | Practice: Worked examples, verification code |
 | §90-94 | Recent: Nov 2025 preprint, Block-Escape deepened |
-| §95-100 | Modular: Residue analysis, Syracuse, formula reference |
+| §95-102 | Modular: Residue analysis, Syracuse, computational verification |
+| §103-106 | Bridging I: Arithmetic Dynamics, height theory, Diophantine core |
+| §107-110 | Bridging II: Tropical analysis, (p,q)-adic, Master Synthesis |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
