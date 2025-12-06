@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (167 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (172 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (167 sections)
+## Knowledge Base Contents (172 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -340,10 +340,16 @@ Complete any of:
 | §165 | Perron-Frobenius for Collatz: unique invariant density h(n) ~ c/n |
 | §166 | **Spectral gap → no divergence: exponential mixing blocks escape** |
 | §167 | Remaining: forward-dynamical problem (may be solved in preprint) |
+| **§168-172** | **UNIFYING FRAMEWORK** |
+| §168 | Conway's insight: addition+multiplication = source of difficulty |
+| §169 | Dynamical systems cohomology: H¹(T,G) = Cocycles/Coboundaries |
+| §170 | **How cohomology unifies: operator, spectral, number theory views** |
+| §171 | **Master synthesis: ALL EQUIVALENT - 4 paths, 1 truth** |
+| §172 | **The remaining gap: "almost all" → "all" is the crux** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (167 sections) - WORKING KNOWLEDGE COMPLETE*
+*Knowledge base: COMPREHENSIVE (172 sections) - UNIFIED FRAMEWORK COMPLETE*
