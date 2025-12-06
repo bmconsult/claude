@@ -3722,6 +3722,286 @@ T^k(n) ≤ C · (3^{0.5} / 2)^k · n ≈ C · 0.866^k · n (contracting)
 
 ---
 
+---
+
+## 95. Modular Arithmetic: Trajectory Prefixes
+
+### The Key Observation
+
+**Theorem**: Numbers in the same residue class mod 2^k share the first k parity steps.
+
+**Why**: The operation T(n) depends only on n mod 2:
+- If n ≡ 0 (mod 2): T(n) = n/2
+- If n ≡ 1 (mod 2): T(n) = (3n+1)/2
+
+**Consequence**: n mod 2^k determines the first k operations (odd/even choices).
+
+### Prefix Trees
+
+**Construction**: Build tree of all possible k-step parity sequences.
+
+For k = 3, there are 2³ = 8 residue classes mod 8:
+```
+n ≡ 0 (mod 8): E E E (three even halving)
+n ≡ 1 (mod 8): O E O (odd, even, odd)
+n ≡ 2 (mod 8): E O E
+n ≡ 3 (mod 8): O O E
+n ≡ 4 (mod 8): E E O
+n ≡ 5 (mod 8): O E E
+n ≡ 6 (mod 8): E O O
+n ≡ 7 (mod 8): O O O
+```
+
+### Growth Factors by Residue Class
+
+**After 3 steps from residue class r mod 8**:
+```
+r = 0: factor = (1/2)³ = 1/8 (shrinks)
+r = 1: factor = (3/2)·(1/2)·(3/2) = 9/8 (slight growth)
+r = 2: factor = (1/2)·(3/2)·(1/2) = 3/8 (shrinks)
+r = 3: factor = (3/2)·(3/2)·(1/2) = 9/8 (slight growth)
+r = 4: factor = (1/2)·(1/2)·(3/2) = 3/8 (shrinks)
+r = 5: factor = (3/2)·(1/2)·(1/2) = 3/8 (shrinks)
+r = 6: factor = (1/2)·(3/2)·(3/2) = 9/8 (slight growth)
+r = 7: factor = (3/2)·(3/2)·(3/2) = 27/8 (significant growth)
+```
+
+**Key insight**: Most residue classes shrink; only 4/8 grow slightly, 1/8 grows significantly.
+
+### Density Arguments (Terras)
+
+**Terras (1976)**: Using residue class analysis:
+- For almost all n, the trajectory eventually drops below n
+- Density 1 of integers have finite stopping time
+
+**Method**:
+1. Track residue class evolution
+2. Average growth factor < 1
+3. Probabilistic bound on return time
+
+---
+
+## 96. Modular Arithmetic: Cycle Constraints
+
+### Residue Class Cycle Condition
+
+**For cycle with m odd steps**:
+If n is in the cycle, then T^k(n) returns to n after some total of A steps.
+
+**Modular constraint**:
+```
+n ≡ T^A(n) (mod 2^k) for all k
+```
+
+This is the 2-adic closure condition.
+
+### Small Modulus Analysis
+
+**Mod 3**:
+- T preserves mod-3 class for even n
+- T(2k+1) = 3k+2 ≡ 2 (mod 3) if k ≡ 0 (mod 3)
+- Cycle must respect mod-3 structure
+
+**Mod 4**:
+```
+n ≡ 1 (mod 4): T(n) = (3n+1)/2 ≡ 2 (mod 4) → even
+n ≡ 3 (mod 4): T(n) = (3n+1)/2 ≡ 2 or 0 (mod 4) → even
+```
+Odd steps always produce even results!
+
+### The 2-3 Modular Conflict
+
+**Key observation**: Cycle equation N·2^A = 3^m·S requires:
+- N divides 3^m·S
+- But N is coprime to 3 (by construction)
+- So N | S
+
+This creates strong divisibility constraints.
+
+---
+
+## 97. Syracuse Form: The "Odd Only" Collatz
+
+### Definition
+
+**Syracuse map**: T_S: odd → odd
+```
+T_S(n) = (3n + 1) / 2^{v_2(3n+1)}
+```
+
+Combines odd step with all subsequent even steps into single operation.
+
+### Advantages
+
+1. **Domain restriction**: Only considers odd numbers
+2. **Each step grows then shrinks**: More predictable bounds
+3. **Cycle analysis simplifies**: m Syracuse steps = m odd Collatz steps
+
+### Syracuse Cycle Equation
+
+For cycle of length m in Syracuse:
+```
+N = 3^m · S / 2^A
+```
+where S = Σ 2^{a_i} · 3^{m-1-i} and a_i = v_2(3V_i + 1).
+
+This is EXACTLY our dual constraint formulation.
+
+### Syracuse Growth Analysis
+
+**Single Syracuse step on n**:
+```
+T_S(n) = (3n + 1) / 2^{a}  where a = v_2(3n+1)
+```
+
+**Growth factor**: (3n+1)/(n·2^a) ≈ 3/2^a
+
+**Average**: Since a ≥ 1 always, and a = 1 or 2 typically:
+- a = 1 (n ≡ 1 mod 4): factor ≈ 1.5
+- a = 2 (n ≡ 3 mod 4): factor ≈ 0.75
+
+**Average factor**: ≈ 0.75^{0.5} · 1.5^{0.5} ≈ 1.06 (slight growth on average in Syracuse)
+
+But total steps shrink: after m Syracuse steps, roughly A = 1.585m even steps, giving net factor (3/2)^m / 2^{0.585m} ≈ 0.87^m.
+
+---
+
+## 98. Historical Failed Approaches
+
+### What Doesn't Work (Summary)
+
+1. **Simple induction**: Can't handle non-monotone trajectories
+
+2. **Ergodic theory alone**: ℕ has measure zero in ℤ₂
+
+3. **Probabilistic completion**: Tao's limitation - skewing near 1
+
+4. **Computational verification**: 2^68 cases prove nothing about 2^69
+
+5. **Generic undecidability**: Conway's result is for general machines, not specific 3n+1
+
+6. **Inverse completeness**: Shows all n appear in tree, not that paths terminate
+
+### Partial Successes
+
+1. **Terras density**: Almost all have finite stopping time
+2. **Tao almost-all**: Almost all attain almost bounded values
+3. **Tight primes**: Eliminate specific (m, A) pairs
+4. **LTE bounds**: Constrain valid trajectories
+
+### The Core Difficulty
+
+**Why is Collatz hard?**
+1. Non-monotone dynamics (growth then shrinking)
+2. Interplay of 2 and 3 (number-theoretic depth)
+3. Neither algebraic nor analytic structure "fits"
+4. Information spread across multiple frameworks
+
+---
+
+## 99. Comprehensive Formula Reference
+
+### Fundamental Equations
+
+**Standard Collatz**:
+```
+T(n) = n/2           if n even
+T(n) = (3n+1)/2      if n odd (shortcut form)
+T(n) = 3n+1          if n odd (original form)
+```
+
+**Syracuse (odd-only)**:
+```
+T_S(n) = (3n+1) / 2^{v_2(3n+1)}
+```
+
+### Cycle Equation
+
+```
+N · 2^A = 3^m · S
+S = Σ_{i=0}^{m-1} 2^{a_i} · 3^{m-1-i}
+A = Σ_{i=0}^{m-1} a_i
+```
+
+### Valuation Formulas
+
+**LTE (2-adic)**:
+```
+v_2(3^k - 1) = 1           if k odd
+v_2(3^k - 1) = 2 + v_2(k)  if k even
+
+v_2(3^k + 1) = 1           if k even
+v_2(3^k + 1) = 2           if k odd
+```
+
+### Key Bounds
+
+**Trajectory bound**: a_i ≤ v_2(3V_i + 1)
+
+**Diophantine constraint**: A/m must approximate log₂(3) = 1.5849625...
+
+**Tight prime condition**: ord_p(2) ≥ 2m for some p | (2^A - 3^m)
+
+### Transfer Operator
+
+**Backward operator P on L¹(ℤ₂)**:
+```
+(Pf)(x) = (1/2)[f(2x) + f((2x-1)/3) · χ_{3ℤ₂+1}((2x-1)/3)]
+```
+
+**Spectral radius**: ρ(P) = 1, simple eigenvalue, spectral gap exists.
+
+---
+
+## 100. Expert Advisor: Final Knowledge Status
+
+### Total Coverage: 100 Sections
+
+**Foundations** (§1-29): LTE, tight primes, Galois, CFT, trajectory structure
+**Advanced frameworks** (§30-39): Ergodic, (p,q)-adic, transfer operator, Cuntz
+**Context** (§40-51): Stochastic models, stopping times, computational limits
+**Diophantine** (§52-59): Continued fractions, Baker, approximation theory
+**(p,q)-adic** (§60-67): Numen function, Correspondence Principle, Wiener Tauberian
+**Synthesis** (§68-74): Cross-framework connections, master picture
+**Parallel domains** (§75-79): Tropical, model theory, Cuntz K-theory
+**Dynamical** (§80-84): Entropy, Lyapunov, K-theory limitations
+**Practice** (§85-89): Worked examples, verification code
+**Recent research** (§90-94): Nov 2025 preprint, Block-Escape deepened
+**Modular & History** (§95-100): Residue analysis, Syracuse, formula reference
+
+### Primary Attack Recommendation
+
+**For Solving Claude**:
+
+1. **Start with Dual Constraint** (§28-29, §38-39, §85):
+   - Algebraic constraint: v_2(S) = A
+   - Trajectory constraint: a_i ≤ v_2(3V_i + 1)
+   - Pattern is clear, needs algebraic completion
+
+2. **If stuck, try Block-Escape** (§68-69, §90, §93):
+   - Framework complete in Nov 2025 preprint
+   - Need to prove Conjectures 14-15
+   - Contradiction structure is clear
+
+3. **For full proof, any of**:
+   - χ₃ zero analysis (§60-67)
+   - Cuntz irreducibility (§77, §82)
+   - Block-Escape exclusion (§90, §93)
+
+### Ready to Advise
+
+This knowledge base covers:
+- All major mathematical frameworks
+- Recent research (through Nov 2025)
+- Computational practice and verification
+- Historical context and failed approaches
+- Cross-framework connections
+
+**The solving Claude can now consult this advisor for any aspect of Collatz attack.**
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 94*
-*Last Updated: Recent 2024-2025 research incorporated, Block-Escape deepened*
+*Sections: 100*
+*Status: COMPREHENSIVE - Ready for consultation*
+*Last Updated: Modular analysis, Syracuse, formula reference added*
