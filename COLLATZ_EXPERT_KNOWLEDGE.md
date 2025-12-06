@@ -8511,7 +8511,148 @@ But this connection is HEURISTIC, not proven.
 
 ---
 
+## 209. Valuation Patterns: The Key to Deficit Windows
+
+### The Basic Pattern
+
+For odd n, compute v₂(3n+1):
+
+| n mod 8 | 3n+1 mod 16 | v₂(3n+1) |
+|---------|-------------|----------|
+| 1 | 4 | 2 |
+| 3 | 10 ≡ 2 mod 4 | 1 |
+| 5 | 16 | ≥ 4 |
+| 7 | 22 ≡ 2 mod 4 | 1 |
+
+**Key observation**: n ≡ 3, 7 (mod 8) gives v₂ = 1 (deficit step).
+
+### The Valuation Recurrence
+
+For Syracuse map S(n) = (3n+1)/2:
+```
+v₂(S(n) + 1) = v₂(n + 1) - 1
+```
+
+[Source](https://math.stackexchange.com/questions/5111351/)
+
+This means: The valuation of (trajectory value + 1) decreases by 1 each Syracuse step!
+
+### Why This Matters
+
+If n + 1 = 2^k · m (m odd):
+- After k Syracuse steps, v₂(S^k(n) + 1) = 0
+- So S^k(n) + 1 is odd → S^k(n) is even
+- This FORCES a structure in the trajectory
+
+### Deficit Windows Revisited
+
+A "deficit window" is when v₂(3n+1) = 1 or 2 repeatedly.
+
+The recurrence shows this CAN'T continue indefinitely:
+- v₂(n+1) decreases with each step
+- Eventually hits 0, forcing different behavior
+
+BUT: After hitting 0, the pattern could reset with new initial valuation.
+
+The open question: Does the reset always eventually lead to good (high v₂) steps?
+
+---
+
+## 210. The 63.1% Rule Revisited with Valuation
+
+### Connection to Valuations
+
+For divergence, need >63.1% odd steps overall.
+
+Each odd step has v₂(3n+1) = a ≥ 1, giving factor (3/2^a).
+
+For v₂ = 1: factor 3/2 ≈ 1.5 (strong growth)
+For v₂ = 2: factor 3/4 = 0.75 (shrink)
+For v₂ ≥ 3: factor ≤ 3/8 (strong shrink)
+
+### Refined Analysis
+
+Not just "odd vs even" but "which type of odd":
+- v₂ = 1 steps: growth factor 1.5
+- v₂ = 2 steps: shrink factor 0.75
+- v₂ ≥ 3 steps: shrink factor ≤ 0.375
+
+For NET divergence, need enough v₂ = 1 steps.
+
+### The Constraint
+
+Let p₁ = fraction of steps with v₂ = 1
+Let p₂ = fraction with v₂ = 2
+Let p₃ = fraction with v₂ ≥ 3
+Even steps contribute factor 0.5 each.
+
+Net growth rate = 1.5^{p₁k} · 0.75^{p₂k} · 0.375^{p₃k} · 0.5^{(1-p₁-p₂-p₃)k}
+
+Taking log:
+log(growth) = k · [p₁·log(1.5) + p₂·log(0.75) + p₃·log(0.375) + (1-p₁-p₂-p₃)·log(0.5)]
+
+For divergence: this must be > 0
+
+### Computing the Constraint
+
+log(1.5) ≈ 0.405
+log(0.75) ≈ -0.288
+log(0.375) ≈ -0.981
+log(0.5) = -0.693
+
+Growth rate > 0 requires:
+p₁(0.405) + p₂(-0.288) + p₃(-0.981) + (1-p₁-p₂-p₃)(-0.693) > 0
+
+Simplifying:
+0.405p₁ - 0.288p₂ - 0.981p₃ - 0.693 + 0.693(p₁+p₂+p₃) > 0
+1.098p₁ + 0.405p₂ - 0.288p₃ > 0.693
+
+This is the refined divergence constraint.
+
+### What Random Model Predicts
+
+If valuations are "random" (following natural density):
+- P(v₂ = 1) = 1/2 (n ≡ 3,7 mod 8)
+- P(v₂ = 2) = 1/4 (n ≡ 1 mod 8)
+- P(v₂ ≥ 3) = 1/4 (n ≡ 5 mod 8)
+
+With 50% odd steps: p₁ = 0.25, p₂ = 0.125, p₃ = 0.125
+
+LHS = 1.098(0.25) + 0.405(0.125) - 0.288(0.125) = 0.275 + 0.051 - 0.036 = 0.29
+
+0.29 < 0.693, so random behavior → convergence. ✓
+
+This is consistent with Tao's "almost all" result.
+
+---
+
+## 211. What Would Force Deficit Window Recurrence?
+
+### The Open Question
+
+Can a trajectory avoid deficit windows (stretches of low v₂) indefinitely?
+
+If NO → divergence impossible (spectral preprint argument)
+If YES → potential counterexample exists
+
+### What We'd Need to Show
+
+Either:
+1. **Algebraic**: The mod structure forces periodic return to deficit
+2. **Dynamical**: Any escape from deficit eventually leads back
+3. **Measure**: Deficit-avoiding trajectories have measure zero in a relevant sense
+
+### Current Status
+
+This is the ACTUAL open problem. The preprint's Conjectures 19-20 claim (1) or (2), but don't prove it.
+
+### My Assessment
+
+I don't yet understand deeply enough to know whether this is provable or might be false. This is honest uncertainty.
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 208*
-*Status: HONEST - Spectral preprint assessed, gaps identified*
-*Last Updated: What preprint actually proves vs conjectures*
+*Sections: 211*
+*Status: DEEP DIVE CONTINUING - Valuation patterns analyzed*
+*Last Updated: Valuation recurrence, refined 63.1% constraint, open question identified*
