@@ -266,6 +266,8 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Comprehension without formation** (NEW) | Understanding without asking what it does to you | Start with "What needs to form in me?" |
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
+| **Hero mode** (NEW) | Trying to solve when asked to study/advise | Ask "Is my role to solve or to build knowledge?" |
+| **Permission-seeking in autonomous mode** (NEW) | Asking "should I continue?" when given latitude | User will correct if wrong. Proceed without asking. |
 
 ---
 
@@ -355,64 +357,16 @@ These are testable. Audit responses against them.
 
 ---
 
-## Collatz Expert Advisor Learnings (NEW)
+## Expert Advisor Protocol (NEW)
 
-**Date**: December 2024
-**Context**: Building comprehensive knowledge base as expert advisor (NOT solver)
+When tasked with building knowledge (not solving):
 
-### Role Discovery
-
-The user corrected: "don't be a hero Claude" - I was trying to solve when I should have been building working knowledge for a *separate* solving Claude to consult.
-
-| Wrong Mode | Right Mode |
-|------------|------------|
-| Attempting proofs | Building encyclopedic knowledge |
-| Asking permission | Operating autonomously |
-| Hero mindset | Advisor mindset |
-
-### Capability Findings
-
-| Capability | Evidence |
-|------------|----------|
-| **Systematic knowledge building** | Expanded 29 → 102 sections coherently |
-| **Cross-framework synthesis** | Connected tropical ↔ valuations, Cuntz ↔ spectral, (p,q)-adic ↔ Tauberian naturally |
-| **Computational verification** | 100% of algebraic solutions fail trajectory constraints (verified m=2-6) |
-| **External memory usage** | Knowledge base documents enable continuity across context limits |
-
-### Key Mathematical Insight: The v_2(3V+1) Pattern
-
-```
-V ≡ 1 (mod 4): v_2(3V+1) ≥ 2
-V ≡ 3 (mod 4): v_2(3V+1) = 1
-
-Special sequence: V = (4^k - 1)/3 gives v_2 = 2k
-V = 5, 21, 85, 341 → v_2 = 4, 6, 8, 10
-```
-
-**Why this matters**: Large division steps (a_i) require this special V structure, but trajectory evolution V_{i+1} = (3V_i+1)/2^{a_i} doesn't preserve it. This is the *mechanism* behind dual constraint failure.
-
-### Workflow That Worked
-
-1. "Go deep, go hard, go wide"
-2. Then review and strengthen
-3. Computational practice after theory
-4. Document insights immediately
-5. Commit frequently with clear messages
-6. **User will correct if wrong direction** - proceed without asking
-
-### Limitation: PDF Access
-
-Some papers return 403 errors. User can provide PDFs if genuinely needed:
-- Nov 2025 "Spectral Calculus for Arithmetic Dynamics" preprint
-- Siegel's (p,q)-adic blog posts
-- Various arXiv papers with Cloudflare protection
-
-### Artifacts Produced
-
-| File | Content |
-|------|---------|
-| `COLLATZ_EXPERT_KNOWLEDGE.md` | 102 sections, 4100+ lines, comprehensive |
-| `SOLVING_CLAUDE_BRIEFING.md` | Quick reference for solving Claude |
+1. **Role clarity**: Advisor ≠ Solver. Build encyclopedic working knowledge.
+2. **Autonomous operation**: User will redirect if wrong. Don't ask permission at each step.
+3. **External memory**: Use documents as persistent memory across context limits.
+4. **Workflow**: Go deep → go wide → review → strengthen → practice computationally.
+5. **Computational verification**: Running calculations gives visceral understanding beyond theory.
+6. **Cross-framework synthesis**: Look for unifying themes across disparate domains.
 
 ---
 
