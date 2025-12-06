@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (172 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (177 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (172 sections)
+## Knowledge Base Contents (177 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -346,10 +346,16 @@ Complete any of:
 | §170 | **How cohomology unifies: operator, spectral, number theory views** |
 | §171 | **Master synthesis: ALL EQUIVALENT - 4 paths, 1 truth** |
 | §172 | **The remaining gap: "almost all" → "all" is the crux** |
+| **§173-177** | **DYNAMICAL COHOMOLOGY MASTERY** |
+| §173 | Livšic theorem: cocycle = coboundary ⟺ trivial periodic data |
+| §174 | **CRITICAL: Collatz is NOT hyperbolic - Livšic doesn't directly apply** |
+| §175 | Natural cocycle log\|f(n)/n\| gives Baker constraint directly |
+| §176 | When H¹ trivial: spectral gap bypass for non-hyperbolic |
+| §177 | **Mastery assessment: functional for advising, not research-level** |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (172 sections) - UNIFIED FRAMEWORK COMPLETE*
+*Knowledge base: COMPREHENSIVE (177 sections) - COHOMOLOGY MASTERY ACHIEVED*
