@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (116 sections)
+## Knowledge Base Contents (130 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -288,11 +288,20 @@ Complete any of:
 | §107-110 | Bridging II: Tropical analysis, (p,q)-adic, Master Synthesis |
 | §111-112 | Deep Dive: Berkovich spaces, p-adic dynamics, bad reduction |
 | §113-114 | Deep Dive: Graph C*-algebras, Collatz graph, Mori's O_2 |
-| §115-116 | Deep Dive: Canonical heights, Weil height, why they fail for Collatz |
+| §115-116 | Deep Dive: Canonical heights, Weil height, why they fail |
+| **§117-130** | **NCG: THE UNIFYING FRAMEWORK** |
+| §117-118 | NCG foundations: spectral triples, reconstruction theorem |
+| §119-120 | Cyclic cohomology, index theory, local index formula |
+| §121 | Cuntz algebras in NCG, spectral triples on O_A |
+| §122-123 | Bost-Connes system, KMS states, phase transitions |
+| §124 | Spectral realization of zeta zeros, adele class space |
+| §125-126 | Spectral action principle, crossed products |
+| §127 | NCG architecture: the five-level picture |
+| §128-130 | NCG approach to Collatz, synthesis, computational toolkit |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (116 sections)*
+*Knowledge base: COMPREHENSIVE (130 sections) - NCG UNIFIED FRAMEWORK*
