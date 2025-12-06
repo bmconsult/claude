@@ -7237,7 +7237,360 @@ This bypasses the hyperbolicity requirement.
 
 ---
 
+## 178. Gottschalk-Hedlund Theorem: The Minimal Systems Tool
+
+### Classical Statement
+
+**Theorem (Gottschalk-Hedlund, 1955)**:
+Let T: X → X be a minimal homeomorphism of a compact metric space.
+Let f: X → ℝ be continuous.
+
+If there exists x₀ ∈ X and M > 0 such that:
+```
+|Sₙf(x₀)| = |Σₖ₌₀^{n-1} f(Tᵏx₀)| ≤ M  for all n ≥ 0
+```
+
+Then f is a **coboundary**: f = G∘T - G for some continuous G.
+
+### Why This Matters for Dynamical Systems
+
+This is the KEY theorem connecting:
+- **Local boundedness** (at one point)
+- **Global structure** (coboundary everywhere)
+
+**Minimal = every orbit dense**: The boundedness "spreads" via density.
+
+### Converse Direction
+
+If f is a coboundary (f = G∘T - G), then:
+```
+Sₙf(x) = G(Tⁿx) - G(x)
+```
+
+If G is bounded (automatic if X is compact and G continuous):
+```
+|Sₙf(x)| ≤ 2||G||_∞  for all n, all x
+```
+
+So coboundary ⟺ uniformly bounded Birkhoff sums.
+
+### Geometric Generalization
+
+**Modern version** ([Kocsard-Potrie 2011](https://arxiv.org/abs/1101.3523)):
+For cocycles into Hilbert spaces or CAT(0) spaces:
+
+A bounded continuous cocycle over minimal dynamics is necessarily a continuous coboundary.
+
+---
+
+## 179. Kalinin's Breakthrough: Non-Uniform Livšic
+
+### The Problem
+
+Classical Livšic requires **uniform hyperbolicity**:
+- λ_min > 0 for all Lyapunov exponents
+- Uniform expansion/contraction rates
+
+Many systems (including natural ones) are only **non-uniformly hyperbolic**.
+
+### Kalinin's 2011 Result
+
+**Theorem** ([Kalinin, Annals of Mathematics 2011](https://annals.math.princeton.edu/2011/173-2/p11)):
+
+Let f: X → X be a non-uniformly hyperbolic diffeomorphism.
+Let A: X → GL(m, ℝ) be α-Hölder continuous.
+
+If A has **trivial periodic data**:
+```
+A(f^{n-1}(p)) · A(f^{n-2}(p)) · ... · A(p) = Id
+```
+for every periodic point p = fⁿ(p),
+
+Then A is a **coboundary**: A(x) = C(f(x)) · C(x)⁻¹ for some measurable C.
+
+Moreover, with local product structure, C is Hölder on large measure sets.
+
+### Key Innovations
+
+1. **Tempered functions**: Control growth along orbits
+2. **Pesin theory**: Non-uniform stable/unstable manifolds
+3. **Graph transform**: Construct the coboundary C iteratively
+
+### Limitation for Collatz
+
+Kalinin still requires **non-zero Lyapunov exponents**.
+
+Collatz at "infinity" has:
+- λ = (1/2)log(1/2) + (1/2)log(3/2) ≈ -0.058 < 0
+
+So the "mean" Lyapunov exponent is negative (contracting).
+But individual orbits can have wildly varying local exponents.
+
+---
+
+## 180. Unique Ergodicity and Coboundary Dichotomy
+
+### The Skew-Product Criterion
+
+For T: X → X minimal, and φ: X → ℝ continuous, consider:
+```
+T_φ: X × ℝ → X × ℝ
+T_φ(x, t) = (T(x), t + φ(x))
+```
+
+**Key dichotomy** ([MathOverflow](https://mathoverflow.net/questions/152470)):
+
+| φ status | Measurable-coboundary? | Continuous-coboundary? | T_φ property |
+|----------|------------------------|------------------------|--------------|
+| Trivial | Yes | Yes | Not minimal, not uniquely ergodic |
+| Non-coboundary | No | No | Minimal and uniquely ergodic |
+| Measurable but not continuous | Yes | No | Not uniquely ergodic |
+
+### For Uniquely Ergodic Systems
+
+**Theorem**: If (X, T) is uniquely ergodic and φ satisfies ∫φ dμ = 0, then:
+
+φ is a (measurable) coboundary ⟺ T_φ is NOT uniquely ergodic.
+
+**Contrapositive**: If T_φ remains uniquely ergodic, φ is NOT a coboundary.
+
+### Application Pattern
+
+1. Show T is minimal and uniquely ergodic
+2. Construct cocycle φ with ∫φ = 0
+3. Show T_φ is uniquely ergodic
+4. Conclude: φ is not a coboundary → H¹ is non-trivial!
+
+---
+
+## 181. Collatz Compactification and Cohomology
+
+### The Problem
+
+Collatz lives on ℤ⁺ (or ℕ \ {0}), which is NOT compact.
+Gottschalk-Hedlund requires compact X.
+
+### Natural Compactifications
+
+**One-point**: ℕ ∪ {∞} ≅ {0} ∪ {1/n : n ∈ ℕ} (compact)
+
+**Profinite**: ℤ̂ = lim←(ℤ/nℤ) (Cantor set-like)
+
+**p-adic**: ℤ_p for each prime p
+
+### The Extension Problem
+
+To apply Gottschalk-Hedlund:
+1. Extend T: ℕ → ℕ to T̂: X̂ → X̂
+2. Extend cocycle φ continuously
+3. Apply theorem on compact X̂
+
+**Challenge**: Collatz T doesn't extend continuously to most compactifications!
+- T(n) can be larger than n (for odd n)
+- No limit at "infinity"
+
+### Profinite Approach (Lagarias)
+
+On 2-adics: T extends to T₂: ℤ₂ → ℤ₂
+```
+T₂(x) = x/2  if x ≡ 0 (mod 2)
+T₂(x) = (3x+1)/2  if x ≡ 1 (mod 2)
+```
+
+This is continuous on ℤ₂! (compact)
+
+**But**: The dynamics on ℤ₂ is very different from ℕ.
+The "wild" part of ℤ₂ \ ℕ dominates.
+
+---
+
+## 182. Divergence and Bounded Birkhoff Sums
+
+### The Key Question
+
+Consider φ(n) = log|T(n)/n|:
+- φ(n) = -log 2 ≈ -0.693 if n even
+- φ(n) = log((3n+1)/n) → log 3 ≈ 1.099 if n odd, large
+
+The Birkhoff sum is:
+```
+Sₖφ(n) = Σᵢ₌₀^{k-1} φ(Tⁱ(n)) = log(Tᵏ(n)/n)
+```
+
+### Divergence ⟺ Unbounded Birkhoff Sum
+
+**If n diverges** (Tᵏ(n) → ∞):
+```
+log(Tᵏ(n)/n) → +∞
+```
+The Birkhoff sum is unbounded above.
+
+**If n → 1** (standard trajectory):
+```
+Tᵏ(n) eventually = 1, 2, or 4 (cycling)
+log(Tᵏ(n)/n) is bounded below (by log(1/n))
+```
+
+### Connection to Gottschalk-Hedlund
+
+On any compactification where:
+1. T extends to minimal dynamics
+2. φ extends continuously
+
+If Birkhoff sums are bounded at one point → φ is a coboundary.
+
+**Contrapositive**: If φ is NOT a coboundary → unbounded Birkhoff sums exist.
+
+But this doesn't immediately give divergence!
+Could have |Sₖφ| → ∞ with Sₖφ → -∞ (all orbits converge).
+
+---
+
+## 183. The Tao Framework: Cohomology for Dynamical Systems
+
+### Core Definitions ([Tao 2008](https://terrytao.wordpress.com/2008/12/21/cohomology-for-dynamical-systems/))
+
+For G acting on X with values in abelian group U:
+
+**n-cochains**: C^n(G, X; U) = functions G^n × X → U
+
+**Differential** δ: C^n → C^{n+1}:
+```
+(δρ)(g₁,...,gₙ₊₁; x) = ρ(g₂,...,gₙ₊₁; x)
+  + Σᵢ₌₁ⁿ (-1)ⁱ ρ(g₁,...,gᵢgᵢ₊₁,...; x)
+  + (-1)^{n+1} ρ(g₁,...,gₙ; gₙ₊₁·x)
+```
+
+**Cocycles**: Z^n = ker(δ: C^n → C^{n+1})
+**Coboundaries**: B^n = im(δ: C^{n-1} → C^n)
+**Cohomology**: H^n = Z^n / B^n
+
+### For n=1 (Most Relevant)
+
+1-cocycle: ρ(gh; x) = ρ(g; hx) + ρ(h; x)
+
+1-coboundary: ρ(g; x) = F(gx) - F(x) for some 0-cochain F
+
+**Key**: Cocycle = "twisted additive", Coboundary = "untwisted"
+
+### Minimality/Ergodicity Implications
+
+**Tao's observation**: When G acts minimally or ergodically:
+- 0-cocycles = constants
+- 0-coboundary = zero function
+- H⁰ = U (the coefficient group)
+
+For H¹:
+- Depends sensitively on the dynamics
+- Livšic, Gottschalk-Hedlund give partial answers
+
+---
+
+## 184. Cocycle Rigidity: Higher Rank Phenomena
+
+### Katok-Spatzier Rigidity
+
+**Theorem** (Katok-Spatzier 1994):
+For higher-rank abelian actions (ℤᵈ, d ≥ 2) on tori with partial hyperbolicity:
+
+Every Hölder cocycle is cohomologous to a constant cocycle.
+
+**Meaning**: H¹ consists only of homomorphisms!
+
+### Why Higher Rank Helps
+
+**Single transformation** (ℤ action):
+- One direction of hyperbolicity
+- Coboundary equation may not have solutions
+
+**Higher rank** (ℤᵈ, d ≥ 2):
+- Multiple independent directions
+- Constraints overdetermine → rigidity
+
+### Application Idea for Collatz
+
+Could one embed Collatz in a higher-rank action?
+
+Natural candidates:
+- (T, S) where S is some other map commuting with T
+- Use 2-adic and 3-adic actions together
+
+**Challenge**: Finding a commuting map S with useful properties.
+
+---
+
+## 185. Synthesis: Cohomological Constraints on Collatz
+
+### What We Now Know
+
+| Tool | Statement | Status for Collatz |
+|------|-----------|-------------------|
+| Livšic | Periodic data → coboundary | Non-hyperbolic, doesn't apply |
+| Gottschalk-Hedlund | Bounded sums → coboundary | Need compact extension |
+| Non-uniform Livšic | Works for non-uniform hyp. | Still needs hyperbolicity |
+| Unique ergodicity criterion | Non-coboundary → unique erg. | Applicable if uniquely ergodic |
+| Higher rank rigidity | Overdetermined → rigid | No obvious higher-rank structure |
+
+### The Strategic Path
+
+**For cycles**: Baker bounds + algebraic constraints (well-understood)
+
+**For divergence**: Need to show Birkhoff sums log(Tᵏn/n) bounded above.
+
+**Cohomological approach**:
+1. If φ = log|T(n)/n| is a coboundary, Birkhoff sums are bounded
+2. Bounded ⟹ no divergence
+3. Need: Show φ is coboundary (or its "essential part" is)
+
+### The Gap
+
+We can show φ cannot be "too unbounded" in certain senses (spectral gap → unique invariant measure → time averages converge).
+
+But converting this to "no divergent trajectories" requires additional arguments about the relationship between:
+- Statistical behavior (measures)
+- Pointwise behavior (individual orbits)
+
+---
+
+## 186. Deep Assessment: Livšic and Cohomological Mastery
+
+### What I Now Truly Understand
+
+| Concept | Depth | Can I compute/apply? |
+|---------|-------|---------------------|
+| Gottschalk-Hedlund statement | Complete | Yes - minimal + bounded → coboundary |
+| Gottschalk-Hedlund proof idea | Good | Density argument, transfer function |
+| Kalinin's non-uniform Livšic | Good | Statement, not full proof |
+| Unique ergodicity ⟷ coboundary | Deep | The skew-product criterion |
+| Compactification challenges | Deep | Why ℕ doesn't extend nicely |
+| Higher-rank rigidity | Moderate | Statement, not techniques |
+| Tao's framework | Good | The cochain complex structure |
+
+### Key Insight Achieved
+
+**The Birkhoff sum connection**:
+```
+Divergence ⟺ Sₖφ = log(Tᵏn/n) → +∞
+```
+
+If φ were a coboundary: Sₖφ = G(Tᵏn) - G(n), bounded by 2||G||.
+
+**So**: Proving φ is a coboundary would eliminate divergence!
+
+But φ is NOT obviously a coboundary because:
+1. Collatz isn't uniformly hyperbolic
+2. ℕ isn't compact
+3. Extension to compactifications breaks continuity
+
+### Remaining Questions
+
+1. Can we use spectral gap to get "almost coboundary" behavior?
+2. Is there a measure-theoretic coboundary that controls pointwise behavior?
+3. Can profinite/p-adic extensions give useful coboundary structure?
+
+---
+
 *Expert Advisor Knowledge Base*
-*Sections: 177*
-*Status: DYNAMICAL COHOMOLOGY DEEPENED*
-*Last Updated: Livšic theorem, Collatz non-hyperbolicity, mastery assessment*
+*Sections: 186*
+*Status: COHOMOLOGICAL FRAMEWORK DEEPLY INTEGRATED*
+*Last Updated: Gottschalk-Hedlund, Kalinin, unique ergodicity, Tao framework, divergence connection*
