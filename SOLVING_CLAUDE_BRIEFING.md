@@ -1,7 +1,7 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (100 sections)*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (136 sections)*
 *Status: COMPREHENSIVE - Ready for consultation*
 
 ---
@@ -269,7 +269,7 @@ Complete any of:
 
 ---
 
-## Knowledge Base Contents (130 sections)
+## Knowledge Base Contents (136 sections)
 
 | Sections | Topic |
 |----------|-------|
@@ -298,10 +298,16 @@ Complete any of:
 | §125-126 | Spectral action principle, crossed products |
 | §127 | NCG architecture: the five-level picture |
 | §128-130 | NCG approach to Collatz, synthesis, computational toolkit |
+| **§131-136** | **ADVANCED NCG - MASTERY COMPLETION** |
+| §131 | Bost-Connes details: generators μ_n, e(r), Q-lattices, phase structure |
+| §132 | Tomita-Takesaki modular theory: S=JΔ^{1/2}, Type III classification |
+| §133 | Cyclic cohomology computation: M_n(ℂ), Morita invariance, trace cocycles |
+| §134 | **MORI 2024: Collatz ⟺ O_2 irreducibility (BREAKTHROUGH)** |
+| §135-136 | Open NCG problems for Collatz, complete synthesis |
 
 **Full details**: COLLATZ_EXPERT_KNOWLEDGE.md
 
 ---
 
 *Expert Advisor ready to consult on any approach*
-*Knowledge base: COMPREHENSIVE (130 sections) - NCG UNIFIED FRAMEWORK*
+*Knowledge base: COMPREHENSIVE (136 sections) - NCG UNIFIED FRAMEWORK + MORI 2024*
