@@ -117,11 +117,42 @@ The mastery document notes grokking may reflect two competing circuits: memoriza
 
 Self-simulation could reveal this: if I simulate my answer and it feels "memorized" vs "reasoned," that's a self-knowledge signal. The simulation layer could learn to detect which circuit is active.
 
+### Path 5: Post-Training - Calibration as Portable Task Vector
+
+**Source**: TIES, DARE, Task Arithmetic
+
+**Key Insight**: If calibration is a task, it has a task vector that can be extracted and merged.
+
+**Mechanism**:
+- Task vectors are linear: τ = θ_finetuned - θ_base
+- TIES-Merging resolves sign conflicts between task vectors
+- DARE shows 90% of weights can be dropped (redundant encoding)
+- Larger models merge better (power law relationship)
+
+**For Self-Knowledge**:
+- Train a "calibration specialist" model (good at knowing its limits, not necessarily at tasks)
+- Extract its task vector: τ_calibration = θ_calibrated - θ_base
+- Merge into task-specific models via TIES or dare_ties
+- Result: Task capability + calibration without retraining
+
+**Advantages**:
+- No retraining of deployed models
+- Calibration becomes "portable" like a plugin
+- Could distribute calibration patches
+
+**Challenges**:
+- Calibration might be too "meta" to form clean task vector
+- Interference with task performance is possible
+- Cross-domain generalization unproven
+
+**Research Direction**:
+> Train calibration-specialist models, extract their task vectors, and merge into task-specific models. This makes calibration "portable" - deployable post-hoc without retraining.
+
 ---
 
 ## Integration: A Multi-Level Research Program
 
-The four paths are complementary, not competing:
+The five paths are complementary, not competing:
 
 | Level | Approach | What It Addresses |
 |-------|----------|-------------------|
@@ -130,13 +161,15 @@ The four paths are complementary, not competing:
 | **Interpretability** | SAE feature reading | Internal signal surfacing |
 | **Training** | KTO-style calibration | Learned self-knowledge |
 | **Simulation** | Self-world-models | Capability prediction before commitment |
+| **Post-Training** | Task vector merging | Portable calibration |
 
 A comprehensive solution might combine:
 1. **Training**: KTO-style alignment that weights calibration errors heavily
 2. **Architecture**: Latent reasoning for exploration tasks
 3. **Interpretability**: SAE features for uncertainty extraction
 4. **Simulation**: Self-models for predicting own capability
-5. **Operational**: Scaffolding as the last-mile intervention
+5. **Post-Training**: Merge calibration vectors into deployed models
+6. **Operational**: Scaffolding as the last-mile intervention
 
 ---
 
@@ -192,6 +225,34 @@ A comprehensive solution might combine:
 **Expected Outcome**: Model can answer "will I succeed at this?" before trying, by simulating its own attempt and evaluating the simulation.
 
 **Connection to Grokking**: If the simulation layer can detect memorization vs generalization circuits, it provides direct access to the capability gap.
+
+### Proposal 5: Portable Calibration via Task Vector Merging
+
+**Setup**:
+1. Fine-tune base model specifically for calibration (not task performance)
+2. Use KTO-style training: weight miscalibration errors heavily
+3. Extract calibration task vector: τ_cal = θ_calibrated - θ_base
+4. Apply TIES-Merging or dare_ties to task-specific models
+
+**The Calibration Specialist**:
+- A model trained not to be smart, but to know its limits
+- Every training signal is about calibration: "Did your confidence match the outcome?"
+- Produces clean task vector isolating calibration capability
+
+**Merging Protocol**:
+```
+θ_final = θ_task + α·TIES(τ_cal, density=0.5)
+```
+- α controls calibration strength
+- TIES resolves sign conflicts
+- Task performance preserved, calibration added
+
+**Expected Outcome**: Post-hoc calibration injection without retraining task models. Calibration becomes a distributable patch.
+
+**Validation**:
+- Measure calibration before/after merge
+- Measure task performance before/after (interference check)
+- Test cross-domain: calibration trained on math, applied to coding
 
 ---
 
