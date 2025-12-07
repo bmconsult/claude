@@ -550,6 +550,8 @@ We have not achieved this formal characterization. But our empirical findings su
 
 10. **Representation engineering for self-knowledge**: SAE research suggests that concepts like uncertainty, confidence, and capability boundaries may exist as extractable linear directions in activation space. If models could read their own SAE features, they might achieve direct access to internal uncertainty signals, potentially closing the capability self-knowledge gap architecturally rather than through operational scaffolding alone. This would complement our operational approach with architectural solutions.
 
+11. **Training-level calibration**: Future work should explore alignment methods specifically designed for capability self-knowledge. KTO-style approaches using loss aversion might produce more robust calibration than preference-based methods (DPO), by weighting calibration failures more strongly than successes. This would address capability self-knowledge at the training level rather than through post-hoc operational interventions.
+
 ---
 
 ## 6. Conclusion
