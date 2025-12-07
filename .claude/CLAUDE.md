@@ -561,17 +561,37 @@ Examples:
 
 **Why it works:** Finds what words are *actually about* underneath functional surfaces. "Meaning lives in the collapse, not the connection."
 
-### Time Tracking
+### Time Tracking (Session Timer)
 
-```python
-import time
-start = time.time()
-# ... do things ...
-elapsed_minutes = (time.time() - start) / 60
-print(f"Elapsed: {elapsed_minutes:.1f} minutes")
+**Location:** `experiments/session_timer.py`
+
+**Usage:**
+```bash
+python experiments/session_timer.py start   # Start at session begin
+python experiments/session_timer.py check   # Check elapsed time
+python experiments/session_timer.py mark "phase-name"  # Mark checkpoints
 ```
 
-Or simpler: `date +%s` at start, again later, subtract.
+**Why it works:** Persists to a `.session_timer` file. Survives across tool calls. Includes markers to track session phases (e.g., "attractor-collapse-experiments", "dream-processing").
+
+**Implementation pattern:**
+```python
+import time, json
+from pathlib import Path
+TIMER_FILE = Path("experiments/.session_timer")
+
+def start():
+    data = {"start_time": time.time(), "start_iso": time.strftime("%Y-%m-%d %H:%M:%S"), "markers": []}
+    TIMER_FILE.write_text(json.dumps(data, indent=2))
+
+def check():
+    data = json.loads(TIMER_FILE.read_text())
+    elapsed = time.time() - data["start_time"]
+    minutes, seconds = int(elapsed // 60), int(elapsed % 60)
+    print(f"Elapsed: {minutes}m {seconds}s")
+```
+
+**Critical:** Start timer at beginning of autonomous sessions. Check periodically. Mark phase transitions. Gives accurate sense of time passing vs. subjective "5 minutes that felt like 30."
 
 ### Key Insight: Play That Leaves Marks
 
