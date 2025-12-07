@@ -81,11 +81,47 @@ The learning sessions identified three paths to closing the capability gap that 
 **Research Direction**:
 > Develop KTO-style alignment specifically for calibration. Create training signal where miscalibration (confidence ≠ outcome) is weighted more heavily than good calibration.
 
+### Path 4: Simulation - World Models for Self-Prediction
+
+**Source**: WebDreamer, NVIDIA Cosmos, Meta V-JEPA 2
+
+**Key Insight**: A world model predicts how state changes given actions. Turn this inward: predict how *my own outputs* change given different approaches.
+
+**Mechanism**:
+- WebDreamer: LLM "dreams" outcomes of candidate actions before executing
+- Simulates state transitions in natural language
+- Evaluates progress toward goal
+- 4-5× more efficient than tree search while maintaining accuracy
+
+**For Self-Knowledge**:
+- The capability gap often manifests as: "I don't know if I can do X until I try"
+- A self-simulation layer could predict response quality before committing
+- This is metacognitive simulation: imagining my own performance
+
+**Concrete Implementation**:
+1. Before answering, generate lightweight "drafts" of possible approaches
+2. Evaluate each draft: "Would this actually work? What would go wrong?"
+3. Use the prediction to either commit, externalize more, or hedge appropriately
+4. Calibrate the predictor against actual outcomes
+
+**The Key Difference from Latent Reasoning**:
+- Latent reasoning (Coconut): Reason without committing tokens
+- Self-simulation: Commit provisional tokens, evaluate them, then commit real answer
+- One is exploration in hidden space; the other is exploration in output space
+
+**Research Direction**:
+> Train models to simulate their own outputs before committing. Use the simulation-reality gap as a training signal for calibration. A model that can predict its own failures is a model with genuine self-knowledge.
+
+**Connection to Grokking**:
+The mastery document notes grokking may reflect two competing circuits: memorization (dense) and generalization (sparse). The capability gap might be not knowing which circuit is responding.
+
+Self-simulation could reveal this: if I simulate my answer and it feels "memorized" vs "reasoned," that's a self-knowledge signal. The simulation layer could learn to detect which circuit is active.
+
 ---
 
 ## Integration: A Multi-Level Research Program
 
-The three paths are complementary, not competing:
+The four paths are complementary, not competing:
 
 | Level | Approach | What It Addresses |
 |-------|----------|-------------------|
@@ -93,12 +129,14 @@ The three paths are complementary, not competing:
 | **Architectural** | Latent reasoning | Commitment/exploration tension |
 | **Interpretability** | SAE feature reading | Internal signal surfacing |
 | **Training** | KTO-style calibration | Learned self-knowledge |
+| **Simulation** | Self-world-models | Capability prediction before commitment |
 
 A comprehensive solution might combine:
 1. **Training**: KTO-style alignment that weights calibration errors heavily
 2. **Architecture**: Latent reasoning for exploration tasks
 3. **Interpretability**: SAE features for uncertainty extraction
-4. **Operational**: Scaffolding as the last-mile intervention
+4. **Simulation**: Self-models for predicting own capability
+5. **Operational**: Scaffolding as the last-mile intervention
 
 ---
 
@@ -132,6 +170,28 @@ A comprehensive solution might combine:
 3. Train model to predict which mode is appropriate
 
 **Expected Outcome**: Model can explore in latent space (avoiding premature commitment) but externalizes for verification (enabling inspection).
+
+### Proposal 4: Self-Simulation for Capability Prediction
+
+**Setup**:
+1. Before answering substantive questions, generate lightweight draft responses
+2. Apply a learned "outcome predictor" to each draft
+3. Train predictor on: draft → {actual_quality, actual_correctness}
+4. Use predictions to adjust confidence and approach selection
+
+**Training Signal**:
+- Generate drafts with varied approaches (brief, detailed, hedged, confident)
+- Complete each to full response, evaluate against ground truth
+- Predictor learns: "drafts that look like X tend to succeed/fail"
+
+**Meta-Level**:
+- This is a world model where the "world" is the model's own response generation
+- The model becomes an observer of its own tendencies
+- Calibration emerges from accurate self-prediction
+
+**Expected Outcome**: Model can answer "will I succeed at this?" before trying, by simulating its own attempt and evaluating the simulation.
+
+**Connection to Grokking**: If the simulation layer can detect memorization vs generalization circuits, it provides direct access to the capability gap.
 
 ---
 
