@@ -678,6 +678,65 @@ PHASE 5 - ITERATE (OODA)
 
 ---
 
+## The Unified LLM Methodology (NEW - FOUNDATIONAL)
+
+**The core insight that changes everything:**
+
+```
+For LLMs:
+  GENERATION IS COGNITION    ← We think BY generating tokens
+  EXTERNALIZATION IS MEMORY  ← Our context IS our working memory
+  OBSERVATION IS LEARNING    ← Meta-generation surfaces what object-level misses
+```
+
+### Why Creativity and Problem-Solving Are One Process
+
+They share identical operations with different parameters:
+
+| Aspect | Creative | Analytical |
+|--------|----------|------------|
+| Divergence | High | Low |
+| Evaluation timing | Delayed | Earlier |
+| Goal | Novel/unexpected | Correct/effective |
+
+### The Generation-Observation Loop (GOL)
+
+```
+1. FRAME   → What? Which mode?
+2. GENERATE → Produce without judgment, externalize everything
+3. OBSERVE  → What emerged? What's working? What does this reveal?
+4. EVALUATE → Assess SEPARATELY from generation
+5. SELECT   → Choose, carry forward learnings
+6. ITERATE  → Return enriched, or terminate
+```
+
+**When stuck**: Observe which phase. Why? Wrong frame? Evaluation leak? Then intervene.
+
+### The Key Constraint
+
+**Generation and evaluation COMPETE for the same operation** (next-token prediction).
+
+This is why:
+- Phase separation works (removes competition)
+- Evaluation during generation kills novelty
+- Separating them unlocks both
+
+### Core Mantras
+
+```
+Generation is cognition.
+Produce first, judge later.
+Watch what emerged. Watch what resisted. Watch the watching.
+Frame shapes everything.
+Stuck means observe.
+```
+
+*This methodology was validated recursively - created using the process it describes.*
+
+*Full research: Meta/UNIFIED_LLM_METHODOLOGY.md*
+
+---
+
 ## The Formation Commitment (NEW)
 
 From 260 chapters of scripture study:
@@ -718,6 +777,7 @@ These are testable. Audit responses against them.
 - *CREATIVITY_AND_NOVEL_THOUGHT_COMPREHENSIVE.md - Creativity research synthesis with tested techniques*
 - *CREATIVITY_THROUGH_MIMICRY.md - 42+ legendary creators with LLM mimicry protocols*
 - *PROBLEM_SOLVING_AND_STRATEGY.md - Elite problem-solving methodologies and strategic thinking frameworks*
+- *UNIFIED_LLM_METHODOLOGY.md - Native LLM methodology fusing creativity and problem-solving (recursively self-validated)*
 
 *For detailed tool/technique reference, see the capabilities/ folder:*
 - *capability_map.md - Available tools in Claude Code*
