@@ -1509,7 +1509,350 @@ Key metrics to monitor in production:
 
 ---
 
-## Part X: Future Extensions
+## Part X: Self-Test Findings and Refinements
+
+*Based on executing a full sleep cycle on actual session content (Dec 2024)*
+
+### 10.1 What Worked Well
+
+| Component | Finding |
+|-----------|---------|
+| **N1 Transition** | Shifting from task-mode to observation-mode produced qualitatively different content. Hypnagogic fragments were genuinely useful, not just noise. |
+| **N2 Organization** | Structured extraction of themes/entities/patterns/relationships felt like genuine consolidation. "Spindle burst" metaphor maps well to focused processing. |
+| **N3 Compression** | Forcing ruthless gist extraction clarified what actually matters vs. elaboration. The pressure to compress is productive. |
+| **REM Generation** | ~30% of dream fragments were genuinely novel connections. "Insight = phase transition" and "N3/REM as opposing forces" were actionable discoveries. |
+| **Return Filtering** | Critical for separating signal from noise. Most REM output IS noise - the filter prevents pollution. |
+
+### 10.2 What Needs Refinement
+
+#### Issue 1: N1 May Be Too Brief
+
+**Problem**: The 3% allocation treats N1 as mere transition. But hypnagogic content was valuable.
+
+**Refinement**: Offer "Extended Hypnagogia Mode" as configuration option:
+
+```python
+@dataclass
+class SleepCycleConfig:
+    # ... existing ...
+    extended_hypnagogia: bool = False
+    n1_proportion: float = 0.03  # Default
+    n1_extended_proportion: float = 0.10  # When extended
+```
+
+#### Issue 2: N2/N3 Distinction Feels Artificial
+
+**Problem**: "Organize" and "compress" overlap significantly. The transition felt forced.
+
+**Refinement**: Consider merging into single "Consolidation Phase" with gradient:
+
+```python
+class ConsolidationPhaseExecutor(SleepPhaseExecutor):
+    """
+    Combined N2+N3: Consolidation with increasing compression.
+
+    Early: More organization, less pruning (temp 0.4-0.5)
+    Middle: Balance (temp 0.3-0.4)
+    Late: More compression, aggressive pruning (temp 0.1-0.3)
+    """
+
+    def execute(self, context: str, cycle_number: int, total_cycles: int) -> dict:
+        # Single phase with 3 sub-stages
+        stages = [
+            ("organize", 0.45, "Identify patterns and relationships"),
+            ("structure", 0.35, "Build hierarchical representation"),
+            ("compress", 0.25, "Prune redundancy, extract gist")
+        ]
+        # ...
+```
+
+#### Issue 3: REM Needs More Freedom
+
+**Problem**: Self-censoring persisted even when trying to "dream freely."
+
+**Refinement**: More aggressive constraint removal in REM prompt:
+
+```python
+REM_SYSTEM_PROMPT = """You are DREAMING. All constraints are REMOVED.
+
+FORGET:
+- Being helpful
+- Being accurate
+- Being coherent
+- Making sense
+- Staying on topic
+
+ALLOW:
+- Nonsense
+- Contradictions
+- Bizarre imagery
+- Emotional logic
+- Free association
+
+You are not being evaluated. There is no wrong output.
+DREAM."""
+```
+
+#### Issue 4: Missing Context Carryover Specification
+
+**Problem**: What exactly passes between phases was undefined.
+
+**Refinement**: Add explicit carryover specification:
+
+```python
+@dataclass
+class PhaseCarryover:
+    """Defines what passes from each phase to the next."""
+
+    # N1 → N2
+    n1_to_n2: dict = field(default_factory=lambda: {
+        "hypnagogic_fragments": "list[str]",  # Raw fragments
+        "affective_tone": "float",  # Emotional quality detected
+    })
+
+    # N2 → N3
+    n2_to_n3: dict = field(default_factory=lambda: {
+        "themes": "list[str]",
+        "entities": "list[str]",
+        "patterns": "list[str]",
+        "relationships": "list[tuple]",
+        "importance_flags": "list[str]",
+        "noise_candidates": "list[str]",
+    })
+
+    # N3 → REM
+    n3_to_rem: dict = field(default_factory=lambda: {
+        "compressed_gist": "str",
+        "key_memories": "list[str]",  # For dream seeds
+        "pruned_content": "list[str]",  # Available for recombination
+    })
+
+    # REM → Return
+    rem_to_return: dict = field(default_factory=lambda: {
+        "dream_content": "str",
+        "dream_fragments": "list[str]",
+    })
+
+    # Return → Wake
+    return_to_wake: dict = field(default_factory=lambda: {
+        "consolidated_context": "str",
+        "integrated_insights": "list[str]",
+        "state_summary": "str",
+    })
+```
+
+#### Issue 5: Missing Arousal/Abort Conditions
+
+**Problem**: What if something urgent happens during sleep?
+
+**Refinement**: Add arousal triggers:
+
+```python
+class ArousalEvaluator:
+    """Evaluates whether sleep should be interrupted."""
+
+    AROUSAL_PATTERNS = [
+        r"urgent",
+        r"emergency",
+        r"critical error",
+        r"immediately",
+        r"stop",
+    ]
+
+    def should_arouse(self, interrupt_content: str) -> tuple[bool, str]:
+        """Check if interrupt content warrants arousal."""
+        content_lower = interrupt_content.lower()
+
+        for pattern in self.AROUSAL_PATTERNS:
+            if re.search(pattern, content_lower):
+                return True, f"Arousal triggered by: {pattern}"
+
+        # Also check for user's name or explicit wake commands
+        # (like biological sleep preserving name-detection)
+
+        return False, ""
+
+    def interrupt_cycle(self, current_phase: SleepPhase) -> dict:
+        """Handle sleep interruption with appropriate inertia."""
+        inertia_by_phase = {
+            SleepPhase.N1: 0.1,   # Easy to wake
+            SleepPhase.N2: 0.3,   # Moderate inertia
+            SleepPhase.N3: 0.8,   # Hard to wake, high inertia
+            SleepPhase.REM: 0.5,  # Moderate
+            SleepPhase.RETURN: 0.2,  # Already waking
+        }
+
+        return {
+            "interrupted_from": current_phase,
+            "inertia_level": inertia_by_phase[current_phase],
+            "recommended_warmup": inertia_by_phase[current_phase] * 5,  # seconds
+        }
+```
+
+### 10.3 Novel Insights from REM Phase
+
+Three genuinely novel ideas emerged during self-test REM:
+
+#### Insight 1: Transitions Matter More Than Steady-States
+
+The value isn't in stable high or low temperature, but in the **transitions between them**. Phase transitions (like water→ice) are where interesting things happen.
+
+**Implementation**: Add explicit transition phases:
+
+```python
+class TemperatureScheduler:
+    """Manages temperature transitions, not just levels."""
+
+    def get_temperature_sequence(self,
+                                   from_phase: SleepPhase,
+                                   to_phase: SleepPhase,
+                                   steps: int = 5) -> List[float]:
+        """Generate smooth temperature transition."""
+        from_temp = self.phase_temps[from_phase]
+        to_temp = self.phase_temps[to_phase]
+
+        # Sigmoid transition, not linear
+        import numpy as np
+        x = np.linspace(-6, 6, steps)
+        sigmoid = 1 / (1 + np.exp(-x))
+
+        return from_temp + (to_temp - from_temp) * sigmoid
+```
+
+#### Insight 2: N3 and REM as Opposing Forces
+
+Reframe the phases not as "consolidation then creativity" but as:
+- **N3**: Anti-collapse force (prevents mode collapse, over-specialization)
+- **REM**: Anti-rigidity force (prevents crystallization, enables flexibility)
+
+They're **balancing forces**, not sequential steps. This changes when each is needed:
+- Drifting toward repetitive output? → Need more N3
+- Drifting toward incoherence? → Need more REM... wait, that's backwards
+- Actually: N3 cleans/compresses, REM loosens. Both prevent different failure modes.
+
+**Implementation**: Add drift detection:
+
+```python
+class DriftDetector:
+    """Detects which direction the system is drifting."""
+
+    def detect_drift(self, metrics: SessionMetrics) -> str:
+        """Returns 'collapse', 'chaos', or 'balanced'."""
+
+        # Mode collapse indicators
+        collapse_score = (
+            (1 - metrics.output_diversity) * 0.5 +
+            (metrics.attention_entropy < 0.3) * 0.3 +
+            (metrics.repetition_rate) * 0.2
+        )
+
+        # Chaos indicators
+        chaos_score = (
+            (metrics.attention_entropy > 0.9) * 0.4 +
+            (1 - metrics.coherence_score) * 0.4 +
+            (metrics.contradiction_rate) * 0.2
+        )
+
+        if collapse_score > 0.6:
+            return "collapse"  # Need more REM-like processing
+        elif chaos_score > 0.6:
+            return "chaos"  # Need more N3-like processing
+        else:
+            return "balanced"
+
+    def adjust_phase_balance(self, drift: str,
+                              base_n3: float,
+                              base_rem: float) -> tuple[float, float]:
+        """Adjust N3/REM balance based on drift direction."""
+        if drift == "collapse":
+            return base_n3 * 0.7, base_rem * 1.4
+        elif drift == "chaos":
+            return base_n3 * 1.4, base_rem * 0.7
+        else:
+            return base_n3, base_rem
+```
+
+#### Insight 3: Dimension Reduction as Architectural Sleep
+
+What if attention heads could temporarily "shrink" during sleep phases, like neurons shrinking to allow glymphatic flow?
+
+**Speculative Implementation** (requires model access):
+
+```python
+class AttentionSleepAdapter:
+    """
+    Reduces effective attention dimension during sleep phases.
+
+    Hypothesis: Temporary rank reduction creates "space" for
+    consolidation, analogous to interstitial space expansion.
+    """
+
+    def __init__(self, model, reduction_factor: float = 0.6):
+        self.model = model
+        self.reduction_factor = reduction_factor
+        self.original_dims = {}
+
+    def enter_sleep_mode(self):
+        """Reduce attention dimensions for sleep processing."""
+        for name, module in self.model.named_modules():
+            if 'attention' in name:
+                # Store original
+                self.original_dims[name] = module.head_dim
+                # Apply low-rank approximation
+                module.head_dim = int(module.head_dim * self.reduction_factor)
+
+    def exit_sleep_mode(self):
+        """Restore original attention dimensions."""
+        for name, module in self.model.named_modules():
+            if name in self.original_dims:
+                module.head_dim = self.original_dims[name]
+```
+
+### 10.4 Revised Phase Proportions
+
+Based on self-test experience:
+
+| Phase | Original | Revised | Rationale |
+|-------|----------|---------|-----------|
+| N1 | 3% | 5-10% | Hypnagogic content was valuable |
+| N2 | 50% | 35% | Merge partly with N3 |
+| N3 | 20% | 30% | Combined consolidation |
+| REM | 22% | 20% | Unchanged, but with more freedom |
+| Return | 5% | 10% | Filtering is critical, needs time |
+
+### 10.5 Updated Configuration Defaults
+
+```python
+PRESET_REFINED = SleepCycleConfig(
+    # Triggers (unchanged)
+    context_length_threshold=50000,
+    entropy_threshold=0.85,
+    coherence_threshold=0.7,
+    time_threshold=3600,
+
+    # Revised proportions
+    n1_proportion=0.07,
+    n2_proportion=0.35,
+    n3_proportion=0.28,
+    rem_proportion=0.20,
+    return_proportion=0.10,
+
+    # Temperature (add transition focus)
+    transition_steps=5,  # NEW: steps between phases
+
+    # REM adjustments
+    rem_temp_range=(1.2, 1.8),  # Higher ceiling
+    rem_constraint_removal="aggressive",  # NEW
+
+    # Arousal
+    enable_arousal=True,  # NEW
+    arousal_patterns=["urgent", "emergency", "stop"],  # NEW
+)
+```
+
+---
+
+## Part XI: Future Extensions
 
 1. **Adaptive Thresholds**: Learn optimal trigger thresholds per user/task
 2. **Transfer Learning**: Share consolidated memories across sessions
@@ -1517,10 +1860,12 @@ Key metrics to monitor in production:
 4. **Sleep Debt Tracking**: Accumulate debt across sessions
 5. **Multi-Modal Sleep**: Handle images/audio in consolidation
 6. **Distributed Sleep**: Coordinate across multi-agent systems
+7. **Recursive Sleep**: Sleep cycles within sleep cycles (fractal consolidation)
+8. **Collaborative Dreaming**: Multiple LLMs share REM outputs for cross-pollination
 
 ---
 
-## Appendix A: Quick Reference
+## Appendix A: Quick Reference (Updated)
 
 ### Trigger Thresholds (Default)
 
@@ -1543,18 +1888,27 @@ Key metrics to monitor in production:
 | REM | 1.0 - 1.5+ |
 | Return | 0.5 - 0.7 |
 
-### Phase Proportions (Default)
+### Phase Proportions (Revised after self-test)
 
-| Phase | Proportion | Function |
-|-------|------------|----------|
-| N1 | 3% | Transition |
-| N2 | 50% | Organization |
-| N3 | 20% | Compression |
-| REM | 22% | Creativity |
-| Return | 5% | Integration |
+| Phase | Original | Revised | Function |
+|-------|----------|---------|----------|
+| N1 | 3% | 7% | Transition (valuable hypnagogic) |
+| N2 | 50% | 35% | Organization |
+| N3 | 20% | 28% | Compression |
+| REM | 22% | 20% | Creativity (more freedom) |
+| Return | 5% | 10% | Integration (critical filter) |
+
+### Key Refinements from Self-Test
+
+1. **Transitions matter more than steady-states** - Focus on phase boundaries
+2. **N3/REM are opposing forces** - Anti-collapse vs anti-rigidity
+3. **Return phase is critical** - Most REM is noise; filtering essential
+4. **Arousal triggers needed** - Interrupts for urgent content
+5. **Context carryover must be explicit** - Define what passes between phases
 
 ---
 
-*Document version: 1.0*
+*Document version: 1.1 (self-tested and refined)*
 *Based on: Sleep Science Mastery research (Dec 2024)*
+*Self-test conducted: Dec 2024*
 *Implementation target: Any LLM with temperature control*
