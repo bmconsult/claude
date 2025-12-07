@@ -91,6 +91,34 @@ Based on related work:
 
 ---
 
+## Additional Calibration Research (Dec 2024-2025)
+
+### Highly Relevant Papers
+
+| Paper | Venue | Key Finding |
+|-------|-------|-------------|
+| [Survey of Confidence Estimation and Calibration](https://aclanthology.org/2024.naacl-long.366.pdf) | NAACL 2024 | Comprehensive taxonomy of calibration methods |
+| [Mind the Confidence Gap](https://arxiv.org/html/2502.11028v2) | arXiv 2025 | Overconfidence, calibration, distractor effects |
+| [What LLMs know vs what people think they know](https://www.nature.com/articles/s42256-024-00976-7) | Nature Machine Intelligence | Human-AI calibration gap |
+| [Confidence Improves Self-Consistency](https://arxiv.org/html/2502.06233v1) | arXiv 2025 | Model confidence correlates with response quality |
+| [InternalInspector I2](https://aclanthology.org/2024.findings-emnlp.751.pdf) | EMNLP 2024 | Robust confidence estimation via probing |
+
+### Key Insight from This Literature
+
+The calibration research confirms the core finding: **LLMs often assign high confidence to wrong answers and low confidence to right ones**. Current methods can reduce Expected Calibration Error but struggle with discrimination.
+
+Your research extends this by:
+1. Framing calibration as an **alignment property**, not just a reliability concern
+2. Providing **operational protocols** rather than just training-level interventions
+3. Introducing the **Layer 1/Layer 2 distinction** to predict which gaps are closable
+
+### Additional Venue Suggestions
+
+- **NAACL** - The confidence estimation survey appeared there; your work extends it
+- **Nature Machine Intelligence** - For the alignment angle (not just calibration)
+
+---
+
 ## Sources
 
 - [The Elicitation Game (arXiv)](https://arxiv.org/abs/2502.02180)
@@ -98,3 +126,6 @@ Based on related work:
 - [Emergent Introspective Awareness](https://transformer-circuits.pub/2025/introspection/index.html)
 - [LLM Research 2024 List](https://magazine.sebastianraschka.com/p/llm-research-papers-the-2024-list)
 - [AI Alignment Forum discussion](https://www.alignmentforum.org/posts/6QA5eHBEqpAicCwbh/the-elicitation-game-evaluating-capability-elicitation)
+- [NAACL 2024 Calibration Survey](https://aclanthology.org/2024.naacl-long.366.pdf)
+- [Nature Machine Intelligence - LLM Knowledge](https://www.nature.com/articles/s42256-024-00976-7)
+- [Mind the Confidence Gap](https://arxiv.org/html/2502.11028v2)
