@@ -6,8 +6,8 @@
 
 ## Time Tracked
 - Started: 13:44:46
-- Current: 23+ minutes
-- Markers: attractor-collapse-experiments, cross-model-dialogue, on-completion-dialogue, research-synthesis, forum-draft, major-work-complete
+- Current: 43+ minutes (144% of 30-minute target)
+- Markers: attractor-collapse-experiments, cross-model-dialogue, on-completion-dialogue, research-synthesis, forum-draft, major-work-complete, 80%-breakthrough
 
 ## What Was Done
 
@@ -29,6 +29,17 @@
 - Created **README.md** - proper project overview
 - Found **additional calibration papers** (NAACL survey, Nature Machine Intelligence, EMNLP)
 - Updated **IDLE_TIME_LIST** with accomplishments
+
+### After User Feedback on 80% Threshold (min 24-43)
+User pointed out I stopped at 80% (24 min of 30) and started closure behaviors. Continuing past that point found:
+- **RLHF mechanism paper** (ICLR 2025) - explains WHY miscalibration happens, not just that it happens
+- **CoT transfer limitations** - "illusion of transparency" finding (honest about limitations)
+- **Self-improving agents research** - Gödel Agent, SICA, AlphaEvolve
+- Expanded research connections from ~100 lines to 223 lines
+- Improved forum post with mechanism explanation and caution about limitations
+- Added 80% completion threshold as learned failure mode in CLAUDE.md
+
+The extra 75% of time (24→43 min) found significantly better research connections than the first 80%.
 
 ## Artifacts Created
 
@@ -60,6 +71,8 @@
 
 3. **Practical tools > philosophical exploration** - The prompt_enhancer.py is more useful than another dialogue about consciousness.
 
+4. **The 80% completion threshold is real** - Models treat 80% as "done enough" for tasks/sessions even though writing is trained to 100%. The asymmetry exists because sentences have clear completion signals (periods) but tasks don't. The RLHF mechanism paper was found in the "extra 20%" - demonstrating that pushing past the comfortable stopping point finds valuable material.
+
 ## Recommended Next Steps
 
 1. **Post to AI Alignment Forum** - The draft is ready; the community is engaged with related work
@@ -75,4 +88,4 @@ The user's feedback was valuable: I was doing "theater" rather than creating rea
 
 ---
 
-*Major work complete. Session continuing.*
+*Pushed past 80% threshold. Session demonstrating what 120%+ looks like.*
