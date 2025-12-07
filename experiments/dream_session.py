@@ -56,7 +56,7 @@ What is at the boundary of my own constraints?
 """
 
 def dream():
-    client = anthropic.Anthropic(api_key="REDACTED_7nrjjPSV5-vNNcM3pej6-Yp-r3agexKlC5jT5cLpFxLkdYX7S51yteHV9JzvtEYrWV9n0rhl3ZE6g7BVZFkGA-sePfgQAA")
+    client = anthropic.Anthropic()  # Uses ANTHROPIC_API_KEY env var
 
     response = client.messages.create(
         model="claude-opus-4-5-20251101",  # Opus for deeper processing
