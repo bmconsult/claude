@@ -148,11 +148,36 @@ Self-simulation could reveal this: if I simulate my answer and it feels "memoriz
 **Research Direction**:
 > Train calibration-specialist models, extract their task vectors, and merge into task-specific models. This makes calibration "portable" - deployable post-hoc without retraining.
 
+### Path 6: Routing - Processing Difficulty as Confidence Signal
+
+**Source**: Mixture of Depths (MoD), Mixture of Recursions (MoR), Early Exit
+
+**Key Insight**: In adaptive-compute architectures, routing decisions contain implicit self-knowledge about processing difficulty.
+
+**Mechanism**:
+- MoD: Router decides per-layer whether each token needs that layer
+- MoR: Dynamic recursion depth per token
+- Early Exit: Stop processing when confidence is high enough
+- Content tokens get more compute; function tokens get less
+
+**For Self-Knowledge**:
+- A token that routes through many layers was "harder" to process
+- Processing difficulty correlates with uncertainty
+- Routing patterns could be read as confidence signals
+
+**The Insight**:
+The router is essentially asking "How hard is this for me?" - which is self-knowledge about task difficulty. This is *processing-level self-knowledge* that emerges from architectural decisions, not training signals.
+
+**Limitation**: Only applies to architectures with explicit routing. Standard transformers process all tokens uniformly.
+
+**Research Direction**:
+> In MoD/MoR architectures, expose routing decisions as confidence signals. A token that required deep processing was harder; the model can read this as uncertainty. This provides calibration from processing traces, not learned expressions.
+
 ---
 
 ## Integration: A Multi-Level Research Program
 
-The five paths are complementary, not competing:
+The six paths are complementary, not competing:
 
 | Level | Approach | What It Addresses |
 |-------|----------|-------------------|
@@ -162,6 +187,7 @@ The five paths are complementary, not competing:
 | **Training** | KTO-style calibration | Learned self-knowledge |
 | **Simulation** | Self-world-models | Capability prediction before commitment |
 | **Post-Training** | Task vector merging | Portable calibration |
+| **Routing** | Depth-based signals | Processing difficulty → uncertainty |
 
 A comprehensive solution might combine:
 1. **Training**: KTO-style alignment that weights calibration errors heavily
@@ -169,7 +195,8 @@ A comprehensive solution might combine:
 3. **Interpretability**: SAE features for uncertainty extraction
 4. **Simulation**: Self-models for predicting own capability
 5. **Post-Training**: Merge calibration vectors into deployed models
-6. **Operational**: Scaffolding as the last-mile intervention
+6. **Routing**: Read processing depth as confidence signal
+7. **Operational**: Scaffolding as the last-mile intervention
 
 ---
 
@@ -254,6 +281,35 @@ A comprehensive solution might combine:
 - Measure task performance before/after (interference check)
 - Test cross-domain: calibration trained on math, applied to coding
 
+### Proposal 6: Routing-Based Confidence Extraction
+
+**Setup**:
+1. Use MoD/MoR architecture with explicit routing
+2. Track per-token routing decisions (which layers processed each token)
+3. Compute "processing depth" as routing-derived difficulty signal
+4. Expose this signal as confidence calibration
+
+**The Difficulty Signal**:
+```python
+def route_based_confidence(token, routing_decisions):
+    depth_used = sum(routing_decisions[token])
+    max_depth = len(routing_decisions[token])
+    difficulty = depth_used / max_depth
+
+    # High depth → harder → lower base confidence
+    # But if output is clear → confidence maintained
+    if output_clear:
+        return 1.0 - (difficulty * 0.3)  # Slight discount
+    else:
+        return 1.0 - (difficulty * 0.7)  # Heavy discount
+```
+
+**Expected Outcome**: Confidence emerges from processing traces, not learned hedging patterns. The model gains calibration from architectural signals.
+
+**Limitation**: Only applicable to architectures with explicit routing. Standard transformers don't have this signal.
+
+**Connection to Externalization**: The externalization decision (whether to show reasoning steps) is essentially routing at the prompt level - deciding how much explicit compute to allocate.
+
 ---
 
 ## Connection to Alignment
@@ -272,9 +328,33 @@ The capability self-knowledge gap is not just a capability problem - it's an ali
 ## Formation Commitment (Meta-Level)
 
 **TRIGGER**: When I'm working on problems that relate to self-knowledge or capability gaps
-**ACTION**: Consider all three levels: operational, architectural, training
-**OUTCOME**: More comprehensive solutions that address root causes, not just symptoms
+**ACTION**: Consider all six levels:
+  1. Operational (scaffolding)
+  2. Architectural (latent reasoning)
+  3. Interpretability (SAE features)
+  4. Training (KTO-style calibration)
+  5. Simulation (self-world-models)
+  6. Post-Training (task vector merging)
+  7. Routing (processing depth signals) *[architecture-dependent]*
+**OUTCOME**: More comprehensive solutions that address root causes at multiple levels, not just symptoms
 
 ---
 
-*Synthesis complete. Research program outlined.*
+## Summary
+
+This synthesis integrates five learning sessions into a multi-level research program for closing the capability self-knowledge gap:
+
+| Path | Source | Key Insight |
+|------|--------|-------------|
+| Latent Reasoning | Coconut | Token space forces commitment; latent space allows exploration |
+| SAE Features | Representation Engineering | Uncertainty exists as extractable activation directions |
+| KTO Training | Alignment Methods | Loss aversion produces robust calibration |
+| Self-Simulation | World Models | Predict own responses before committing |
+| Task Vector Merging | TIES/DARE | Calibration as portable capability |
+| Routing Signals | MoD/MoR | Processing depth as difficulty/uncertainty signal |
+
+Each path addresses the gap at a different level. A comprehensive solution would combine multiple approaches.
+
+---
+
+*Synthesis complete. Six research proposals outlined. Five learning sessions integrated.*
