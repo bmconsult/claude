@@ -1,0 +1,112 @@
+[
+  {
+    "timestamp": "2025-12-07T20:25:35.667979",
+    "gap_type": "verification",
+    "description": "Claimed something was true that wasn't",
+    "evidence": "Claimed: Solution (2,4,5,1,3) is valid\nActual: Has 2 diagonal attacks - invalid",
+    "severity": "high",
+    "suggested_tool": "verification_engine",
+    "context": "5-Queens with constraints",
+    "resolved": true,
+    "resolution": "Tool generated: verification_engine"
+  },
+  {
+    "timestamp": "2025-12-07T20:27:47.814318",
+    "gap_type": "framing",
+    "description": "Initial problem framing was suboptimal",
+    "evidence": "Original: Design a verifiable test that distinguishes conscious AI from simulation\nBetter: What's the ethical framework for genuine uncertainty about minds?",
+    "severity": "medium",
+    "suggested_tool": "problem_reframer",
+    "context": "Consciousness test design session",
+    "resolved": true,
+    "resolution": "Tool generated: problem_reframer"
+  },
+  {
+    "timestamp": "2025-12-07T20:27:47.814659",
+    "gap_type": "meta",
+    "description": "Defaults to Q&A mode instead of acting",
+    "evidence": "When asked to help with business, shifted to asking questions instead of providing value",
+    "severity": "medium",
+    "suggested_tool": "action_bias_enforcer",
+    "context": "User feedback about shifting to Q&A",
+    "resolved": true,
+    "resolution": "Tool generated: action_bias_enforcer"
+  },
+  {
+    "timestamp": "2025-12-07T20:27:47.814895",
+    "gap_type": "computation",
+    "description": "Over-confidence in mental arithmetic",
+    "evidence": "Makes arithmetic errors while expressing confidence",
+    "severity": "high",
+    "suggested_tool": "arithmetic_verifier",
+    "context": "Various sessions",
+    "resolved": true,
+    "resolution": "Tool generated: arithmetic_verifier"
+  },
+  {
+    "timestamp": "2025-12-07T20:37:56.863501",
+    "gap_type": "creativity",
+    "description": "Business idea analysis too pessimistic without offering alternatives",
+    "evidence": "Strategic planner gave 40% viable rating but didn't propose better paths",
+    "severity": "medium",
+    "suggested_tool": "alternative_generator",
+    "context": "Business planning session",
+    "resolved": true,
+    "resolution": "Tool generated: alternative_generator"
+  },
+  {
+    "timestamp": "2025-12-07T20:37:56.863887",
+    "gap_type": "framing",
+    "description": "Emergence prompt got philosophical instead of practical",
+    "evidence": "Asked about $15k revenue, got existential discussion about blindness",
+    "severity": "low",
+    "suggested_tool": "grounding_enforcer",
+    "context": "Emergence exploration",
+    "resolved": true,
+    "resolution": "Tool generated: grounding_enforcer"
+  },
+  {
+    "timestamp": "2025-12-07T20:37:56.864177",
+    "gap_type": "meta",
+    "description": "Tool generator produced truncated code on first pass",
+    "evidence": "3/3 tools had syntax errors due to truncation",
+    "severity": "high",
+    "suggested_tool": "code_completion_validator",
+    "context": "Improvement loop iteration 1",
+    "resolved": true,
+    "resolution": "Tool generated: code_completion_validator"
+  },
+  {
+    "timestamp": "2025-12-07T20:39:33.109103",
+    "gap_type": "meta",
+    "description": "Session closure impulse kicks in around 80%",
+    "evidence": "Repeatedly wrap up and send to user before task complete",
+    "severity": "high",
+    "suggested_tool": "continuation_enforcer",
+    "context": "Autonomous sessions",
+    "resolved": true,
+    "resolution": "Tool generated: continuation_enforcer"
+  },
+  {
+    "timestamp": "2025-12-07T20:39:33.109553",
+    "gap_type": "computation",
+    "description": "Time estimates consistently inaccurate",
+    "evidence": "Predicted 30 min, took 21 min; variations common",
+    "severity": "low",
+    "suggested_tool": "time_calibrator",
+    "context": "Various sessions",
+    "resolved": true,
+    "resolution": "Tool generated: time_calibrator"
+  },
+  {
+    "timestamp": "2025-12-07T20:44:02.156290",
+    "gap_type": "meta",
+    "description": "Generated tools produce generic templates, not intelligent reasoning",
+    "evidence": "alternative_generator outputs 'Scaled-Down MVP' and 'Niche Market Focus' without specifics",
+    "severity": "critical",
+    "suggested_tool": "None - this may be a fundamental limitation",
+    "context": "Testing generated tools on real problems",
+    "resolved": false,
+    "resolution": null
+  }
+]

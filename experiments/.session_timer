@@ -1,5 +1,21 @@
 {
-  "start_time": 1765136606.1302998,
-  "start_iso": "2025-12-07 19:43:26",
-  "markers": []
+  "start_time": 1765139051.9866607,
+  "start_iso": "2025-12-07 20:24:11",
+  "markers": [
+    {
+      "label": "business-analysis-complete",
+      "elapsed_seconds": 763.3010165691376,
+      "time_iso": "2025-12-07 20:36:55"
+    },
+    {
+      "label": "synthesis-insight",
+      "elapsed_seconds": 1357.0890574455261,
+      "time_iso": "2025-12-07 20:46:49"
+    },
+    {
+      "label": "creative-synthesis-complete",
+      "elapsed_seconds": 1693.7821192741394,
+      "time_iso": "2025-12-07 20:52:25"
+    }
+  ]
 }
