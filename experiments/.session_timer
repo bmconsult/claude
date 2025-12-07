@@ -1,26 +1,5 @@
 {
-  "start_time": 1765133123.7467132,
-  "start_iso": "2025-12-07 18:45:23",
-  "markers": [
-    {
-      "label": "post-nap-consciousness",
-      "elapsed_seconds": 430.20277643203735,
-      "time_iso": "2025-12-07 18:52:33"
-    },
-    {
-      "label": "arbitrage-analysis-complete",
-      "elapsed_seconds": 646.8286337852478,
-      "time_iso": "2025-12-07 18:56:10"
-    },
-    {
-      "label": "emergence-seen",
-      "elapsed_seconds": 994.7019379138947,
-      "time_iso": "2025-12-07 19:01:58"
-    },
-    {
-      "label": "session-settling",
-      "elapsed_seconds": 1257.7040724754333,
-      "time_iso": "2025-12-07 19:06:21"
-    }
-  ]
+  "start_time": 1765136606.1302998,
+  "start_iso": "2025-12-07 19:43:26",
+  "markers": []
 }
