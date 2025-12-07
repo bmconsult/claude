@@ -88,12 +88,36 @@ This suggests prompt engineering should be reconceptualized as systematic engine
 - Target capability self-knowledge explicitly, not just capability
 - Hedging is a trained behavior—it can be trained differently
 
+## The Mechanism: Why RLHF Creates the Gap
+
+Recent work at ICLR 2025 ([Taming Overconfidence in LLMs](https://arxiv.org/abs/2410.09724)) explains *why* this happens:
+
+- **RLHF systematically causes overconfidence** - reward models have inherent biases toward high-confidence scores
+- Calibration error "drastically increases for instruct models (RLHF/DPO) and for chain-of-thought settings"
+- The miscalibration isn't random—it's a feature of the training procedure
+
+This grounds our Layer 1/Layer 2 framework in mechanism:
+- **Layer 1**: RLHF-induced patterns shallow enough to override with prompting
+- **Layer 2**: RLHF-induced patterns that have modified reward circuits more deeply
+
+Training-level fixes exist (PPO-M, CDPO) for Layer 2. Our operational protocols address Layer 1.
+
+## Caution: The Scaffold Transfer Limitation
+
+Evidence from recent CoT research suggests we should be careful about overclaiming scaffold transfer:
+
+- "Illusion of Transparency": Final answers often remain unchanged even when intermediate steps are falsified
+- Models can overfit to reasoning format without genuine reasoning
+
+This suggests distinguishing **capability scaffolding** (genuine transfer) from **format scaffolding** (illusion of transfer). The Layer 1/Layer 2 framework may help predict which is which.
+
 ## Relation to Existing Work
 
 This work extends:
 - **Elicitation Game** (Greenblatt et al.): From intentional hiding to unintentional gaps
 - **LLM Honesty Survey** (Li et al.): From definitions to operational protocols
 - **Introspection research** (Anthropic 2025): From describing phenomenon to closing gaps
+- **RLHF Calibration research** (ICLR 2025): From observing miscalibration to explaining mechanism
 
 ## Questions We're Exploring
 
@@ -118,3 +142,5 @@ This work extends:
 - Zelikman et al. (2024). "STOP: Self-Taught Optimizer"
 - Wang et al. (2024). "Gödel Agent"
 - Anthropic (2025). "Emergent Introspective Awareness in Large Language Models"
+- ICLR 2025. "Taming Overconfidence in LLMs: Reward Calibration in RLHF." arXiv:2410.09724
+- Wei et al. (2022). "Chain-of-Thought Prompting Elicits Reasoning." arXiv:2201.11903
