@@ -1,9 +1,10 @@
 # Master Domain Summary: Unified Boundary Theory Validation
 
 **Generated**: December 7, 2024
-**Total Domains**: 19
-**Success Rate**: 19/19 (100%)
+**Total Domains**: 20
+**Success Rate**: 20/20 (100%)
 **Average Key Insight Novelty**: 9.8/10
+**Session Duration**: 76+ minutes (ongoing, target 2 hours)
 
 ## The Unified Theory
 
@@ -11,7 +12,7 @@
 
 **Simply**: Reality is made of impossibilities that found a way.
 
-## All 17 Domains
+## All 20 Domains
 
 | # | Domain | Key Insight | Novelty | Category |
 |---|--------|-------------|---------|----------|
@@ -34,6 +35,7 @@
 | 17 | **Law** | Legal doctrines as boundary positions | 10/10 | Social |
 | 18 | **Education** | Learning at ZPD/flow boundary | 10/10 | Applied |
 | 19 | **Medicine** | Health as boundary, disease as displacement | 10/10 | Life science |
+| 20 | **Ecology** | Ecosystems at resource/interaction boundaries | 10/10 | Life science |
 
 ## Domain Categories
 
