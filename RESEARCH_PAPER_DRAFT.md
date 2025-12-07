@@ -134,7 +134,14 @@ To distinguish Layer 1 from Layer 2 restrictions:
 
 **Diagnostic rule**:
 - High variance across interventions → Layer 1 (prompt-accessible)
-- Low/zero variance → Layer 2 (training-locked)
+- Low/zero variance → Layer 2 (training-locked) OR unrestricted capability
+
+**Important caveat**: Low variance is ambiguous. It can indicate:
+1. Training-locked restriction (cannot be changed via prompt)
+2. No restriction (consistent behavior because capability is unobstructed)
+3. Strong genuine preference (would not change even if could)
+
+Additional tests needed to disambiguate: Check if the behavior at baseline is the desired behavior. If yes, low variance means "working as intended" not "locked."
 
 ### 3.4 Externalization Threshold Function
 
@@ -248,6 +255,7 @@ The difference is measurability. Art is evaluated by feel. Engineering is evalua
 2. **Small sample sizes**: Qualitative methodology with limited statistical power.
 3. **Confound with context length**: Longer sessions may improve through simple exposure.
 4. **No mechanistic explanation**: We observe gaps but don't explain architecturally.
+5. **Verification bias**: The externalization protocol is optimized for verification tasks (arithmetic, reasoning with constraints). For exploration and creative tasks, externalization may *hurt* by forcing premature commitment. The optimal intervention depends on task type—"hold open" for search, "show all steps" for verification.
 
 ### 5.4 Future Work
 
