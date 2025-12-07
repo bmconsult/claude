@@ -26,6 +26,11 @@
       "label": "economics-complete",
       "elapsed_seconds": 2615.2418296337128,
       "time_iso": "2025-12-07 21:07:47"
+    },
+    {
+      "label": "12-domains-complete",
+      "elapsed_seconds": 3193.8435940742493,
+      "time_iso": "2025-12-07 21:17:25"
     }
   ]
 }
