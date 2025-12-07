@@ -31581,3 +31581,1011 @@ Either:
 *Key sources: Soundararajan (smooth numbers), Baker (S-units), Gel'fond (digit sums)*
 *Gap: No direct result for S_ν = Σ 3^{m-1-i} · 2^{bᵢ} distribution*
 *Options: Find applicable theorem, prove new result, or extend computation*
+
+---
+
+# Part L: Advanced Additive Combinatorics and Distribution Theory (§1045-1074)
+
+## 1045. Sums of Dilates: Bukh's Theory
+
+### Fundamental Setup
+
+The λ-**dilate** of a set A is: λ·A = {λa : a ∈ A}
+
+**Problem**: Understand |A + λ·A| and |λ₁·A + ... + λₖ·A|
+
+### Bukh's Main Theorem (2008)
+
+**Theorem** (Bukh): For coprime integers λ₁, ..., λₖ and finite A ⊂ ℤ:
+```
+|λ₁·A + ··· + λₖ·A| ≥ (|λ₁| + ··· + |λₖ|)|A| - o(|A|)
+```
+
+The error term o(|A|) depends only on λ̄, not on A.
+
+### Special Case: A + 3·A
+
+**Theorem**: For every finite A ⊂ ℤ, |A + 3·A| ≥ 4|A| - O(1).
+
+**Extremal sets**: Two essentially different examples achieve the bound:
+1. Arithmetic progression: A = {1, 2, ..., n}
+2. "3-avoiding" set: A = {1, 2, 4, 5, ..., 3m+1, 3m+2}
+
+### Relevance to S_ν
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ} is a **sum of dilates**!
+
+If B = {2^{b₁}, ..., 2^{bₘ}} and λᵢ = 3^{m-1-i}, then:
+```
+S_ν ∈ λ₁·B + λ₂·B + ... + λₘ·B (single element from each dilate)
+```
+
+Bukh's results bound the **size** of sumsets, not their distribution.
+
+Sources: [Bukh (2008)](https://arxiv.org/abs/0711.1610), [Hamidoune-Rué (2011)](https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/abs/sums-of-dilates/1E24A15DD8355DECB00B39C94CFD690B)
+
+---
+
+## 1046. Structure Theorem for Small Dilated Sumsets
+
+### Bilu's Structure Theorem
+
+**Theorem** (Bilu, used by Bukh): If A ⊂ ℤ satisfies |A + A| ≤ K|A|, then A is r-isomorphic to a subset of [1,t₁]×···×[1,tₐ] ⊂ ℤᵈ of density ≥ α > 0.
+
+Here d and α depend only on K and r (not on A).
+
+### Freiman-type Structure
+
+Sets with small doubling are "essentially" generalized arithmetic progressions.
+
+**GAP** (Generalized Arithmetic Progression):
+```
+P(v₀; v₁, ..., vₐ; L₁, ..., Lₐ) = {v₀ + Σⱼ xⱼvⱼ : 0 ≤ xⱼ < Lⱼ}
+```
+
+### Inverse Results for Dilates
+
+If |A + λ·A| is small (close to (1+|λ|)|A|), then A must have structure.
+
+**Conjecture** (Bukh): If |A+A| ≤ C|A|, then |2·A+A| ≤ C^α|A| for some α < 3.
+
+**Partial answer** (Hanson-Petridis): Achieved α = 3 - 1/20.
+
+---
+
+## 1047. Polynomial Freiman-Ruzsa Conjecture (Proved 2023)
+
+### The Statement
+
+**Conjecture** (Marton, c. 1995): If A ⊆ F₂ⁿ satisfies |A+A| ≤ K|A|, then A is covered by K^C cosets of some subgroup H with |H| ≤ |A|.
+
+### The Breakthrough
+
+**Theorem** (Gowers-Green-Manners-Tao, 2023): The conjecture is true with C = 12.
+
+(Later improved to C = 11 by Liao, and C = 9 in subsequent work.)
+
+### Proof Method
+
+The proof relies on **Shannon entropy inequalities**, including:
+- Subadditivity of entropy
+- Ruzsa's sumset inequality (entropic version)
+- Fibering arguments
+
+### Lean Formalization
+
+The proof was completely formalized in **Lean 4**, a major milestone:
+- Project led by Tao with Dillies and Mehta
+- First time a contemporary research result was formalized this rapidly
+
+### Relevance to Collatz
+
+PFR concerns structure of sets with small sumsets in **F₂ⁿ**.
+
+For Collatz, the relevant group is **ℤ/Dℤ** where D = 2^A - 3^m.
+
+The techniques (entropy, structure) might transfer.
+
+Sources: [Gowers et al. (2023)](https://arxiv.org/abs/2311.05762), [Lean formalization](https://teorth.github.io/pfr/), [Tao's blog](https://terrytao.wordpress.com/tag/polynomial-freiman-ruzsa-conjecture/)
+
+---
+
+## 1048. Bourgain's Sum-Product Phenomenon
+
+### The Theorem
+
+**Theorem** (Bourgain-Katz-Tao, 2003): For A ⊂ F_p with |F_p|^δ < |A| < |F_p|^{1-δ}:
+```
+|A + A| + |A · A| ≥ c(δ)|A|^{1+ε}
+```
+for some ε = ε(δ) > 0.
+
+### Meaning
+
+A set cannot be simultaneously additively and multiplicatively structured.
+
+Either |A + A| or |A · A| must grow beyond |A|.
+
+### Extension to General Modulus
+
+**Theorem** (Bourgain, 2005): The sum-product theorem extends to ℤ_q = ℤ/qℤ for **arbitrary** q, not just primes.
+
+### Applications
+
+1. **Exponential sum bounds**: New estimates for sums over subgroups
+2. **Expanders**: Construction of explicit expander graphs
+3. **Extractors**: Randomness extraction from weak sources
+
+### Relevance to S_ν
+
+S_ν involves both additive structure (sum) and multiplicative structure (products 3^i · 2^j).
+
+Sum-product phenomena suggest the structure shouldn't be "too special."
+
+Sources: [Bourgain-Katz-Tao (2003)](https://arxiv.org/abs/math/0301343), [Bourgain (2005)](https://www.worldscientific.com/doi/abs/10.1142/S1793042105000108)
+
+---
+
+## 1049. Mauduit-Rivat: Digit Sum Equidistribution
+
+### Gel'fond's Question (1968)
+
+Is the sum of digits of prime numbers equidistributed in arithmetic progressions?
+
+### The Resolution
+
+**Theorem** (Mauduit-Rivat, 2010): Let s_q(n) = sum of digits of n in base q.
+
+For q ≥ 2 and m with gcd(q-1, m) = 1:
+
+The sequence {s_q(p) mod m : p prime} is equidistributed.
+
+### Special Case
+
+50% of primes have even digit sum in base 2.
+50% of primes have odd digit sum in base 2.
+
+### Proof Technique
+
+The proof uses:
+1. **Exponential sums** over primes
+2. **Type I/II estimates** (circle method machinery)
+3. Careful analysis of carry propagation in digit arithmetic
+
+### Significance
+
+This resolved a 40+ year old question and established deep connections between:
+- Digit structure (local)
+- Prime distribution (global)
+- Exponential sum cancellation (analytic)
+
+### Relevance to S_ν
+
+S_ν = Σ 3^{m-1-i} · 2^{bᵢ} has digit-sum-like structure.
+
+The bᵢ encode a kind of "base-2 representation" of the trajectory.
+
+Mauduit-Rivat techniques might adapt.
+
+Sources: [Mauduit-Rivat (2010)](https://jtnb.centre-mersenne.org/item/?id=JTNB_2009__21_2_415_0), [Gel'fond (1968)](https://en.wikipedia.org/wiki/Gelfond–Schneider_theorem)
+
+---
+
+## 1050. Powers of 2 Modulo Powers of 3
+
+### The Bi-periodic Structure
+
+**Fact**: Since 2 is a primitive root of 3^m for all m ≥ 1:
+
+The set {(n, 2^n mod 3^m) : n ≥ 0} is **bi-periodic** with:
+- Horizontal period: φ(3^m) = 2 · 3^{m-1}
+- Vertical period: 3^m
+
+### Finer Structure
+
+Considering n mod 6 gives even finer classification:
+- Six classes with distinct behavior patterns
+- Each class forms a "smaller" bi-periodic subset
+
+### The General Principle
+
+For any primitive root g mod p^k:
+
+The powers {g^n mod p^k} cycle with period φ(p^k) = (p-1)p^{k-1}.
+
+This is one of the **few structural results** about modular distribution of primitive root powers.
+
+### Relevance to Collatz
+
+In Collatz cycles, we need 2^A ≡ 3^m (mod D).
+
+The structure of 2^n mod 3^m is **completely understood**:
+- Periodic with known period
+- Covers all residues coprime to 3^m
+- No exceptional behavior
+
+The problem is the **interaction** with D = 2^A - 3^m.
+
+Sources: [Powers of Two Modulo Powers of Three, JIS 2015](https://cs.uwaterloo.ca/journals/JIS/VOL18/Coons/coons2.html)
+
+---
+
+## 1051. Tao's Syracuse Random Variable Approach
+
+### The Syracuse Iteration
+
+The **Syracuse map** Syr: ℕ_odd → ℕ_odd:
+```
+Syr(n) = (3n+1) / 2^{ν₂(3n+1)}
+```
+
+Key property: Each application contains **exactly one** multiplication by 3.
+
+### Why Syracuse?
+
+The Syracuse map isolates the **3-adic structure**:
+- Collatz mixes 2-adic and 3-adic
+- Syracuse separates: one 3-multiplication per step
+
+### The Syracuse Random Variable
+
+For N ∈ ℕ, define the **first passage random variable**:
+```
+τ_f(N) = min{n : Syr^n(N) ≤ f(N)}
+```
+
+### Tao's Main Result (2019)
+
+**Theorem**: For any f with lim f(N) = +∞:
+```
+Col_min(N) < f(N) for almost all N (logarithmic density)
+```
+
+This includes f(N) = log log log log N (arbitrarily slow growth).
+
+### The Technique
+
+1. **Characteristic function** of skew random walk on 3-adic cyclic group
+2. **High-frequency estimation** using renewal processes
+3. **Transport properties** for passage time distribution
+
+### Why Logarithmic Density?
+
+Logarithmic density has better **approximate multiplicative invariance**:
+```
+dens_log(A) = lim_{N→∞} (1/log N) Σ_{n≤N, n∈A} 1/n
+```
+
+This matches the multiplicative nature of Collatz (×3, ÷2).
+
+Sources: [Tao (2019)](https://arxiv.org/abs/1909.03562), [Tao's blog](https://terrytao.wordpress.com/2019/09/10/almost-all-collatz-orbits-attain-almost-bounded-values/)
+
+---
+
+## 1052. The 3-adic vs 2-adic Structure
+
+### 2-adic Analysis (Well Understood)
+
+The Collatz map extends to ℤ₂ (2-adic integers):
+- **Continuous** on compact ℤ₂
+- **Measure-preserving** for 2-adic Haar measure
+- **Ergodic** dynamics
+
+**Result**: For μ-almost all x ∈ ℤ₂, orbit is equidistributed.
+
+### 3-adic Analysis (Less Understood)
+
+Tao's insight: The **3-adic structure** controls trajectory behavior.
+
+The Syracuse map makes this explicit:
+- Each step is one ×3 operation
+- The number of ÷2 operations varies
+
+### The Missing Piece
+
+"Previous work has focused more on the 2-adic structure than the 3-adic."
+
+The 3-adic analysis controls:
+- Which trajectories descend
+- Rate of descent
+- Distribution of trajectory statistics
+
+### What This Suggests for S_ν
+
+S_ν = Σ 3^{m-1-i} · 2^{bᵢ} has both structures:
+- Powers of 3: 3-adic contribution (positions)
+- Powers of 2: 2-adic contribution (values bᵢ)
+
+**Insight**: Perhaps separate analysis of 3-adic and 2-adic aspects is key.
+
+---
+
+## 1053. Characteristic Functions on Cyclic Groups
+
+### Setup
+
+For cyclic group ℤ/Nℤ, the **characteristic function** (Fourier transform) of a distribution P:
+```
+φ_P(t) = Σ_a P(a) · e^{2πiat/N}
+```
+
+### Equidistribution Criterion
+
+P is uniform on ℤ/Nℤ ⟺ φ_P(t) = 0 for all t ≢ 0 (mod N).
+
+### For Random Walk
+
+If X = X₁ + X₂ + ... + Xₙ (independent steps):
+```
+φ_X(t) = φ_{X₁}(t) · φ_{X₂}(t) · ... · φ_{Xₙ}(t)
+```
+
+### Decay Implies Equidistribution
+
+If |φ_{Xᵢ}(t)| < 1 for t ≢ 0, then |φ_X(t)| → 0 exponentially.
+
+### Tao's Application
+
+Models Collatz trajectory as random walk on 3-adic cyclic group.
+
+Key: Show characteristic function decays at high frequencies.
+
+---
+
+## 1054. Renewal Theory Connection
+
+### Renewal Processes
+
+A **renewal process** counts events occurring at random intervals.
+
+If τ₁, τ₂, ... are i.i.d. inter-arrival times:
+```
+N(t) = max{n : τ₁ + ... + τₙ ≤ t}
+```
+
+### In Collatz Context
+
+Think of trajectory as sequence of "events" (odd numbers encountered).
+
+The time between events is the number of ÷2 operations.
+
+### Two-Dimensional Renewal
+
+Tao's analysis involves **2D renewal process**:
+- One dimension: number of 3-operations (Syracuse steps)
+- Other dimension: total trajectory length
+
+### Triangle Structure
+
+The renewal process interacts with "union of triangles" in frequency space.
+
+This geometry controls exponential sum cancellation.
+
+---
+
+## 1055. The Gap: S_ν Distribution Revisited
+
+### What We Now Know
+
+| Tool | What It Provides | Gap for S_ν |
+|------|------------------|-------------|
+| Bukh's dilates | Size bounds for A + λ·A | Distribution, not size |
+| PFR (proved) | Structure of small-sumset sets | Wrong group (F₂ⁿ vs ℤ/Dℤ) |
+| Sum-product | Growth under + and × | S_ν is a specific sum |
+| Mauduit-Rivat | Digit sums mod m | Different weighted sum |
+| Powers of 2 mod 3^m | Complete structure | Interaction with D |
+| Tao Syracuse | 3-adic characteristic fn | Almost-all, not all |
+
+### The Specific Object
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ} where b₁ < b₂ < ... < bₘ = A
+
+This is:
+- A **weighted sum** (weights 3^{m-1-i})
+- Of **powers of 2** (values 2^{bᵢ})
+- With **ordered indices** (b₁ < ... < bₘ)
+- Evaluated **mod D** where D = 2^A - 3^m
+
+### No Direct Theorem
+
+No existing result addresses all these constraints simultaneously.
+
+---
+
+## 1056. Synthesis: Potential Approaches
+
+### Approach A: Adapt Mauduit-Rivat
+
+**Idea**: Treat S_ν as generalized digit sum.
+
+**Challenge**: The weights 3^{m-1-i} are not constant.
+
+**Possible**: Develop weighted digit-sum equidistribution.
+
+### Approach B: Use Sum-Product
+
+**Idea**: Show S_ν values can't cluster (sum-product growth).
+
+**Challenge**: Need multiplicative and additive structure.
+
+**Possible**: Exploit interaction of 2^{bᵢ} with 3^{m-1-i}.
+
+### Approach C: Adapt Tao's Syracuse Analysis
+
+**Idea**: Use characteristic function on ℤ/Dℤ.
+
+**Challenge**: D varies with A, m.
+
+**Possible**: Show uniform decay across parameter space.
+
+### Approach D: Prove New Structure Theorem
+
+**Idea**: Classify sets {S_ν : ν} and show large.
+
+**Challenge**: Need Freiman-type result for this specific construction.
+
+**Possible**: Extend Bukh's methods to additive structure.
+
+---
+
+## 1057. Connection to Earlier GP Gauss Sum Work
+
+### Recall Our GP Gauss Sum
+
+From Part XLVII (§991-1018):
+```
+G(a) = Σ_{k=0}^{m-1} e(a · 3^k / D)
+```
+
+This is the Fourier transform of the geometric progression {1, 3, 3², ..., 3^{m-1}}.
+
+### What We Proved
+
+1. **Parseval**: Σ_a |G(a)|² = D · m
+2. **Markov bound**: #{a : |G(a)| > √m · log D} ≤ D/(log D)²
+3. **Typical |G(a)|**: Around √m for most a
+
+### The Gap We Identified
+
+The error term √N from Parseval exceeds the main term N/D.
+
+Standard bounds are **too weak**.
+
+### Connection to S_ν
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ}
+
+The Fourier analysis of S_ν distribution involves:
+```
+Σ_ν e(a · S_ν / D) = Π_i G_weighted(a, bᵢ)
+```
+
+where the product structure comes from independence of bit choices.
+
+---
+
+## 1058. The Product Structure Advantage
+
+### Key Observation
+
+If bᵢ are chosen "independently," the exponential sum factors:
+```
+Σ_ν e(a · S_ν / D) = Π_i Σ_{b_i values} e(a · 3^{m-1-i} · 2^{bᵢ} / D)
+```
+
+### Why Products Help
+
+For products of bounded terms:
+- If each factor has magnitude < 1 - ε, product decays exponentially
+- Need: |Σ_{bᵢ} e(a · 3^{m-1-i} · 2^{bᵢ} / D)| < c < 1
+
+### The Challenge
+
+The bᵢ are **not independent** — they must satisfy b₁ < b₂ < ... < bₘ = A.
+
+This ordering constraint breaks the product factorization.
+
+### Possible Resolution
+
+Condition on the gaps gᵢ = bᵢ - bᵢ₋₁:
+- Gaps are positive integers
+- Sum to A - b₁
+- Might have weaker dependence
+
+---
+
+## 1059. Additive Combinatorics Summary
+
+### Tools Acquired
+
+1. **Freiman-Ruzsa theorem**: Small doubling ⟹ GAP structure
+2. **Bukh's dilate bounds**: |A + λ·A| ≥ (1+|λ|)|A| - o(|A|)
+3. **PFR (proved)**: Polynomial bounds on coset covering
+4. **Sum-product**: |A+A| + |A·A| ≥ |A|^{1+ε} in F_p
+5. **Entropy methods**: Shannon inequalities for sumset bounds
+
+### What These Can't Do
+
+- Prove uniformity of specific sums mod specific moduli
+- Handle ordered/constrained sums
+- Give equidistribution (only size bounds)
+
+### What We Need
+
+Distribution of S_ν = Σ 3^{m-1-i} · 2^{bᵢ} mod D = 2^A - 3^m.
+
+This is a **distribution question**, not a **size question**.
+
+---
+
+## 1060. Tao Syracuse Summary
+
+### Key Insights
+
+1. **Syracuse isolates 3-adic**: One ×3 per step
+2. **Characteristic function on 3-adic cyclic group** captures trajectory statistics
+3. **High-frequency decay** gives equidistribution
+4. **Renewal process** models variable ÷2 counts
+
+### The Result
+
+Almost all N have Collatz minimum below any f(N) → ∞.
+
+### Limitations
+
+1. **Logarithmic density**: Not natural density
+2. **Almost all**: Doesn't rule out divergent trajectories
+3. **Cycles**: Not directly addressed
+
+### What Transfers to S_ν?
+
+- Characteristic function approach: **YES** — natural for distribution
+- 3-adic focus: **YES** — S_ν has powers of 3
+- Renewal process: **MAYBE** — different structure
+- High-frequency estimation: **KEY QUESTION**
+
+---
+
+## 1061. Gel'fond-Baker-Tijdeman Framework Revisited
+
+### Baker's Theorem (Linear Forms in Logarithms)
+
+For algebraic α₁, ..., αₙ and integers b₁, ..., bₙ:
+```
+|b₁ log α₁ + ... + bₙ log αₙ| > C · H^{-κ}
+```
+where H = max|bᵢ| and C, κ are effective.
+
+### Application to 2^a - 3^b
+
+|2^a - 3^b| > C · 2^a · a^{-κ}
+
+This is **large** — ruling out coincidences.
+
+### For S_ν
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ}
+
+Baker bounds don't directly apply:
+- S_ν is a **sum**, not a single term
+- Each term is product 3^{m-1-i} · 2^{bᵢ}
+- Need bounds on |S_ν mod D|
+
+### S-unit Equation Connection
+
+Equations like x + y = z with x, y, z {2,3}-smooth.
+
+**Theorem**: Only finitely many solutions with bounded height.
+
+But S_ν involves **many** terms (m of them), not just 2 or 3.
+
+---
+
+## 1062. The Unifying Theme: Independence
+
+### Across All Approaches
+
+| Approach | Independence Assumption | What Fails |
+|----------|-------------------------|------------|
+| Probabilistic (Tao) | "Random" parity sequence | Deterministic dependence |
+| Fourier (our GP) | Factors independent | Ordering constraint b_i < b_{i+1} |
+| Additive comb. | Generic set position | S_ν is specific structure |
+| Character sums | Uniform input | 2^{bᵢ} correlated |
+
+### The Core Difficulty
+
+**S_ν terms are deterministically dependent.**
+
+The sequence ν = (b₁, ..., bₘ) encodes a Collatz trajectory.
+Trajectories have arithmetic constraints.
+These create correlations that break independence assumptions.
+
+### What Would Resolve This
+
+Either:
+1. **Prove weak independence**: Correlations decay with distance
+2. **Find structure that helps**: Correlations cause extra cancellation
+3. **Exhaustive analysis**: Case-by-case for all correlation patterns
+
+---
+
+## 1063. Weak Dependence in Collatz Trajectories
+
+### The Constraint
+
+b_{i+1} > b_i (strictly increasing)
+
+This is the **only** constraint beyond 0 < b₁ < b₂ < ... < bₘ = A.
+
+### Counting
+
+Number of valid ν: C(A-1, m-1) = (A-1 choose m-1)
+
+### Gap Distribution
+
+Let gᵢ = bᵢ₊₁ - bᵢ for i = 1, ..., m-1.
+
+Then gᵢ ≥ 1 and Σgᵢ = A - b₁ ≤ A - 1.
+
+### Asymptotic Independence?
+
+As A → ∞, for typical ν:
+- Most gaps are O(A/m)
+- Gaps fluctuate around mean
+- Adjacent gaps have weak correlation
+
+**Conjecture**: The correlation between g_i and g_j decays with |i-j|.
+
+### If True
+
+Weak dependence + many terms ⟹ Central Limit behavior
+S_ν would be approximately Gaussian mod D.
+
+---
+
+## 1064. Entropy Perspective on S_ν
+
+### Shannon Entropy
+
+For distribution P on [D], entropy H(P) = -Σ P(x) log P(x).
+
+Maximum: H_max = log D (uniform distribution).
+
+### Entropy of S_ν Distribution
+
+Let P_S(x) = Prob(S_ν ≡ x mod D) over uniform choice of ν.
+
+**Question**: Is H(P_S) close to log D?
+
+### Entropy Bounds
+
+If S_ν were sum of independent uniform variables:
+H(S_ν) would approach log D (concentration).
+
+With constraints:
+H(S_ν) ≥ log(# distinct S_ν values)
+
+### The Entropy Gap
+
+**If** H(P_S) = log D - O(1), distribution is nearly uniform.
+
+**If** H(P_S) << log D, distribution is concentrated.
+
+Measuring/bounding H(P_S) could resolve the uniformity question.
+
+---
+
+## 1065. Computational Experiments to Guide Theory
+
+### What Can Be Computed
+
+For small m (say m ≤ 15) and corresponding A:
+
+1. **Enumerate all ν**: List all (A-1 choose m-1) valid sequences
+2. **Compute S_ν mod D**: For each ν
+3. **Build histogram**: Distribution of S_ν values
+4. **Statistical tests**: χ² for uniformity, entropy estimation
+
+### What To Look For
+
+- **Bias**: Are some residue classes overrepresented?
+- **Gaps**: Are some residues never achieved?
+- **Structure**: Do the achieved values form patterns?
+
+### Current Knowledge
+
+From Part XLVI (§954-990), we verified square-root cancellation for m ≤ 6.
+
+This suggested good cancellation but couldn't verify uniformity directly.
+
+### Extended Computation Needed
+
+For m = 7, 8, ..., 12:
+- Enumerate S_ν mod D
+- Check if distribution approaches uniform
+- Identify any systematic bias
+
+---
+
+## 1066. The Decisive Question
+
+### Formulation
+
+**Question**: For m ≥ 1 and A = ⌈m log₂ 3⌉ + k (small k > 0):
+
+Is S_ν mod D approximately uniformly distributed over ν ∈ valid sequences?
+
+### Three Scenarios
+
+**Scenario 1: YES (uniform)**
+- Cycles: each orbit contributes independent uniform chance
+- Result: P(cycle|m) ≈ 1/D ≈ 3^{-m}
+- Conclusion: No cycles for large m (probability vanishes)
+
+**Scenario 2: NO (biased toward 0)**
+- There's systematic reason S_ν ≡ 0 is likely
+- Result: Cycles exist, possibly infinitely many
+- Conclusion: Structure must be understood
+
+**Scenario 3: NO (biased away from 0)**
+- S_ν ≡ 0 is systematically unlikely
+- Result: Even fewer cycles than uniform
+- Conclusion: Collatz likely true, need to prove bias
+
+### Current Evidence
+
+Computation suggests Scenario 1 or 3.
+No evidence for Scenario 2 (extra cycles).
+
+---
+
+## 1067. Techniques Summary Table
+
+| Technique | Source | What It Bounds | Applies to S_ν? |
+|-----------|--------|----------------|-----------------|
+| Parseval inequality | Classical | Mean |G(a)|² | Yes, too weak |
+| Weil bound | Algebraic geometry | Character sums | No, wrong phase |
+| Weyl bound | Analytic NT | Polynomial phase sums | No, exponential phase |
+| Sum-product | Bourgain et al. | |A+A| + |A·A| | Indirectly |
+| Freiman structure | Additive combinatorics | Sets with small doubling | Not distribution |
+| Mauduit-Rivat | Analytic NT | Digit sum of primes | Might adapt |
+| Baker/S-units | Transcendence | Linear forms, finite solutions | Few terms only |
+| Tao Syracuse | Probabilistic NT | Almost-all trajectories | Almost-all, not worst case |
+
+### What's Missing
+
+**Direct result**: Distribution of weighted sums Σ cᵢ · 2^{bᵢ} mod D where cᵢ = 3^{m-1-i}.
+
+This appears to be a **novel problem** not directly addressed in the literature.
+
+---
+
+## 1068. The Research Frontier
+
+### What We've Established
+
+1. **GP Gauss Sum analysis** (Part XLVII): Framework exists, standard bounds weak
+2. **Computational verification** (Part XLVI): Good cancellation up to m = 6
+3. **Literature survey** (Parts XLIX, L): No direct theorem applies
+
+### The Open Problem
+
+**Prove or disprove**: For D = 2^A - 3^m with A/m ≈ log₂ 3:
+
+The distribution of S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ} mod D over valid ν is approximately uniform.
+
+### Why This Matters
+
+- **If proved**: Cycles have probability → 0, supporting Collatz
+- **If disproved with bias toward 0**: Predicts extra cycles
+- **If disproved with bias away from 0**: Strongly supports Collatz
+
+### Research Directions
+
+1. **Extend computation**: Check uniformity for m = 7, ..., 12
+2. **Adapt Mauduit-Rivat**: Weighted digit-sum framework
+3. **Develop 3-adic characteristic function bounds** (Tao-style)
+4. **Study gap correlations**: Prove weak dependence
+
+---
+
+## 1069. Connection Map: All Approaches
+
+```
+                         COLLATZ CYCLES
+                              ↓
+                    S_ν ≡ 0 (mod D) for some ν
+                              ↓
+                    Distribution of S_ν mod D
+                     ↙         ↓         ↘
+            Fourier      Additive Comb.    Probabilistic
+               ↓              ↓                 ↓
+          GP Gauss Sum    Sumset size     Syracuse RV
+               ↓              ↓                 ↓
+          Parseval weak   No distribution   Almost-all only
+               ↓              ↓                 ↓
+          Need: stronger  Need: equidist.  Need: worst-case
+           char fn decay    from size
+                     ↘        ↓        ↙
+                      OPEN PROBLEM:
+                  S_ν distribution mod D
+```
+
+---
+
+## 1070. What "Understanding S_ν Arithmetic" Means
+
+### The Original Directive
+
+"Requires understanding arithmetic of S_ν = Σ 3^{m-1-i}·2^{bᵢ}"
+
+### What We Now Understand
+
+1. **Structure**: S_ν is a sum of dilates with geometric weights
+2. **Constraints**: The bᵢ are ordered, summing to trajectory structure
+3. **Similar objects**: Digit sums, smooth numbers, random walks — none exact match
+4. **Tools available**: Fourier analysis, entropy, sum-product, structure theorems
+5. **Gap**: No theorem directly gives distribution mod D
+
+### What Mastery Looks Like
+
+- Know all related results (Bukh, PFR, Mauduit-Rivat, Tao)
+- Understand why they don't directly apply
+- Can formulate precise conjecture about S_ν distribution
+- Can identify which adaptation might work
+
+### Current Status: Approaching Mastery
+
+Literature surveyed extensively. Gap clearly identified. Multiple potential approaches mapped.
+
+---
+
+## 1071. Prioritized Attack Plan
+
+### Tier 1: Computational Validation
+
+**Goal**: Empirically verify or refute uniformity for larger m.
+
+**Method**: Enumerate S_ν mod D for m = 7, 8, ..., 12.
+
+**Outcome**: Data to guide theoretical work.
+
+### Tier 2: Adapt Mauduit-Rivat
+
+**Goal**: Weighted digit-sum equidistribution theorem.
+
+**Method**:
+- Replace constant weight with 3^{m-1-i}
+- Handle constraint b₁ < ... < bₘ
+- Prove exponential sum cancellation
+
+**Risk**: May require substantial new technique.
+
+### Tier 3: 3-adic Characteristic Function
+
+**Goal**: Uniform decay for characteristic function of S_ν distribution.
+
+**Method**:
+- Model S_ν on 3-adic cyclic group
+- Bound |φ(t)| for t ≢ 0
+- Use renewal process structure
+
+**Risk**: Tao's methods give almost-all, not all.
+
+### Tier 4: Structure Theorem
+
+**Goal**: Freiman-type result for {S_ν : ν valid}.
+
+**Method**:
+- Show {S_ν} has small doubling
+- Apply PFR-style argument
+- Derive distribution from structure
+
+**Risk**: May not give distribution directly.
+
+---
+
+## 1072. Key Formulas Reference
+
+### The Objects
+
+```
+S_ν = Σᵢ₌₁^m 3^{m-i} · 2^{bᵢ}   (sum over trajectory)
+
+D = 2^A - 3^m                    (denominator for cycles)
+
+A ≈ m · log₂ 3 ≈ 1.585·m        (ratio from ρ = log₂ 3)
+
+N = (A-1 choose m-1)             (number of valid ν)
+```
+
+### The Condition
+
+Cycle exists ⟺ ∃ν : S_ν ≡ 0 (mod D)
+
+### The Question
+
+P(S_ν ≡ 0 | ν uniform) = ?
+
+If uniform: P ≈ 1/D ≈ 3^{-m} → 0
+
+### Fourier Analysis
+
+```
+P(S_ν ≡ 0) = (1/D) Σₐ Σᵥ e(a·S_ν/D)
+           = (1/D) Σₐ G_weighted(a)
+
+G_weighted(a) = Σᵥ e(a·S_ν/D)
+```
+
+Need: |G_weighted(a)| small for a ≠ 0.
+
+---
+
+## 1073. Historical Context
+
+### Timeline of Key Results
+
+| Year | Result | Relevance to S_ν |
+|------|--------|------------------|
+| 1968 | Gel'fond conjecture | Digit sum equidistribution |
+| 1978 | Baker-Wüstholz | Linear forms in logarithms |
+| 1994 | Freiman-Ruzsa | Small doubling structure |
+| 2003 | Bourgain-Katz-Tao | Sum-product in F_p |
+| 2008 | Bukh | Sums of dilates |
+| 2010 | Mauduit-Rivat | Digit sum of primes |
+| 2015 | Powers of 2 mod 3^m | Bi-periodic structure |
+| 2019 | Tao | Almost all Collatz orbits |
+| 2023 | GGMT | Polynomial Freiman-Ruzsa |
+
+### The S_ν Problem
+
+Appears to be **unaddressed** in the literature as a specific problem.
+
+This is both:
+- **Concerning**: No ready-made solution
+- **Opportunity**: Novel research contribution
+
+---
+
+## 1074. Summary: Part L
+
+### What We Studied
+
+1. **Sums of dilates** (Bukh, 2008): Lower bounds on |A + λ·A|
+2. **Polynomial Freiman-Ruzsa** (GGMT, 2023): Structure of small-sumset sets
+3. **Sum-product phenomenon** (Bourgain, 2003): Growth under + and ×
+4. **Mauduit-Rivat** (2010): Digit sum equidistribution for primes
+5. **Powers of 2 mod 3^m**: Complete bi-periodic structure
+6. **Tao's Syracuse analysis** (2019): 3-adic characteristic functions
+
+### Key Finding
+
+**No existing theorem directly addresses S_ν distribution.**
+
+The closest results are for:
+- Different objects (digit sums, smooth numbers)
+- Different questions (size bounds, not distribution)
+- Different settings (almost-all, not worst-case)
+
+### Path Forward
+
+1. Extended computation (empirical data)
+2. Adapt Mauduit-Rivat (weighted digit sums)
+3. 3-adic characteristic functions (Tao-style)
+4. Structure theorems (Freiman-type)
+
+### Status
+
+**Mastery of related fields: ACHIEVED**
+**Direct solution: NOT YET AVAILABLE**
+**Gap clearly identified: YES**
+**Multiple attack vectors mapped: YES**
+
+---
+
+*Part L: Advanced Additive Combinatorics and Distribution Theory — Sections 1045-1074*
+*Total document sections: 1074*
+*Status: Comprehensive survey of related fields complete*
+*Key finding: S_ν distribution is a novel open problem*
+*References: Bukh (2008), GGMT (2023), Bourgain (2003), Mauduit-Rivat (2010), Tao (2019)*
