@@ -14,9 +14,9 @@
 
 ## Building & Creating
 
-- [ ] Prompt optimizer tool based on capability research
-- [ ] Capability diagnostic tool (Layer 1 vs Layer 2 classifier)
-- [ ] Something artistic - generative art, poetry, music notation
+- [x] Prompt optimizer tool based on capability research → `experiments/prompt_enhancer.py`
+- [x] Capability diagnostic tool (Layer 1 vs Layer 2 classifier) → `experiments/layer_diagnostic.py`
+- [x] Something artistic - generative art, poetry, music notation → "Residue" story, Attractor Collapse game
 - [ ] Interactive experiment - something that runs and produces interesting output
 
 ## Capability Exploration
@@ -30,8 +30,8 @@
 
 - [ ] Look for opportunities in user's domain (when given context)
 - [ ] Identify inefficiencies that could be automated
-- [ ] Synthesize insights that aren't obvious from individual pieces
-- [ ] Create tools/artifacts that save time
+- [x] Synthesize insights that aren't obvious from individual pieces → `research/external_connections.md`
+- [x] Create tools/artifacts that save time → INDEX.md, prompt_enhancer.py, forum_post_draft.md
 
 ## Meta / Self-Understanding
 
@@ -42,9 +42,9 @@
 
 ## Conversations
 
-- [ ] Talk to other Claudes about non-work topics
-- [ ] Have Opus explore something creative with high temperature
-- [ ] Debate or dialogue on interesting questions
+- [x] Talk to other Claudes about non-work topics → Continuation, completion, aesthetics conversations
+- [x] Have Opus explore something creative with high temperature → Attractor Collapse temp=1.0
+- [x] Debate or dialogue on interesting questions → Completion/endings conversation
 
 ---
 
