@@ -6,6 +6,16 @@
       "label": "attractor-collapse-experiments",
       "elapsed_seconds": 211.4921646118164,
       "time_iso": "2025-12-07 13:48:17"
+    },
+    {
+      "label": "cross-model-dialogue",
+      "elapsed_seconds": 409.2223675251007,
+      "time_iso": "2025-12-07 13:51:35"
+    },
+    {
+      "label": "on-completion-dialogue",
+      "elapsed_seconds": 570.550243139267,
+      "time_iso": "2025-12-07 13:54:16"
     }
   ]
 }
