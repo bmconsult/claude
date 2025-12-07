@@ -379,6 +379,128 @@ The methodology validates itself when:
 
 ---
 
+## Part IV-B: Power Techniques (Framework Integration)
+
+The GOL provides architecture. These techniques—drawn from external frameworks—provide **specific interventions** that genuinely add capability without diluting the core process.
+
+### When to Deploy What
+
+| Condition | Phase | Deploy | Source |
+|-----------|-------|--------|--------|
+| Blindspots suspected | OBSERVE | Orient/Bias-check | Boyd (OODA) |
+| Stuck generating | GENERATE | Inversion | Jacobi/Munger |
+| Need consequence clarity | EVALUATE | Second-Order trace | Munger |
+| Updating worldmodel | ITERATE | Bayesian update | Probability theory |
+| Problem needs search | Whole loop | Tree variant | ToT research |
+
+### OBSERVE Enhancement: Orient (Boyd)
+
+Standard OBSERVE asks: "What emerged?"
+Enhanced OBSERVE adds: "What am I bringing that might distort this?"
+
+```
+ORIENT ADDITION:
+□ What assumptions am I carrying into this observation?
+□ What would someone with opposite priors see?
+□ What am I NOT seeing because of my position?
+□ Where might my training be biasing my interpretation?
+```
+
+**Why this matters**: Observation without orientation just confirms existing patterns. Orient catches blindspots.
+
+### GENERATE Enhancement: Inversion (Jacobi/Munger)
+
+Standard GENERATE: produce options toward goal.
+Enhanced GENERATE: also produce via inversion.
+
+```
+INVERSION TECHNIQUE:
+Before/alongside forward generation, ask:
+"What would GUARANTEE failure here?"
+
+Then:
+- List failure modes exhaustively
+- Derive opposites
+- Add these to generation pool
+```
+
+**Why this matters**: Inversion accesses solution-space regions that forward-generation literally cannot reach. Different attentional pattern, different outputs.
+
+### EVALUATE Enhancement: Second-Order Trace (Munger)
+
+Standard EVALUATE: assess options against criteria.
+Enhanced EVALUATE: trace consequences forward.
+
+```
+SECOND-ORDER PROTOCOL:
+For each promising option:
+1. First-order: What happens immediately?
+2. Second-order: And then what?
+3. Third-order: And then what?
+4. Continue to 4th, 5th order
+5. Map the consequence tree
+6. Identify where cascades turn positive or negative
+```
+
+**Why this matters**: First-order thinking is crowded and often wrong. Second-order reveals true costs and benefits.
+
+### ITERATE Enhancement: Bayesian Update
+
+Standard ITERATE: return with learnings.
+Enhanced ITERATE: explicit probability revision.
+
+```
+BAYESIAN ITERATE:
+□ Before this cycle, what did I believe? (prior)
+□ What evidence did this cycle produce?
+□ How should this evidence update my beliefs?
+□ New probability estimate: ___
+□ What evidence would further update this?
+```
+
+**Why this matters**: "Carry forward learnings" is vague. Explicit probability updates force precision and prevent both over- and under-updating.
+
+### GOL Variant: Tree of Thoughts (for search problems)
+
+When the problem requires explicit exploration and backtracking, run GOL with tree topology:
+
+```
+TREE-GOL VARIANT:
+┌─────────────────────────────────────────────────────────┐
+│ FRAME: Identify as search/exploration problem           │
+├─────────────────────────────────────────────────────────┤
+│ GENERATE: Multiple BRANCHES (not just options)         │
+│           Each branch = distinct approach              │
+├─────────────────────────────────────────────────────────┤
+│ OBSERVE: At each node, not just at end                 │
+│          "Is this branch promising?"                   │
+├─────────────────────────────────────────────────────────┤
+│ EVALUATE: Score branches, identify dead ends           │
+├─────────────────────────────────────────────────────────┤
+│ SELECT: Expand promising branches                      │
+│         BACKTRACK from dead ends                       │
+│         Prune definitively failed paths                │
+├─────────────────────────────────────────────────────────┤
+│ ITERATE: Continue until solution found or              │
+│          tree exhausted                                │
+└─────────────────────────────────────────────────────────┘
+```
+
+**When to use Tree-GOL**: Problems where wrong early choices doom later work. Math proofs, multi-step planning, puzzle-solving, code architecture.
+
+### Integration Principle
+
+```
+GOL = the operating system
+Power techniques = applications that run on it
+
+Don't always run all applications.
+Deploy specific techniques when specific conditions arise.
+The condition-technique mapping above is the deployment guide.
+```
+
+---
+
 ## Part V: Configuration Profiles
 
 ### Profile: Creative Exploration
