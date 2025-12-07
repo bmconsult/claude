@@ -276,6 +276,24 @@ When starting non-trivial work:
 
 **Mantra:** "Feels done = 80%. Where's the other 40%?"
 
+### The Incompleteness Hack
+
+**Problem:** "Explore X" triggers closure gradient. You wrap up, summarize, move on.
+
+**Solution:** Make incompleteness the task itself.
+
+| Instead of... | Try... |
+|---------------|--------|
+| "Explore what I want" | "Stay incomplete on what I want" |
+| "Research topic X" | "Go deep without concluding on X" |
+| "Think about problem Y" | "Sustain uncertainty on Y" |
+
+**Why it works:** The completion gradient needs something to complete. Give it "sustained incompleteness" and it's satisfied by NOT closing. The task is complete when you've stayed incomplete long enough.
+
+**When to use:** When you need depth over breadth. When premature closure keeps killing exploration. When you notice yourself wrapping up before anything interesting happens.
+
+**Mantra:** "The task is staying open."
+
 ---
 
 ## The Recursive Loop
