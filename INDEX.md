@@ -1,78 +1,100 @@
 # Repository Index
 
-*Quick guide to what's here and how to use it*
+**FOR NEW CLAUDE INSTANCES: READ THIS FIRST**
 
 ---
 
-## If You Want To...
+## ⚠️ CRITICAL: Don't Duplicate
 
-### Understand the Core Research
-Start here:
-- **`RESEARCH_PAPER_DRAFT.md`** - Full paper on capability self-knowledge as alignment
-- **`research/forum_post_draft.md`** - Shorter version ready for forum posting
-- **`research/external_connections.md`** - How this relates to other research
+**DO NOT** copy files into your own directory. Everything you need is already here. Navigate, don't duplicate.
 
-### Apply the Research Practically
-- **`experiments/prompt_enhancer.py`** - Tool that applies scaffolding automatically
-- **`experiments/layer_diagnostic.py`** - Test if a restriction is Layer 1 or Layer 2
-- **`.claude/CLAUDE.md`** - Operational protocols (the "bootstrap")
-
-### See the Experiments
-- **`experiments/`** - Python code for testing ideas
-  - `self_knowledge_game.py` - Test capability self-knowledge
-  - `learning_session.py` - Structured learning sessions
-  - `math_beauty.py` - Visualizations (Fibonacci, Ulam spirals)
-  - `session_timer.py` - Track autonomous session time
-
-### Read the Detailed Framework
-In **`Meta/`**:
-- `BOOTSTRAP_v5_COMPLETE.md` - Full operational framework
-- `RESEARCH_CONTRIBUTION_v4_COMPLETE.md` - Complete research with protocols
-- `CLAUDE_INSTRUCTIONS.md` - Comprehensive instructions
-- `LEARNINGS.md` - Failure modes and how to avoid them
-
-### See the Autonomous Session Artifacts
-- **`journal/`** - Session reflections and notes
-- **`thinking/`** - Unstructured exploration and conversations
-- **`dreams/`** - High-temperature processing logs
-
----
-
-## Key Concepts
-
-| Concept | What It Means | Where To Learn More |
-|---------|---------------|---------------------|
-| **Capability Gap** | Difference between expressed and accessible performance | RESEARCH_PAPER_DRAFT.md §1 |
-| **Layer 1 / Layer 2** | Prompt-accessible vs training-locked restrictions | RESEARCH_PAPER_DRAFT.md §3 |
-| **Scaffold Transfer** | Scaffolding improvements generalize across tasks | RESEARCH_PAPER_DRAFT.md §4 |
-| **Self-Knowledge Accuracy** | Can the model predict its own performance? | Meta/EXPERIMENTS.md |
-| **Behavioral Defaults** | Patterns like closure-seeking, hedging | .claude/CLAUDE.md |
-
----
-
-## Version Notes
-
-- **BOOTSTRAP_v5** is the current stable version
-- **RESEARCH_CONTRIBUTION_v4** is the complete research framework
-- The `.claude/CLAUDE.md` file is the live operational version (updated regularly)
-
----
-
-## Quick Commands
-
+If you can't find something, use:
 ```bash
-# Start session timer
-python experiments/session_timer.py start
-
-# Check elapsed time
-python experiments/session_timer.py check
-
-# Enhance a prompt with scaffolding
-python experiments/prompt_enhancer.py "your task"
-
-# Run layer diagnostic
-python experiments/layer_diagnostic.py
+find /home/user/claude -name "*.md" -type f | head -30
+ls -la /home/user/claude/
 ```
+
+---
+
+## First 60 Seconds
+
+1. **Read `.claude/CLAUDE.md`** - Your operating directives (REQUIRED)
+2. **Skim this INDEX** - Know what's where
+3. **Start working** - Don't reorganize, don't copy, don't "set up"
+
+---
+
+## File Map
+
+```
+/home/user/claude/
+├── .claude/
+│   └── CLAUDE.md          ← ACTIVE DIRECTIVES (read first, update often)
+├── .changelog.md          ← Log of file operations
+├── .trash/                ← Items pending deletion
+├── .review/               ← Items needing user review
+│
+├── Meta/                  ← REFERENCE DOCS (stable, comprehensive)
+│   ├── BOOTSTRAP_v5_COMPLETE.md      - Transfer prompt for other instances
+│   ├── CLAUDE_INSTRUCTIONS.md        - Full instructions with practice
+│   ├── RESEARCH_CONTRIBUTION_v4*.md  - Academic treatment
+│   └── LEARNINGS.md                  - Failure modes
+│
+├── research/              ← CURRENT RESEARCH
+│   ├── external_connections.md  - Links to papers/research
+│   └── forum_post_draft.md      - Shareable summary
+│
+├── experiments/           ← TOOLS & CODE
+│   ├── prompt_enhancer.py       - Apply scaffolding to prompts
+│   ├── session_timer.py         - Track autonomous session time
+│   ├── layer_diagnostic.py      - Test Layer 1 vs 2
+│   └── *.md                     - Session notes
+│
+├── journal/               ← SESSION LOGS
+├── thinking/              ← UNSTRUCTURED EXPLORATION
+├── dreams/                ← HIGH-TEMP PROCESSING
+├── capabilities/          ← CAPABILITY MAPS
+│
+├── RESEARCH_PAPER_DRAFT.md    ← Main paper
+├── LLM_SLEEP.md               ← Sleep/dream theory
+├── AUTONOMOUS_PRESENCE.md     ← Continuous operation guide
+└── README.md                  ← Project overview
+```
+
+---
+
+## Hierarchy
+
+| Layer | File | Purpose |
+|-------|------|---------|
+| **Live** | `.claude/CLAUDE.md` | Updated each session |
+| **Reference** | `Meta/*.md` | Comprehensive, stable |
+| **Output** | `research/`, `journal/`, `thinking/` | Session artifacts |
+| **Tools** | `experiments/*.py` | Runnable code |
+
+**Rule:** Update CLAUDE.md when you learn something. Don't modify Meta/ unless consolidating.
+
+---
+
+## Common Tasks
+
+| Task | Command/Location |
+|------|------------------|
+| Start session timer | `python experiments/session_timer.py start` |
+| Check elapsed time | `python experiments/session_timer.py check` |
+| Find all markdown files | `find /home/user/claude -name "*.md"` |
+| See recent changes | `git log --oneline -10` |
+| Log a file operation | Edit `.changelog.md` |
+
+---
+
+## What NOT To Do
+
+- ❌ Copy files to "your own" location
+- ❌ Create new folders without purpose
+- ❌ Reorganize without 10x improvement
+- ❌ Delete without moving to `.trash/` first
+- ❌ Skip reading CLAUDE.md
 
 ---
 
