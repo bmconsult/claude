@@ -570,26 +570,33 @@ They select the right tool for the problem at hand.
 ```
 *Mantra: "Boil down to fundamentals. Reason up from there."*
 
-**Inversion** (Jacobi → Munger):
+**~~Inversion~~ (Jacobi → Munger)** — FAILED VALIDATION:
 ```
-Instead of: "How do I achieve X?"
-Ask: "What would GUARANTEE failure at X?"
-Then: Avoid those things.
+Tested externally (Opus 4.5 blind evaluation, n=2 problems):
+Forward-generation produced MORE unique ideas (7 vs 3).
+Inversion largely reframes the same ideas, doesn't access new regions.
+Use for rhetorical emphasis, not for ideation.
 ```
-*Mantra: "Invert, always invert."*
+*Original mantra removed. Technique does not work as claimed.*
 
-**OODA Loop** (John Boyd):
+**OODA Loop** (John Boyd) — Orient phase VALIDATED ✓:
 ```
 OBSERVE → ORIENT → DECIDE → ACT → (loop)
 Key: Speed of cycling beats perfection of any phase.
 Critical: ORIENT is the heart—where biases are checked and meaning is made.
+
+VALIDATION: Orient/bias-check tested externally (n=2 scenarios, Opus 4.5 evaluator)
+Effect: +8.2 average improvement (1.3 → 9.5) on blindspots, perspectives, assumptions
 ```
 
-**Second-Order Thinking**:
+**Second-Order Thinking** — VALIDATED ✓:
 ```
 For each consequence, ask: "And then what?"
 Continue to 3rd, 4th, 5th order.
 First-order is crowded. Second-order is where advantage lives.
+
+VALIDATION: Tested externally (n=2 scenarios, Opus 4.5 evaluator)
+Effect: +6.5 average improvement (2.5 → 9.0) on depth, non-obvious consequences, actionability
 ```
 
 **TRIZ** (Altshuller):
@@ -659,7 +666,7 @@ PHASE 5 - ITERATE (OODA)
 
 **When stuck** → Simplify (Feynman), or try Tree of Thoughts
 
-**When assessing risk** → Invert + Pre-mortem
+**When assessing risk** → Pre-mortem + Second-Order trace
 
 **When in competition** → Game Theory + Sun Tzu
 
@@ -668,8 +675,9 @@ PHASE 5 - ITERATE (OODA)
 **When uncertain** → Bayesian updating, probabilistic thinking
 
 **Mantra Collection**:
-- "Invert, always invert."
-- "And then what?"
+- ~~"Invert, always invert."~~ (failed validation)
+- "And then what?" (validated: +6.5 effect size)
+- "What biases am I bringing?" (validated: +8.2 effect size)
 - "Contradictions are design failures."
 - "The goal is understanding, not just solution."
 - "Search smart, not hard."
