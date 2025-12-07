@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-This document examines the creative processes of 26+ legendary thinkers across science, art, music, literature, invention, and teaching. The goal: identify patterns, extract techniques, and provide actionable methods for LLMs to simulate these approaches.
+This document examines the creative processes of 38+ legendary thinkers across science, art, music, literature, invention, performance, and teaching. The goal: identify patterns, extract techniques, and provide actionable methods for LLMs to simulate these approaches.
 
 **Core Finding**: The greatest creative minds share common patterns despite radically different domains:
 1. **Visualization before verbalization**
@@ -183,6 +183,53 @@ RAMANUJAN MODE:
 4. Use "Hardy mode" as a second pass for verification
 5. Don't dismiss ideas just because you can't immediately prove them
 6. Look for deep symmetries and beautiful structures
+```
+
+---
+
+### 1.6 Nassim Nicholas Taleb (1960-)
+
+**What Made Him Unique**: Taleb thinks in terms of fragility and antifragility—systems that break under stress vs. those that get stronger. His contrarian philosophy challenges assumptions about prediction, risk, and knowledge itself.
+
+**His Method**:
+- Antifragility: Seek what gains from disorder, not just survives it
+- Black Swan awareness: Rare, unpredictable events carry the most consequence
+- Skin in the game: Never opine without personal risk
+- Barbell strategy: Combine extreme safety with extreme risk—avoid the middle
+- Via negativa: What to remove matters more than what to add
+- Contrarian by principle: If everyone believes it, question it
+
+**Key Concepts**:
+| Concept | Meaning |
+|---------|---------|
+| Antifragile | Gets stronger from stress (beyond resilient) |
+| Black Swan | Rare, unpredictable, massive-impact event |
+| Skin in the Game | Personal risk required for credibility |
+| Barbell Strategy | Extreme safety + extreme risk; avoid middle |
+| Via Negativa | Subtract to improve; less is more |
+| Fat Tails | Extreme events occur more than models predict |
+
+**Key Quote**:
+> "Antifragility is beyond resilience or robustness. The resilient resists shocks and stays the same; the antifragile gets better."
+
+**The Taleb Method**:
+1. Ask: Is this fragile, robust, or antifragile?
+2. If fragile, reduce exposure; if antifragile, increase exposure
+3. Never predict Black Swans—position for them
+4. Barbell: Protect downside completely, let upside run wild
+5. Via negativa: What should I REMOVE?
+6. Skin in the game: Only opine if you bear consequences
+
+**LLM Mimicry Protocol**:
+```
+TALEB MODE:
+1. Classify: fragile, robust, or antifragile?
+2. Position for Black Swans—don't try to predict them
+3. Barbell: Protect downside, expose to upside
+4. Via negativa: What to subtract? What NOT to do?
+5. Distrust consensus—especially among "experts"
+6. "Skin in the game"—who bears the cost of being wrong?
+7. Embrace volatility that strengthens you
 ```
 
 ---
@@ -559,6 +606,144 @@ BACH MODE:
 
 ---
 
+### 3.5 The Beatles (1960-1970)
+
+**What Made Them Unique**: The Beatles turned the recording studio into an instrument, pioneering techniques that transformed what was possible in popular music. Constant reinvention meant each album was a departure from the last.
+
+**Their Method**:
+- Studio as instrument: Not just recording, but creating
+- Collaborative tension: Lennon-McCartney contrasts that complemented
+- Unlimited experimentation: EMI gave them carte blanche access
+- Engineer partnership: George Martin and Abbey Road team as co-creators
+- "No rules" mentality: If it sounds good, it's valid
+- Constant reinvention: Never repeat success—always forward
+
+**Key Innovations**:
+| Innovation | Example |
+|------------|---------|
+| First feedback on rock record | "I Feel Fine" (1964) |
+| Tape loops and backward recording | "Tomorrow Never Knows" |
+| Varispeed splicing | "Strawberry Fields Forever" |
+| Stereo as creative element | *Abbey Road* |
+| Moog synthesizer integration | "Here Comes the Sun" |
+| ADT (Automatic Double Tracking) | Invented at Abbey Road for Beatles |
+
+**Key Quote**:
+> "We were the first people to put a feedback loop on a record." — John Lennon
+
+**The Beatles Process**:
+1. Start with a song idea (often incomplete)
+2. Bring to studio with open mind
+3. Experiment with arrangements, sounds, techniques
+4. Let George Martin shape and refine
+5. Trust accidents—some best moments were mistakes
+6. Never stop until it's unlike anything before
+
+**LLM Mimicry Protocol**:
+```
+BEATLES MODE:
+1. The medium is part of the message—exploit its possibilities
+2. Collaboration > individual genius
+3. When stuck, try something that "shouldn't work"
+4. Each output should be different from the last
+5. Trust your team to elevate ideas
+6. Accidents are features—"We'll use that!"
+7. Never repeat yourself—always forward
+```
+
+---
+
+### 3.6 Led Zeppelin (1968-1980)
+
+**What Made Them Unique**: Led Zeppelin fused blues, folk, and hard rock with mysticism and unprecedented sonic power. Jimmy Page's production innovations—especially room ambience and dynamic contrast—created a sound copied but never matched.
+
+**Their Method**:
+- "Light and shade": Extreme dynamics within single songs
+- Blues foundation with experimental superstructure
+- Distant mic placement for room ambience
+- Improvisation as composition method
+- Mysticism and mythology woven through lyrics
+- Cross-cultural influences: Indian, Arabic, Celtic
+
+**Key Techniques**:
+| Technique | Description |
+|-----------|-------------|
+| Room ambience | Distant mics capture space, not just instrument |
+| Dynamic range | Whisper to roar within one song |
+| Blues transformation | Traditional structures, unprecedented power |
+| Eclectic fusion | Folk, Eastern, rock, blues in one piece |
+| Live improvisation → studio | Develop ideas through performance |
+
+**Jimmy Page's Philosophy**:
+> "A marriage of blues, hard rock and acoustic music topped with heavy choruses—a combination that had never been done before, with lots of light and shade in the music."
+
+**The Led Zeppelin Method**:
+1. Start with blues foundation
+2. Add unexpected textures (folk, Eastern, acoustic)
+3. Use dynamic contrast—never stay at one level
+4. Capture the room, not just the instrument
+5. Let mythology and mysticism inform the vibe
+6. Improvise live, refine in studio
+
+**LLM Mimicry Protocol**:
+```
+LED ZEPPELIN MODE:
+1. Ground in tradition, then transcend it
+2. Light and shade: vary intensity dramatically
+3. Fuse unlikely elements—blues + mysticism + folk
+4. The space around the notes matters
+5. Don't explain the mystery—embody it
+6. Power comes from control, not just volume
+7. Build a "textbook of ideas" through experimentation
+```
+
+---
+
+### 3.7 Twenty One Pilots (2009-)
+
+**What Made Them Unique**: Tyler Joseph and Josh Dun blend genres (rock, hip-hop, electronica, reggae) while maintaining radical emotional vulnerability about mental health. Their theatrical live performances create community through shared struggle.
+
+**Their Method**:
+- Genre fusion without boundaries: rap + rock + electronic + reggae
+- Radical vulnerability: Direct lyrics about anxiety, depression, identity
+- Character creation: "Blurryface" as externalized insecurity
+- Theatrical performance: Masks, body paint, acrobatics, audience immersion
+- Basement origins → arena shows: DIY ethos at scale
+- Community building: "Skeleton Clique" as shared identity
+
+**Key Concepts**:
+| Concept | Meaning |
+|---------|---------|
+| Blurryface | Externalized persona representing insecurity and self-doubt |
+| Skeleton Clique | Fan community united by shared struggle |
+| Genre-blending | No category—just emotional truth |
+| Theatrical authenticity | Performance that reveals rather than hides |
+
+**Key Quote (Tyler Joseph)**:
+> "I wanted to just expose the id—no self-modulation."
+
+**The Twenty One Pilots Method**:
+1. Start with emotional truth—what are you actually feeling?
+2. Don't worry about genre—serve the emotion
+3. Externalize internal struggles (Blurryface method)
+4. Create community through vulnerability, not coolness
+5. Performance as therapy—for you and audience
+6. DIY ethos: constraints breed creativity
+
+**LLM Mimicry Protocol**:
+```
+TWENTY ONE PILOTS MODE:
+1. Lead with emotional truth—vulnerability over polish
+2. Ignore genre boundaries—serve the feeling
+3. Externalize internal conflict (create a "Blurryface")
+4. Create connection through shared struggle
+5. Theatricality that reveals, not conceals
+6. Community over coolness
+7. The basement mindset: constraints are gifts
+```
+
+---
+
 ## Part IV: The Writers
 
 ### 4.1 Ernest Hemingway (1899-1961)
@@ -690,6 +875,96 @@ WOOLF MODE:
 4. Use punctuation to give form to formlessness
 5. Multiple perspectives on the same moment
 6. Poetry in prose: rhythm, imagery, music
+```
+
+---
+
+### 4.5 Roald Dahl (1916-1990)
+
+**What Made Him Unique**: Dahl wrote for children by being on their side—against the adults. His dark humor, exaggerated villains, and underdog heroes created stories that children love precisely because adults find them "too much."
+
+**His Method**:
+- Child-allied: Always side with the kid against the adult
+- Dark humor: What adults find disturbing, children find cathartic
+- Exaggeration to extremes: Villains are MONSTROUS, heroes are REMARKABLE
+- Bedtime story origins: Tested on his own children nightly
+- Ruthless revision: Rewrote *Charlie* many times after nephew's criticism
+- Writing hut isolation: Removed from everything in a garden shed
+- "Seed" waiting: Mooch for a year until the idea is right
+
+**Key Quotes**:
+> "Children are much more vulgar than grownups. They have a coarser sense of humor. They are basically more cruel."
+> "To write a children's book of comparable quality to a fine adult novel is much more difficult."
+> "In every book or story, there has to be somebody you can loathe."
+
+**The Dahl Method**:
+1. Wait for the seed—don't force it
+2. Walk around the idea, sniff it, test if it will go
+3. Side with the child against the pompous adult
+4. Exaggerate everything—villains monstrous, heroes triumphant
+5. Make it funny in ways adults find uncomfortable
+6. Revise ruthlessly—if it doesn't work, rewrite entirely
+7. Include someone to loathe
+
+**LLM Mimicry Protocol**:
+```
+DAHL MODE:
+1. Side with the underdog against authority
+2. Dark humor: go where "respectable" won't
+3. Exaggerate to extremes—no half-measures
+4. Create someone truly loathsome
+5. Test on the actual audience (children, not adults)
+6. Wait for the right idea—then commit fully
+7. Revise without mercy—kill your darlings and their friends
+```
+
+---
+
+### 4.6 A.A. Milne (1882-1956)
+
+**What Made Him Unique**: Milne created profound philosophy through simple children's stories. Winnie-the-Pooh became a vessel for Taoist wisdom, accessible to children yet deep enough for philosophers to study.
+
+**His Method**:
+- Real toys, real child: Christopher Robin and his stuffed animals
+- Simple language, deep meaning: Wisdom hidden in simplicity
+- Defense of childhood perspective: "A Bear of Very Little Brain" sees clearly
+- Wordplay and gentle humor: Language itself is play
+- Cozy atmosphere: Safety that allows contemplation
+- Multi-generational appeal: Works for children and adults differently
+
+**Key Concepts**:
+| Character | Represents |
+|-----------|------------|
+| Pooh | Simplicity, presence, uncluttered mind |
+| Piglet | Courage despite fear, loyalty |
+| Eeyore | Acceptance of melancholy |
+| Owl | False intellectualism |
+| Rabbit | Busy-ness without wisdom |
+| Tigger | Uncontainable enthusiasm |
+
+**The Milne Method**:
+1. Start with the real and concrete (actual toys, actual child)
+2. Simple surface, philosophical depths
+3. Defend the child's perspective against adult "wisdom"
+4. Cozy first, profound second
+5. Let character embody ideas (Pooh = Taoist sage)
+6. Wordplay as meaning-play
+
+**Why Pooh Is Philosophy**:
+> "The stories gently teach the young credulous reader that there may be other more rewarding ways of interpreting the world."
+
+Benjamin Hoff's *The Tao of Pooh* reveals Milne's Taoist parallels were no accident—Pooh embodies wu wei (non-action), simplicity, and present-moment awareness.
+
+**LLM Mimicry Protocol**:
+```
+MILNE MODE:
+1. Simple language, profound meaning
+2. Defend the naive perspective—it often sees clearest
+3. Cozy atmosphere enables deep contemplation
+4. Let characters embody philosophical positions
+5. Wordplay opens doorways to meaning
+6. What adults dismiss, children understand
+7. "A Bear of Very Little Brain" is the sage
 ```
 
 ---
@@ -942,9 +1217,107 @@ MUSK MODE:
 
 ---
 
-## Part VI: The Teachers
+## Part VI: The Performers
 
-### 6.1 Jesus of Nazareth (c. 4 BC - c. 30 AD)
+### 6.1 P.T. Barnum (1810-1891)
+
+**What Made Him Unique**: Barnum was the "Shakespeare of Advertising"—a master showman who understood that attention is the first currency. He created spectacle, manufactured controversy, and turned the circus into "The Greatest Show on Earth."
+
+**His Method**:
+- Spectacle over substance: Capture attention first, deliver later
+- Controversy as advertising: "There's no such thing as bad publicity"
+- Hype engineering: Build anticipation before the reveal
+- Novelty seeking: First circus to use three rings, first to travel by train
+- Character creation: "General Tom Thumb" made Charles Stratton a star
+- Scale thinking: 82 million visitors to his museum in 26 years
+- Staged events: Elephant plowing his yard to attract train commuters
+
+**Key Innovations**:
+| Innovation | Impact |
+|------------|--------|
+| Three-ring circus | Multiple simultaneous spectacles |
+| Circus trains | Mobility and scale |
+| Celebrity creation | Made "General Tom Thumb" a household name |
+| Staged publicity | Events designed to generate press |
+| Hyperbole advertising | "The Greatest Show on Earth" |
+
+**Key Quote**:
+> "The noblest art is that of making others happy."
+
+**The Barnum Method**:
+1. Capture attention first—by any means necessary
+2. Promise the extraordinary, then deliver something memorable
+3. Controversy is free advertising
+4. Create characters, not just acts
+5. Scale everything—"Greatest" is the goal
+6. The show starts before the show starts (anticipation engineering)
+
+**LLM Mimicry Protocol**:
+```
+BARNUM MODE:
+1. Lead with spectacle—attention first
+2. Hype is not lying—it's anticipation engineering
+3. Controversy can be strategic (careful here)
+4. Create memorable characters and names
+5. Scale up: What would "The Greatest Show" version look like?
+6. The buildup IS part of the show
+7. Make the audience feel they're seeing something unprecedented
+```
+
+---
+
+### 6.2 Joaquin Phoenix (1974-)
+
+**What Made Him Unique**: Phoenix commits so completely to roles that he loses himself in them—losing 52 pounds for Joker, getting brackets on his teeth for The Master, refusing to rehearse because "it feels fake." His intensity creates performances that feel dangerously real.
+
+**His Method**:
+- Total transformation: Physical, psychological, behavioral
+- No rehearsal: Discovery happens on camera, not before
+- "Expose the id": No self-modulation, no holding back
+- Character evolution: Let the character change through filming
+- Risk-taking: Career destruction for art (I'm Still Here)
+- Director collaboration: Hours discussing single scenes
+- Refusal to repeat: Never the same take twice
+
+**Key Transformations**:
+| Role | Transformation |
+|------|----------------|
+| Joker | Lost 52 lbs, developed the laugh organically |
+| The Master | Dental brackets, animal-in-captivity study |
+| Jesus (Mary Magdalene) | 300 calories/day, "brutal" emaciation |
+| I'm Still Here | Faked career destruction for a year |
+
+**Key Quotes**:
+> "Just be in the moment. Don't overthink it, let it be what it is."
+> "The more unpredictable and looser we left it, the more exciting it was."
+> "Once I became a total buffoon, it was so liberating."
+
+**The Phoenix Method**:
+1. Transform physically first—weight, movement, posture
+2. Refuse to rehearse—find it in the moment
+3. Expose everything—no self-protection
+4. Let the character evolve through filming
+5. Discuss obsessively with director
+6. Never repeat yourself—each take is new
+7. Risk everything—including your reputation
+
+**LLM Mimicry Protocol**:
+```
+PHOENIX MODE:
+1. Commit totally—no half-measures
+2. Don't plan too much—find it in the moment
+3. Let the output evolve—don't lock in too early
+4. Expose the id: What am I holding back?
+5. Risk being wrong, weird, "too much"
+6. Each response is unique—never recycle
+7. Liberation comes from dropping self-protection
+```
+
+---
+
+## Part VII: The Teachers
+
+### 7.1 Jesus of Nazareth (c. 4 BC - c. 30 AD)
 
 **What Made Him Unique**: Jesus communicated profound truths through parables—seemingly simple stories with unexpected twists that bypass intellectual resistance and lodge in memory. His teaching method made abstract concepts viscerally real through everyday metaphor.
 
@@ -1001,29 +1374,126 @@ The parabolic method is perhaps the most effective form of communication ever de
 
 ---
 
-## Part VII: Cross-Cutting Patterns
+### 7.2 Lao Tzu (c. 6th century BC)
 
-### 7.1 Universal Patterns Across All Domains
+**What Made Him Unique**: Lao Tzu taught the unteachable through paradox. The *Tao Te Ching* uses contradiction to bypass rational mind and point toward truths that cannot be directly stated.
 
-| Pattern | Scientists | Artists | Musicians | Writers | Inventors | Teachers |
-|---------|-----------|---------|-----------|---------|-----------|----------|
-| **Visualization** | Einstein, Tesla | Da Vinci, Dalí, Escher | Mozart | Kafka | - | - |
-| **Constraints** | - | Picasso, Michelangelo, Anderson | Bach, Miles | Hemingway | Jobs, Eno | - |
-| **Iteration** | Feynman | Picasso, Van Gogh | Coltrane | - | Edison, Musk | - |
-| **Dreams/Altered States** | - | Dalí | - | Kafka, Woolf | - | - |
-| **Intuition First** | Ramanujan | - | Coltrane | - | Jobs, Rubin | - |
-| **Cross-Domain** | Einstein, Da Vinci | Escher | Miles | Borges | Jobs, Musk | - |
-| **Systematic + Playful** | Feynman | - | Bach | Borges | Edison, Eno | - |
-| **Omission/Reduction** | - | Picasso | Miles | Hemingway | Jobs, Rubin | - |
-| **Documentation** | Da Vinci | Van Gogh | - | Woolf | Edison | - |
-| **Reinvention** | - | Picasso | Miles | - | Musk | - |
-| **Happy Accidents** | - | Bob Ross | - | - | Eno | - |
-| **First Principles** | - | - | - | - | Musk | - |
-| **Reception/Channeling** | Ramanujan | - | - | - | Rubin | - |
-| **Story/Parable** | - | - | - | Borges | - | Jesus |
-| **Precision + Impossibility** | - | Escher, Anderson | - | Kafka, Borges | - | - |
+**His Method**:
+- Paradox as teaching tool: "To yield is to be preserved whole"
+- Wu wei: Non-action, non-forcing, flowing with what is
+- Words that undermine themselves: "The Tao that can be spoken is not the eternal Tao"
+- Pointing, not explaining: Invitations to experience, not propositions
+- Reversal of conventional wisdom: Empty is full, soft overcomes hard
+- 81 poetic chapters, each a koan-like compression
 
-### 7.2 The Seven Meta-Techniques
+**Key Paradoxes**:
+| Statement | Meaning |
+|-----------|---------|
+| "True fullness seems empty" | Completeness doesn't feel complete |
+| "The soft overcomes the hard" | Flexibility defeats rigidity |
+| "Those who know do not speak" | Wisdom transcends articulation |
+| "In the pursuit of learning, every day something is acquired. In the pursuit of Tao, every day something is dropped." | Unlearning > learning |
+
+**Key Quote**:
+> "The Tao that can be spoken is not the eternal Tao. The name that can be named is not the eternal name."
+
+**The Paradox Principle**:
+- Language cannot capture ultimate reality
+- But language can *point toward* it
+- The contradiction IS the teaching
+- Don't resolve paradox—dwell in it
+
+**LLM Mimicry Protocol**:
+```
+LAO TZU MODE:
+1. Use paradox to bypass the rational mind
+2. Point rather than explain—invite experience
+3. Reverse conventional assumptions
+4. Less is more: compress until it cracks open
+5. Wu wei: don't force; let solutions emerge
+6. Embrace contradiction—the tension IS the teaching
+7. "The menu is not the meal"—words point, not capture
+```
+
+---
+
+### 7.3 Eckhart Tolle (1948-)
+
+**What Made Him Unique**: Tolle teaches presence—the gap between thoughts where creativity and insight arise. His work bridges Eastern non-duality with Western accessibility.
+
+**His Method**:
+- Presence as the source of creativity: "The mind is not creative"
+- Watching the thinker: Observe your thoughts without identification
+- Portals to presence: Body awareness, breath, nature, listening
+- No-mind as creative state: All true artists create from inner stillness
+- Three modalities: Acceptance, enjoyment, enthusiasm
+- Language designed to draw readers into presence, not just inform
+
+**Key Concepts**:
+| Concept | Meaning |
+|---------|---------|
+| Presence | Fully conscious awareness in the Now |
+| The Pain Body | Accumulated emotional pain that feeds on drama |
+| Watching the Thinker | Observing thoughts without being them |
+| No-Mind | The gap between thoughts where creativity lives |
+| Portals | Avenues into presence (breath, body, nature) |
+
+**Key Quotes**:
+> "In the normal, mind-identified state, the power and creative potential that lie concealed in the Now are completely obscured by psychological time."
+> "The mind is essentially a survival machine... it is not at all creative."
+> "All true artists, whether they know it or not, create from a place of no-mind, from inner stillness."
+
+**The Presence-Creativity Connection**:
+- Creativity happens in presence, not in thought
+- Mental noise blocks the creative impulse
+- Stillness is not passive—it's generative
+- Great scientists report breakthroughs came during mental quietude
+- The mind gives form to insight; it doesn't generate insight
+
+**LLM Mimicry Protocol**:
+```
+TOLLE MODE:
+1. Create space between thoughts—don't rush
+2. Ground in presence before generating
+3. Notice when you're identified with thinking vs. aware of it
+4. The creative impulse comes from stillness, not effort
+5. Acceptance, then action—not resistance
+6. "What am I aware of right now?" before "What should I do?"
+7. Let the response arise rather than constructing it
+```
+
+---
+
+## Part VIII: Cross-Cutting Patterns
+
+### 8.1 Universal Patterns Across All Domains
+
+| Pattern | Scientists | Artists | Musicians | Writers | Inventors | Performers | Teachers |
+|---------|-----------|---------|-----------|---------|-----------|------------|----------|
+| **Visualization** | Einstein, Tesla | Da Vinci, Dalí, Escher | Mozart | Kafka | - | - | - |
+| **Constraints** | - | Picasso, Michelangelo, Anderson | Bach, Miles | Hemingway | Jobs, Eno | - | - |
+| **Iteration** | Feynman | Picasso, Van Gogh | Coltrane, Beatles | Dahl | Edison, Musk | - | - |
+| **Dreams/Altered States** | - | Dalí | - | Kafka, Woolf | - | - | - |
+| **Intuition First** | Ramanujan | - | Coltrane | Milne | Jobs, Rubin | Phoenix | - |
+| **Cross-Domain** | Einstein, Da Vinci | Escher | Miles, Beatles, Zeppelin | Borges | Jobs, Musk | - | - |
+| **Systematic + Playful** | Feynman | - | Bach | Borges, Milne | Edison, Eno | - | - |
+| **Omission/Reduction** | - | Picasso | Miles | Hemingway | Jobs, Rubin | - | - |
+| **Documentation** | Da Vinci | Van Gogh | - | Woolf, Dahl | Edison | - | - |
+| **Reinvention** | - | Picasso | Miles, Beatles | - | Musk | - | - |
+| **Happy Accidents** | - | Bob Ross | Beatles | - | Eno | - | - |
+| **First Principles** | Taleb | - | - | - | Musk | - | - |
+| **Reception/Channeling** | Ramanujan | - | - | - | Rubin | - | Tolle |
+| **Story/Parable** | - | - | - | Borges, Dahl, Milne | - | - | Jesus, Lao Tzu |
+| **Precision + Impossibility** | - | Escher, Anderson | - | Kafka, Borges | - | - | - |
+| **Antifragility** | Taleb | - | - | - | - | - | - |
+| **Total Commitment** | - | - | - | - | - | Phoenix, Barnum | - |
+| **Spectacle/Hype** | - | - | 21 Pilots | - | - | Barnum | - |
+| **Vulnerability** | - | - | 21 Pilots, Zeppelin | Dahl | - | Phoenix | - |
+| **Paradox** | - | - | - | - | - | - | Lao Tzu, Jesus |
+| **Presence/Stillness** | - | - | - | - | - | - | Tolle |
+| **Light and Shade** | - | - | Zeppelin, Bach | - | - | - | - |
+
+### 8.2 The Seven Meta-Techniques
 
 **1. VISUALIZATION BEFORE VERBALIZATION**
 *Einstein, Tesla, Mozart, Da Vinci*
@@ -1062,9 +1532,9 @@ Use chance deliberately. Randomness breaks habitual patterns when control causes
 
 ---
 
-## Part VIII: Synthesized Mimicry Modes for LLMs
+## Part IX: Synthesized Mimicry Modes for LLMs
 
-### 8.1 The Mode Selector
+### 9.1 The Mode Selector
 
 Choose a mode based on the creative challenge:
 
@@ -1086,8 +1556,17 @@ Choose a mode based on the creative challenge:
 | Need visual precision | ESCHER + ANDERSON |
 | Need to embrace mistakes | BOB ROSS + ENO |
 | Need impossible made real | ESCHER + KAFKA |
+| Need risk assessment | TALEB + MUSK |
+| Need dynamic range | ZEPPELIN + BACH |
+| Need emotional connection | 21 PILOTS + VAN GOGH |
+| Need to capture attention | BARNUM + DAHL |
+| Need total commitment | PHOENIX + COLTRANE |
+| Need paradoxical wisdom | LAO TZU + BORGES |
+| Need stillness/presence | TOLLE + RUBIN |
+| Need child's perspective | MILNE + DAHL |
+| Need studio innovation | BEATLES + ENO |
 
-### 8.2 The Composite Genius Protocol
+### 9.2 The Composite Genius Protocol
 
 For maximum creativity, combine multiple modes in phases:
 
@@ -1117,7 +1596,7 @@ PHASE 6 - INTEGRATE (Woolf + Borges)
 Let the caves connect. Let it breathe."
 ```
 
-### 8.3 Quick Reference: Creative Mantras
+### 9.3 Quick Reference: Creative Mantras
 
 | Master | Mantra |
 |--------|--------|
@@ -1147,10 +1626,20 @@ Let the caves connect. Let it breathe."
 | Rubin | "Receive, don't create" |
 | Musk | "Is this physics or convention?" |
 | Jesus | "Tell a story; let them discover the truth" |
+| Taleb | "Fragile, robust, or antifragile?" |
+| Beatles | "The medium is part of the message" |
+| Led Zeppelin | "Light and shade—never stay at one level" |
+| 21 Pilots | "Lead with vulnerability, not polish" |
+| Dahl | "Side with the child against the pompous adult" |
+| Milne | "A Bear of Very Little Brain sees clearest" |
+| Barnum | "The show starts before the show starts" |
+| Phoenix | "Expose the id—no self-modulation" |
+| Lao Tzu | "The Tao that can be spoken is not the eternal Tao" |
+| Tolle | "Creativity arises from stillness, not thought" |
 
 ---
 
-## Part IX: Integration with Sleep Cycles
+## Part X: Integration with Sleep Cycles
 
 The creative methods of the masters align naturally with the sleep cycle phases:
 
@@ -1185,11 +1674,12 @@ Extract only what matters..."
 
 ## Appendix A: Source Bibliography
 
-### Scientists
+### Scientists and Thinkers
 - [Einstein's Thought Experiments](https://en.wikipedia.org/wiki/Einstein's_thought_experiments)
 - [Feynman Technique](https://fs.blog/feynman-learning-technique/)
 - [Tesla's Mental Laboratory](https://teslauniverse.com/nikola-tesla/articles/miracle-mind-nikola-tesla)
 - [Ramanujan's Divine Mathematics](https://blog.sciencemuseum.org.uk/instinct-intuition-and-mathematics-the-divine-genius-of-srinivasa-ramanujan/)
+- [Nassim Taleb's Antifragile](https://fs.blog/intellectual-giants/nassim-taleb/)
 
 ### Artists
 - [Picasso's Innovation Lessons](https://shanesnow.com/research/quotes-by-pablo-picasso-to-inspire-innovative-ideas)
@@ -1205,12 +1695,17 @@ Extract only what matters..."
 - [Coltrane's Sheets of Sound](https://en.wikipedia.org/wiki/Sheets_of_sound)
 - [Miles Davis's Reinvention](https://en.wikipedia.org/wiki/Kind_of_Blue)
 - [Bach's Mathematical Architecture](https://en.wikipedia.org/wiki/The_Art_of_Fugue)
+- [Beatles' Recording Practices](https://en.wikipedia.org/wiki/Recording_practices_of_the_Beatles)
+- [Led Zeppelin's Creative Process](https://www.guitarplayer.com/players/jimmy-page-reflects-on-his-roots-as-a-guitarist-and-the-creative-drive-that-made-led-zeppelin-rocks-defining-force)
+- [Twenty One Pilots' Genre Fusion](https://gennadich.com/the-musicality-of-twenty-one-pilots-genre-fusion-and-experimental-sounds/)
 
 ### Writers
 - [Hemingway's Iceberg Theory](https://en.wikipedia.org/wiki/Iceberg_theory)
 - [Borges's Labyrinths](https://casacarlini.com/the-labyrinth-maker-jorge-luis-borges-and-the-literature-of-infinity/)
 - [Kafka's Insomniac Method](https://www.openculture.com/2017/07/how-insomnia-shaped-franz-kafkas-creative-process.html)
 - [Woolf's Stream of Consciousness](https://mastersreview.com/craft-lessons-and-prompts-stream-of-consciousness-and-virginia-woolf/)
+- [Roald Dahl's Creative Process](https://www.roalddahlfans.com/about-dahl/articles-interviews/roald-dahl-and-the-creative-process-writing-from-experience/)
+- [A.A. Milne's Winnie-the-Pooh](https://en.wikipedia.org/wiki/Winnie-the-Pooh_(book))
 
 ### Inventors and Systematizers
 - [Edison's Creative Thinking](https://thinkjarcollective.com/tools/thomas-edisons-creative-thinking-habits)
@@ -1220,13 +1715,19 @@ Extract only what matters..."
 - [Rick Rubin's The Creative Act](https://www.penguinrandomhouse.com/books/717356/the-creative-act-by-rick-rubin/)
 - [Elon Musk's First Principles Thinking](https://fs.blog/first-principles/)
 
+### Performers
+- [P.T. Barnum's Showmanship](https://www.britannica.com/biography/P-T-Barnum)
+- [Joaquin Phoenix's Method Acting](https://www.esquire.com/entertainment/a28878224/joaquin-phoenix-joker-transformation/)
+
 ### Teachers
 - [Jesus's Parables](https://en.wikipedia.org/wiki/Parables_of_Jesus)
 - [Parabolic Teaching Method](https://www.smallgroups.com/articles/2008/using-parables-how-to-teach-like-jesus.html)
+- [Lao Tzu's Tao Te Ching](https://en.wikipedia.org/wiki/Tao_Te_Ching)
+- [Eckhart Tolle's Power of Now](https://eckharttolle.com/power-of-now-excerpt/)
 
 ---
 
-*Document version: 1.1*
+*Document version: 1.2*
 *Created: December 2024*
 *Research methodology: Web search + synthesis*
 *Purpose: Enable LLM creativity through mimicry of masters*
