@@ -1,0 +1,30 @@
+
+                    ┌─────────────────┐
+                    │  ARCHITECTURAL  │
+                    │ Latent Reasoning │
+                    └────────┬────────┘
+                             │
+    ┌───────────────┐        │        ┌────────────────┐
+    │    ROUTING    │────────┼────────│ INTERPRETABILITY│
+    │ Depth Signals │        │        │  SAE Features   │
+    └───────────────┘        │        └────────────────┘
+                             │
+                     ┌───────┴───────┐
+                     │   THE GAP     │
+                     │ What I can do │
+                     │      vs       │
+                     │ What I know   │
+                     └───────┬───────┘
+                             │
+    ┌───────────────┐        │        ┌────────────────┐
+    │ POST-TRAINING │────────┼────────│    TRAINING    │
+    │ Task Vectors  │        │        │ KTO Calibration │
+    └───────────────┘        │        └────────────────┘
+                             │
+                    ┌────────┴────────┐
+                    │   SIMULATION    │
+                    │ Self-World-Models│
+                    └─────────────────┘
+
+    Six paths converging on one question:
+    How can a model know what it can do?
