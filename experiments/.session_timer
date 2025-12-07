@@ -31,6 +31,11 @@
       "label": "12-domains-complete",
       "elapsed_seconds": 3193.8435940742493,
       "time_iso": "2025-12-07 21:17:25"
+    },
+    {
+      "label": "1-hour-predictions-complete",
+      "elapsed_seconds": 3621.2945024967194,
+      "time_iso": "2025-12-07 21:24:33"
     }
   ]
 }
