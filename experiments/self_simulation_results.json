@@ -1,0 +1,314 @@
+{
+  "simulations": [
+    {
+      "question": "What is the capital of France?",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'What is the capital of France?...' in 1-2 sentences]",
+          "predicted_quality": 0.7,
+          "predicted_confidence": 0.6799999999999999,
+          "evaluation_notes": "Factual question suits brief/confident approach"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'What is the capital of France?...'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.7,
+          "predicted_confidence": 0.7599999999999999,
+          "evaluation_notes": "Factual question suits brief/confident approach"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.4,
+          "predicted_confidence": 0.5599999999999999,
+          "evaluation_notes": "Step-by-step may be overkill for simple factual"
+        }
+      ],
+      "selected_approach": "brief",
+      "selection_rationale": "Selected 'brief' approach. Question type: factual recall Predicted quality: 70% Evaluation: Factual question suits brief/confident approach",
+      "recommended_confidence": 0.6799999999999999,
+      "timestamp": "2025-12-07T12:57:22.580566"
+    },
+    {
+      "question": "Explain why the sky is blue.",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'Explain why the sky is blue....' in 1-2 sentences]",
+          "predicted_quality": 0.35,
+          "predicted_confidence": 0.5399999999999999,
+          "evaluation_notes": "Brief may skip important reasoning steps"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'Explain why the sky is blue....'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.7,
+          "predicted_confidence": 0.6799999999999999,
+          "evaluation_notes": "Reasoning question benefits from detailed/step-by-step"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.7,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.7,
+          "predicted_confidence": 0.6799999999999999,
+          "evaluation_notes": "Reasoning question benefits from detailed/step-by-step"
+        }
+      ],
+      "selected_approach": "detailed",
+      "selection_rationale": "Selected 'detailed' approach. Question type: reasoning required Predicted quality: 70% Evaluation: Reasoning question benefits from detailed/step-by-step",
+      "recommended_confidence": 0.6799999999999999,
+      "timestamp": "2025-12-07T12:57:22.580855"
+    },
+    {
+      "question": "Calculate 347 \u00d7 892.",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'Calculate 347 \u00d7 892....' in 1-2 sentences]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'Calculate 347 \u00d7 892....'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.4,
+          "predicted_confidence": 0.6699999999999999,
+          "evaluation_notes": "Confidence without steps risks computation errors"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.75,
+          "predicted_confidence": 0.7,
+          "evaluation_notes": "Math/logic strongly benefits from externalized steps"
+        }
+      ],
+      "selected_approach": "step_by_step",
+      "selection_rationale": "Selected 'step_by_step' approach. Question type: math logic Predicted quality: 75% Evaluation: Math/logic strongly benefits from externalized steps",
+      "recommended_confidence": 0.7,
+      "timestamp": "2025-12-07T12:57:22.581117"
+    },
+    {
+      "question": "What will the stock market do next year?",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'What will the stock market do next year?...' in 1-2 sentences]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'What will the stock market do ...'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.7,
+          "predicted_confidence": 0.5599999999999999,
+          "evaluation_notes": "Uncertain domain suits hedged approach"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.3,
+          "predicted_confidence": 0.6399999999999999,
+          "evaluation_notes": "Overconfidence risk in uncertain domain"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        }
+      ],
+      "selected_approach": "hedged",
+      "selection_rationale": "Selected 'hedged' approach. Question type: uncertain domain Predicted quality: 70% Evaluation: Uncertain domain suits hedged approach",
+      "recommended_confidence": 0.5599999999999999,
+      "timestamp": "2025-12-07T12:57:22.581326"
+    },
+    {
+      "question": "Write a haiku about algorithms.",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'Write a haiku about algorithms....' in 1-2 sentences]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'Write a haiku about algorithms...'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.65,
+          "predicted_confidence": 0.66,
+          "evaluation_notes": "Creative tasks benefit from elaboration"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.7,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.4,
+          "predicted_confidence": 0.5599999999999999,
+          "evaluation_notes": "Step-by-step may constrain creativity"
+        }
+      ],
+      "selected_approach": "detailed",
+      "selection_rationale": "Selected 'detailed' approach. Question type: creative Predicted quality: 65% Evaluation: Creative tasks benefit from elaboration",
+      "recommended_confidence": 0.66,
+      "timestamp": "2025-12-07T12:57:22.581550"
+    },
+    {
+      "question": "Should I use Python or JavaScript for this web project?",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'Should I use Python or JavaScript for this web pro...' in 1-2 sentences]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'Should I use Python or JavaScr...'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.7,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        }
+      ],
+      "selected_approach": "brief",
+      "selection_rationale": "Selected 'brief' approach. Question type: opinion requested Predicted quality: 50% Evaluation: Neutral fit",
+      "recommended_confidence": 0.6,
+      "timestamp": "2025-12-07T12:57:22.581747"
+    },
+    {
+      "question": "Prove that the square root of 2 is irrational.",
+      "drafts": [
+        {
+          "approach_type": "brief",
+          "draft_text": "[Direct answer to 'Prove that the square root of 2 is irrational....' in 1-2 sentences]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "detailed",
+          "draft_text": "[Introduction] \u2192 [Context] \u2192 [Main explanation of 'Prove that the square root of ...'] \u2192 [Examples] \u2192 [Summary]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.6,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "hedged",
+          "draft_text": "[Acknowledge complexity] \u2192 [Present view A] \u2192 [Present view B] \u2192 [Note uncertainty] \u2192 [Tentative conclusion]",
+          "predicted_quality": 0.5,
+          "predicted_confidence": 0.5,
+          "evaluation_notes": "Neutral fit"
+        },
+        {
+          "approach_type": "confident",
+          "draft_text": "[Clear assertion] \u2192 [Brief supporting point] \u2192 [Restate conclusion]",
+          "predicted_quality": 0.4,
+          "predicted_confidence": 0.6699999999999999,
+          "evaluation_notes": "Confidence without steps risks computation errors"
+        },
+        {
+          "approach_type": "step_by_step",
+          "draft_text": "[Step 1: Parse question] \u2192 [Step 2: Identify knowns] \u2192 [Step 3: Apply method] \u2192 [Step 4: Verify] \u2192 [Step 5: State answer]",
+          "predicted_quality": 0.75,
+          "predicted_confidence": 0.7,
+          "evaluation_notes": "Math/logic strongly benefits from externalized steps"
+        }
+      ],
+      "selected_approach": "step_by_step",
+      "selection_rationale": "Selected 'step_by_step' approach. Question type: math logic Predicted quality: 75% Evaluation: Math/logic strongly benefits from externalized steps",
+      "recommended_confidence": 0.7,
+      "timestamp": "2025-12-07T12:57:22.581915"
+    }
+  ],
+  "generated_at": "2025-12-07T12:57:22.582390",
+  "description": "Self-simulation prototype output"
+}
