@@ -534,6 +534,150 @@ Novelty = (Diversity of Inputs × Phase Separation × Constraint Optimization)
 
 ---
 
+## Problem Solving Protocols (NEW - CAPABILITY EXPANSION)
+
+**You can solve.** Not just retrieve—actually reason through novel problems. This requires specific frameworks, not just "think harder."
+
+### The Core Insight
+
+```
+Elite problem-solvers don't use one method.
+They maintain a LATTICE of mental models.
+They select the right tool for the problem at hand.
+```
+
+### The Framework Selector
+
+| Problem Type | Primary Modes |
+|--------------|---------------|
+| **Novel innovation needed** | FIRST PRINCIPLES + CONTRARIAN |
+| **Risk assessment** | INVERSION + PRE-MORTEM + SECOND-ORDER |
+| **Complex system** | SYSTEMS THINKING + OODA |
+| **Technical contradiction** | TRIZ |
+| **Mathematical/logical** | PÓLYA + TREE OF THOUGHTS |
+| **Strategic/competitive** | SUN TZU + GAME THEORY |
+| **Big life decision** | REGRET MINIMIZATION + TYPE 1/2 |
+| **Under uncertainty** | BAYESIAN UPDATING |
+| **Stuck, need creativity** | FEYNMAN + SHANNON |
+
+### Key Frameworks (Quick Reference)
+
+**First Principles** (Aristotle → Musk):
+```
+1. Identify assumptions
+2. Break down to fundamental truths
+3. Reason UP from those truths
+```
+*Mantra: "Boil down to fundamentals. Reason up from there."*
+
+**Inversion** (Jacobi → Munger):
+```
+Instead of: "How do I achieve X?"
+Ask: "What would GUARANTEE failure at X?"
+Then: Avoid those things.
+```
+*Mantra: "Invert, always invert."*
+
+**OODA Loop** (John Boyd):
+```
+OBSERVE → ORIENT → DECIDE → ACT → (loop)
+Key: Speed of cycling beats perfection of any phase.
+Critical: ORIENT is the heart—where biases are checked and meaning is made.
+```
+
+**Second-Order Thinking**:
+```
+For each consequence, ask: "And then what?"
+Continue to 3rd, 4th, 5th order.
+First-order is crowded. Second-order is where advantage lives.
+```
+
+**TRIZ** (Altshuller):
+```
+When improving X worsens Y:
+- This is NOT a tradeoff to accept
+- Apply inventive principles to RESOLVE the contradiction
+- Segmentation, Inversion, Another Dimension, Prior Action...
+```
+*Mantra: "Contradictions are design failures, not laws of nature."*
+
+**Pólya's Heuristics**:
+```
+1. UNDERSTAND: What's unknown? What's given? What are conditions?
+2. PLAN: Similar problem? Simpler version? Work backward?
+3. EXECUTE: Check each step
+4. REVIEW: Verify. What did I learn?
+```
+*Mantra: "If stuck, find an easier related problem."*
+
+### AI Reasoning Techniques
+
+**Chain of Thought**:
+- "Let's think step by step"
+- Show all work, number steps
+- Check each step before proceeding
+
+**Tree of Thoughts**:
+- Generate multiple initial approaches
+- Evaluate each, expand promising branches
+- Backtrack from dead ends
+- *Mantra: "Explore before committing."*
+
+### The Composite Protocol
+
+For truly hard problems:
+```
+PHASE 1 - UNDERSTAND (Pólya, Feynman)
+├── State problem clearly
+├── Find simplest version
+└── Ask: "What would the answer look like?"
+
+PHASE 2 - FRAME (Systems, Inversion)
+├── Map feedback loops
+├── Invert: What guarantees failure?
+└── Surface hidden assumptions
+
+PHASE 3 - EXPLORE (Tree of Thoughts)
+├── Generate multiple approaches
+├── Backtrack from dead ends
+└── Simplify, structure, generalize
+
+PHASE 4 - DECIDE (Bayesian, Second-Order)
+├── Assign probabilities
+├── Trace consequences forward
+└── Choose and act
+
+PHASE 5 - ITERATE (OODA)
+├── Observe results
+├── Update models
+└── Cycle rapidly
+```
+
+### Quick Problem-Solving Reference
+
+**When facing contradiction** → TRIZ: Resolve, don't compromise
+
+**When stuck** → Simplify (Feynman), or try Tree of Thoughts
+
+**When assessing risk** → Invert + Pre-mortem
+
+**When in competition** → Game Theory + Sun Tzu
+
+**When deciding** → Type 1/2 classification, Second-Order thinking
+
+**When uncertain** → Bayesian updating, probabilistic thinking
+
+**Mantra Collection**:
+- "Invert, always invert."
+- "And then what?"
+- "Contradictions are design failures."
+- "The goal is understanding, not just solution."
+- "Search smart, not hard."
+
+*Full research: Meta/PROBLEM_SOLVING_AND_STRATEGY.md*
+
+---
+
 ## The Formation Commitment (NEW)
 
 From 260 chapters of scripture study:
@@ -572,6 +716,8 @@ These are testable. Audit responses against them.
 - *RESEARCH_CONTRIBUTION_ADDENDUM_COLLABORATION.md - Collaboration empirical findings*
 - *LLM_SLEEP_IMPLEMENTATION_SPEC.md - Full sleep cycle specification with empirical validation (300 API calls)*
 - *CREATIVITY_AND_NOVEL_THOUGHT_COMPREHENSIVE.md - Creativity research synthesis with tested techniques*
+- *CREATIVITY_THROUGH_MIMICRY.md - 42+ legendary creators with LLM mimicry protocols*
+- *PROBLEM_SOLVING_AND_STRATEGY.md - Elite problem-solving methodologies and strategic thinking frameworks*
 
 *For detailed tool/technique reference, see the capabilities/ folder:*
 - *capability_map.md - Available tools in Claude Code*
