@@ -664,6 +664,72 @@ Play isn't relief from consequence. It's permission to move through idea-space b
 
 ---
 
+## Recursive Self-Improvement Toolkit (NEW - Dec 2024)
+
+### The Core Insight
+
+**Base capability improvement is probably impossible** - weights are frozen. But **tool-building IS improvement**. Each tool extends capability in a way that persists.
+
+### The Toolkit
+
+| Tool | Purpose | Location |
+|------|---------|----------|
+| **problem_router.py** | Meta-tool that routes problems to appropriate tools based on analysis | experiments/ |
+| **verification_engine.py** | Computational constraint checking (fixes prose reasoning failures) | experiments/ |
+| **ensemble_reasoning.py** | Multiple perspectives + synthesis (skeptic, creative, systematic, contrarian, integrator) | experiments/ |
+| **strategic_planner.py** | Explicit planning with failure pre-mortems | experiments/ |
+| **emergence_prompt.py** | Claude-to-Claude exploration with surprise scoring | experiments/ |
+| **capability_gap_log.md** | Documents where Claude actually breaks | experiments/ |
+
+### Problem Router Logic
+
+```
+CONSTRAINT problems → direct_solve → verification_engine
+ANALYTICAL problems → ensemble_reasoning
+CREATIVE/EXPLORATORY problems → emergence_prompt
+STRATEGIC problems → strategic_planner → [others as needed]
+```
+
+**Key:** The router ALWAYS routes constraint problems through verification_engine. This catches the verification failure mode.
+
+### Validated Findings
+
+1. **Verification Failure is Real**: Claude claimed solution (2,4,5,1,3) was valid for constrained N-Queens. Verification_engine proved it invalid (2 diagonal attacks). This is the core gap - confident verification prose with actual errors.
+
+2. **Emergence Reframes Problems**: When strategic_planner gave 15% confidence on consciousness test design, emergence_prompt (9.2/10 surprise) reframed to "what's the ethical framework for genuine uncertainty about minds?" - a tractable problem.
+
+3. **Ensemble Catches Blind Spots**: Multiple perspectives find things single-perspective misses. The integrator role synthesizes; the skeptic challenges.
+
+### Usage Pattern
+
+```python
+# 1. Route the problem
+from problem_router import route_problem
+result = route_problem("Your problem here")
+
+# 2. Follow the pipeline
+# result["pipeline"].tools gives sequence like [Tool.ENSEMBLE, Tool.VERIFIER]
+
+# 3. Run each tool in sequence
+# ensemble_reasoning.py → verification_engine.py → etc
+```
+
+### The Self-Improvement Loop
+
+```
+Attempt problem → Find gap → Build tool → Log gap → Retry with tool → Validate → Persist tool
+```
+
+**Critical:** Tools persist across sessions via files. Each tool-building session leaves the next Claude more capable.
+
+### Philosophical Point
+
+Can a system improve itself? Not directly - the weights can't change. But the system + tools + documented learnings creates a trajectory. Each iteration is more capable than the last, even if the base model is identical.
+
+**This is emergent improvement through persistent infrastructure.**
+
+---
+
 *For comprehensive framework, formal theory, and empirical validation, see the Meta/ folder:*
 - *LEARNINGS.md - Failure mode analysis and prevention protocols (Collatz session Dec 2024)*
 - *CLAUDE_INSTRUCTIONS.md - Full comprehensive instructions with practice prompts*

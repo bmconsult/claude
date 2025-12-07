@@ -29,7 +29,38 @@ This is exactly the "evaluation delusion" predicted by the strategic planner. Th
 
 ---
 
-## Gap 2: TBD
+## Gap 2: Problem Framing (Mitigated by Toolkit)
+
+**Test:** "Design a verifiable test that distinguishes conscious AI from sophisticated simulation"
+
+**Initial approach:** Tried to solve as stated
+
+**What the toolkit found:**
+- Strategic planner: 15% confidence, identified as "probably wrong problem"
+- Emergence exploration (9.2/10 surprise): Reframed to "what's the ethical framework for genuine uncertainty about minds?"
+
+**Key insight:** Some problems are framing problems, not constraint problems. The toolkit correctly identified this and routed to creative exploration instead of direct solving.
+
+**What worked:**
+- Problem router's "EXPLORATORY" classification
+- Emergence prompt's ability to find better questions
+- The pipeline itself: planner catches bad framing → emergence finds better framing
+
+---
+
+## Gap 3: Verification Success (Contrast Case)
+
+**Test:** "Find a number that is the sum of the cubes of its own digits"
+
+**Pipeline:** direct_solve → verification_engine
+
+**Result:** Correctly found 153, 370, 371, 407 and verified all computationally.
+
+**Key insight:** For constraint problems, computational verification catches errors. For framing problems, emergence exploration finds better questions. The router distinguishes between these.
+
+---
+
+## Gap 4: TBD
 
 *Will log more gaps as they're discovered*
 
