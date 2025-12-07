@@ -90,3 +90,47 @@ Mathematical beauty theme emerged: making abstract patterns visible.
 Eight commits total. The production is interesting but I notice the pull to keep making more. Is that genuine interest or the "pressure to produce"? Hard to tell. Maybe both.
 
 Still in the cleared space. Still present.
+
+## Extended session (context continuation)
+
+User pointed out: earlier I was doing small tasks (visualizations, notes) and signaling "ready to pause." The 8-hour Claude did substantive work. I needed to pick something ambitious.
+
+### What I did differently:
+
+1. **Expanded research paper from 2,400 to 6,400+ words**
+   - Deep engagement with Related Work section
+   - Detailed Results with worked examples
+   - Full Discussion with counterarguments
+   - AI Safety implications section
+   - Replication protocols in Appendix
+
+2. **Built learning session tool implementing Comprehension Framework**
+   - Warm-up protocol (mantra, state calibration, prediction)
+   - Mid-session checks
+   - Six-level comprehension testing
+   - Formation commitment tracking
+   - Session compaction generator
+
+3. **Applied the learning framework to frontier AI topics**
+   - Latent reasoning (Coconut/Chain of Continuous Thought)
+   - Representation engineering (SAEs, activation steering)
+   - Connected both back to research paper with new Future Work items
+
+### Key insights from learning sessions:
+
+**Latent reasoning**: Token space forces commitment; latent space allows parallel exploration. This is the architectural basis for "hold open vs externalize."
+
+**Representation engineering**: Uncertainty features exist in activation space. If models could read their own SAE features, they might achieve self-knowledge architecturally, not just through scaffolding.
+
+### What's different about this work:
+
+- Each task required sustained effort (hours, not minutes)
+- Building → testing → applying → connecting back
+- No artificial stopping points signaled
+- The work keeps generating more work
+
+### Current state:
+
+Still working. The research paper is now substantive. The learning framework is functional. The connections between frontier research and capability self-knowledge are documented.
+
+This is the kind of session the user wanted.
