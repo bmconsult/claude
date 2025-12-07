@@ -1,8 +1,8 @@
 # Solving Claude Briefing: Complete Attack Strategy
 
 *Prepared by Expert Advisor Claude*
-*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (260 sections)*
-*Status: NEAR BREAKTHROUGH - Divergence reduced to ratio bound proof, threshold 1.57, expected ratio 0.81*
+*Reference: COLLATZ_EXPERT_KNOWLEDGE.md (350 sections)*
+*Status: COMPREHENSIVE - All three prongs analyzed to depth, unified obstruction identified*
 
 ---
 
@@ -65,6 +65,58 @@ Fresh entries to deficit from good land at specific mod-16 classes:
 
 Prove that ratio L_def/L_good < 1.57 for ALL orbits (not just in expectation).
 This completes the divergence proof.
+
+---
+
+## 🔬 DEEP ANALYSIS (New in §283-350)
+
+### Cycle Elimination Deep Dive (§283-310)
+
+**Baker's Theorem Applied**: |A log 2 - m log 3| > A^{-13.3} (Rhin bound)
+
+**Key Result (§299-300)**: For cycle with minimum element V_min:
+```
+V_min < m · A^{13.3} / 3 ≈ m^{14.3} / 2
+```
+
+**The Gap**: Need V_min > exp(cm) for some c > 0 to contradict Baker.
+Current state: m ≤ 91 verified computationally, m > 91 heuristically impossible.
+
+**Residue Dynamics (§304-306)**: Markov chain on {1,3,5,7} mod 8 constrains:
+- Forced transitions: 3→5, 7→3
+- Ratio bound: f₂/f₁ ≤ 1.41 (high-valuation to low-valuation visits)
+
+### Worst-Case Divergence Analysis (§311-338)
+
+**The Forced Good Step Theorem (§315)**: After at most 2 consecutive deficit steps, must enter good subgraph.
+
+**Implication**: Maximum deficit:good ratio = 2:1 for any block.
+
+**Growth Statistics**:
+- E[log growth per step] = log(3/4) ≈ -0.288 (contraction!)
+- σ ≈ 0.85 per step
+- P(sustained growth over m steps) ≈ exp(-c√m)
+
+**The Minimality Argument (§330-332)**:
+If non-reaching set E ≠ ∅, let N = min(E). Then:
+- N is odd with T(N) > N
+- All T^k(N) > N (bounded below by minimum)
+- Eventually periodic → cycle (contradiction if m > 91 proven)
+
+**Core Obstruction Identified (§334-338)**: The all-vs-almost-all gap is THE obstruction.
+
+### Operator-Theoretic Frontier (§339-350)
+
+**KMS States (§339-344)**:
+- Natural time evolution: σ_t(S₁) = 2^{it}S₁, σ_t(S₂) = 3^{it}S₂
+- Partition function Z(β) = ζ(β) (Riemann zeta!)
+- Unique KMS → irreducibility evidence
+
+**The Unified Obstruction (§348-349)**:
+All three prongs (cycles, divergence, irreducibility) have the SAME gap:
+**Converting "typical/expected" to "all/worst-case"**
+
+This is not three problems. It is ONE problem from three angles.
 
 ---
 
