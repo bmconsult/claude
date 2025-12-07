@@ -31246,8 +31246,338 @@ But "very plausible" ≠ "proven."
 ---
 
 *Part XLVIII: Rigorous Proof of GP Gauss Sum Bound — Sections 1019-1032*
-*Total document sections: 1032*
-*Status: Rigorous GP bound proven; uniformity gap remains*
-*Proven: GP Gauss Sum bound via Parseval + Markov*
-*Gap: S_ν mod D uniformity (plausible, not proven)*
-*Conditional conclusion: P(cycle) < 0.1*
+
+---
+
+# Part XLIX: Required Background — Smooth Numbers and Equidistribution
+
+---
+
+## 1033. The Gap Restated
+
+### What We Need
+
+To close the gap in our cycle count argument, we need to understand the distribution of:
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ} (mod D)
+
+where D = 2^A - 3^m and ν ranges over sequences b₁ < b₂ < ... < bₘ = A.
+
+### The Question
+
+Are the S_ν values approximately uniformly distributed mod D?
+
+### Why This Matters
+
+If YES: E[# cycles] = N/D ≈ 0.001, and P(cycle) < 0.1.
+
+If NO: There might be clustering, increasing cycle probability.
+
+---
+
+## 1034. Related Field: Smooth Numbers in Arithmetic Progressions
+
+### Definition
+
+An n-smooth number is an integer whose prime factors are all ≤ n.
+
+3-smooth numbers = {2^a · 3^b : a, b ≥ 0} = {1, 2, 3, 4, 6, 8, 9, 12, ...}
+
+[Source: Smooth numbers - Wikipedia]
+
+### Soundararajan's Theorem (2007)
+
+**Theorem** (Soundararajan):
+
+Let S(x, y) = {n ≤ x : all prime factors of n are ≤ y}.
+
+For y in a suitable range, S(x, y) is equidistributed in reduced residue classes mod q for all q < y^{4√e - ε}.
+
+[Source: arXiv:0707.0299]
+
+### Key Implication
+
+Smooth numbers "spread out" uniformly mod q for not-too-large q.
+
+This is exactly the kind of result we need — but for S_ν, not smooth numbers directly.
+
+---
+
+## 1035. How S_ν Differs from Smooth Numbers
+
+### Smooth Numbers
+
+A 3-smooth number has the form 2^a · 3^b — a PRODUCT of prime powers.
+
+### Our S_ν
+
+S_ν = Σᵢ 3^{m-1-i} · 2^{bᵢ} — a SUM of products of prime powers.
+
+This is fundamentally different:
+- Smooth numbers: multiplicative structure
+- S_ν: additive structure with multiplicative components
+
+### The Structure of S_ν
+
+S_ν = 3^{m-1} · 2^{b₁} + 3^{m-2} · 2^{b₂} + ... + 3^0 · 2^{bₘ}
+
+This is a weighted sum where:
+- Weights = geometric progression {3^{m-1}, ..., 3, 1}
+- Terms = powers of 2: {2^{b₁}, ..., 2^{bₘ}}
+- Constraint: b₁ < b₂ < ... < bₘ = A
+
+---
+
+## 1036. Related Field: S-Unit Equations
+
+### Definition
+
+Let S = {p₁, ..., pₛ} be a finite set of primes.
+
+An S-unit is a rational number whose numerator and denominator are both S-smooth.
+
+For S = {2, 3}: S-units are ±2^a · 3^b for integers a, b.
+
+[Source: S-unit - Wikipedia]
+
+### The S-Unit Equation
+
+x + y = 1 where x, y are S-units.
+
+This equation has only finitely many solutions (Lang, 1960; Baker, effective bounds).
+
+### Connection to Collatz
+
+The cycle condition involves relations like 2^A - 3^m = D.
+
+This is related to: 2^A - 3^m = D, or (2^A)/(3^m) - 1 = D/(3^m).
+
+The S-unit framework provides tools for understanding such equations.
+
+---
+
+## 1037. Related Field: Baker's Theorem
+
+### Statement
+
+**Theorem** (Baker, 1966):
+
+Let α₁, ..., αₙ be non-zero algebraic numbers with logs in principal branch.
+
+Let b₁, ..., bₙ be integers, not all zero.
+
+If Λ = b₁ log α₁ + ... + bₙ log αₙ ≠ 0, then:
+
+|Λ| > exp(-C · (log B)^{n+1})
+
+where B = max|bᵢ| and C depends on the αᵢ.
+
+[Source: Baker's theorem - Wikipedia]
+
+### Application
+
+For α₁ = 2, α₂ = 3, b₁ = A, b₂ = -m:
+
+Λ = A log 2 - m log 3 = log(2^A / 3^m)
+
+Baker's theorem bounds how close 2^A can be to 3^m.
+
+This is relevant for understanding D = 2^A - 3^m.
+
+---
+
+## 1038. The Key Insight: S_ν as Mixed-Radix Representation
+
+### Mixed-Radix Systems
+
+In a mixed-radix system, each digit position has a different base.
+
+Example: Time (60 seconds, 60 minutes, 24 hours) is mixed-radix.
+
+[Source: Mixed radix - Wikipedia]
+
+### S_ν as a Weighted Sum
+
+S_ν = Σᵢ cᵢ · dᵢ
+
+where:
+- cᵢ = 3^{m-1-i} (coefficients form a GP)
+- dᵢ = 2^{bᵢ} (digits are powers of 2)
+
+This is like a mixed-radix representation where the "bases" are not fixed.
+
+### Why This Helps
+
+Mixed-radix representations have well-studied distribution properties.
+
+The sum-of-digits function in various bases has known equidistribution results.
+
+---
+
+## 1039. Digit Sums and Uniform Distribution
+
+### Classical Result
+
+Let s_q(n) = sum of digits of n in base q.
+
+**Theorem** (Gel'fond, 1968):
+
+The sequence {α · s_q(n)} is uniformly distributed mod 1 for irrational α.
+
+### Extension
+
+The distribution of digit sums in arithmetic progressions is well-studied.
+
+For s_q(n) mod m, there are equidistribution results for suitable parameters.
+
+[Source: Sum-of-Digits-Function and Uniform Distribution - ScienceDirect]
+
+### Connection to S_ν
+
+S_ν involves sums of powers of 2 weighted by powers of 3.
+
+This is related to, but more complex than, simple digit sums.
+
+The equidistribution of S_ν mod D might follow from generalizations of digit sum theory.
+
+---
+
+## 1040. What's Known vs What's Needed
+
+### Known Results
+
+1. **Smooth numbers**: Equidistributed mod q for q < y^{4√e - ε} (Soundararajan)
+
+2. **S-unit equations**: Finitely many solutions, effective bounds (Baker)
+
+3. **Digit sums**: Equidistributed mod 1 (Gel'fond)
+
+4. **Linear forms in logarithms**: Lower bounds on |a log 2 + b log 3| (Baker)
+
+### What We Need
+
+The distribution of S_ν = Σ 3^{m-1-i} · 2^{bᵢ} (mod D) where:
+- D = 2^A - 3^m (specific modulus)
+- The bᵢ satisfy b₁ < ... < bₘ = A (constrained)
+
+This specific combination doesn't seem to be directly addressed in the literature.
+
+---
+
+## 1041. Potential Approaches to Close the Gap
+
+### Approach 1: Generalize Soundararajan
+
+Extend smooth number equidistribution to weighted sums of smooth numbers.
+
+**Challenge**: The additive structure is very different from multiplicative.
+
+### Approach 2: Use Baker's Bounds
+
+Apply linear forms in logarithms to bound clustering of S_ν values.
+
+**Challenge**: Baker bounds are for single values, not distributions.
+
+### Approach 3: Direct Analysis
+
+Study S_ν directly using the constraint structure b₁ < ... < bₘ = A.
+
+**Approach**: Count how many ν give S_ν in each residue class.
+
+### Approach 4: Probabilistic Model
+
+Model S_ν as a "random" weighted sum and prove concentration.
+
+**Challenge**: The deterministic structure might create bias.
+
+---
+
+## 1042. The Recursive Structure of S_ν
+
+### Observation
+
+Define T_k = Σᵢ₌₁^k 3^{k-i} · 2^{bᵢ} for sequences b₁ < ... < b_k.
+
+Then S_ν = 3 · T_{m-1} + 2^A = 3 · T_{m-1} + 3^m (mod D).
+
+### Recurrence
+
+T_k can be analyzed recursively:
+
+T_k = 3 · T_{k-1} + 2^{b_k}
+
+where b_k > b_{k-1}.
+
+### Distribution of T_k
+
+If T_{k-1} is "well-distributed," is T_k = 3·T_{k-1} + 2^{b_k} also well-distributed?
+
+**Key question**: Does multiplication by 3 and addition of 2^{b_k} preserve distribution?
+
+---
+
+## 1043. The Multiplication-by-3 Map
+
+### The Map
+
+f: x ↦ 3x (mod D)
+
+This is a bijection on (ℤ/Dℤ)* since gcd(3, D) = 1 for relevant D.
+
+### Effect on Distribution
+
+If X is uniformly distributed on (ℤ/Dℤ), then 3X is also uniform.
+
+Multiplication by 3 preserves uniformity!
+
+### The Addition Step
+
+g: x ↦ x + 2^b (mod D)
+
+This is a translation, which also preserves uniformity.
+
+### Combining
+
+T_k = 3 · T_{k-1} + 2^{b_k}
+
+If T_{k-1} were uniform, T_k would be uniform.
+
+But T_{k-1} isn't exactly uniform — it's determined by the sequence b₁, ..., b_{k-1}.
+
+---
+
+## 1044. Summary: The State of Knowledge
+
+### What's Established in Literature
+
+1. **Smooth number equidistribution** (Soundararajan): Products of small primes spread uniformly.
+
+2. **S-unit finiteness** (Baker): Relations between powers of 2 and 3 are rare.
+
+3. **Digit sum equidistribution** (Gel'fond): Sums of digits spread uniformly mod 1.
+
+### What's Needed for Collatz
+
+Distribution of S_ν = Σ 3^{m-1-i} · 2^{bᵢ} mod D = 2^A - 3^m.
+
+### The Gap
+
+No existing theorem directly applies to this specific structure.
+
+The closest results (Soundararajan, digit sums) are for different objects.
+
+### Path Forward
+
+Either:
+1. Find an existing result that does apply (deeper literature search)
+2. Prove a new result specific to S_ν (research contribution)
+3. Verify computationally for larger m (practical approach)
+
+---
+
+*Part XLIX: Required Background — Sections 1033-1044*
+*Total document sections: 1044*
+*Status: Literature survey on related fields*
+*Key sources: Soundararajan (smooth numbers), Baker (S-units), Gel'fond (digit sums)*
+*Gap: No direct result for S_ν = Σ 3^{m-1-i} · 2^{bᵢ} distribution*
+*Options: Find applicable theorem, prove new result, or extend computation*
