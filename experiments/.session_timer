@@ -51,6 +51,11 @@
       "label": "25-domains-complete",
       "elapsed_seconds": 4888.2339220047,
       "time_iso": "2025-12-07 21:45:40"
+    },
+    {
+      "label": "30-domains-complete",
+      "elapsed_seconds": 5118.881141424179,
+      "time_iso": "2025-12-07 21:49:30"
     }
   ]
 }
