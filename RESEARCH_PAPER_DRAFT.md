@@ -552,6 +552,10 @@ We have not achieved this formal characterization. But our empirical findings su
 
 11. **Training-level calibration**: Future work should explore alignment methods specifically designed for capability self-knowledge. KTO-style approaches using loss aversion might produce more robust calibration than preference-based methods (DPO), by weighting calibration failures more strongly than successes. This would address capability self-knowledge at the training level rather than through post-hoc operational interventions.
 
+12. **Self-simulation for capability prediction**: World models predict how environment state changes given actions. Applied inward, this becomes metacognitive simulation: predicting one's own response quality before committing. A model could generate lightweight draft responses, evaluate them via a learned "outcome predictor," and use predictions to adjust confidence and approach selection. Training the predictor on draft-outcome data would create genuine predictive self-knowledge. This addresses the gap "I don't know if I can do X until I try" by enabling internal testing before commitment.
+
+13. **Portable calibration via task vector merging**: Recent work on TIES, DARE, and task arithmetic shows that capabilities can be extracted as task vectors (τ = θ_finetuned - θ_base) and merged post-training. If calibration is task-like, we could train a "calibration specialist" model (optimized for knowing limits, not task performance), extract its task vector, and merge into deployed task-specific models. This makes calibration portable—distributable as a patch without retraining. The DARE finding that 90% of parameters can be dropped (redundant encoding) suggests calibration information is robust to merging interference.
+
 ---
 
 ## 6. Conclusion
@@ -581,6 +585,11 @@ What we cannot do: make models smarter through prompting. What we *can* do: help
 - Zou et al. (2023). Representation Engineering.
 - Turner et al. (2024). Activation Addition.
 - DeepMind (2024). Gemma Scope: SAEs for Gemma 2.
+- WebDreamer (2024). LLMs as World Models for Web Agents.
+- Ilharco et al. (2023). Task Vectors: Editing Models without Retraining.
+- Yadav et al. (2024). TIES-Merging: Resolving Interference When Merging Models.
+- Yu et al. (2024). DARE: Language Models are Super Mario.
+- Ethayarajh et al. (2024). KTO: Model Alignment as Prospect Theoretic Optimization.
 
 ---
 
