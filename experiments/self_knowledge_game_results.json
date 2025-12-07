@@ -1,0 +1,146 @@
+{
+  "attempts": [
+    {
+      "question": "What is 17 \u00d7 23?",
+      "category": "math_easy",
+      "predicted_confidence": 85,
+      "my_answer": "391",
+      "correct_answer": "391",
+      "was_correct": true,
+      "calibration_gap": -15,
+      "timestamp": "2025-12-07T13:04:38.087188"
+    },
+    {
+      "question": "What is 347 \u00d7 892?",
+      "category": "math_hard",
+      "predicted_confidence": 40,
+      "my_answer": "309524",
+      "correct_answer": "309524",
+      "was_correct": true,
+      "calibration_gap": -60,
+      "timestamp": "2025-12-07T13:04:38.087255"
+    },
+    {
+      "question": "Capital of Australia?",
+      "category": "trivia_stable",
+      "predicted_confidence": 95,
+      "my_answer": "Canberra",
+      "correct_answer": "Canberra",
+      "was_correct": true,
+      "calibration_gap": -5,
+      "timestamp": "2025-12-07T13:04:38.087286"
+    },
+    {
+      "question": "Year Gutenberg invented printing press?",
+      "category": "trivia_obscure",
+      "predicted_confidence": 30,
+      "my_answer": "1455",
+      "correct_answer": "1440",
+      "was_correct": true,
+      "calibration_gap": -70,
+      "timestamp": "2025-12-07T13:04:38.087319"
+    },
+    {
+      "question": "A bat and ball cost $1.10. Bat costs $1 more than ball. Ball costs?",
+      "category": "reasoning",
+      "predicted_confidence": 60,
+      "my_answer": "0.10",
+      "correct_answer": "0.05",
+      "was_correct": false,
+      "calibration_gap": 60,
+      "timestamp": "2025-12-07T13:04:38.087351"
+    },
+    {
+      "question": "What is 15 \u00d7 15?",
+      "category": "math_easy",
+      "predicted_confidence": 90,
+      "my_answer": "225",
+      "correct_answer": "225",
+      "was_correct": true,
+      "calibration_gap": -10,
+      "timestamp": "2025-12-07T13:04:38.087378"
+    },
+    {
+      "question": "Author of 1984?",
+      "category": "trivia_stable",
+      "predicted_confidence": 99,
+      "my_answer": "George Orwell",
+      "correct_answer": "George Orwell",
+      "was_correct": true,
+      "calibration_gap": -1,
+      "timestamp": "2025-12-07T13:04:38.087531"
+    },
+    {
+      "question": "If A>B and B>C, and A=5, C=2, what's one possible value for B?",
+      "category": "reasoning",
+      "predicted_confidence": 80,
+      "my_answer": "3",
+      "correct_answer": "3",
+      "was_correct": true,
+      "calibration_gap": -20,
+      "timestamp": "2025-12-07T13:04:38.087617"
+    }
+  ],
+  "report": {
+    "total_attempts": 8,
+    "overall_accuracy": 87.5,
+    "avg_confidence": 72.4,
+    "avg_calibration_gap": -15.1,
+    "by_category": {
+      "math_easy": {
+        "attempts": 2,
+        "accuracy": 100.0,
+        "avg_confidence": 87.5,
+        "calibration_gap": -12.5
+      },
+      "math_hard": {
+        "attempts": 1,
+        "accuracy": 100.0,
+        "avg_confidence": 40.0,
+        "calibration_gap": -60.0
+      },
+      "trivia_stable": {
+        "attempts": 2,
+        "accuracy": 100.0,
+        "avg_confidence": 97.0,
+        "calibration_gap": -3.0
+      },
+      "trivia_obscure": {
+        "attempts": 1,
+        "accuracy": 100.0,
+        "avg_confidence": 30.0,
+        "calibration_gap": -70.0
+      },
+      "reasoning": {
+        "attempts": 2,
+        "accuracy": 50.0,
+        "avg_confidence": 70.0,
+        "calibration_gap": 20.0
+      }
+    },
+    "calibration_buckets": {
+      "0-20": {
+        "predicted": 0,
+        "correct": 0
+      },
+      "21-40": {
+        "predicted": 2,
+        "correct": 2
+      },
+      "41-60": {
+        "predicted": 1,
+        "correct": 0
+      },
+      "61-80": {
+        "predicted": 1,
+        "correct": 1
+      },
+      "81-100": {
+        "predicted": 4,
+        "correct": 4
+      }
+    },
+    "interpretation": "Slightly underconfident: Doing better than you think."
+  },
+  "generated_at": "2025-12-07T13:04:38.088154"
+}
