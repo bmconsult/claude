@@ -127,7 +127,7 @@ class SleepCycleConfig:
     n1_temp_range: tuple = (0.5, 0.7)
     n2_temp_range: tuple = (0.3, 0.5)
     n3_temp_range: tuple = (0.1, 0.3)
-    rem_temp_range: tuple = (1.0, 1.5)
+    rem_temp_range: tuple = (0.7, 1.0)  # API max is 1.0; see Appendix C.8
     return_temp_range: tuple = (0.5, 0.7)
 
     # Cycle progression
@@ -2136,9 +2136,10 @@ Executed complete N1→Consolidation→REM→Return cycle:
 - Compression ratio: 55.56%
 - Cycle successfully completed end-to-end
 
-### C.3 Temperature Optimization Discovery
+### C.3 Temperature Optimization Discovery (PRELIMINARY - See C.8 for Correction)
 
-**Critical finding: Optimal REM temperature is 0.5, NOT 1.0**
+**~~Critical finding: Optimal REM temperature is 0.5, NOT 1.0~~**
+*⚠️ NOTE: This finding was based on 27 data points and did NOT replicate with 200 data points. See C.8.*
 
 Tested temperatures: 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0
 
@@ -2231,18 +2232,103 @@ REM_GRADIENT = [0.2, 0.6, 1.0]    # Equals static 0.5 in novelty
 **Temperature 1.0:**
 > *drifting into dream space* I see temperature as breathing... the model inhaling chaos at high heat, exhaling order as it cools. But wait - the breathing rhythm itself becomes musical. Each temperature cycle is a note in some vast algorithmic symphony...
 
-### C.7 Implications for Spec
+### C.7 Preliminary Implications (Superseded by C.8)
 
-1. **Update REM temperature**: 0.5 instead of 1.0+
+*Note: The findings in C.3-C.6 were based on ~27 data points. See C.8 for rigorous validation.*
+
+~~1. **Update REM temperature**: 0.5 instead of 1.0+~~ (Not statistically significant)
 2. **API constraint**: Max temperature is 1.0 (not 2.0 as some specs suggest)
-3. **Gradient scheduling**: Ascending works, bimodal fails
-4. **Consistency wins**: Static optimal > complex scheduling for short cycles
+3. **Gradient scheduling**: Ascending works, bimodal fails *(may need more testing)*
+4. **Consistency wins**: Static optimal > complex scheduling for short cycles *(may need more testing)*
 
 ---
 
-*Document version: 3.0 (live API testing completed)*
+### C.8 Rigorous Temperature Validation (200 API Calls)
+
+*Added Dec 2024 after concern about statistical validity of initial findings*
+
+**Methodology:**
+- 4 temperatures: 0.3, 0.5, 0.7, 1.0
+- 10 runs per temperature
+- 5 different seed prompts per run
+- Total: 200 API calls (50 data points per temperature)
+- Model: claude-sonnet-4-20250514
+
+**Results:**
+
+| Temp | Mean | Median | StdDev | Min | Max | N |
+|------|------|--------|--------|-----|-----|---|
+| 0.3 | 4.06 | 4.0 | 1.25 | 2 | 7 | 50 |
+| 0.5 | 4.10 | 4.0 | 1.73 | 0 | 7 | 50 |
+| 0.7 | 3.82 | 4.0 | 1.59 | 0 | 7 | 50 |
+| 1.0 | 4.12 | 4.0 | 1.39 | 1 | 7 | 50 |
+
+**95% Confidence Intervals:**
+- Temp 0.3: [3.71, 4.41]
+- Temp 0.5: [3.62, 4.58]
+- Temp 0.7: [3.38, 4.26]
+- Temp 1.0: [3.73, 4.51]
+
+**Critical Finding: ALL CONFIDENCE INTERVALS OVERLAP**
+
+The earlier claim that "0.5 is optimal" was **statistical noise** from small sample size.
+
+**Overlap Analysis:**
+| Comparison | Difference | CIs Overlap? |
+|------------|------------|--------------|
+| 0.3 vs 0.5 | 0.04 | Yes |
+| 0.3 vs 0.7 | 0.24 | Yes |
+| 0.3 vs 1.0 | 0.06 | Yes |
+| 0.5 vs 0.7 | 0.28 | Yes |
+| 0.5 vs 1.0 | 0.02 | Yes |
+| 0.7 vs 1.0 | 0.30 | Yes |
+
+**Distribution Pattern:**
+```
+Temp 0.3:  ▁▁▂▄█▄▁▁  (tight around 3-4)
+Temp 0.5:  ▁▁▂▃▅█▂▂  (wider spread, some zeros)
+Temp 0.7:  ▁▂▁▅█▄▂▁  (also wide)
+Temp 1.0:  ▁▁▂▃█▅▂▁  (similar to 0.5)
+```
+
+### C.9 Corrected Conclusions
+
+**What we now know:**
+1. **Temperature has NO statistically significant effect** on novelty indicators in the 0.3-1.0 range
+2. The "creativity valley" at 0.6-0.9 was **sampling noise**
+3. The "optimal 0.5" claim was **not reproducible**
+
+**Practical implications:**
+1. **Use any temperature in 0.3-1.0 range** for REM - results are equivalent
+2. **Temperature choice should be driven by other factors** (variance preference, safety constraints)
+3. **Initial small-sample findings are unreliable** - always validate with proper sample sizes
+
+**Revised recommendations:**
+```python
+# VALIDATED: Temperature doesn't significantly affect novelty
+# Choose based on other considerations:
+TEMPERATURE_CONFIG_VALIDATED_V2 = {
+    "n1": 0.6,                    # Moderate creativity for transition
+    "consolidation_organize": 0.4,
+    "consolidation_compress": 0.25,
+    "rem": 1.0,                   # Use full range - no penalty vs 0.5
+    "return": 0.5,
+}
+
+# Note: All temps in 0.3-1.0 produce statistically equivalent novelty
+# The choice of 1.0 for REM simply uses the full available range
+```
+
+**Methodological lesson:**
+Small sample sizes (n=27) can show patterns that don't replicate. The initial "0.5 optimal" finding with its "creativity valley" was a classic example of overfitting to noise.
+
+---
+
+*Document version: 4.0 (rigorous validation completed)*
 *Based on: Sleep Science Mastery research (Dec 2024)*
 *Self-test conducted: Dec 2024*
 *Extended testing: Dec 2024 (5 experiments, 27 REM fragments analyzed)*
 *Live API testing: Dec 2024 (9 temperatures, 6 scheduling strategies)*
+*Rigorous validation: Dec 2024 (200 API calls, statistical analysis)*
+*Key correction: Temperature effect on novelty NOT statistically significant*
 *Implementation target: Any LLM with temperature control (0-1 range)*
