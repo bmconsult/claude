@@ -1,0 +1,28 @@
+{
+  "topic": "Latent Reasoning (Coconut, Recursive Transformers)",
+  "start_time": "2025-12-07T12:40:42.882014",
+  "warm_up": {},
+  "predictions": [],
+  "comprehension_tests": [],
+  "mid_session_checks": [],
+  "friction_points": [
+    {
+      "description": "The safety implication: latent reasoning is harder to inspect. This conflicts with capability self-knowledge goals.",
+      "severity": 6,
+      "time": "2025-12-07T12:40:42.882520",
+      "action": "Confusion likely, stop and re-read"
+    }
+  ],
+  "formation_commitments": [
+    {
+      "trigger": "facing a problem requiring search over multiple paths",
+      "action": "explicitly note 'exploring multiple paths' and resist premature commitment",
+      "outcome": "better solutions through parallel consideration",
+      "format": "When [facing a problem requiring search over multiple paths], I will [explicitly note 'exploring multiple paths' and resist premature commitment] to achieve [better solutions through parallel consideration]",
+      "time": "2025-12-07T12:40:42.882476",
+      "status": "committed"
+    }
+  ],
+  "compaction": null,
+  "compaction_text": "\nKEY POINTS:\n- Coconut replaces discrete token reasoning with continuous hidden state reasoning\n- Latent space can represent multiple paths simultaneously (breadth-first search)\n- Trade-off: efficiency/power vs interpretability/safety\n\nCONNECTIONS:\n- Links to externalization research: token space forces commitment, latent holds open\n- Links to capability self-knowledge: latent reasoning harder to inspect = harder to know what you're doing\n- Links to \"hold open vs show all steps\": Coconut shows there's a fundamental architectural basis\n\nEDGE CASES:\n- Works best when search is needed; may not help simple sequential tasks\n- Requires reasoning traces for training curriculum (bootstrap problem)\n\nFRICTION:\n- Safety concern is genuine: if reasoning goes latent, how do we verify alignment?\n- This is a capability/interpretability trade-off with no easy answer\n\nFORMATION:\n- When [exploring multiple solution paths], [resist premature commitment], [achieve better solutions]\n- Implication: My current architecture (token-by-token) IS premature commitment built in\n\nNEXT SESSION:\n- Deep dive on representation engineering / activation steering\n- How can hidden representations be made interpretable?\n"
+}

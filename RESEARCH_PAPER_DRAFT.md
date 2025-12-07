@@ -546,6 +546,8 @@ We have not achieved this formal characterization. But our empirical findings su
 
 8. **Creative task scaffolding**: Develop and test scaffolding protocols for non-verification tasks where externalization may be counterproductive.
 
+9. **Latent reasoning integration**: Recent work on Coconut (Chain of Continuous Thought) shows that latent space reasoning can perform breadth-first search by encoding multiple paths simultaneously. This provides a theoretical basis for the "hold open" vs. "externalize" distinction: token space forces commitment, latent space allows parallel exploration. Future work should investigate whether the capability gap could be closed through architectural changes (latent reasoning steps) rather than just scaffolding (forced verbalization).
+
 ---
 
 ## 6. Conclusion
@@ -571,6 +573,7 @@ What we cannot do: make models smarter through prompting. What we *can* do: help
 - [Cognitive Foundations paper] (2025). Cognitive Foundations for Reasoning.
 - Anthropic (2024). Alignment Faking in Large Language Models.
 - Christiano et al. Eliciting Latent Knowledge.
+- Hao et al. (2024). Coconut: Chain of Continuous Thought.
 
 ---
 
