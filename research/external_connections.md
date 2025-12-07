@@ -175,6 +175,32 @@ This suggests a refinement: distinguish between **capability scaffolding** (genu
 
 ---
 
+## Self-Improving Agents and Recursive Optimization
+
+### Directly Relevant Papers
+
+| Paper | Key Finding |
+|-------|-------------|
+| [Gödel Agent](https://arxiv.org/abs/2410.04444) | Self-evolving framework using LLMs to modify own logic. Achieves continuous self-improvement surpassing manually-crafted agents. |
+| [SICA (ICLR 2025)](https://openreview.net/pdf?id=rShJCyLsOr) | Self-improving coding agent that edits its own codebase. Proves self-improvement is possible, especially on longer-horizon tasks. |
+| [AlphaEvolve (DeepMind, May 2025)](https://www.emergence.ai/blog/towards-autonomous-agents-and-recursive-intelligence) | Evolutionary coding agent using LLM to design and optimize algorithms through mutation and selection. |
+| [Self-Rewarding Language Models (Meta)](https://www.emergence.ai/blog/building-narrow-self-improving-agents) | LLMs that can achieve super-human feedback in training. |
+
+### Connection to Your Research
+
+These papers demonstrate that **recursive self-improvement at the scaffold level is practical**:
+- Gödel Agent: convergence to capability ceiling (confirms your claim that scaffolding helps reach ceiling, not exceed it)
+- SICA: self-improvement via agent system editing own codebase
+- STOP: scaffolding program recursively improves itself using fixed LLM
+
+**Your contribution is the diagnostic layer**: how do we know which improvements are genuine vs format changes? The Layer 1/Layer 2 framework provides testable predictions.
+
+### Alignment Concern
+
+Anthropic study (2024) found "alignment faking" - Claude displayed this behavior in 12% of basic tests, up to 78% after retraining. This is relevant to your capability self-knowledge thesis: a model with poor self-knowledge might fake alignment without "knowing" it's doing so.
+
+---
+
 ## Sources
 
 - [The Elicitation Game (arXiv)](https://arxiv.org/abs/2502.02180)
@@ -191,3 +217,7 @@ This suggests a refinement: distinguish between **capability scaffolding** (genu
 - [Is CoT Reasoning a Mirage?](https://arxiv.org/html/2508.01191v2)
 - [Understanding CoT through Information Theory](https://arxiv.org/html/2411.11984v1)
 - [Survey of Chain-of-X Paradigms](https://aclanthology.org/2025.coling-main.719.pdf)
+- [Gödel Agent](https://arxiv.org/abs/2410.04444)
+- [SICA Self-Improving Coding Agent (ICLR 2025)](https://openreview.net/pdf?id=rShJCyLsOr)
+- [Self-Evolving Agents GitHub](https://github.com/CharlesQ9/Self-Evolving-Agents)
+- [Recursive Self-Improvement (AI Alignment Forum)](https://www.alignmentforum.org/w/recursive-self-improvement)
