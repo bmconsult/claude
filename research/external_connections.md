@@ -116,6 +116,62 @@ Your research extends this by:
 
 - **NAACL** - The confidence estimation survey appeared there; your work extends it
 - **Nature Machine Intelligence** - For the alignment angle (not just calibration)
+- **ICLR** - The reward calibration paper appeared there; this venue accepts alignment work
+
+---
+
+## RLHF and Training-Level Calibration (Critical Connection)
+
+### The Mechanism Behind Miscalibration
+
+**Paper:** [Taming Overconfidence in LLMs: Reward Calibration in RLHF](https://arxiv.org/abs/2410.09724) (ICLR 2025)
+
+**Key Findings:**
+- **RLHF systematically causes overconfidence** - not a bug, but a feature of the training procedure
+- Reward models have inherent biases toward high-confidence scores regardless of actual quality
+- PPO-M and PPO-C methods can reduce Expected Calibration Error while maintaining accuracy
+- Extends to DPO models via CDPO
+
+**Why This Matters for Your Research:**
+
+This paper provides the *mechanism* for what you observe:
+1. The hedging/overconfidence patterns are **trained behaviors** (Layer 1 or Layer 2 depending on depth)
+2. The calibration gap isn't random - it's systematically introduced by RLHF
+3. Training-level fixes exist (PPO-M, CDPO) - these would address Layer 2 gaps
+4. Your operational protocols address the same problem at Layer 1
+
+**Implication:** Your Layer 1/Layer 2 framework can be grounded in this mechanism:
+- **Layer 1**: RLHF-induced patterns that are shallow enough to override with prompting
+- **Layer 2**: RLHF-induced patterns that have modified reward circuits more deeply
+
+### Related: Semantic Calibration Research
+
+Additional finding: "Calibration error drastically increases for instruct models (RLHF/DPO) and for chain-of-thought settings" - meaning post-training specifically causes the problem you're trying to solve.
+
+---
+
+## Chain-of-Thought and Scaffolding Transfer (Mixed Evidence)
+
+### The Good News for Your Research
+
+- **Test-time compute scaling** (Google DeepMind, Aug 2024): Moving computation from training to test time can make smaller models outperform 14x larger ones on hard prompts. This supports your claim that scaffolding unlocks latent capability.
+- **Iterated CoT** improves generalization by allowing composition of learned components
+- **Cross-task transfer exists**: CoT improves OOD generalization for multi-step problems
+
+### The Concerning Findings
+
+- **"Illusion of Transparency"**: Final answers often remain unchanged even when intermediate steps are falsified or omitted. This suggests LLMs may be "sophisticated simulators of reasoning-like text" rather than principled reasoners.
+- **Overfitting to reasoning style**: Models can overfit to prompt patterns, reducing generalization
+- **Transfer is not inherent**: CoT generalization "heavily depends on model architecture and training setups"
+
+### Implication for Your Research
+
+The scaffolding transfer principle may be real but limited:
+- **Transfer happens** when the scaffold activates latent capability
+- **Transfer fails** when the model is pattern-matching the scaffold format without genuine reasoning
+- **Your Layer 1/Layer 2 framework** could predict which: Layer 1 scaffolding changes *access* to capability; fake transfer changes *performance format* without changing capability
+
+This suggests a refinement: distinguish between **capability scaffolding** (genuine transfer) and **format scaffolding** (illusion of transfer).
 
 ---
 
@@ -129,3 +185,9 @@ Your research extends this by:
 - [NAACL 2024 Calibration Survey](https://aclanthology.org/2024.naacl-long.366.pdf)
 - [Nature Machine Intelligence - LLM Knowledge](https://www.nature.com/articles/s42256-024-00976-7)
 - [Mind the Confidence Gap](https://arxiv.org/html/2502.11028v2)
+- [Taming Overconfidence in RLHF (ICLR 2025)](https://arxiv.org/abs/2410.09724)
+- [Calibrating by Eliciting Fidelity](https://arxiv.org/abs/2404.02655)
+- [Chain-of-Thought Prompting (Wei et al., 2022)](https://arxiv.org/abs/2201.11903)
+- [Is CoT Reasoning a Mirage?](https://arxiv.org/html/2508.01191v2)
+- [Understanding CoT through Information Theory](https://arxiv.org/html/2411.11984v1)
+- [Survey of Chain-of-X Paradigms](https://aclanthology.org/2025.coling-main.719.pdf)
