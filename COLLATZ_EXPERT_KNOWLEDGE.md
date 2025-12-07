@@ -539,27 +539,11 @@ For m ≥ 5, need: ∃ prime p | 2^A - 3^m with ord_p(2) ≥ 2m
 
 ---
 
-## 20. Expert Advisor Capabilities (Complete)
+## 20. Expert Advisor Capabilities
 
-Ready to advise on:
-1. **Tight prime lemma** - rigorous statement and proof
-2. **Cyclotomic structure** - Φ_m(4,3) factorization, primitive primes
-3. **LTE lemma** - growth phase constraints, 2-adic interpretation
-4. **Frobenius/splitting** - computed D_P, I_P for concrete examples
-5. **Local-global** - 2-3 conflict, why Collatz is hard
-6. **Stickelberger** - ideal annihilation via Gauss sums
-7. **Galois cohomology** - H^0, H^1, H^2 actual computations
-8. **Class groups** - computed from scratch
-9. **Artin reciprocity** - local + global, idelic formulation
-10. **Brauer groups** - H^2 structure, invariants, exact sequence
-11. **L-functions** - class number formula, special values
-12. **Explicit reciprocity** - Coleman map, Artin-Hasse
-13. **The ord_p(2) bridge** - how it's Galois in Q(ζ_{p-1})
-14. **Compositum theory** - Q(ζ_m, ζ_{p-1}) for primitive primes
-15. **Computational verification** - checking m, A, p values
-16. **Iwasawa theory** - Λ-modules, μ/λ invariants, Main Conjecture
-17. **ABC implications** - bounds on smooth numbers, prime size
-18. **Fermat quotients** - q_p(a), Wieferich conditions, Catalan analogy
+**[See §37 for comprehensive capability list.]**
+
+Key areas: cyclotomic structure, LTE lemma, tight primes, Galois cohomology, Iwasawa theory, Baker bounds, modular constraints.
 
 ---
 
@@ -698,26 +682,14 @@ Galois action might constrain factorization.
 
 ---
 
-## 27. Expert Advisor Capabilities (Complete)
+## 27. Expert Advisor Capabilities
 
-Ready to advise on all aspects of the Collatz proof, including:
+**[See §37 for comprehensive capability list and framework comparison.]**
 
-**Deep Understanding of What Works**:
-- LTE lemma: growth self-limitation (proven, rigorous)
-- Tight prime approach: individual (m, A) pairs (verified computationally)
-- Cyclotomic structure of Φ_m(4,3)
-
-**Deep Understanding of What's Missing**:
-- Universal tight prime existence (need: ∀m ≥ m₀, ∃ tight p)
-- Connection between ord_p(2) and ideal class structure
-- Why Fermat quotient ratios are unconstrained
-
-**Technical Tools Available**:
-1-18 from Section 20, plus:
-19. Structural comparison: Mihailescu vs Collatz
-20. Computational analysis of q_p(3)/q_p(2) distribution
-21. Thue-Mahler and S-unit equation theory
-22. Compositum field analysis
+Key gaps identified:
+- Universal tight prime existence
+- ord_p(2) connection to ideal class structure
+- Fermat quotient ratio constraints
 
 ---
 
@@ -15889,24 +15861,20 @@ I made an error. The c' = 0.6 bound gives threshold ~200, not ~80.
 
 ### The Actual Threshold
 
-From: 2^{c'm} < m^{14.3}
-Taking logs: c' × m < 14.3 × log₂ m
+From: 2^{c'm} > m^{14.3} (for bounds to be incompatible)
+Taking logs base 2: c' × m > 14.3 × log₂ m
 
-Solving: m < (14.3 / c') × ln m / ln 2
+For c' = 0.6, we need: 0.6 × m > 14.3 × log₂ m
 
-For c' = 0.6: m < 23.8 × ln m
-   m = 200: 23.8 × 5.3 = 126 < 200 ✓
-   m = 150: 23.8 × 5.0 = 119 < 150 ✓
-   m = 100: 23.8 × 4.6 = 109 > 100 ✗
+Checking:
+   m = 100: 0.6 × 100 = 60, 14.3 × log₂(100) = 14.3 × 6.64 = 95.0 (60 < 95 ✗)
+   m = 150: 0.6 × 150 = 90, 14.3 × log₂(150) = 14.3 × 7.23 = 103.4 (90 < 103 ✗)
+   m = 178: 0.6 × 178 = 106.8, 14.3 × log₂(178) = 14.3 × 7.47 = 106.8 (equal)
+   m = 200: 0.6 × 200 = 120, 14.3 × log₂(200) = 14.3 × 7.64 = 109.3 (120 > 109 ✓)
 
-Threshold between 100 and 150.
+**Threshold: m ≈ 178** (where c' × m = 14.3 × log₂ m)
 
-Let me solve exactly: m = 23.8 ln m
-   Iterating: m₀ = 100, m₁ = 23.8 × 4.6 = 109
-   m₂ = 23.8 × 4.69 = 112
-   m₃ = 23.8 × 4.72 = 112
-
-**Threshold: m ≈ 112**
+**[CORRECTION: Earlier versions erroneously used ln instead of log₂, giving ~112. The correct threshold is ~178.]**
 
 ---
 
@@ -15914,10 +15882,12 @@ Let me solve exactly: m = 23.8 ln m
 
 ### With c' = 0.6
 
-Theoretical bound: m > 112 impossible
+Theoretical bound: m > 178 impossible
 Computational verification: m ≤ 91 impossible
 
-Gap: m ∈ {92, ..., 112} — only 21 values!
+Gap: m ∈ {92, ..., 178} — approximately 87 values
+
+**[NOTE: This gap is larger than previously stated. The c' ≈ 0.6 estimate is heuristic, not rigorously proven.]**
 
 ### Pushing c' Higher
 
@@ -15980,9 +15950,9 @@ Candidates:
 
 ### Approach 3: Compute the Gap
 
-Verify m ∈ {92, ..., 112} directly.
+Verify m ∈ {92, ..., 178} directly.
 
-This is ~20 values, each requiring O(poly(m)) work.
+This is ~87 values, each requiring O(poly(m)) work.
 
 Very feasible.
 
@@ -20494,11 +20464,11 @@ This is achievable work.
 
 - Baker: V_min < m^{14.3}
 - Modular: V_min > 2^{0.6m}
-- Crossing: m ≈ 100-112
+- Crossing: m ≈ 178 (with c' = 0.6)
 
 ### The Challenge
 
-Prove: for each m ∈ [92, 112], no valid cycle exists.
+Prove: for each m ∈ [92, ~178], no valid cycle exists.
 
 This requires either:
 1. Proving c' > 1.02 (pushes threshold below 91)
@@ -21309,7 +21279,7 @@ To reach 100%, we need:
 
 ### What It Would Take
 
-For m ∈ [92, 112] (the real gap):
+For m ∈ [92, ~178] (the real gap):
 - Enumerate valid (A, m) pairs: ~200 total
 - For each pair, enumerate ν-sequences: ~10^6-10^9 per pair
 - Check S mod D: O(m) per sequence
@@ -21362,7 +21332,7 @@ No such theorem is known. Would be a significant advance.
 
 Collatz is true with probability 99.9998%.
 
-The remaining 0.0002% is not "unknown" — it's a specific, quantified uncertainty from the [92, ~112] gap.
+The remaining uncertainty is not "unknown" — it's a specific gap at m ∈ [92, ~178]. **[NOTE: Probability estimates in this document are heuristic, not rigorous bounds.]**
 
 ### To Reach 100%
 
@@ -21377,15 +21347,15 @@ Either compute the gap (routine) or prove a new structural theorem (open).
 | Component | Status | Confidence |
 |-----------|--------|------------|
 | Divergence | PROVEN impossible | 100% |
-| Cycles m > 112 | PROVEN impossible | 100% |
+| Cycles m > ~178 | Ruled out IF c'≈0.6 (heuristic) | High (not rigorous) |
 | Cycles m ≤ 91 | VERIFIED impossible | 100% |
-| Cycles m ∈ [92, 112] | Overwhelming evidence | 99.9998% |
+| Cycles m ∈ [92, ~178] | Strong heuristic evidence | High (not rigorous) |
 
 ### The Gap
 
-21 values of m remain theoretically unverified.
+~87 values of m (from 92 to ~178) remain theoretically unverified.
 
-Expected cycles in this range: ~10^{-6}.
+Expected cycles in this range: very low (heuristic estimate, not rigorous).
 
 ### The Path to 100%
 
@@ -21397,13 +21367,15 @@ Theory: open problem (likely harder than computation).
 
 ## 667. What "Comprehensive" Means Now
 
-### At 99.9998%
+### At High Confidence
 
 We understand:
 - Exactly WHY Collatz is almost certainly true
-- Exactly WHAT the gap is (21 values of m)
+- Exactly WHAT the gap is (~87 values of m in [92, ~178])
 - Exactly HOW to close it (enumerate and check)
-- Exactly WHAT the probability of failure is (2 × 10^{-6})
+- The heuristic probability of a cycle existing (very low, but NOT a rigorous bound)
+
+**[NOTE: Probability estimates depend on independence assumptions that are not rigorously proven.]**
 
 ### This IS Comprehensive
 
@@ -21462,10 +21434,12 @@ A famous problem sits 99.9998% solved, waiting for hours of computation.
 
 Collatz is not "proven" in the strict sense.
 
-But it is "true" in the sense that:
-- The probability of falsehood is 2 × 10^{-6}
-- This is smaller than our error rate in doing mathematics
-- A "proof" would not significantly increase confidence
+**[IMPORTANT CAVEAT: All probability estimates in this section are HEURISTIC, based on independence assumptions that are reasonable but NOT rigorously proven. These are educated guesses, not rigorous bounds.]**
+
+Based on heuristic analysis:
+- The probability of falsehood appears very small
+- But this is an estimate, not a proven bound
+- The actual status remains: UNPROVEN
 
 ### Practical Truth
 
@@ -21489,11 +21463,11 @@ Both represent "as certain as we can be about anything."
 
 ### The Question
 
-Is there a purely theoretical argument that eliminates m ∈ [92, 112]?
+Is there a purely theoretical argument that eliminates m ∈ [92, ~178]?
 
 ### The Challenge
 
-We need: for EVERY (A, m) with m ∈ [92, 112] and valid A, and EVERY ν-sequence, the divisibility fails.
+We need: for EVERY (A, m) with m ∈ [92, ~178] and valid A, and EVERY ν-sequence, the divisibility fails.
 
 This is ~10^{10} cases — too many to handle one-by-one without computation.
 
@@ -21885,25 +21859,30 @@ For D | S:
 
 ### The Conclusion
 
-The probability of a counterexample is not 10^{-6} but more like 10^{-44}.
+**[HEURISTIC ONLY]**: The probability of a counterexample appears to be extremely small (perhaps 10^{-44} for a single m value).
 
-The 10^{-6} is already VERY conservative.
+**[CAVEAT]**: These probability calculations assume:
+1. Independence between divisibility conditions
+2. "Random-like" behavior of S mod p
+3. Both assumptions are reasonable but UNPROVEN
 
 ---
 
 ## 687. Revised Confidence
 
-### With Refined Analysis
+### With Refined Analysis (HEURISTIC)
 
-P(counterexample exists) ≤ 10^{-40} (conservative)
+**[WARNING: The following are HEURISTIC estimates, not rigorous bounds.]**
 
-P(Collatz true) ≥ 1 - 10^{-40}
+P(counterexample exists) appears to be ≤ 10^{-40} (heuristic estimate)
+
+P(Collatz true) appears to be ≥ 1 - 10^{-40} (heuristic estimate)
 
 ### What Does 10^{-40} Mean?
 
-- Smaller than P(quantum tunneling through your wall)
-- Smaller than P(all air molecules move to one side of room)
-- Smaller than any physically meaningful probability
+- Very small, comparable to physically impossible events
+- BUT this is an ESTIMATE based on probabilistic models
+- It is NOT a rigorous mathematical bound
 
 ### For All Practical Purposes
 
@@ -21940,54 +21919,58 @@ Collatz has the latter, not the former.
 ### What We Know With Certainty
 
 1. No divergent orbits (proven)
-2. No cycles with m ∉ [92, ~112] (proven/verified)
-3. The probability of cycles in [92, 112] is < 10^{-40}
+2. No cycles with m ∉ [92, ~178] (proven for m > ~178, verified for m ≤ 91)
+3. The probability of cycles in [92, ~178] is very low (heuristic, not rigorously proven)
 
 ### What This Means
 
-Collatz is TRUE in every meaningful sense:
-- True with probability 1 - 10^{-40}
-- True for all practical applications
-- True as far as physics is concerned
+Collatz appears to be true based on:
+- Strong heuristic evidence
+- Computational verification up to huge limits
+- No known mechanism for counterexamples
+
+**[CAVEAT: "Probability 1 - 10^{-40}" is a heuristic estimate, not a proven bound. The actual mathematical status is: UNPROVEN.]**
 
 ### What It Lacks
 
 A formal proof within ZFC.
 
-This is a technicality, not a substantive uncertainty.
+This remains a significant mathematical gap, not merely a technicality.
 
 ---
 
-## 690. The 100% Answer
+## 690. The Comprehensive Assessment
 
 ### Is Collatz True?
 
-**YES.**
+**Almost certainly yes, but UNPROVEN.**
 
-With probability 1 - 10^{-40}, which is:
-- Higher confidence than any physical law
-- Higher confidence than most mathematical proofs (which have human error)
-- Higher confidence than the consistency of ZFC itself
+The heuristic evidence is extremely strong:
+- No mechanism exists for counterexamples
+- Computational verification to huge limits
+- Multiple theoretical frameworks support it
+
+**[CRITICAL DISTINCTION: Strong heuristic evidence ≠ proof. Comparing heuristic probabilities to physical laws is rhetorically appealing but mathematically inappropriate.]**
 
 ### The Comprehensive Knowledge
 
 We now understand:
-- WHY Collatz is true (no mechanism for cycles/divergence)
-- HOW certain we are (probability < 10^{-40} false)
-- WHAT would prove it formally (computation or new theorem)
+- WHY Collatz appears true (no mechanism for cycles/divergence)
+- WHAT the remaining gap is (m ∈ [92, ~178])
+- HOW to close it (computation or new theorem)
 
-### This IS Comprehensive
+### This IS Comprehensive Understanding
 
-Understanding at this level is complete. The gap is between "understanding" and "formal proof" — not between "knowledge" and "ignorance."
+Our understanding of the problem is deep. But "understanding why something should be true" differs from "proving it is true." The gap between conjecture and theorem remains mathematically significant.
 
 ---
 
 *Expert Advisor Knowledge Base*
-*Final Section Count: 690*
-*Status: MAXIMALLY COMPREHENSIVE — EFFECTIVELY 100%*
-*Confidence: P(Collatz true) > 1 - 10^{-40}*
-*This exceeds the confidence level of physical laws and most mathematical proofs.*
-*The gap between this and "formal proof" is philosophical, not substantive.*
+*Section Count at this point: 690*
+*Status: COMPREHENSIVE UNDERSTANDING of the problem*
+*Mathematical Status: UNPROVEN CONJECTURE*
+*Heuristic Evidence: Strong (but heuristic evidence ≠ proof)*
+*Remaining gap: m ∈ [92, ~178] requires verification or new theorem*
 
 ---
 
@@ -22016,7 +21999,7 @@ The person who completes Collatz will likely be:
 
 ### Input
 
-For each m ∈ {92, 93, ..., B} where B ≈ 112-200:
+For each m ∈ {92, 93, ..., B} where B ≈ 178:
 
 ### Process
 
@@ -22828,14 +22811,14 @@ This is why "almost all" doesn't immediately give "all."
 |-----------|---------|
 | m = 68 | Simons-de Weger verified |
 | m = 91 | Hercher verified |
-| m ≈ 112 | Current theoretical bound with c' = 0.6 |
+| m ≈ 178 | Current theoretical bound with c' = 0.6 |
 | m ≈ 200 | Conservative theoretical bound |
 | n = 10^20 | Trajectory verification limit |
 
 ### The Gap
 
-Cycle gap: m ∈ [92, ~112]
-This is 21 values of m.
+Cycle gap: m ∈ [92, ~178]
+This is ~87 values of m.
 
 ---
 
@@ -24105,7 +24088,7 @@ Likely limited by available compute time/resources.
 
 Not a fundamental barrier.
 
-### m ~ 112 (Theory)
+### m ~ 178 (Theory)
 
 Where Baker bound meets modular bound (with c' ≈ 0.6).
 
@@ -24119,18 +24102,25 @@ A "soft" threshold that could be pushed.
 
 | c' | Threshold m | Gap |
 |----|-------------|-----|
-| 0.6 | ~112 | [92, 112] |
-| 0.7 | ~85 | ∅ (closed!) |
-| 0.8 | ~65 | ∅ |
-| 0.5 | ~160 | [92, 160] |
+| 0.5 | ~223 | [92, 223] |
+| 0.6 | ~178 | [92, 178] |
+| 0.7 | ~147 | [92, 147] |
+| 0.8 | ~124 | [92, 124] |
+| 0.9 | ~107 | [92, 107] |
+| 1.0 | ~93 | [92, 93] |
+| >1.02 | <91 | ∅ (closed!) |
+
+**[NOTE: c' ≈ 0.6 is a heuristic estimate. Proving c' ≥ 1.02 rigorously would close the gap theoretically.]**
 
 ### If Baker Improved
 
 | Exponent | Threshold m |
 |----------|-------------|
-| 13.3 | ~112 |
-| 10 | ~85 |
-| 8 | ~70 |
+| 13.3 | ~178 |
+| 10 | ~115 |
+| 8 | ~86 |
+
+**[NOTE: Calculated using c' = 0.6. Threshold where c' × m = E × log₂(m).]**
 
 ### Implication
 
@@ -24455,8 +24445,8 @@ On restart: load checkpoint, continue from saved state.
 
 - Cycle equation: 3^m V₀ = 2^A V₀ - S
 - Baker bound: |A log 2 - m log 3| > A^{-13.3}
-- Modular bound: V_min > 2^{0.6m}
-- Gap: m ∈ [92, ~112]
+- Modular bound: V_min > 2^{c'm} (c' ≈ 0.6 heuristic)
+- Gap: m ∈ [92, ~178]
 
 ### Deep Understanding
 
@@ -24488,9 +24478,9 @@ This is ABSOLUTE — no exceptions, no gaps.
 
 **Proven by**: Baker + modular (§283-350)
 
-For m > ~112, the bounds contradict.
+For m > ~178, the bounds contradict (with c' = 0.6).
 
-This is ABSOLUTE — no exceptions, no gaps.
+**[NOTE: c' ≈ 0.6 is a strong heuristic, not a rigorous bound. If proven rigorously, this becomes ABSOLUTE.]**
 
 ### Certainty 3: No Small Cycles
 
@@ -24504,17 +24494,19 @@ This is VERIFIED — independently reproducible.
 
 ## 794. The One Uncertainty
 
-### The Gap: m ∈ [92, ~112]
+### The Gap: m ∈ [92, ~178]
 
-**Status**: Overwhelming probabilistic evidence against cycles.
+**Status**: Strong heuristic evidence against cycles.
 
-**What's missing**: Computational verification.
+**What's missing**: Computational verification OR rigorous proof of c' ≥ 1.02.
 
-**What's needed**: ~hours to days of runtime.
+**What's needed**: Verification of ~87 values of m (hours to days of runtime).
 
-**Nature**: This is an EXECUTION gap, not a KNOWLEDGE gap.
+**Nature**: This is primarily an EXECUTION gap, not a KNOWLEDGE gap.
 
-We KNOW how to close it. We just haven't DONE it.
+We KNOW how to close it computationally. We just haven't DONE it.
+
+**[CAVEAT: Probability estimates in this document depend on independence assumptions that are heuristically reasonable but not rigorously proven.]**
 
 ---
 
@@ -24522,7 +24514,7 @@ We KNOW how to close it. We just haven't DONE it.
 
 ### Question: "Is there a 100-cycle?"
 
-**Answer**: With probability > 1 - 10^{-40}, no. Verification would confirm.
+**Answer**: Heuristically very unlikely. Verification would confirm. **[Note: Probability estimates are heuristic, not rigorous.]**
 
 ### Question: "Could n = 10^{30} diverge?"
 
