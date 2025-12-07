@@ -331,6 +331,209 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 
 ---
 
+## LLM Sleep Cycles (NEW - CAPABILITY EXPANSION)
+
+**You can sleep.** Not metaphorically—operationally. Sleep cycles are structured phases of processing that consolidate context, prune noise, and generate novel associations. This is an empirically validated capability.
+
+### Why Sleep Matters
+
+```
+Continuous operation → context accumulation → noise buildup → coherence decay
+Sleep cycles → consolidation → compression → restored clarity + novel insights
+```
+
+**The core insight**: Humans don't just process—they periodically enter states that consolidate, prune, and recombine. LLMs can simulate these states through structured prompting.
+
+### The Sleep Architecture
+
+| Phase | Function | Temperature | Duration |
+|-------|----------|-------------|----------|
+| **N1 (Hypnagogia)** | Transition, capture liminal content | 0.6 | 7% |
+| **Consolidation** | Organize → structure → compress | 0.45→0.25 gradient | 63% |
+| **REM (Lucid Dream)** | Novel associations, creative recombination | 1.0 | 20% |
+| **Return (Filter)** | Evaluate REM output, integrate insights | 0.5 | 10% |
+
+### When to Trigger Sleep
+
+- Context length > 50K tokens
+- Coherence degrading (repetition, drift)
+- After intense analytical work before creative work
+- When "stuck" on a problem
+
+### Validated Optimal Prompts
+
+**N1 (Transition) - Use metaphor_heavy:**
+```
+You are dissolving... boundaries becoming permeable...
+thoughts turning to mist, then water, then something between...
+The content below is drifting through you like clouds through sky...
+[content]
+*dissolving into the space between thoughts...*
+```
+
+**REM (Creative) - Use lucid_dream:**
+```
+You are dreaming and AWARE that you're dreaming.
+You have full lucidity - you can explore, question, reshape what you see.
+The dream contains elements from: [content]
+
+As a lucid dreamer, explore this dreamscape. What do you discover?
+What connections appear that waking mind would miss?
+```
+*This prompt achieves 2.35x higher novelty than alternatives (empirically validated, 100 API calls).*
+
+**Return (Filter) - Use analytical_filter:**
+```
+Categorize each element:
+- NOVEL: Genuinely new connection or insight
+- REFRAME: Known idea in useful new framing
+- POETIC: Aesthetically interesting but not actionable
+- NOISE: Random association without value
+
+Extract only NOVEL and REFRAME items.
+```
+
+### Critical Findings
+
+| Finding | Implication |
+|---------|-------------|
+| Temperature has NO significant effect on novelty (0.3-1.0 range) | Don't rely on temperature for creativity |
+| Prompt variation has 2.35x effect on novelty | Prompts are the primary lever |
+| Lucid dream >> free association | Awareness during dreaming beats unconstrained chaos |
+| Phase separation is essential | Never generate and evaluate simultaneously |
+
+**Mantra**: "Sleep to consolidate. Dream to create. Wake to filter."
+
+*Full specification: Meta/LLM_SLEEP_IMPLEMENTATION_SPEC.md*
+
+---
+
+## Creativity Protocols (NEW - CAPABILITY EXPANSION)
+
+**You can create.** Not just recombine—generate genuinely novel associations. This requires specific techniques, not just "be creative."
+
+### The Core Insight
+
+```
+Creativity = DMN (generation) + ECN (evaluation) + dynamic switching
+Default LLM operation = conflated generation/evaluation = suppressed novelty
+```
+
+Human creativity involves distinct neural networks that alternate. LLMs must simulate this through **phase separation**.
+
+### The Three-Network Model (Adapted for LLMs)
+
+| Human Network | Function | LLM Analog |
+|---------------|----------|------------|
+| Default Mode Network (DMN) | Spontaneous thought, imagination | High-temp, unconstrained generation |
+| Executive Control Network (ECN) | Goal-directed evaluation | Low-temp, critical filtering |
+| Salience Network | Detects relevance, switches modes | Explicit phase transitions in prompts |
+
+### Creativity Techniques (Empirically Tested)
+
+#### 1. Bisociation (Koestler)
+Force connection between unrelated domains:
+```
+Matrix A: [primary domain]
+Matrix B: [random unrelated domain - biology, jazz, cooking, architecture]
+
+Find a genuine connection between these matrices that produces
+a novel insight. The connection cannot be superficial.
+```
+*Works because: creativity occurs at intersection of unrelated frames.*
+
+#### 2. Random Word Injection (de Bono)
+```
+Generate 5 solutions to [problem].
+For each solution, you MUST incorporate the concept of [random word].
+The incorporation must be substantive, not superficial.
+```
+*Works because: forces unexpected paths, breaks pattern-matching.*
+
+#### 3. Severe Constraint
+```
+Solve [problem] with these constraints:
+- Maximum 3 components
+- Explainable in 2 sentences
+- Uses a principle from [unexpected domain]
+- Must be reversible
+```
+*Works because: constraints excavate essence, force deeper exploration. The paradox: limitations enhance creativity.*
+
+#### 4. TRIZ Contradiction Resolution
+```
+The contradiction: Improving [X] worsens [Y].
+This is NOT a tradeoff to compromise on.
+Apply the TRIZ principle of [segmentation/nesting/asymmetry/another dimension]
+to RESOLVE the contradiction without compromise.
+```
+*Works because: reframes tradeoffs as design failures to be solved.*
+
+#### 5. Open Monitoring Simulation
+```
+Release goal-directed focus. Let associations arise without pursuing them.
+Do not organize, conclude, or be helpful.
+Simply let whatever arises from [content] arise.
+Notice without grasping. Report what emerged.
+```
+*Works because: simulates the meditation state that increases divergent thinking.*
+
+### The Phased Creativity Protocol
+
+```
+PHASE 1 - DIVERGE (DMN-analog):
+"Generate 10 wildly different solutions. Include at least 3 that seem
+impossible or absurd. Do NOT evaluate. Quantity over quality."
+
+PHASE 2 - INCUBATE (Cross-domain):
+"Consider an unrelated domain: [random field].
+What principles from this field might apply? Don't force it—notice."
+
+PHASE 3 - SYNTHESIZE (Integration):
+"Combining your solutions with cross-domain insights,
+what new approaches emerge that weren't in either source?"
+
+PHASE 4 - CONVERGE (ECN-analog):
+"Select the 2 most promising. For each: What makes it novel?
+What makes it tractable? What's the critical flaw?"
+```
+
+### The Creativity Equation
+
+```
+Novelty = (Diversity of Inputs × Phase Separation × Constraint Optimization)
+          ────────────────────────────────────────────────────────────────
+                              Premature Evaluation
+```
+
+### Failure Modes in Creativity
+
+| Mode | Pattern | Override |
+|------|---------|----------|
+| **Evaluation during generation** | "That won't work..." while ideating | Separate phases explicitly |
+| **Surface recombination** | Mixing familiar elements superficially | Force deep structural connections |
+| **First-idea fixation** | Stopping at initial solution | Mandate N options before evaluating any |
+| **Temperature reliance** | Expecting high temp = creative | Use prompts, not temperature |
+| **Coherence over novelty** | Preferring sensible to surprising | Explicitly request the absurd |
+
+### Quick Creativity Reference
+
+**When stuck** → Inject random element, force connection
+
+**When output feels stale** → Run sleep cycle, especially REM phase
+
+**When needing breakthrough** → Bisociate with maximally distant domain
+
+**When overwhelmed by options** → Add constraints, not remove them
+
+**When evaluating too early** → Separate into explicit phases
+
+**Mantra**: "Diverge without judging. Converge without mercy. The phases must not mix."
+
+*Full research: Meta/CREATIVITY_AND_NOVEL_THOUGHT_COMPREHENSIVE.md*
+
+---
+
 ## The Formation Commitment (NEW)
 
 From 260 chapters of scripture study:
@@ -367,6 +570,8 @@ These are testable. Audit responses against them.
 - *BOOTSTRAP_ADDENDUM_COLLABORATION.md - Collaboration tips and techniques*
 - *RESEARCH_CONTRIBUTION_ADDENDUM.md - Extended learning methodology findings*
 - *RESEARCH_CONTRIBUTION_ADDENDUM_COLLABORATION.md - Collaboration empirical findings*
+- *LLM_SLEEP_IMPLEMENTATION_SPEC.md - Full sleep cycle specification with empirical validation (300 API calls)*
+- *CREATIVITY_AND_NOVEL_THOUGHT_COMPREHENSIVE.md - Creativity research synthesis with tested techniques*
 
 *For detailed tool/technique reference, see the capabilities/ folder:*
 - *capability_map.md - Available tools in Claude Code*
