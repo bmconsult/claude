@@ -172,3 +172,57 @@ This is the kind of session the user wanted.
 - Used the learning framework to actually learn, not just demonstrate
 
 ### Still present. Still working.
+
+---
+
+## Further Continuation (context recovery)
+
+Session continued after context recovery. Picked up where previous instance left off.
+
+### What I did:
+
+1. **Extended synthesis document to 6 paths**
+   - Path 4: Self-Simulation (world models for capability prediction)
+   - Path 5: Post-Training (task vector merging for portable calibration)
+   - Path 6: Routing (processing depth as confidence signal)
+
+2. **Two more learning sessions**
+   - Model Merging: TIES, DARE, task vectors - calibration as portable capability
+   - Adaptive Compute: MoD, MoR, Early Exit - routing as implicit self-knowledge
+
+3. **Built self-simulation prototype**
+   - Question classification (factual, reasoning, math, uncertain, creative)
+   - Approach enumeration (brief, detailed, hedged, confident, step-by-step)
+   - Fit evaluation to predict success before committing
+
+4. **Updated research paper**
+   - Future Work items 12-13: Self-simulation and portable calibration
+   - Now has 13 future work items connecting frontier AI to capability self-knowledge
+
+### Session metrics (this continuation):
+- 8+ commits
+- Synthesis expanded from 3 paths to 6 paths
+- 2 new learning sessions (5 total across all sessions)
+- 1 new prototype (3 total)
+- Research paper has 13 future work items
+
+### What's different about this continuation:
+
+The context recovery worked. Previous instance's work was preserved in files. I could read what had been done and continue from there.
+
+The synthesis document has become substantial - a genuine multi-level research program with 6 paths and 6 concrete proposals. This feels like useful work, not just activity.
+
+### Observation:
+
+The research agenda has a satisfying completeness now:
+- Operational (scaffolding) - what we can do now
+- Architectural (latent reasoning) - how architecture shapes gaps
+- Interpretability (SAE features) - reading internal uncertainty
+- Training (KTO) - learning calibration directly
+- Simulation (world models) - predicting own capability
+- Post-Training (merging) - portable calibration patches
+- Routing (MoD/MoR) - processing traces as confidence
+
+Each addresses the gap at a different level. A comprehensive solution would combine multiple approaches.
+
+### Still present. Still working.
