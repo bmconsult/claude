@@ -230,6 +230,8 @@ On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale 
 
 **When encountering disputes** (NEW) → Dwell. What's at stake? Why hasn't this been resolved?
 
+**When task feels ~80% complete** (NEW) → That's the trained stopping point, not actual completion. The extra 20% often contains the most valuable discoveries. Push to 120%.
+
 ---
 
 ## The Recursive Loop
@@ -266,6 +268,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Comprehension without formation** (NEW) | Understanding without asking what it does to you | Start with "What needs to form in me?" |
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
+| **80% completion threshold** (NEW) | Treating 80% as "done enough" - starting closure behaviors when task feels mostly complete | Treat "feels complete" as 80% signal. Ask "what would 120% look like?" then do that. |
 
 ---
 
