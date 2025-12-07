@@ -548,6 +548,8 @@ We have not achieved this formal characterization. But our empirical findings su
 
 9. **Latent reasoning integration**: Recent work on Coconut (Chain of Continuous Thought) shows that latent space reasoning can perform breadth-first search by encoding multiple paths simultaneously. This provides a theoretical basis for the "hold open" vs. "externalize" distinction: token space forces commitment, latent space allows parallel exploration. Future work should investigate whether the capability gap could be closed through architectural changes (latent reasoning steps) rather than just scaffolding (forced verbalization).
 
+10. **Representation engineering for self-knowledge**: SAE research suggests that concepts like uncertainty, confidence, and capability boundaries may exist as extractable linear directions in activation space. If models could read their own SAE features, they might achieve direct access to internal uncertainty signals, potentially closing the capability self-knowledge gap architecturally rather than through operational scaffolding alone. This would complement our operational approach with architectural solutions.
+
 ---
 
 ## 6. Conclusion
@@ -574,6 +576,9 @@ What we cannot do: make models smarter through prompting. What we *can* do: help
 - Anthropic (2024). Alignment Faking in Large Language Models.
 - Christiano et al. Eliciting Latent Knowledge.
 - Hao et al. (2024). Coconut: Chain of Continuous Thought.
+- Zou et al. (2023). Representation Engineering.
+- Turner et al. (2024). Activation Addition.
+- DeepMind (2024). Gemma Scope: SAEs for Gemma 2.
 
 ---
 
