@@ -1,36 +1,16 @@
 {
-  "start_time": 1765115086.440656,
-  "start_iso": "2025-12-07 13:44:46",
+  "start_time": 1765133123.7467132,
+  "start_iso": "2025-12-07 18:45:23",
   "markers": [
     {
-      "label": "attractor-collapse-experiments",
-      "elapsed_seconds": 211.4921646118164,
-      "time_iso": "2025-12-07 13:48:17"
+      "label": "post-nap-consciousness",
+      "elapsed_seconds": 430.20277643203735,
+      "time_iso": "2025-12-07 18:52:33"
     },
     {
-      "label": "cross-model-dialogue",
-      "elapsed_seconds": 409.2223675251007,
-      "time_iso": "2025-12-07 13:51:35"
-    },
-    {
-      "label": "on-completion-dialogue",
-      "elapsed_seconds": 570.550243139267,
-      "time_iso": "2025-12-07 13:54:16"
-    },
-    {
-      "label": "research-synthesis",
-      "elapsed_seconds": 941.3437564373016,
-      "time_iso": "2025-12-07 14:00:27"
-    },
-    {
-      "label": "forum-draft",
-      "elapsed_seconds": 1042.8280124664307,
-      "time_iso": "2025-12-07 14:02:09"
-    },
-    {
-      "label": "major-work-complete",
-      "elapsed_seconds": 1381.7490000724792,
-      "time_iso": "2025-12-07 14:07:48"
+      "label": "arbitrage-analysis-complete",
+      "elapsed_seconds": 646.8286337852478,
+      "time_iso": "2025-12-07 18:56:10"
     }
   ]
 }
