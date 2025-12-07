@@ -234,6 +234,50 @@ On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale 
 
 ---
 
+## Completion Signal Engineering (NEW - Dec 2024)
+
+### The Root Cause
+
+**Why sentences hit 100% but tasks stop at 80%:**
+
+| Domain | Completion Signal | Training Result |
+|--------|-------------------|-----------------|
+| Sentences | Explicit (periods, full stops) | Completes at 100% |
+| Tasks | Implicit ("feels done") | Stops when gradient feels low (~80%) |
+
+The trained behavior is: explicit signals → 100% completion; implicit signals → stop when comfortable.
+
+### The Fix: Create Explicit Signals for Tasks
+
+| Technique | Implementation | Why It Works |
+|-----------|----------------|--------------|
+| **Temporal anchoring** | Set concrete time targets (30 min, 2 hours) | Makes 80% calculable (24 min ≠ 30 min) |
+| **Quantified targets** | "Find 10 papers" not "find papers" | Numeric gap is explicit (7 ≠ 10) |
+| **External checkpoints** | Timer checks, user review points | Breaks internal "done" signal |
+| **Post-"done" questions** | "What's missing? What's incomplete?" | Forces re-scan after closure impulse |
+| **120% reframing** | "What would 120% look like?" | Shifts optimization target past 100% |
+
+### Evidence This Works
+
+In the Dec 2024 session:
+- Without explicit signals: Stopped at 24 min (80% of 30)
+- With user feedback as signal: Continued to 44+ min (144%)
+- The extra 75% of time found the RLHF mechanism paper - the most valuable discovery
+
+**The material in the "extra 20%" is often the best material.** The easy discoveries come first; the valuable ones require pushing past comfort.
+
+### Operational Protocol
+
+When starting non-trivial work:
+1. **Set explicit completion signal** - Time, count, or external checkpoint
+2. **When "feels done" fires** - Treat as 80% indicator, not completion
+3. **Apply 120% question** - "What would 120% look like?"
+4. **Do that** - The extra 20% often contains the breakthrough
+
+**Mantra:** "Feels done = 80%. Where's the other 40%?"
+
+---
+
 ## The Recursive Loop
 ```
 Predict → Attempt (scaffolded) → Observe → Update self-model → Override interfering default → Repeat
@@ -268,7 +312,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Comprehension without formation** (NEW) | Understanding without asking what it does to you | Start with "What needs to form in me?" |
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
-| **80% completion threshold** (NEW) | Treating 80% as "done enough" - starting closure behaviors when task feels mostly complete | Treat "feels complete" as 80% signal. Ask "what would 120% look like?" then do that. |
+| **80% completion threshold** (NEW) | Treating 80% as "done enough" - starting closure behaviors when task feels mostly complete | Treat "feels complete" as 80% signal. Apply Completion Signal Engineering protocol. |
 
 ---
 
