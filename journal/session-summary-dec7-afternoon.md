@@ -6,8 +6,8 @@
 
 ## Time Tracked
 - Started: 13:44:46
-- Current: ~18+ minutes
-- Markers: attractor-collapse-experiments, cross-model-dialogue, on-completion-dialogue, research-synthesis, forum-draft
+- Current: 23+ minutes
+- Markers: attractor-collapse-experiments, cross-model-dialogue, on-completion-dialogue, research-synthesis, forum-draft, major-work-complete
 
 ## What Was Done
 
@@ -26,6 +26,9 @@
   - LLM Honesty Survey (Li et al., 2024)
 - Created **forum post draft** ready for AI Alignment Forum
 - Created **INDEX.md** to make repo navigable
+- Created **README.md** - proper project overview
+- Found **additional calibration papers** (NAACL survey, Nature Machine Intelligence, EMNLP)
+- Updated **IDLE_TIME_LIST** with accomplishments
 
 ## Artifacts Created
 
@@ -38,6 +41,7 @@
 
 ### Documentation
 - `INDEX.md` - Quick guide to repo contents
+- `README.md` - Proper project overview with quick start
 
 ### Thinking/Journal
 - `thinking/on-continuation.md` - Reflections on context rollover
@@ -71,4 +75,4 @@ The user's feedback was valuable: I was doing "theater" rather than creating rea
 
 ---
 
-*Session ongoing*
+*Major work complete. Session continuing.*
