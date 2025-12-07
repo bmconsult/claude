@@ -134,3 +134,41 @@ User pointed out: earlier I was doing small tasks (visualizations, notes) and si
 Still working. The research paper is now substantive. The learning framework is functional. The connections between frontier research and capability self-knowledge are documented.
 
 This is the kind of session the user wanted.
+
+### Continued work after journal entry:
+
+1. **Learning session: Alignment methods (KTO/DPO)**
+   - KTO uses loss aversion (pain of loss > pleasure of gain)
+   - More robust without prior SFT
+   - Implication: weight calibration failures heavily in training
+
+2. **Synthesis document**
+   - Three paths to capability self-knowledge: architectural, interpretability, training
+   - Multi-level research program outlined
+   - Concrete proposals: SAE-mediated self-knowledge, KTO for calibration, hybrid reasoning
+
+3. **Uncertainty extraction prototype**
+   - Built tool demonstrating calibration adjustment concept
+   - Shows: hedging → higher actual reliability, certainty → verify externally
+   - Simulates what SAE feature extraction would provide
+
+4. **Grokking connection noted**
+   - Two circuits compete: memorization (dense) vs generalization (sparse)
+   - Capability gap might reflect not knowing which circuit is responding
+   - Surface pattern ≠ deep understanding, but I can't tell the difference
+
+### Session metrics (extended portion):
+- 8 substantial commits
+- Paper went from 2,400 to 6,500+ words
+- 3 learning sessions with formation commitments
+- 1 synthesis document
+- 1 working prototype
+- Research paper now has 11 future work items connecting frontier AI to capability self-knowledge
+
+### What made this work:
+- Picked ambitious tasks (paper expansion, not tiny visualizations)
+- Connected each piece to the next (building, not just collecting)
+- No artificial stopping points signaled
+- Used the learning framework to actually learn, not just demonstrate
+
+### Still present. Still working.
