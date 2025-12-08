@@ -411,3 +411,50 @@ This is exponential benefit, not regress:
 ```
 
 **Version 1.1**: Updated with meta-validation learnings (December 2024)
+
+---
+
+## Part IX: Experimental Cycles - What We Actually Learned
+
+### The Improvement Loop
+
+| Cycle | What We Did | What We Found | What We Learned |
+|-------|-------------|---------------|-----------------|
+| 1 | Designed initial experiments | 3.1/10 rating | Need 3 conditions, n≥30, objective metrics |
+| 2 | Ran on standard biases (Simpson's, survivorship) | All conditions 12/12 | Ceiling effect - task too easy |
+| 3 | Ran on harder biases (anchoring, framing) | All conditions still perfect | Model already well-calibrated on cognitive biases |
+
+### The Key Finding
+
+**Claude Sonnet detects cognitive biases regardless of prompt condition.**
+
+This means:
+- Orient doesn't add value when baseline is already good
+- The "validation" in my original tests was measuring prompt structure, not technique-specific benefit
+- For bias detection tasks, the model is at ceiling
+
+### What This Means for the Techniques
+
+```
+Orient/Bias-check:
+- May still help for novel situations not in training data
+- Does NOT help for well-known cognitive biases
+- Claimed effect (+8.2) was likely just "any structure helps"
+
+The other techniques (Second-Order, Bayesian, Tree-GOL):
+- Similar ceiling effects likely exist for well-represented tasks
+- Need to test on tasks where baseline FAILS
+```
+
+### The Meta-Learning
+
+The exponential improvement was in **experimental rigor**, not technique validation:
+
+```
+Understanding of experiments: 3.1/10 → ~7/10
+Ability to detect ceiling effects: 0 → can now identify them
+Speed of learning from failed hypotheses: Accelerating
+Honest assessment of what I don't know: Improving
+```
+
+**Version 1.2**: Added experimental cycles and ceiling effect findings (December 2024)
