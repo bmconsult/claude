@@ -14,22 +14,28 @@ The user can provide the key when asked. Don't try to do "blind" evaluation your
 
 ---
 
-## Two Meta Folders
+## Two Meta Folders - BOTH ARE IMPORTANT
 
-There are TWO Meta folders with relevant documentation:
-
-### 1. `.claude/Meta/` (Main research folder)
-Contains:
-- `LOGIC_AND_REASONING_TECHNICAL_MANUAL.md` - **VALIDATED at 100%** (external blind eval, n=21)
+### 1. `/home/user/claude/Meta/` (Root-level - VALIDATED RESEARCH)
+This folder contains the **rigorously validated** methodologies:
+- `LOGIC_AND_REASONING_TECHNICAL_MANUAL.md` - **100% VALIDATED**
+- `LOGIC_REASONING_CYCLE*.md` - 21 cycles of blind evaluation
 - `VIRTUOSO_EXPERIMENT_DESIGN.md` - **VALIDATED** (d=5.2, 13 cycles)
+- `RECURSIVE_SELF_LEARNING_METHODOLOGY.md` - The recursive loop
+- `MASTERFUL_SCIENTIFIC_METHOD.md` - Full scientific method
+- `REASONING_WITH_LLMS_HUMAN_GUIDE.md` - Human-facing guide
+- Python test scripts for API-based validation
+
+### 2. `/home/user/claude/.claude/Meta/` (Inside .claude - CURRENT WORK)
+Contains:
 - `PROBLEM_SOLVING_RIGOROUS_VALIDATION.md` - Current work, PRELIMINARY
 - `MASTER_PROBLEM_SOLVING_METHODOLOGY.md` - v2.0 with honest caveats
-- `EXPERIMENTAL_METHODOLOGY.md` - Standards for rigorous testing
-- `UNIFIED_LLM_METHODOLOGY.md` - GOL framework
+- `PROBLEM_SOLVING_VALIDATION_CYCLE1-3.md` - Earlier non-rigorous attempts
 - `PROBLEM_SOLVING_AND_STRATEGY.md` - Original research (1200+ lines)
+- `UNIFIED_LLM_METHODOLOGY.md` - GOL framework
+- `CREATIVITY_AND_NOVEL_THOUGHT_COMPREHENSIVE.md` - Creativity research
 
-### 2. Check for additional `.claude/` subfolders
-The user mentioned there may be another Meta-type folder with proven methodologies.
+**KEY**: The root-level Meta/ has the PROVEN methodologies. Use those as your template for how to do rigorous validation.
 
 ---
 
