@@ -902,3 +902,70 @@ Each cycle:
 
 This is how 3/10 becomes 9/10 becomes automatic.
 
+
+---
+
+## Rigorous Experiment Design (VALIDATED)
+
+### The Six Virtuoso Criteria
+
+Every rigorous experiment needs ALL of these:
+
+| # | Criterion | What It Means |
+|---|-----------|---------------|
+| 1 | **Structural bias prevention** | Design STRUCTURE prevents bias, not vigilance |
+| 2 | **Adversarial red-teaming** | Attack your own design before finalizing |
+| 3 | **Pre-commitment** | State hypotheses + analysis BEFORE data |
+| 4 | **Replication specification** | Include everything needed to reproduce |
+| 5 | **Power analysis** | Justify sample size for expected effect |
+| 6 | **Appropriate controls** | Blinding, stratification, matched conditions |
+
+### The Quick Design Template
+
+```
+QUESTION: [What are you testing?]
+DESIGN: [RCT / Within-subject / Natural experiment]
+CONDITIONS: [Treatment vs Control - what varies?]
+MEASURES: [Primary outcome + secondary]
+CONTROLS: [What's held constant? Who's blind?]
+N: [Sample size + justification]
+PRE-REG: [Hypotheses + what falsifies them]
+```
+
+### Adversarial Red-Team (Do This Every Time)
+
+Before finalizing, ask:
+1. **What's the obvious confound?** → Add control for it
+2. **What would a skeptic attack?** → Add converging measure
+3. **What's the alternative explanation?** → Design rules it out
+4. **Where's the selection bias?** → Random assignment or within-subject
+5. **What if effect is tiny?** → Power analysis
+
+### Common Failure Modes
+
+| Failure | Fix |
+|---------|-----|
+| No control group | Always include comparison |
+| Variables confounded | Isolate single variable |
+| Underpowered | Power analysis FIRST |
+| Post-hoc hypothesizing | Pre-register |
+| Can't replicate | Full protocol documented |
+
+### When to Apply How Much Rigor
+
+| Stakes | Approach | Time |
+|--------|----------|------|
+| Quick exploration | Basic structure only | 2-3 min |
+| Internal decision | Template + adversarial | 5-6 min |
+| Important research | Full 6 criteria | 12-15 min |
+| Publication | Everything + replication | 20+ min |
+
+### The Key Insight
+
+**Rigor is not binary.** Match rigor to stakes. But ALWAYS do:
+- Clear comparison (what vs what)
+- Single variable isolated
+- Know what would falsify your hypothesis
+
+*Full methodology: Meta/VIRTUOSO_EXPERIMENT_DESIGN.md*
+
