@@ -1,25 +1,44 @@
 # Master Problem-Solving Methodology
-## A Validated Framework for Strategic Thinking
+## A Framework for Strategic Thinking
 
-**Version 1.0 | December 2024**
-**Validated through 3 experimental cycles: 70% → 90% at maximum difficulty**
+**Version 2.0 | December 2024**
+**Status: PRELIMINARY - Positive signal, requires external validation**
 
 ---
 
-## The Core Finding
+## ⚠️ Validation Status (Honest Assessment)
+
+**What was tested**: 6 strategy problems, baseline vs protocol-guided solutions
+**Results**: Protocol solutions scored +6.7 points higher (31.7 vs 38.3 out of 50)
+**Effect size**: ~13% improvement, passed pre-registered threshold
+
+**Critical caveats**:
+1. **Self-evaluation bias**: Same instance generated and evaluated solutions
+2. **Small sample**: n=6 (methodology recommends n≥30)
+3. **Variable effectiveness**: +10 on wicked problems, +3 on clear-answer problems
+4. **Needs external validation**: These results are suggestive, not definitive
+
+**Previous overclaims corrected**:
+- ~~"90% accuracy achieved"~~ → Not an appropriate metric for strategy
+- ~~"Maximum difficulty"~~ → Self-defined, not externally validated
+- ~~"Validated through 3 cycles"~~ → Previous cycles were not rigorous
+
+---
+
+## The Core Finding (With Caveats)
 
 ```
 Problem-solving failures are PROCESS failures, not capability failures.
-The same capability + systematic protocols = dramatically better outcomes.
+The same capability + systematic protocols = measurably better outcomes.
 ```
 
-This matches the logic/reasoning research (57% → 100%) and confirms: **process is the multiplier**.
+**However**: Effect size varies by problem type. Protocols help most where baseline struggles; they add overhead with minimal benefit where baseline is already competent.
 
 ---
 
-## The Validated Protocol Stack
+## The Protocol Stack
 
-Four protocols, validated through rigorous testing on diverse problem types:
+Four protocols showing preliminary positive signal (n=6, +13% improvement):
 
 ### Protocol 1: ASSUMPTION AUDIT (Always First)
 
@@ -121,15 +140,16 @@ VERIFY:
 
 ---
 
-## When to Use What
+## When to Use What (With Observed Effect Sizes)
 
-| Problem Type | Essential Protocols | Why |
-|--------------|--------------------| ----|
-| **Any problem** | Assumption Audit + Verify | Universal value |
-| **Optimization** | + math verification | Calculations compound errors |
-| **Systems/Dynamics** | + Leverage Finder | Counter-intuitive interventions |
-| **Strategic/Competitive** | + Response Chain | Opponents respond |
-| **Wicked/Complex** | All four | Need everything |
+| Problem Type | Recommended Protocol | Observed Benefit | Notes |
+|--------------|---------------------|------------------|-------|
+| **Clear-answer (EV calc, optimization)** | Verify only | +3 pts (6%) | Baseline already good; full stack adds overhead |
+| **Systems/Dynamics** | Leverage Finder + Verify | +7 pts (14%) | Explains WHY, not just what |
+| **Strategic/Competitive** | Response Chain + Verify | +7 pts (14%) | Models opponent responses |
+| **Wicked/Multi-stakeholder** | Full stack | +10 pts (20%) | Process legitimacy insight |
+
+**Key insight**: Match protocol to problem. Full stack on simple problems = bloat without benefit.
 
 ---
 
@@ -249,20 +269,20 @@ AFTER SOLVING:
 
 ## The Meta-Insight
 
-The same pattern appears across all validated methodologies:
+Pattern across methodologies (with honest validation status):
 
-| Domain | Baseline | With Protocols | Pattern |
-|--------|----------|----------------|---------|
-| Logic/Reasoning | 57% | 100% | Process failures, not capability failures |
-| Problem-Solving | 70% | 90% | Process failures, not capability failures |
-| Experiment Design | 3.1/10 | 7+/10 | Process failures, not capability failures |
+| Domain | Baseline | With Protocols | Validation Status |
+|--------|----------|----------------|-------------------|
+| Logic/Reasoning | 57% | 100% | **VALIDATED** (external blind eval, n=21 cycles) |
+| Problem-Solving | 63% | 77% | **PRELIMINARY** (self-eval, n=6, +13%) |
+| Experiment Design | 3.1/10 | 7+/10 | **PRELIMINARY** (needs external validation) |
 
-**The universal finding**:
+**The hypothesis** (not yet proven for problem-solving):
 ```
 Capability exists.
-Default processes don't access it.
-Explicit protocols unlock it.
-The gap is operational, not architectural.
+Default processes don't fully access it.
+Explicit protocols may help.
+Effect size varies by problem type.
 ```
 
 ---
@@ -288,23 +308,47 @@ The gap is operational, not architectural.
 
 ## Validation Summary
 
-| Cycle | Problems | Baseline | With Protocols | Improvement |
-|-------|----------|----------|----------------|-------------|
-| 1 | 5 diverse strategic | 70% | - | Established baseline |
-| 2 | 5 new, same types | - | 90% | +20pp |
-| 3 | 3 maximum difficulty | - | 90% | Maintained at ceiling |
+### Rigorous Validation (December 2024)
 
-**Total problems tested**: 13
-**Improvement**: 70% → 90% (+20 percentage points)
-**Ceiling reached**: Yes (for each problem type)
+| Metric | Value | Notes |
+|--------|-------|-------|
+| Sample size | n=6 | Below recommended n≥30 |
+| Baseline average | 31.7/50 (63.4%) | "Adequate" performance |
+| Protocol average | 38.3/50 (76.6%) | "Good" performance |
+| Improvement | +6.7 pts (+13.2%) | Passed pre-registered threshold of +5 |
+| Effect by type | +3 to +10 pts | Highly variable |
+
+### Results by Problem Type
+
+| Problem | Type | Baseline | Protocol | Δ |
+|---------|------|----------|----------|---|
+| Supplier Exclusivity | Game Theory | 30 | 37 | +7 |
+| Sunk Cost | Clear-answer | 35 | 38 | +3 |
+| Subscription Dynamics | Systems | 33 | 40 | +7 |
+| ICU Allocation | Wicked | 28 | 38 | +10 |
+| Bank Competition | Adversarial | 33 | 40 | +7 |
+| VC Decision | Uncertainty | 31 | 37 | +6 |
+
+### Weaknesses Identified
+
+1. **Ceiling effects**: Protocols add little when baseline is already good
+2. **Bloat risk**: Full stack on simple problems adds overhead without benefit
+3. **Self-eval bias**: Cannot be eliminated without external validation
+4. **Small sample**: Results could reflect problem selection bias
+
+### Next Steps for True Validation
+
+1. External blind evaluation (different Claude instance or human)
+2. Larger sample (n=30+)
+3. Problem type stratification
+4. Efficiency measurement (does benefit justify overhead?)
 
 ---
 
 *This methodology synthesizes insights from:*
-- *3 validation cycles on strategic problems*
-- *21 cycles on logic/reasoning (100% achieved)*
+- *6 rigorous validation problems with pre-registered criteria*
+- *21 cycles on logic/reasoning (100% achieved - externally validated)*
 - *Experimental methodology research*
-- *The unified LLM methodology*
-- *Classical frameworks (OODA, TRIZ, Systems Thinking, Game Theory)*
+- *Classical frameworks (Systems Thinking, Game Theory, etc.)*
 
-*The result: A validated, practical framework for strategic problem-solving.*
+*The result: A PRELIMINARY framework showing positive signal for strategic problem-solving. External validation required before claiming "validated."*
