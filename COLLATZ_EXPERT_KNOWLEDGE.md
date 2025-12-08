@@ -51183,3 +51183,331 @@ Key computations for TB2 analysis:
 
 [Additional sections reserved for detailed proofs, computations,
 and refinements of the TB2 working knowledge framework.]
+
+
+---
+
+# Part CX: TB2 Proof Strategy — The g/m Reformulation (§2021-2080)
+
+## §2021. The Key Reformulation
+
+**TB2 Claim**: T_max(n) ≤ log₂(n) + 2 for all n.
+
+**Equivalent Reformulation**: g/m ≤ 4 for all n.
+
+Where:
+- V = value achieving T_max in trajectory of n
+- V = m·2^T - 1 (m odd, T = T_max)
+- g = V/n (growth factor)
+- g/m = V/(n·m)
+
+**Proof of Equivalence**:
+```
+T_max = log₂((V+1)/m) = log₂(V+1) - log₂(m)
+
+TB2 requires: T_max ≤ log₂(n) + 2
+⟺ log₂(V+1) - log₂(m) ≤ log₂(n) + 2
+⟺ (V+1)/m ≤ 4n
+⟺ V ≤ 4nm - 1
+⟺ g = V/n ≤ 4m - 1/n
+⟺ g/m ≤ 4 - 1/(nm) < 4
+```
+
+## §2022. Empirical g/m Bound
+
+**Computational Result**: For all odd n < 500,000:
+- Maximum g/m = 2.362963
+- Achieved at n = 27
+- Only 2 cases have g/m > 2 (n = 27 and n = 31)
+- Only 3 cases have g/m > 1.9
+
+**The TB2 Margin**: 4 - 2.37 = 1.63 (very large!)
+
+## §2023. The Three Extreme Cases
+
+```
+n    | V       | T  | m | g      | g/m
+-----|---------|----|----|--------|-------
+27   | 319     | 6  | 5  | 11.81  | 2.3630
+31   | 319     | 6  | 5  | 10.29  | 2.0581
+4255 | 8191    | 13 | 1  | 1.93   | 1.9250
+```
+
+**Pattern**: Cases 1-2 reach non-Mersenne V=319, Case 3 reaches Mersenne M_13.
+
+## §2024. Why n=27 is the Tightest Case
+
+**Structure of n=27**:
+- n = 27 = 3³ = 11011₂
+- T(27) = 2 trailing ones
+- Trajectory length to 1: 42 steps
+- T_max = 6 at step 23
+- V = 319 = 5·64 - 1 = 100111111₂
+
+**Symbol Sequence to T_max**:
+```
+[1, 2, 1, 1, 1, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 2, 1, 2]
+Sum = 33, Mean = 1.435
+60.9% are 1s (growth symbols)
+```
+
+**Why 27 → 319 Works**:
+- Growth factor: 3²³/2³³ ≈ 10.96
+- Actual g = 319/27 = 11.81
+- The 23-step path lands exactly on V=319
+
+## §2025. The Value 319: A Unique Attractor
+
+**V = 319 = 5·2⁶ - 1**:
+- Has T = 6 trailing ones
+- m = 5 (not Mersenne)
+- 76.5% of all paths reaching T=6 land on V=319!
+
+**Backward Orbit of 319**:
+- Predecessors (n with Syracuse(n) = 319): {425, 1701, 6805, ...}
+- Large backward orbit reaching depth 6
+
+**Why 319 Dominates T=6 Landings**:
+- Residue structure favors m=5
+- m=1 (V=63) is isolated (even-T Mersenne)
+- m=7 (V=447) is also isolated (447 ≡ 0 mod 3)
+
+## §2026. The Two Regimes
+
+**Regime 1: Mersenne T_max (m=1)**
+- g/m = g (since m=1)
+- Max g observed: 1.93 (n=4255 → M_13)
+- Bounded by Mersenne reachability
+
+**Regime 2: Non-Mersenne T_max (m > 1)**
+- g/m = g/m
+- Max g/m observed: 2.36 (n=27 → 319)
+- High g compensated by m > 1
+
+**Winner**: Non-Mersenne regime at n=27, but still well below 4.
+
+## §2027. The Anti-Correlation Phenomenon
+
+**Key Finding**: Higher growth g correlates with higher m!
+
+| Growth range | Count | Mean m |
+|--------------|-------|--------|
+| 1-2          | 766   | 996    |
+| 2-4          | 218   | 1030   |
+| 4-8          | 60    | 1178   |
+| 8-16         | 9     | 4560   |
+| 16+          | 3     | 11904  |
+
+**Why Anti-Correlation?**
+1. High g requires many Syracuse steps
+2. Many steps → residue "randomizes"
+3. Landing on small m (near Mersenne) becomes unlikely
+4. Expected m ≈ 2^{T-2} for random landing
+
+## §2028. The Mersenne Isolation Effect
+
+**Even-T Mersennes are Isolated**:
+- M_2 = 3, M_4 = 15, M_6 = 63, M_8 = 255, ...
+- These satisfy M ≡ 0 (mod 3)
+- No Syracuse predecessor exists!
+
+**Consequence**: To achieve m=1 with T even, must START at Mersenne.
+This bounds g = 1 for these cases.
+
+**Odd-T Mersennes**:
+- M_3 = 7, M_5 = 31, M_7 = 127, ...
+- Reachable but require specific backward paths
+
+## §2029. Probabilistic Bound Heuristic
+
+**Heuristic Argument**:
+For T = 6, the probability of landing on m ≤ 5 is:
+  P(m ∈ {1, 3, 5}) ≈ 3/32 ≈ 9%
+
+Since m=1 is isolated and m=3 is also constrained,
+effectively only m=5 is reachable with growth.
+
+**For general T**:
+P(m ≤ M) ≈ M/2^{T-1}
+
+High growth paths have low probability of small m.
+
+## §2030. The TB2 Proof Strategy
+
+**To Prove TB2**: Show g/m < 4 for all n.
+
+**Two Approaches**:
+
+1. **Prove g/m < 4 directly** (sufficient)
+   - Use anti-correlation: g large → m large
+   - Use Mersenne isolation: m=1 constrained
+   - Use residue constraints on landing
+
+2. **Prove g/m < 2.5** (stronger result)
+   - Analyze why n=27,31 are unique
+   - Prove V=319 is the worst case
+   - Would give T_max ≤ log₂(n) + 1.4
+
+## §2031. Conjectured Bounds
+
+**Conjecture A (TB2)**: g/m ≤ 4 for all n.
+- Status: Verified for n < 500,000
+- Margin: 1.63
+
+**Conjecture B (Stronger)**: g/m ≤ 2.5 for all n.
+- Status: Verified for n < 500,000
+- Margin: 0.14
+
+**Conjecture C (Tight)**: g/m ≤ 319/135 = 2.363 for all n.
+- Status: Verified for n < 500,000
+- Achieved exactly at n=27
+
+## §2032. What Remains for Proof
+
+**To Complete TB2 Proof**:
+
+1. Prove the anti-correlation formally:
+   g > C implies m > g/4 for some constant C
+
+2. OR prove backward orbit constraint:
+   Value V with small m has limited backward reach
+
+3. OR prove the 319 phenomenon:
+   V=319 is the unique worst case (finite verification + structure)
+
+## §2033. The n=27 Uniqueness
+
+**Why can't any n beat n=27?**
+
+1. Smaller n (n < 27):
+   - Less "room" for growth
+   - Limited trajectory length
+   - Verified: no better g/m
+
+2. Larger n (n > 31):
+   - More steps → more randomization
+   - Landing on m=5 with higher g unlikely
+   - Verified up to n=500,000
+
+## §2034. Exact Arithmetic for n=27
+
+**The Path 27 → 319**:
+```
+27 → 41 → 31 → 47 → 71 → 107 → 161 → 121 → 91 → 137
+→ 103 → 155 → 233 → 175 → 263 → 395 → 593 → 445 → 167
+→ 251 → 377 → 283 → 425 → 319
+```
+
+**Growth Factors**:
+- Total: 3²³/2³³ = 94143178827/8589934592 ≈ 10.96
+- Actual: 319/27 = 11.814815...
+
+The path involves integer steps, so exact growth differs slightly.
+
+## §2035. The g/m Formula
+
+For V = m·2^T - 1 reached from n:
+```
+g/m = V/(n·m) = V·2^{-T}/(n·(V+1)/2^T) = V/(n·(V+1)/2^T) · 2^{-T}
+    = V·2^T / (n·(V+1))
+```
+
+For TB2: Need V·2^T / (n·(V+1)) < 4
+       ⟺ V·2^T < 4n(V+1)
+       ⟺ V(2^T - 4n) < 4n
+
+If 2^T < 4n: Always satisfied (since V > 0)
+If 2^T ≥ 4n: Requires V < 4n/(2^T - 4n)
+
+## §2036. The Critical Inequality
+
+**TB2 Critical Case**: 2^T ≥ 4n
+
+This means T ≥ log₂(n) + 2 (exactly the TB2 threshold!).
+
+In this regime: V < 4n/(2^T - 4n)
+
+For T = log₂(n) + 2 + ε:
+  V < 4n/(2^{2+ε} - 4) = 4n/(4·2^ε - 4) = n/(2^ε - 1)
+
+For ε small: V < n/(2^ε - 1) ≈ n·ln(2)/ε (very large)
+
+So even at TB2 boundary, V is not tightly constrained.
+The constraint comes from REACHING such V with the residue alignment.
+
+## §2037. Residue Alignment Constraint
+
+**For V = m·2^T - 1 to be reached from n**:
+- V must appear in the forward trajectory
+- This requires specific residue alignment mod 2^T
+- The trajectory mod 2^T evolves deterministically
+
+**Key Observation**: Not all (n, V) pairs are compatible!
+Only specific n values can reach specific V values.
+
+## §2038. The 319 Residue Analysis
+
+**319 mod 64 = 63** (all ones in low 6 bits)
+**319 mod 128 = 63**
+**319 mod 256 = 63**
+
+So 319 ≡ 63 (mod 64), meaning the low 6 bits are 111111.
+
+For a trajectory to hit 319:
+- Must evolve to residue 63 mod 64 at step j
+- This constrains valid starting residues
+
+## §2039. Forward Orbit Constraint
+
+**From n to V in j steps**: The residue mod 2^T at step j is determined by n mod 2^K for some K.
+
+This is a linear recurrence (in some sense), constraining which n can reach which V.
+
+## §2040. The Finite Verification Approach
+
+**Potential Proof Strategy**:
+
+1. Prove: For n > N₀, g/m < 2 (with margin)
+   Use asymptotic growth analysis
+
+2. Verify: For n ≤ N₀, g/m < 4 computationally
+   (Already done for N₀ = 500,000)
+
+3. Combine: TB2 holds for all n
+
+## §2041-2060. [Technical Lemmas - Reserved]
+
+[Space reserved for detailed lemmas on:
+- Residue evolution bounds
+- Growth rate constraints
+- Backward orbit density
+- Mersenne approach probability]
+
+## §2061. Summary of TB2 Framework
+
+**What We Proved/Verified**:
+1. TB2 ⟺ g/m ≤ 4
+2. Max g/m = 2.37 (at n=27) for n < 500,000
+3. Anti-correlation between g and m
+4. Even-T Mersenne isolation
+5. V=319 attracts 76% of T=6 landings
+
+**What Remains**:
+1. Formal proof of g/m < 4 bound
+2. Understanding why 319 is unique worst case
+3. Extending verification or finding structural proof
+
+## §2062. Connection to User's Approach
+
+The user's TB2 approach via PL1/PL2 theorems may provide:
+- Alternative characterization of peak-landing relationship
+- Bounds on where T_max can occur
+- Structural constraints complementing g/m analysis
+
+## §2063-2080. [Reserved for Extended Analysis]
+
+[Space reserved for:
+- Connection to stopping time theory
+- Transfer operator spectral bounds
+- Automaton-theoretic constraints
+- Complete proof of TB2 (if achieved)]
