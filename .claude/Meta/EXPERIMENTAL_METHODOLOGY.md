@@ -332,3 +332,82 @@ For each Power Technique claimed, run:
 **This framework was created to address the gap between claiming validation and actually having it.**
 
 *A methodology that isn't rigorously tested is just a hypothesis. This document provides the tools to turn hypotheses into knowledge.*
+
+---
+
+## Part VIII: Meta-Validation Learnings (December 2024)
+
+### What Happened
+
+External review of my initial experimental designs scored them **3.1/10**. Key flaws:
+
+| Flaw | Score | Lesson Learned |
+|------|-------|----------------|
+| n=2 sample size | 1/10 | n≥30 per condition minimum |
+| Strawman control | 3/10 | Control must be best realistic alternative |
+| Uncontrolled confounds | 3/10 | Standardize everything except manipulation |
+| Undefined metrics | 4/10 | Pre-define with ground truth where possible |
+| Prompt bias | 4/10 | Multiple prompt variations, publish prompts |
+
+### Improved Design Principles
+
+**THREE conditions, not two:**
+```
+A: Baseline (no intervention)
+B: Structured Alternative (controls for "being thoughtful")
+C: Treatment (specific technique being tested)
+
+Key comparison: C vs B isolates technique-specific effect
+If C > B > A: technique adds value beyond structure
+If C = B > A: any structure helps, technique not special
+```
+
+**Objective metrics with ground truth:**
+```
+- Plant specific, discoverable elements in test scenarios
+- Score: Did they identify it? Name it? Explain it?
+- Removes subjective evaluation bias
+```
+
+**Example: Testing Orient**
+```
+SCENARIO: Data with 3 planted biases (response bias, cherry-picking, confounding)
+
+SCORING:
+- 1 point: Identifies bias exists
+- 1 point: Names bias correctly
+- 1 point: Explains why it matters
+- Max: 9 points (3 biases × 3 points)
+
+GROUND TRUTH: Known correct answers exist
+```
+
+### Empirical Test of Improved Design (n=1 pilot)
+
+Ran single trial with improved 3-condition design on planted-blindspot scenario:
+
+| Condition | Score |
+|-----------|-------|
+| A (Baseline) | 4/9 |
+| B (Structured) | 4/9 |
+| C (Orient) | 4/9 |
+
+**Result:** Null finding. No Orient advantage detected.
+
+**Interpretation:**
+- n=1 is not conclusive
+- BUT improved design CAN detect null results (important capability)
+- Previous "validation" may have been detecting "structure" not "Orient specifically"
+
+### The Recursive Insight
+
+```
+Meta-validation itself requires validation.
+Each level of testing can be tested.
+This is exponential benefit, not regress:
+- Better tests → better findings
+- Better findings → better techniques
+- Better techniques → better tests
+```
+
+**Version 1.1**: Updated with meta-validation learnings (December 2024)
