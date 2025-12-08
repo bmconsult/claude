@@ -579,24 +579,24 @@ Use for rhetorical emphasis, not for ideation.
 ```
 *Original mantra removed. Technique does not work as claimed.*
 
-**OODA Loop** (John Boyd) — Orient phase VALIDATED ✓:
+**OODA Loop** (John Boyd) — Orient phase PRELIMINARY ⚠️:
 ```
 OBSERVE → ORIENT → DECIDE → ACT → (loop)
 Key: Speed of cycling beats perfection of any phase.
 Critical: ORIENT is the heart—where biases are checked and meaning is made.
 
-VALIDATION: Orient/bias-check tested externally (n=2 scenarios, Opus 4.5 evaluator)
-Effect: +8.2 average improvement (1.3 → 9.5) on blindspots, perspectives, assumptions
+PRELIMINARY: Positive signal (n=2, +8.2 effect) but experimental design rated 3.1/10
+Caveat: May conflate "more structure" with "Orient specifically"
 ```
 
-**Second-Order Thinking** — VALIDATED ✓:
+**Second-Order Thinking** — PRELIMINARY ⚠️:
 ```
 For each consequence, ask: "And then what?"
 Continue to 3rd, 4th, 5th order.
 First-order is crowded. Second-order is where advantage lives.
 
-VALIDATION: Tested externally (n=2 scenarios, Opus 4.5 evaluator)
-Effect: +6.5 average improvement (2.5 → 9.0) on depth, non-obvious consequences, actionability
+PRELIMINARY: Positive signal (n=2, +6.5 effect) but needs rigorous validation
+Caveat: May conflate "structured analysis" with "Second-Order specifically"
 ```
 
 **TRIZ** (Altshuller):
@@ -624,14 +624,14 @@ When improving X worsens Y:
 - Show all work, number steps
 - Check each step before proceeding
 
-**Tree of Thoughts** — VALIDATED ✓:
+**Tree of Thoughts** — PRELIMINARY ⚠️:
 - Generate multiple initial approaches
 - Evaluate each, expand promising branches
 - Backtrack from dead ends
 - *Mantra: "Explore before committing."*
 
-VALIDATION: Tested externally (n=2 problems, Opus 4.5 evaluator)
-Effect: +4.8 average improvement (4.0 → 8.8) on exploration, backtracking, solution quality
+PRELIMINARY: Positive signal (n=2, +4.8 effect) but experimental design rated 3.1/10
+Caveat: May measure "structured exploration" rather than ToT-specific benefit
 
 ### The Composite Protocol
 
@@ -675,15 +675,17 @@ PHASE 5 - ITERATE (OODA)
 
 **When deciding** → Type 1/2 classification, Second-Order thinking
 
-**When uncertain** → Bayesian updating (validated: +4.5 effect size), probabilistic thinking
+**When uncertain** → Bayesian updating (preliminary: +4.5 effect, needs validation), probabilistic thinking
 
 **Mantra Collection**:
 - ~~"Invert, always invert."~~ (failed validation)
-- "And then what?" (validated: +6.5 effect size)
-- "What biases am I bringing?" (validated: +8.2 effect size)
+- "And then what?" (preliminary: +6.5 effect)
+- "What biases am I bringing?" (preliminary: +8.2 effect)
 - "Contradictions are design failures."
 - "The goal is understanding, not just solution."
 - "Search smart, not hard."
+
+**Meta-validation note**: All "validated" claims downgraded to "preliminary" after experimental design review scored 3.1/10. Key issue: n=2 with uncontrolled confounds cannot support causal claims.
 
 *Full research: Meta/PROBLEM_SOLVING_AND_STRATEGY.md*
 

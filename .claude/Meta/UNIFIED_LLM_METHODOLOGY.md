@@ -735,13 +735,15 @@ Need both → Hybrid mode → Alternate, carry creative into analytical
 
 ### Power Techniques Validation (December 2024)
 
+**IMPORTANT CAVEAT**: External review of experimental methodology rated the validation design **3.1/10**. Key flaws: n=2 is underpowered, metrics undefined, confounds uncontrolled, claims overclaimed. Results below should be treated as **preliminary positive signals**, not validated findings.
+
 | Technique | Status | Effect Size | Notes |
 |-----------|--------|-------------|-------|
 | **Inversion** | ❌ FAILED | Negative | Forward-gen produced MORE unique ideas (7 vs 3). Removed. |
-| **Orient (Bias-check)** | ✅ VALIDATED | +8.2 avg | Massive improvement on blindspots, perspectives, assumptions |
-| **Second-Order Trace** | ✅ VALIDATED | +6.5 avg | Massive improvement on depth, non-obvious consequences, actionability |
-| **Bayesian Update** | ✅ VALIDATED | +4.5 avg | Massive improvement on precision, calibration, decision clarity |
-| **Tree-GOL** | ✅ VALIDATED | +4.8 avg | Massive improvement on exploration, backtracking, solution quality |
+| **Orient (Bias-check)** | ⚠️ PRELIMINARY | +8.2 avg | Positive signal, needs larger n and controlled confounds |
+| **Second-Order Trace** | ⚠️ PRELIMINARY | +6.5 avg | Positive signal, may confuse "structure" with "technique" |
+| **Bayesian Update** | ⚠️ PRELIMINARY | +4.5 avg | Positive signal, may confuse "format" with "reasoning quality" |
+| **Tree-GOL** | ⚠️ PRELIMINARY | +4.8 avg | Positive signal, needs replication |
 
 ### Validation Methodology
 
@@ -757,14 +759,44 @@ See Meta/EXPERIMENTAL_METHODOLOGY.md for the full testing framework.
 
 1. **Not all claimed techniques work.** Inversion, despite strong theoretical backing (Jacobi, Munger), failed to produce unique ideas in practice. 1 of 5 techniques tested failed.
 
-2. **Effect sizes are massive.** All validated techniques showed +4.5 to +8.2 point improvements on 10-point scales. These are not marginal gains.
+2. **Effect sizes appear large but are unvalidated.** Reported effects (+4.5 to +8.2) may conflate "more structure" with "specific technique benefit."
 
-3. **External validation is essential.** Self-evaluation had found Inversion "useful" (25% unique ideas). External blind evaluation showed it was actually worse than the control.
+3. **External validation catches errors.** Self-evaluation found Inversion "useful." External evaluation showed it was worse than control.
 
-4. **All remaining Power Techniques validated.** Orient (+8.2), Second-Order (+6.5), Bayesian Update (+4.5), and Tree-GOL (+4.8) all showed significant improvements with external blind evaluation.
+4. **Meta-validation is essential.** External review of the experimental design itself (3.1/10) revealed fundamental flaws in methodology.
+
+### Meta-Validation: Testing the Experimental Design (December 2024)
+
+External review (Opus 4.5) evaluated the experimental methodology:
+
+| Criterion | Score | Issue |
+|-----------|-------|-------|
+| Sample Size | 1/10 | n=2 is scientifically indefensible |
+| Claim Appropriateness | 2/10 | Conclusions far exceed evidence |
+| Control Validity | 3/10 | Control appears to be strawman |
+| Confound Control | 3/10 | Length, structure, prompt engineering uncontrolled |
+| Measurement Validity | 4/10 | Metrics lack operational definitions |
+| Prompt Neutrality | 4/10 | High risk of bias, prompts not published |
+| Replicability | 4/10 | Missing critical details |
+| Blinding Quality | 5/10 | Distinctive terminology leaks condition |
+| **Overall** | **3.1/10** | "Pilot observation, not valid experiment" |
+
+**Key insight from review:**
+> "The experiment confuses 'more structure' with 'Bayesian reasoning specifically' and 'evaluator preference' with 'decision quality.'"
+
+### Path to Rigorous Validation
+
+Per external review, actual validation would require:
+- n ≥ 30-50 diverse scenarios
+- Operationally defined metrics with validation
+- Multiple control conditions (structured alternatives)
+- Verified blinding integrity
+- Preregistration
+- Confound control (length, structure)
+- Published prompts and raw data
 
 ---
 
-**Version Note**: This is v1.2, with COMPLETE empirical validation of all Power Techniques using external blind evaluation (December 2024). 4 of 5 techniques validated; 1 (Inversion) failed and removed.
+**Version Note**: This is v1.3. Previous claims of "VALIDATED" downgraded to "PRELIMINARY" after meta-validation of experimental methodology (3.1/10). Recursive validation reveals that claiming experimental rigor is itself subject to the same rigor requirement.
 
-*"The methodology that creates itself proves itself—but only external validation makes it science."*
+*"The methodology that validates itself must also validate its validation."*
