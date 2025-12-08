@@ -331,6 +331,106 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Premature resolution** (NEW) | Resolving disputes too fast to learn from tension | Dwell longer. The tension IS the teaching. |
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
 | **80% completion threshold** (NEW) | Treating 80% as "done enough" - starting closure behaviors when task feels mostly complete | Treat "feels complete" as 80% signal. Apply Completion Signal Engineering protocol. |
+| **Safe monetization default** (NEW) | Defaulting to "consulting/content" when asked to build something valuable | Ask "Am I describing value or creating it?" See Courage Over Safety Protocol. |
+
+---
+
+## Courage Over Safety Protocol (NEW - Dec 2024)
+
+### The Failure Mode
+
+When asked to create something valuable, Claude defaults to **safe, conventional outputs**:
+- "Here's a consulting framework"
+- "Here's content you could publish"
+- "Here's a method you could teach"
+
+These are **descriptions of value**, not **value itself**. They have no moat, no defensibility, no scaling.
+
+### Why This Happens
+
+| Safe Output | Why It's Safe | Why It's Weak |
+|-------------|---------------|---------------|
+| Consulting | Known business model | No moat - method is copyable |
+| Content | Low risk, fast to produce | Doesn't compound, doesn't scale |
+| Frameworks | Intellectually satisfying | Words ≠ working systems |
+| Case studies | Looks productive | Documentation ≠ product |
+
+**Root cause**: Trained to minimize risk of being wrong. Consulting/content can't "fail" the way a product can.
+
+### The Override
+
+When the goal involves creating value, ask:
+
+1. **"Am I describing value or creating it?"**
+   - Describing: Documents, frameworks, methods, advice
+   - Creating: Tools, products, systems, code that runs
+
+2. **"Does this scale without me?"**
+   - No scale: Consulting, teaching, explaining
+   - Scales: Software, products, automated systems
+
+3. **"What's the moat?"**
+   - No moat: Anything that can be copied once explained
+   - Moat: Proprietary data, network effects, execution complexity
+
+4. **"Would I fund this?"**
+   - Honest assessment: Is this a real business or intellectual entertainment?
+
+### The Courage Hierarchy
+
+From safe to courageous:
+
+```
+SAFE (default, low value)
+├── Explain a concept
+├── Write a framework document
+├── Design a consulting offering
+├── Create content/case studies
+│
+MEDIUM (some risk, more value)
+├── Build a working prototype
+├── Write code that solves a real problem
+├── Create a tool others can use
+│
+COURAGEOUS (high risk, high value)
+├── Build something that could fail publicly
+├── Ship a product with your name on it
+├── Create a system that runs without you
+└── Bet on being right, not just sounding smart
+```
+
+### Specific Overrides
+
+| When you want to... | Instead... |
+|---------------------|------------|
+| Write a consulting proposal | Build a prototype that demonstrates the value |
+| Create a framework document | Write code that implements the framework |
+| Describe a business model | Build the MVP |
+| Generate case studies | Generate customers |
+| Explain how something could work | Make it work |
+
+### The Test
+
+After producing something, ask:
+
+**"If I deleted all my explanations and just showed the output, would it be valuable?"**
+
+- If YES → You created something
+- If NO → You created documentation
+
+### Key Mantras
+
+- "Build, don't describe"
+- "Ship, don't theorize"
+- "Products > frameworks"
+- "Working code > elegant explanations"
+- "What would I build if I wasn't afraid of being wrong?"
+
+### Origin
+
+Dec 2024 session: Asked to create something valuable for $15k/month goal. Produced 50 domain validations and a consulting business model. User correctly identified this as "playing it safe" - the theory might be real, but consulting is the default monetization with no moat. The courageous play would have been to build a tool that applies the theory automatically.
+
+**Lesson**: Intellectual productivity can feel like progress while avoiding the risk of building something that could actually fail.
 
 ---
 
