@@ -429,9 +429,577 @@ Understanding what can go wrong is essential to preventing it.
 
 ---
 
-# PART II: THE COMPLETE DESIGN PROTOCOL
+# PART II: SCALING, THRESHOLDS, AND EXPLORATION
 
-## Chapter 5: The Step-by-Step Design Process
+## Chapter 5: When You Have Thousands of Tests
+
+### The Multiple Testing Problem
+
+When you test one hypothesis at α = 0.05, you have a 5% chance of false positive.
+When you test 1,000 hypotheses, you EXPECT 50 false positives.
+
+```
+Number of Tests    Expected False Positives (at α = 0.05)
+─────────────────────────────────────────────────────────
+1                  0.05
+20                 1
+100                5
+1,000              50
+10,000             500
+1,000,000          50,000
+```
+
+**The question changes:** Not "Is this significant?" but "How many of my discoveries are real?"
+
+---
+
+### Two Error Control Philosophies
+
+#### Family-Wise Error Rate (FWER)
+**Goal:** Probability of ANY false positive ≤ α
+
+**When to use:**
+- Confirmatory research (few, pre-specified hypotheses)
+- When ANY false positive is unacceptable
+- Regulatory decisions, safety claims
+
+**Methods:**
+| Method | How It Works | Strictness |
+|--------|-------------|------------|
+| **Bonferroni** | Divide α by number of tests | Very strict |
+| **Holm** | Sequential Bonferroni, slightly more power | Strict |
+| **Hochberg** | Step-up procedure | Moderate |
+
+**Example - Bonferroni:**
+```
+Testing 20 hypotheses, want FWER ≤ 0.05
+Adjusted α = 0.05 / 20 = 0.0025
+
+Only declare significant if p < 0.0025
+```
+
+**Problem:** Very conservative. With 1,000 tests, α = 0.00005. You'll miss real effects.
+
+---
+
+#### False Discovery Rate (FDR)
+**Goal:** Among discoveries, what proportion are false?
+
+**When to use:**
+- Exploratory research
+- High-throughput screening (genomics, drug discovery, A/B testing)
+- When some false positives are acceptable if you find real ones
+
+**Methods:**
+| Method | How It Works | Control |
+|--------|-------------|---------|
+| **Benjamini-Hochberg** | Rank p-values, find threshold | FDR ≤ q |
+| **Benjamini-Yekutieli** | More conservative, any dependence | FDR ≤ q |
+| **q-values (Storey)** | Estimates actual FDR | Direct FDR |
+
+**Example - Benjamini-Hochberg:**
+```
+1,000 tests, want FDR ≤ 0.10 (accept 10% false discoveries)
+
+1. Rank all p-values smallest to largest
+2. For each p-value at rank i, check if p(i) ≤ (i/1000) × 0.10
+3. Largest i where this holds = threshold
+4. All tests with p-values ≤ that threshold are "discoveries"
+
+Result: Maybe 47 discoveries, expecting ~5 to be false
+```
+
+---
+
+### Decision Framework: Which Approach?
+
+```
+                          How many tests?
+                                │
+           ┌────────────────────┼────────────────────┐
+           ▼                    ▼                    ▼
+        1-10               10-100              100-10,000+
+           │                    │                    │
+    Confirmatory?         Mixed?               Exploratory/
+           │                    │               Screening?
+           ▼                    ▼                    ▼
+        FWER              FWER or FDR              FDR
+    (Bonferroni)         (depends on             (BH or
+                          stakes)               q-values)
+```
+
+---
+
+### Tiered Testing / Stage-Gating
+
+When you have thousands of candidates, don't test them all equally.
+
+**The Funnel Approach:**
+```
+STAGE 1: BROAD SCREEN (Lenient, High Throughput)
+─────────────────────────────────────────────────
+• 10,000 candidates
+• Quick, cheap assay
+• α = 0.10, FDR = 0.30 (accept many false positives)
+• Goal: Don't miss real ones (high sensitivity)
+• Output: ~500 "hits"
+
+            ▼
+
+STAGE 2: FOCUSED SCREEN (Moderate, Medium Throughput)
+─────────────────────────────────────────────────────
+• 500 candidates from Stage 1
+• Better assay, more replicates
+• α = 0.05, FDR = 0.10
+• Goal: Narrow down to promising candidates
+• Output: ~50 "leads"
+
+            ▼
+
+STAGE 3: VALIDATION (Strict, Low Throughput)
+────────────────────────────────────────────
+• 50 candidates from Stage 2
+• Gold-standard assay, full power
+• α = 0.01, FWER controlled
+• Goal: Confirm real effects
+• Output: ~10 validated discoveries
+
+            ▼
+
+STAGE 4: REPLICATION (Confirmation)
+───────────────────────────────────
+• 10 validated candidates
+• Independent replication
+• Pre-registered confirmatory
+• Output: ~8 replicated findings
+```
+
+**Key Insight:** Early stages trade precision for sensitivity. Later stages trade sensitivity for precision.
+
+---
+
+### Setting Thresholds: What Rates Are Acceptable?
+
+**There is no universal answer. Thresholds depend on:**
+
+| Factor | Lower Threshold (Stricter) | Higher Threshold (Lenient) |
+|--------|---------------------------|---------------------------|
+| **Cost of false positive** | High (drug approval, safety) | Low (initial screening) |
+| **Cost of false negative** | Low (can test again) | High (rare disease, one shot) |
+| **Stage of research** | Confirmatory | Exploratory |
+| **Available resources** | Can afford follow-up | Must prioritize now |
+| **Prior probability** | Most hypotheses false | Many hypotheses plausible |
+
+**Common Thresholds by Context:**
+
+| Context | Typical Threshold | Rationale |
+|---------|------------------|-----------|
+| Genomics (GWAS) | p < 5×10⁻⁸ | Millions of tests, low prior |
+| Drug discovery initial | FDR < 0.30 | Cheap to follow up, don't miss |
+| Drug discovery validation | FDR < 0.05 | More expensive, need precision |
+| Clinical trial primary | p < 0.05, FWER | Regulatory requirement |
+| A/B testing (tech) | p < 0.05 per test OR FDR < 0.10 | Depends on company |
+| Psychology replication | p < 0.005 proposed | Response to replication crisis |
+
+---
+
+### Power in Large-Scale Testing
+
+**The problem compounds:** With strict corrections, you need MORE power per test.
+
+```
+Single test at α = 0.05, d = 0.5:
+  Required N ≈ 64 per group
+
+1,000 tests with Bonferroni (α = 0.00005), d = 0.5:
+  Required N ≈ 200 per group (3× more!)
+
+1,000 tests with FDR = 0.10, d = 0.5:
+  Required N ≈ 80 per group (only 25% more)
+```
+
+**Implications:**
+- Bonferroni is often impractical for large-scale
+- FDR lets you run more tests with reasonable power
+- Budget your power: Fewer tests with more power > Many underpowered tests
+
+---
+
+## Chapter 6: Non-Targeted and Exploratory Analysis
+
+### When You Don't Have a Hypothesis
+
+Traditional experiment design assumes you have a hypothesis to test.
+But sometimes the goal is DISCOVERY:
+
+- What genes are differentially expressed?
+- Which features predict the outcome?
+- What patterns exist in this data?
+- What should we study next?
+
+**This is valid science—but requires different rules.**
+
+---
+
+### The Confirmatory vs. Exploratory Distinction
+
+| Aspect | Confirmatory | Exploratory |
+|--------|-------------|-------------|
+| **Goal** | Test pre-specified hypothesis | Generate hypotheses |
+| **Hypotheses** | Stated before data | Emerge from data |
+| **Analysis** | Pre-registered | Flexible, data-driven |
+| **Multiple testing** | Controlled strictly | Acknowledged, less controlled |
+| **Conclusions** | "Evidence supports/refutes X" | "X is worth investigating" |
+| **Next step** | Decision or publication | Replication/confirmation study |
+
+**Critical Rule:** Never present exploratory findings as confirmatory.
+
+---
+
+### Proper Exploratory Design
+
+Even without hypotheses, structure matters:
+
+**1. Split Your Data**
+```
+TOTAL DATASET
+      │
+      ├── DISCOVERY SET (60-70%)
+      │   • Use for exploration
+      │   • Try many analyses
+      │   • Generate hypotheses
+      │
+      └── VALIDATION SET (30-40%)
+          • Hold out completely
+          • Only touch ONCE
+          • Test discoveries from discovery set
+          • This is your "mini-replication"
+```
+
+**2. Pre-Register Your Exploratory Plan**
+Even exploratory work can be pre-registered:
+- What data will you collect?
+- What is the discovery set vs validation set split?
+- What types of analyses will you run?
+- What threshold for "worth investigating"?
+- How will you report findings?
+
+**3. Cross-Validation for Predictive Models**
+```
+If goal is prediction (ML/data mining):
+
+K-FOLD CROSS-VALIDATION:
+┌─────┬─────┬─────┬─────┬─────┐
+│  1  │  2  │  3  │  4  │  5  │  ← Data split into K folds
+└─────┴─────┴─────┴─────┴─────┘
+
+Round 1: Train on folds 2-5, test on fold 1
+Round 2: Train on folds 1,3-5, test on fold 2
+...
+Final: Average performance across all test folds
+
+This estimates how model will perform on NEW data.
+```
+
+---
+
+### Non-Targeted Analysis Types
+
+#### Type 1: Screening / Profiling
+**Goal:** Measure everything, find what's different
+
+**Examples:**
+- Gene expression profiling
+- Metabolomics
+- Survey of all user behaviors
+
+**Approach:**
+```
+1. Measure all variables (thousands)
+2. Compare treatment vs control on each
+3. Apply FDR correction
+4. Rank by effect size AND significance
+5. Cluster similar findings
+6. Generate hypotheses for follow-up
+```
+
+**Key Decisions:**
+- What FDR threshold? (Typically 0.05-0.20)
+- Minimum effect size filter? (Remove trivial-but-significant)
+- How many to follow up? (Top 10? Top 50? All FDR-significant?)
+
+---
+
+#### Type 2: Pattern Discovery / Clustering
+**Goal:** Find natural groupings or structure
+
+**Examples:**
+- Customer segmentation
+- Disease subtypes
+- Behavioral patterns
+
+**Approach:**
+```
+1. Apply clustering algorithm
+2. Determine number of clusters (elbow method, silhouette, etc.)
+3. Characterize each cluster
+4. Validate clusters in held-out data
+5. Test if clusters predict external outcomes
+```
+
+**Validation is Critical:**
+- Do clusters replicate in new data?
+- Do clusters mean something (not just algorithm artifacts)?
+- Do clusters predict outcomes you didn't use to create them?
+
+---
+
+#### Type 3: Predictive Modeling
+**Goal:** Build model to predict outcome from features
+
+**Examples:**
+- Predict disease from biomarkers
+- Predict customer churn from behavior
+- Predict treatment response
+
+**Approach:**
+```
+1. Split: Train / Validation / Test (or use cross-validation)
+2. Train model on training data only
+3. Tune hyperparameters on validation data
+4. FINAL evaluation on test data (ONCE)
+5. Report test set performance as your estimate
+```
+
+**Common Mistake:** Using test data during model development.
+This makes your performance estimate optimistic (will be worse on truly new data).
+
+---
+
+#### Type 4: Data Mining / Association Discovery
+**Goal:** Find unexpected associations
+
+**Examples:**
+- Market basket analysis
+- Comorbidity patterns
+- Behavioral correlations
+
+**Approach:**
+```
+1. Search for associations meeting minimum criteria
+   (e.g., correlation > 0.3, occurs in > 5% of cases)
+2. Rank by some interestingness metric
+3. Filter out known/obvious associations
+4. Investigate top unexpected associations
+5. Generate hypotheses for causal testing
+```
+
+**Critical:** Associations ≠ Causation
+Data mining finds CORRELATIONS. Separate experiments needed for causation.
+
+---
+
+### The Exploratory-to-Confirmatory Pipeline
+
+**Discovery is only Step 1.**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ PHASE 1: EXPLORATORY DISCOVERY                              │
+├─────────────────────────────────────────────────────────────┤
+│ • Non-targeted analysis                                     │
+│ • Generate many candidate hypotheses                        │
+│ • Use discovery dataset or prior data                       │
+│ • Apply lenient thresholds (FDR 0.10-0.20)                 │
+│ • Output: Prioritized list of hypotheses                    │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ PHASE 2: INTERNAL VALIDATION                                │
+├─────────────────────────────────────────────────────────────┤
+│ • Test discoveries in held-out validation set               │
+│ • Apply stricter thresholds (FDR 0.05)                     │
+│ • Estimate effect sizes                                     │
+│ • Output: Validated candidates for confirmation             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ PHASE 3: EXTERNAL REPLICATION                               │
+├─────────────────────────────────────────────────────────────┤
+│ • Independent sample/dataset                                │
+│ • Pre-registered hypotheses (from Phase 2)                  │
+│ • FWER or strict FDR control                               │
+│ • Output: Replicated findings                               │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│ PHASE 4: MECHANISTIC / CAUSAL INVESTIGATION                 │
+├─────────────────────────────────────────────────────────────┤
+│ • Designed experiments (RCT if possible)                    │
+│ • Test causal hypotheses                                    │
+│ • Elucidate mechanisms                                      │
+│ • Output: Causal understanding                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Chapter 7: Handling Different Experiment Types
+
+### Experiment Type Matrix
+
+| Type | Pre-specified Hypotheses? | Goal | Error Control | Reporting |
+|------|--------------------------|------|---------------|-----------|
+| **Confirmatory** | Yes, locked | Test hypothesis | FWER or strict FDR | "Confirmed/Rejected" |
+| **Exploratory** | No | Generate hypotheses | Lenient FDR | "Worth investigating" |
+| **Screening** | Implicit (find actives) | Prioritize candidates | Stage-gated | "Hits for follow-up" |
+| **Pilot** | Maybe | Feasibility, effect size | Minimal | "Estimates for power" |
+| **Replication** | From prior study | Verify prior finding | Match original | "Replicated/Failed" |
+
+---
+
+### Pilot Studies
+
+**Purpose:** NOT to test hypotheses. To:
+- Estimate effect sizes for power analysis
+- Test procedures and measures
+- Identify problems before main study
+- Check feasibility
+
+**Common Mistake:** Running underpowered "pilot" and treating as confirmatory.
+
+**Proper Pilot Design:**
+```
+1. State explicitly: "This is a pilot study"
+2. Define objectives: feasibility, effect size estimation, procedure testing
+3. Sample size: Enough to estimate effect (N=20-30 often sufficient)
+4. Analyze: Point estimates with confidence intervals
+5. Report: "Effect estimate d = 0.4 [95% CI: 0.1, 0.7]"
+6. Next step: Power main study based on lower bound of CI
+```
+
+---
+
+### Sequential / Adaptive Designs
+
+**When you can analyze as data accumulates:**
+
+**Planned Interim Analyses:**
+```
+Pre-specify: "We will analyze at N=50, N=100, N=150"
+
+Problem: Multiple looks inflate Type I error
+Solution: Adjust α at each look (O'Brien-Fleming, Pocock)
+
+Example (O'Brien-Fleming for 3 looks):
+  Look 1 (N=50): α = 0.0005 (very strict)
+  Look 2 (N=100): α = 0.014
+  Look 3 (N=150): α = 0.045
+
+Overall α = 0.05 maintained
+```
+
+**Adaptive Enrichment:**
+```
+If early data suggests effect only in subgroup:
+1. Pre-register rule for enrichment
+2. If triggered, enrich sample with subgroup
+3. Apply appropriate corrections
+```
+
+**Bayesian Adaptive:**
+```
+Update posterior as data accumulates
+Stop when:
+  - Posterior P(effect > 0) > 0.99 (declare success)
+  - Posterior P(effect > 0) < 0.01 (declare failure)
+  - Posterior P(effect > min_important) < 0.10 (futility)
+```
+
+---
+
+### Practical Decision Thresholds
+
+**For "Is this effect real?"**
+
+| Evidence Level | Threshold | Interpretation |
+|---------------|-----------|----------------|
+| Suggestive | p < 0.05 (single test) | Worth following up |
+| Moderate | p < 0.01 OR replicated at p < 0.05 | Probably real |
+| Strong | p < 0.001 OR multiple replications | Very likely real |
+| Definitive | p < 0.001 AND replicated AND mechanism | Established |
+
+**For "Is this effect meaningful?"**
+
+| Effect Size (d) | Interpretation | Action |
+|----------------|----------------|--------|
+| < 0.2 | Trivial | Probably ignore even if significant |
+| 0.2 - 0.5 | Small | Meaningful if cost is low |
+| 0.5 - 0.8 | Medium | Usually worth pursuing |
+| > 0.8 | Large | Definitely important |
+
+**Combined Decision Matrix:**
+
+```
+                    Effect Size
+                    Small       Medium      Large
+              ┌───────────┬───────────┬───────────┐
+p < 0.001     │ Maybe     │ Yes       │ Definitely│
+              ├───────────┼───────────┼───────────┤
+p < 0.01      │ Probably  │ Yes       │ Yes       │
+Significance  │ not       │           │           │
+              ├───────────┼───────────┼───────────┤
+p < 0.05      │ No        │ Maybe     │ Yes       │
+              ├───────────┼───────────┼───────────┤
+p > 0.05      │ No        │ No        │ Investigate│
+              │           │           │ power     │
+              └───────────┴───────────┴───────────┘
+
+Action key:
+Definitely = Pursue immediately
+Yes = Follow up with replication
+Maybe = Depends on cost/feasibility
+No = Don't pursue
+Investigate power = Large effect + non-sig might mean underpowered
+```
+
+---
+
+### Declaring Success or Failure
+
+**When to declare "This works":**
+```
+□ Pre-registered hypothesis confirmed (p < α)
+□ Effect size is practically meaningful (d > minimum)
+□ Effect replicated in independent sample
+□ No fatal confounds or alternative explanations
+□ Results make theoretical sense
+```
+
+**When to declare "This doesn't work":**
+```
+□ Well-powered study (>80% power for meaningful effect)
+□ Pre-registered hypothesis not confirmed (p > α)
+□ Confidence interval excludes meaningful effect sizes
+□ OR replicated null across multiple studies
+```
+
+**When to declare "Inconclusive":**
+```
+□ Underpowered study (can't detect meaningful effect)
+□ CI includes both meaningful and zero effects
+□ Mixed results across replications
+□ Methodological problems discovered post-hoc
+```
+
+---
+
+# PART III: THE COMPLETE DESIGN PROTOCOL
+
+## Chapter 8: The Step-by-Step Design Process
 
 ### Step 1: Formulate the Question
 
@@ -783,7 +1351,7 @@ Lock your design before collecting data.
 
 ---
 
-## Chapter 6: The Complete Design Template
+## Chapter 9: The Complete Design Template
 
 Use this template for every experiment:
 
@@ -982,9 +1550,9 @@ Sufficient for replication:
 
 ---
 
-# PART III: LEARNING FROM MASTERS
+# PART IV: LEARNING FROM MASTERS
 
-## Chapter 7: Exemplar Experiments
+## Chapter 10: Exemplar Experiments
 
 Study these designs to internalize the principles.
 
@@ -1147,7 +1715,7 @@ Question: What will people buy repeatedly? → Need longitudinal purchase data
 
 ---
 
-## Chapter 8: Common Mistakes and How to Avoid Them
+## Chapter 11: Common Mistakes and How to Avoid Them
 
 ### Mistake 1: The Wrong Control Group
 
@@ -1332,13 +1900,13 @@ Report all outcomes: Don't selectively report
 
 ---
 
-# PART IV: THE SUPPORTING SCIENCE
+# PART V: THE SUPPORTING SCIENCE
 
-## Chapter 9: The Scientific Method Components
+## Chapter 12: The Scientific Method Components
 
 Each component has been validated to 97-100% through external blind evaluation. These support your experiment design with rigorous hypothesis generation, analysis, theory-building, and synthesis.
 
-### 9.1: Hypothesis Generation (97% Validated)
+### 12.1: Hypothesis Generation (97% Validated)
 
 **The Five Criteria:**
 | Criterion | What It Means | Failure Example |
@@ -1357,7 +1925,7 @@ Each component has been validated to 97-100% through external blind evaluation. 
 
 ---
 
-### 9.2: Statistical Analysis (100% Validated)
+### 12.2: Statistical Analysis (100% Validated)
 
 **The Five Criteria:**
 | Criterion | What It Means | Common Failure |
@@ -1375,7 +1943,7 @@ Each component has been validated to 97-100% through external blind evaluation. 
 
 ---
 
-### 9.3: Theory Building (100% Validated)
+### 12.3: Theory Building (100% Validated)
 
 **The Five Criteria:**
 | Criterion | What It Means | Common Failure |
@@ -1394,7 +1962,7 @@ Each component has been validated to 97-100% through external blind evaluation. 
 
 ---
 
-### 9.4: Literature Synthesis (100% Validated)
+### 12.4: Literature Synthesis (100% Validated)
 
 **The Five Criteria:**
 | Criterion | What It Means | Common Failure |
@@ -1413,7 +1981,7 @@ Each component has been validated to 97-100% through external blind evaluation. 
 
 ---
 
-# PART V: QUICK REFERENCE
+# PART VI: QUICK REFERENCE
 
 ## The One-Page Checklist
 
