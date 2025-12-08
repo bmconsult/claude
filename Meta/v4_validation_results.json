@@ -1,0 +1,185 @@
+{
+  "test_type": "v4_validation",
+  "comparison": "Original Protocol vs v4.0 (Original + Explicit Framing)",
+  "results": [
+    {
+      "problem_id": 1,
+      "problem_name": "Platform Disruption",
+      "order": {
+        "A": "original",
+        "B": "v4"
+      },
+      "original_score": 38,
+      "v4_score": 44,
+      "difference": 6,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 8,
+          "justification": "Systematically identified 10 key assumptions and tested each with 'what if wrong' analysis. Effectively surfaced critical hidden assumptions like the binary choice fallacy and questioned the urgency timeline."
+        },
+        "strategic_depth": {
+          "score": 7,
+          "justification": "Strong response chain analysis showing multi-move consequences for different options. Good leverage point identification focusing on customer data/relationships. Could have explored more second-order effects."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Excellent reframe from 'build vs sell' binary to partnership/hybrid strategy. Shifted focus from internal capabilities to leveraging existing assets and relationships."
+        },
+        "actionability": {
+          "score": 8,
+          "justification": "Very specific timeline with concrete steps: 0-3 months partner identification, 3-9 months integration, etc. Clear, executable recommendations with defined milestones."
+        },
+        "verification_quality": {
+          "score": 7,
+          "justification": "Good constraint checking and confidence level (75%). Identified key failure modes but could have been more thorough in stress-testing the partnership assumption."
+        },
+        "total": 38
+      },
+      "v4_details": {
+        "assumption_surfacing": {
+          "score": 9,
+          "justification": "Comprehensive assumption audit with 10 assumptions plus sophisticated 'what if wrong' analysis. Identified the top 3 most critical assumptions that change the answer. More systematic approach."
+        },
+        "strategic_depth": {
+          "score": 9,
+          "justification": "Exceptional multi-level analysis with reinforcing/balancing loops, detailed response chains for multiple options, and clear leverage point identification. Deep understanding of system dynamics."
+        },
+        "frame_quality": {
+          "score": 9,
+          "justification": "Outstanding problem classification as hybrid (Systems + Adversarial + Wicked) that fundamentally changes the approach. Sophisticated reframing that acknowledges problem complexity."
+        },
+        "actionability": {
+          "score": 9,
+          "justification": "Highly specific 3-phase strategy with clear timelines, concrete actions (survey top 200 customers, identify 3-5 AI startups), and multiple decision points for adaptation."
+        },
+        "verification_quality": {
+          "score": 8,
+          "justification": "Thorough verification including constraint checks, failure mode analysis, and stated confidence (75%) with clear reasoning. Good acknowledgment of uncertainty sources."
+        },
+        "total": 44
+      }
+    },
+    {
+      "problem_id": 2,
+      "problem_name": "Team Conflict",
+      "order": {
+        "A": "v4",
+        "B": "original"
+      },
+      "original_score": 35,
+      "v4_score": 41,
+      "difference": 6,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 7,
+          "justification": "Identified 12 assumptions and systematically questioned each one. Good identification of assumptions that 'MOST change the answer.' However, less depth in exploring implications of challenging assumptions."
+        },
+        "strategic_depth": {
+          "score": 7,
+          "justification": "Good feedback loop mapping and clear leverage point identification. Response chain analysis covers multiple options with move/countermove thinking. Less sophisticated than Solution A in tracing second and third-order effects."
+        },
+        "frame_quality": {
+          "score": 7,
+          "justification": "Good reframe to structural/organizational focus rather than interpersonal. Leverage point thinking is insightful. However, doesn't develop the reframe as thoroughly as Solution A."
+        },
+        "actionability": {
+          "score": 7,
+          "justification": "Clear 5-step recommendation with specific actions. However, some steps are less concrete (e.g., 'create separate reporting lines if possible') and the integration team concept needs more detail."
+        },
+        "verification_quality": {
+          "score": 7,
+          "justification": "Good constraint checking and confidence level (75%). Identifies what could make solution wrong. However, verification is more mechanical and less nuanced than Solution A's analysis."
+        },
+        "total": 35
+      },
+      "v4_details": {
+        "assumption_surfacing": {
+          "score": 8,
+          "justification": "Systematically identified 10 key assumptions and explicitly challenged the top 3 most critical ones. Strong 'what if this is wrong?' analysis that surfaces non-obvious assumptions like 'conflict is about individuals vs structure'."
+        },
+        "strategic_depth": {
+          "score": 9,
+          "justification": "Excellent multi-level analysis with reinforcing/balancing feedback loops clearly mapped. Response chain analysis considers multiple moves and counter-moves. Traces consequences through organizational dynamics and individual psychology."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Strong reframe from 'interpersonal conflict to fix' to 'structural problem to redesign around.' Hybrid problem classification (systems/adversarial/wicked) shows sophisticated thinking about problem type."
+        },
+        "actionability": {
+          "score": 8,
+          "justification": "Specific 5-step recommendation with concrete actions: create Product Platform team, move Manager B, establish API boundaries, implement shared OKRs, institute architecture review board. Clear and executable."
+        },
+        "verification_quality": {
+          "score": 8,
+          "justification": "Thorough constraint checking, explicit confidence level (70%), and clear articulation of what could make the solution wrong. Acknowledges limitation that it manages around rather than solves interpersonal conflict."
+        },
+        "total": 41
+      }
+    },
+    {
+      "problem_id": 3,
+      "problem_name": "Ethical AI Dilemma",
+      "order": {
+        "A": "v4",
+        "B": "original"
+      },
+      "original_score": 36,
+      "v4_score": 42,
+      "difference": 6,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 8,
+          "justification": "Thorough list of 12 assumptions with systematic analysis. Good identification of binary deployment assumption as key insight that enables hybrid solutions."
+        },
+        "strategic_depth": {
+          "score": 7,
+          "justification": "Good feedback loop mapping and leverage point identification. Decent response chain analysis though less detailed than Solution A. Strong insight about trust-building infrastructure as high leverage."
+        },
+        "frame_quality": {
+          "score": 7,
+          "justification": "Good reframe toward trust-building and adaptive deployment rather than binary decision. Leverage finder approach provides useful analytical structure."
+        },
+        "actionability": {
+          "score": 7,
+          "justification": "Clear 3-phase implementation plan with specific components, though less detailed on tactical execution compared to Solution A."
+        },
+        "verification_quality": {
+          "score": 7,
+          "justification": "Good constraint checking and confidence statement (75%). Identifies potential failure modes but less systematic than Solution A."
+        },
+        "total": 36
+      },
+      "v4_details": {
+        "assumption_surfacing": {
+          "score": 9,
+          "justification": "Comprehensive audit of 11 assumptions with systematic 'what if wrong' analysis. Identifies and ranks the 3 most game-changing assumptions that could fundamentally alter the approach."
+        },
+        "strategic_depth": {
+          "score": 9,
+          "justification": "Excellent systems thinking with detailed feedback loops (reinforcing and balancing). Strong adversarial analysis tracing multi-move response chains for each option with realistic end states."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Strong reframe as hybrid problem (Wicked + Adversarial + Systems) that shifts approach from simple option selection to multi-dimensional strategic challenge requiring different analytical tools."
+        },
+        "actionability": {
+          "score": 8,
+          "justification": "Specific phased implementation plan with clear timelines (30/90 days), concrete tactics (ensemble methods, community partnerships), and defined success metrics."
+        },
+        "verification_quality": {
+          "score": 8,
+          "justification": "Solid verification with constraint checking, stated confidence level (75%), specific failure modes identified, and clear success metrics defined."
+        },
+        "total": 42
+      }
+    }
+  ],
+  "summary": {
+    "avg_original": 36.333333333333336,
+    "avg_v4": 42.333333333333336,
+    "avg_difference": 6.0,
+    "improvement_pct": 16.513761467889907,
+    "v4_wins": 3,
+    "total_problems": 3
+  }
+}

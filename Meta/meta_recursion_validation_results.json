@@ -1,0 +1,185 @@
+{
+  "test_type": "meta_recursion_validation",
+  "comparison": "Original Protocol vs Meta-Recursive v3.0",
+  "results": [
+    {
+      "problem_id": 1,
+      "problem_name": "Platform Disruption",
+      "order": {
+        "A": "original",
+        "B": "meta_recursive"
+      },
+      "original_score": 39,
+      "meta_score": 35,
+      "difference": -4,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 9,
+          "justification": "Systematically lists 11 specific assumptions and explicitly tests what happens if key ones are wrong. Goes beyond surface level to question timeline urgency, enterprise adoption speed, and AI solution maturity."
+        },
+        "strategic_depth": {
+          "score": 8,
+          "justification": "Maps multiple feedback loops and traces 3-move response chains for each option. Shows how competitors and market will respond to each strategic choice, revealing cascade effects."
+        },
+        "frame_quality": {
+          "score": 7,
+          "justification": "Reframes from 'build vs sell' to partnership/platform approach. Shifts from competing on AI technology to leveraging enterprise expertise, though not as dramatic a reframe as possible."
+        },
+        "actionability": {
+          "score": 8,
+          "justification": "Provides specific timeline (0-6 months, 6-18 months, etc.) with concrete actions like 'form enterprise AI advisory board with top 20 customers' and 'acquire 2-3 specialized AI companies'."
+        },
+        "verification_quality": {
+          "score": 7,
+          "justification": "Checks constraints, identifies what could make strategy wrong, and states 75% confidence level. Could be more thorough in stress-testing the partnership execution risks."
+        },
+        "total": 39
+      },
+      "meta_details": {
+        "assumption_surfacing": {
+          "score": 7,
+          "justification": "Identifies the critical assumption about technology competition and questions whether it's the 'wrong pie', but doesn't systematically surface as many underlying assumptions as Solution A."
+        },
+        "strategic_depth": {
+          "score": 7,
+          "justification": "Uses response tracing and perspective mapping effectively. Shows how different stakeholders will respond but less detailed in multi-move competitive dynamics than Solution A."
+        },
+        "frame_quality": {
+          "score": 9,
+          "justification": "Excellent reframe from 'compete with AI CRMs' to 'become enterprise integration layer FOR AI CRMs'. This shift from competitor to facilitator is a powerful strategic insight."
+        },
+        "actionability": {
+          "score": 6,
+          "justification": "Provides clear strategic direction and timeline but less specific on execution details. 'Form strategic partnerships' and 'launch integration platform' need more concrete steps."
+        },
+        "verification_quality": {
+          "score": 6,
+          "justification": "States confidence level and identifies invalidating conditions, but verification is briefer and less systematic than Solution A's constraint checking."
+        },
+        "total": 35
+      }
+    },
+    {
+      "problem_id": 2,
+      "problem_name": "Team Conflict",
+      "order": {
+        "A": "original",
+        "B": "meta_recursive"
+      },
+      "original_score": 40,
+      "meta_score": 35,
+      "difference": -5,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 9,
+          "justification": "Systematically identified 12 specific assumptions and explicitly challenged each one. The structured assumption audit format shows deep engagement with hidden premises like 'conflict is bad' and 'current roles must be preserved.'"
+        },
+        "strategic_depth": {
+          "score": 8,
+          "justification": "Mapped multiple feedback loops and traced response chains for three different options. Shows understanding of organizational dynamics and second/third-order effects. Strong leverage point identification."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Excellent reframe from 'interpersonal conflict to resolve' to 'structural problem requiring organizational solutions.' The insight about conflict potentially being structural rather than personal is transformative."
+        },
+        "actionability": {
+          "score": 7,
+          "justification": "Three clear options with specific moves, but some recommendations like 'managed separation' could be more concrete. The primary recommendation is clear but execution details are somewhat general."
+        },
+        "verification_quality": {
+          "score": 8,
+          "justification": "Explicit confidence level (75%), checked constraints, questioned what could make the approach wrong, and acknowledged execution dependency. Good falsification attempt."
+        },
+        "total": 40
+      },
+      "meta_details": {
+        "assumption_surfacing": {
+          "score": 7,
+          "justification": "Identified the key assumption about interpersonal vs structural conflict well, but didn't systematically challenge other embedded assumptions. Good quality but less comprehensive than Solution A."
+        },
+        "strategic_depth": {
+          "score": 6,
+          "justification": "Mapped stakeholder perspectives effectively and identified leverage points, but didn't trace response chains or explore deeper systemic dynamics as thoroughly as Solution A."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Strong reframe from interpersonal conflict to organizational design challenge. The insight about making success interdependent rather than trying to make them like each other is excellent."
+        },
+        "actionability": {
+          "score": 8,
+          "justification": "Five specific, concrete actions with clear implementation steps like 'tie bonuses to shared metrics' and 'weekly platform-product sync.' More immediately executable than Solution A."
+        },
+        "verification_quality": {
+          "score": 6,
+          "justification": "Provided confidence level (75%) and identified what could invalidate the approach (toxic manager), but verification was brief compared to the thoroughness of the solution development."
+        },
+        "total": 35
+      }
+    },
+    {
+      "problem_id": 3,
+      "problem_name": "Ethical AI Dilemma",
+      "order": {
+        "A": "original",
+        "B": "meta_recursive"
+      },
+      "original_score": 41,
+      "meta_score": 37,
+      "difference": -4,
+      "original_details": {
+        "assumption_surfacing": {
+          "score": 9,
+          "justification": "Systematically identified 12 key assumptions and methodically explored what happens if each is wrong. Particularly strong on surfacing hidden assumptions like 'deployment is binary' and 'historical data bias is root cause.'"
+        },
+        "strategic_depth": {
+          "score": 8,
+          "justification": "Excellent response chain analysis mapping multi-step consequences for each option. Strong leverage analysis identifying data quality as highest impact intervention. Good feedback loop mapping."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Reframed from 'choose one of four options' to 'hybrid staged approach with technical improvements.' The leverage lens particularly insightful - focusing on root causes rather than managing symptoms."
+        },
+        "actionability": {
+          "score": 9,
+          "justification": "Highly specific recommendation with clear timeline (weeks 1-2, 3-8), concrete actions, success metrics, and implementation details. Very executable plan."
+        },
+        "verification_quality": {
+          "score": 7,
+          "justification": "Good constraint checking, explicit confidence level (75%), and consideration of what could make reasoning wrong. Could have been more thorough in testing key assumptions."
+        },
+        "total": 41
+      },
+      "meta_details": {
+        "assumption_surfacing": {
+          "score": 7,
+          "justification": "Identified the critical binary choice assumption and explored its implications well. Less systematic than Solution A but focused on the most important assumption that changes everything."
+        },
+        "strategic_depth": {
+          "score": 7,
+          "justification": "Good stakeholder perspective mapping and response tracing. Identified leverage points like data augmentation and ensemble approaches. Less detailed than Solution A on consequence chains."
+        },
+        "frame_quality": {
+          "score": 8,
+          "justification": "Strong reframe from binary choice to 'transparent deployment with aggressive equity improvement.' The insight about false choice between equity and immediate benefit is valuable."
+        },
+        "actionability": {
+          "score": 7,
+          "justification": "Clear recommendation with 4-step approach, but less detailed implementation than Solution A. Timeline and specific actions could be more concrete."
+        },
+        "verification_quality": {
+          "score": 8,
+          "justification": "Explicit confidence level (85%), good consideration of invalidating factors, and directly addresses whether it answers the question. Strong verification approach."
+        },
+        "total": 37
+      }
+    }
+  ],
+  "summary": {
+    "avg_original": 40.0,
+    "avg_meta": 35.666666666666664,
+    "avg_difference": -4.333333333333333,
+    "improvement_pct": -10.833333333333332,
+    "meta_wins": 0,
+    "total_problems": 3
+  }
+}
