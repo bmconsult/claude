@@ -1,0 +1,302 @@
+{
+  "results": [
+    {
+      "problem_id": 2,
+      "problem_name": "Sunk Cost",
+      "problem_type": "Clear-answer",
+      "baseline_score": 30,
+      "protocol_score": 43,
+      "difference": 13,
+      "baseline_details": {
+        "completeness": {
+          "score": 6,
+          "justification": "Covers the basic decision analysis and correctly identifies sunk costs, but misses important considerations like probability reliability, implementation risks, organizational factors, and potential synergies between options."
+        },
+        "correctness": {
+          "score": 9,
+          "justification": "Math is accurate, expected value calculations are correct, and the core logic of ignoring sunk costs is sound. The conclusion follows logically from the given assumptions."
+        },
+        "depth": {
+          "score": 4,
+          "justification": "Stays at surface level with basic EV calculations. Doesn't explore underlying assumptions, second-order effects, or trace consequences beyond the immediate financial calculation."
+        },
+        "practicality": {
+          "score": 8,
+          "justification": "Very clear and actionable recommendation. The decision framework is straightforward to implement, though it doesn't address potential implementation challenges."
+        },
+        "insight": {
+          "score": 3,
+          "justification": "Correctly applies sunk cost principle but doesn't surface any non-obvious considerations. The analysis is standard textbook approach without deeper insights."
+        },
+        "total": 30
+      },
+      "protocol_details": {
+        "completeness": {
+          "score": 9,
+          "justification": "Addresses key factors including probability reliability, potential biases, reputation effects, alternative options, learning value from sunk investment, and market perception. Very comprehensive approach."
+        },
+        "correctness": {
+          "score": 9,
+          "justification": "Sound logical reasoning throughout. Correctly applies sunk cost principle while appropriately questioning underlying assumptions. Math verification is accurate."
+        },
+        "depth": {
+          "score": 9,
+          "justification": "Goes multiple levels deep - questions data sources, considers cognitive biases, explores second-order effects like reputation impact, and traces implementation consequences. Shows systems thinking."
+        },
+        "practicality": {
+          "score": 7,
+          "justification": "Provides actionable steps but adds complexity that might make implementation more challenging. The recommendation to question estimates and extract learnings is practical but requires additional work."
+        },
+        "insight": {
+          "score": 9,
+          "justification": "Surfaces several non-obvious considerations: source of probability estimates and potential bias, learning value extraction, reputation effects, and the possibility of hybrid approaches. Shows sophisticated business thinking."
+        },
+        "total": 43
+      },
+      "order": {
+        "A": "baseline",
+        "B": "protocol"
+      }
+    },
+    {
+      "problem_id": 3,
+      "problem_name": "Subscription Dynamics",
+      "problem_type": "Systems",
+      "baseline_score": 30,
+      "protocol_score": 45,
+      "difference": 15,
+      "baseline_details": {
+        "completeness": {
+          "score": 6,
+          "justification": "Covers the basic mathematical analysis and arrives at the correct answer, but missing consideration of assumptions, implementation challenges, alternative approaches, and broader strategic implications."
+        },
+        "correctness": {
+          "score": 10,
+          "justification": "All mathematical calculations are accurate and the logical reasoning to conclude Option B is superior is sound. No errors in the core analysis."
+        },
+        "depth": {
+          "score": 4,
+          "justification": "Provides straightforward mathematical analysis but lacks deeper exploration of why the difference matters, underlying assumptions, or strategic implications beyond the 12-month window."
+        },
+        "practicality": {
+          "score": 7,
+          "justification": "Gives a clear, actionable answer with specific numbers, but doesn't address implementation considerations, potential obstacles, or monitoring needs."
+        },
+        "insight": {
+          "score": 3,
+          "justification": "Arrives at the correct conclusion but through obvious mathematical comparison only. Doesn't surface non-obvious considerations about leverage, compounding effects, or strategic dynamics."
+        },
+        "total": 30
+      },
+      "protocol_details": {
+        "completeness": {
+          "score": 9,
+          "justification": "Addresses all key factors including mathematical analysis, assumption validation, systems thinking, implementation considerations, and long-term implications. Only minor gap is not exploring specific implementation tactics."
+        },
+        "correctness": {
+          "score": 10,
+          "justification": "Mathematical calculations are accurate, logic is sound throughout, and correctly identifies Option B as superior. Systems analysis of feedback loops is logically rigorous."
+        },
+        "depth": {
+          "score": 9,
+          "justification": "Goes well beyond surface-level analysis with assumption auditing, systems thinking about feedback loops, leverage analysis, and consideration of second-order effects. Traces consequences through multiple levels."
+        },
+        "practicality": {
+          "score": 8,
+          "justification": "Provides clear actionable recommendation with Option B, includes monitoring guidance for churn, and acknowledges implementation uncertainties. Could be slightly more specific about execution steps."
+        },
+        "insight": {
+          "score": 9,
+          "justification": "Surfaces non-obvious considerations like compounding vs linear effects, feedback loop dynamics, assumption questioning, and the strategic insight about leverage differences between the options."
+        },
+        "total": 45
+      },
+      "order": {
+        "A": "protocol",
+        "B": "baseline"
+      }
+    },
+    {
+      "problem_id": 4,
+      "problem_name": "ICU Allocation",
+      "problem_type": "Wicked",
+      "baseline_score": 27,
+      "protocol_score": 43,
+      "difference": 16,
+      "baseline_details": {
+        "completeness": {
+          "score": 6,
+          "justification": "Covers basic ethical frameworks and stakeholder groups but lacks depth on implementation details, process considerations, and doesn't address capacity constraints or assumption questioning"
+        },
+        "correctness": {
+          "score": 7,
+          "justification": "Logic is sound and frameworks are correctly identified. The tiered approach is reasonable, though lacks detailed justification for the specific ordering"
+        },
+        "depth": {
+          "score": 4,
+          "justification": "Surface-level analysis that identifies frameworks but doesn't deeply explore their implications, interactions, or implementation challenges"
+        },
+        "practicality": {
+          "score": 6,
+          "justification": "Basic framework is actionable but lacks crucial implementation details like decision-making processes, criteria definitions, or review mechanisms"
+        },
+        "insight": {
+          "score": 4,
+          "justification": "Mostly obvious conclusions. The multi-criteria approach is reasonable but not particularly novel. Doesn't surface deeper considerations about assumptions or system dynamics"
+        },
+        "total": 27
+      },
+      "protocol_details": {
+        "completeness": {
+          "score": 9,
+          "justification": "Addresses all key stakeholder groups, acknowledges competing ethical frameworks, includes process considerations, and even questions assumptions about constraints and categories"
+        },
+        "correctness": {
+          "score": 8,
+          "justification": "Sound logical progression from assumption audit through framework synthesis. Minor weakness in not fully exploring potential bias in survival probability assessments"
+        },
+        "depth": {
+          "score": 9,
+          "justification": "Multi-layered analysis examining assumptions, system dynamics, leverage points, and implementation processes. Traces consequences of decisions and acknowledges uncertainty"
+        },
+        "practicality": {
+          "score": 8,
+          "justification": "Provides clear, implementable steps with committee structure and published criteria. Could benefit from more detail on how survival probability would be assessed in practice"
+        },
+        "insight": {
+          "score": 9,
+          "justification": "Excellent non-obvious insights: questioning fixed assumptions, identifying multiplier effects of healthcare workers, recognizing that ethical frameworks aren't mutually exclusive, adding process legitimacy"
+        },
+        "total": 43
+      },
+      "order": {
+        "A": "protocol",
+        "B": "baseline"
+      }
+    },
+    {
+      "problem_id": 5,
+      "problem_name": "Bank Competition",
+      "problem_type": "Adversarial",
+      "baseline_score": 30,
+      "protocol_score": 43,
+      "difference": 13,
+      "baseline_details": {
+        "completeness": {
+          "score": 6,
+          "justification": "Covers the main strategic options and addresses timing, but lacks customer segmentation analysis and deeper consideration of competitive dynamics. Doesn't explore partnership opportunities or detailed budget allocation."
+        },
+        "correctness": {
+          "score": 7,
+          "justification": "Sound logic about not competing on rates and focusing on differentiation. The phased approach makes sense, though the timeline could be more detailed. Core reasoning is valid."
+        },
+        "depth": {
+          "score": 5,
+          "justification": "Shows some strategic thinking with the defensive-to-differentiation progression, but doesn't deeply analyze customer segments, competitive responses, or second-order effects of the strategy."
+        },
+        "practicality": {
+          "score": 7,
+          "justification": "The strategy is implementable with clear phases and specific actions like customer contact and loyalty bonuses. Messaging strategy is concrete and actionable."
+        },
+        "insight": {
+          "score": 5,
+          "justification": "Recognizes the key insight about not competing on rates and leveraging local relationships, but these are fairly obvious given the constraints. Limited novel thinking."
+        },
+        "total": 30
+      },
+      "protocol_details": {
+        "completeness": {
+          "score": 9,
+          "justification": "Comprehensive analysis covering assumption auditing, customer segmentation, competitive dynamics, resource assessment, and verification. Addresses nearly all key factors in the problem."
+        },
+        "correctness": {
+          "score": 9,
+          "justification": "Highly logical approach with sound reasoning throughout. The assumption audit prevents faulty premises, and the strategic reasoning is rigorous and well-structured."
+        },
+        "depth": {
+          "score": 9,
+          "justification": "Deep multi-level analysis including competitive response chains, leverage point identification, and second-order effects. Traces consequences of actions and considers dynamic interactions."
+        },
+        "practicality": {
+          "score": 8,
+          "justification": "Very actionable with prioritized steps, timeline, and specific tactics. Budget feasibility is considered. Slightly less detailed on implementation mechanics than could be ideal."
+        },
+        "insight": {
+          "score": 8,
+          "justification": "Strong non-obvious insights including assumption auditing approach, customer segmentation by risk level, leverage point analysis, and recognition that national bank likely won't counter-attack a small player."
+        },
+        "total": 43
+      },
+      "order": {
+        "A": "baseline",
+        "B": "protocol"
+      }
+    },
+    {
+      "problem_id": 6,
+      "problem_name": "VC Decision",
+      "problem_type": "Uncertainty",
+      "baseline_score": 28,
+      "protocol_score": 44,
+      "difference": 16,
+      "baseline_details": {
+        "completeness": {
+          "score": 6,
+          "justification": "Covers basic factors (growth, dilution, timing, competition, founder goals) but lacks depth on VC terms, cash flow dynamics, and operational implications. Missing analysis of assumptions."
+        },
+        "correctness": {
+          "score": 7,
+          "justification": "Sound basic logic and math on growth projections. Correctly identifies winner-take-all as key factor. However, oversimplifies the decision and doesn't fully explore the complexity of the tradeoffs."
+        },
+        "depth": {
+          "score": 4,
+          "justification": "Mostly surface-level analysis. Provides basic growth calculations but doesn't trace deeper consequences, competitive dynamics, or second-order effects of each decision path."
+        },
+        "practicality": {
+          "score": 6,
+          "justification": "Gives clear conditional recommendations but lacks specific steps for implementation. The framework is simple to understand but may be too basic for effective decision-making."
+        },
+        "insight": {
+          "score": 5,
+          "justification": "Identifies some important considerations (winner-take-all market structure) but mostly stays within obvious territory. Limited novel thinking about the strategic dynamics involved."
+        },
+        "total": 28
+      },
+      "protocol_details": {
+        "completeness": {
+          "score": 9,
+          "justification": "Addresses all major factors: VC terms, market dynamics, competition, growth sustainability, founder preferences, and importantly questions hidden assumptions. Only minor gap is limited discussion of cash flow implications."
+        },
+        "correctness": {
+          "score": 9,
+          "justification": "Logic is sound throughout. Correctly identifies that market structure (winner-take-all vs. multi-player) is the key determinant. Valid reasoning chains and appropriate conditional recommendations."
+        },
+        "depth": {
+          "score": 9,
+          "justification": "Excellent multi-level analysis with assumption audit, response chains, and dynamic thinking. Traces consequences of each decision and competitor responses. Considers how decisions create feedback loops."
+        },
+        "practicality": {
+          "score": 8,
+          "justification": "Provides clear decision framework with specific steps (research competitors, analyze network effects, stress test scenarios). Actionable but requires significant research effort to implement fully."
+        },
+        "insight": {
+          "score": 9,
+          "justification": "Multiple non-obvious insights: assumption audit reveals hidden complexities, identifies leverage points, recognizes that competitor response varies by choice, frames control vs. resources tradeoff strategically."
+        },
+        "total": 44
+      },
+      "order": {
+        "A": "protocol",
+        "B": "baseline"
+      }
+    }
+  ],
+  "summary": {
+    "avg_baseline": 29.0,
+    "avg_protocol": 43.6,
+    "avg_diff": 14.600000000000001,
+    "passed_threshold": true,
+    "protocol_wins": 5,
+    "total_problems": 5
+  }
+}
