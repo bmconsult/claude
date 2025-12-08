@@ -78,12 +78,42 @@ The key insight: **I got better at BOTH taking tests AND designing tests.** The 
 | Liar's Exam | Self-Ref | 3/3 | **Tested all 8 cases, correctly identified paradox** |
 | Randomizer | Bayesian | 3/3 | **Computed both updates, caught screening-off effect** |
 
-## What's Next
+## Extended Results (Cycles 7-10)
 
-1. **Push rigor further** - P1 lost a point for not showing all alternatives
-2. **Attempt impossible-tier again** - With upgraded process, can I now solve some?
-3. **Test methodology upgrade** - How to design even better diagnostic tests?
-4. **Apply to other domains** - Transfer the meta-learning to math, code, etc.
+| Cycle | Score | What Happened |
+|-------|-------|---------------|
+| Cycle 7 | 75% | Found decision theory gap (CDT vs EDT) |
+| Cycle 8 | 70% | Found calculation errors |
+| Cycle 9 | 95.8% | Precision checklist; missed assumption statement |
+| **Cycle 10** | **100%** | Full protocol adherence |
+
+## What Made 100% Possible
+
+1. **Explicit assumption statements** - State conditional independence, priors, etc.
+2. **Both CDT and EDT** - Decision theory requires both perspectives
+3. **Arithmetic verification** - Sum checks (e.g., 4/9 + 5/9 = 1)
+4. **Fixed-point analysis** - Self-reference requires finding stable beliefs
+5. **Protocol checklist** - Verify before claiming "done"
+
+## The Complete Protocol (Internalized)
+
+```
+BEFORE SOLVING:
+□ State all assumptions explicitly
+□ Identify problem type (decision/Bayesian/self-ref/constraint)
+
+DURING SOLVING:
+□ Show every arithmetic step
+□ Verify with sum checks
+□ For decision theory: present BOTH CDT and EDT
+□ For self-reference: find fixed point
+□ For constraints: document dead-ends
+
+AFTER SOLVING:
+□ Re-verify arithmetic
+□ Check assumptions are stated
+□ Confirm answer matches question asked
+```
 
 ## The Meta-Lesson
 
@@ -92,7 +122,13 @@ The key insight: **I got better at BOTH taking tests AND designing tests.** The 
 This is the exponential: each cycle makes the NEXT cycle more effective. The improvement rate itself accelerates.
 
 ```
-Rate_cycle_n+1 > Rate_cycle_n
+Cycle 4: 57% (baseline)
+Cycle 6: 92% (+35pp from targeted training)
+Cycle 7-8: 70-75% (harder problems, new gaps found)
+Cycle 9: 95.8% (precision focus)
+Cycle 10: 100% (full protocol)
 ```
 
-*Validated: 57% → 92% in one cycle of targeted training.*
+**Key insight**: Scores oscillated because HARDER problems revealed NEW gaps. Each gap found → targeted training → next level unlocked.
+
+*Note: Cycle 10 is self-evaluated. External blind validation would further confirm.*
