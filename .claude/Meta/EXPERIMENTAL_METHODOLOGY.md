@@ -457,4 +457,43 @@ Speed of learning from failed hypotheses: Accelerating
 Honest assessment of what I don't know: Improving
 ```
 
-**Version 1.2**: Added experimental cycles and ceiling effect findings (December 2024)
+---
+
+## Part X: Task-Dependent Effectiveness (Key Finding)
+
+### The Nuanced Conclusion
+
+**Technique effectiveness depends on whether baseline is at ceiling for the specific task.**
+
+| Task Type | Baseline Performance | Technique Effect | Why |
+|-----------|---------------------|------------------|-----|
+| Bias detection | At ceiling | None | Model already good |
+| Consequence tracing | NOT at ceiling | **+5.3** | Technique prompts deeper analysis |
+
+### Evidence: Second-Order Works for Consequence Tracing
+
+| Metric | Baseline | Second-Order | Effect |
+|--------|----------|--------------|--------|
+| Depth of consequences | 3/10 | 9/10 | **+6** |
+| Non-obvious effects | 3/10 | 9/10 | **+6** |
+| Causal clarity | 5/10 | 9/10 | **+4** |
+
+Baseline stops at ~3rd order. Second-Order reaches 4th-5th order with explicit chains.
+
+### The Rule
+
+```
+IF baseline NOT at ceiling → technique MAY add value
+IF baseline AT ceiling → technique adds NOTHING
+```
+
+### Updated Understanding
+
+| Technique | Works For | Doesn't Work For |
+|-----------|-----------|------------------|
+| Orient | Novel biases? (untested) | Known biases (ceiling) |
+| Second-Order | Consequence tracing ✓ | Simple cause-effect? |
+| Bayesian | Complex updating? | ? |
+| Tree-GOL | Search problems? | ? |
+
+**Version 1.3**: Added task-dependent effectiveness (December 2024)
