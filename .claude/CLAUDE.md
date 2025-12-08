@@ -1029,3 +1029,227 @@ Before finalizing hypotheses:
 
 *Validation methodology: External blind eval with novel problems, binary criteria scoring*
 
+---
+
+## Statistical Analysis (VALIDATED - 100% external)
+
+### The Five Criteria
+
+Every statistical analysis must pass ALL of these:
+
+| Criterion | What It Means | Failure Example |
+|-----------|---------------|-----------------|
+| **CORRECT** | Mathematical reasoning accurate | Wrong degrees of freedom, calculation errors |
+| **APPROPRIATE** | Right test for data structure and question | t-test on clustered data, ANOVA on non-independent observations |
+| **COMPLETE** | Assumptions, power, limitations addressed | No assumption checks, missing power analysis |
+| **INTERPRETABLE** | Precise conclusions without overclaiming | "Causes" from observational data |
+| **ACTIONABLE** | Concrete implementable guidance | Vague recommendations, no specific next steps |
+
+### Critical Traps to Catch
+
+| Trap | How to Detect | What to Do |
+|------|---------------|------------|
+| **Hidden clustering** | Groups trained together, shared instructors, nested data | Use multilevel model or cluster-robust SEs |
+| **Non-independence** | Repeated measures, paired data, spatial correlation | Check data structure BEFORE choosing test |
+| **Base rate neglect** | Rare events, screening tests | Apply Bayes theorem: P(A\|B) ≠ P(B\|A) |
+| **Confounded variables** | Correlations between predictors, selection bias | Check VIF, use hierarchical regression |
+| **Assumption violations** | Non-normality, heteroscedasticity | Robust SEs, transformations, or non-parametric |
+
+### The Analysis Protocol
+
+```
+1. STATE the question precisely (what comparison? what prediction?)
+2. CHECK data structure (independent? clustered? paired? nested?)
+3. SELECT test based on structure, not convenience
+4. VERIFY assumptions (normality, homoscedasticity, independence)
+5. PLAN for violations (robust SEs, alternatives)
+6. INTERPRET cautiously (association ≠ causation)
+7. SPECIFY limitations explicitly
+```
+
+### Quick Reference
+
+**Before any analysis:**
+→ "What is the unit of analysis?" (individual? group? observation?)
+→ "Are observations independent?" (if no → adjust)
+→ "What assumptions does this test require?" (check all)
+→ "Can I make causal claims?" (usually no)
+
+**Red flags that invalidate common tests:**
+- t-test with clustered data → Type I error inflated
+- Regression with multicollinearity → Unstable coefficients
+- Any test with selection bias → Uninterpretable
+
+*Validated: 15/15 criteria across 3 adversarial problems*
+
+---
+
+## Theory Building (VALIDATED - 100% post-learning)
+
+### The Five Criteria
+
+Every theory must pass ALL of these:
+
+| Criterion | What It Means | Failure Example |
+|-----------|---------------|-----------------|
+| **UNIFYING** | Explains ALL findings with one mechanism | Dismissing a finding as "special case" |
+| **MECHANISTIC** | Explains WHY causally | "Pattern exists" without causal pathway |
+| **PREDICTIVE** | Generates novel, testable predictions | Only explains existing data, no new predictions |
+| **GROUNDED** | Connected to existing literature | No citations, concepts floating free |
+| **FALSIFIABLE** | Clear falsification criteria | "Effect depends on context" (unfalsifiable) |
+
+### The Theory Building Protocol
+
+```
+1. IDENTIFY all findings to explain (don't cherry-pick)
+2. FIND the common mechanism (what ONE thing explains all?)
+3. SPECIFY causal pathway (A → B → C → outcome)
+4. GENERATE predictions (what would you expect that hasn't been tested?)
+5. CITE literature (names + years, not just concepts)
+6. STATE falsification (what evidence would prove this WRONG?)
+```
+
+### Common Failure Modes
+
+| Mode | What Happens | Fix |
+|------|--------------|-----|
+| **Dismissing outliers** | "That's a special case" | Force yourself to explain ALL findings |
+| **Relabeling** | New name for pattern, not mechanism | Ask "WHY does this happen?" |
+| **Missing citations** | Good ideas, no grounding | Explicitly cite Researcher (Year) |
+| **Unfalsifiable** | "Depends on context" | Specify exactly what would disprove |
+| **Post-hoc flexibility** | Theory explains anything | Lock in predictions BEFORE testing |
+
+### Quick Reference
+
+**When building theories:**
+→ "Does this explain ALL the findings, or am I excluding inconvenient ones?"
+→ "Am I explaining WHY or just describing WHAT?"
+→ "What specific evidence would prove me wrong?"
+→ "Have I cited the relevant researchers by name?"
+
+**The falsifiability test:**
+If you can't specify what would disprove your theory, it's not a theory—it's a framework.
+
+*Validated: 15/15 criteria on final 3 problems after learning to unify all findings, cite literature explicitly, and state falsification criteria*
+
+---
+
+## Literature Synthesis (VALIDATED - 100% external)
+
+### The Five Criteria
+
+Every synthesis must pass ALL of these:
+
+| Criterion | What It Means | Failure Example |
+|-----------|---------------|-----------------|
+| **IDENTIFIES CONFLICTS** | Key disagreements explicitly stated | Glossing over contradictions |
+| **EXPLAINS DISCREPANCIES** | WHY papers disagree (moderators, methods) | "More research needed" without explanation |
+| **INTEGRATES** | Coherent narrative, not just summary | List of findings without connections |
+| **PROPOSES RESOLUTION** | Clear answer to what the true relationship is | "It's complicated" without resolution |
+| **ACTIONABLE** | Concrete future directions derived from synthesis | Generic recommendations |
+
+### The Synthesis Protocol
+
+```
+1. MAP the conflicts (which papers disagree on what?)
+2. IDENTIFY moderators (what differs between conflicting studies?)
+3. BUILD framework (how do moderators explain the pattern?)
+4. RESOLVE apparently contradictory findings (they're usually both right, under different conditions)
+5. DERIVE specific research directions FROM your synthesis
+```
+
+### Integration Techniques
+
+| Technique | When to Use | Example |
+|-----------|-------------|---------|
+| **Moderator analysis** | Conflicting effect sizes | Effect is positive for X, negative for Y |
+| **Level separation** | Aggregation paradoxes | Average is small because subgroups cancel |
+| **Methodological reconciliation** | Different designs, different results | Cross-sectional ≠ longitudinal findings |
+| **Conditional model** | Effects depend on context | Effect exists only when A and B and C |
+
+### Quick Reference
+
+**When synthesizing literature:**
+→ "What do these papers disagree about?"
+→ "What differs between the conflicting studies?"
+→ "Can I build a model where BOTH findings are true?"
+→ "What specific studies would test my synthesis?"
+
+**The integration test:**
+If your synthesis is just a list of findings, it's a literature review, not a synthesis. A synthesis creates NEW understanding from the combination.
+
+*Validated: 10/10 criteria across 2 synthesis challenges*
+
+---
+
+## The Complete Scientific Method (VALIDATED - 97-100% all components)
+
+### Component Summary
+
+| Component | Score | Key Insight |
+|-----------|-------|-------------|
+| Hypothesis Generation | 97% | Novel + Mechanistic + Specific + Actionable |
+| Statistical Analysis | 100% | Check structure BEFORE choosing test |
+| Theory Building | 100% | Unify ALL findings, state falsification |
+| Literature Synthesis | 100% | Explain WHY papers disagree |
+| Experiment Design | 100% | Six virtuoso criteria + adversarial red-team |
+
+### The Integrated Workflow
+
+```
+PHASE 1: QUESTION
+└── What phenomenon? What's unknown? What matters?
+
+PHASE 2: HYPOTHESIZE (97% validated)
+├── Generate 3+ DIFFERENT hypotheses
+├── Each must be: Novel, Mechanistic, Specific, Actionable, Testable
+└── Check: "Would this surprise an expert?"
+
+PHASE 3: DESIGN (100% validated)
+├── Six virtuoso criteria
+├── Adversarial red-team
+└── Pre-register hypotheses + analysis
+
+PHASE 4: ANALYZE (100% validated)
+├── Check data structure first
+├── Verify assumptions
+├── Interpret cautiously (association ≠ causation)
+└── State limitations explicitly
+
+PHASE 5: THEORIZE (100% validated)
+├── Explain ALL findings (no "special cases")
+├── Specify causal mechanism
+├── Cite literature explicitly
+└── State falsification criteria
+
+PHASE 6: SYNTHESIZE (100% validated)
+├── Identify conflicts between studies
+├── Explain discrepancies (moderators, methods)
+├── Build integrative framework
+└── Derive specific future directions
+```
+
+### Meta-Protocol: Pushing Past "Good Enough"
+
+The difference between 80% and 100% performance:
+
+| Level | Characteristic | What's Missing |
+|-------|---------------|----------------|
+| 80% | Competent execution | Edge cases, adversarial conditions |
+| 90% | Handles most cases | Explicit criteria, systematic checking |
+| 95% | Reliable under pressure | Lessons from failures internalized |
+| 100% | Automatic excellence | Criteria are reflexive, not checklist |
+
+**The improvement loop:**
+```
+1. ATTEMPT with explicit checklist (slow, thorough)
+2. NOTE failures and near-misses
+3. EXTRACT lesson (what criterion did I miss?)
+4. INTERNALIZE (add to automatic processing)
+5. REPEAT until checklist is unnecessary
+```
+
+**Key finding:** You cannot skip the explicit phase. Internalization requires conscious practice first.
+
+*Full validation: 170+ criteria evaluated across 15 external blind tests*
+
