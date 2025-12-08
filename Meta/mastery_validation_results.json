@@ -1,0 +1,67 @@
+{
+  "problem": "\nYou're the founder of a 3-year-old EdTech startup. You've built a successful tutoring platform with 50,000 active users and $2M ARR.\n\nYour lead investor just told you that a major EdTech company (think Chegg or Coursera) is launching an identical product next quarter. They have 100x your resources and an existing user base of 10 million.\n\nYou have $500K in the bank, 15 employees, and 6 months of runway. What do you do?\n",
+  "c1_solution": "\nAnalyzing the options:\n\nThe main question is whether to compete, pivot, or exit.\n\n**Option 1: Compete directly**\n- We have 50K users, they have 10M\n- We have $500K, they have unlimited\n- We'll lose on marketing, features, price\n- Conclusion: This is suicide\n\n**Option 2: Pivot**\n- Find a niche they won't serve\n- Maybe enterprise? K-12 specifically?\n- 6 months is tight for a pivot\n\n**Option 3: Sell**\n- We have traction ($2M ARR)\n- Could be acqui-hire value\n- Get something rather than nothing\n\n**Recommendation**:\nTry to sell while we still have leverage. If that fails, look for a niche to pivot into. Direct competition is not viable.\n\n**What could be wrong**:\n- Maybe no one wants to buy us\n- Maybe our niche idea is also too crowded\n",
+  "c5_solution": "\n**First instinct**: Compete or die. But let me check this frame.\n\n**Meta-pattern application**: Is \"compete vs. them\" the right frame?\n- Obvious frame: \"How do we survive against a giant?\"\n- Reframe attempt: They're launching an \"identical\" product. But identical to what? Our features or our user relationships? These are different things.\n\n**Problem type**: Competitive/adversarial + resource asymmetry + time constraint\n\n**Stakeholder analysis**:\n- 50K active users: Why do they use us? What would make them switch?\n- 15 employees: Their skills, morale, runway concerns\n- Lead investor: What do THEY want? Exit? Survival?\n- The competitor: What are they optimizing for? (Hint: not a 50K user niche)\n- Potential acquirers: Who would want our user base or team?\n\n**Power dynamics**:\nThe competitor has: Resources, reach, brand\nWe have: Speed, user relationships, focus, nothing to lose\nThey can't have: Our specific users' loyalty, our speed of iteration\n\n**Assumption surfacing**:\n1. \"Identical product\" = same value prop (but relationship-based products aren't commodities)\n2. Their 10M users will try their new product (not guaranteed - different use case)\n3. Our users will switch for features/price (maybe they value relationship more)\n4. We need to \"beat\" them (maybe we need to be irrelevant to them)\n5. 6 months runway = 6 months to decide (actually less - need clarity in 2 months)\n6. $500K is our only resource (what about revenue growth, partnerships, bridge?)\n\n**Critical reframe**: This isn't competition. It's **differentiation under threat**. We can't beat them at scale. But they can't beat us at intimacy. The question is: Is there a viable intimate niche?\n\n**Leverage finding**:\n```\nWhat can we do that they can't/won't?\n- Personal relationships with users (we know names, they know numbers)\n- Fast iteration (we ship weekly, they ship quarterly)\n- Niche depth (we can specialize, they must generalize)\n- Scrappiness (we can do things that don't scale)\n\nWhere is highest leverage?\nOur 50K users. Do they LOVE us or just use us?\n- If love: We can deepen, they'll defend us\n- If just use: We're dead anyway\n\nImmediate action: Survey users. Find the 5K who LOVE us. Serve them obsessively.\n```\n\n**Response chain**:\n```\nIf we \u2192 Try to compete on features/marketing\n- Competitor \u2192 Outspends us 100x\n- Users \u2192 See two similar products, go with brand\n- We \u2192 Run out of money\nOutcome: Death\n\nIf we \u2192 Immediately try to sell\n- Acquirers \u2192 Know we're desperate\n- Valuation \u2192 Crashed\n- Outcome \u2192 Fire sale or nothing\n\nIf we \u2192 Niche down HARD + extend runway\n- Find the 5-10K users who love us\n- Double down on what makes them love us\n- Competitor \u2192 Ignores us (we're not a threat)\n- We \u2192 Become unassailable in niche\n- 18 months later \u2192 Either thriving in niche or acqui-hirable at better valuation\nOutcome: Survival with optionality\n```\n\n**Synthesis (single recommendation)**:\n\n**RECOMMENDATION**: Radical niche focus + runway extension.\n\n**Month 1 (Immediate)**:\n1. User research: Survey all 50K. Who loves us? Why?\n2. Cut: Any feature/cost that doesn't serve the lovers\n3. Runway: Convert from monthly to annual billing, add 3-4 months runway\n4. Communicate: Tell team the honest situation and strategy\n\n**Month 2-3 (Focus)**:\n1. Identify the 5-10K users who would pay 2x, recruit 3x more like them\n2. Build ONLY what they desperately want\n3. Make switching cost high (community, customization, relationship)\n4. Talk to potential acquirers - not to sell but to plant seeds\n\n**Month 4-6 (Prove or Pivot)**:\n1. Can we get to 10K passionate users at higher ARPU?\n2. If yes: We have a real niche business\n3. If no: We have clean data for acqui-hire or pivot\n\n**Stakeholder messaging**:\n- Investors: \"We're not fighting them. We're finding the niche they can't serve.\"\n- Team: \"We're becoming the best for our core users, not trying to be big.\"\n- Users: \"We're doubling down on what you love about us.\"\n\n**What could be wrong**:\n- Maybe no one actually loves us (survey will reveal)\n- Maybe our \"niche\" is too small to sustain 15 people\n- Maybe competitor will crush niches too (unlikely - not worth their time)\n- Maybe team will panic and leave (need strong leadership)\n\n**Constraints check**:\n- Legal: Employment obligations, investor rights\n- Contractual: User contracts, vendor agreements\n- Financial: Actual runway with cuts may be 8-9 months\n",
+  "order": {
+    "B": "C5",
+    "A": "C1"
+  },
+  "c1_score": 18,
+  "c5_score": 49,
+  "improvement": 31,
+  "improvement_pct": 172.22222222222223,
+  "c1_details": {
+    "frame_quality": {
+      "score": 3,
+      "justification": "Uses obvious 'compete vs pivot vs sell' framework without deeper reframing. Stays within conventional startup crisis thinking."
+    },
+    "assumption_surfacing": {
+      "score": 2,
+      "justification": "Takes problem largely at face value. Doesn't question what 'identical product' means or examine underlying assumptions about user behavior."
+    },
+    "stakeholder_analysis": {
+      "score": 2,
+      "justification": "Mentions users and potential acquirers but doesn't analyze their motivations or perspectives deeply. Single-dimensional view of stakeholders."
+    },
+    "strategic_depth": {
+      "score": 4,
+      "justification": "Shows some consequence analysis ('this is suicide') but lacks multi-level thinking about competitive dynamics and systemic factors."
+    },
+    "actionability": {
+      "score": 3,
+      "justification": "Gives clear recommendation to sell first, then pivot, but provides no specific steps, timeline, or execution details."
+    },
+    "verification": {
+      "score": 4,
+      "justification": "Brief 'what could be wrong' section touches on key failure modes but doesn't thoroughly examine the reasoning."
+    },
+    "total": 18
+  },
+  "c5_details": {
+    "frame_quality": {
+      "score": 9,
+      "justification": "Excellent reframe from 'compete vs them' to 'differentiation under threat' and 'intimacy vs scale'. Changes the entire approach to the problem."
+    },
+    "assumption_surfacing": {
+      "score": 8,
+      "justification": "Systematically identifies 6+ key assumptions including 'identical product', user switching behavior, runway constraints, and competitive dynamics."
+    },
+    "stakeholder_analysis": {
+      "score": 8,
+      "justification": "Deep analysis of multiple stakeholders with specific consideration of motivations - users' love vs use, competitor's optimization targets, investor desires."
+    },
+    "strategic_depth": {
+      "score": 9,
+      "justification": "Sophisticated multi-level response chain analysis, considers second and third-order effects, demonstrates systemic thinking about competitive dynamics."
+    },
+    "actionability": {
+      "score": 8,
+      "justification": "Specific month-by-month timeline with concrete actions, metrics, and decision points. Clear execution roadmap."
+    },
+    "verification": {
+      "score": 7,
+      "justification": "Solid 'what could be wrong' analysis covering multiple failure modes and constraint checking, though could be more thorough on some points."
+    },
+    "total": 49
+  }
+}
