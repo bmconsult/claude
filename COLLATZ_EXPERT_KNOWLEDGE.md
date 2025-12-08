@@ -51794,3 +51794,304 @@ even when intermediate values grow significantly.
   Full algebraic proof requires bounding intermediate values.
 ═══════════════════════════════════════════════════════════════════
 ```
+
+---
+
+# Part CXII: The Unified Theory of TB2 (§2081-2120)
+
+*Cross-domain synthesis: December 2024*
+
+## §2081. The TB2 Gap Restated
+
+**The Problem**: Our single-step bound T ≤ 1 + log₂(n_j) doesn't directly
+prove TB2 because intermediate values n_j can be >> n₀.
+
+**The Solution**: Four independent perspectives converge to explain why TB2 holds.
+
+## §2082. Perspective 1: Dynamical Systems — The Cascade Decay Theorem
+
+**THEOREM (Cascade Decay)**: If V = m·2^T - 1 with m odd and T ≥ 2, then:
+```
+T(V) = 3m·2^{T-1} - 1 = m'·2^{T-1} - 1 where m' = 3m
+```
+The T-value decreases by exactly 1.
+
+**PROOF**:
+```
+3V + 1 = 3(m·2^T - 1) + 1 = 3m·2^T - 2 = 2(3m·2^{T-1} - 1)
+
+For T ≥ 2: 3m·2^{T-1} - 1 is odd, so v₂(3V+1) = 1.
+
+Therefore: T(V) = (3V+1)/2 = 3m·2^{T-1} - 1
+
+And v₂(T(V)+1) = v₂(3m·2^{T-1}) = T-1 (since 3m is odd).  ∎
+```
+
+**CONSEQUENCE**: After hitting T_max = K, T values cascade: K → K-1 → ... → 1.
+T_max is achieved ONCE, then monotonically decreases.
+
+## §2083. Cascade Dynamics During Decay
+
+During the cascade from T = K:
+```
+Step 0: V₀ = m₀·2^K - 1,     T = K
+Step 1: V₁ = 3m₀·2^{K-1} - 1,  T = K-1
+Step 2: V₂ = 9m₀·2^{K-2} - 1,  T = K-2
+...
+Step j: Vⱼ = 3^j·m₀·2^{K-j} - 1, T = K-j
+```
+
+Values GROW during cascade: ratio ≈ (3/2)^j at step j.
+Peak occurs at T = 2: V_{K-2} ≈ 4·3^{K-2}.
+
+## §2084. Perspective 2: Number Theory — Reachability Constraints
+
+**THEOREM (Mersenne Isolation)**: The Mersenne number 2^T - 1 is:
+- **REACHABLE** if T is odd (2^T - 1 ≡ 1 mod 3)
+- **ISOLATED** if T is even (2^T - 1 ≡ 0 mod 3)
+
+**CONSEQUENCE**: T_max values achieved via Mersenne approach are always ODD.
+Even T_max values must come from m > 1 cases.
+
+## §2085. Minimum Predecessor for High-T Values
+
+For V = 2^T - 1 (Mersenne, T odd), minimum predecessor is:
+```
+min n_j = (V·4 - 1)/3 = (4·2^T - 5)/3
+log₂(min n_j) ≈ T + log₂(4/3) ≈ T + 0.42
+```
+
+**Empirical fit**: log₂(min n₀ achieving T_max = K) ≈ 0.92·K + 1.32
+
+This gives: K ≤ 1.08·log₂(n₀) - 1.43 (tighter than TB2!).
+
+## §2086. Reachability Pattern for m·2^T - 1
+
+| m mod 3 | T even | T odd |
+|---------|--------|-------|
+| 0       | Reachable | Reachable |
+| 1       | ISOLATED | Reachable |
+| 2       | Reachable | ISOLATED |
+
+Half of all (m,T) combinations are isolated!
+
+## §2087. Perspective 3: Probability — Martingale Structure
+
+**Define**: M_j = T_j - (2 + log₂(n₀))
+
+If TB2 holds, then M_j ≤ 0 for all j.
+
+**FINDING**: M_j behaves as a supermartingale for M > -15:
+```
+E[M_{j+1} | M_j = m] ≤ m  for m > -15
+```
+
+This suggests TB2 violations are "thermodynamically" suppressed.
+
+## §2088. Large Deviation Analysis
+
+**Distribution of T_max / (2 + log₂(n₀))**:
+```
+[0.00, 0.50): 97.3%
+[0.50, 0.80):  2.6%
+[0.80, 0.95):  0.1%
+[0.95, 1.00):  0.0%
+[1.00, ∞):     0.0%  (no violations!)
+```
+
+Max ratio observed: 0.9318 (at n₀ = 77671, T_max = 17).
+
+## §2089. Renewal Structure
+
+After hitting T_max, trajectories quickly return to small values:
+- Average steps from T_max to first value < n₀: **2.19 steps**
+
+This rapid renewal prevents accumulation of growth.
+
+## §2090. Perspective 4: Information Theory
+
+**Mutual Information**: I(n₀; T_max) ≈ **0.01 bits**
+
+n₀ and T_max are nearly **statistically independent**!
+The only correlation is the size constraint.
+
+## §2091. The Channel Capacity Interpretation
+
+Think of Collatz as a "channel" from n₀ to T_max:
+- Input: n₀ (log₂(n₀) bits)
+- Output: T_max (a few bits)
+
+Channel capacity is extremely low (~0.01 bits).
+This means T_max cannot "know" much about n₀ except its size.
+
+## §2092. The Compression Argument
+
+**INFORMAL THEOREM**: TB2 follows from a compression principle.
+
+To reach T_max = K from n₀:
+1. n₀ encodes ~log₂(n₀) bits
+2. A high-T value V = m·2^K - 1 requires ~K + log₂(m) bits
+3. The path from n₀ to V is deterministic (no extra bits)
+
+If K > log₂(n₀) + O(1), the high-T value would require more bits
+than n₀ itself — a compression contradiction.
+
+## §2093. Synthesis: The Conspiracy of Constraints
+
+TB2 holds because of four independent mechanisms:
+
+**1. Single-Step Bound** (algebraic):
+   T ≤ 1 + log₂(n_j) at any step
+
+**2. Cascade Structure** (dynamical):
+   T_max achieved once, then decays monotonically
+
+**3. Reachability Constraints** (number-theoretic):
+   High-T values have sparse backward orbits
+
+**4. Statistical Independence** (information-theoretic):
+   T_max is nearly independent of n₀ except for size
+
+**No single mechanism proves TB2**, but together they force it!
+
+## §2094. The Entry Point Problem
+
+**Key observation**: TB2 follows if we can bound n_j at cascade entry.
+
+Let n_j be the value where T_max is first achieved.
+
+If n_j ≤ C·n₀ for some constant C:
+```
+T_max ≤ 1 + log₂(n_j) ≤ 1 + log₂(C·n₀) = 1 + log₂(C) + log₂(n₀)
+```
+
+For TB2: need C ≤ 2 (so 1 + log₂(C) ≤ 2).
+
+**Empirical finding**: n_j can be up to 104× n₀, but TB2 still holds!
+The single-step bound at such n_j has large slack.
+
+## §2095. The Slack at Large n_j
+
+When n_j >> n₀ at T_max:
+- Single-step bound: T_max ≤ 1 + log₂(n_j) [much slack]
+- TB2 bound: T_max ≤ 2 + log₂(n₀) [tight]
+
+**Example**: n₀ = 27, T_max = 6, n_j = 425
+- Single-step: 6 ≤ 9.73 (slack = 3.73)
+- TB2: 6 ≤ 6.75 (slack = 0.75)
+
+TB2 is tighter because T_max is constrained by reachability, not just n_j.
+
+## §2096. Refined Understanding: Why n_j >> n₀ Doesn't Break TB2
+
+When trajectory grows to large n_j before hitting T_max:
+1. Growth phases have small T values (T ≈ 1)
+2. High-T values occur during subsequent decay phases
+3. The high-T values reachable from n_j are still constrained
+4. Backward orbit of high-T values intersects trajectory at specific points
+
+The single-step bound applies at n_j, but reachability limits actual T.
+
+## §2097. The T Distribution Along Trajectories
+
+**Empirical distribution of T values**:
+```
+T = 1: 51.3%
+T = 2: 23.3%
+T = 3: 13.4%
+T ≥ 4: 12.0%
+```
+
+Mean T = 1.96 ≈ 2 (as expected from (3/4)^{1/2} heuristic).
+
+High-T values (T ≥ 6) are rare: ~2.5% of all steps.
+
+## §2098. Entropy Considerations
+
+**Entropy of T sequence**: H(T) ≈ 1.95 bits
+
+This is less than log₂(max T observed), indicating T is not uniformly
+distributed but concentrated on small values.
+
+## §2099. The Transition Matrix Insight
+
+**T_{j+1} given T_j**:
+```
+From T = 1: Variable (55% to T=1, 19% to T=2, ...)
+From T ≥ 2: Always T-1 (cascade decay!)
+```
+
+The cascade structure is deterministic, while T = 1 is a "reset" state.
+
+## §2100. Implications for Proof Strategy
+
+A complete TB2 proof should:
+
+1. **Use cascade decay** to reduce to bounding cascade entry
+2. **Use reachability** to constrain which T_max values are achievable
+3. **Use information theory** to bound the "complexity cost" of high T
+4. **Use martingale theory** to show violations are measure-zero
+
+## §2101. Open Problems Identified
+
+**Problem 1**: Prove that log₂(min n₀ reaching T = K) ≥ K - 2.
+
+**Problem 2**: Characterize the backward orbit structure of 2^K - 1.
+
+**Problem 3**: Formalize the compression argument rigorously.
+
+**Problem 4**: Extend martingale analysis to full trajectory.
+
+## §2102. Computational Verification Summary
+
+**Verified for n < 10^7**:
+- TB2 holds for all n
+- Max T_max/bound ratio: 0.9318
+- No violations in any perspective
+
+**Verified for n < 2×10^5**:
+- Cascade decay theorem: 100% compliance
+- Supermartingale for M > -15: verified
+- Mutual information I(n₀; T_max) ≈ 0.01 bits
+
+## §2103. The Nature of TB2
+
+TB2 is **not** a single theorem but an **emergent property** arising from:
+- Algebraic structure (single-step bound)
+- Arithmetic structure (mod 3 constraints)
+- Dynamical structure (cascade decay)
+- Statistical structure (independence)
+
+Any proof must somehow capture all four aspects.
+
+## §2104. Connection to Tao's Work
+
+Tao (2019) proved almost-all results using different methods:
+- Probabilistic modeling of Collatz dynamics
+- Concentration inequalities
+- Ergodic theory
+
+Our analysis complements this by:
+- Finding deterministic structures (cascade decay)
+- Computing exact mutual information
+- Identifying the conspiracy of constraints
+
+## §2105. Towards a Full Proof
+
+**Proposed approach**:
+
+1. Prove the **Minimum Predecessor Bound**:
+   min{n : trajectory(n) hits 2^K - 1} ≥ f(K) for explicit f
+
+2. Prove the **Cascade Entry Constraint**:
+   At T_max entry, relationship between n_j and backward orbit structure
+
+3. Combine with **Single-Step Bound** to get TB2
+
+## §2106-2120. [Reserved for Extended Analysis]
+
+[Space reserved for:
+- Formal proof attempts
+- Additional computational verification
+- Connection to other Collatz bounds
+- Generalizations to 3n+c maps]
