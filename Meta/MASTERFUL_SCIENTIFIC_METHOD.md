@@ -997,6 +997,189 @@ Investigate power = Large effect + non-sig might mean underpowered
 
 ---
 
+### Sampling from Populations: How Many to Test?
+
+**The Different Question:**
+Multiple testing correction asks: "How do I control errors when testing many hypotheses?"
+Population sampling asks: "How many samples do I need to characterize the whole?"
+
+---
+
+#### The Core Formula
+
+**Sample size for estimating a proportion:**
+
+```
+n = (Z² × p × (1-p)) / E²
+
+Where:
+- n = required sample size
+- Z = z-score for confidence level
+- p = expected proportion (use 0.5 if unknown - most conservative)
+- E = margin of error (how precise you need to be)
+```
+
+**Z-scores by confidence level:**
+| Confidence | Z-score |
+|------------|---------|
+| 90% | 1.645 |
+| 95% | 1.960 |
+| 99% | 2.576 |
+| 99.9% | 3.291 |
+
+---
+
+#### The Surprising Truth: Population Size Barely Matters
+
+**For large populations (N > 10,000), sample size is nearly independent of N.**
+
+```
+If you have 100,000 samples vs 1,000,000 samples:
+Required n is almost IDENTICAL
+
+Why? After ~10,000, additional population size adds negligible information.
+The formula above works for any large population.
+```
+
+**Finite Population Correction (when N < 10,000):**
+```
+n_adjusted = n / (1 + (n-1)/N)
+
+Example: If n = 400 and N = 2,000
+n_adjusted = 400 / (1 + 399/2000) = 400 / 1.20 = 333
+```
+
+---
+
+#### Quick Reference Tables
+
+**How many to test from 100,000 (or any large population):**
+
+| Confidence | Margin of Error | Sample Size | % of 100K |
+|------------|-----------------|-------------|-----------|
+| 95% | ±10% | 96 | 0.1% |
+| 95% | ±5% | 384 | 0.4% |
+| 95% | ±3% | 1,067 | 1.1% |
+| 95% | ±2% | 2,401 | 2.4% |
+| 95% | ±1% | 9,604 | 9.6% |
+| 99% | ±5% | 663 | 0.7% |
+| 99% | ±3% | 1,843 | 1.8% |
+| 99% | ±1% | 16,587 | 16.6% |
+
+**Reading this table:**
+- "95% confidence, ±3% margin" means:
+  - If you test 1,067 samples and find 40% have property X
+  - You're 95% confident the true population proportion is 37-43%
+
+---
+
+#### The "Declaring Normal" Question
+
+**To declare something is "the norm" (>50% prevalence):**
+
+| You want to be... | Test this many | If you find X%+ have it |
+|-------------------|----------------|------------------------|
+| 90% confident it's majority | 271 | 56%+ |
+| 95% confident it's majority | 384 | 55%+ |
+| 99% confident it's majority | 663 | 54%+ |
+| 99.9% confident it's majority | 1,082 | 53%+ |
+
+**To declare a rare event rate (<1% prevalence):**
+
+| Target precision | Sample size | What you can detect |
+|-----------------|-------------|---------------------|
+| Confirm <1% rate | 300 | If 0 defects in 300, 95% confident rate <1% |
+| Confirm <0.1% rate | 3,000 | If 0 defects in 3,000, 95% confident rate <0.1% |
+| Confirm <0.01% rate | 30,000 | If 0 defects in 30,000, 95% confident rate <0.01% |
+
+**The "Rule of Three":**
+```
+If you test n samples and find ZERO instances of something:
+95% confidence upper bound ≈ 3/n
+
+Example: Test 300, find 0 defects
+Upper bound ≈ 3/300 = 1%
+"95% confident defect rate is <1%"
+```
+
+---
+
+#### Acceptance Sampling (Quality Control)
+
+**When inspecting batches for acceptance/rejection:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ SINGLE SAMPLING PLAN                                         │
+├─────────────────────────────────────────────────────────────┤
+│ From lot of N items, inspect n items                        │
+│ If defects ≤ c (acceptance number): ACCEPT lot             │
+│ If defects > c: REJECT lot                                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Common Plans (ISO 2859-1 / MIL-STD-1916):**
+
+| Lot Size | Normal Inspection | Tightened | Reduced |
+|----------|-------------------|-----------|---------|
+| 151-280 | n=32, c=1 | n=32, c=0 | n=13, c=0 |
+| 281-500 | n=50, c=2 | n=50, c=1 | n=20, c=0 |
+| 501-1200 | n=80, c=3 | n=80, c=2 | n=32, c=1 |
+| 1201-3200 | n=125, c=5 | n=125, c=3 | n=50, c=1 |
+| 3201-10000 | n=200, c=7 | n=200, c=5 | n=80, c=2 |
+| 10001-35000 | n=315, c=10 | n=315, c=8 | n=125, c=3 |
+| 35001-150000 | n=500, c=14 | n=500, c=12 | n=200, c=5 |
+| 150001-500000 | n=800, c=21 | n=800, c=18 | n=315, c=8 |
+
+**Reading this:** For lot of 100,000 items with normal inspection: inspect 500, accept if ≤14 defects.
+
+---
+
+#### Decision Framework: How Many to Sample?
+
+```
+What's your goal?
+│
+├─► ESTIMATE a proportion (e.g., "what % have X?")
+│   │
+│   └─► Use sample size formula
+│       Confidence: How sure do you need to be? (90/95/99%)
+│       Precision: How close? (±1%, ±3%, ±5%?)
+│       → Table gives required n
+│
+├─► COMPARE two groups (e.g., "is A different from B?")
+│   │
+│   └─► Use power analysis (see Chapter 8)
+│       Effect size: How big a difference matters?
+│       → Calculate n per group
+│
+├─► DETECT rare events (e.g., "is defect rate <0.1%?")
+│   │
+│   └─► Use Rule of Three or binomial
+│       Target rate: What upper bound do you need?
+│       n ≈ 3 / target_rate for 95% confidence
+│
+└─► ACCEPT/REJECT batches (quality control)
+    │
+    └─► Use acceptance sampling tables
+        AQL: What defect rate is acceptable?
+        → Standard gives n and acceptance number
+```
+
+---
+
+#### Common Mistakes in Population Sampling
+
+| Mistake | Problem | Fix |
+|---------|---------|-----|
+| **Thinking you need to test more for larger populations** | 10K vs 1M requires same n | Use formula, not percentage |
+| **Using percentage of population** | "Test 10% of 100K = 10K" is wasteful | 384 gives ±5% at 95% |
+| **Ignoring margin of error** | "We tested 100, found 45%" | 45% ±10% is very different from 45% ±1% |
+| **Non-random sampling** | Testing convenient samples | Random selection is critical |
+| **Confusing precision with accuracy** | Small margin, but biased sample | Random > large |
+
+---
+
 # PART III: THE COMPLETE DESIGN PROTOCOL
 
 ## Chapter 8: The Step-by-Step Design Process
