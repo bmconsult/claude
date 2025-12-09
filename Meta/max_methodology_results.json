@@ -1,0 +1,92 @@
+{
+  "results": [
+    {
+      "name": "Baseline v5.2",
+      "avg": 39.6,
+      "scores": [
+        40,
+        42,
+        40,
+        38,
+        38
+      ],
+      "min": 38,
+      "max": 42,
+      "dimension_avgs": {
+        "assumption_surfacing": 8.0,
+        "strategic_depth": 7.4,
+        "frame_quality": 7.8,
+        "actionability": 8.4,
+        "verification": 8.0
+      },
+      "use_refinement": false
+    },
+    {
+      "name": "v5.2 + Recursive Refinement",
+      "avg": 40.4,
+      "scores": [
+        38,
+        41,
+        42,
+        40,
+        41
+      ],
+      "min": 38,
+      "max": 42,
+      "dimension_avgs": {
+        "assumption_surfacing": 8.0,
+        "strategic_depth": 8.6,
+        "frame_quality": 8.4,
+        "actionability": 7.8,
+        "verification": 7.6
+      },
+      "use_refinement": true
+    },
+    {
+      "name": "Expert Ensemble",
+      "avg": 31.2,
+      "scores": [
+        31,
+        31,
+        31,
+        32,
+        31
+      ],
+      "min": 31,
+      "max": 32,
+      "dimension_avgs": {
+        "assumption_surfacing": 6.0,
+        "strategic_depth": 7.0,
+        "frame_quality": 8.0,
+        "actionability": 6.2,
+        "verification": 4.0
+      },
+      "use_refinement": false
+    },
+    {
+      "name": "Expert Ensemble + Refinement",
+      "avg": 39.8,
+      "scores": [
+        40,
+        39,
+        41,
+        41,
+        38
+      ],
+      "min": 38,
+      "max": 41,
+      "dimension_avgs": {
+        "assumption_surfacing": 8.0,
+        "strategic_depth": 8.0,
+        "frame_quality": 8.4,
+        "actionability": 8.0,
+        "verification": 7.4
+      },
+      "use_refinement": true
+    }
+  ],
+  "best": "v5.2 + Recursive Refinement",
+  "best_avg": 40.4,
+  "best_max": 42,
+  "timestamp": "2025-12-09T15:21:34.523553"
+}
