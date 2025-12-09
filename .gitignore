@@ -1,0 +1,33 @@
+# Environment variables and secrets (NEVER commit these)
+.env
+.env.local
+.env.*.local
+*.env
+
+# API keys and credentials
+credentials.json
+secrets.json
+*_key.txt
+*_token.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+venv/
+.venv/
+
+# Logs
+*.log
+logs/

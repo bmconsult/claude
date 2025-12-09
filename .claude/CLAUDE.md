@@ -383,9 +383,10 @@ Include these MANDATORY elements:
    - If you cannot answer these, READ MORE before acting
    ```
 
-3. **Critical Operational State** - API keys, verification methods, current hypothesis
+3. **Critical Operational State** - verification methods, current hypothesis
    ```
    OPERATIONAL STATE:
+   - API keys are in .env file (gitignored) - NEVER put keys in handoff!
    - Using [X] for verification
    - Current approach: [Y]
    - DO NOT lose this
