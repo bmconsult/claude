@@ -404,10 +404,18 @@ When context fills up, an automatic handoff occurs. You generate a summary, a ne
 **Tested Solutions**:
 - ❌ Local `.env` file - doesn't persist between sessions
 - ❌ Anthropic Files API - files are `downloadable: false`, can't retrieve content
+- ✅ MCP Config Server - runs on user's machine, provides persistent storage
 
-**Working Solution**: User provides API key at session start.
+**Option 1: MCP Config Server (Best)**
 
-**At session start, if API key needed**:
+If user has `mcp_config_server` running on their machine:
+1. Call MCP tool `get_env_file()` to retrieve all API keys
+2. Write result to `/home/user/claude/.env`
+3. Keys available for the session
+
+**Option 2: User provides API key at session start (Fallback)**
+
+If MCP not available:
 1. Ask user: "Please provide your Anthropic API key to continue"
 2. Create `.env` locally for this session:
    ```bash
@@ -417,7 +425,7 @@ When context fills up, an automatic handoff occurs. You generate a summary, a ne
 4. The `.env.example` in repo shows expected format
 
 **Within a session**: Key persists in `.env` and survives handoffs.
-**Between sessions**: User must provide key again.
+**Between sessions**: MCP server provides, or user must provide key again.
 
 **NEVER put API keys in**:
 - Handoff summaries
