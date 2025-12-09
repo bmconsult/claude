@@ -407,11 +407,32 @@ This suggests the true bound may be much tighter: M(n) = O(n^{1.7}) or better.
 
 ### Remaining Gaps for Rigorous Proof
 
-1. **Prove C decreases with n**: Show why the ratio M(n)/n² shrinks for larger n
-2. **Formalize high-potential visit counting**: Prove the O(log n) bound on pot≥5 visits
-3. **Close logical chain**: polynomial bound ⟹ convergence to 1
+**HONEST ASSESSMENT** (updated after deeper analysis):
 
-The structure is complete. The bound M(n) ≤ 4.3n² is verified computationally.
+| Claim | Status |
+|-------|--------|
+| Negative drift E[Δlog₂] = -0.415 | ✓ Proven (for random model) |
+| Self-balancing: T↑ ⟹ v↓ | ✓ ALGEBRAICALLY PROVEN |
+| Value increase ⟹ ΔA = -0.415 | ✓ ALGEBRAICALLY PROVEN |
+| 72% refueling on decrease | ✓ Actually 100% (algebraic) |
+| Polynomial bound M(n) ≤ Cn² | **EMPIRICAL ONLY** |
+| Sub-linear worst case v^{0.585} | ✓ Per-cycle (algebraic) |
+| No divergence | **NOT YET CLOSED** |
+
+**THE REMAINING GAP**:
+
+On value-increase steps: ΔA = -0.415 (proven)
+On value-decrease steps: ΔA can be as high as +17.6 (observed)
+
+One "refueling" step can add +12 to +17 to A, while it takes ~30-40 value-increase steps to counteract that. Even though big +ΔA events are rare (O(log n) empirically), we haven't PROVEN they're bounded.
+
+**What would close the gap**:
+1. Prove total +ΔA contribution over any trajectory is bounded by O(log n)
+2. OR prove that the number of big +ΔA events is algebraically bounded
+3. OR prove A(v) = log₂(v) + T(v) is bounded above for all trajectories
+4. OR directly prove the polynomial bound M(n) ≤ Cn^α
+
+The structure is compelling. The empirical evidence is overwhelming. But algebraic closure remains elusive.
 
 ---
 
