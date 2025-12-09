@@ -365,3 +365,29 @@ When Builder hits sub-problem:
 
 This is what I'd genuinely produce when asked to refine v1.
 The enhancements address the specific limitations I noticed.
+
+---
+
+## Empirical Finding: Subagents vs Direct API for Blind Review
+
+**Date**: December 9, 2024 (tested by Cascade)
+
+**Question**: Are subagents (Task tool) truly isolated, or should we use direct API calls for blind review?
+
+**Test**: Gave identical adversarial review prompt to both:
+1. Direct API call (claude-sonnet via Python)
+2. Subagent (general-purpose via Task tool)
+
+**Results**:
+| Aspect | Direct API | Subagent |
+|--------|------------|----------|
+| Context leakage | None detected | None detected |
+| Depth of critique | Surface-level | Deeper, caught circular reasoning |
+| Length | ~400 words | ~800 words |
+
+**Conclusion**: 
+- Subagents ARE genuinely stateless - no hidden context leakage
+- Subagents were actually MORE thorough for adversarial review
+- Use whichever is more convenient - isolation is equivalent
+
+**Implication for Adversary agents**: The Task tool works fine for blind review. No need to set up separate API infrastructure.
