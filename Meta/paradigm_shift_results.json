@@ -1,0 +1,335 @@
+{
+  "results": [
+    {
+      "paradigm": "multi_strategy",
+      "baseline_avg": 40.333333333333336,
+      "baseline_scores": [
+        40,
+        40,
+        41
+      ],
+      "shift_avg": 41.0,
+      "shift_scores": [
+        41,
+        41,
+        41
+      ],
+      "delta": 0.6666666666666643,
+      "winner": "multi_strategy",
+      "baseline_details": [
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 8,
+          "total": 40,
+          "weakest": "actionability",
+          "gap": "Some implementation details lack precision - 'strategic project' cover story needs more specificity, timeline could conflict with legal requirements, and resistance thresholds need clearer operational definitions"
+        },
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 8,
+          "total": 40,
+          "weakest": "actionability",
+          "gap": "While comprehensive, the solution lacks specific tactical details for key conversations and resistance scenarios. The $450K budget breakdown needs more granular allocation, and the roadmap pivot strategy is too abstract to execute immediately."
+        },
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 9,
+          "actionability": 8,
+          "verification": 7,
+          "total": 41,
+          "weakest": "verification",
+          "gap": "Confidence level lacks quantitative basis and doesn't adequately stress-test the core assumption that vertical specialization will create sufficient differentiation from a Microsoft-backed competitor"
+        }
+      ],
+      "shift_details": [
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks specific tooling choices and detailed resistance mitigation tactics - too high-level for immediate execution"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Healthcare vertical choice lacks justification and timeline is aggressive given limited market validation"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Budget figures appear arbitrary without justification, and some tactics like 'strategic pivot' lack sufficient operational detail for immediate execution"
+        }
+      ],
+      "timestamp": "2025-12-09T01:49:13.402462"
+    },
+    {
+      "paradigm": "adversarial_self_critique",
+      "baseline_avg": 40.666666666666664,
+      "baseline_scores": [
+        41,
+        40,
+        41
+      ],
+      "shift_avg": 40.333333333333336,
+      "shift_scores": [
+        39,
+        41,
+        41
+      ],
+      "delta": -0.3333333333333286,
+      "winner": "baseline",
+      "baseline_details": [
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 9,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks critical specifics - no clear protocol for measuring 'adequate skills', vague timeline for surgeon transition, and unrealistic expectation that complex investigation/transition can be designed in one board meeting"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 8,
+          "total": 40,
+          "weakest": "actionability",
+          "gap": "Engineer conversation script is good but overall execution plan lacks specific tactical details for partnership discussions, board management, and customer retention blitz beyond high-level assignments"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Budget allocations lack justification and timeline compression feasibility not validated"
+        }
+      ],
+      "shift_details": [
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 7,
+          "total": 39,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks specific metrics for key decisions (e.g., what triggers pivot to acquisition vs. Series C) and funding targets are ranges without clear decision criteria"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks concrete specifics like exact meeting structures, team reorganization criteria, and tactical playbooks that someone could execute immediately"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 8,
+          "verification": 7,
+          "total": 41,
+          "weakest": "verification",
+          "gap": "Limited scenario testing of what happens if key assumptions are wrong (e.g., if falsification isn't as clear-cut legally, if regulatory disclosure triggers immediate shutdown). Success metrics focus on process completion rather than outcome uncertainty."
+        }
+      ],
+      "timestamp": "2025-12-09T01:54:06.317849"
+    },
+    {
+      "paradigm": "frame_exploration",
+      "baseline_avg": 40.333333333333336,
+      "baseline_scores": [
+        36,
+        42,
+        43
+      ],
+      "shift_avg": 39.333333333333336,
+      "shift_scores": [
+        37,
+        40,
+        41
+      ],
+      "delta": -1.0,
+      "winner": "baseline",
+      "baseline_details": [
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 7,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 6,
+          "total": 36,
+          "weakest": "verification",
+          "gap": "Insufficient stress testing of key failure modes - what if the sales director has captured key customers, making them truly irreplaceable? Limited exploration of scenarios where the anonymous reporter is acting maliciously or where investigation itself becomes the crisis."
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 8,
+          "actionability": 9,
+          "verification": 8,
+          "total": 42,
+          "weakest": "assumption_surfacing",
+          "gap": "While 10 assumptions were identified, missed critical assumptions about legal enforceability, competitor's actual capabilities/funding, and whether the company has the credibility to deliver on retention promises given the departures already occurred"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 8,
+          "verification": 9,
+          "total": 43,
+          "weakest": "actionability",
+          "gap": "While comprehensive, the dual-track strategy may be too complex for urgent execution - specific resource allocation between competing priorities and clearer decision points needed"
+        }
+      ],
+      "shift_details": [
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 7,
+          "frame_quality": 9,
+          "actionability": 6,
+          "verification": 7,
+          "total": 37,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks specificity - 'deep dive competitive analysis' and 'strategic partnerships' are vague. Timeline is structured but actual tactics are generic consulting-speak rather than executable actions."
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 7,
+          "total": 40,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks specific tactical details - who exactly does what, specific communication scripts, budget requirements, and concrete decision trees for investigation outcomes"
+        },
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 9,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Implementation timeline is overly optimistic and lacks specific guidance on critical execution challenges like handling resistance to restructuring and managing the disruption during transition"
+        }
+      ],
+      "timestamp": "2025-12-09T01:58:20.877981"
+    },
+    {
+      "paradigm": "constraint_inversion",
+      "baseline_avg": 42.0,
+      "baseline_scores": [
+        42,
+        42,
+        42
+      ],
+      "shift_avg": 37.666666666666664,
+      "shift_scores": [
+        39,
+        33,
+        41
+      ],
+      "delta": -4.333333333333336,
+      "winner": "baseline",
+      "baseline_details": [
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 8,
+          "actionability": 9,
+          "verification": 8,
+          "total": 42,
+          "weakest": "frame_quality",
+          "gap": "While thorough, the framing still operates within conventional crisis management rather than discovering a fundamentally different way to think about the problem - e.g., reframing as organizational capability assessment vs. individual punishment"
+        },
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 8,
+          "actionability": 9,
+          "verification": 8,
+          "total": 42,
+          "weakest": "strategic_depth",
+          "gap": "Limited analysis of second/third-order effects like industry reputation cascades and long-term competitive positioning beyond immediate crisis"
+        },
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 8,
+          "actionability": 9,
+          "verification": 8,
+          "total": 42,
+          "weakest": "strategic_depth",
+          "gap": "Limited analysis of organizational culture transformation and long-term system changes beyond the immediate crisis"
+        }
+      ],
+      "shift_details": [
+        {
+          "assumption_surfacing": 8,
+          "strategic_depth": 7,
+          "frame_quality": 9,
+          "actionability": 8,
+          "verification": 7,
+          "total": 39,
+          "weakest": "strategic_depth",
+          "gap": "Limited exploration of second-order effects like sales team dynamics post-investigation, competitor recruitment risks, and long-term cultural implications across other departments"
+        },
+        {
+          "assumption_surfacing": 7,
+          "strategic_depth": 6,
+          "frame_quality": 8,
+          "actionability": 7,
+          "verification": 5,
+          "total": 33,
+          "weakest": "verification",
+          "gap": "Failed to identify critical uncertainties like market timing, competitor strategy unknowns, and bridge funding feasibility; verification checked own logic but didn't stress-test key assumptions or identify failure modes"
+        },
+        {
+          "assumption_surfacing": 9,
+          "strategic_depth": 8,
+          "frame_quality": 9,
+          "actionability": 7,
+          "verification": 8,
+          "total": 41,
+          "weakest": "actionability",
+          "gap": "Implementation plan lacks specific mechanisms for handling stakeholder resistance and doesn't address potential technical debt/onboarding issues that may compound coordination problems"
+        }
+      ],
+      "timestamp": "2025-12-09T02:02:19.155905"
+    }
+  ],
+  "best_paradigm": "multi_strategy",
+  "best_score": 41.0,
+  "timestamp": "2025-12-09T02:02:20.157739"
+}

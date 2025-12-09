@@ -1,0 +1,45 @@
+{
+  "baseline": {
+    "name": "BASELINE v5.2",
+    "avg": 41.2,
+    "scores": [
+      44,
+      41,
+      40,
+      41,
+      40
+    ],
+    "min": 40,
+    "max": 44,
+    "dimension_avgs": {
+      "assumption_surfacing": 8.6,
+      "strategic_depth": 8.6,
+      "frame_quality": 8.6,
+      "actionability": 7.2,
+      "verification": 8.2
+    }
+  },
+  "hybrid": {
+    "name": "HYBRID v6.0",
+    "avg": 40.4,
+    "scores": [
+      41,
+      43,
+      36,
+      41,
+      41
+    ],
+    "min": 36,
+    "max": 43,
+    "dimension_avgs": {
+      "assumption_surfacing": 8.0,
+      "strategic_depth": 8.6,
+      "frame_quality": 8.8,
+      "actionability": 7.2,
+      "verification": 7.8
+    }
+  },
+  "delta": -0.8000000000000043,
+  "winner": "BASELINE v5.2",
+  "timestamp": "2025-12-09T02:12:37.728979"
+}
