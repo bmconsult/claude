@@ -11,14 +11,28 @@
 
 ## Researcher Protocol
 
-1. **Orient**: Read `CURRENT.md`, then `COLLATZ_UNIFIED_KNOWLEDGE.md` (the master reference)
-2. **Review existing work**: Check `archive/` for prior research, `research/` for assignments
-3. **Don't duplicate**: If knowledge already exists, EXPAND it, don't rewrite it
-4. **Work**: Read papers, synthesize, document NEW insights here
-5. **End**: Merge findings INTO `COLLATZ_UNIFIED_KNOWLEDGE.md` (single source of truth)
+1. **Orient**: Read `CURRENT.md`, then `COLLATZ_UNIFIED_KNOWLEDGE.md` (summary reference)
+2. **Go deep**: Read `archive/COLLATZ_EXPERT_KNOWLEDGE.md` (100x more detail than unified!)
+3. **Review existing work**: Check ALL of `archive/` for prior research, `research/` for assignments
+4. **Create session doc**: Work in `workflow/SESSION_N.md` (where N = session number)
+5. **Don't duplicate**: If knowledge already exists, EXPAND it, don't rewrite it
+6. **End**: Merge session findings INTO `COLLATZ_UNIFIED_KNOWLEDGE.md` (single source of truth)
+
+### The Deep Knowledge Gap
+`COLLATZ_UNIFIED_KNOWLEDGE.md` is a ~500 line summary.
+`archive/COLLATZ_EXPERT_KNOWLEDGE.md` is ~50,000 lines of deep analysis.
+
+**If you only read unified, you're working with 1% of the knowledge.** Read expert knowledge.
+
+### Session Document Pattern
+Each research session creates `SESSION_N.md` as a working document:
+- SESSION_2.md, SESSION_3.md, etc.
+- Work freely in your session doc
+- At session end, merge transferable insights into unified
+- This prevents redundancy while allowing parallel exploration
 
 ### Anti-Redundancy Rule
-Before writing anything, search for it first. The goal is ONE comprehensive knowledge base, not scattered notes. Your job is to make `COLLATZ_UNIFIED_KNOWLEDGE.md` more complete, not to create parallel documents.
+Before writing anything, search for it first. The goal is ONE comprehensive knowledge base, not scattered notes. Your session doc is for working; unified is the permanent record.
 
 ---
 
