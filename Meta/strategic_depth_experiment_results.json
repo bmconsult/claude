@@ -1,0 +1,69 @@
+{
+  "design": "within-subjects, targeted strategic depth enhancement",
+  "n_problems": 10,
+  "control": {
+    "methodology": "v5.2-V",
+    "strategic_depth_mean": 8.7,
+    "strategic_depth_scores": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      8,
+      8,
+      8
+    ],
+    "total_mean": 43.7,
+    "total_scores": [
+      45,
+      44,
+      44,
+      44,
+      44,
+      44,
+      44,
+      43,
+      43,
+      42
+    ]
+  },
+  "treatment": {
+    "methodology": "v5.2-VS",
+    "strategic_depth_mean": 9,
+    "strategic_depth_scores": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "total_mean": 43.1,
+    "total_scores": [
+      43,
+      44,
+      43,
+      43,
+      44,
+      44,
+      40,
+      44,
+      43,
+      43
+    ]
+  },
+  "effects": {
+    "strategic_depth_diff": 0.3000000000000007,
+    "total_diff": -0.6000000000000014,
+    "h1_supported": false,
+    "h2_supported": false
+  },
+  "timestamp": "2025-12-09T18:59:32.922021"
+}
