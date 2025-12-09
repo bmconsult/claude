@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-12-09T19:59:49.572341",
+  "hypothesis": "One sentence about reversals \u2192 9s become 10s",
+  "control_scores": [
+    10,
+    8,
+    9
+  ],
+  "treatment_scores": [
+    10,
+    10,
+    10
+  ],
+  "control_mean": 9.0,
+  "treatment_mean": 10.0,
+  "control_reversals": 2,
+  "treatment_reversals": 3,
+  "effect": 1.0
+}
