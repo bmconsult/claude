@@ -11,9 +11,14 @@
 
 ## Researcher Protocol
 
-1. **Start**: Check `CURRENT.md` for context, `PAPERS_NEEDED.md` for assignments
-2. **Work**: Read, synthesize, document insights here
-3. **End**: Update `COLLATZ_UNIFIED_KNOWLEDGE.md` with anything transferable
+1. **Orient**: Read `CURRENT.md`, then `COLLATZ_UNIFIED_KNOWLEDGE.md` (the master reference)
+2. **Review existing work**: Check `archive/` for prior research, `research/` for assignments
+3. **Don't duplicate**: If knowledge already exists, EXPAND it, don't rewrite it
+4. **Work**: Read papers, synthesize, document NEW insights here
+5. **End**: Merge findings INTO `COLLATZ_UNIFIED_KNOWLEDGE.md` (single source of truth)
+
+### Anti-Redundancy Rule
+Before writing anything, search for it first. The goal is ONE comprehensive knowledge base, not scattered notes. Your job is to make `COLLATZ_UNIFIED_KNOWLEDGE.md` more complete, not to create parallel documents.
 
 ---
 
