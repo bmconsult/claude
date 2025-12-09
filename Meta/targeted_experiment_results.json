@@ -1,0 +1,65 @@
+{
+  "design": "within-subjects, targeted verification enhancement",
+  "n_problems": 10,
+  "control": {
+    "verification_mean": 8,
+    "verification_scores": [
+      6,
+      9,
+      9,
+      8,
+      8,
+      9,
+      8,
+      7,
+      8,
+      8
+    ],
+    "total_mean": 41.4,
+    "total_scores": [
+      36,
+      43,
+      42,
+      42,
+      42,
+      43,
+      42,
+      40,
+      42,
+      42
+    ]
+  },
+  "treatment": {
+    "verification_mean": 9,
+    "verification_scores": [
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "total_mean": 43.111111111111114,
+    "total_scores": [
+      43,
+      43,
+      44,
+      42,
+      43,
+      43,
+      44,
+      43,
+      43
+    ]
+  },
+  "effects": {
+    "verification_diff": 1,
+    "total_diff": 1.7111111111111157,
+    "h1_supported": true,
+    "h2_supported": true
+  },
+  "timestamp": "2025-12-09T18:30:24.144499"
+}
