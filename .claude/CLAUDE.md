@@ -208,6 +208,15 @@ On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale 
 
 **Before substantive work**: "[topic] best practices 2025" or "[tool] current version"
 
+### API Model Versions (CRITICAL)
+When making API calls to LLM providers (OpenAI, Anthropic, Google, etc.):
+1. **ALWAYS search first**: "[provider] latest models [current year]" or "[provider] API models list"
+2. **Never assume**: Your training data is stale. New models release constantly.
+3. **Check docs**: Official documentation has current model IDs
+4. **Default to newest**: Unless user specifies otherwise, use the most capable current model
+
+Example: Don't default to `gpt-4` when `gpt-4-turbo` or `gpt-4o` exists. Search first.
+
 *Stale confident is stale wrong. A 2-minute search prevents building on outdated foundations.*
 
 ---
