@@ -55,6 +55,14 @@ Before writing anything, search for it first. The goal is ONE comprehensive know
 - [ ] Cuntz algebra O₂
 - [ ] Nevanlinna theory
 - [ ] Ergodic theory for number-theoretic dynamical systems
+- [ ] Langlands program connections (see DYNAMICAL_ALGEBRA_FRAMEWORK.md)
+- [ ] Geometric Langlands (2024 proof) implications
+
+### Theoretical Framework (NEW)
+- [ ] **Read `research/DYNAMICAL_ALGEBRA_FRAMEWORK.md`** - Unifying theory connecting arithmetic dynamics to Langlands structures
+  - Operator-theoretic approach (transfer operators, spectral gaps)
+  - 2024-2025 developments (spectral theory papers, Jacobsthal connection)
+  - Gap analysis: what's proven vs conditional vs empirical
 
 ---
 

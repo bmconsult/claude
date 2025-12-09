@@ -512,9 +512,30 @@ def potential(v):
 
 ---
 
+## Advanced Theoretical Framework
+
+For deeper theoretical context connecting Collatz to broader mathematical structures, see:
+
+**`research/DYNAMICAL_ALGEBRA_FRAMEWORK.md`**
+
+This covers:
+- Dynamical algebra and orbit structures
+- Langlands program connections
+- Operator-theoretic approach (transfer operators, spectral gaps)
+- 2024-2025 developments:
+  - Non-Archimedean spectral theory
+  - Geometric Langlands implications
+  - Jacobsthal numbers connection
+- Precise gap analysis (what's PROVEN vs CONDITIONAL vs EMPIRICAL)
+
+**Note**: This framework is for theoretical support, not a proof itself.
+
+---
+
 ## Document History
 
 - **December 2024**: Major update with no-cycles proof and TB2 counterexample
+- **December 2024**: Added reference to DYNAMICAL_ALGEBRA_FRAMEWORK
 - **Initial version**: Synthesis of multiple research documents
 
 ---
