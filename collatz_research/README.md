@@ -15,9 +15,11 @@ Organized research toward proving the Collatz conjecture.
 
 ## Quick Start
 
-1. **New here?** → Read `workflow/SESSION_BRIEFING.md`
-2. **Main reference** → `COLLATZ_UNIFIED_KNOWLEDGE.md`
-3. **Active work** → `workflow/WORK_IN_PROGRESS.md`
+1. **New session?** → Read `CURRENT.md` (session handoff)
+2. **What's proven?** → Check `THEOREM_INDEX.md`
+3. **What failed?** → Read `DONT_TRY_THIS.md` (save time!)
+4. **Main reference** → `COLLATZ_UNIFIED_KNOWLEDGE.md`
+5. **Active work** → `workflow/WORK_IN_PROGRESS.md`
 
 ---
 
@@ -26,7 +28,10 @@ Organized research toward proving the Collatz conjecture.
 ```
 collatz_research/
 │
-├── COLLATZ_UNIFIED_KNOWLEDGE.md   # Comprehensive reference
+├── CURRENT.md                      # ⭐ Session handoff (update every session!)
+├── THEOREM_INDEX.md                # Quick lookup for proven results
+├── DONT_TRY_THIS.md                # Failed approaches (read first!)
+├── COLLATZ_UNIFIED_KNOWLEDGE.md    # Comprehensive reference
 ├── README.md                       # This file
 │
 ├── proofs/                         # Formal proofs
@@ -102,11 +107,11 @@ See `workflow/SOLVING.md` for current approaches.
 ## Contributing
 
 When making progress:
-1. Update `workflow/WORK_IN_PROGRESS.md` with findings
-2. If studying, add notes to `workflow/STUDYING.md`
-3. If solving, document attempts in `workflow/SOLVING.md`
-4. Major results go in `proofs/`
-5. Keep `COLLATZ_UNIFIED_KNOWLEDGE.md` current
+1. **Start**: Read `CURRENT.md` to see where we left off
+2. **Work**: Update `workflow/WORK_IN_PROGRESS.md` with findings
+3. **Failed?**: Add to `DONT_TRY_THIS.md` to save future effort
+4. **Success?**: Add to `THEOREM_INDEX.md`, full proof in `proofs/`
+5. **End**: Update `CURRENT.md` before ending session!
 
 ---
 
