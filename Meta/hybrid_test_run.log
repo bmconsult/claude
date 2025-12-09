@@ -1,0 +1,59 @@
+============================================================
+HYBRID METHODOLOGY COMPARISON TEST
+============================================================
+Testing each methodology on 5 problems
+Higher sample size for statistical validity
+
+============================================================
+TESTING: BASELINE v5.2
+============================================================
+  Problem 1/5... 44/50
+  Problem 2/5... 41/50
+  Problem 3/5... 40/50
+  Problem 4/5... 41/50
+  Problem 5/5... 40/50
+
+Average: 41.2/50
+Min: 40/50  Max: 44/50
+
+Dimension breakdown:
+  assumption_surfacing: 8.6/10
+  strategic_depth: 8.6/10
+  frame_quality: 8.6/10
+  actionability: 7.2/10
+  verification: 8.2/10
+
+============================================================
+TESTING: HYBRID v6.0
+============================================================
+  Problem 1/5... 41/50
+  Problem 2/5... 43/50
+  Problem 3/5... 36/50
+  Problem 4/5... 41/50
+  Problem 5/5... 41/50
+
+Average: 40.4/50
+Min: 36/50  Max: 43/50
+
+Dimension breakdown:
+  assumption_surfacing: 8.0/10
+  strategic_depth: 8.6/10
+  frame_quality: 8.8/10
+  actionability: 7.2/10
+  verification: 7.8/10
+
+============================================================
+FINAL COMPARISON
+============================================================
+
+❌ BASELINE v5.2 wins by 0.8 points
+
+BASELINE v5.2: 41.2/50 (range: 40-44)
+HYBRID v6.0:   40.4/50 (range: 36-43)
+
+Dimension comparison (Hybrid - Baseline):
+  assumption_surfacing: -0.6
+  strategic_depth: 0.0
+  frame_quality: +0.2
+  actionability: 0.0
+  verification: -0.4

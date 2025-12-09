@@ -1,0 +1,89 @@
+============================================================
+PARADIGM SHIFT EXPERIMENT
+============================================================
+Baseline: v5.2 (best score: 44.3/50)
+Testing 4 paradigm shifts
+
+============================================================
+TESTING PARADIGM SHIFT: MULTI_STRATEGY
+============================================================
+
+📊 Testing BASELINE methodology...
+    Problem 1... 40/50
+    Problem 2... 40/50
+    Problem 3... 41/50
+Baseline average: 40.3/50
+
+🔬 Testing multi_strategy methodology...
+    Problem 1... 41/50
+    Problem 2... 41/50
+    Problem 3... 41/50
+multi_strategy average: 41.0/50
+
+✅ PARADIGM SHIFT WINS: +0.7 points
+
+============================================================
+TESTING PARADIGM SHIFT: ADVERSARIAL_SELF_CRITIQUE
+============================================================
+
+📊 Testing BASELINE methodology...
+    Problem 1... 41/50
+    Problem 2... 40/50
+    Problem 3... 41/50
+Baseline average: 40.7/50
+
+🔬 Testing adversarial_self_critique methodology...
+    Problem 1... 39/50
+    Problem 2... 41/50
+    Problem 3... 41/50
+adversarial_self_critique average: 40.3/50
+
+❌ BASELINE WINS: -0.3 points
+
+============================================================
+TESTING PARADIGM SHIFT: FRAME_EXPLORATION
+============================================================
+
+📊 Testing BASELINE methodology...
+    Problem 1... 36/50
+    Problem 2... 42/50
+    Problem 3... 43/50
+Baseline average: 40.3/50
+
+🔬 Testing frame_exploration methodology...
+    Problem 1... 37/50
+    Problem 2... 40/50
+    Problem 3... 41/50
+frame_exploration average: 39.3/50
+
+❌ BASELINE WINS: -1.0 points
+
+============================================================
+TESTING PARADIGM SHIFT: CONSTRAINT_INVERSION
+============================================================
+
+📊 Testing BASELINE methodology...
+    Problem 1... 42/50
+    Problem 2... 42/50
+    Problem 3... 42/50
+Baseline average: 42.0/50
+
+🔬 Testing constraint_inversion methodology...
+    Problem 1... 39/50
+    Problem 2... 33/50
+    Problem 3... 41/50
+constraint_inversion average: 37.7/50
+
+❌ BASELINE WINS: -4.3 points
+
+============================================================
+FINAL SUMMARY
+============================================================
+
+Paradigm shifts that beat baseline: 1/4
+  ✅ multi_strategy: 41.0/50 (+0.7)
+  ❌ adversarial_self_critique: 40.3/50 (-0.3)
+  ❌ frame_exploration: 39.3/50 (-1.0)
+  ❌ constraint_inversion: 37.7/50 (-4.3)
+
+🏆 BEST PARADIGM: multi_strategy at 41.0/50
