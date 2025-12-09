@@ -1,7 +1,23 @@
 # Collatz Solving Workspace
 
+> **Role**: 🔧 SOLVER
+>
+> This is your primary workspace. Your job is to close the divergence gap—convert understanding into proof.
+>
+> ⚠️ **Have you completed `MASTERY_CHECKLIST.md`?** If not, go back to research mode.
+
 **Purpose**: Active problem-solving attempts
 **Status**: Divergence is the target
+
+---
+
+## Solver Protocol
+
+1. **Start**: Read `CURRENT.md`, verify mastery checklist is complete
+2. **Work**: Attempt proofs, document everything (successes AND failures)
+3. **Failed?**: Add to `DONT_TRY_THIS.md` immediately
+4. **Succeeded?**: Add to `THEOREM_INDEX.md`, write full proof in `proofs/`
+5. **End**: Update `WORK_IN_PROGRESS.md` and `CURRENT.md`
 
 ---
 

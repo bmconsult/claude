@@ -1,7 +1,19 @@
 # Collatz Study Notes
 
+> **Role**: 🔬 RESEARCHER
+>
+> This is your primary workspace. Your job is to expand the toolkit—find theorems, techniques, and connections that might help close the divergence gap.
+
 **Purpose**: Learning and understanding the problem
 **Status**: Active
+
+---
+
+## Researcher Protocol
+
+1. **Start**: Check `CURRENT.md` for context, `PAPERS_NEEDED.md` for assignments
+2. **Work**: Read, synthesize, document insights here
+3. **End**: Update `COLLATZ_UNIFIED_KNOWLEDGE.md` with anything transferable
 
 ---
 

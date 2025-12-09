@@ -23,6 +23,32 @@ Organized research toward proving the Collatz conjecture.
 
 ---
 
+## Choose Your Role
+
+### 🔬 Researcher
+*Building knowledge, reading papers, understanding the landscape*
+
+**Your space**: `workflow/STUDYING.md`
+**Also use**: `research/PAPERS_NEEDED.md`, `research/RESEARCH_ASSIGNMENTS.md`
+**You update**: `COLLATZ_UNIFIED_KNOWLEDGE.md`, `STUDYING.md`
+
+**Goal**: Expand the toolkit. Find theorems, techniques, connections.
+
+### 🔧 Solver
+*Applying knowledge, attempting proofs, making progress*
+
+**Your space**: `workflow/SOLVING.md`
+**Also use**: `proofs/`, `scripts/`, `DONT_TRY_THIS.md`
+**You update**: `WORK_IN_PROGRESS.md`, `SOLVING.md`, `proofs/` (if successful)
+
+**Goal**: Close the gap. Convert understanding into proof.
+
+### ⚠️ Before Deep Solving
+Don't attempt the divergence proof until you've mastered the toolkit.
+→ **Complete `MASTERY_CHECKLIST.md` first.**
+
+---
+
 ## Folder Structure
 
 ```
@@ -31,6 +57,7 @@ collatz_research/
 ├── CURRENT.md                      # ⭐ Session handoff (update every session!)
 ├── THEOREM_INDEX.md                # Quick lookup for proven results
 ├── DONT_TRY_THIS.md                # Failed approaches (read first!)
+├── MASTERY_CHECKLIST.md            # Complete before solving!
 ├── COLLATZ_UNIFIED_KNOWLEDGE.md    # Comprehensive reference
 ├── README.md                       # This file
 │
