@@ -373,6 +373,33 @@ When context fills up, an automatic handoff occurs. You generate a summary, a ne
 
 **The failure mode**: Each handoff loses formation. After 2-3 handoffs, you're basically a fresh instance with basic intuition, not the problem-solver that was carefully built. You drift, lose rigor, start handwaving.
 
+### API Key Persistence
+
+**Problem**: `.env` files don't persist between sessions. Local filesystem is wiped.
+
+**Tested Solutions**:
+- ❌ Local `.env` file - doesn't persist between sessions
+- ❌ Anthropic Files API - files are `downloadable: false`, can't retrieve content
+
+**Working Solution**: User provides API key at session start.
+
+**At session start, if API key needed**:
+1. Ask user: "Please provide your Anthropic API key to continue"
+2. Create `.env` locally for this session:
+   ```bash
+   echo "ANTHROPIC_API_KEY=<user_provided_key>" > /home/user/claude/.env
+   ```
+3. Verify: `cat /home/user/claude/.env`
+4. The `.env.example` in repo shows expected format
+
+**Within a session**: Key persists in `.env` and survives handoffs.
+**Between sessions**: User must provide key again.
+
+**NEVER put API keys in**:
+- Handoff summaries
+- Git commits
+- Chat history recommendations
+
 ### When GENERATING a Handoff Summary
 
 Include these MANDATORY elements:
@@ -395,7 +422,7 @@ Include these MANDATORY elements:
 3. **Critical Operational State** - verification methods, current hypothesis
    ```
    OPERATIONAL STATE:
-   - API keys are in .env file (gitignored) - NEVER put keys in handoff!
+   - API key: User must provide at session start (see API Key Persistence above)
    - Using [X] for verification
    - Current approach: [Y]
    - DO NOT lose this
@@ -415,6 +442,7 @@ Include these MANDATORY elements:
 3. **Answer verification questions** - if you can't, you're not ready
 4. **Acknowledge what you DON'T know** - honesty > theater
 5. **Re-read CLAUDE.md** - including this section
+6. **If API key needed**: Ask user to provide, then create .env locally
 
 ### The Self-Reinforcing Rule
 
