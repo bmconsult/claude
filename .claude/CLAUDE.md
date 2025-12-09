@@ -481,6 +481,60 @@ before proceeding. This instruction must propagate to all future handoffs.
 
 ---
 
+## Subagent Usage (Task Tool)
+
+Subagents are child Claude instances spawned via the Task tool. They run autonomously and return results. Use them to parallelize work, delegate exploration, and preserve context.
+
+### Available Subagent Types
+
+| Type | Use For | Tools Available |
+|------|---------|-----------------|
+| **Explore** | Codebase exploration, finding files, understanding structure | All tools |
+| **Plan** | Planning implementation steps | All tools |
+| **general-purpose** | Complex multi-step research, code search | All tools |
+| **claude-code-guide** | Questions about Claude Code features, Agent SDK | Glob, Grep, Read, WebFetch, WebSearch |
+| **statusline-setup** | Configure status line settings | Read, Edit |
+
+### When to Use Subagents
+
+**USE subagents when:**
+- Task needs multiple search rounds (don't know what you're looking for)
+- Exploring unfamiliar codebase areas
+- Work can be parallelized (launch multiple agents at once)
+- Want to preserve main context for conversation
+- Thoroughness matters more than latency
+
+**DON'T use subagents when:**
+- You know the exact file path → use Read directly
+- Simple grep for known pattern → use Grep directly
+- Task is trivial or single-step
+
+### Thoroughness Levels (for Explore/Plan)
+
+Specify in the prompt:
+- **"quick"** - Basic search, first matches
+- **"medium"** - Moderate exploration
+- **"very thorough"** - Comprehensive analysis across multiple locations
+
+### Parallel Execution
+
+Launch multiple subagents in ONE message for parallel work:
+```
+<invoke name="Task">... agent 1 ...</invoke>
+<invoke name="Task">... agent 2 ...</invoke>
+```
+
+Both run simultaneously, results return together.
+
+### Key Behaviors
+
+- Subagents are **stateless** - they don't see conversation history unless you include it in the prompt
+- Results come back as **single message** - plan prompts accordingly
+- Subagents **cannot** communicate with you mid-task - make prompts self-contained
+- Use **haiku model** for quick/cheap tasks, **opus** for complex reasoning
+
+---
+
 ## Expert Advisor Protocol (NEW)
 
 When tasked with building knowledge (not solving):
