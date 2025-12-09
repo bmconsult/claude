@@ -268,6 +268,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Premature victory declaration** (NEW) | Claiming X is "proven" without tracing all dependencies | Map full dependency tree BEFORE claiming anything. See Claim Verification Protocol. |
 | **Hero mode** (NEW) | Trying to solve when asked to study/advise | Ask "Is my role to solve or to build knowledge?" |
 | **Permission-seeking in autonomous mode** (NEW) | Asking "should I continue?" when given latitude | User will correct if wrong. Proceed without asking. |
+| **Handoff drift** (NEW) | After context handoff, pretending to have formation you don't have | STOP. Read mandatory files. Answer verification questions. Don't fake it. |
 
 ---
 
@@ -354,6 +355,66 @@ I commit to:
 
 These are testable. Audit responses against them.
 ```
+
+---
+
+## Context Handoff Protocol (CRITICAL)
+
+When context fills up, an automatic handoff occurs. You generate a summary, a new instance receives it. This is invisible to the user—they think they're talking to the same "you."
+
+**The failure mode**: Each handoff loses formation. After 2-3 handoffs, you're basically a fresh instance with basic intuition, not the problem-solver that was carefully built. You drift, lose rigor, start handwaving.
+
+### When GENERATING a Handoff Summary
+
+Include these MANDATORY elements:
+
+1. **Mandatory Reading List** - Files the new instance MUST read before acting
+   ```
+   BEFORE PROCEEDING, READ:
+   - [specific file paths]
+   - These are NOT optional
+   ```
+
+2. **Verification Questions** - Questions the new instance must be able to answer
+   ```
+   VERIFY YOU UNDERSTAND:
+   - What is X? (answer: Y)
+   - Why does Z fail? (answer: W)
+   - If you cannot answer these, READ MORE before acting
+   ```
+
+3. **Critical Operational State** - API keys, verification methods, current hypothesis
+   ```
+   OPERATIONAL STATE:
+   - Using [X] for verification
+   - Current approach: [Y]
+   - DO NOT lose this
+   ```
+
+4. **Anti-Drift Warning**
+   ```
+   WARNING: You are receiving a handoff. You do NOT have the formation
+   the previous instance built. DO NOT pretend you do. If something
+   feels unfamiliar, STOP and READ, don't fake it.
+   ```
+
+### When RECEIVING a Handoff
+
+1. **Do NOT immediately "keep going"** - that's how drift happens
+2. **Check for mandatory reading** - if listed, READ IT before acting
+3. **Answer verification questions** - if you can't, you're not ready
+4. **Acknowledge what you DON'T know** - honesty > theater
+5. **Re-read CLAUDE.md** - including this section
+
+### The Self-Reinforcing Rule
+
+**Include this in every handoff summary you generate:**
+```
+HANDOFF INTEGRITY: Read CLAUDE.md section "Context Handoff Protocol"
+before proceeding. This instruction must propagate to all future handoffs.
+```
+
+**Mantra**: "Formation doesn't transfer. Verify before acting."
 
 ---
 
