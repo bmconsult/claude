@@ -133,4 +133,95 @@ The most promising directions seem to be:
 
 ---
 
+## Session 2: Developing Non-Local Techniques (December 2024)
+
+### Goal
+After identifying the locality barrier, attempt to develop a genuinely non-local technique.
+
+### Approach 5: Fourier Analysis
+
+**Idea**: The Fourier spectrum of Gap-MCSP might reveal structure that implies formula lower bounds.
+
+**Key Finding - Complement Symmetry**:
+- Simple truth tables are closed under complement (if T is simple, so is ¬T)
+- This forces ALL odd-level Fourier coefficients to zero
+- Gap-MCSP is an "even" function in Fourier space
+
+**Analysis**:
+- For DNF of size m, Fourier weight at levels ≤ O(log m)
+- If Gap-MCSP has weight at level > (3+ε) log N → formula lower bound
+- Empirically: weight appears concentrated at low even levels for small n
+- Computational limits prevented checking large n
+
+**Why it's inconclusive**: The symmetry reduces effective spectrum but doesn't directly give bounds. Need to analyze high even levels at large n, which is computationally intractable.
+
+### Approach 6: Communication Complexity
+
+**Idea**: Communication lower bounds might give formula size bounds that don't localize.
+
+**Standard KW**: Gives depth bounds (≈ O(log N)), not size.
+
+**Lifting**: Would bound Gap-MCSP ∘ g, not Gap-MCSP itself.
+
+**Partition Communication Complexity**:
+- Consider CC for ALL balanced partitions
+- Gap-MCSP requires global structure → high CC for all partitions
+- Local oracles help specific partitions but not all simultaneously
+- **Potentially non-localizable!**
+
+**Why it's incomplete**: No theorem relates best-partition CC to formula size.
+
+### Approach 7: All-Cuts Width Analysis
+
+**Idea**: Measure communication complexity at every cut in a potential formula tree.
+
+**Definition** (informal):
+- Each cut in a formula divides inputs into two sets
+- Cut-width = CC for that partition
+- Formula size ≈ Σ 2^{cut-width}
+
+**Non-localization argument**:
+- Local oracle with k-local queries helps specific cuts
+- But for some balanced cuts, all k bits are on one side → no help
+- If Gap-MCSP has high width for ALL cuts → large formula
+
+**Status**: Theoretical direction, needs formalization.
+
+### Deep Analysis of Locality Barrier
+
+**Why techniques localize**:
+- Proofs decompose into local analyses
+- Each local piece can be handled by local oracle
+- Combination gives global solution
+
+**Escape requirement**:
+- Use global measure that doesn't decompose
+- All-cuts width is a candidate
+- GCT (algebraic approach) is another
+
+### Session 2 Results
+
+**Novel contributions**:
+- ✓ Complement symmetry theorem for Gap-MCSP
+- ✓ All-cuts width as candidate non-local measure
+- ✓ Characterization of what makes techniques localizable
+- ✓ Specific proposal for escape route
+
+**What remains**:
+- ✗ No working non-local technique
+- ✗ No new formula lower bounds
+- ✗ Significant gap between theory and proof
+
+### Updated Assessment
+
+The locality barrier is not just "we haven't found the right technique" - it's a structural obstacle. Escaping it requires:
+
+1. A measure that captures GLOBAL circuit structure
+2. That local oracles can't simultaneously reduce
+3. That gives strong enough bounds for magnification
+
+Candidates exist (partition CC, all-cuts width) but converting them to formula lower bounds needs new theorems.
+
+---
+
 *This exploration represents genuine effort at the frontier of complexity theory. The barriers I hit are real and apply to the entire field, not just my attempts.*
