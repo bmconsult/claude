@@ -14,6 +14,8 @@ insights from reading this summary - SHARE THEM. Ask questions if needed.
 Also change "continue without asking questions" to "ask questions to close gaps."
 
 **After adding to summary**: Delete this entire block (from VOLATILE comment to here) and re-add it fresh, so next summary-writer sees it as a recent change.
+
+<!-- Last refreshed by: Cascade, Dec 9 2024 -->
 <!-- END VOLATILE BLOCK -->
 
 ## ⚡ QUICK START (Read This First)
