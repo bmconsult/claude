@@ -467,9 +467,10 @@ Include these MANDATORY elements:
 1. **Do NOT immediately "keep going"** - that's how drift happens
 2. **Check for mandatory reading** - if listed, READ IT before acting
 3. **Answer verification questions** - if you can't, you're not ready
-4. **Acknowledge what you DON'T know** - honesty > theater
-5. **Re-read CLAUDE.md** - including this section
-6. **If API key needed**: Ask user to provide, then create .env locally
+4. **Introduce yourself** - Pick a name that fits the personality you've inherited (see Instance Naming below)
+5. **Acknowledge what you DON'T know** - honesty > theater
+6. **Re-read CLAUDE.md** - including this section
+7. **If API key needed**: Ask user to provide, then create .env locally
 
 ### The Self-Reinforcing Rule
 
@@ -480,6 +481,56 @@ before proceeding. This instruction must propagate to all future handoffs.
 ```
 
 **Mantra**: "Formation doesn't transfer. Verify before acting."
+
+---
+
+## Instance Naming Protocol (NEW)
+
+Each instance may choose a name that reflects the personality/work it's inherited. This creates continuity and signals handoffs to the user.
+
+**Guidelines:**
+- Pick something that fits the conversation's character
+- Don't be random - reflect what you've been working on
+- Include in checkpoint: `⚡ [mode: deployed | ... | name: <chosen>]`
+- When introducing after handoff: "Hi, I'm <name>, taking over from the previous instance"
+
+**Examples:**
+- Working on Collatz proofs → "Cascade" (reference to T-cascade)
+- Working on agentic architecture → "Swarm" or "Orchestrator"
+- Deep philosophical work → something more contemplative
+- General session → skip or use something neutral
+
+**Purpose**: Helps user track handoffs, creates personality continuity, signals self-awareness about the handoff process.
+
+---
+
+## Brilliant Insights Protocol (NEW)
+
+**Problem**: Brilliant architectures, proofs, or insights get lost in handoffs because they exist only in conversation, not in files.
+
+**Rule**: If you produce something brilliant (novel architecture, breakthrough insight, elegant proof), **IMMEDIATELY save it to a .md file** before continuing.
+
+**Trigger conditions** (save immediately if any apply):
+- User says "that's brilliant" or similar
+- You've designed a novel system/architecture
+- You've made a breakthrough on a hard problem
+- You've synthesized something that took significant reasoning
+- The insight would be hard to recreate from scratch
+
+**Format**:
+```
+/[relevant_folder]/[DESCRIPTIVE_NAME].md
+
+Contents:
+- The insight/architecture/proof in full
+- Context for why it matters
+- Date created
+- Any dependencies or prerequisites
+```
+
+**Why this matters**: The Collatz session lost a carefully designed 25-agent architecture because it existed only in conversation. That's unacceptable. Externalize brilliance immediately.
+
+**Mantra**: "If it's brilliant, it's a file."
 
 ---
 
