@@ -1,0 +1,51 @@
+{
+  "design": {
+    "n_problems": 10,
+    "n_solutions": 3,
+    "methodology": "v5.2"
+  },
+  "results": {
+    "single_generation": {
+      "mean": 42.4,
+      "stdev": 0.8432740427115678,
+      "scores": [
+        43,
+        41,
+        42,
+        43,
+        42,
+        41,
+        43,
+        43,
+        43,
+        43
+      ]
+    },
+    "best_of_3": {
+      "mean": 43,
+      "stdev": 0.4714045207910317,
+      "scores": [
+        43,
+        43,
+        44,
+        43,
+        43,
+        42,
+        43,
+        43,
+        43,
+        43
+      ]
+    },
+    "selection_effect": {
+      "improvement": 0.6000000000000014,
+      "cohens_d": 0.878310065653682,
+      "mean_advantage": 0.6666666666666672
+    }
+  },
+  "hypotheses": {
+    "H1_supported": false,
+    "H1_improvement": 0.6000000000000014
+  },
+  "timestamp": "2025-12-09T17:26:40.510299"
+}
