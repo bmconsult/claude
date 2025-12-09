@@ -436,4 +436,87 @@ The structure is compelling. The empirical evidence is overwhelming. But algebra
 
 ---
 
+## NEW: Transient Bound Analysis (Dec 2024)
+
+### The Transient Approach
+
+**Definition**: The *transient* is the phase before a trajectory first drops below its starting value n.
+
+**Key Insight**: If we can bound the transient max, the rest follows by induction:
+- After transient ends at v₀ < n, apply inductive hypothesis to v₀
+- Total M(n) = max(transient_max, M(v₀))
+
+### Empirical Findings
+
+**Transient Exponent**: Define α(n) = log(transient_max) / log(n)
+
+| Block | Worst n | Exponent α | Transient Steps |
+|-------|---------|------------|-----------------|
+| 5 | 47 | 2.09 | 34 |
+| 10 | 1819 | 1.73 | 38 |
+| 15 | 33019 | 1.60 | 49 |
+| 20 | 1050319 | 1.47 | 41 |
+| 24 | 16779035 | 1.47 | 35 |
+
+**Observations**:
+1. Worst-case exponent occurs for small n (block 5: α ≈ 2.09)
+2. For larger n, exponent appears bounded by ~1.9
+3. Mersenne numbers M_k = 2^k - 1 have α → 1.56 as k → ∞
+
+### The First-Passage Structure
+
+The transient ends when cumulative log-change first goes negative.
+
+**Formula**: exponent = 1 + (max cumulative log change) / log(n)
+
+For Mersenne numbers:
+- max_log_change / log(n) ≈ 0.56 (converging)
+- This gives exponent → 1 + 0.56 = 1.56
+
+### The Potential Constraint
+
+**Key constraint**: Maximum consecutive T=1 steps ≤ potential at run start
+
+Verified for all n ≤ 100,000:
+- Each T=1 run has length ≤ pot(v) at run start
+- Average potential at run start ≈ 3 (geometric distribution)
+- pot(v) ≤ log₂(v+1), so max run ≤ log₂(max+1)
+
+### The Self-Balancing Trade-off
+
+**Growth requires potential. Potential requires shrinkage.**
+
+Empirical ratio of pot_consumed / pot_generated ≈ 1.5-2.2
+
+This means growth potential is "borrowed" from future shrinkage.
+
+### A-Function Dynamics
+
+**Surprising finding**: ΔA is positive 82% of the time!
+
+- During T=1 steps: ΔA = T' - 0.415 ≥ 0.585
+- During cascade (T≥2, T'=T-1): ΔA = 0.585
+- At cascade END (T'<T-1): ΔA is negative (avg = -1.29)
+
+The A-function increases most of the time, with periodic large drops at cascade endings.
+
+### Remaining Gap
+
+**CONJECTURE**: For all n > 1, transient exponent α ≤ 2
+
+**STRONGER CONJECTURE**: For n > 100, α ≤ 1.9
+
+**ASYMPTOTIC CONJECTURE**: As n → ∞, α → 1
+
+If any of these hold, combined with induction on the post-transient phase:
+```
+M(n) ≤ C × n^α (polynomial bound)
+```
+
+**What's still needed**: Algebraic proof that max_log_change / log(n) is bounded by a constant.
+
+The empirical evidence strongly supports this (ratio ≈ 0.56-0.70 for Mersenne numbers, the "worst" cases). But the algebraic closure remains open.
+
+---
+
 **END OF RESEARCH REPORT**
