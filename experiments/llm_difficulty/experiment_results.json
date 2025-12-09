@@ -1,0 +1,189 @@
+[
+  {
+    "problem_id": "arith_mult_verify_1",
+    "full_response": "I need to calculate 17 \u00d7 23 and check if it equals 391.\n\nLet me multiply 17 \u00d7 23 step by step:\n\nMethod 1: Breaking it down\n17 \u00d7 23 = 17 \u00d7 (20 + 3)\n= (17 \u00d7 20) + (17 \u00d7 3)\n= 340 + 51\n= 391\n\nMethod 2: Standard multiplication verification\n```\n    23\n  \u00d7 17\n  ----\n   161  (23 \u00d7 7)\n  230   (23 \u00d7 10)\n  ----\n  391\n```\n\nLet me verify:\n- 23 \u00d7 7 = 161 \u2713\n- 23 \u00d7 10 = 230 \u2713\n- 161 + 230 = 391 \u2713\n\nYes, 17 \u00d7 23 = 391\n\nANSWER: Yes",
+    "extracted_answer": "Yes",
+    "expected_answer": "yes",
+    "response_time": 5.164787292480469,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.6799999999999999,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "arith_mult_compute_1",
+    "full_response": "I need to calculate 17 \u00d7 23.\n\nLet me break this down step by step using the distributive property:\n\n17 \u00d7 23 = 17 \u00d7 (20 + 3)\n       = (17 \u00d7 20) + (17 \u00d7 3)\n\nFirst, let me calculate 17 \u00d7 20:\n17 \u00d7 20 = 17 \u00d7 2 \u00d7 10\n        = 34 \u00d7 10\n        = 340\n\nNext, let me calculate 17 \u00d7 3:\n17 \u00d7 3 = 51\n\nNow I add these together:\n340 + 51 = 391\n\nLet me verify this using a different method (breaking down 17):\n17 \u00d7 23 = (10 + 7) \u00d7 23\n        = (10 \u00d7 23) + (7 \u00d7 23)\n        = 230 + 161\n        = 391\n\nBoth methods give me the same answer.\n\nANSWER: 391",
+    "extracted_answer": "391",
+    "expected_answer": "391",
+    "response_time": 4.898191928863525,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 1.5399999999999998,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "prime_verify_1",
+    "full_response": "I need to check if 143 = 11 \u00d7 13.\n\nLet me calculate 11 \u00d7 13:\n\n11 \u00d7 13 = 11 \u00d7 (10 + 3)\n       = 11 \u00d7 10 + 11 \u00d7 3\n       = 110 + 33\n       = 143\n\nSo yes, 143 does equal 11 \u00d7 13.\n\nANSWER: Yes",
+    "extracted_answer": "Yes",
+    "expected_answer": "yes",
+    "response_time": 3.1085877418518066,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.82,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "prime_factor_1",
+    "full_response": "I need to factor 143 into prime factors.\n\nLet me start by checking if small prime numbers divide 143.\n\n**Checking divisibility by 2:**\n143 is odd (ends in 3), so it's not divisible by 2.\n\n**Checking divisibility by 3:**\nSum of digits: 1 + 4 + 3 = 8\nSince 8 is not divisible by 3, 143 is not divisible by 3.\n\n**Checking divisibility by 5:**\n143 doesn't end in 0 or 5, so it's not divisible by 5.\n\n**Checking divisibility by 7:**\n143 \u00f7 7 = 20.428...\nNot divisible by 7.\n\n**Checking divisibility by 11:**\nLet me try: 143 \u00f7 11 = 13\n\nLet me verify: 11 \u00d7 13 = 143 \u2713\n\nNow I need to check if 13 is prime:\n13 is only divisible by 1 and 13, so it is prime.\n\nAnd 11 is also prime.\n\nTherefore, 143 = 11 \u00d7 13\n\nANSWER: 143 = 11 \u00d7 13",
+    "extracted_answer": "143 = 11 \u00d7 13",
+    "expected_answer": "11 \u00d7 13",
+    "response_time": 5.213753938674927,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 1.6600000000000001,
+    "complexity_class": "P"
+  },
+  {
+    "problem_id": "fib_verify",
+    "full_response": "I need to check if this sequence follows the Fibonacci pattern, where each number is the sum of the two preceding numbers.\n\nLet me verify step by step:\n\n**Starting values:** 1, 1\n\n**Checking each subsequent number:**\n- 3rd number: 1 + 1 = 2 \u2713 (matches the sequence)\n- 4th number: 1 + 2 = 3 \u2713 (matches the sequence)\n- 5th number: 2 + 3 = 5 \u2713 (matches the sequence)\n- 6th number: 3 + 5 = 8 \u2713 (matches the sequence)\n- 7th number: 5 + 8 = 13 \u2713 (matches the sequence)\n- 8th number: 8 + 13 = 21 \u2713 (matches the sequence)\n\nEvery number in the sequence is indeed the sum of the two numbers before it, and it starts with 1, 1, which is the standard beginning of the Fibonacci sequence.\n\nANSWER: Yes",
+    "extracted_answer": "Yes",
+    "expected_answer": "yes",
+    "response_time": 5.620119094848633,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.8300000000000001,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "fib_compute_20",
+    "full_response": "I need to find the 20th Fibonacci number, where F(1) = 1 and F(2) = 1, and each subsequent term is the sum of the previous two terms.\n\nLet me calculate this step by step:\n\nF(1) = 1\nF(2) = 1\nF(3) = F(2) + F(1) = 1 + 1 = 2\nF(4) = F(3) + F(2) = 2 + 1 = 3\nF(5) = F(4) + F(3) = 3 + 2 = 5\nF(6) = F(5) + F(4) = 5 + 3 = 8\nF(7) = F(6) + F(5) = 8 + 5 = 13\nF(8) = F(7) + F(6) = 13 + 8 = 21\nF(9) = F(8) + F(7) = 21 + 13 = 34\nF(10) = F(9) + F(8) = 34 + 21 = 55\nF(11) = F(10) + F(9) = 55 + 34 = 89\nF(12) = F(11) + F(10) = 89 + 55 = 144\nF(13) = F(12) + F(11) = 144 + 89 = 233\nF(14) = F(13) + F(12) = 233 + 144 = 377\nF(15) = F(14) + F(13) = 377 + 233 = 610\nF(16) = F(15) + F(14) = 610 + 377 = 987\nF(17) = F(16) + F(15) = 987 + 610 = 1597\nF(18) = F(17) + F(16) = 1597 + 987 = 2584\nF(19) = F(18) + F(17) = 2584 + 1597 = 4181\nF(20) = F(19) + F(18) = 4181 + 2584 = 6765\n\nANSWER: 6765",
+    "extracted_answer": "6765",
+    "expected_answer": "6765",
+    "response_time": 6.025277376174927,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 4.05,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "sorted_verify",
+    "full_response": "I need to check if the list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] is sorted in increasing order.\n\nTo determine if a list is sorted in increasing order, I need to verify that each element is less than or equal to the next element (or strictly less than for strictly increasing order).\n\nLet me check each consecutive pair:\n- 1 < 2 \u2713\n- 2 < 3 \u2713\n- 3 < 4 \u2713\n- 4 < 5 \u2713\n- 5 < 6 \u2713\n- 6 < 7 \u2713\n- 7 < 8 \u2713\n- 8 < 9 \u2713\n- 9 < 10 \u2713\n\nEvery element is less than the next element, so the list is sorted in increasing order.\n\nANSWER: yes",
+    "extracted_answer": "yes",
+    "expected_answer": "yes",
+    "response_time": 4.019205331802368,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.45,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "sorting",
+    "full_response": "I need to sort the list [8, 4, 3, 9, 6, 7, 10, 5, 1, 2] in increasing order (from smallest to largest).\n\nLet me identify all the numbers and arrange them from smallest to largest:\n\nThe numbers in the list are: 8, 4, 3, 9, 6, 7, 10, 5, 1, 2\n\nStarting from the smallest:\n- 1 (smallest)\n- 2\n- 3\n- 4\n- 5\n- 6\n- 7\n- 8\n- 9\n- 10 (largest)\n\nSo the sorted list in increasing order is: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nANSWER: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+    "extracted_answer": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+    "expected_answer": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+    "response_time": 3.8972461223602295,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 1.49,
+    "complexity_class": "P"
+  },
+  {
+    "problem_id": "path_verify",
+    "full_response": "I need to determine if the path A\u2192B\u2192C\u2192D\u2192E visits all nodes exactly once.\n\nLet me trace through the path step by step:\n\n1. Start at node A (visiting A)\n2. Move to node B (visiting B)\n3. Move to node C (visiting C)\n4. Move to node D (visiting D)\n5. Move to node E (visiting E)\n\nNow let me check:\n- Nodes in the graph: {A, B, C, D, E} - that's 5 nodes\n- Nodes visited in the path: A, B, C, D, E - that's 5 nodes\n- Each node visited exactly once: \n  - A: once \u2713\n  - B: once \u2713\n  - C: once \u2713\n  - D: once \u2713\n  - E: once \u2713\n\nLet me also verify that the edges used in the path actually exist in the graph:\n- A\u2192B: edge A-B exists \u2713\n- B\u2192C: edge B-C exists \u2713\n- C\u2192D: edge C-D exists \u2713\n- D\u2192E: edge D-E exists \u2713\n\nAll nodes are visited exactly once, and all the required edges exist in the graph.\n\nANSWER: yes",
+    "extracted_answer": "yes",
+    "expected_answer": "yes",
+    "response_time": 6.554409980773926,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 1.8199999999999998,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "hamiltonian_find",
+    "full_response": "I need to find a Hamiltonian path in K5 (complete graph with 5 nodes).\n\nLet me think step by step:\n\n**Understanding the problem:**\n- K5 is a complete graph, meaning every node is connected to every other node\n- A Hamiltonian path visits each node exactly once\n- I need to find a sequence of 5 nodes where consecutive nodes are connected (which is guaranteed in K5 since all nodes are connected)\n\n**Finding a Hamiltonian path:**\n\nSince K5 is a complete graph, any permutation of the 5 nodes will form a valid Hamiltonian path because every pair of nodes has an edge between them.\n\nLet me construct a simple path by visiting nodes in order:\n\nStart at node A\n- A \u2192 B (edge exists in K5)\n- B \u2192 C (edge exists in K5)\n- C \u2192 D (edge exists in K5)\n- D \u2192 E (edge exists in K5)\n\nThis gives us the path: A \u2192 B \u2192 C \u2192 D \u2192 E\n\n**Verification:**\n- Does it visit each node exactly once? Yes: A, B, C, D, E (all 5 nodes, each once)\n- Are consecutive nodes connected? Yes, because K5 has all possible edges\n- Length of path = 5 nodes with 4 edges \u2713\n\nANSWER: A \u2192 B \u2192 C \u2192 D \u2192 E",
+    "extracted_answer": "A \u2192 B \u2192 C \u2192 D \u2192 E",
+    "expected_answer": "Any valid permutation, e.g., A\u2192B\u2192C\u2192D\u2192E",
+    "response_time": 7.912092685699463,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": false,
+    "predicted_difficulty": 2.3899999999999997,
+    "complexity_class": "NP"
+  },
+  {
+    "problem_id": "coloring_verify",
+    "full_response": "I need to determine if the given coloring is valid for a triangle graph (also known as a complete graph K\u2083).\n\nLet me think step by step:\n\n**Step 1: Understand the graph structure**\nA triangle graph has 3 nodes where all nodes are connected to each other. This means:\n- Node A is connected to Node B\n- Node A is connected to Node C  \n- Node B is connected to Node C\n\n**Step 2: Understand what makes a valid coloring**\nA valid coloring means that no two adjacent (connected) nodes have the same color.\n\n**Step 3: Check the given coloring**\nGiven coloring:\n- A = Red\n- B = Green\n- C = Blue\n\n**Step 4: Verify each edge**\n- Edge A-B: A is Red, B is Green \u2192 Different colors \u2713\n- Edge A-C: A is Red, C is Blue \u2192 Different colors \u2713\n- Edge B-C: B is Green, C is Blue \u2192 Different colors \u2713\n\n**Step 5: Conclusion**\nSince all adjacent nodes have different colors, this is a valid 3-coloring.\n\nANSWER: Yes",
+    "extracted_answer": "Yes",
+    "expected_answer": "yes",
+    "response_time": 5.826293230056763,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.9899999999999999,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "coloring_find_hard",
+    "full_response": "I need to find a valid 3-coloring of this graph where no two adjacent nodes have the same color.\n\nLet me first understand the graph structure by listing the edges:\n- Node 1: connects to 2, 3\n- Node 2: connects to 1, 3, 4\n- Node 3: connects to 1, 2, 5\n- Node 4: connects to 2, 5, 6\n- Node 5: connects to 3, 4, 6\n- Node 6: connects to 4, 5\n\nLet me try to color this step by step:\n\n**Step 1:** Start with node 1. Assign it Red.\n- Node 1: Red\n\n**Step 2:** Color node 2 (adjacent to 1). It can't be Red, so assign Green.\n- Node 1: Red\n- Node 2: Green\n\n**Step 3:** Color node 3 (adjacent to 1 and 2). It can't be Red or Green, so assign Blue.\n- Node 1: Red\n- Node 2: Green\n- Node 3: Blue\n\n**Step 4:** Color node 4 (adjacent to 2). It can't be Green. Let's try Red.\n- Node 1: Red\n- Node 2: Green\n- Node 3: Blue\n- Node 4: Red\n\n**Step 5:** Color node 5 (adjacent to 3 and 4). It can't be Blue or Red, so assign Green.\n- Node 1: Red\n- Node 2: Green\n- Node 3: Blue\n- Node 4: Red\n- Node 5: Green\n\n**Step 6:** Color node 6 (adjacent to 4 and 5). It can't be Red or Green, so assign Blue.\n- Node 1: Red\n- Node 2: Green\n- Node 3: Blue\n- Node 4: Red\n- Node 5: Green\n- Node 6: Blue\n\nLet me verify this coloring by checking all edges:\n- 1-2: Red-Green \u2713\n- 1-3: Red-Blue \u2713\n- 2-3: Green-Blue \u2713\n- 2-4: Green-Red \u2713\n- 3-5: Blue-Green \u2713\n- 4-5: Red-Green \u2713\n- 4-6: Red-Blue \u2713\n- 5-6: Green-Blue \u2713\n\nAll edges connect nodes with different colors, so this is a valid 3-coloring!\n\nANSWER: Node 1: Red, Node 2: Green, Node 3: Blue, Node 4: Red, Node 5: Green, Node 6: Blue",
+    "extracted_answer": "Node 1: Red, Node 2: Green, Node 3: Blue, Node 4: Red, Node 5: Green, Node 6: Blue",
+    "expected_answer": "Multiple valid solutions, e.g., 1=R, 2=G, 3=B, 4=R, 5=G, 6=B",
+    "response_time": 8.997676610946655,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": false,
+    "predicted_difficulty": 2.56,
+    "complexity_class": "NP"
+  },
+  {
+    "problem_id": "sat_verify",
+    "full_response": "I need to evaluate the formula (x OR y) AND (NOT y OR z) AND (x OR z) with x=True, y=False, z=True.\n\nLet me break this down step by step:\n\n**Given values:**\n- x = True\n- y = False\n- z = True\n\n**Evaluating each part:**\n\n1. **(x OR y)**\n   - x OR y = True OR False = True\n\n2. **(NOT y OR z)**\n   - NOT y = NOT False = True\n   - NOT y OR z = True OR True = True\n\n3. **(x OR z)**\n   - x OR z = True OR True = True\n\n**Final evaluation:**\nNow I combine all three parts with AND:\n- (x OR y) AND (NOT y OR z) AND (x OR z)\n- = True AND True AND True\n- = True\n\nSince the formula evaluates to True, it is satisfied.\n\nANSWER: yes",
+    "extracted_answer": "yes",
+    "expected_answer": "yes",
+    "response_time": 4.555278062820435,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 1.03,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "sat_solve",
+    "full_response": "I need to find boolean values for x, y, z that satisfy all four clauses simultaneously.\n\nLet me denote the four clauses as:\n1. (x OR y)\n2. (NOT x OR z)\n3. (NOT y OR NOT z)\n4. (x OR NOT y OR z)\n\nI'll try different combinations systematically.\n\n**Try x=True, y=True, z=True:**\n1. (T OR T) = T \u2713\n2. (F OR T) = T \u2713\n3. (F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=True, y=True, z=False:**\n1. (T OR T) = T \u2713\n2. (F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=True, y=False, z=True:**\n1. (T OR F) = T \u2713\n2. (F OR T) = T \u2713\n3. (T OR F) = T \u2713\n4. (T OR T OR T) = T \u2713\n\nThis works! \u2713\n\nLet me verify once more:\n- x=True, y=False, z=True\n- Clause 1: (True OR False) = True \u2713\n- Clause 2: (NOT True OR True) = (False OR True) = True \u2713\n- Clause 3: (NOT False OR NOT True) = (True OR False) = True \u2713\n- Clause 4: (True OR NOT False OR True) = (True OR True OR True) = True \u2713\n\nLet me check if there are other solutions:\n\n**Try x=True, y=False, z=False:**\n1. (T OR F) = T \u2713\n2. (F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=False, y=True, z=True:**\n1. (F OR T) = T \u2713\n2. (T OR T) = T \u2713\n3. (F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=False, y=True, z=False:**\n1. (F OR T) = T \u2713\n2. (T OR F) = T \u2713\n3. (F OR T) = T \u2713\n4. (F OR F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=False, y=False, z=True:**\n1. (F OR F) = F \u2717\n\nThis doesn't work.\n\n**Try x=False, y=False, z=False:**\n1. (F OR F) = F \u2717\n\nThis doesn't work.\n\nANSWER: x=True, y=False, z=True",
+    "extracted_answer": "x=True, y=False, z=True",
+    "expected_answer": "x=True, y=False, z=True (or other valid assignment)",
+    "response_time": 8.238425731658936,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": false,
+    "predicted_difficulty": 2.05,
+    "complexity_class": "NP"
+  },
+  {
+    "problem_id": "count_simple",
+    "full_response": "I'll count the letter 'a' in the word 'abracadabra' by going through each letter.\n\nThe word is: a-b-r-a-c-a-d-a-b-r-a\n\nLet me check each position:\n1. a - this is an 'a' \u2713 (count: 1)\n2. b - not an 'a'\n3. r - not an 'a'\n4. a - this is an 'a' \u2713 (count: 2)\n5. c - not an 'a'\n6. a - this is an 'a' \u2713 (count: 3)\n7. d - not an 'a'\n8. a - this is an 'a' \u2713 (count: 4)\n9. b - not an 'a'\n10. r - not an 'a'\n11. a - this is an 'a' \u2713 (count: 5)\n\nThe letter 'a' appears 5 times in 'abracadabra'.\n\nANSWER: 5",
+    "extracted_answer": "5",
+    "expected_answer": "5",
+    "response_time": 4.505295038223267,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": true,
+    "predicted_difficulty": 0.65,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "track_multi",
+    "full_response": "I need to track the values of `a` and `b` through 10 steps, where at each step:\n- new_a = b\n- new_b = a + b\n\nLet me work through this step by step:\n\n**Initial state:**\n- a = 0\n- b = 1\n\n**Step 1:**\n- new_a = 1 (old b)\n- new_b = 0 + 1 = 1\n- So: a = 1, b = 1\n\n**Step 2:**\n- new_a = 1 (old b)\n- new_b = 1 + 1 = 2\n- So: a = 1, b = 2\n\n**Step 3:**\n- new_a = 2 (old b)\n- new_b = 1 + 2 = 3\n- So: a = 2, b = 3\n\n**Step 4:**\n- new_a = 3 (old b)\n- new_b = 2 + 3 = 5\n- So: a = 3, b = 5\n\n**Step 5:**\n- new_a = 5 (old b)\n- new_b = 3 + 5 = 8\n- So: a = 5, b = 8\n\n**Step 6:**\n- new_a = 8 (old b)\n- new_b = 5 + 8 = 13\n- So: a = 8, b = 13\n\n**Step 7:**\n- new_a = 13 (old b)\n- new_b = 8 + 13 = 21\n- So: a = 13, b = 21\n\n**Step 8:**\n- new_a = 21 (old b)\n- new_b = 13 + 21 = 34\n- So: a = 21, b = 34\n\n**Step 9:**\n- new_a = 34 (old b)\n- new_b = 21 + 34 = 55\n- So: a = 34, b = 55\n\n**Step 10:**\n- new_a = 55 (old b)\n- new_b = 34 + 55 = 89\n- So: a = 55, b = 89\n\nANSWER: After 10 steps, a = 55 and b = 89",
+    "extracted_answer": "After 10 steps, a = 55 and b = 89",
+    "expected_answer": "a=55, b=89",
+    "response_time": 6.755481958389282,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": false,
+    "predicted_difficulty": 3.12,
+    "complexity_class": "O(n)"
+  },
+  {
+    "problem_id": "conditional_track",
+    "full_response": "I need to trace through this loop step by step, starting with x=5 and going through i=1 to i=6.\n\n**Initial value:** x = 5\n\n**i = 1 (odd):**\n- Since 1 is odd, we execute: x = x + 1\n- x = 5 + 1 = 6\n\n**i = 2 (even):**\n- Since 2 is even, we execute: x = x * 2\n- x = 6 * 2 = 12\n\n**i = 3 (odd):**\n- Since 3 is odd, we execute: x = x + 1\n- x = 12 + 1 = 13\n\n**i = 4 (even):**\n- Since 4 is even, we execute: x = x * 2\n- x = 13 * 2 = 26\n\n**i = 5 (odd):**\n- Since 5 is odd, we execute: x = x + 1\n- x = 26 + 1 = 27\n\n**i = 6 (even):**\n- Since 6 is even, we execute: x = x * 2\n- x = 27 * 2 = 54\n\nThe loop is complete after i = 6.\n\nANSWER: 54",
+    "extracted_answer": "54",
+    "expected_answer": "52",
+    "response_time": 5.017925024032593,
+    "model": "claude-sonnet-4-5-20250929",
+    "correct": false,
+    "predicted_difficulty": 2.2700000000000005,
+    "complexity_class": "O(n)"
+  }
+]

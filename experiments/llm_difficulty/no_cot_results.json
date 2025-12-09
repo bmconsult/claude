@@ -1,0 +1,50 @@
+[
+  {
+    "problem_id": "sorted_verify",
+    "response": "yes",
+    "expected": "yes",
+    "response_time": 2.09533953666687,
+    "predicted_difficulty": 0.45,
+    "correct": true
+  },
+  {
+    "problem_id": "fib_verify",
+    "response": "yes",
+    "expected": "yes",
+    "response_time": 2.021702527999878,
+    "predicted_difficulty": 0.8300000000000001,
+    "correct": true
+  },
+  {
+    "problem_id": "arith_mult_compute_1",
+    "response": "391",
+    "expected": "391",
+    "response_time": 2.003613233566284,
+    "predicted_difficulty": 1.5399999999999998,
+    "correct": true
+  },
+  {
+    "problem_id": "conditional_track",
+    "response": "44",
+    "expected": "52",
+    "response_time": 2.1613025665283203,
+    "predicted_difficulty": 2.2700000000000005,
+    "correct": false
+  },
+  {
+    "problem_id": "track_multi",
+    "response": "a=55, b=89",
+    "expected": "a=55, b=89",
+    "response_time": 2.1707143783569336,
+    "predicted_difficulty": 3.12,
+    "correct": true
+  },
+  {
+    "problem_id": "fib_compute_20",
+    "response": "6765",
+    "expected": "6765",
+    "response_time": 2.17305326461792,
+    "predicted_difficulty": 4.05,
+    "correct": true
+  }
+]
