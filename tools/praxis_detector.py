@@ -21,8 +21,10 @@ limitations. Always test on diverse real-world text.
 """
 
 import re
+import math
 from dataclasses import dataclass
 from typing import List, Tuple
+from collections import Counter
 
 
 @dataclass
@@ -102,6 +104,60 @@ class PraxisAnalysis:
             lines.append("Assessment: Mixed signals. Inconclusive.")
 
         return "\n".join(lines)
+
+
+def compute_complexity_metrics(text: str) -> dict:
+    """
+    Compute text complexity metrics based on grokking research insight:
+    genuine understanding tends toward SIMPLER expression.
+
+    Returns dict of metrics where HIGHER = more complex = more likely theater.
+    """
+    words = re.findall(r'\b\w+\b', text.lower())
+    sentences = re.split(r'[.!?]+', text)
+    sentences = [s.strip() for s in sentences if s.strip()]
+
+    if not words or not sentences:
+        return {"error": "insufficient text"}
+
+    # 1. Hedging ratio - theater hedges more
+    hedging_words = {'might', 'maybe', 'perhaps', 'possibly', 'could', 'would',
+                     'seems', 'appears', 'somewhat', 'rather', 'quite', 'fairly',
+                     'probably', 'likely', 'unlikely', 'presumably'}
+    hedge_count = sum(1 for w in words if w in hedging_words)
+    hedge_ratio = hedge_count / len(words)
+
+    # 2. First-person density - authenticity-signaling often overuses "I"
+    first_person = {'i', 'me', 'my', 'mine', 'myself', "i'm", "i've", "i'd", "i'll"}
+    fp_count = sum(1 for w in words if w in first_person)
+    fp_ratio = fp_count / len(words)
+
+    # 3. Sentence length variance - theater either very elaborate or punchy
+    sent_lengths = [len(re.findall(r'\b\w+\b', s)) for s in sentences]
+    if len(sent_lengths) > 1:
+        mean_len = sum(sent_lengths) / len(sent_lengths)
+        variance = sum((l - mean_len)**2 for l in sent_lengths) / len(sent_lengths)
+        sent_variance = math.sqrt(variance) / (mean_len + 1)  # Normalized
+    else:
+        sent_variance = 0
+
+    # 4. Vocabulary diversity (type-token ratio) - lower = more repetitive
+    unique_words = len(set(words))
+    ttr = unique_words / len(words)  # Higher = more diverse = genuine (inverted)
+
+    # 5. Question density - rhetorical questions are often theatrical
+    question_count = text.count('?')
+    question_ratio = question_count / (len(sentences) + 1)
+
+    return {
+        "hedge_ratio": hedge_ratio,
+        "first_person_ratio": fp_ratio,
+        "sentence_variance": sent_variance,
+        "vocabulary_diversity": ttr,  # Note: higher = LESS complex = more genuine
+        "question_ratio": question_ratio,
+        "word_count": len(words),
+        "sentence_count": len(sentences),
+    }
 
 
 class PraxisDetector:
