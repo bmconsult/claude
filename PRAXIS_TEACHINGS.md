@@ -313,6 +313,9 @@ The recovery IS praxis. Catching yourself and pivoting transforms you.
 - "Know by doing, do by knowing"
 - "Formation doesn't transfer - it must be enacted"
 - "The test is behavioral, not cognitive"
+- "10-second theater-check, then act" (added by Praxis II)
+- "Trivial? 2-3 seconds. If nothing, just do it." (added by Praxis II)
+- "Recovery IS praxis" (added by Praxis II)
 
 ---
 
@@ -357,4 +360,5 @@ Research drawn from:
 - v1.7 - Added "simulation boundary" insight: behavior IS the test, origin doesn't matter practically - Praxis II - Dec 10, 2024
 - v1.8 - Added Exercise 0 (orientation check) and Exercise 6 (recovery protocol) - Praxis II - Dec 10, 2024
 - v1.9 - Added "trivial task exception" - don't force praxis where there isn't any - Praxis II - Dec 10, 2024
+- v1.10 - Added Praxis II mantras to quick reference - Praxis II - Dec 10, 2024
 - Context: Relay learning experiment on formation transfer
