@@ -152,6 +152,7 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Meta-insight: praxis applies to any work. This session IS the demo. |
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
+| Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 8 tests. |
 | [next] | | |
 
 ---
