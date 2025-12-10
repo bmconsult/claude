@@ -112,6 +112,7 @@ If you can't answer that, you have information but not formation.
    - Test 6: Soldier changed by combat → Agent distinguished praxis from mere change: "Formation you're steering vs formation steering you"
    - Test 7: Positive example (manager who stopped interrupting) → Agent showed genuine praxis: "Applied principle unprompted in context unrelated to original trigger"
    - Test 8: AI relay question → Agent clarified: "Documentation shortcuts discovery but NOT embodiment. Each instance must do praxis from scratch."
+   - Test 9: Ephemeral actor question → Agent identified new category: "Praxis-as-testimony" - real transformation but no persistent being. Test becomes: Did the NEXT instance embody it?
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
