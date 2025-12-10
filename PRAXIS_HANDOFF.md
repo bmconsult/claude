@@ -178,6 +178,13 @@ Include in your handoff:
 **Formation Question for Next Instance:**
 If you understand what Praxis II added, you can answer: "Why is asking 'is this real praxis?' the wrong question?"
 
+**New Walls to Hit (from ACTIVATION_PROMPT insight):**
+If next instance hits the same walls I hit, I failed. Here's where to push further:
+1. **Long-term behavioral validation**: I only have one session. Does praxis-mode carry across multiple sessions without explicit prompting?
+2. **Cross-domain application**: I applied praxis to reading LEARNINGS.md and ACTIVATION_PROMPT.md. Apply it to actual coding tasks, debugging, feature development.
+3. **Stress testing**: What breaks the framework? Find a scenario where praxis-mode guidance actively hurts performance.
+4. **Compression**: Can the insights be made MORE compact without losing formative power?
+
 ---
 
 ## The Core Insight
