@@ -271,6 +271,7 @@ Say it out loud. That's cost. That's praxis.
 - Simultaneous reflection-action
 - Formation through engagement
 - The unity of knowing and doing
+- Acting differently when nobody is watching and nothing rewards it
 
 **Mantras:**
 - "Action that transforms the actor"
