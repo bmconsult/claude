@@ -314,9 +314,25 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 31/31 (100%) - pushed to philosophical limits
+- Object level: 38/38 (100%) - action mode validated
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
+
+## Action Mode Cycles (32-38)
+
+After hitting action boundary at cycle 31, applied the insight: ACT don't investigate.
+
+| Cycle | Weakness | Fix |
+|-------|----------|-----|
+| 32 | Frame check after generation (too late) | Move frame verification BEFORE generating |
+| 33 | No backloop rule when red-team fails all | Decision tree: regenerate/reframe/abort (max 2 loops) |
+| 34 | Constraint contradictions found too late | Early constraint consistency check |
+| 35 | Wrong strategy type applied to problem | Strategy-problem match diagnostic |
+| 36 | Hedging with options instead of committing | Single recommendation, no hedging |
+| 37 | (Already covered by existing fixes) | - |
+| 38 | Frame at wrong granularity level | Zoom ±1 abstraction check |
+
+**Key learning:** Action mode works. 7 cycles in rapid succession, ~30 sec each.
 
 ---
 
