@@ -1,0 +1,54 @@
+{
+  "history": [
+    {
+      "cycle": 1,
+      "difficulty": "medium",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 1
+    },
+    {
+      "cycle": 2,
+      "difficulty": "hard",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 2
+    },
+    {
+      "cycle": 3,
+      "difficulty": "hard",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 3
+    },
+    {
+      "cycle": 4,
+      "difficulty": "hard",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 4
+    },
+    {
+      "cycle": 5,
+      "difficulty": "impossible",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 5
+    },
+    {
+      "cycle": 6,
+      "difficulty": "impossible",
+      "before": 4,
+      "after": 4,
+      "gain": 0,
+      "method_version": 6
+    }
+  ],
+  "final_method": "# IMPROVED ADAPTIVE PROBLEM-SOLVING METHOD\n\n## 0. **CLASSIFY & QUICK FEASIBILITY:**\nWhat type of problem? (Technical/Analytical, People/Political, Strategic/Ambiguous, Crisis/Time-pressured) What's the context and timing? **FEASIBILITY CHECK:** Do we have access to key stakeholders, decision-makers, and resources needed for any solution? If not, reframe the problem or stop here.\n\n## 1. **FRAME & SURFACE CONSTRAINTS:** \nWhat's the real problem vs. symptoms? Who are stakeholders and what are their rational AND emotional interests? What are the hard constraints (budget, time, authority, capabilities)? What assumptions might we have? Try reframing 2+ ways, including \"what problem would we have if we solved this?\"\n\n## 2. **DECOMPOSE & PRE-MORTEM:** \nBreak into sub-problems ranked by impact/effort. What are root causes vs. surface issues? **PRE-MORTEM:** Imagine total failure - what killed it? What would make this impossible to solve? What interdependencies could cascade into failure?\n\n## 3. **VALIDATE PROBLEM & SUCCESS CRITERIA:** \nWith key stakeholders: What would success look like with specific metrics they actually care about? What are unspoken political realities? What constraints are non-negotiable? What similar problems exist and how were they solved? **Can we actually deliver what success requires?**\n\n## 4. **GENERATE & RESOURCE-CHECK:** \nCreate 3+ approaches matched to problem type. Include \"minimum viable solution\" and \"strategic do-nothing\" options. For each viable approach: What resources, capabilities, and authority do we actually need vs. have? **Kill approaches that fail resource reality-check.**\n\n## 5. **STRESS-TEST SURVIVORS:** \nFor remaining approaches: Stakeholder buy-in likely (rational AND emotional)? What breaks this under pressure? What happens if key assumptions prove wrong? **What's the earliest/cheapest way to test our riskiest assumptions?**\n\n## 6. **TEST CRITICAL ASSUMPTIONS:** \nBefore full commitment - prototype, pilot, or validate key assumptions with stakeholders. Focus on: Do stakeholders behave as expected? Do our capabilities work as planned? Are our constraints accurate?\n\n## 7. **DECIDE WITH KILL CRITERIA:** \nSelect best approach or combination. Define: 3 concrete next actions, timeline, resources, success metrics, **and specific early warning triggers that require immediate pivot or stop**. Get explicit stakeholder commitment AND identify internal champion.\n\n## 8. **EXECUTE WITH LEARNING GATES:** \nImplement with checkpoints every 25% of timeline. At each gate: Are early warning triggers firing? What are stakeholders actually experiencing? What's working/breaking? **Explicit go/pivot/kill decision at each gate.**",
+  "total_gain": 0
+}
