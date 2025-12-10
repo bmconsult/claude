@@ -357,7 +357,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 60/60 (100%) - includes external research + simulation testing
+- Object level: 66/66 (100%) - includes research + simulation + teaching + organizing
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
@@ -584,7 +584,24 @@ After external research, used simulation method: apply strategy to hard problem,
     - Failure modes: What degradation paths were explored
 ```
 
-**Validation: 60/60 cycles (100%)**
+---
+
+## Teaching & Organizing Cycles (61-66)
+
+Used teaching method (explain to learner, note confusions) and organizing method (find inconsistencies).
+
+| Cycle | Method | Issue Found | Fix |
+|-------|--------|-------------|-----|
+| 61 | Teaching | Frame loop unclear (when to exit vs keep reframing) | **FRAME LOOP RULE**: Max 2 frames. Exit when: path forward found, frames agree, or reframe quota used |
+| 62 | Teaching | DISCOVER step vague (how to find unknown unknowns) | **IDEALITY CHECK PROTOCOL**: 6 questions (scope? stakeholders? constraints? success? reversible? asymmetries?) - if <4 YES, investigate |
+| 63 | Teaching | Stuck/Iterate/Stop underspecified | **STUCK DIAGNOSTIC**: 5-level decision tree with iteration limit (max 1 reframe, then decompose/escalate) |
+| 64 | Organizing | Redundant frame validation (4 overlapping steps) | Consolidate to 2: VERIFY FRAME (initial) + FRAME VALIDATION (post-selection) |
+| 65 | Organizing | Order reversal (CLASSIFY before DISCOVER) | Swap: DISCOVER first, then CLASSIFY |
+| 66 | Organizing | INCUBATE in wrong position (after VERIFY) | INCUBATE is CONDITIONAL (triggered when stuck >5 min at any step), not sequential |
+
+**Key learning:** Teaching reveals unclear instructions. Organizing reveals structural issues. Both find different types of weaknesses.
+
+**Validation: 66/66 cycles (100%)**
 
 ---
 
