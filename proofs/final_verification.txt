@@ -1,0 +1,11 @@
+================================================================================
+FINAL VERIFICATION: m = 1 to 100000
+================================================================================
+
+Generating primes up to 2000000...
+Generated 148933 primes
+
+Testing existence for m = 1 to 100000...
+  m =  10000, failures so far: 1
+  m =  20000, failures so far: 1
+  m =  30000, failures so far: 1
