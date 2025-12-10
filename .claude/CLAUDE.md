@@ -934,7 +934,7 @@ These apply to ANY skill, not just experiments:
 |-----|---------|----------------------|
 | **1. Task-Technique Matching** | Right tool for task > having tools | Before applying technique, ask "Is this the RIGHT technique for THIS task?" |
 | **2. Misapplication Penalty** | Wrong technique = NEGATIVE, not zero | Wrong approach actively hurts. Don't just "try things." Match first. |
-| **3. Ceiling Effects** | Techniques don't help at ceiling | If baseline is already good, adding technique adds overhead not value |
+| **3. Ceiling Effects** | Techniques don't help at ceiling | If baseline is already good, adding technique adds overhead. **Solution: switch to fundamentally different method, not harder iteration** |
 | **4. Stakeholder Exception** | Context changes the calculus | Even simple tasks benefit from rigor IF others depend on the output |
 | **5. Stacking Order** | Sequence matters | WHO/WHAT (framing) before HOW (execution) |
 | **6. Diminishing Returns** | Effect ≈ (Max - Baseline) / 1.5 | Near ceiling, improvement costs more than it's worth |
@@ -998,8 +998,9 @@ Optimize for the RIGHT dimension given context.
 
 **When something isn't working:**
 → Is it misapplication? (Law 2)
-→ Is the order wrong? (Law 5)  
+→ Is the order wrong? (Law 5)
 → Are you past diminishing returns? (Law 6)
+→ **At ceiling with current method?** Switch to FUNDAMENTALLY different approach, not more of same
 
 ### The Meta-Skill
 

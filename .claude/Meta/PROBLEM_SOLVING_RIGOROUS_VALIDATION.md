@@ -948,7 +948,65 @@ The protocol stack shows **statistically and practically significant improvement
 
 ---
 
-**FINAL STATUS**: **VALIDATED** - Protocol stack shows ~30% improvement on problem-solving, confirmed by external blind evaluation. Effect is larger than self-evaluation suggested.
+## Part 12: PROBLEM SELECTION VALIDATION (Critical Gap)
+
+**Critical Insight**: External validation confirms the SOLUTION works—but NOT whether you solved the RIGHT problem.
+
+### The Gap
+```
+Solution validation ≠ Problem choice validation
+External eval: "This solution is good"
+Missing eval: "This is the right problem to solve"
+```
+
+### Problem Choice Validation Protocol
+
+**Before attempting any solution, validate:**
+
+1. **Stakeholder Reality Check** - Who ACTUALLY has the problem?
+   - Is this a real need or assumed?
+   - Have you talked to stakeholders (not inferred)?
+   - Are you solving FOR someone or FOR yourself?
+
+2. **Reframing Test** - Could this be reframed as different problem?
+   - What if the stated problem is a SYMPTOM?
+   - What if the constraint is wrong?
+   - What if success metric is misaligned?
+
+3. **Opportunity Cost Check** - What are you NOT solving?
+   - Is there a higher-impact problem?
+   - Are you optimizing locally while missing globally?
+   - Does this ladder to your actual goal?
+
+4. **Falsification Upfront** - What would prove wrong problem was chosen?
+   - Implement solution → no stakeholder adoption
+   - Implement solution → unintended consequences cascade
+   - Stakeholder response: "Nice, but we need..."
+
+### Validation Sequence (Corrected)
+
+```
+PHASE 1: PROBLEM CHOICE VALIDATION ← START HERE
+├── Stakeholder verification
+├── Reframing stress test
+└── Opportunity cost analysis
+
+PHASE 2: SOLUTION GENERATION (then apply protocol)
+
+PHASE 3: SOLUTION VALIDATION (external eval)
+
+PHASE 4: IMPLEMENTATION CHECK (did problem actually exist?)
+```
+
+### The Key Inversion
+
+Most frameworks jump to Phase 2-3. This creates elegant solutions to wrong problems.
+
+**The correct inversion**: Validate problem FIRST, then validate solution.
+
+---
+
+**FINAL STATUS**: **VALIDATED** - Protocol stack shows ~30% improvement on problem-solving, confirmed by external blind evaluation. Effect is larger than self-evaluation suggested. **BUT: Always validate problem choice before solution quality.**
 
 ---
 
