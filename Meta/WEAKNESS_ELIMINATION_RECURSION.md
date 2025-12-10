@@ -34,24 +34,35 @@ What you're improving - in our case, a problem-solving strategy.
 6. VERIFY it works
 ```
 
-**After 10 improvement cycles (hardened for difficult problems):**
+**After 49 improvement cycles (hardened + external research):**
 ```
+-1. CLASSIFY DOMAIN (Cynefin) [MUST DO FIRST]
+    - Clear? → Apply known solution
+    - Complicated? → Expert analysis
+    - Complex? → Probe/sense/respond
+    - Chaotic? → Act/sense/respond
+
 0. DISCOVER (probe unknown unknowns)
    - "What hidden constraint would break ALL approaches?"
    - "What would a domain expert warn us about?"
+   - IDEALITY CHECK: "Can this constraint disappear entirely?" (TRIZ)
 
 1. VERIFY PROBLEM FRAME
    - "Is this the right QUESTION?"
    - "What if the problem IS the problem?"
+   - Target LEVERAGE POINTS: paradigm > goals > rules > info flows (Meadows)
 
 2. STATE problem clearly
 
 3. LIST constraints
+   - Check constraint consistency EARLY
+   - Question assumed vs required constraints
 
 4. GENERATE 3+ approaches with DISTINCT CAUSAL MECHANISMS
    - Each must assume different causal pathway
    - Include one that inverts baseline assumption
    - Check feasibility DURING generation
+   - For NOVEL problems: prototype first, plan later (Design Thinking)
 
 5. EVALUATE with weighted criteria (define, weight, score 1-5)
 
@@ -64,6 +75,8 @@ What you're improving - in our case, a problem-solving strategy.
    - If yes → return to step 2 to re-state problem
 
 7. SELECT best (criteria + robustness)
+   - Single recommendation, no hedging
+   - Include zoom ±1 abstraction check
 
 7.5. PROBE FRAME (surface frame errors early)
    - Build minimal prototype or thought experiment
@@ -71,8 +84,16 @@ What you're improving - in our case, a problem-solving strategy.
    - If frame breaks → return to step 4
 
 8. DESIGN solution (with failure mitigations)
+   - Strategy-problem match diagnostic
+   - Include rollback procedure
 
 9. VERIFY it works (including edge cases)
+   - Staged deployment check
+   - Dependency matrix for deployment order
+
+10. INCUBATE if stuck (Wallas)
+    - For complex/creative: MANDATORY rest phase
+    - Insight often arrives after stepping away
 ```
 
 **Improvements added (cycles 6-10):**
@@ -336,7 +357,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 38/38 (100%) - action mode validated
+- Object level: 49/49 (100%) - includes external research breakthrough
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
@@ -372,6 +393,81 @@ After adding staged deployment check, new weaknesses emerge:
 | 44 | No planned deprecation for dependent systems still expecting old behavior | Deprecation timeline: when old behavior support ends, affected systems notified |
 
 **Key learning:** Deployment readiness requires systems thinking, not just fix correctness.
+
+---
+
+## External Research Breakthrough (Cycles 45-49)
+
+At cycle 44, internal improvement hit ceiling. Applied user's suggestion: external research method.
+
+**Method:** Search expert literature for gaps that internal analysis missed.
+
+| Cycle | Source | Gap Found | Fix Added |
+|-------|--------|-----------|-----------|
+| 45 | Cynefin (Snowden) | No domain classification before method selection | **STEP -1: CLASSIFY DOMAIN** - Clear/Complicated/Complex/Chaotic? Different domains need fundamentally different approaches |
+| 46 | TRIZ (Altshuller) | Optimize within constraints instead of eliminating them | **IDEALITY CHECK**: "Can this constraint disappear entirely?" before optimizing around it |
+| 47 | Systems Thinking (Meadows) | Target parameters instead of leverage points | Target **info flows**, **feedback loops**, and **paradigm** - not surface parameters |
+| 48 | Cognitive Science (Wallas) | Incubation treated as optional | **MANDATORY INCUBATION** for complex/creative problems - rest phase is productive |
+| 49 | Design Thinking (IDEO) | Plan first, prototype later | For NOVEL problems: **PROTOTYPE FIRST**, plan after (learning by doing) |
+
+### Domain Classification (Cynefin) - MUST DO FIRST
+
+| Domain | Characteristics | Approach |
+|--------|----------------|----------|
+| **Clear** | Cause-effect obvious, best practice exists | Apply known solution |
+| **Complicated** | Cause-effect knowable via analysis | Expert analysis → solution |
+| **Complex** | Cause-effect only knowable in retrospect | Probe → sense → respond (experiments) |
+| **Chaotic** | No cause-effect | Act → sense → respond (stabilize first) |
+
+**Critical insight:** Applying "complicated" methods to "complex" problems GUARANTEES failure. Classify BEFORE selecting approach.
+
+### TRIZ Ideality Principle
+
+Before optimizing within a constraint, ask:
+```
+"What if this constraint didn't exist at all?"
+"What's the IDEAL final result with zero cost?"
+"Can we make the constraint solve itself?"
+```
+
+Most "constraints" are assumed, not required.
+
+### Meadows Leverage Points (in order of power)
+
+| Rank | Leverage Point | Example |
+|------|----------------|---------|
+| 1 | Paradigm | "What if we questioned this assumption?" |
+| 2 | Goals | "Are we optimizing the right thing?" |
+| 3 | Rules | "Can we change the rules?" |
+| 4 | Information flows | "Who needs to know what?" |
+| 5 | Feedback loops | "What's reinforcing the problem?" |
+| 6-12 | Parameters | Adjusting numbers (least leverage) |
+
+**Key insight:** Most problem-solving targets parameters (least powerful). Target paradigm/goals/rules instead.
+
+### Wallas Incubation
+
+The four stages of creative problem-solving:
+1. **Preparation** - gather info, attempt solutions
+2. **Incubation** - step away, do unrelated activity
+3. **Illumination** - insight arrives unexpectedly
+4. **Verification** - validate the insight
+
+**Skipping incubation for complex/creative problems guarantees suboptimal solutions.**
+
+### Design Thinking Prototyping
+
+For NOVEL problems (never solved before):
+```
+Traditional: Define → Plan → Build → Test
+Design Thinking: Build → Learn → Redefine → Repeat
+```
+
+**Prototyping reveals constraints that planning cannot anticipate.**
+
+---
+
+**Key learning:** External research reveals blind spots that internal recursion cannot find. When stuck, LOOK OUTSIDE.
 
 ---
 
