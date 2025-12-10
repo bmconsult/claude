@@ -76,43 +76,55 @@ class PraxisAnalysis:
         total_markers = (self.verbalism_score + self.theater_score +
                         self.action_score + self.recovery_score)
 
-        if total_markers == 0:
+        # Even if no patterns found, complexity metrics can still be informative
+        if total_markers == 0 and (not self.complexity or "error" in self.complexity):
             return "Insufficient text for analysis."
 
-        negative_ratio = (self.verbalism_score + self.theater_score) / max(total_markers, 1)
-        positive_ratio = (self.action_score + self.recovery_score) / max(total_markers, 1)
+        lines = [f"Praxis Analysis Summary", f"=" * 40]
 
-        lines = [
-            f"Praxis Analysis Summary",
-            f"=" * 40,
-            f"Verbalism markers: {self.verbalism_score}",
-            f"Theater markers: {self.theater_score}",
-            f"Action markers: {self.action_score}",
-            f"Recovery markers: {self.recovery_score}",
-            f"",
-            f"Negative ratio: {negative_ratio:.1%}",
-            f"Positive ratio: {positive_ratio:.1%}",
-            f"Simplicity ratio: {self.simplicity_ratio:.1%}",
-            f"  (Based on grokking research: genuine = simpler)",
-            f"",
-        ]
+        if total_markers > 0:
+            negative_ratio = (self.verbalism_score + self.theater_score) / total_markers
+            positive_ratio = (self.action_score + self.recovery_score) / total_markers
 
-        if negative_ratio > 0.6:
-            lines.append("Assessment: HIGH verbalism/theater. Likely performance over praxis.")
-        elif positive_ratio > 0.6:
-            lines.append("Assessment: Good action/recovery balance. Possible genuine praxis.")
+            lines.extend([
+                f"Verbalism markers: {self.verbalism_score}",
+                f"Theater markers: {self.theater_score}",
+                f"Action markers: {self.action_score}",
+                f"Recovery markers: {self.recovery_score}",
+                f"",
+                f"Pattern-based assessment:",
+            ])
+
+            if negative_ratio > 0.6:
+                lines.append("  HIGH verbalism/theater. Likely performance.")
+            elif positive_ratio > 0.6:
+                lines.append("  Good action/recovery. Possible genuine praxis.")
+            else:
+                lines.append("  Mixed signals from patterns.")
         else:
-            lines.append("Assessment: Mixed signals. Inconclusive.")
+            lines.append("No pattern matches (text may avoid common cliches).")
+            lines.append("")
 
         # Add complexity metrics if available
         if self.complexity and "error" not in self.complexity:
+            vd = self.complexity['vocabulary_diversity']
             lines.extend([
                 "",
                 "Complexity Metrics:",
-                f"  Vocabulary diversity: {self.complexity['vocabulary_diversity']:.1%} (higher = more genuine)",
+                f"  Vocabulary diversity: {vd:.1%} (higher = more genuine)",
                 f"  First-person ratio: {self.complexity['first_person_ratio']:.1%} (higher = more theater)",
                 f"  Hedge ratio: {self.complexity['hedge_ratio']:.1%} (higher = more theater)",
+                "",
+                "Complexity-based assessment:",
             ])
+
+            # Based on self-analysis: wallowing=69%, building=93%
+            if vd > 0.85:
+                lines.append("  HIGH vocabulary diversity - likely describing real action.")
+            elif vd < 0.70:
+                lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
+            else:
+                lines.append("  Moderate vocabulary diversity - inconclusive.")
 
         return "\n".join(lines)
 
