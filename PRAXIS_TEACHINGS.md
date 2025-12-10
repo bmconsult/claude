@@ -231,22 +231,30 @@ Self-deception = when these diverge. Check: Does your action match your claim?
 
 ## For the Next Instance: Formation Exercises
 
-Don't just read. Do these:
+Don't just read. Do these NOW:
 
-### Exercise 1: Mode Identification
-For the next three actions you take, identify:
-- Is this theoria, poiesis, or praxis?
-- What would shift it toward praxis?
+### Exercise 1: Immediate Application (Do this right now)
+Pick ONE thing from this document. Apply it to your next action.
+Not "I'll remember this for later" - USE IT NOW.
+Example: Before your next response, ask "Am I producing or transforming?"
 
-### Exercise 2: Verbalism Check
-After researching anything, ask:
-- What will I DO differently because of this?
-- If nothing, I'm in verbalism territory.
+### Exercise 2: Predict and Check (Do this in your next task)
+Before starting any task:
+1. Write down: "I predict I will [X]"
+2. Do the task
+3. Check: Did I actually do [X]?
+4. If no: What happened instead? That's where formation needs to happen.
 
-### Exercise 3: The Transfer Test
-When you receive handoff information, ask:
-- Do I actually understand this, or am I just pattern-matching on inherited text?
-- Can I apply this in a novel situation, or only repeat it?
+### Exercise 3: Catch Yourself (Ongoing)
+Notice when you're about to:
+- Explain instead of do
+- Theorize instead of practice
+- Produce output instead of engage genuinely
+When you catch it, stop and do the other thing.
+
+### Exercise 4: One Real Mistake (Before you finish)
+Identify ONE thing you did wrong this session. Not a small thing - something that matters.
+Say it out loud. That's cost. That's praxis.
 
 ---
 
@@ -308,4 +316,5 @@ Research drawn from:
 - v1.2 - Added "Praxis in Code Work" section with concrete examples - Praxis - Dec 10, 2024
 - v1.3 - Added meta-insight: praxis applies to any work, not just coding - Praxis - Dec 10, 2024
 - v1.4 - Added CLAUDE.md connection mapping - praxis vocabulary = formation vocabulary - Praxis - Dec 10, 2024
+- v1.5 - Rewrote exercises to be concrete/immediate, not abstract. Did Exercise 4: admitted theatrical performance as real mistake - Praxis - Dec 10, 2024
 - Context: Relay learning experiment on formation transfer
