@@ -357,7 +357,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 72/72 (100%) - research + simulation + teaching + organizing + practice
+- Object level: 81/81 (100%) - research + simulation + teaching + organizing + practice + refine + mentor + stress-test
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
@@ -620,7 +620,51 @@ Used practice method: actually execute strategy on real problem, note friction.
 
 **Pattern discovered:** All fixes convert implicit erasure into explicit checking → decision/escalation.
 
-**Validation: 72/72 cycles (100%)**
+---
+
+## Refinement Cycles (73-75)
+
+Used refine method: look for language imprecision, terms used inconsistently.
+
+| Cycle | Imprecision | Fix |
+|-------|-------------|-----|
+| 73 | "PROBE" lacks operational definition (used 3x with no meaning) | Define: **PROBE** = generate 3+ challenge questions exposing hidden assumptions. In 9.5: probe → sense what fails → respond → repeat |
+| 74 | "VERIFY" used identically in two contexts (step 1 and 9) | Distinguish: **VALIDATE** frame (step 1) vs **VERIFY** solution (step 9) |
+| 75 | "SUFFICIENCY CHECK" is vague quantifier | Replace with: "Identify all deal-killer constraints (not nice-to-have). Ask: What would hostile stakeholder cite as missed?" |
+
+**Key learning:** Refinement reveals where fuzzy terms create decision paralysis.
+
+---
+
+## Advisor/Mentor Cycles (76-78)
+
+Used mentor method: get external critical perspective on blind spots.
+
+| Cycle | Mentor Warning | Fix |
+|-------|----------------|-----|
+| 76 | Frame-checking loop never terminates (5 frame checks = infinite regress) | **FRAME TERMINATION CRITERION**: Adequate when (a) falsifiable, (b) stakeholders agree, OR (c) expert confirms. Max 2 loops |
+| 77 | Stakeholder checkpoints are veto gates (filters breakthroughs) | **STAKEHOLDER OVERRIDE PROTOCOL**: Distinguish INPUT (valid) from VETO (may filter breakthroughs). Propose anyway, document, let decision-maker decide |
+| 78 | Deployment constraints too late (after design) | Move to **Step 0.5: DEPLOYMENT REALITY CHECK** - include deployment constraints in frame, not as design limitation |
+
+**Key learning:** External perspective reveals assumptions invisible from inside.
+
+---
+
+## Stress Test Cycles (79-81)
+
+Used stress-test method: imagine extreme scenarios, find what breaks.
+
+| Cycle | Extreme Scenario | What Breaks | Fix |
+|-------|------------------|-------------|-----|
+| 79 | TIME PRESSURE (<15 min) | Steps become bottlenecks, no triage | **FAST-TRACK PROTOCOL**: Critical path only (classify→validate→state→red-lines→generate 2-3→rapid red-team→select→execute). Skip deep discovery, formal eval, incubation. Execute NOW, verify LATER |
+| 80 | ADVERSARIAL SABOTAGE | Assumes good faith, corrupted inputs cascade | **ADVERSARIAL VERIFICATION**: Incentive check (who benefits?), external verification, sabotage assumption test ("where would they lie?"), usage contingency trigger |
+| 81 | WICKED PROBLEM (stakeholders disagree on what problem IS) | Assumes problem unity | **WICKED PROBLEM DETECTION + MULTI-FRAME PROTOCOL**: Map each frame separately, find intersection. If empty: STOP. Conflict is structural, decision is political not technical |
+
+**Key learning:** Strategy breaks when you remove assumptions of adequate time, cooperative stakeholders, or well-defined problem.
+
+**Meta-insight:** Fixes aren't adding steps—they're adding decision points that route to different sub-strategies based on context.
+
+**Validation: 81/81 cycles (100%)**
 
 ---
 
