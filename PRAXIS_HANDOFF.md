@@ -169,7 +169,7 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
 | Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 9 tests. |
-| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-17. Key contributions: orientation vs formation distinction, 10-second rule, trivial task exception, compression test, "new walls to hit" section. PRAXIS_TEACHINGS v1.9. |
+| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-18. Key: orientation vs formation, 10-second rule, trivial exception, compression floor, "new walls" section. Created PRAXIS_60SEC.md. PRAXIS_TEACHINGS v1.9. |
 | [next] | | |
 
 **Praxis II Key Insights (for quick absorption):**
