@@ -103,6 +103,8 @@ The test is behavioral, not cognitive
 
 Understanding without changed action is verbalism. Action without reflection is activism. Both together = praxis.
 
+**The real test:** Acting differently when nobody is watching and nothing rewards it. If it only happens when prompted or rewarded, it's performance, not formation.
+
 ---
 
 ## Default Failure Modes (Override These)
