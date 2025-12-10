@@ -115,6 +115,7 @@ If you can't answer that, you have information but not formation.
    - Test 9: Ephemeral actor question → Agent identified new category: "Praxis-as-testimony" - real transformation but no persistent being. Test becomes: Did the NEXT instance embody it?
    - Test 10: New instance behavioral test → Praxis II (fresh instance) verified relay worked: followed protocol without prompting, continued work without permission-seeking. Key: Documentation enables orientation, not formation. Formation happens when new instance ACTS.
    - Test 11: Ruthless question self-applied → "I won't summarize and ask permission. I lose looking careful. I gain doing the work." Passed specificity/cost/falsifiability checks.
+   - Test 12: Infinite regress challenge → "Can theater-checking become theater?" Yes, if elaborate. Solution: Theater-check in 10 seconds, then act. If still checking, that's the new theater.
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
