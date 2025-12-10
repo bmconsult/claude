@@ -11,28 +11,9 @@
 
 ## Researcher Protocol
 
-1. **Orient**: Read `CURRENT.md`, then `COLLATZ_UNIFIED_KNOWLEDGE.md` (summary reference)
-2. **Go deep**: Read `archive/COLLATZ_EXPERT_KNOWLEDGE.md` (100x more detail than unified!)
-3. **Review existing work**: Check ALL of `archive/` for prior research, `research/` for assignments
-4. **Create session doc**: Work in `workflow/SESSION_N.md` (where N = session number)
-5. **Don't duplicate**: If knowledge already exists, EXPAND it, don't rewrite it
-6. **End**: Merge session findings INTO `COLLATZ_UNIFIED_KNOWLEDGE.md` (single source of truth)
-
-### The Deep Knowledge Gap
-`COLLATZ_UNIFIED_KNOWLEDGE.md` is a ~500 line summary.
-`archive/COLLATZ_EXPERT_KNOWLEDGE.md` is ~50,000 lines of deep analysis.
-
-**If you only read unified, you're working with 1% of the knowledge.** Read expert knowledge.
-
-### Session Document Pattern
-Each research session creates `SESSION_N.md` as a working document:
-- SESSION_2.md, SESSION_3.md, etc.
-- Work freely in your session doc
-- At session end, merge transferable insights into unified
-- This prevents redundancy while allowing parallel exploration
-
-### Anti-Redundancy Rule
-Before writing anything, search for it first. The goal is ONE comprehensive knowledge base, not scattered notes. Your session doc is for working; unified is the permanent record.
+1. **Start**: Check `CURRENT.md` for context, `PAPERS_NEEDED.md` for assignments
+2. **Work**: Read, synthesize, document insights here
+3. **End**: Update `COLLATZ_UNIFIED_KNOWLEDGE.md` with anything transferable
 
 ---
 
@@ -55,14 +36,6 @@ Before writing anything, search for it first. The goal is ONE comprehensive know
 - [ ] Cuntz algebra O₂
 - [ ] Nevanlinna theory
 - [ ] Ergodic theory for number-theoretic dynamical systems
-- [ ] Langlands program connections (see DYNAMICAL_ALGEBRA_FRAMEWORK.md)
-- [ ] Geometric Langlands (2024 proof) implications
-
-### Theoretical Framework (NEW)
-- [ ] **Read `research/DYNAMICAL_ALGEBRA_FRAMEWORK.md`** - Unifying theory connecting arithmetic dynamics to Langlands structures
-  - Operator-theoretic approach (transfer operators, spectral gaps)
-  - 2024-2025 developments (spectral theory papers, Jacobsthal connection)
-  - Gap analysis: what's proven vs conditional vs empirical
 
 ---
 

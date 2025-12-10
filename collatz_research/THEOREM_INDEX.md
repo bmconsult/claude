@@ -49,15 +49,6 @@ Syracuse(n) = (3n+1)/2^T(n) # next odd value
 | **TB1** | T_max(n) ≤ log₂(n) + 5 | `proofs/T_CASCADE_AND_TB2.md` |
 | **TB2** | ~~T_max(n) ≤ log₂(n) + 2~~ **FALSE** at j=485 | `proofs/T_CASCADE_AND_TB2.md` |
 
-### Block-Escape & Divergence
-
-| ID | Statement | Location |
-|----|-----------|----------|
-| **BE1** | ∑t_i = m·log₂(3) - log₂(n_m/n₀) (T-sum bound) | `proofs/BLOCK_ESCAPE_CONTRADICTION.md` |
-| **BE2** | Linear block growth impossible (requires perfect balance) | `proofs/BLOCK_ESCAPE_CONTRADICTION.md` |
-| **BE3** | Super-linear growth impossible (growth → 1, need > 1) | `proofs/BLOCK_ESCAPE_CONTRADICTION.md` |
-| **BE4** | Block-Escape property impossible (95% complete) | `proofs/BLOCK_ESCAPE_CONTRADICTION.md` |
-
 ### Foundational
 
 | ID | Statement | Location |

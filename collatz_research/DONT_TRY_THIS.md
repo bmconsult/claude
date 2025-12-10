@@ -38,30 +38,6 @@ These have been tried and don't work. Don't waste time rediscovering why.
 | **Direct probabilistic** | Proves expected behavior, not worst-case |
 | **Gambler's ruin analogy** | Works for random, fails for deterministic |
 | **TB2 bound (T_max ≤ log₂n + 2)** | FALSE - counterexample at n ≈ 2^{482} |
-| **Clean k / fake cycle approach** | Mod 2^k dynamics ≠ actual values (see below) |
-
----
-
-## The "Clean k" / Fake Cycle Approach (Near Miss)
-
-**The approach**:
-1. Define "clean k" where all odd residues mod 2^k reach class 1 under Syracuse
-2. Show clean k values are dense (gaps ≤ 4, verified to k = 100)
-3. For any n, choose clean k > log₂(n)
-4. Trajectory mod 2^k reaches class 1, then descends
-
-**Why it ALMOST works**:
-- Computationally verified: clean k's exist at most 4 apart
-- Class 1 descent IS algebraically proven: v ≡ 1 (mod 4), v > 1 ⟹ S(v) < v
-- Fake cycles only at k ∈ {10, 11, 12, 20} for k ≤ 100
-
-**Why it FAILS**:
-- "Trajectory reaches class 1 mod 2^k" is about RESIDUES
-- The ACTUAL VALUES could grow unboundedly before reaching that residue
-- The assumption "Let v be the first value with v ≡ 1 (mod 2^k)" presumes bounded growth
-- This is the probabilistic → deterministic gap in disguise
-
-**Classification**: Local → Global failure mode. Mod 2^k dynamics don't control actual values.
 
 ---
 

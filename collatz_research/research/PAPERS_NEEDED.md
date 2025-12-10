@@ -81,30 +81,6 @@
 
 ---
 
-## Priority 5: 2024-2025 Developments (from DYNAMICAL_ALGEBRA_FRAMEWORK.md)
-
-### Non-Archimedean Spectral Theory for Collatz (2024)
-- **Title**: "The Collatz Conjecture & Non-Archimedean Spectral Theory"
-- **Why needed**: Claims complete reformulation; Spectral Conjecture 5.28 would give full reformulation
-- **Key concepts**: (p,q)-adic analysis, functions from p-adics to q-adics
-- **Status**: Need to obtain and verify claims
-
-### Geometric Langlands Proof (Gaitsgory-Raskin, July 2024)
-- **Why needed**: New categorical tools for connecting dynamical systems to representation theory
-- **Note**: 800+ pages, 5 papers - may be too advanced for direct application
-- **Status**: Reference material
-
-### Operator-Theoretic Framework Papers (2024)
-- **Topics**: Lasota-Yorke inequality, backward transfer operators, spectral gaps
-- **Why needed**: Direct attack on independence gap via spectral methods
-- **Status**: Need specific paper citations
-
-### Jacobsthal Numbers Connection
-- **Why needed**: Structural correspondence between Collatz and signed Jacobsthal numbers
-- **Status**: Need source paper
-
----
-
 ## Documents Already Read (For Reference)
 
 - COLLATZ_PROOF_COMPLETE.md - Our current framework

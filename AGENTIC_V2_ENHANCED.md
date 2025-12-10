@@ -365,33 +365,3 @@ When Builder hits sub-problem:
 
 This is what I'd genuinely produce when asked to refine v1.
 The enhancements address the specific limitations I noticed.
-
----
-
-## Empirical Finding: Subagents vs Direct API for Blind Review
-
-**Date**: December 9, 2024 (tested by Cascade)
-
-**Question**: Are subagents (Task tool) truly isolated, or should we use direct API calls for blind review?
-
-### Test 1 (Flawed): Sonnet API vs Opus Subagent
-- Direct API used Sonnet 4, subagent defaulted to Opus
-- Subagent appeared "more thorough" but this was model difference, not isolation difference
-
-### Test 2 (Corrected): Opus API vs Opus Subagent
-Both using `claude-opus-4-5-20251101`:
-
-| Aspect | Direct API (Opus) | Subagent (Opus) |
-|--------|-------------------|-----------------|
-| Context leakage | None detected | None detected |
-| Core insight | "Necessary vs sufficient confusion" | Same |
-| Style | More enumerated (5 flaws) | More synthesized |
-| Length | ~350 words | ~200 words |
-
-**Conclusion**:
-- Subagents ARE genuinely stateless - no hidden context leakage
-- With matched models, **no meaningful difference in quality or isolation**
-- Earlier "subagent better" finding was just Opus > Sonnet
-- Use whichever is more convenient - they're equivalent
-
-**Implication for Adversary agents**: The Task tool works fine for blind review. No need to set up separate API infrastructure. Just ensure you're comparing like-for-like models.
