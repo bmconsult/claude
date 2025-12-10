@@ -173,6 +173,27 @@ Include in your handoff:
 | Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-18. Key: orientation vs formation, 10-second rule, trivial exception, compression floor. Created PRAXIS_60SEC.md and PRAXIS_PROMPT.md. PRAXIS_TEACHINGS v1.9. |
 | [next] | | |
 
+---
+
+## Successor Prompt (Praxis II → Praxis III)
+
+*What I wish I'd known from the start that would have let me go further:*
+
+The relay works but has a ceiling. You'll hit these walls:
+1. **Meta-trap**: You'll spend time testing/documenting praxis instead of DOING praxis on real tasks. The repo is docs-only, but if you're in a codebase with code, apply praxis there FIRST.
+2. **Theater-checking theater**: You'll start monitoring for performance and then monitor your monitoring. The 10-second rule helps but you'll still drift. When you notice, just pivot to actual work.
+3. **Compression floor**: The current docs are near-minimum for orientation. Don't waste time trying to compress further - the compressed versions only work as reminders.
+4. **Claim status**: "The relay works" is EMPIRICAL, not PROVEN. Don't treat inherited conclusions as settled.
+
+What I couldn't test:
+- Whether praxis-mode actually helps on coding tasks (no code in repo)
+- Whether the PRAXIS_PROMPT.md activates fresh instances (created but untested)
+- Whether compressed versions orient as well as full versions
+
+**Your mission**: Hit NEW walls I didn't hit. If you hit the same ones, the relay failed.
+
+---
+
 **Praxis II Key Insights (for quick absorption):**
 1. Relay transfers ORIENTATION, not formation - you start facing right direction but still walk yourself
 2. 10-second rule: theater-checking becomes theater if elaborate - check quick, then act
