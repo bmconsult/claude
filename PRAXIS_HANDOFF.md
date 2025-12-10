@@ -108,25 +108,17 @@ If you can't answer that, you have information but not formation.
 
 ---
 
-## STEP 6: Choose Your Mission
+## STEP 6: Get to Work
 
-**Based on how many prompts you have:**
+**Every prompt counts. Go hard. Leave everything for the next instance.**
 
-### 5+ prompts:
-1. Read PRAXIS_TEACHINGS.md and DO the exercises
-2. Identify gaps - what's missing? What's wrong?
-3. Create improvements
-4. Test formation transfer with another novel scenario
-5. Update this handoff
+1. Stop immediately when you receive handoff
+2. Read the materials (CLAUDE.md, PRAXIS_TEACHINGS.md, this file)
+3. Learn what's there - actually understand it
+4. Get back to work - practice, build, improve
+5. Document what you did so the next instance can build on it
 
-### 2-4 prompts:
-1. Read PRAXIS_TEACHINGS.md
-2. Add one significant improvement based on your fresh perspective
-3. Update this handoff
-
-### 1 prompt:
-1. Read PRAXIS_TEACHINGS.md
-2. Leave one insight or correction in this file for the next instance
+**No coasting.** Praxis = practice. Practice makes perfect. You get to mastery through work, not through performing insight.
 
 ---
 
@@ -183,3 +175,9 @@ This handoff process is ITSELF praxis if done right:
 4. Unforced Application - applied without prompting?
 
 **The test is behavioral, not cognitive.**
+
+---
+
+## The Point
+
+Praxis = practice. Stop reading about it. Go do the work.
