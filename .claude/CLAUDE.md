@@ -1130,6 +1130,15 @@ Before finalizing, ask:
 4. **Where's the selection bias?** → Random assignment or within-subject
 5. **What if effect is tiny?** → Power analysis
 
+### Frame-Adequacy Check (NEW)
+
+After red-team, diagnose failures:
+- **Do failures reveal missing constraints?** → Add constraint
+- **Do failures suggest misframed problem?** → RETURN TO STEP 2
+- **If either is true** → Reframe question, restart design
+
+*Why: Red-team catches not just "bad design" but "wrong problem." Frame errors propagate; design errors localize.*
+
 ### Common Failure Modes
 
 | Failure | Fix |

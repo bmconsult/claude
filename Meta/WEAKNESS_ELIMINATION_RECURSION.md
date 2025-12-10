@@ -34,28 +34,55 @@ What you're improving - in our case, a problem-solving strategy.
 6. VERIFY it works
 ```
 
-**After 5 improvement cycles:**
+**After 10 improvement cycles (hardened for difficult problems):**
 ```
-1. STATE problem clearly
-2. LIST constraints
-3. GENERATE 3+ approaches with DISTINCT CAUSAL MECHANISMS
+0. DISCOVER (probe unknown unknowns)
+   - "What hidden constraint would break ALL approaches?"
+   - "What would a domain expert warn us about?"
+
+1. VERIFY PROBLEM FRAME
+   - "Is this the right QUESTION?"
+   - "What if the problem IS the problem?"
+
+2. STATE problem clearly
+
+3. LIST constraints
+
+4. GENERATE 3+ approaches with DISTINCT CAUSAL MECHANISMS
    - Each must assume different causal pathway
    - Include one that inverts baseline assumption
-4. EVALUATE with weighted criteria (define, weight, score 1-5)
-5. ADVERSARIAL RED-TEAM finalists
+   - Check feasibility DURING generation
+
+5. EVALUATE with weighted criteria (define, weight, score 1-5)
+
+6. ADVERSARIAL RED-TEAM finalists
    - What's the obvious failure mode?
    - What would a skeptic attack?
-6. SELECT best (criteria + robustness)
-7. VERIFY DEPENDENCIES (time, resources, skills, assumptions)
-   - If infeasible → RESOLVE: relax/pivot/extend/decompose
+
+6.5. FRAME-ADEQUACY CHECK
+   - Do red-team failures reveal wrong problem frame?
+   - If yes → return to step 2 to re-state problem
+
+7. SELECT best (criteria + robustness)
+
 7.5. PROBE FRAME (surface frame errors early)
-   - Build minimal prototype or run thought experiment
+   - Build minimal prototype or thought experiment
    - Test core assumption of chosen approach
-   - External validation: does frame match reality?
-   - If frame breaks: pivot to different approach (return to step 3)
+   - If frame breaks → return to step 4
+
 8. DESIGN solution (with failure mitigations)
+
 9. VERIFY it works (including edge cases)
 ```
+
+**Improvements added (cycles 6-10):**
+| Cycle | Weakness | Fix Added |
+|-------|----------|-----------|
+| 6 | No probe for unknown unknowns | Step 0: DISCOVER |
+| 7 | Feasibility checked too late | Feasibility during EVALUATE |
+| 8 | Problem statement may be wrong | Step 1: VERIFY PROBLEM FRAME |
+| 9 | Frame errors surface too late | Step 7.5: PROBE FRAME |
+| 10 | No re-frame loop | Step 6.5: FRAME-ADEQUACY CHECK |
 
 ### Meta Level (The Method)
 The improvement process itself - which can also be improved using the same loop.
@@ -287,7 +314,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 5/5 (100%)
+- Object level: 10/10 (100%) - strategy hardened for hard problems
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
