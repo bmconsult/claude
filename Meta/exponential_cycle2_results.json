@@ -1,0 +1,101 @@
+{
+  "v2_current": {
+    "label": "v4 + v2 criteria",
+    "avg": 13.0,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "c1": 3,
+          "c2": 2,
+          "c3": 2,
+          "c4": 1,
+          "c5": 3,
+          "total": 11
+        }
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 3,
+          "c4": 3,
+          "c5": 3,
+          "total": 15
+        }
+      },
+      {
+        "id": "space",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 2,
+          "c4": 3,
+          "c5": 2,
+          "total": 13
+        }
+      }
+    ]
+  },
+  "v3_baseline": {
+    "label": "v4 + v3 criteria",
+    "avg": 6.0,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "c1": 3,
+          "c2": 0,
+          "c3": 3,
+          "c4": 1,
+          "c5": 2,
+          "total": 9
+        }
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "c1": 2,
+          "c2": 2,
+          "c3": 1,
+          "c4": 2,
+          "c5": 2,
+          "total": 9
+        }
+      },
+      {
+        "id": "space",
+        "score": {
+          "total": 0
+        }
+      }
+    ]
+  },
+  "v3_improved": {
+    "label": "v5 + v3 criteria",
+    "avg": 0.0,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "total": 0
+        }
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "total": 0
+        }
+      },
+      {
+        "id": "space",
+        "score": {
+          "total": 0
+        }
+      }
+    ]
+  },
+  "improvement": -6.0,
+  "improved_strategy": "## IMPROVED PROBLEM-SOLVING STRATEGY v5.0\n\n**CORE PRINCIPLE**: Design solutions as living systems that thrive under stress, not rigid plans that break.\n\n### 1. FRAME\n- **Type**: What category? What's success? What constraints?\n- **Stakeholders**: Who wins/loses? What are their incentives?\n- **ECOSYSTEM MAPPING**: What adjacent systems will this touch? How do they currently interact?\n\n### 2. GENERATE\n- **Conventional**: 2+ standard approaches\n- **Cross-domain**: Force one approach from completely different field\n- **Assumption-breaking**: One approach assuming core assumptions are wrong\n- **REVERSIBILITY SEED**: For each approach, ask \"How would we undo this if it goes wrong?\"\n\n### 3. EVALUATE\n- **Core tension**: What's the fundamental tradeoff?\n- **SECOND-ORDER**: Trace effects \u2192 effects of effects \u2192 effects of those effects (3+ levels)\n- **ADVERSARIAL**: How would hostile actors exploit this?\n- **GRACEFUL FAILURE**: What happens when this breaks? How does it break?\n- **EMERGENT POTENTIAL**: What good things could this enable that we didn't plan for?\n\n### 4. SELECT & REFINE\n- **Best approach** based on evaluation\n- **INCENTIVE DESIGN**: How do we make it profitable/beneficial for actors to do the right thing?\n- **ROLLBACK MECHANISMS**: Build in specific ways to reverse course\n- **STRESS TESTING**: Design for 10x the expected load/opposition\n- **GENERATIVE ELEMENTS**: Add components that could spawn beneficial mutations\n\n### 5. VERIFY\n- **All constraints met?**\n- **Stranger implementation test**\n- **ECOSYSTEM CHECK**: Have we mapped all major interdependencies?\n- **INCENTIVE AUDIT**: Does everyone's self-interest align with success?\n- **Failure scenario planning**: What are the 3 most likely failure modes?\n\n### 6. META\n- **What worked?** \n- **Transferable insight?**\n- **ADAPTIVE CALIBRATION**: Score on 5 criteria, adjust emphasis for next problem\n\n---\n\n## APPLYING v5.0 TO IMPROVE PROBLEM-SOLVING STRATEGY\n\n### 1. FRAME\n- **Type**: Meta-cognitive system design\n- **Success**: Consistent 12+ scores on 5 criteria\n- **Constraints**: Must remain practical, can't be too complex\n- **Stakeholders**: Me (wants better outcomes), evaluators (want quality), future problem-solvers (want usable tools)\n- **ECOSYSTEM**: This strategy interacts with time pressure, cognitive load, problem complexity, team dynamics\n\n### 2. GENERATE\n\n**Approach A (Modular)**: Create plug-in modules for each weak criterion that can be added as needed\n**Approach B (Biological)**: Design strategy like an immune system - adaptive responses to different problem \"pathogens\"\n**Approach C (Economic)**: Treat each step as a market transaction - what's the ROI of each analysis?\n**Approach D (Assumption-breaking)**: What if linear thinking is the problem? Create a web-based approach where you can enter at any node\n\n**REVERSIBILITY SEEDS**:\n- A: Can remove modules if they're not working\n- B: Can \"vaccinate\" against known failure patterns\n- C: Can reallocate \"cognitive budget\" based on returns\n- D: Can always return to any previous node in the web\n\n### 3. EVALUATE\n\n**SECOND-ORDER**:\n- Approach B: Adaptive responses \u2192 better pattern recognition \u2192 faster problem-solving \u2192 more time for deep analysis \u2192 better scores \u2192 more confidence \u2192 willingness to tackle harder problems\n- Approach D: Web thinking \u2192 seeing more connections \u2192 finding non-obvious solutions \u2192 higher novelty scores \u2192 reputation for innovation \u2192 access to more interesting problems\n\n**ADVERSARIAL**: \n- Someone could game Approach C by optimizing for easy-to-measure returns vs. actual quality\n- Approach D could be exploited by jumping around without depth\n\n**GRACEFUL FAILURE**:\n- A: If modules fail, core strategy still works\n- B: Immune system approach naturally handles novel threats\n- C: Economic approach automatically reallocates resources when something isn't working\n- D: Web approach provides multiple paths if one gets blocked\n\n**EMERGENT POTENTIAL**:\n- B: Could develop new \"antibodies\" for problem types not yet encountered\n- D: Web connections might reveal meta-patterns across problem domains\n\n### 4. SELECT & REFINE\n\n**Selected**: Hybrid B+D - Immune system with web topology\n\n**INCENTIVE DESIGN**: \n- Make it immediately rewarding to use (quick wins early in process)\n- Each criterion improvement should unlock new capabilities\n- Build in \"achievement unlocks\" for hitting score thresholds\n\n**ROLLBACK MECHANISMS**:\n- Version control for strategy iterations\n- \"Revert to last working version\" option\n- A/B test new elements before full adoption\n\n**STRESS TESTING**:\n- Design for use under time pressure\n- Test with problems outside comfort zone\n- Assume 50% of steps will be skipped in real use\n\n**GENERATIVE ELEMENTS**:\n- Cross-pollination database: solutions from one domain that might apply to others\n- Pattern library that grows with each problem solved\n- \"Mutation engine\" that suggests random variations on standard approaches\n\n### 5. VERIFY\n\n**ECOSYSTEM CHECK**: \n- Interacts with: cognitive energy, time constraints, problem novelty, stakeholder complexity, implementation resources\n- Mapped interdependencies: More complex problems need more ecosystem mapping, which takes more time, which increases pressure, which reduces quality\n\n**INCENTIVE AUDIT**:\n- My incentive: Get better scores \u2713\n- Evaluator incentive: See quality solutions \u2713\n- Future users: Want practical tools \u2713\n- All aligned around \"solutions that actually work in the real world\"\n\n**Failure scenarios**:\n1. Strategy becomes too complex \u2192 Add complexity meter, red-line at 7 steps per section\n2. Gaming the criteria without solving problems \u2192 Include \"real-world implementation\" as hidden 6th criterion\n3. Analysis paralysis \u2192 Time-box each section, force decisions\n\n### 6. META\n\n**Key insight**: The strategy should be antifragile - it gets better when stressed, not worse. Each \"failure\" should make it stronger.\n\n**Transferable**: \"Immune system design\" - build adaptive responses rather than rigid rules.\n\n**ADAPTIVE CALIBRATION**: After next 3 problems, if not averaging 12+, activate \"emergency protocols\" - simplified version focused only on weakest criteria.\n\n---\n\n## FINAL STRATEGY SUMMARY\n\n**The Antifragile Problem-Solver**: A web-based immune system that gets stronger under stress.\n\n1. **FRAME + MAP**: Problem type, success metrics, constraints, stakeholders, ecosystem effects\n2. **GENERATE + SEED**: Multiple approaches including cross-domain and assumption-breaking, with reversibility built in\n3. **EVALUATE + STRESS**: Second-order effects, adversarial analysis, failure modes, emergent potential\n4. **SELECT + FORTIFY**: Choose approach, align incentives, build rollbacks, stress-test, add generative elements  \n5. **VERIFY + AUDIT**: Constraints, ecosystem, incentives, failure scenarios\n6. **META + ADAPT**: Learn, transfer insights, calibrate for next iteration\n\n**Emergency Protocol**: If overwhelmed, focus only on: Ecosystem mapping, Incentive alignment, and Failure planning."
+}

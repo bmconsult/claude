@@ -1,0 +1,130 @@
+{
+  "v1_ceiling": {
+    "label": "v3 strategy + v1 criteria",
+    "avg": 14.333333333333334,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 3,
+          "c4": 3,
+          "c5": 2,
+          "total": 14
+        },
+        "solution_preview": "I'll apply the problem-solving strategy to this complex governance challenge.\n\n## 1. FRAME\n**Type:** Constitutional/institutional design problem with intergenerational equity dimensions\n**Success:** F"
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 3,
+          "c4": 3,
+          "c5": 3,
+          "total": 15
+        },
+        "solution_preview": "# AI CRIME PREDICTION DEPLOYMENT POLICY\n\n## 1. FRAME\n**Type:** Ethical technology deployment with high societal impact\n**Success:** Reduce crime while protecting civil liberties and preventing discrim"
+      },
+      {
+        "id": "space",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 3,
+          "c4": 3,
+          "c5": 2,
+          "total": 14
+        },
+        "solution_preview": "# SPACE HABITAT GOVERNANCE SOLUTION\n\n## 1. FRAME\n**Type:** Constitutional design problem with extreme constraints\n**Success:** Stable, legitimate governance that maintains order, adapts to crises, and"
+      }
+    ]
+  },
+  "v2_baseline": {
+    "label": "v3 strategy + v2 criteria",
+    "avg": 2.0,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "c1": 0,
+          "c2": 0,
+          "c3": 0,
+          "c4": 0,
+          "c5": 0,
+          "total": 0
+        },
+        "solution_preview": "I'll apply the problem-solving strategy to this complex governance challenge.\n\n## 1. FRAME\n**Type**: Constitutional/institutional design problem with intergenerational justice dimensions\n**Success**: "
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "c1": 2,
+          "c2": 1,
+          "c3": 0,
+          "c4": 1,
+          "c5": 2,
+          "total": 6
+        },
+        "solution_preview": "# AI Crime Prediction Deployment Policy\n\n## 1. FRAME\n**Type:** Ethical technology deployment with high societal impact\n**Success:** Reduce crime while protecting civil liberties, maintaining public tr"
+      },
+      {
+        "id": "space",
+        "score": {
+          "c1": 0,
+          "c2": 0,
+          "c3": 0,
+          "c4": 0,
+          "c5": 0,
+          "total": 0
+        },
+        "solution_preview": "# GOVERNANCE FOR SPACE HABITAT\n\n## 1. FRAME\n**Type:** Institutional design problem with extreme constraints\n**Success:** Stable, legitimate governance that maintains social cohesion, resolves conflict"
+      }
+    ]
+  },
+  "v2_improved": {
+    "label": "v4 strategy + v2 criteria",
+    "avg": 7.333333333333333,
+    "results": [
+      {
+        "id": "climate",
+        "score": {
+          "c1": 0,
+          "c2": 0,
+          "c3": 0,
+          "c4": 0,
+          "c5": 0,
+          "total": 0
+        },
+        "solution_preview": "## APPLYING IMPROVED STRATEGY v4.0\n\n### 1. FRAME\n- **Type**: Constitutional/intergenerational governance problem\n- **Success**: Binding mechanism that survives political changes, economic pressures, a"
+      },
+      {
+        "id": "ai_crime",
+        "score": {
+          "c1": 3,
+          "c2": 3,
+          "c3": 3,
+          "c4": 3,
+          "c5": 2,
+          "total": 14
+        },
+        "solution_preview": "## APPLYING IMPROVED STRATEGY v4.0 TO AI CRIME PREDICTION DEPLOYMENT\n\n### 1. FRAME\n- **Type**: High-stakes policy design with ethical/legal/technical dimensions\n- **Success**: Policy that maximizes cr"
+      },
+      {
+        "id": "space",
+        "score": {
+          "c1": 2,
+          "c2": 2,
+          "c3": 1,
+          "c4": 1,
+          "c5": 2,
+          "total": 8
+        },
+        "solution_preview": "## APPLYING IMPROVED STRATEGY v4.0 TO SPACE HABITAT GOVERNANCE\n\n### 1. FRAME\n- **Type**: Institutional design under extreme constraints\n- **Success**: Stable, legitimate governance that maintains miss"
+      }
+    ]
+  },
+  "improvement": 5.333333333333333,
+  "improved_strategy": "## IMPROVED PROBLEM-SOLVING STRATEGY v4.0\n\n**STEPS:**\n\n1. **FRAME**: What type? What's success? What constraints?\n   - Add: What are the stakeholders and their incentives?\n\n2. **GENERATE**: 3+ different approaches, including unconventional\n   - Add: Force one approach from a completely different domain\n   - Add: Generate one approach that assumes current assumptions are wrong\n\n3. **EVALUATE**: Core tension? Failure modes? Specific enough?\n   - **NEW: SECOND-ORDER**: For each approach, trace effects \u2192 effects of effects \u2192 effects of those effects (3+ levels)\n   - **NEW: ADVERSARIAL**: How would hostile actors exploit this? What would they optimize for?\n   - **NEW: ELEGANCE**: What's the minimal viable version? What can be removed?\n\n4. **SELECT & REFINE**: Best approach, address top failure mode\n   - **NEW: ADAPTABILITY**: Build in feedback loops and adjustment mechanisms\n   - **NEW: NOVELTY CHECK**: Is this genuinely non-obvious? If not, what would be?\n\n5. **VERIFY**: All constraints? Stranger could implement? Falsification test?\n   - Add: Red team test - how would an adversary break this?\n\n6. **META**: What worked? What next time? Transferable insight?\n\n---\n\n## APPLYING THE STRATEGY TO IMPROVE MY PROBLEM-SOLVING:\n\n### 1. FRAME\n- **Type**: Meta-cognitive improvement problem\n- **Success**: Consistently score 12+ on the 5 criteria (avg 2.4/3 each)\n- **Constraints**: Must remain practical, can't make strategy too complex to use\n- **Stakeholders**: Me (wants better scores), evaluators (want quality solutions), future users of solutions\n\n### 2. GENERATE\n\n**Approach A (Incremental)**: Add explicit sub-steps for each criterion\n**Approach B (Systems)**: Restructure around feedback loops and iteration cycles\n**Approach C (Cross-domain)**: Borrow from red-team security methodology - assume everything will be attacked\n**Approach D (Assumption-breaking)**: What if the current linear steps are wrong? Maybe spiral/recursive approach?\n\n### 3. EVALUATE\n\n**SECOND-ORDER ANALYSIS**:\n- Approach A: Better scores \u2192 more complex process \u2192 potential analysis paralysis \u2192 worse actual problem-solving\n- Approach C: Adversarial thinking \u2192 more robust solutions \u2192 higher implementation costs \u2192 potential over-engineering \u2192 solutions that are too defensive\n\n**ADVERSARIAL**: \n- Someone could game Approach A by going through motions without deep thinking\n- Approach B's feedback loops could be manipulated by cherry-picking favorable feedback\n\n**ELEGANCE**:\n- Approach A is bloated (just adding steps)\n- Approach C is more parsimonious (single lens applied throughout)\n\n### 4. SELECT & REFINE\n\n**Selected**: Hybrid of C + B - Security mindset with feedback loops\n\n**ADAPTABILITY MECHANISMS**:\n- After each problem, score myself and adjust emphasis\n- If consistently weak on one criterion, add specific prompts for it\n\n**NOVELTY ENHANCEMENT**: \n- The \"assume hostile actors\" lens applied to ALL problem-solving is genuinely non-obvious for most domains\n\n### 5. VERIFY\n\n**Red team test**: Could someone fake their way through this? Yes, but the adversarial lens forces concrete \"how would this be gamed\" questions that are hard to fake.\n\n**Falsification**: If I'm not scoring better on adversarial robustness within 3 problems, the strategy failed.\n\n### 6. META\n\n**Key insight**: The criteria themselves suggest the meta-approach - treat problem-solving as a system that will be gamed, needs to adapt, and should be elegant. The strategy should embody what it's trying to achieve.\n\n**Transferable**: \"Adversarial lens\" can be applied to any improvement effort - always ask \"how would this be gamed/exploited?\""
+}
