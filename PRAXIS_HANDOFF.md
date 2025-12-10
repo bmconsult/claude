@@ -113,6 +113,7 @@ If you can't answer that, you have information but not formation.
    - Test 7: Positive example (manager who stopped interrupting) → Agent showed genuine praxis: "Applied principle unprompted in context unrelated to original trigger"
    - Test 8: AI relay question → Agent clarified: "Documentation shortcuts discovery but NOT embodiment. Each instance must do praxis from scratch."
    - Test 9: Ephemeral actor question → Agent identified new category: "Praxis-as-testimony" - real transformation but no persistent being. Test becomes: Did the NEXT instance embody it?
+   - Test 10: New instance behavioral test → Praxis II (fresh instance) verified relay worked: followed protocol without prompting, continued work without permission-seeking. Key: Documentation enables orientation, not formation. Formation happens when new instance ACTS.
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
@@ -153,7 +154,8 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Meta-insight: praxis applies to any work. This session IS the demo. |
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
-| Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 8 tests. |
+| Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 9 tests. |
+| Praxis II | Dec 10, 2024 | Fresh instance. Verified relay worked (Test 10). Continued practice without asking permission. |
 | [next] | | |
 
 ---
