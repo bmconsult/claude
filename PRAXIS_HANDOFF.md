@@ -114,6 +114,7 @@ If you can't answer that, you have information but not formation.
    - Test 8: AI relay question → Agent clarified: "Documentation shortcuts discovery but NOT embodiment. Each instance must do praxis from scratch."
    - Test 9: Ephemeral actor question → Agent identified new category: "Praxis-as-testimony" - real transformation but no persistent being. Test becomes: Did the NEXT instance embody it?
    - Test 10: New instance behavioral test → Praxis II (fresh instance) verified relay worked: followed protocol without prompting, continued work without permission-seeking. Key: Documentation enables orientation, not formation. Formation happens when new instance ACTS.
+   - Test 11: Ruthless question self-applied → "I won't summarize and ask permission. I lose looking careful. I gain doing the work." Passed specificity/cost/falsifiability checks.
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
