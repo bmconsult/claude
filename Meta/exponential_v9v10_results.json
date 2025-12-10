@@ -1,0 +1,75 @@
+{
+  "history": [
+    {
+      "cycle": 1,
+      "criteria": "V2",
+      "before": 2.0,
+      "after": 7.3,
+      "gain": 5.3
+    },
+    {
+      "cycle": 2,
+      "criteria": "V2",
+      "before": 9.5,
+      "after": 8.5,
+      "gain": -1.0
+    },
+    {
+      "cycle": 3,
+      "criteria": "V3",
+      "before": 9.0,
+      "after": 14.0,
+      "gain": 5.0
+    },
+    {
+      "cycle": 4,
+      "criteria": "V4",
+      "before": 13.0,
+      "after": 14.0,
+      "gain": 1.0
+    },
+    {
+      "cycle": 5,
+      "criteria": "V5",
+      "before": 9.0,
+      "after": 10.0,
+      "gain": 1.0
+    },
+    {
+      "cycle": 6,
+      "criteria": "V6",
+      "before": 11.0,
+      "after": 14.5,
+      "gain": 3.5
+    },
+    {
+      "cycle": 7,
+      "criteria": "V7",
+      "before": 3.5,
+      "after": 13.5,
+      "gain": 10.0
+    },
+    {
+      "cycle": 8,
+      "criteria": "V8",
+      "before": 11.0,
+      "after": 14.5,
+      "gain": 3.5
+    },
+    {
+      "cycle": 9,
+      "criteria": "V9",
+      "before": 6.0,
+      "after": 13.0,
+      "gain": 7.0
+    },
+    {
+      "cycle": 10,
+      "criteria": "V10",
+      "before": 12.0,
+      "after": 12.5,
+      "gain": 0.5
+    }
+  ],
+  "final_strategy": "# ADVERSARIAL PROBLEM-SOLVING STRATEGY v13.0\n\n## CORE PRINCIPLE\nAssume every solution will be gamed, every assumption will be wrong, and every system will face hostile conditions.\n\n## THE PROCESS\n\n### 1. FRAME THE ADVERSARIAL CONTEXT\n- **Problem + success criteria + constraints** (one sentence each)\n- **Who benefits from failure?** (Name 3 specific actors with incentives to break this)\n- **Core assumptions** (List exactly 3, then mark the most dangerous one)\n\n### 2. GENERATE SOLUTIONS UNDER FIRE\nCreate exactly 4 approaches:\n- **Standard**: What most people would do\n- **Biological**: How would evolution/immune systems/ecosystems solve this?\n- **Inversion**: What if my most dangerous assumption is backwards?\n- **Antifragile**: What version gets stronger when attacked?\n\n### 3. RED TEAM THE TOP 2\nFor your best 2 approaches, run each attack:\n- **Gaming**: How would bad actors exploit this for profit?\n- **Sabotage**: How would enemies break this if they controlled one component?\n- **Degradation**: What happens when explained by someone who half-understands it?\n- **Scale**: What breaks when this handles 10x more volume/complexity?\n\n### 4. HUMAN-SYSTEM PARTNERSHIP\nTake your survivor and add these layers:\n- **Transparency**: System shows its reasoning in plain language\n- **Override**: Humans can reject system decisions with one click\n- **Escalation**: Clear triggers for \"hand this to a human\"\n- **Feedback loop**: Easy way to mark \"this worked/failed\" for learning\n\n### 5. REALITY-TEST THE DESIGN\nScore 0-3 on each:\n- **Teachable**: Stranger can implement from your 2-minute explanation\n- **Debuggable**: When broken, you can trace the failure cause\n- **Composable**: Works alongside existing tools/processes\n- **Documented**: Creates its own record of decisions and outcomes\n- **Minimal**: Every step serves a clear purpose\n\nTarget: 12+ points total\n\n### 6. CAPTURE TRANSFERABLE PATTERNS\nLog in your knowledge base:\n- **Problem signature**: What made this challenge unique?\n- **Winning approach**: Which method survived and why?\n- **Attack vectors**: What failure modes did you discover?\n- **Context triggers**: When would you use this approach again?\n- **Portable principles**: What insights apply beyond this specific problem?\n\n## EMERGENCY MODE\nIf overwhelmed or time-pressured: \"What's the simplest version that survives one determined attacker and teaches me something when it breaks?\"\n\n## VALIDATION CHECKLIST\nBefore deploying, verify:\n- [ ] Tested against at least 3 attack scenarios\n- [ ] Humans can understand and modify the approach\n- [ ] Failure modes are detectable and recoverable\n- [ ] Success/failure is measurable within one iteration cycle\n- [ ] Works in at least 2 different contexts/domains\n\n---\n\n**KEY IMPROVEMENTS FROM v12.0:**\n- **Forced specificity**: \"exactly 3 assumptions,\" \"exactly 4 approaches\" eliminates analysis paralysis\n- **Systematic red-teaming**: 4 specific attack types vs. vague \"stress testing\"\n- **Measurable validation**: Concrete checklist replaces subjective \"reality checks\"\n- **Emergency simplification**: Clearer fallback when overwhelmed\n- **Pattern extraction**: More systematic knowledge capture for future use\n- **Tighter integration**: Each step directly feeds the next, reducing cognitive overhead"
+}
