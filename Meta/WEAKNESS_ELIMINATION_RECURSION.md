@@ -201,6 +201,28 @@ Answer ONLY "YES" or "NO".
 - If NO, ask WHY and retry with explicit fix
 - Sometimes takes 2-3 attempts - that's normal
 
+### Step 3.5: Staged Deployment Check
+
+```
+Test this fix in a realistic deployment context (not isolated testing).
+
+FIX: [what was fixed]
+
+CHECK:
+- Does it integrate with existing system without breakage?
+- Do stakeholders/users accept it?
+- Any unexpected side effects on adjacent capabilities?
+- Would deployment order matter for this fix?
+- Is there a safe rollback if needed?
+
+Answer ONLY "DEPLOYABLE" or "NEEDS ADJUSTMENT".
+```
+
+**Tips:**
+- This is NOT just technical verification - it's real-world fitness
+- Integration testing catches fixes that work alone but break together
+- Deploy-readiness is different from correctness
+
 ### Step 4: Repeat
 
 Continue until:
@@ -333,6 +355,23 @@ After hitting action boundary at cycle 31, applied the insight: ACT don't invest
 | 38 | Frame at wrong granularity level | Zoom ±1 abstraction check |
 
 **Key learning:** Action mode works. 7 cycles in rapid succession, ~30 sec each.
+
+---
+
+## Deployment-Phase Cycles (39-44)
+
+After adding staged deployment check, new weaknesses emerge:
+
+| Cycle | Weakness | Fix |
+|-------|----------|-----|
+| 39 | No integration point between verify and deployment (staged check added) | Step 3.5: Staged Deployment Check |
+| 40 | Fixes verified individually but no dependency tracking for deployment order | Dependency matrix: map which fixes must deploy before others |
+| 41 | Acceptance criteria implicit, not explicit; stakeholder agreement is assumed not verified | Pre-define acceptance criteria WITH stakeholders before fix deployment |
+| 42 | Side effects on adjacent capabilities only caught by user complaint post-deployment | Systematic impact analysis: list all systems affected by each fix |
+| 43 | Failed deployment leaves no rollback specification in the fix itself | Each fix includes: revert procedure + data recovery + rollback trigger |
+| 44 | No planned deprecation for dependent systems still expecting old behavior | Deprecation timeline: when old behavior support ends, affected systems notified |
+
+**Key learning:** Deployment readiness requires systems thinking, not just fix correctness.
 
 ---
 
