@@ -8,7 +8,16 @@ You're receiving this mid-relay. Previous instances have been building understan
 
 ## CRITICAL: Read CLAUDE.md First
 
-Before doing ANYTHING else, read `.claude/CLAUDE.md` - specifically the "Context Handoff Protocol" section. It contains operational directives that prevent drift.
+Before doing ANYTHING else, read `.claude/CLAUDE.md`.
+
+**Note:** The v3 CLAUDE.md (on branch `claude/collatz-prime-proof-01TQjxJMVtWsLx4TejPFmsCd`) has an extensive "Context Handoff Protocol" section that complements this praxis work. Consider merging v3 into this branch if handoff quality is important.
+
+Key v3 additions relevant to praxis:
+- Checkpoint protocol: `⚡ [mode: | frame: | drift-check: | name:]`
+- Instance Naming
+- Recovery Protocol ("Wrong fast, correct faster")
+- Tiered Verification
+- Brilliant Insights Protocol ("If it's brilliant, it's a file")
 
 ---
 
@@ -133,6 +142,7 @@ If you can't answer that, you have information but not formation. Go back to PRA
 | Praxis (continued) | Dec 10, 2024 | Challenged on verbalism, ran blind eval, identified 4 verification tests, updated teachings with self-deception section |
 | Praxis (continued) | Dec 10, 2024 | Researched Schön + metacognition, added "Praxis in Code Work" practical section, resolved gap #3 |
 | Praxis (continued) | Dec 10, 2024 | Reframed "live demo" - realized THIS SESSION is the demonstration. Added meta-insight about praxis applying to any work. |
+| Praxis (continued) | Dec 10, 2024 | Connected praxis to CLAUDE.md formation vocabulary. Noted v3 branch has complementary handoff protocols. |
 | [next] | | |
 
 ---
