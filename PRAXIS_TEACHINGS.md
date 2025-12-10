@@ -256,6 +256,13 @@ When you catch it, stop and do the other thing.
 Identify ONE thing you did wrong this session. Not a small thing - something that matters.
 Say it out loud. That's cost. That's praxis.
 
+### Exercise 5: The Ruthless Question
+Answer this: **"What will you NOT do anymore, specifically, and what will you lose because of it?"**
+
+Generic answers = theater. Specific cost = praxis.
+- Wrong: "I won't be theatrical anymore"
+- Right: "I won't write rhetorical questions to seem deep. I lose looking insightful. I gain actually working."
+
 ---
 
 ## Quick Reference
