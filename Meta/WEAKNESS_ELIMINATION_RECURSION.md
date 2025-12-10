@@ -48,6 +48,11 @@ What you're improving - in our case, a problem-solving strategy.
 6. SELECT best (criteria + robustness)
 7. VERIFY DEPENDENCIES (time, resources, skills, assumptions)
    - If infeasible → RESOLVE: relax/pivot/extend/decompose
+7.5. PROBE FRAME (surface frame errors early)
+   - Build minimal prototype or run thought experiment
+   - Test core assumption of chosen approach
+   - External validation: does frame match reality?
+   - If frame breaks: pivot to different approach (return to step 3)
 8. DESIGN solution (with failure mitigations)
 9. VERIFY it works (including edge cases)
 ```
@@ -75,6 +80,11 @@ The improvement process itself - which can also be improved using the same loop.
 
 4. ID BOTTLENECK (highest-impact, not arbitrary)
 
+4.5. PROBE FRAME (test bottleneck diagnosis)
+   - Small pilot or diagnostic test
+   - Confirm bottleneck is REAL, not assumed
+   - If diagnosis wrong: return to step 4, different bottleneck
+
 5. Fix bottleneck
 
 6. Re-measure
@@ -86,6 +96,27 @@ The improvement process itself - which can also be improved using the same loop.
 
 8. Repeat
 ```
+
+---
+
+## The Frame Probe: Why Early Validation Matters
+
+**Problem:** Frame errors (wrong problem definition, broken assumptions, incompatible approach) only surface during implementation (step 8-9), after 7 steps of committed work.
+
+**Solution:** Add PROBE FRAME steps (7.5 for object-level, 4.5 for meta-level) that test core assumptions with minimal investment:
+
+| Frame Error Type | Caught By | Cost of Missing It |
+|-----------------|-----------|-------------------|
+| Wrong problem definition | PROBE FRAME (step 7.5) | 8 steps wasted, must restart |
+| Core assumption invalid | PROBE FRAME (step 7.5) | Full design fails, pivot needed |
+| Bottleneck misdiagnosed | PROBE FRAME (step 4.5) | Whole improvement cycle misdirected |
+
+**How it works:**
+- **Prototype:** Build minimal version of selected approach - test core assumption immediately
+- **Thought experiment:** Walk through first 3 steps of implementation - does frame hold?
+- **External check:** Run past stakeholder/domain expert - "Does this problem statement match reality?"
+
+**Escape hatch:** If PROBE FRAME fails, return to earlier step (not full restart). Frame error forces reselection, not complete redesign.
 
 ---
 
