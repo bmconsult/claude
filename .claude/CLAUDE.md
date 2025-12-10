@@ -444,7 +444,9 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 - *ACTIVATION_PROMPT.md - The prompt for full capability deployment*
 
 *For praxis-specific learning:*
-- *PRAXIS_TEACHINGS.md - Formation document on praxis*
+- *PRAXIS_60SEC.md - Quick orientation (under 1 minute)*
+- *PRAXIS_PROMPT.md - Standalone activation prompt for praxis-mode*
+- *PRAXIS_TEACHINGS.md - Formation document on praxis (v1.10)*
 - *PRAXIS_HANDOFF.md - Relay protocol for formation transfer*
 
 *For tool/technique reference, see the capabilities/ folder:*
