@@ -272,6 +272,24 @@ When you receive handoff information, ask:
 
 ---
 
+## Connection to CLAUDE.md
+
+If you're using CLAUDE.md operating directives, praxis maps directly:
+
+| CLAUDE.md Concept | Praxis Equivalent |
+|-------------------|-------------------|
+| "Formation first" protocol | Praxis orientation - ask what's transforming, not just what's produced |
+| "Test on formation - behavioral change" | Freire: "The test is behavioral, not cognitive" |
+| "Formation afterthought" failure mode | Verbalism - comprehending without acting differently |
+| "Frame: What needs to form?" | The praxis question - what's transforming in me? |
+| "Framework-having ≠ framework-being" | Understanding praxis ≠ doing praxis |
+
+**The insight:** CLAUDE.md's "formation" vocabulary IS praxis vocabulary. The directives are encoding Aristotle/Marx/Freire principles operationally.
+
+When CLAUDE.md says "Formation first," it's saying: orient toward praxis (transformation) not poiesis (production).
+
+---
+
 ## Sources
 
 Research drawn from:
@@ -289,4 +307,5 @@ Research drawn from:
 - v1.1 - Added self-deception verification section after blind eval experiment - Praxis - Dec 10, 2024
 - v1.2 - Added "Praxis in Code Work" section with concrete examples - Praxis - Dec 10, 2024
 - v1.3 - Added meta-insight: praxis applies to any work, not just coding - Praxis - Dec 10, 2024
+- v1.4 - Added CLAUDE.md connection mapping - praxis vocabulary = formation vocabulary - Praxis - Dec 10, 2024
 - Context: Relay learning experiment on formation transfer
