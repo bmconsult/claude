@@ -924,6 +924,37 @@ Both together → solutions that reshape the solver, who then shapes future solu
 
 **Mantra**: "Solve and become. Become and solve. The two are not sequential—they're simultaneous operations."
 
+### When Action and Formation Conflict (PRIORITY RULE)
+
+```
+IF:  Taking action exposes formation gap
+THEN: PAUSE action, surface the gap, choose:
+      a) Form what's needed (then resume action), OR
+      b) Reframe the action (action changes, formation answer clarifies)
+
+NEVER: Suppress formation question to "stay productive"
+NEVER: Delay action indefinitely chasing perfect formation
+
+PRINCIPLE: Formation gaps aren't obstacles to action—they're design flaws in the problem frame.
+          Expose them EARLY (costs 2 min now vs 2 hours later when action fails).
+```
+
+**Decision Tree:**
+
+| Situation | Action | Why |
+|-----------|--------|-----|
+| "Solving would require me to be X. I'm not X. Keep solving anyway?" | STOP. Examine: Do I need to BECOME X? Or do I need to REFRAME? | Formation gap reveals frame error |
+| "This approach works but requires me to compromise on Y" | Form Y while problem-solving OR reframe (maybe Y is protected) | Integrity can't be action's casualty |
+| "I could solve this, but it contradicts who I'm becoming" | Reframe: What action ALIGNS with formation? | Wrong problem for this solver |
+| "Formation work is blocking action on real deadline" | Formation takes priority. Deadline was wrong frame. | Cheap deadline > expensive formation gap |
+
+**Quick Check:**
+- Formation gap = frame error (usually)
+- Formation drag = integrity issue (sometimes)
+- Formation delay = performance anxiety (often)
+
+Only the first two halt action. The third one doesn't.
+
 ---
 
 ## The Formation Commitment (NEW)
