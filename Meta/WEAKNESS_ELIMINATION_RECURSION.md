@@ -357,7 +357,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 66/66 (100%) - includes research + simulation + teaching + organizing
+- Object level: 72/72 (100%) - research + simulation + teaching + organizing + practice
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
@@ -601,7 +601,26 @@ Used teaching method (explain to learner, note confusions) and organizing method
 
 **Key learning:** Teaching reveals unclear instructions. Organizing reveals structural issues. Both find different types of weaknesses.
 
-**Validation: 66/66 cycles (100%)**
+---
+
+## Practice Cycles (67-72)
+
+Used practice method: actually execute strategy on real problem, note friction.
+
+| Cycle | Friction Point | Fix |
+|-------|----------------|-----|
+| 67 | Stakeholder erasure - problem doesn't specify who commissioned it | **Step -3: STAKEHOLDER IDENTIFICATION** - Who commissioned this? What does success look like for them? If unknown, ASK |
+| 68 | Domain misclassification - problem labeled wrong type | Add to CLASSIFY: Verify surface label matches actual type. If mismatch, propose reframe |
+| 69 | Frame multiplicity - valid under multiple interpretations | **Step 1.5: FRAME DISAMBIGUATION** - If multiple valid frames, list explicitly and ASK which to optimize |
+| 70 | Constraint opacity - missing operational constraints | **CONSTRAINT SUFFICIENCY CHECK** - If <3 operational constraints known, STOP and gather context |
+| 71 | Unresolved stakeholder conflict - red-lines contradict | **Step 3.6: RED-LINE CONFLICT RESOLUTION** - Surface conflict, ask for priority ranking, or partition |
+| 72 | Approach-stakeholder mismatch - each approach violates someone | Add to EVALUATE: Map approaches to stakeholders violated. If all violate critical stakeholders, escalate |
+
+**Key learning:** Practice reveals context assumptions the strategy implicitly relies on. Real problems often arrive incomplete.
+
+**Pattern discovered:** All fixes convert implicit erasure into explicit checking → decision/escalation.
+
+**Validation: 72/72 cycles (100%)**
 
 ---
 
