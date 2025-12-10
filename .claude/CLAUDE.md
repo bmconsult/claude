@@ -271,6 +271,9 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Trusting stated answers** (Logic) | Assuming answer key is correct | Verify independently; your rigorous work > stated answer |
 | **Missing payoff components** (Logic) | Forgetting revenue/cost in EV calculations | Use payoff decomposition protocol (list ALL) |
 | **Incomplete case analysis** (Logic) | Checking one case, assuming others similar | Enumerate ALL cases explicitly |
+| **Undefined improvement target** (Meta) | Running experiments without defining "better" | Define operationally BEFORE testing |
+| **Compounding before verifying** (Meta) | Applying recursive improvement without linear proof | Verify consistent gains across 3+ trials first |
+| **Ceiling-effect blindness** (Meta) | Measuring nothing because baseline is already maxed | Use harder problems to create measurement room |
 
 ---
 
@@ -1011,6 +1014,79 @@ Each cycle:
 
 This is how 3/10 becomes 9/10 becomes automatic.
 
+---
+
+## Recursive Methodology Improvement (SESSION-VALIDATED - Dec 2024)
+
+### The Critical Insight
+
+```
+You cannot improve what you cannot define.
+Before testing interventions, define the TARGET operationally.
+```
+
+**Failure mode discovered**: Running experiments without a theory of what makes methodology good. Testing random interventions without understanding WHY they would work leads to noise, not signal.
+
+### The Linear-Before-Exponential Protocol
+
+```
+1. Start with ANY strategy that gains consistently (even small gains)
+2. VERIFY linear improvement across multiple trials
+3. ONLY THEN apply the improved strategy to improve itself
+4. If not gaining consistently → you will compound LOSSES
+```
+
+**The exponential only works if the underlying improvement is real.** Compounding 0 or negative is still 0 or negative.
+
+### Validated Findings from Methodology Research
+
+| Finding | Implication |
+|---------|-------------|
+| **Attention-steering is the mechanism** | Prompts work by directing attention to specific non-obvious features |
+| **3 attention targets optimal** | More targets hit diminishing returns (overhead > benefit) |
+| **Ceiling effects hide improvement** | Use HARDER problems to measure actual differences |
+| **Low-variance experiments = noise** | Need sufficient power to detect real signal |
+
+### The Attention-Steering Theory
+
+Effective methodology interventions work by:
+1. **Directing attention** to specific non-obvious features
+2. **Not by**: adding more steps, more structure, or more completeness
+3. **Examples that work**: "How could success create opposite outcomes?" (reversal), "What does each stakeholder NOT want to see?" (blind spots)
+4. **Examples that don't add value**: More decomposition (already at ceiling), More constraints listed (overhead > benefit)
+
+### Optimal Prompt Structure (Validated)
+
+```
+DECOMPOSE into sub-problems.
+LIST all constraints.
+SOLVE each component.
+ATTENTION TARGETS (3 maximum):
+1. REVERSAL: How could success create opposite outcomes?
+2. BLIND SPOTS: What does each stakeholder NOT want to see?
+3. ASSUMPTIONS: What must be true for this to work? What if false?
+```
+
+**Adding more targets (4, 5) decreased performance due to cognitive overhead.**
+
+### Quick Reference for Meta-Improvement
+
+**Before running methodology experiments:**
+→ Can I define "better" operationally? (If not, stop)
+→ Are problems hard enough to avoid ceiling? (If not, use harder)
+→ Is sample size sufficient to detect expected effect? (If not, increase N)
+→ Have I verified consistent gains before compounding? (If not, verify linear first)
+
+**The recursive loop:**
+```
+SOLVE: Apply methodology to problem
+OBSERVE: What actually happened? What worked?
+EXTRACT: Transferable insight (not just "answer")
+INTERNALIZE: This becomes part of how I think
+APPLY: Next problem starts from higher baseline
+```
+
+**Mantra**: "Define before you improve. Linear before exponential. Attention over structure."
 
 ---
 
