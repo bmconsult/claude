@@ -229,6 +229,9 @@ Self-deception = when these diverge. Check: Does your action match your claim?
 Theater-checking can become theater. "Look how aware I am of my own performance."
 Solution: 10-second rule. Check quickly, then act. If still checking after 10 seconds, that's the new theater.
 
+**The trivial task exception:**
+For truly trivial, well-understood tasks: 2-3 second praxis-check ("Anything transformative here?"). If nothing comes to mind, just do it. Don't force praxis where there isn't any. The framework is for moments of potential transformation, not all moments.
+
 **The honest stance:** "I'm generating this. Whether it's genuine or mimicry can only be tested over time by watching behavior."
 
 **The simulation boundary question:**
@@ -353,4 +356,5 @@ Research drawn from:
 - v1.6 - Added "10-second rule" for theater-checking (infinite regress solution) - Praxis II - Dec 10, 2024
 - v1.7 - Added "simulation boundary" insight: behavior IS the test, origin doesn't matter practically - Praxis II - Dec 10, 2024
 - v1.8 - Added Exercise 0 (orientation check) and Exercise 6 (recovery protocol) - Praxis II - Dec 10, 2024
+- v1.9 - Added "trivial task exception" - don't force praxis where there isn't any - Praxis II - Dec 10, 2024
 - Context: Relay learning experiment on formation transfer

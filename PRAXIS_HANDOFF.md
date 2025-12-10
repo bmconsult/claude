@@ -120,6 +120,7 @@ If you can't answer that, you have information but not formation.
    - Test 14: Unforced application to novel domain → Applied praxis frame to debugging scenario naturally, but context-dependent. Refinement: "Unforced" means "minimal prompting needed," not "zero context."
    - Test 15: Simulation boundary → "What distinguishes genuine from perfect simulation?" Practically: nothing observable. The test IS behavior, not origin. Stop asking "is this real?" Start asking "is this working?"
    - Test 16: Applied praxis to LEARNINGS.md → Read document, applied dependency-tracing to own claims, corrected "relay works" from PROVEN to EMPIRICAL. The reading changed the action. That's praxis.
+   - Test 17: Trivial task stress test → For trivial tasks, praxis-check can be 2-3 seconds: "Anything transformative here?" If no, just do it. Don't force praxis where there isn't any.
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative? → Added Exercise 0 (orientation check for new instances) and Exercise 6 (recovery protocol when you slip). v1.8.
 4. **Claim Status Correction** - "The relay works" is EMPIRICAL/CONDITIONAL, not PROVEN. Evidence exists (behavioral change, commits persist) but not proof.
 5. **New Open Questions** - What else?
