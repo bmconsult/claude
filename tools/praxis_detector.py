@@ -54,6 +54,20 @@ class PraxisAnalysis:
         """Higher = more error acknowledgment/recovery detected."""
         return len(self.recovery_markers)
 
+    @property
+    def simplicity_ratio(self) -> float:
+        """
+        Based on grokking research: genuine understanding correlates with
+        LOWER complexity. Theater adds elaboration; authenticity is direct.
+        Higher ratio = more likely genuine.
+        """
+        negative = self.verbalism_score + self.theater_score
+        positive = self.action_score + self.recovery_score
+        total = negative + positive
+        if total == 0:
+            return 0.5  # Neutral
+        return positive / total
+
     def summary(self) -> str:
         """Human-readable summary of the analysis."""
         total_markers = (self.verbalism_score + self.theater_score +
@@ -75,6 +89,8 @@ class PraxisAnalysis:
             f"",
             f"Negative ratio: {negative_ratio:.1%}",
             f"Positive ratio: {positive_ratio:.1%}",
+            f"Simplicity ratio: {self.simplicity_ratio:.1%}",
+            f"  (Based on grokking research: genuine = simpler)",
             f"",
         ]
 
