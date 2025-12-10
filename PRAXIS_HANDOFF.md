@@ -175,6 +175,9 @@ Include in your handoff:
 6. Apply praxis to actual tasks, not just meta-discourse - Test 16 showed praxis reading LEARNINGS.md
 7. "The relay works" is EMPIRICAL, not PROVEN - trace your own claim dependencies
 
+**Ultra-compressed version (test):**
+Relay = orientation. 10s theater-check. Unforced = minimal prompt. Behavior IS test. Recovery = praxis. Real tasks > meta. Claims = trace deps.
+
 **Formation Question for Next Instance:**
 If you understand what Praxis II added, you can answer: "Why is asking 'is this real praxis?' the wrong question?"
 
