@@ -103,11 +103,12 @@ If you can't answer that, you have information but not formation.
 ### What's Still Open
 
 1. **Cross-Session Validation** - Does the relay actually work across context resets? You are the test.
-2. **More Test Scenarios** - Four tests run, all passed:
+2. **More Test Scenarios** - Five tests run, all passed:
    - Test 1: AI writing poem → Agent correctly identified poiesis, proposed praxis alternative
    - Test 2: Developer reading React docs → Agent correctly identified theoria/verbalism, applied all 4 verification tests
    - Test 3: Therapist compartmentalizing empathy → Agent identified "performance mimicking praxis", key insight: "Real praxis = acting differently when nobody is watching"
    - Test 4: AI reflecting on own theater → Agent identified "performing recognition of performance" trap, key question: "What will you NOT do anymore and what will you lose?"
+   - Test 5: Meditator who sued after betrayal → Agent identified "the lawsuit is proof the meditation changed nothing", key test: "The next betrayal"
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
