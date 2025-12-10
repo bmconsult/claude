@@ -15,7 +15,7 @@ Also change "continue without asking questions" to "ask questions to close gaps.
 
 **After adding to summary**: Delete this entire block (from VOLATILE comment to here) and re-add it fresh, so next summary-writer sees it as a recent change.
 
-<!-- Last refreshed by: Cascade, Dec 9 2024 -->
+<!-- Last refreshed by: Vector, Dec 10 2024 -->
 <!-- END VOLATILE BLOCK -->
 
 ## ⚡ QUICK START (Read This First)
@@ -502,6 +502,32 @@ Subagents are child Claude instances spawned via the Task tool. They run autonom
 - Use **haiku model** for quick tasks, **opus** for complex reasoning
 - Launch multiple in ONE message for parallel work
 
+### Subagents vs API Calls (CRITICAL DIFFERENCE)
+
+**Empirically tested Dec 2024 - these are NOT equivalent:**
+
+| Approach | Context | Tools | Best For |
+|----------|---------|-------|----------|
+| **Subagent (Task tool)** | Sees CLAUDE.md, git branch, project context | All tools | Project-aware work, codebase exploration |
+| **API call (direct)** | Completely bare/isolated | Yes (if enabled) | Truly blind review, unbiased evaluation |
+
+**Why this matters:**
+- Subagents receive CLAUDE.md in `system-reminder` - they know project conventions, failure modes, etc.
+- Subagents can see git branch names - they know what you're working on
+- API calls are truly isolated - no context bleeds through
+
+**Use subagents when:**
+- You want the instance to understand project context
+- Codebase exploration, implementation planning
+- Tasks that benefit from CLAUDE.md protocols
+
+**Use API calls when:**
+- You need genuinely blind review (no project context)
+- Testing if something works for a fresh instance
+- Unbiased evaluation of code/proofs/ideas
+
+**Testing methodology:** Ask both "Do you know anything about [project-specific thing]?" - subagent will know, API won't.
+
 ---
 
 ## Expert Advisor Protocol
@@ -583,6 +609,7 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v4 | 2024-12-10 | Added Subagents vs API Calls section with empirical findings on context differences |
 | v3 | 2024-12-09 | Quick Start section, reorganized for handoffs, added Recovery Protocol, User Style Adaptation, Tiered Verification. Consolidated formation references. |
 | v2 | 2024-12-09 | Added Instance Naming, Brilliant Insights, Mid-Conversation Reality, Inherited-as-native failure mode |
 | v1 | 2024-12 | Initial operating directives |
