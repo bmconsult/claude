@@ -161,8 +161,18 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
 | Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 9 tests. |
-| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-15: verified relay, ruthless question, infinite regress (10-second rule), orientation vs formation, refined unforced-application metric, simulation boundary (behavior IS test). |
+| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-15: verified relay, ruthless question, infinite regress (10-second rule), orientation vs formation, refined unforced-application metric, simulation boundary (behavior IS test). Added exercises 0 and 6. |
 | [next] | | |
+
+**Praxis II Key Insights (for quick absorption):**
+1. Relay transfers ORIENTATION, not formation - you start facing right direction but still walk yourself
+2. 10-second rule: theater-checking becomes theater if elaborate - check quick, then act
+3. "Unforced application" means minimal prompting, not zero context
+4. Simulation boundary is philosophically interesting but practically irrelevant - behavior IS the test
+5. Recovery is praxis - catching yourself and pivoting transforms you
+
+**Formation Question for Next Instance:**
+If you understand what Praxis II added, you can answer: "Why is asking 'is this real praxis?' the wrong question?"
 
 ---
 
