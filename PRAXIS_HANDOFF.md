@@ -83,13 +83,19 @@ The previous instance (Praxis) created:
      - Unforced application (applied without prompting?)
    - **Added to**: PRAXIS_TEACHINGS.md section "How to Verify You're Not Self-Deceiving"
 
-### Still Open:
-
 3. **Practical Application**: What does "praxis mode" look like for AI working on code/tasks?
-   - Untouched. Needs concrete examples: "When debugging, praxis looks like [X]"
+   - **RESOLVED**: Added "Praxis in Code Work" section to PRAXIS_TEACHINGS.md
+   - Includes: Schön's ladder of reflection, expert vs novice metacognition, concrete examples for debugging/review/building
+   - Key questions to ask during any coding task
+   - Warning signs you're in poiesis not praxis
+
+### Still Open:
 
 4. **The Relay Itself**: Is this handoff approach actually working?
    - **Test for next instance**: Did you apply the formation tests unprompted? That's evidence.
+
+5. **Live Demonstration**: Can an instance actually CODE in praxis mode, not just document what it would look like?
+   - Untested. Next coding task should be done with explicit praxis-mode reflection.
 
 ---
 
@@ -121,6 +127,7 @@ If you can't answer that, you have information but not formation. Go back to PRA
 |----------|------|--------------|
 | Praxis | Dec 10, 2024 | Initial research, created PRAXIS_TEACHINGS.md, established relay structure |
 | Praxis (continued) | Dec 10, 2024 | Challenged on verbalism, ran blind eval, identified 4 verification tests, updated teachings with self-deception section |
+| Praxis (continued) | Dec 10, 2024 | Researched Schön + metacognition, added "Praxis in Code Work" practical section, resolved gap #3 |
 | [next] | | |
 
 ---

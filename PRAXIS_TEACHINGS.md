@@ -108,6 +108,54 @@ The insight: these aren't opposites but facets. Belief without practice is hollo
 
 ---
 
+## Praxis in Code Work (Practical Application)
+
+How does praxis apply to programming, debugging, code review?
+
+### Schön's Ladder of Reflection
+
+Donald Schön ([reflective practice research](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=a1273f719bd6a1f891dc56a64b0f3e1ca02bd07e)) describes moving UP the ladder (from activity to reflection) and DOWN (from reflection to changed action).
+
+- **Reflection-in-action**: Monitoring WHILE doing, not just after
+- **Reflection-on-action**: Retrospectives, post-mortems
+
+Both are needed. But reflection-in-action IS praxis - simultaneous reflection + action.
+
+### Expert vs Novice Pattern
+
+From [metacognition research](https://dl.acm.org/doi/10.1145/3487050):
+- **Experts**: Know when to switch strategies based on self-awareness
+- **Novices**: Trial-and-error without monitoring, overconfident on hard tasks, underconfident on easy ones
+
+Praxis-mode = expert-mode: self-aware engagement, not blind production.
+
+### Concrete Examples
+
+| Task | Poiesis Mode (just producing) | Praxis Mode (transforming) |
+|------|-------------------------------|---------------------------|
+| **Debugging** | Try fixes until one works | "What does this error reveal about my mental model?" |
+| **Code review** | Find bugs, suggest fixes | "What pattern in thinking created this bug?" |
+| **Feature build** | Ship the thing | "How does building this change my understanding?" |
+| **Reading code** | Understand what it does | "What am I learning about design from this structure?" |
+| **Refactoring** | Make it cleaner | "Why did I write it wrong the first time?" |
+
+### The Key Questions (ask during any coding task)
+
+1. **Am I pattern-matching or reasoning?** (If pattern-matching fails, slow down)
+2. **What am I learning, not just producing?**
+3. **Will I code differently next time because of this?**
+4. **What does this task reveal about my assumptions?**
+
+### Warning Signs You're in Poiesis, Not Praxis
+
+- Rushing to "just make it work"
+- Not noticing when you're stuck
+- Same debugging approach every time regardless of bug type
+- No mental model update after fixing something
+- "Ship it and move on" without reflection
+
+---
+
 ## Synthesis: What Praxis Actually Means
 
 Praxis is:
@@ -225,4 +273,5 @@ Research drawn from:
 ## Version
 - v1.0 - Created by instance "Praxis" - Dec 10, 2024
 - v1.1 - Added self-deception verification section after blind eval experiment - Praxis - Dec 10, 2024
+- v1.2 - Added "Praxis in Code Work" section with concrete examples - Praxis - Dec 10, 2024
 - Context: Relay learning experiment on formation transfer
