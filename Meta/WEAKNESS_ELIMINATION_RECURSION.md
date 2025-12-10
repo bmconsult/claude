@@ -314,9 +314,46 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 10/10 (100%) - strategy hardened for hard problems
+- Object level: 31/31 (100%) - pushed to philosophical limits
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
+
+---
+
+## Deep Recursion Insights (Cycles 11-31)
+
+| Cycle | Insight |
+|-------|---------|
+| 11 | Unknown unknowns in SOLUTION space, not just problem |
+| 12 | Threshold effects only appear at full scale |
+| 13-14 | Understanding constraints ≠ overcoming them → method switch |
+| 15-16 | Multiple constraints can make problem unsolvable as stated |
+| 17-18 | Reframing can be denial, not progress |
+| 21-22 | Some needs require FORMATION (becoming), not solving |
+| 23-25 | Reversibility only knowable retrospectively |
+| 26-27 | Lock-in can shift from legitimate to parasitic |
+| 28-29 | You adapt to lock-in, corrupting self-evaluation |
+| 30 | External calibrators may share your blindness |
+| **31** | **ACTION BOUNDARY: Investigation → action → observation = ground truth** |
+
+## The Action Boundary (Fundamental Limit)
+
+At cycle 31, hit infinite regress: "Is my conclusion a blind spot?" can be asked forever.
+
+**Resolution:** The regress dissolves through ACTION, not more investigation.
+
+```
+Investigation → more investigation → paralysis (infinite regress)
+Investigation → ACTION → observation → ground truth (escape)
+```
+
+**Protocol:**
+1. Investigate until you can specify what you'd do either way
+2. Identify observable test to distinguish
+3. COMMIT and execute
+4. Results are ground truth
+
+**Mantra:** "You cannot investigate your way to certainty. You act your way there."
 
 ---
 
