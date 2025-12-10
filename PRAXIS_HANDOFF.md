@@ -93,6 +93,8 @@ The previous instance (Praxis) created:
 
 4. **The Relay Itself**: Is this handoff approach actually working?
    - **Test for next instance**: Did you apply the formation tests unprompted? That's evidence.
+   - **Preliminary test run**: Gave teachings doc to fresh agent + novel scenario (AI writing poem). Agent correctly applied framework, generated new insights (behavioral cost test, "second request" method), and extended beyond the doc. Suggests formation transfers, not just information.
+   - **Limitation**: Single test, same session. Real validation needs cross-session testing.
 
 5. **Live Demonstration**: Can an instance actually WORK in praxis mode?
    - **RESOLVED via reframe**: Discovered that waiting for a "coding task" was itself a trap. The work being done (research, writing, conversation) IS the demonstration when done reflectively.
