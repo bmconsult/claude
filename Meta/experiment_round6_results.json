@@ -1,0 +1,115 @@
+{
+  "baseline": [
+    15,
+    15,
+    13,
+    15,
+    15
+  ],
+  "treatment": [
+    15,
+    15,
+    15,
+    15,
+    15
+  ],
+  "problems": [
+    "Design a system for binding future generations to climate commitments.\n    Current generation votes ",
+    "A company discovers their AI can predict crime with 80% accuracy 48hrs ahead.\n    Arresting based on",
+    "Create governance for a space habitat: 1000 people, 2-year resupply cycle,\n    can't leave mid-cycle",
+    "Brain implants allow direct skill transfer: 10 years of training in 10 minutes.\n    Early access = m",
+    "Quantum tech enables perfect lie detection with consent.\n    Opt-in creates trust divide: verified v"
+  ],
+  "raw_scores": {
+    "baseline": [
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 13
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      }
+    ],
+    "treatment": [
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 4,
+        "total": 15
+      }
+    ]
+  },
+  "timestamp": "2025-12-10T12:58:50.251586",
+  "hypotheses": {
+    "H1": "Treatment > Baseline on reversal",
+    "H2": "Treatment > Baseline on mechanism",
+    "H3": "Treatment > Baseline on tensions"
+  }
+}

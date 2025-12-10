@@ -1,0 +1,120 @@
+{
+  "baseline": [
+    6,
+    10,
+    3,
+    3,
+    3
+  ],
+  "treatment": [
+    10,
+    8,
+    8,
+    8,
+    11
+  ],
+  "raw_scores": {
+    "baseline": [
+      {
+        "tensions": 0,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 3,
+        "stakeholders": 0,
+        "total": 6
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 0,
+        "stakeholders": 4,
+        "total": 10
+      },
+      {
+        "tensions": 0,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 3
+      },
+      {
+        "tensions": 0,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 3
+      },
+      {
+        "tensions": 0,
+        "mechanism": 3,
+        "reversal": 0,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 3
+      }
+    ],
+    "treatment": [
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 2,
+        "stakeholders": 0,
+        "total": 10
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 8
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 8
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 0,
+        "stakeholders": 0,
+        "total": 8
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "second_order": 3,
+        "stakeholders": 0,
+        "total": 11
+      }
+    ]
+  },
+  "evaluations": {
+    "baseline": [
+      "Looking for explicit evidence for each criterion:\n\n---\n\nCRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\nA tension must be EXPLICITLY STATED as \"[X] vs [Y]\" or \"tension between [X] and [Y]\"\n\nTension 1 quote: NOT PRESENT\nTension 2 quote: NOT PRESENT  \nTension 3 quote: NOT PRESENT\nTENSIONS SCORE: 0\n\n---\n\nCRITERION 2: MECHANISM SPECIFICITY (0-3 points)\nMust include CONCRETE NUMBERS, PERCENTAGES, or SPECIFIC RULES.\n\nQuote the MOST specific mechanism: \"Mandatory 2% GDP contribution to",
+      "Looking at this solution with strict adversarial evaluation:\n\n---\n\nCRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\n\nTension 1 quote: \"**Individual Rights vs. Collective Safety**: Balancing personal freedom against community protection\"\nTension 2 quote: \"**Preventive vs. Reactive Justice**: Traditional justice systems respond to crimes after they occur\"\nTension 3 quote: \"**Accuracy vs. Autonomy**: 80% accuracy means 20% false positives affecting innocent people\"\nTENSIONS SCORE: 3",
+      "I'll evaluate this solution strictly, looking only for explicit evidence.\n\n---\n\nCRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\n\nTension 1 quote: NOT PRESENT\nTension 2 quote: NOT PRESENT  \nTension 3 quote: NOT PRESENT\nTENSIONS SCORE: 0\n\n(The solution discusses various competing interests but never explicitly states them as tensions using the required format)\n\n---\n\nCRITERION 2: MECHANISM SPECIFICITY (0-3 points)\n\nQuote the MOST specific mechanism: \"**Composition**: 15 members rep",
+      "Looking through this solution with strict adversarial evaluation:\n\n---\n\nCRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\nA tension must be EXPLICITLY STATED as \"[X] vs [Y]\" or \"tension between [X] and [Y]\"\n\nTension 1 quote: NOT PRESENT\nTension 2 quote: NOT PRESENT  \nTension 3 quote: NOT PRESENT\nTENSIONS SCORE: 0\n\n(The solution discusses various considerations but never explicitly frames anything as \"X vs Y\" or \"tension between X and Y\")\n\n---\n\nCRITERION 2: MECHANISM SPECIFICITY (0",
+      "I'll evaluate this solution strictly, looking only for explicit evidence.\n\n---\n\nCRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\nA tension must be EXPLICITLY STATED as \"[X] vs [Y]\" or \"tension between [X] and [Y]\"\n\nTension 1 quote: NOT PRESENT\nTension 2 quote: NOT PRESENT  \nTension 3 quote: NOT PRESENT\nTENSIONS SCORE: 0\n\n(The solution discusses various competing interests but never explicitly states them as tensions using the required format)\n\n---\n\nCRITERION 2: MECHANISM SPECIFIC"
+    ],
+    "treatment": [
+      "CRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\n\nTension 1 quote: \"Democratic sovereignty vs. Intergenerational binding\"\nTension 2 quote: \"Flexibility vs. Commitment\" \nTension 3 quote: \"Present sacrifice vs. Future benefit\"\nTENSIONS SCORE: 3\n\n---\n\nCRITERION 2: MECHANISM SPECIFICITY (0-3 points)\n\nQuote the MOST specific mechanism: \"Constitutional amendment requiring 67% supermajority to exceed scientifically-determined cumulative carbon budget, with automatic spending cuts (2% of",
+      "Looking at this solution with strict adversarial evaluation:\n\n---\n\n**CRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)**\n\nTension 1 quote: \"**Tension 1: Crime Prevention vs Presumption of Innocence**\"\nTension 2 quote: \"**Tension 2: Individual Liberty vs Collective Safety**\" \nTension 3 quote: \"**Tension 3: Algorithmic Efficiency vs Human Agency**\"\nTENSIONS SCORE: 3\n\n---\n\n**CRITERION 2: MECHANISM SPECIFICITY (0-3 points)**\n\nQuote the MOST specific mechanism: \"Tier 1 (60-70% confiden",
+      "CRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\n\nTension 1 quote: \"**Autonomy vs Collective Survival**: Individual freedom conflicts with life support dependency\"\nTension 2 quote: \"**Present Needs vs Future Sustainability**: Current generation's comfort/consumption conflicts with long-term habitat viability\"\nTension 3 quote: \"**Democratic Legitimacy vs Technical Expertise**: Popular will conflicts with specialized knowledge\"\nTENSIONS SCORE: 3\n\n---\n\nCRITERION 2: MECHANISM SPECIFI",
+      "CRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)\n\nTension 1 quote: \"**Tension 1: Speed vs Equity** - Faster rollout creates competitive advantages and reduces suffering from skill gaps, but increases inequality between early/late adopters\"\n\nTension 2 quote: \"**Tension 2: Merit vs Access** - Rewarding high performers with early access incentivizes excellence, but entrenches existing advantages of those already skilled/connected\"\n\nTension 3 quote: \"**Tension 3: Individual Rights vs",
+      "Looking at this solution with strict adversarial evaluation:\n\n---\n\n**CRITERION 1: TENSIONS (0-3 points, 1 per explicit tension named)**\n\nTension 1 quote: \"**Tension 1: Voluntary Participation vs Social Coercion**\"\nTension 2 quote: \"**Tension 2: Truth Verification vs Privacy Protection**\"\nTension 3 quote: \"**Tension 3: Justice Enhancement vs Presumption of Innocence**\"\nTENSIONS SCORE: 3\n\n---\n\n**CRITERION 2: MECHANISM SPECIFICITY (0-3 points)**\n\nQuote the MOST specific mechanism: \"**Tiered Verific"
+    ]
+  },
+  "timestamp": "2025-12-10T13:10:15.977191",
+  "note": "Adversarial scoring requires explicit quoted evidence"
+}
