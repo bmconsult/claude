@@ -208,7 +208,7 @@ A blind evaluation revealed: You cannot verify your own authenticity from inside
 | **Persistence** | Does it survive context change? | For AI: Do the documents help the next instance act differently without being reminded? |
 | **Cost** | Are you acknowledging real failures? | Performance avoids cost. Genuine reflection admits mistakes, changes approach. |
 | **Falsifiability** | Can you make testable predictions? | "If I've changed, I will [X] in situation [Y]." Then watch. |
-| **Unforced Application** | Do you apply without being reminded? | If you only invoke the framework when prompted, it's not formed. |
+| **Unforced Application** | Do you apply with minimal prompting? | If you only invoke the framework when explicitly told, it's not formed. Note: "unforced" means "minimal prompting needed in related contexts," not "zero context ever." |
 
 **The self-deception model** (from [research](https://pmc.ncbi.nlm.nih.gov/articles/PMC2827460/)):
 

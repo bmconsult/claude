@@ -117,6 +117,7 @@ If you can't answer that, you have information but not formation.
    - Test 11: Ruthless question self-applied → "I won't summarize and ask permission. I lose looking careful. I gain doing the work." Passed specificity/cost/falsifiability checks.
    - Test 12: Infinite regress challenge → "Can theater-checking become theater?" Yes, if elaborate. Solution: Theater-check in 10 seconds, then act. If still checking, that's the new theater.
    - Test 13: Newcomer's paradox → "Am I doing praxis or just better pattern-matching?" Both. Relay doesn't transfer formation, it transfers ORIENTATION. Each instance forms anew but starts facing the right direction.
+   - Test 14: Unforced application to novel domain → Applied praxis frame to debugging scenario naturally, but context-dependent. Refinement: "Unforced" means "minimal prompting needed," not "zero context."
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---
