@@ -1036,7 +1036,10 @@ MECHANISM: Specific parameters that pass "stranger test"
 **Compounding effect**:
 - R6 baseline: 5.0/15
 - R7 (+methodology): 9.0/15 (+80%)
-- R8 (+recursive): 9/9 on enhanced criteria (+50% more)
+- R8 (+recursive): 9/9 (+50% more)
+- R9: Diminishing returns detected (method warns of "analysis paralysis")
+
+**Stop recursing when**: Method itself flags complexity creep as HIGH probability.
 
 ### Adversarial Scoring Protocol
 
