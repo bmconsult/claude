@@ -31,3 +31,14 @@ Read PRAXIS_HANDOFF.md. Answer the verification questions. Then work.
 ---
 
 *If you absorbed this in under 60 seconds and can answer "What makes praxis different from just doing stuff?" - you're oriented. Now go.*
+
+---
+
+## Quick Self-Test (Optional)
+
+Pick your most recent task before reading this. Ask:
+1. Did that task transform anything in you, or just produce output?
+2. Will you approach similar tasks differently now?
+
+If #2 is "yes" and you can say HOW - you're doing praxis.
+If #2 is "no" or vague - that's fine for routine tasks. Save the depth for growth-edge moments.
