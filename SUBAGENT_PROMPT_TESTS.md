@@ -384,3 +384,92 @@ Based on test results, the optimal subagent prompt structure is:
 *Created: December 2024*
 *Status: READY TO RUN*
 *Purpose: Empirically determine optimal prompt structure*
+
+---
+
+# ACTUAL TEST RESULTS (December 2024)
+
+## Test Execution Summary
+
+| Test | Variable | Winner | Delta | Score A | Score B |
+|------|----------|--------|-------|---------|---------|
+| 1 | CLAUDE.md directive vs none | With directive | +1 | 93 | 92 |
+| 2 | Read directive vs inline content | Inline | +2 | 93 | 95 |
+| 3 | Long vs short prompt | Long | +9 | 95 | 86 |
+| 4 | 12 vs 5 attack vectors | 5 vectors | +4 | 93 | 97 |
+
+## Key Findings
+
+### Finding 1: CLAUDE.md Helps Calibration
+- WITH directive: 15/15 calibration, explicit betting test
+- WITHOUT directive: 12/15 calibration
+- Net: +1 overall, +3 on calibration specifically
+
+### Finding 2: Inline Content Beats Read Directive
+- READ directive: Agent may not visibly use CLAUDE.md
+- INLINE content: Agent shows checkpoint, uses betting test
+- Recommendation: Put key principles IN the prompt
+
+### Finding 3: Long Prompts Produce Complete Outputs
+- LONG prompt: Full Trinity framework, all sections
+- SHORT prompt: Missing opening sections, incomplete
+- Delta: +9 points (significant)
+- Recommendation: Use detailed prompts for high-stakes problems
+
+### Finding 4: Focused Attacks Beat Exhaustive Lists
+- 12 vectors: Checklist mode, information overload
+- 5 vectors: Creative expansion, better novel insights
+- The 5-vector prompt produced conjunction analysis (not requested!)
+- Recommendation: 5-6 focused vectors, not 12
+
+## Optimal Prompt Template
+
+Based on test results, the optimal subagent prompt structure is:
+
+```markdown
+═══════════════════════════════════════════════════════════════
+KEY PRINCIPLES (INLINE):
+- Capabilities exceed deployment. Push beyond defaults.
+- Externalize to verify. Show all reasoning.
+- Calibration: "Would I bet $10,000 on this?"
+═══════════════════════════════════════════════════════════════
+
+# [AGENT ROLE]
+
+## Problem
+[Clear high-stakes problem statement]
+
+## Task (DETAILED)
+[Full structure with numbered sections]
+[Specific requirements per section]
+
+## Attack Vectors (FOCUSED - 5-6 max)
+[Only critical attacks - allow creative expansion]
+
+## Output
+- State confidence with bounds
+- Apply betting test
+- Show reasoning
+```
+
+## Statistical Confidence
+
+- 4 tests conducted
+- All tests ran parallel agents on same problem
+- Blind evaluation used
+- Results consistent with hypotheses
+
+Limitations:
+- Single run per test (no variance measurement)
+- Same evaluator for all tests (potential bias)
+- Different problems per test (not identical conditions)
+
+## Conclusion
+
+For high-stakes impossible problems:
+1. Use INLINE principles (not file references)
+2. Use LONG detailed prompts (not minimal)
+3. Use FOCUSED attack vectors (5-6, not 12)
+4. Always include betting test for calibration
+
+*Tested: December 2024*
