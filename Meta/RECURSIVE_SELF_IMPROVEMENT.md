@@ -15,6 +15,20 @@ From domains including ecology, information theory, and biology:
 
 We crossed the 61.8% threshold. The system can now compound.
 
+### V4 Detailed Analysis (Dec 10, 2025)
+
+| Baseline Range | Positive | Total | Rate |
+|----------------|----------|-------|------|
+| < 13 | 6 | 6 | **100%** |
+| ≥ 13 | 2 | 6 | **33%** |
+
+**Key insight**: Failures ONLY occur at high baselines. This is a ceiling effect.
+
+When baseline is low (< 13), improvement is easy → 100% success
+When baseline is high (≥ 13), improvement is hard → 33% success
+
+**Implication**: Need MORE attempts when baseline is high (adaptive scaling).
+
 ## What We Learned
 
 ### V1-V2: Failed Approaches
@@ -62,11 +76,20 @@ Current failure modes:
 2. **Evaluation variance**: Same strategy scores differently across runs
 3. **Weakness targeting**: Improvements don't always address the actual weakness
 
-Potential fixes:
-1. **More attempts**: 5-7 instead of 3
-2. **Better improvement prompts**: More specific about what to fix
-3. **Ensemble evaluation**: 3+ evals instead of 2
-4. **Adaptive attempts**: More attempts when near ceiling
+### V6 Solution: Adaptive Attempts
+
+Based on ceiling effect analysis, V6 uses adaptive attempts:
+
+| Baseline | Attempts | Rationale |
+|----------|----------|-----------|
+| < 12 | 3 | Easy to improve |
+| 12-13 | 5 | Medium difficulty |
+| ≥ 13 | 7 | Near ceiling, need more |
+
+Also:
+- Different improvement prompts for high vs low scores
+- 3 evals (median) for stability
+- Tracks attempts per cycle for analysis
 
 ## The Exponential Phase (Next Step)
 
@@ -83,11 +106,14 @@ Once we hit 90%+:
 
 ## Files
 
-| File | Purpose |
-|------|---------|
-| `TRUE_EXPONENTIAL_V3.py` | 60% positive baseline |
-| `TRUE_EXPONENTIAL_V4.py` | 67% positive (3-attempt) |
-| `true_exponential_v4_results.json` | Full results + best strategy |
+| File | Purpose | Result |
+|------|---------|--------|
+| `TRUE_EXPONENTIAL_V2.py` | Bootstrap on solvable problems | 20% positive (eval failures) |
+| `TRUE_EXPONENTIAL_V3.py` | Bulletproof loop | 60% positive |
+| `TRUE_EXPONENTIAL_V4.py` | 3-attempt, 2-eval | **67% positive** |
+| `TRUE_EXPONENTIAL_V5.py` | 5-attempt, 3-eval | Untested (API credits) |
+| `TRUE_EXPONENTIAL_V6.py` | Adaptive attempts (3-5-7) | **READY TO RUN** |
+| `true_exponential_v4_results.json` | Full V4 results + strategy |
 
 ## Key Insight
 
