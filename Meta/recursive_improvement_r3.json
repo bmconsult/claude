@@ -1,0 +1,394 @@
+{
+  "results": [
+    {
+      "name": "baseline",
+      "complexity": {
+        "words": 0,
+        "instructions": 0,
+        "total": 0
+      },
+      "avg_score": 6.0,
+      "efficiency": 600.0,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 4
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name": "three_words",
+      "complexity": {
+        "words": 3,
+        "instructions": 1,
+        "total": 13
+      },
+      "avg_score": 9.0,
+      "efficiency": 69.23076923076923,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "minimal_2_fs",
+      "complexity": {
+        "words": 4,
+        "instructions": 1,
+        "total": 14
+      },
+      "avg_score": 9.0,
+      "efficiency": 64.28571428571429,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "reorder_fts",
+      "complexity": {
+        "words": 4,
+        "instructions": 1,
+        "total": 14
+      },
+      "avg_score": 8.0,
+      "efficiency": 57.14285714285714,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 3,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name": "reorder_stf",
+      "complexity": {
+        "words": 4,
+        "instructions": 1,
+        "total": 14
+      },
+      "avg_score": 8.0,
+      "efficiency": 57.14285714285714,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 2,
+          "total": 6
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "imperative",
+      "complexity": {
+        "words": 6,
+        "instructions": 1,
+        "total": 16
+      },
+      "avg_score": 9.0,
+      "efficiency": 56.25,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "r2_winner",
+      "complexity": {
+        "words": 6,
+        "instructions": 1,
+        "total": 16
+      },
+      "avg_score": 8.666666666666666,
+      "efficiency": 54.166666666666664,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "minimal_3",
+      "complexity": {
+        "words": 3,
+        "instructions": 1,
+        "total": 13
+      },
+      "avg_score": 7.0,
+      "efficiency": 53.84615384615385,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 2,
+          "total": 6
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 3,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name": "minimal_2_tf",
+      "complexity": {
+        "words": 5,
+        "instructions": 1,
+        "total": 15
+      },
+      "avg_score": 7.666666666666667,
+      "efficiency": 51.11111111111112,
+      "scores": [
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 5
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "minimal_2_ts",
+      "complexity": {
+        "words": 4,
+        "instructions": 1,
+        "total": 14
+      },
+      "avg_score": 7.0,
+      "efficiency": 50.0,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 6
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 1,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name": "pre_mortem",
+      "complexity": {
+        "words": 7,
+        "instructions": 1,
+        "total": 17
+      },
+      "avg_score": 8.333333333333334,
+      "efficiency": 49.01960784313726,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name": "adversarial_frame",
+      "complexity": {
+        "words": 7,
+        "instructions": 1,
+        "total": 17
+      },
+      "avg_score": 7.666666666666667,
+      "efficiency": 45.09803921568628,
+      "scores": [
+        {
+          "tensions": 2,
+          "mechanism": 0,
+          "reversal": 3,
+          "total": 5
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "constraint_frame",
+      "complexity": {
+        "words": 6,
+        "instructions": 1,
+        "total": 16
+      },
+      "avg_score": 7.0,
+      "efficiency": 43.75,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 5
+        }
+      ]
+    }
+  ]
+}

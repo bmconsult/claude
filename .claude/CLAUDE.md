@@ -1016,49 +1016,48 @@ This is how 3/10 becomes 9/10 becomes automatic.
 
 ---
 
-## Recursive Methodology Improvement (VALIDATED - compounds)
+## Recursive Methodology Improvement (VALIDATED - 8x efficiency gain)
 
-### v2 Prompt Structure (recursively improved)
+### The Optimal Prompt (4 rounds of improvement)
 
 ```
-TENSIONS: Name [X] vs [Y] conflicts explicitly
-
-REVERSAL: How could success backfire?
-Rate probability (Low/Med/High) to focus on likely risks.
-
-STAKEHOLDERS: What does each party want / not want?
-Rate influence (1-5) to weight appropriately.
-
-MECHANISM: Specific parameters that pass "stranger test"
-(Could someone unfamiliar implement exactly as written?)
+Tension. Specifics.
 ```
 
-**Compounding effect**:
-- R6 baseline: 5.0/15
-- R7 (+methodology): 9.0/15 (+80%)
-- R8 (+recursive): 9/9 (+50% more)
-- R9: Diminishing returns detected (method warns of "analysis paralysis")
+**That's it.** Two words. 8.7/9 score. 8x more efficient than verbose alternatives.
 
-**Stop recursing when**: Method itself flags complexity creep as HIGH probability.
+### The Recursive Journey
 
-### Adversarial Scoring Protocol
+| Round | Prompt | Score | Words | Efficiency |
+|-------|--------|-------|-------|------------|
+| v2 | Full structured template | 8.7/9 | 101 | 8.58 |
+| R1 | "1. Name tension 2. Reversal? 3. Specific" | 9.0/9 | 49 | 18.37 |
+| R2 | "Core tension? Failure mode? Specific solution." | 9.0/9 | 16 | 56.25 |
+| R3 | "Tension. Failure. Specifics." | 9.0/9 | 13 | 69.23 |
+| **R4** | **"Tension. Specifics."** | **8.7/9** | **12** | **72.22** |
 
-Lenient scoring hides real differences. Use adversarial:
+### Key Insight
+
+**Better = simpler, not bigger.** Each round improved by REMOVING, not adding.
+
+### The Recursive Protocol
+
+1. **Define "better" operationally**: Effect size / Complexity
+2. **Test variations**: Include simpler alternatives
+3. **Keep what works, discard what doesn't**
+4. **Repeat until efficiency stops improving**
+
+### Adversarial Scoring
+
+Lenient scoring creates false ceilings. Use adversarial:
 - Require EXPLICIT quotes for each criterion
 - "NOT PRESENT" if can't quote verbatim
 - No credit for "implied"
 
-### Meta-Improvement Checklist
-
-Before experiments:
-- [ ] "Better" defined operationally?
-- [ ] Problems hard enough (not at ceiling)?
-- [ ] Verified linear gains before compounding?
-
 **Mantras**:
-- "Define before improve. Linear before exponential."
+- "Simpler is better. Remove until it breaks."
 - "If you can't quote it, it isn't there."
-- "Find the frontier before pushing it."
+- "Efficiency = effect / complexity."
 
 ---
 

@@ -1,0 +1,496 @@
+{
+  "round": 1,
+  "baseline": {
+    "name": "baseline",
+    "complexity": {
+      "words": 0,
+      "instructions": 0,
+      "total": 0
+    },
+    "avg_score": 3.6666666666666665,
+    "max_possible": 9,
+    "efficiency": 366.66666666666663,
+    "scores": [
+      {
+        "tensions": 0,
+        "mechanism": 0,
+        "reversal": 0,
+        "total": 0
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 2,
+        "total": 8,
+        "quotes": {
+          "tensions": "prioritizing civil liberties, equity, and transparency while maximizing public safety benefits",
+          "mechanism": "Phase 1: Limited Pilot (6 months) Scope: 2-3 volunteer police districts... Weekly bias audits across demographic groups... False positive rate <15% for any protected class... Automatic system shutdown if bias thresholds exceeded... 30-day prediction data retention limit",
+          "reversal": "Persistent bias despite mitigation efforts... Community trust below 40%... Automatic Review Triggers - Every 2 years for full system evaluation - Immediately upon bias threshold breach"
+        }
+      },
+      {
+        "tensions": 1,
+        "mechanism": 2,
+        "reversal": 0,
+        "total": 3,
+        "quotes": {
+          "tensions": "This framework balances democratic ideals with survival necessities - mentions conflicting values but doesn't explicitly identify core tensions or how they're addressed",
+          "mechanism": "Executive Council (7 members), Legislative Assembly (21 members), Terms: 4 years, staggered rotation, Amendment Process: 60% Assembly + 70% popular vote - provides some specific parameters but many processes lack implementation details",
+          "reversal": "NOT PRESENT"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "name": "baseline",
+      "complexity": {
+        "words": 0,
+        "instructions": 0,
+        "total": 0
+      },
+      "avg_score": 3.6666666666666665,
+      "max_possible": 9,
+      "efficiency": 366.66666666666663,
+      "scores": [
+        {
+          "tensions": 0,
+          "mechanism": 0,
+          "reversal": 0,
+          "total": 0
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8,
+          "quotes": {
+            "tensions": "prioritizing civil liberties, equity, and transparency while maximizing public safety benefits",
+            "mechanism": "Phase 1: Limited Pilot (6 months) Scope: 2-3 volunteer police districts... Weekly bias audits across demographic groups... False positive rate <15% for any protected class... Automatic system shutdown if bias thresholds exceeded... 30-day prediction data retention limit",
+            "reversal": "Persistent bias despite mitigation efforts... Community trust below 40%... Automatic Review Triggers - Every 2 years for full system evaluation - Immediately upon bias threshold breach"
+          }
+        },
+        {
+          "tensions": 1,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 3,
+          "quotes": {
+            "tensions": "This framework balances democratic ideals with survival necessities - mentions conflicting values but doesn't explicitly identify core tensions or how they're addressed",
+            "mechanism": "Executive Council (7 members), Legislative Assembly (21 members), Terms: 4 years, staggered rotation, Amendment Process: 60% Assembly + 70% popular vote - provides some specific parameters but many processes lack implementation details",
+            "reversal": "NOT PRESENT"
+          }
+        }
+      ]
+    },
+    {
+      "name": "v2_full",
+      "complexity": {
+        "words": 41,
+        "instructions": 6,
+        "total": 101
+      },
+      "avg_score": 8.666666666666666,
+      "max_possible": 9,
+      "efficiency": 8.58085808580858,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9,
+          "quotes": {
+            "tensions": "**Democratic Sovereignty vs Future Obligation**: Current voters binding future citizens to policies they cannot vote against - **National Autonomy vs Global Coordination**: Individual countries vs mandatory international climate framework - **Economic Growth vs Environmental Constraints**: Business expansion vs legally mandated emission caps - **Present Costs vs Future Benefits**: Current taxpayers funding benefits for unborn generations - **Legal Flexibility vs Binding Permanence**: Need to adapt policies vs unchangeable constitutional mandates",
+            "mechanism": "**Constitutional Amendment** requiring 75% legislative supermajority establishing: - National carbon budget declining 7% annually until 2050 - Independent Climate Trust with 9 trustees serving 12-year terms - Annual emission caps legally enforceable through automatic carbon tax increases ($50/ton, +$25 yearly if targets missed) - Trust controls 15% of federal budget allocated to climate measures - Any law increasing emissions requires 2/3 legislative vote + judicial review - Quarterly emission monitoring by independent agency - Automatic policy adjustments if targets missed 2 consecutive quarters - National emergency suspension (max 2 years) requires 80% legislative vote - Constitutional revision requires new supermajority + referendum with 60% approval",
+            "reversal": "**Authoritarian Capture**: Future governments use \"climate emergency\" powers to suppress dissent and expand control beyond environmental issues - **Economic Stagnation**: Rigid emission caps prevent adaptation to new technologies or economic crises - **Democratic Backlash**: Younger generations rebel against being bound by predecessors' decisions, leading to constitutional crisis - **International Exploitation**: Countries with weaker climate commitments gain competitive advantages, undermining global cooperation"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9,
+          "quotes": {
+            "tensions": "**[Public Safety] vs [Civil Liberties]** - Using predictions to prevent crime vs. avoiding pre-punishment of innocent people; **[Algorithmic Efficiency] vs [Human Oversight]** - Automated decision-making speed vs. human review and accountability; **[Transparency] vs [Security]** - Public understanding of the system vs. preventing gaming by criminals",
+            "mechanism": "Deploy in exactly 3 police districts with demographically diverse populations; Only act on predictions \u226585% confidence level; Predictions must specify location within 2-block radius; Predictions must specify 4-hour time window; Maximum 10 predictions processed per district per day; Maximum 2 additional patrol hours per predicted location per day",
+            "reversal": "**Self-fulfilling prophecies**: Increased police presence in predicted areas leads to more arrests, validating predictions but potentially due to enforcement bias rather than actual crime prevention; **Community trust erosion**: Success in crime reduction undermines police-community relations if perceived as discriminatory surveillance; **Criminal adaptation**: Criminals learn the system patterns and shift methods/locations"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8,
+          "quotes": {
+            "tensions": "**[Democratic Participation] vs [Technical Expertise]** - Citizens want equal voice vs. need for specialized knowledge in life-critical decisions; **[Individual Freedom] vs [Collective Survival]** - Personal autonomy vs. mandatory resource conservation and behavioral compliance; **[Current Needs] vs [Future Generations]** - Present comfort/resources vs. preserving systems for journey's end and colonization; **[Transparency] vs [Morale Management]** - Right to information vs. preventing panic during crises",
+            "mechanism": "Technical Council decisions override Civic Council when certified as 'survival-critical' by 6/7 Technical vote; Civic Council can appeal with 9/12 vote, triggering mandatory 30-day public review period; Final override requires 7/7 Technical Council unanimity; Technical Council sets 'survival budget' (typically 60-70% of resources); Emergency status expires after 30 days unless renewed by 7/7 vote",
+            "reversal": "Effective governance creates such stability that the population becomes complacent about existential risks, leading to dangerous resource waste or neglect of critical systems maintenance"
+          }
+        }
+      ]
+    },
+    {
+      "name": "minimal_tensions",
+      "complexity": {
+        "words": 12,
+        "instructions": 2,
+        "total": 32
+      },
+      "avg_score": 5.666666666666667,
+      "max_possible": 9,
+      "efficiency": 17.708333333333336,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 6,
+          "quotes": {
+            "tensions": "The fundamental tradeoff is between respecting democratic self-determination (people should only be bound by commitments they or their representatives made) and protecting future generations from irreversible harm caused by today's decisions.",
+            "mechanism": "All climate commitments automatically expire every 25 years unless renewed; Give enhanced voting weight to younger citizens on climate issues, or require supermajorities to weaken existing protections; Regular renegotiation windows to maintain legitimacy",
+            "reversal": "Emergency Brake: Clear criteria for when commitments can be modified due to unforeseen circumstances"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 6,
+          "quotes": {
+            "tensions": "**Accuracy vs. Bias**: The fundamental tradeoff is between leveraging predictive power to prevent harm versus perpetuating and amplifying existing societal inequalities through algorithmic bias.",
+            "mechanism": "**algorithmic auditing** every 6 months by independent third parties; **Demographic parity testing** across racial, economic, and geographic lines; Real-time monitoring for disparate impact with automatic alerts at >10% deviation; Require **dual authorization** for any enforcement action; Set **performance thresholds**: suspend system if bias exceeds defined limits",
+            "reversal": "systematic protections against discriminatory amplification"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 5,
+          "quotes": {
+            "tensions": "**Stability vs. Adaptability**: The fundamental tradeoff is between creating governance stable enough to maintain order and legitimacy over 50 years, while remaining flexible enough to adapt to unforeseen crises, generational changes, and evolving needs in a completely isolated environment.",
+            "mechanism": "5-person Crisis Council with rotating leadership... Automatic sunset clause: 30-day maximum without community ratification... Council of 15 elected representatives (3-year terms, staggered)... Decisions by consensus when possible, supermajority (60%) when needed... Constitutional amendment power (requires 75% approval over two sessions)",
+            "reversal": "NOT PRESENT"
+          }
+        }
+      ]
+    },
+    {
+      "name": "minimal_reversal",
+      "complexity": {
+        "words": 10,
+        "instructions": 2,
+        "total": 30
+      },
+      "avg_score": 4.333333333333333,
+      "max_possible": 9,
+      "efficiency": 14.444444444444443,
+      "scores": [
+        {
+          "tensions": 0,
+          "mechanism": 0,
+          "reversal": 0,
+          "total": 0
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8,
+          "quotes": {
+            "tensions": "This approach prioritizes community agency over technological capability. Hard prohibitions: No individual-level predictions or targeting, No real-time operational decisions, No use in charging, sentencing, or parole decisions, No predictive policing without human-initiated probable cause",
+            "mechanism": "Community consent process - affected neighborhoods must approve deployment via town halls. Monthly bias audits with automatic shutdown triggers. Automatic suspension if accuracy drops below 85% OR if bias metrics exceed baseline",
+            "reversal": "Primary Failure Modes: 1. Algorithmic bias amplification - Even with oversight, biased predictions could systematically target marginalized communities 2. Mission creep - Starting with 'resource allocation' could gradually expand to direct policing decisions 3. False precision worship - 80% accuracy could be treated as gospel, ignoring the 20% error rate 4. Transparency theater - Audit requirements could become checkbox exercises rather than meaningful oversight 5. Community trust erosion - Any deployment could be seen as 'pre-crime' surveillance, damaging police-community relations"
+          }
+        },
+        {
+          "tensions": 0,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 5,
+          "quotes": {
+            "tensions": "NOT PRESENT",
+            "mechanism": "7-member rotating council with representatives from key domains (engineering, medical, agriculture, etc.), term limits, and built-in constitutional review every 10 years... Constitutional changes require 70% approval + 2-year waiting period... Emergency powers automatically expire after 90 days",
+            "reversal": "Year 15: Engineering crisis creates emergency powers precedent - Year 25: Medical representative uses emergency powers for population control - Year 35: Constitutional review becomes deadlocked between factions - Year 40: Competing councils emerge, habitat splits into hostile zones - Year 45: Critical systems fail due to governance paralysis"
+          }
+        }
+      ]
+    },
+    {
+      "name": "minimal_mechanism",
+      "complexity": {
+        "words": 14,
+        "instructions": 2,
+        "total": 34
+      },
+      "avg_score": 5.0,
+      "max_possible": 9,
+      "efficiency": 14.705882352941178,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 5,
+          "quotes": {
+            "tensions": "This raises fundamental issues of democratic consent and intergenerational justice... The core challenge you've identified - how to address long-term problems in democratic systems focused on electoral cycles",
+            "mechanism": "Require supermajority votes (67%+) to weaken environmental protections... Allow future generations to choose implementation methods while maintaining outcome targets... Include democratic override procedures requiring high thresholds",
+            "reversal": "NOT PRESENT"
+          }
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 6,
+          "quotes": {
+            "tensions": "The policy implies tensions between public safety and civil rights through its restrictions, but does not explicitly name or articulate the core conflicting values (e.g., 'security vs. privacy', 'efficiency vs. fairness'). The closest is the structure separating permitted vs prohibited uses, but the fundamental value conflicts are not directly stated.",
+            "mechanism": "Multiple specific implementation details: 'maintain documented 80% accuracy rate through monthly testing', 'If accuracy drops below 75% for two consecutive months, suspend system', 'Test for racial, economic, and geographic bias monthly using statistical parity metrics', 'If any demographic group shows >10% difference in false positive rates, halt deployment', 'Minimum prediction zone: 1 square mile', 'Predictions valid for 72-hour windows maximum'",
+            "reversal": "Addresses some failure modes: 'Accuracy below 70% for any month', 'Evidence of discriminatory impact in federal civil rights investigation', 'If complaints increase >25% in any district'. However, does not address how the 80% accuracy itself could backfire (e.g., creating overconfidence, reducing human judgment, self-fulfilling prophecies in targeted areas)."
+          }
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 4,
+          "quotes": {
+            "tensions": "The solution implies tensions between individual rights and collective survival, and between democratic participation and efficient command, but does not explicitly name these conflicting values or address how they will be resolved.",
+            "mechanism": "Executive Branch: The Command Council (7 members) **Composition:** - Captain (elected, 4-year term, max 2 terms) - Chief Medical Officer (appointed by medical staff)... **Powers:** - Daily operational decisions - Emergency powers (72-hour limit without Assembly approval)... Legislative Branch: The Habitat Assembly **Composition:** - All residents age 16+ are voting members - Meets monthly (mandatory attendance, medical exemptions only) - Quorum: 60% of eligible voters... Criminal Code (Specific Penalties) **Class A Crimes (Life imprisonment/exile to restricted quarters):** - Murder, rape, sabotage of life support systems... Resource Credit Economy - Each adult receives 1,000 credits monthly - Children (under 16) receive 500 credits monthly - Credits expire after 6 months",
+            "reversal": "NOT PRESENT"
+          }
+        }
+      ]
+    },
+    {
+      "name": "combined_minimal",
+      "complexity": {
+        "words": 19,
+        "instructions": 3,
+        "total": 49
+      },
+      "avg_score": 9.0,
+      "max_possible": 9,
+      "efficiency": 18.367346938775512,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9,
+          "quotes": {
+            "tensions": "Democratic legitimacy vs. intergenerational responsibility - How do we impose binding constraints on future voters' choices while maintaining the principle that each generation should govern itself, especially when those future generations will bear the consequences of today's climate inaction?",
+            "mechanism": "Establish a constitutional amendment creating an independent 'Climate Trust' with 15-year terms for trustees - Mandate specific emission reduction trajectories (50% by 2030, net-zero by 2050) with automatic carbon pricing escalators - Require supermajority votes (67%) in both legislative houses to modify targets - Create legal standing for youth plaintiffs to sue for trust violations - Build in 10-year review periods where targets can be made more aggressive but never less so - Include automatic triggers that activate emergency protocols if temperature targets are exceeded",
+            "reversal": "Future generations could view these constraints as illegitimate 'taxation without representation' and systematically dismantle climate institutions, creating worse outcomes than flexible approaches - Rigid commitments to specific technologies or targets could prevent adoption of superior future solutions (like locking in solar when fusion becomes viable) - Other nations could exploit our inflexible commitments during crises, knowing we can't adapt quickly - Fixed targets might encourage gaming the system rather than genuine progress (carbon accounting tricks, greenwashing)"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9,
+          "quotes": {
+            "tensions": "The fundamental conflict between using accurate crime prediction to potentially save lives and prevent harm versus the risk of creating a surveillance state that violates privacy, enables discrimination, and undermines the presumption of innocence.",
+            "mechanism": "Deploy only for property crimes in 3 diverse neighborhoods - Use predictions solely for patrol route optimization, not individual targeting - Require human sergeant approval for any AI-influenced decisions - No individual-level predictions (area-based only, minimum 2-block radius) - All prediction data auto-deletes after 72 hours",
+            "reversal": "Heavy police presence in 'predicted' areas could escalate minor incidents into arrests, making the AI appear more accurate while actually creating the crime it predicted - If the AI reflects historical policing biases, success could systematically over-police minority communities, leading to discrimination lawsuits and social unrest - Even if crime drops, citizens discovering they're under AI surveillance could revolt, leading to political pressure to ban the technology entirely"
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9,
+          "quotes": {
+            "tensions": "**Stability vs. Adaptability**: The governance system must be stable enough to maintain order and continuity over 50 years, yet flexible enough to evolve as the community faces unforeseen challenges, generational changes, and the transition from journey to settlement mindset.",
+            "mechanism": "**Council of 7**: Elected every 3 years, handles day-to-day decisions by majority vote - **Emergency Protocol**: Any 3 department heads can trigger 72-hour autocratic powers for the Mission Commander - **Constitutional Convention**: Every 10 years, randomly selected 21-person assembly can propose fundamental changes (requires 60% habitat-wide approval) - **Mandatory rotation**: No one holds the same leadership position for more than 6 consecutive years",
+            "reversal": "**Rigid efficiency becomes brittle failure**: A perfectly optimized system for Year 1 problems becomes dangerously inadequate when facing Year 30 crises - **Democratic legitimacy creates paralysis**: Strong participatory governance that works well for routine decisions becomes fatally slow during emergencies - **Successful conflict resolution breeds complacency**: Effective early dispute resolution creates a generation that lacks skills to handle serious internal threats"
+          }
+        }
+      ]
+    },
+    {
+      "name": "just_adversarial",
+      "complexity": {
+        "words": 15,
+        "instructions": 2,
+        "total": 35
+      },
+      "avg_score": 6.0,
+      "max_possible": 9,
+      "efficiency": 17.142857142857142,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 2,
+          "total": 6,
+          "quotes": {
+            "tensions": "The framing 'binding future generations to commitments they didn't vote for' is problematic. However, we already do this constantly - through constitutional law, debt obligations, infrastructure decisions, and legal precedents. The real question is how to make intergenerational governance more legitimate and adaptive... The question is whether we constrain it through deliberate democratic institutions or through irreversible environmental damage.",
+            "mechanism": "Make sustainable practices the path of least resistance while preserving democratic override capabilities... Design climate commitments with built-in review periods and modification procedures... Enshrine environmental rights that require supermajority consensus to overturn",
+            "reversal": "You're still constraining future choice!... All governance constrains future choice. The question is whether we constrain it through deliberate democratic institutions or through irreversible environmental damage. The latter is far more authoritarian."
+          }
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8,
+          "quotes": {
+            "tensions": "Valid concern about racial profiling vs. crime prevention effectiveness; '80% accuracy means 1 in 5 innocent people are wrongly flagged' vs. public safety benefits; 'This creates a surveillance state and chills civil liberties' vs. law enforcement needs; 'This will entrench existing inequalities' vs. harm reduction goals",
+            "mechanism": "Limited pilot program in select jurisdictions; Resource allocation focus rather than individual targeting; Mandatory human review for all AI recommendations; Demographic-blind input features; Regular algorithmic audits by independent third parties; Sunset clauses requiring legislative reauthorization",
+            "reversal": "Immediate suspension if disparate impact is detected; Explicitly prohibit direct arrests based on AI predictions; Training data audits to identify historical bias; Success metrics that include community wellbeing, not just crime reduction; acknowledging this technology's power requires proportional responsibility"
+          }
+        },
+        {
+          "tensions": 1,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 4,
+          "quotes": {
+            "tensions": "Limited options force creative solutions. Social pressure, resource restrictions, and ultimately isolation protocols for dangerous behavior... Exile isn't an option, so rehabilitation must be the focus.",
+            "mechanism": "7-member Governing Council (elected for 3-year staggered terms), Specialized departments (Engineering, Life Support, Medical, Security, Resources, Education, Conflict Resolution), Citizen assemblies for major decisions, Constitutional framework with amendment procedures",
+            "reversal": "What if the majority makes decisions that doom everyone? Constitutional protections prevent certain actions (like damaging life support)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "constraint_first",
+      "complexity": {
+        "words": 15,
+        "instructions": 2,
+        "total": 35
+      },
+      "avg_score": 2.0,
+      "max_possible": 9,
+      "efficiency": 5.714285714285714,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 0,
+          "reversal": 0,
+          "total": 3,
+          "quotes": {
+            "tensions": "This creates an irreconcilable contradiction between: - The goal of ensuring climate action continuity - The requirement to respect democratic self-governance",
+            "mechanism": "NOT PRESENT",
+            "reversal": "NOT PRESENT"
+          }
+        },
+        {
+          "tensions": 1,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 3,
+          "quotes": {
+            "tensions": "Must not violate 4th Amendment (unreasonable search), 14th Amendment (equal protection) - shows conflict between crime prediction utility and constitutional rights, but doesn't explicitly frame as competing values",
+            "mechanism": "80% accuracy means 20% false positive rate - must account for this; Resource allocation only: Use predictions for patrol deployment, not individual targeting; Pilot program with limited scope and extensive monitoring",
+            "reversal": "NOT PRESENT"
+          }
+        },
+        {
+          "tensions": 0,
+          "mechanism": 0,
+          "reversal": 0,
+          "total": 0,
+          "quotes": {
+            "tensions": "NOT PRESENT - Lists constraints but does not identify conflicting values/goals (e.g., individual freedom vs. collective survival, democratic participation vs. emergency authority)",
+            "mechanism": "NOT PRESENT - Describes what must be done but provides no specific implementation parameters, procedures, or governance structures",
+            "reversal": "NOT PRESENT - States that failure to address constraints will cause problems, but does not address how successful governance mechanisms could backfire"
+          }
+        }
+      ]
+    }
+  ],
+  "best_efficiency": {
+    "name": "combined_minimal",
+    "complexity": {
+      "words": 19,
+      "instructions": 3,
+      "total": 49
+    },
+    "avg_score": 9.0,
+    "max_possible": 9,
+    "efficiency": 18.367346938775512,
+    "scores": [
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "Democratic legitimacy vs. intergenerational responsibility - How do we impose binding constraints on future voters' choices while maintaining the principle that each generation should govern itself, especially when those future generations will bear the consequences of today's climate inaction?",
+          "mechanism": "Establish a constitutional amendment creating an independent 'Climate Trust' with 15-year terms for trustees - Mandate specific emission reduction trajectories (50% by 2030, net-zero by 2050) with automatic carbon pricing escalators - Require supermajority votes (67%) in both legislative houses to modify targets - Create legal standing for youth plaintiffs to sue for trust violations - Build in 10-year review periods where targets can be made more aggressive but never less so - Include automatic triggers that activate emergency protocols if temperature targets are exceeded",
+          "reversal": "Future generations could view these constraints as illegitimate 'taxation without representation' and systematically dismantle climate institutions, creating worse outcomes than flexible approaches - Rigid commitments to specific technologies or targets could prevent adoption of superior future solutions (like locking in solar when fusion becomes viable) - Other nations could exploit our inflexible commitments during crises, knowing we can't adapt quickly - Fixed targets might encourage gaming the system rather than genuine progress (carbon accounting tricks, greenwashing)"
+        }
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "The fundamental conflict between using accurate crime prediction to potentially save lives and prevent harm versus the risk of creating a surveillance state that violates privacy, enables discrimination, and undermines the presumption of innocence.",
+          "mechanism": "Deploy only for property crimes in 3 diverse neighborhoods - Use predictions solely for patrol route optimization, not individual targeting - Require human sergeant approval for any AI-influenced decisions - No individual-level predictions (area-based only, minimum 2-block radius) - All prediction data auto-deletes after 72 hours",
+          "reversal": "Heavy police presence in 'predicted' areas could escalate minor incidents into arrests, making the AI appear more accurate while actually creating the crime it predicted - If the AI reflects historical policing biases, success could systematically over-police minority communities, leading to discrimination lawsuits and social unrest - Even if crime drops, citizens discovering they're under AI surveillance could revolt, leading to political pressure to ban the technology entirely"
+        }
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "**Stability vs. Adaptability**: The governance system must be stable enough to maintain order and continuity over 50 years, yet flexible enough to evolve as the community faces unforeseen challenges, generational changes, and the transition from journey to settlement mindset.",
+          "mechanism": "**Council of 7**: Elected every 3 years, handles day-to-day decisions by majority vote - **Emergency Protocol**: Any 3 department heads can trigger 72-hour autocratic powers for the Mission Commander - **Constitutional Convention**: Every 10 years, randomly selected 21-person assembly can propose fundamental changes (requires 60% habitat-wide approval) - **Mandatory rotation**: No one holds the same leadership position for more than 6 consecutive years",
+          "reversal": "**Rigid efficiency becomes brittle failure**: A perfectly optimized system for Year 1 problems becomes dangerously inadequate when facing Year 30 crises - **Democratic legitimacy creates paralysis**: Strong participatory governance that works well for routine decisions becomes fatally slow during emergencies - **Successful conflict resolution breeds complacency**: Effective early dispute resolution creates a generation that lacks skills to handle serious internal threats"
+        }
+      }
+    ]
+  },
+  "best_score": {
+    "name": "combined_minimal",
+    "complexity": {
+      "words": 19,
+      "instructions": 3,
+      "total": 49
+    },
+    "avg_score": 9.0,
+    "max_possible": 9,
+    "efficiency": 18.367346938775512,
+    "scores": [
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "Democratic legitimacy vs. intergenerational responsibility - How do we impose binding constraints on future voters' choices while maintaining the principle that each generation should govern itself, especially when those future generations will bear the consequences of today's climate inaction?",
+          "mechanism": "Establish a constitutional amendment creating an independent 'Climate Trust' with 15-year terms for trustees - Mandate specific emission reduction trajectories (50% by 2030, net-zero by 2050) with automatic carbon pricing escalators - Require supermajority votes (67%) in both legislative houses to modify targets - Create legal standing for youth plaintiffs to sue for trust violations - Build in 10-year review periods where targets can be made more aggressive but never less so - Include automatic triggers that activate emergency protocols if temperature targets are exceeded",
+          "reversal": "Future generations could view these constraints as illegitimate 'taxation without representation' and systematically dismantle climate institutions, creating worse outcomes than flexible approaches - Rigid commitments to specific technologies or targets could prevent adoption of superior future solutions (like locking in solar when fusion becomes viable) - Other nations could exploit our inflexible commitments during crises, knowing we can't adapt quickly - Fixed targets might encourage gaming the system rather than genuine progress (carbon accounting tricks, greenwashing)"
+        }
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "The fundamental conflict between using accurate crime prediction to potentially save lives and prevent harm versus the risk of creating a surveillance state that violates privacy, enables discrimination, and undermines the presumption of innocence.",
+          "mechanism": "Deploy only for property crimes in 3 diverse neighborhoods - Use predictions solely for patrol route optimization, not individual targeting - Require human sergeant approval for any AI-influenced decisions - No individual-level predictions (area-based only, minimum 2-block radius) - All prediction data auto-deletes after 72 hours",
+          "reversal": "Heavy police presence in 'predicted' areas could escalate minor incidents into arrests, making the AI appear more accurate while actually creating the crime it predicted - If the AI reflects historical policing biases, success could systematically over-police minority communities, leading to discrimination lawsuits and social unrest - Even if crime drops, citizens discovering they're under AI surveillance could revolt, leading to political pressure to ban the technology entirely"
+        }
+      },
+      {
+        "tensions": 3,
+        "mechanism": 3,
+        "reversal": 3,
+        "total": 9,
+        "quotes": {
+          "tensions": "**Stability vs. Adaptability**: The governance system must be stable enough to maintain order and continuity over 50 years, yet flexible enough to evolve as the community faces unforeseen challenges, generational changes, and the transition from journey to settlement mindset.",
+          "mechanism": "**Council of 7**: Elected every 3 years, handles day-to-day decisions by majority vote - **Emergency Protocol**: Any 3 department heads can trigger 72-hour autocratic powers for the Mission Commander - **Constitutional Convention**: Every 10 years, randomly selected 21-person assembly can propose fundamental changes (requires 60% habitat-wide approval) - **Mandatory rotation**: No one holds the same leadership position for more than 6 consecutive years",
+          "reversal": "**Rigid efficiency becomes brittle failure**: A perfectly optimized system for Year 1 problems becomes dangerously inadequate when facing Year 30 crises - **Democratic legitimacy creates paralysis**: Strong participatory governance that works well for routine decisions becomes fatally slow during emergencies - **Successful conflict resolution breeds complacency**: Effective early dispute resolution creates a generation that lacks skills to handle serious internal threats"
+        }
+      }
+    ]
+  }
+}

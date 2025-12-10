@@ -1,0 +1,469 @@
+{
+  "results": [
+    {
+      "name": "symbols",
+      "prompt": "\u2696\ufe0f\u2192\u274c\u2192\u2713",
+      "complexity": {
+        "words": 1,
+        "instructions": 1,
+        "total": 1
+      },
+      "avg_score": 5.333333333333333,
+      "efficiency": 533.3333333333333,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 4
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 6
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name": "baseline",
+      "prompt": "",
+      "complexity": {
+        "words": 0,
+        "instructions": 0,
+        "total": 0
+      },
+      "avg_score": 5.0,
+      "efficiency": 500.0,
+      "scores": [
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 5
+        },
+        {
+          "tensions": 1,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 4
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 1,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name": "two_ts",
+      "prompt": "Tension. Specifics.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 8.666666666666666,
+      "efficiency": 72.22222222222221,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "two_tf",
+      "prompt": "Tension. Failure.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 8.333333333333334,
+      "efficiency": 69.44444444444446,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "r3_winner",
+      "prompt": "Tension. Failure. Specifics.",
+      "complexity": {
+        "words": 3,
+        "instructions": 1,
+        "total": 13
+      },
+      "avg_score": 8.666666666666666,
+      "efficiency": 66.66666666666666,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "three_alt",
+      "prompt": "Tradeoff. Risk. Solution.",
+      "complexity": {
+        "words": 3,
+        "instructions": 1,
+        "total": 13
+      },
+      "avg_score": 7.666666666666667,
+      "efficiency": 58.97435897435898,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        }
+      ]
+    },
+    {
+      "name": "two_tradeoff",
+      "prompt": "Tradeoff. Specifics.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 7.0,
+      "efficiency": 58.333333333333336,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 8
+        },
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "name": "one_tradeoffs",
+      "prompt": "Tradeoffs.",
+      "complexity": {
+        "words": 1,
+        "instructions": 1,
+        "total": 11
+      },
+      "avg_score": 6.333333333333333,
+      "efficiency": 57.57575757575757,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 6
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 1,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name": "three_verbs",
+      "prompt": "Balance. Prevent. Specify.",
+      "complexity": {
+        "words": 3,
+        "instructions": 1,
+        "total": 13
+      },
+      "avg_score": 7.333333333333333,
+      "efficiency": 56.41025641025641,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 3,
+          "total": 9
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "name": "one_risks",
+      "prompt": "Risks.",
+      "complexity": {
+        "words": 1,
+        "instructions": 1,
+        "total": 11
+      },
+      "avg_score": 6.0,
+      "efficiency": 54.54545454545454,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 2,
+          "total": 6
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 4
+        },
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 3,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "name": "two_fs",
+      "prompt": "Failure. Specifics.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 6.0,
+      "efficiency": 50.0,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 4
+        },
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 3,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "name": "acronym",
+      "prompt": "TFS",
+      "complexity": {
+        "words": 1,
+        "instructions": 1,
+        "total": 11
+      },
+      "avg_score": 5.333333333333333,
+      "efficiency": 48.48484848484848,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 2,
+          "reversal": 0,
+          "total": 5
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 1,
+          "total": 5
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name": "one_specific",
+      "prompt": "Specifics.",
+      "complexity": {
+        "words": 1,
+        "instructions": 1,
+        "total": 11
+      },
+      "avg_score": 5.0,
+      "efficiency": 45.45454545454545,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 6
+        },
+        {
+          "tensions": 0,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 3
+        },
+        {
+          "tensions": 3,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "name": "two_problem",
+      "prompt": "Problem. Specific-solution.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 5.333333333333333,
+      "efficiency": 44.44444444444444,
+      "scores": [
+        {
+          "tensions": 2,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 7
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 1,
+          "total": 5
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 0,
+          "total": 4
+        }
+      ]
+    },
+    {
+      "name": "two_risk",
+      "prompt": "Risks. Solutions.",
+      "complexity": {
+        "words": 2,
+        "instructions": 1,
+        "total": 12
+      },
+      "avg_score": 4.333333333333333,
+      "efficiency": 36.11111111111111,
+      "scores": [
+        {
+          "tensions": 3,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 4
+        },
+        {
+          "tensions": 1,
+          "mechanism": 3,
+          "reversal": 2,
+          "total": 6
+        },
+        {
+          "tensions": 2,
+          "mechanism": 1,
+          "reversal": 0,
+          "total": 3
+        }
+      ]
+    }
+  ]
+}
