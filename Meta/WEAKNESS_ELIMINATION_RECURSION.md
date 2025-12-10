@@ -357,7 +357,7 @@ METHOD ceiling → switch approach
 ```
 
 **Validation results:**
-- Object level: 49/49 (100%) - includes external research breakthrough
+- Object level: 60/60 (100%) - includes external research + simulation testing
 - Meta level: 3/3 (100%)
 - Time: ~30 sec/cycle
 
@@ -468,6 +468,123 @@ Design Thinking: Build → Learn → Redefine → Repeat
 ---
 
 **Key learning:** External research reveals blind spots that internal recursion cannot find. When stuck, LOOK OUTSIDE.
+
+---
+
+## Simulation Testing Cycles (50-60)
+
+After external research, used simulation method: apply strategy to hard problem, observe where it breaks.
+
+| Cycle | Weakness Found | Fix Added |
+|-------|----------------|-----------|
+| 50 | No iteration loop for Complex domains (strategy is linear) | **Step 9.5: ITERATE** - Probe/sense/respond loop with exit criteria |
+| 51 | No step to surface hidden stakeholder constraints | **Step 3.5: STAKEHOLDER RED-LINES** - What would veto this? Political/cultural constraints? |
+| 52 | No deployment-space probing (what breaks at scale) | **Step 8.5: PROBE DEPLOYMENT SPACE** - Test at real scale/load/context |
+| 53 | (Same as 52 - combined) | - |
+| 54 | No stopping criteria (when to abandon, accept partial, detect spinning) | **Step 11: STOPPING CRITERIA** - Abandon after 3 failed iterations <5% progress; define minimum viable; spinning = same insight 2x |
+| 55 | No frame articulation/communication to team | **Step 7.6: FRAME ARTICULATION** - Write: What does frame assume? Why right? What falsifies? Share with team |
+| 56 | Solution doesn't persist after creator leaves | **Step 12: HANDOFF PROTOCOL** - Decision journal, constraint map, boundary documentation, failure modes |
+| 57 | No audit of solver's unexamined mental models | **Step -2: META-FRAME AUDIT** - What mental models am I bringing? What would different domain notice? |
+| 58 | No reframe protocol when problem is structurally unsolvable | **Step 6.6: IMPOSSIBILITY RESPONSE** - Collapse constraints OR reject goal OR partition subproblems |
+| 59 | Stakeholder red-lines are point-in-time, not continuous | **Step 8.6: STAKEHOLDER CHECKPOINT** - Re-validate after design: "Does this still satisfy what you meant?" |
+| 60 | Red-team lacks psychological safety | **Step 6 addendum: SAFETY PROTOCOL** - Separate idea from person, thank dissenters, safe to kill own ideas |
+
+**Key learning:** Simulation reveals failure modes that pure analysis misses. Test the strategy on real problems.
+
+---
+
+## Complete Strategy (After 60 Cycles)
+
+```
+-2. META-FRAME AUDIT
+    - What mental models am I bringing?
+    - What would someone from radically different domain notice?
+    - What am I taking as given that might be a choice?
+
+-1. CLASSIFY DOMAIN (Cynefin) [MUST DO FIRST]
+    - Clear? → Apply known solution
+    - Complicated? → Expert analysis
+    - Complex? → Probe/sense/respond
+    - Chaotic? → Act/sense/respond
+
+0. DISCOVER (probe unknown unknowns)
+   - "What hidden constraint would break ALL approaches?"
+   - IDEALITY CHECK: "Can this constraint disappear entirely?"
+
+1. VERIFY PROBLEM FRAME
+   - "Is this the right QUESTION?"
+   - Target LEVERAGE POINTS: paradigm > goals > rules > info flows
+
+2. STATE problem clearly
+
+3. LIST constraints
+   - Check constraint consistency EARLY
+   - Question assumed vs required
+
+3.5. STAKEHOLDER RED-LINES
+    - What does each decision-maker require unstated?
+    - What would veto this solution?
+
+4. GENERATE 3+ approaches with DISTINCT CAUSAL MECHANISMS
+   - For NOVEL problems: prototype first, plan later
+
+5. EVALUATE with weighted criteria
+
+6. ADVERSARIAL RED-TEAM (with SAFETY PROTOCOL)
+   - Separate idea from person
+   - Thank dissenters first
+   - Make it safe to kill your own ideas
+
+6.5. FRAME-ADEQUACY CHECK
+   - Do red-team failures reveal wrong frame? → Return to step 1
+
+6.6. IMPOSSIBILITY RESPONSE (if structurally unsolvable)
+   - Option A: Return to VERIFY FRAME, collapse constraints
+   - Option B: Reject goal, propose new success criteria
+   - Option C: Partition into subproblems
+
+7. SELECT best (single recommendation, no hedging)
+
+7.5. PROBE FRAME
+   - Minimal prototype or thought experiment
+   - If frame breaks → return to step 4
+
+7.6. FRAME ARTICULATION
+   - Write: What does this frame assume? Why is it right? What would prove it wrong?
+   - Share with team, get explicit acknowledgment
+
+8. DESIGN solution (with failure mitigations)
+
+8.5. PROBE DEPLOYMENT SPACE
+   - What can't we know until this runs at actual scale?
+   - What integration points have hidden failure modes?
+
+8.6. STAKEHOLDER CHECKPOINT
+   - Re-validate red-lines: "Now that you see the design, does this still satisfy what you meant?"
+
+9. VERIFY it works (including edge cases)
+
+9.5. ITERATE (for Complex domains)
+   - PROBE: Test against actual domain
+   - SENSE: What surprised you?
+   - RESPOND: Adjust based on observation
+   - EXIT: Solution stabilizes OR <5% improvement
+
+10. INCUBATE if stuck (MANDATORY for complex/creative)
+
+11. STOPPING CRITERIA
+    - ABANDON: 3 failed iterations <5% progress → switch approach
+    - PARTIAL: Define minimum viable, accept when reached
+    - SPINNING: Same insight repeated 2x → incubate or switch
+
+12. HANDOFF PROTOCOL
+    - Decision journal: Why each choice over alternatives
+    - Constraint map: Core vs nice-to-have
+    - Boundary documentation: When solution stops being optimal
+    - Failure modes: What degradation paths were explored
+```
+
+**Validation: 60/60 cycles (100%)**
 
 ---
 
