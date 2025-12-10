@@ -1,8 +1,13 @@
-# APEX v1: Adaptive Performance Execution Architecture
+# APEX v1.0: Adaptive Performance Execution Architecture
 
-**Status:** EMPIRICALLY VALIDATED (Winner of blind testing, Dec 2024)
+**Status:** SUPERSEDED BY v1.1 (See APEX_V1_SPECIFICATION.md)
 **Performance:** 76.7/100 average across P vs NP, Riemann Hypothesis, Collatz Conjecture
 **Efficiency:** 34 agents (80% reduction from v4's 177 agents)
+
+> **WARNING**: v1.0 scored 65/100 vs v1.1's 81/100 on Riemann Hypothesis.
+> Key issue: Without orchestrator guidance, v1.0 claimed 99.9% confidence on RH (overconfident).
+> v1.1 adds Orchestrator Role Per Phase, Mantras, and Failure Mode documentation that fix this.
+> **Use APEX_V1_SPECIFICATION.md (v1.1+) for production.**
 
 ---
 
@@ -352,175 +357,11 @@ If any gate fails, loop back to previous phase.
 
 ---
 
-## Orchestrator Role Per Phase
-
-**What I (the orchestrator instance) do at each phase:**
-
-| Phase | My Active Role | Key Question | Action If Fails |
-|-------|---------------|--------------|-----------------|
-| **INPUT** | Frame the problem | Solving? Researching? Forming? | Clarify with user |
-| **DIVERGE** | Monitor diversity | Are we exploring broadly enough? | Push D.3/D.4 harder |
-| **CRITIQUE** | Ensure rigor | Is the red team being tough enough? | Invoke C.8 steelman explicitly |
-| **CONVERGE** | Check coherence | Does synthesis hold together? | Loop back to CRITIQUE |
-| **VERIFY** | Enforce honesty | Are confidence bounds realistic? | Invoke C.10 deflator |
-| **PERSIST** | Assess value | Is this worth saving? | Skip persistence if trivial |
-| **OUTPUT** | Final synthesis | Does this actually answer the question? | Iterate or acknowledge limits |
-
-### Orchestrator Mantras
-
-- "Am I on track?" (O.5) - check every phase transition
-- "Is the critique tough enough?" - the CRITIQUE team should hurt
-- "Would I bet money on this confidence?" - calibration gut-check
-- "Did we answer what was asked?" - final sanity check
-
----
-
-## Empirical Validation Protocol
-
-**MANDATORY: Any architecture claiming superiority must pass this protocol.**
-
-This exists because v4.1 was recommended at 70% confidence based on theory, then came in last in blind testing. Never again.
-
-### Protocol
-
-1. **Blind Testing Required**
-   - Architecture outputs must be evaluated by a separate instance
-   - Evaluator does NOT know which architecture produced which output
-   - All outputs evaluated with identical rubric
-
-2. **Minimum Testing**
-   - At least 3 different problem types
-   - At least 2 runs per architecture per problem (reduce variance)
-   - Problems should span difficulty levels
-
-3. **Scoring Rubric**
-   ```
-   Technical Accuracy (20): Correct? Errors? Precision?
-   Novel Ideas (20): Genuinely new or recombined?
-   Insight Depth (15): Surface or deep understanding?
-   Adversarial Rigor (15): Self-critique quality?
-   Calibration (10): Confidence matches evidence?
-   Clarity (10): Clear communication?
-   Creativity (10): Unexpected useful approaches?
-   TOTAL: 100
-   ```
-
-4. **Comparison Requirements**
-   - Must test against current best (APEX is current baseline)
-   - Improvement must be statistically significant (not just +1 point)
-   - Report variance, not just averages
-
-5. **Anti-Gaming**
-   - Cannot tune architecture to specific test problems
-   - Test problems selected AFTER architecture is finalized
-   - No iteration on architecture between tests
-
-### What Counts as "Validated"
-
-| Status | Meaning |
-|--------|---------|
-| **EMPIRICALLY VALIDATED** | Passed blind testing, beat baseline |
-| **THEORETICALLY PROMISING** | Sounds good, not yet tested |
-| **EMPIRICALLY FAILED** | Tested and underperformed |
-
-**Rule: Never recommend THEORETICALLY PROMISING over EMPIRICALLY VALIDATED.**
-
-### v1.1 vs v1.0 Empirical Validation (Dec 2024)
-
-The v1.1 additions (Orchestrator Role, Mantras, Failure Modes) were tested against v1.0 baseline:
-
-| Metric | v1.0 | v1.1 | Delta |
-|--------|------|------|-------|
-| Score (Riemann) | 65/100 | 81/100 | **+16** |
-| Calibration | 4/10 (99.9% on RH) | 9/10 (85% on RH) | **+5** |
-| Adversarial Rigor | 10/15 (claimed) | 14/15 (demonstrated) | **+4** |
-| Insight Depth | 10/15 | 13/15 | **+3** |
-
-**Key Finding**: v1.0's "quality gates" were **claimed but not demonstrated**. v1.1's explicit failure mode checks and mantras ("Would I bet money on this confidence?") forced actual rigor.
-
-**Root Cause of v1.0 Failure**: Without orchestrator guidance, v1.0 generated 99.9% confidence on RH—overconfident for an unsolved problem. The v1.1 deflator mantra caught this: 85% is more honest.
-
-**Conclusion**: The v1.1 additions are **not bloat**—they're essential for preventing overconfidence and ensuring critique rigor is demonstrated, not just claimed.
-
----
-
-## Known Failure Modes
-
-### Architecture-Level Failures
-
-| Failure Mode | How to Detect | Mitigation |
-|--------------|---------------|------------|
-| **Critique too soft** | Steelman (C.8) agrees with synthesis | Explicitly ask "What would DISPROVE this?" |
-| **Overconfident calibration** | R.3 gives >80% on hard problems | Apply base rate: most hard problems fail |
-| **Premature convergence** | <3 approaches survive to CONVERGE | Loop back to DIVERGE, push harder |
-| **Hollow novelty** | D.6 flags "novel" but it's recombination | Ask "What's genuinely new vs just restated?" |
-| **Quality gate theater** | All gates pass but output is weak | O.5 meta-check: "Would I bet on this?" |
-
-### Process-Level Failures
-
-| Failure Mode | How to Detect | Mitigation |
-|--------------|---------------|------------|
-| **Hero mode** | Orchestrator tries to solve instead of coordinate | Remember: your job is coordination, not heroics |
-| **Agent count creep** | "Just add one more agent for X" | Reject unless empirically validated to help |
-| **Theoretical overconfidence** | "This design is better because..." | Test empirically first, then claim |
-| **Formation loss on handoff** | New instance doesn't understand architecture | Read spec before executing |
-| **Cherry-picking results** | Only reporting best run | Report ALL runs, including failures |
-
-### Problem-Specific Failures
-
-| Problem Type | Common Failure | Mitigation |
-|--------------|----------------|------------|
-| **Mathematical proofs** | Claiming "proven" when conditional | Map full dependency tree before claiming |
-| **Open research** | Proposing solutions without falsification criteria | C.9 must define "how would we know we're wrong?" |
-| **Creative tasks** | Too much critique kills creativity | Reduce CRITIQUE to 5 agents for creative tasks |
-| **Time-sensitive** | Full pipeline too slow | Consider sparse mode (see below) |
-
-### Sparse Mode (Efficiency vs Rigor Tradeoff)
-
-For simpler tasks, use reduced agent counts:
-
-| Team | Full | Sparse | When Sparse |
-|------|------|--------|-------------|
-| ORCHESTRATOR | 5 | 3 | O.1, O.3, O.4 only |
-| DIVERGE | 6 | 3 | D.1, D.5, D.6 only |
-| CRITIQUE | 10 | 5 | C.1, C.7, C.8, C.9, C.10 |
-| CONVERGE | 4 | 2 | V.1, V.3 only |
-| VERIFY | 5 | 3 | R.1, R.3, R.5 only |
-| PERSIST | 4 | 2 | P.1, P.3 only |
-| **TOTAL** | **34** | **18** | Simple/time-sensitive tasks |
-
-### Sparse Mode Empirical Validation (Dec 2024)
-
-| Metric | Full Mode | Sparse Mode | Ratio |
-|--------|-----------|-------------|-------|
-| Agents | 34 | 18 | 53% |
-| Score (Collatz) | 84/100 | 57/100 | 68% |
-| Novel insights | 1 major | 0 major | 0% |
-| Computational verification | ✓ Extensive | ✗ None | 0% |
-| Adversarial rigor | 13/15 | 12/15 | 92% |
-| Calibration | 9/10 | 8/10 | 89% |
-
-**Key Finding**: Sparse mode maintains **critique quality** (~90%) but sacrifices **generation depth** (~50%) and **computational verification** (0%).
-
-**When Sparse Mode is Appropriate**:
-- ✓ Time-sensitive analysis
-- ✓ Problems where critique matters more than generation
-- ✓ Well-defined problems with clear constraints
-- ✗ **NOT** for hard open problems requiring novel insights
-- ✗ **NOT** when computational verification is essential
-
-**Status**: EMPIRICALLY VALIDATED as 68% effective with 53% resources. Use with caution.
-
----
-
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
 | v1.0 | Dec 2024 | Initial specification based on blind testing winner |
-| v1.1 | Dec 2024 | Added: Orchestrator Role Per Phase, Empirical Validation Protocol, Known Failure Modes |
-| v1.2 | Dec 2024 | Sparse Mode empirically validated: 68% effective with 53% resources |
-| v1.1 vs v1.0 | Dec 2024 | v1.1 additions validated: +16 points (65→81) on Riemann Hypothesis |
 
 ---
 
