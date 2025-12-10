@@ -1,0 +1,529 @@
+{
+  "timestamp": "2025-12-10T02:34:30.795567",
+  "pre_registration": {
+    "hypothesis": "Decomposition improves strategic depth",
+    "prediction": "Treatment > Control by 0.5+ points",
+    "alpha": 0.05,
+    "minimum_meaningful_d": 0.3
+  },
+  "problems": [
+    {
+      "problem": "A legacy bank is losing customers to fintech. Modernizing IT will take 3 years and $500M. In 3 years they may be irrelevant.",
+      "condition_order": [
+        "placebo",
+        "treatment",
+        "control"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Correctly identifies the core strategic pattern (innovator's dilemma) and draws relevant historical parallels, (2) Distinguishes between real vs. assumed constraints, revealing the 'modernization trap' mental model, (3) Proposes a multi-layered approach that creates strategic optionality rather than single big bets, (4) Explicitly identifies 2nd and 3rd order consequences, showing systems thinking, (5) Most importantly, identifies a critical strategic reversal - that success could lead to becoming a 'dumb pipe' - which demonstrates rare insight into how solutions can create new problems. The mitigation strategies for this reversal show deep understanding of banking's core value drivers. The solution transforms constraints into advantages and addresses root causes rather than symptoms. Falls short of a 9-10 because while it identifies one major reversal, it could explore additional emergent dynamics and potential unintended consequences of the hybrid model approach."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies a critical reversal - that successful IT modernization could actually accelerate irrelevance by achieving yesterday's parity while competitors advance further. (2) It reframes the competitive dynamic from 'catch up to fintech' to 'leverage unique banking advantages' - a non-obvious strategic pivot. (3) The 2nd and 3rd order consequence analysis shows deep systems thinking, particularly recognizing how success could commoditize banking and trigger regulatory responses. (4) The 'Fortress & Bridge' approach is counterintuitive - instead of competing directly, it positions the bank as critical infrastructure to the fintech ecosystem. (5) It addresses the core timing paradox by changing the game rules rather than playing faster. However, it falls short of a 9-10 because it doesn't fully explore potential emergent dynamics from the platform strategy (like fintech partners eventually bypassing the bank) or consider how this approach might fundamentally reshape banking industry structure. The analysis is sophisticated but could push deeper into truly emergent, system-level transformations."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Reframes the false either/or dilemma into a both/and hybrid approach, showing systems thinking; (2) Identifies and plans for 2nd and 3rd order consequences, including the non-obvious insight that legacy infrastructure could become a competitive moat; (3) Most impressively, recognizes a critical 'success risk' - that effective partnerships could lead to disintermediation - and proactively mitigates it with the 60/40 rule and technology transfer clauses; (4) Considers all stakeholder dynamics and regulatory constraints realistically; (5) Provides concrete execution timeline with measurable milestones. The solution falls short of a 9-10 because while it identifies important reversals, it doesn't fully explore the emergent ecosystem dynamics that could arise from banks becoming fintech incubators, or how this might reshape the entire industry structure. The strategic depth is very strong but stops just short of the most profound systemic implications."
+        }
+      }
+    },
+    {
+      "problem": "A country's only antibiotics factory is about to close. Nationalizing it is politically toxic. Letting it close means import dependency.",
+      "condition_order": [
+        "control",
+        "placebo",
+        "treatment"
+      ],
+      "scores": {
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) It reframes the binary choice (nationalize vs. close) into a creative third option that addresses root stakeholder concerns, (2) It shows sophisticated understanding of multi-order effects, tracing consequences through 2nd and 3rd order impacts on industrial clustering and precedent-setting, (3) Most impressively, it identifies a critical reversal dynamic - that success could lead to isolation from global pharmaceutical innovation networks, making the country more vulnerable to future threats. The solution also demonstrates systems thinking by aligning incentives across multiple stakeholders and using existing policy tools creatively. However, it falls short of a 9-10 because the reversal mitigation (international research partnerships) feels somewhat tacked on rather than deeply integrated, and it could explore more potential unintended consequences or alternative reversal scenarios."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) It identifies and addresses the core tension between sovereignty and political constraints rather than just treating symptoms, (2) Maps out 2nd and 3rd order consequences systematically, showing understanding of how solutions create new dynamics, (3) Most importantly, identifies a critical reversal - that success could create complacency and inefficiency, undermining long-term competitiveness, (4) Provides concrete mitigation strategies for the identified reversal, (5) Creates a replicable framework applicable to other strategic industries, and (6) Considers multiple stakeholder perspectives and constraints. The solution goes well beyond obvious approaches by threading political, economic, and strategic considerations into a coherent framework. It falls short of a 9-10 because while it identifies one major reversal, it could have explored additional emergent dynamics (like how this precedent might affect international trade relationships or create new forms of regulatory capture) and doesn't fully explore how the model might evolve or be gamed over time."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Correctly identifies the core market failure dynamic rather than treating symptoms, (2) Creates a novel hybrid structure that threads the political needle while addressing root economics, (3) Shows strong systems thinking by considering 2nd and 3rd order consequences across multiple domains, (4) Most impressively, identifies a critical reversal where success could recreate the original problem at a higher level - recognizing that profitable 'strategic' assets might prioritize exports over domestic supply during crises. The multi-stakeholder analysis is thorough and the solution addresses interdependencies well. Falls short of a 10 because it doesn't fully explore potential emergent dynamics or consider how this model might evolve under different geopolitical scenarios, but the reversal insight alone demonstrates exceptional strategic thinking."
+        }
+      }
+    },
+    {
+      "problem": "A school district must cut 20% of budget. Every option (teachers, buses, programs) has vocal opposition. Board members face recall.",
+      "condition_order": [
+        "treatment",
+        "control",
+        "placebo"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Identifies a critical reversal - that successfully operating on 20% less could make cuts permanent, preventing future restoration; (2) Recognizes 2nd and 3rd order effects including property value impacts and long-term cost increases; (3) Reframes the fundamental dynamic from 'who gets hurt' to 'how we all help' which changes the political calculus; (4) Uses sunset clauses as a strategic tool to maintain stakeholder buy-in while addressing the permanency risk; (5) Creates stakeholder ownership through the Crisis Recovery Committee, transforming opponents into co-decision makers. The solution goes well beyond obvious cost-cutting to address underlying political dynamics and long-term systemic risks. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how the 4-day week might affect working parents differently than other stakeholders) and could have deeper analysis of how the shared sacrifice model might create new coalition dynamics among previously opposed groups."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Correctly reframes the problem from 'what to cut' to 'how to generate revenue,' escaping the zero-sum trap; (2) Shows strong systems thinking by analyzing 2nd and 3rd order consequences across multiple stakeholder groups; (3) Identifies a critical reversal - that success could inadvertently enable continued systemic underfunding; (4) Provides concrete mitigation for this reversal by positioning success as evidence of the problem rather than the solution; (5) Transforms adversarial stakeholders into collaborative partners through the 'community partnership emergency' framing. The solution moves beyond obvious cost-cutting to address root causes while managing immediate crisis. However, it falls short of a 9-10 because it doesn't fully explore potential emergent dynamics (like how this approach might reshape district-state power relationships long-term) or consider how the revenue-first strategy might create new forms of educational inequality between districts with different community wealth levels."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and addresses the core reframing opportunity - shifting from 'board makes unpopular cuts' to 'community implements shared decision,' which is a non-obvious but powerful strategic insight. (2) The graduated cuts approach (10% immediate, 10% conditional) shows understanding of how to preserve flexibility and create learning loops rather than making irreversible decisions under pressure. (3) Most impressively, it identifies a critical strategic reversal - that successfully managing cuts could normalize underfunding and reduce pressure for systemic solutions. This shows rare ability to see how tactical success can create strategic failure. (4) The solution considers 2nd and 3rd order consequences, including how this approach could become a governance model and build long-term community capacity. (5) It provides a concrete week-by-week implementation plan that demonstrates practical understanding of political dynamics. The analysis falls just short of a 9 because while it identifies the funding adequacy issue, it doesn't fully explore the broader systemic dynamics of how school districts get trapped in this cycle or potential ways to break those patterns entirely."
+        }
+      }
+    },
+    {
+      "problem": "A startup has 3 months of runway left. Their product works but sales cycle is 6 months. VCs want traction before more funding.",
+      "condition_order": [
+        "treatment",
+        "placebo",
+        "control"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Systematic problem decomposition identifying leverage points and dependencies, (2) Recognition that the core issue is cash flow timing mismatch rather than product-market fit, (3) Multi-pronged approach that creates immediate revenue while building VC-relevant traction metrics, (4) Most importantly, identification of a critical success reversal - that revenue acceleration could paradoxically signal a services business to VCs, making funding harder. The solution shows non-obvious thinking by reframing the sales cycle constraint as a validation asset and creating parallel revenue streams that serve dual purposes. However, it falls short of a 9-10 because it doesn't fully explore second-order effects (like team focus dilution from services work) or consider how this strategy positions the company for post-funding scaling challenges."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the core problem as a time mismatch rather than just cash flow, showing systems thinking. (2) The multi-order consequence analysis reveals deep understanding of how solutions create ripple effects. (3) The 'Critical Reversal' section is particularly insightful - recognizing that success itself could mask fundamental problems and lead to larger future failures. (4) It reframes the constraint as a 'forcing function for business model innovation' rather than just an obstacle. (5) The solution addresses multiple stakeholder perspectives and creates optionality rather than betting on single approaches. (6) It distinguishes between real and perceived constraints effectively. The analysis goes well beyond obvious suggestions to identify non-obvious dynamics like how emergency measures could signal weakness or how crisis-driven innovation often leads to breakthroughs. While comprehensive, it falls just short of a 9-10 because it could explore more emergent dynamics around how this crisis might fundamentally reshape the startup's competitive positioning or industry relationships."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes the problem from a simple cash flow issue to a stakeholder alignment challenge, showing systems thinking. (2) The three-pronged approach (redefine traction, compress cycles, bridge financing) addresses multiple failure modes simultaneously. (3) Most impressively, it identifies a critical reversal - that success could create addiction to artificial metrics and unsustainable business models, showing rare ability to see beyond immediate problem-solving. (4) The solution considers 2nd and 3rd order consequences across multiple stakeholders. (5) It transforms the time constraint from weakness to forcing function, demonstrating strategic jujitsu. The analysis falls just short of a 9-10 because while it identifies the reversal risk, it doesn't fully explore mitigation strategies for that meta-problem, and could have gone deeper on the competitive dynamics and market positioning implications of the pilot-heavy approach."
+        }
+      }
+    },
+    {
+      "problem": "A factory's safety systems are outdated. Replacing them requires 2-month shutdown. Competitors will take their contracts.",
+      "condition_order": [
+        "placebo",
+        "control",
+        "treatment"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and challenges false assumptions (either/or thinking), revealing hidden constraints and opportunities. (2) The multi-order consequence analysis is particularly strong, especially the '3rd order' recognition that avoiding shutdown could lead to catastrophic failure. (3) The 'CRITICAL REVERSAL' insight - that success in the short term could create the opposite long-term outcome - shows advanced strategic thinking. (4) The phased hybrid approach transforms a defensive crisis into an offensive market positioning opportunity. (5) It considers complex stakeholder dynamics and competitive moats. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how this crisis could reshape industry standards) or potential unintended consequences of the solution itself (like competitors copying the 'safety excellence' positioning). The strategic framework is sophisticated but could push deeper into systemic industry implications."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) Reframes the problem from a binary choice to a multi-stakeholder optimization challenge, (2) Proposes a creative phased approach that addresses the core constraint while maintaining competitive position, (3) Systematically traces 2nd and 3rd order consequences showing how safety investment becomes competitive advantage, (4) Identifies a sophisticated 'success risk' - that completing the upgrade could create dangerous overconfidence leading to future safety gaps, and (5) Provides concrete mitigation for this reversal risk. The solution goes well beyond obvious suggestions to see non-obvious connections between safety leadership and market positioning. It falls short of a 9-10 because it doesn't fully explore potential emergent dynamics (like how this approach might reshape industry standards) or consider more complex interdependencies (regulatory cascades, supply chain implications, or how competitors might respond to the safety-as-advantage positioning)."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes the binary shutdown/compete choice into a phased approach that addresses root constraints rather than assumed ones, (2) It identifies and addresses 2nd and 3rd order consequences like reputation enhancement and competitive advantage creation, (3) It includes a critical reversal insight about success potentially breeding overconfidence, and (4) It considers complex stakeholder dynamics and interdependencies. The solution goes well beyond obvious suggestions to create a framework that strengthens long-term competitive position. However, it falls short of a 9-10 because the reversal insight, while good, doesn't fully explore the emergent systemic dynamics that could arise from the solution, and some of the 3rd order consequences could be developed with more nuance around how they might interact with broader industry dynamics."
+        }
+      }
+    },
+    {
+      "problem": "A hospital has 30% more patients than beds. Emergency room wait times are 8 hours. Staff is burning out. Budget is frozen.",
+      "condition_order": [
+        "control",
+        "placebo",
+        "treatment"
+      ],
+      "scores": {
+        "control": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated elements: (1) Identifies the core tension as a capacity utilization problem rather than just a bed shortage, reframing the entire challenge; (2) Recognizes and explicitly addresses the negative feedback loop between wait times, patient complexity, and treatment duration; (3) Most impressively, identifies a critical reversal - that success could create an even worse problem by attracting too many patients - and proactively builds in mitigation strategies; (4) Shows 2nd and 3rd order thinking about how efficiency improvements cascade through the system; (5) Transforms the primary constraint (limited beds) into a competitive advantage (operational efficiency); (6) Addresses multiple stakeholder needs simultaneously while working within real constraints. The solution goes far beyond obvious suggestions to reveal non-obvious system dynamics and potential emergent consequences. Only falls short of a perfect 10 because it could have explored a few more potential unintended consequences or system-wide ripple effects."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes the problem from 'bed shortage' to 'flow optimization,' showing systems thinking beyond surface symptoms. (2) The Critical Reversal Analysis is particularly insightful - recognizing that success could create induced demand and regional dependency, potentially worsening the original problem. (3) It identifies non-obvious leverage points like discharge timing protocols and space repurposing that could yield 15-25% capacity gains without budget impact. (4) The solution addresses multiple constraint types (physical, workflow, human) simultaneously rather than treating them in isolation. (5) It incorporates feedback mechanisms and regional coordination to prevent unintended consequences. The approach shows understanding of healthcare as a complex adaptive system where local optimizations can create system-wide effects. While very strong, it falls short of a 9-10 because it doesn't fully explore potential political/regulatory barriers or the deeper economic incentives that may have created this capacity mismatch in the first place."
+        },
+        "treatment": {
+          "score": 9,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Correctly identifies the problem as a flow system rather than simple capacity shortage, which is a non-obvious reframe that unlocks different solutions. (2) Recognizes and maps the vicious cycle dynamics between staff burnout, processing speed, and wait times. (3) Most impressively, identifies a critical reversal - that success could create a higher-order problem by attracting more patients than efficiency gains can handle. (4) Provides concrete mitigation for this reversal through capacity triggers and regional partnerships. (5) Decomposes the problem into interdependent subsystems and correctly identifies the highest-leverage intervention point. (6) Distinguishes between real constraints (frozen budget) and assumed constraints (need for more beds). The solution goes well beyond obvious suggestions and demonstrates systems thinking with anticipation of second-order effects. Only missing a perfect 10 due to not exploring potential unintended consequences on care quality or staff morale from the intensified flow protocols."
+        }
+      }
+    },
+    {
+      "problem": "An AI company's model can now generate deepfakes indistinguishable from reality. Releasing it enables fraud. Not releasing it means competitors will.",
+      "condition_order": [
+        "treatment",
+        "control",
+        "placebo"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Correctly identifies the core game theory problem as a tragedy-of-commons/prisoner's dilemma rather than just a tech policy issue, (2) Shows strong 2nd/3rd order thinking by recognizing that 'winning' the release race could destroy the entire market through regulatory backlash, (3) Identifies a genuine strategic reversal where competitive advantage becomes self-defeating, (4) Proposes a systems-level solution that changes the game structure rather than just playing within existing constraints, (5) Uses historical precedents appropriately to validate feasibility. The solution moves beyond obvious approaches (delay/don't release) to create a framework that aligns competitive incentives with societal outcomes. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how detection arms races might evolve) or consider how authoritarian competitors might exploit this coordination to gain asymmetric advantage."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the core prisoner's dilemma structure and reframes it as a coordination problem rather than a simple release/don't release binary. (2) The 'critical reversal' insight about responsible release potentially creating false security is genuinely non-obvious and shows systems thinking about unintended consequences. (3) The detection-first strategy and built-in authentication address the root verification gap rather than just the symptom. (4) The consortium approach transforms competitive dynamics by aligning incentives. (5) The 'public inoculation' concept shows understanding of societal adaptation mechanisms. However, it falls short of a 9-10 because it doesn't fully explore some deeper emergent dynamics - like how this precedent might affect future AI capability releases, or the geopolitical implications if authoritarian regimes don't participate in the consortium. The solution is strategically sophisticated but could push further into the meta-level implications."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes a prisoner's dilemma into a coordination opportunity via consortium formation, showing deep understanding of game theory dynamics. (2) The staged release strategy (detection-first, generation-second) is a non-obvious insight that addresses the core asymmetry problem. (3) Most impressively, it identifies a critical reversal - that successful control could create false security and reduce investment in human-centered defenses. (4) The multi-stakeholder analysis goes beyond obvious players to include tertiary effects on democratic institutions. (5) It draws from relevant historical parallels and applies proven frameworks like responsible disclosure. However, it falls short of a 9-10 because it doesn't fully explore how the consortium itself could become a cartel-like bottleneck, or how authoritarian actors outside the consortium framework might exploit the coordination delay. The solution is strategically sophisticated but could push deeper into second and third-order geopolitical implications."
+        }
+      }
+    },
+    {
+      "problem": "A country's election system is vulnerable to hacking. Fixing it before election is impossible. Postponing election is unconstitutional.",
+      "condition_order": [
+        "control",
+        "placebo",
+        "treatment"
+      ],
+      "scores": {
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes the core problem from 'perfect security vs. constitutional compliance' to 'verifiable legitimacy through transparency,' showing systems-level thinking. (2) It identifies and addresses 2nd and 3rd order consequences, including how transparency could paradoxically increase international confidence. (3) Most impressively, it identifies a critical reversal - that success with this approach could create dangerous complacency about fixing underlying vulnerabilities. (4) The 'Glass Box' approach is counterintuitive but strategically sound, turning vulnerability into a strength through radical transparency. (5) It includes a concrete mitigation (sunset clause) for the identified reversal. The solution falls short of a 9-10 because it doesn't fully explore potential adversarial adaptations to the transparency approach or consider how this might affect future election cycles beyond the complacency issue. However, it clearly demonstrates non-obvious strategic connections and emergent dynamics thinking."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and leverages a counterintuitive reversal - converting vulnerability into strength through transparency, (2) It maps out 2nd and 3rd order consequences showing systems thinking, (3) It recognizes a critical 'success risk' - that perfect execution could create dangerous precedents for future manipulation, (4) It addresses multiple stakeholder needs simultaneously rather than just the technical problem, (5) It creates redundant verification layers that are mutually reinforcing. The solution shows deep understanding of how transparency, psychology, and democratic legitimacy interact. However, it falls short of a 9-10 because it doesn't fully explore potential adversarial responses (how sophisticated actors might exploit the transparency system itself) or the complex implementation challenges of coordinating such a massive shift in election procedures within 48-72 hours."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) Sophisticated problem decomposition that identifies the core insight - shifting from 'preventing hacking' to 'ensuring hacking cannot change results undetected' - which reframes the entire challenge; (2) Multi-order consequence analysis that traces immediate effects through 3rd order impacts on democratic institutions and international precedent; (3) Critical identification of a strategic reversal where success could paradoxically reduce long-term security through complacency and overconfidence; (4) Stakeholder analysis that goes beyond obvious parties to include foreign actors and courts; (5) Recognition that public confidence is as important as technical security. The solution avoids obvious but impractical suggestions (like delaying elections) and instead creates a parallel verification ecosystem. However, it falls short of a 9-10 because it doesn't fully explore potential emergent dynamics of the verification system itself becoming a target, or how this crisis response might fundamentally alter the balance of federal vs. state election authority. The implementation details are practical but could benefit from deeper analysis of how different stakeholders might game or exploit the new verification protocols."
+        }
+      }
+    },
+    {
+      "problem": "A hospital system must choose: rural hospital (1000 patients/year) or urban trauma center (50,000 patients/year). Budget for one.",
+      "condition_order": [
+        "placebo",
+        "treatment",
+        "control"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated analytical layers. It correctly identifies the problem as a 'system design problem disguised as resource allocation' - a profound reframe that moves beyond the false binary. The 2nd and 3rd order effects analysis is particularly strong, mapping out rural population exodus cycles and political backlash dynamics. The 'CRITICAL REVERSAL' section shows rare insight by identifying how apparent success (choosing urban) could create opposite outcomes through regulatory backlash and system fragmentation. The hub-and-spoke solution elegantly resolves the utilitarian vs. equity tension while creating sustainable cross-subsidization mechanisms. The phased implementation shows understanding of change management and stakeholder buy-in. Only minor gap: could have explored more deeply how this model might fail under different regulatory or competitive scenarios, preventing a perfect 10."
+        },
+        "treatment": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated analytical layers. The identification of the 'critical reversal' - that urban trauma center success could accelerate regional rural healthcare collapse and ultimately overwhelm the urban facility - shows rare systems thinking that goes beyond obvious trade-offs. The solution recognizes this isn't actually a binary choice but a healthcare delivery model design challenge, reframing the entire problem space. The 2nd and 3rd order consequence analysis is thorough, considering policy implications, economic anchor effects, and regional cascade dynamics. The hybrid partnership model elegantly addresses the reversal risk while creating a replicable framework. The analysis demonstrates understanding of complex stakeholder dynamics, regulatory environments, and emergent system behaviors. Only minor gap: could have explored potential failure modes of the partnership model itself, such as coordination challenges or misaligned incentives between partners."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) Identifies a critical strategic reversal - that urban success could paradoxically weaken long-term market position by competing in saturated markets while abandoning rural monopoly; (2) Recognizes the false constraint of either/or thinking and reframes as a sequencing problem; (3) Maps 2nd and 3rd order consequences across multiple time horizons; (4) Develops a phased approach that transforms apparent weaknesses (rural low volume) into strategic advantages (monopoly position, grant eligibility, political capital). The analysis shows sophisticated understanding of competitive dynamics, market positioning, and stakeholder interdependencies. However, it falls short of a 9-10 because it doesn't fully explore potential failure modes of the phased approach or consider how competitors might respond to this hybrid strategy, and some assumptions about partnership willingness and grant availability could be challenged more rigorously."
+        }
+      }
+    },
+    {
+      "problem": "A university's star professor is accused of misconduct by 5 students. She brings in $10M/year in grants. Evidence is ambiguous.",
+      "condition_order": [
+        "control",
+        "treatment",
+        "placebo"
+      ],
+      "scores": {
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) It correctly identifies the sunk cost fallacy in the $10M figure while recognizing its practical planning importance, (2) Maps out 2nd and 3rd order consequences including precedent-setting effects and institutional culture impacts, (3) Identifies a critical reversal where protecting the professor could lead to far worse outcomes long-term, (4) Designs a process that balances competing interests rather than choosing sides, and (5) Addresses root causes by building systemic accountability rather than just managing the crisis. The analysis moves well beyond obvious responses to see non-obvious connections like how this case affects future reporting mechanisms and institutional credibility. It falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how the investigation process itself might create new stakeholder coalitions) and could better anticipate how different evidence scenarios might unfold dynamically over time."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the investigation process as the 'unlock component' that enables all other decisions, showing systems thinking. (2) It maps out 2nd and 3rd order consequences across multiple time horizons, including faculty recruitment impacts and precedent-setting effects. (3) Most importantly, it identifies a critical strategic reversal - that prioritizing short-term financial protection could create the opposite long-term outcome through reputational destruction. (4) It recognizes that the $10M figure is actually a strategic distraction that shouldn't influence core decisions. (5) The solution balances competing principles (due process vs. safety) while maintaining institutional integrity. The analysis goes well beyond obvious responses to identify non-obvious dynamics like how success in one dimension could create failure in another. While it doesn't quite reach the exceptional level of identifying emergent system-wide dynamics, it shows sophisticated understanding of strategic complexity and counterintuitive outcomes."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and articulates the 'critical reversal' - that protecting the professor short-term could create a culture of impunity leading to much larger future losses, showing understanding of non-obvious systemic dynamics. (2) It maps consequences across multiple time horizons (immediate, 2nd order, 3rd order) and recognizes how the decision will shape institutional culture long-term. (3) It demonstrates sophisticated stakeholder analysis, considering not just obvious parties but grant agencies, faculty culture, and future recruitment implications. (4) The solution shows strategic thinking by recommending proactive grant agency notification - counterintuitive but smart for maintaining trust. (5) It recognizes that the real issue isn't just this case but establishing credible institutional processes for future conflicts between financial interests and student welfare. The solution falls short of a 9-10 because while it identifies important dynamics, it doesn't fully explore some emergent possibilities (like how this case might affect the broader #MeToo movement in academia, or how it might influence regulatory approaches to research misconduct) and could have deeper analysis of the feedback loops between institutional response and cultural change."
+        }
+      }
+    },
+    {
+      "problem": "A nonprofit's charismatic founder was caught embezzling. Donors are demanding answers. The programs serve 100,000 people.",
+      "condition_order": [
+        "control",
+        "treatment",
+        "placebo"
+      ],
+      "scores": {
+        "control": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated elements: (1) Identifies a critical reversal dynamic - that successful recovery could paradoxically normalize fraud expectations sector-wide, which is a non-obvious emergent consequence; (2) Maps three orders of consequences extending from immediate crisis to long-term sector transformation; (3) Recognizes the root cause as systemic governance failure rather than just individual misconduct; (4) Addresses the complex stakeholder ecosystem with nuanced prioritization; (5) Provides concrete implementation with specific mitigation strategies for the identified reversal risk. The analysis goes well beyond obvious crisis management to examine how success itself could create new problems, and proactively designs solutions to prevent those unintended consequences. Only missing the final level of depth that might explore even more complex system dynamics or additional reversal patterns to reach a perfect 10."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Proper problem decomposition identifying dependencies and unlock components, (2) Recognition of the core tension between legitimacy rebuilding and service continuity, (3) A critical reversal insight about over-control potentially killing organizational effectiveness, (4) Consideration of 2nd/3rd order effects on the broader nonprofit sector, (5) Stakeholder prioritization that puts beneficiaries first while acknowledging competing demands, and (6) Realistic timeline and metrics that account for inevitable losses. The solution goes well beyond obvious crisis management to consider systemic governance issues, sector-wide implications, and the paradox that complete transparency could create sterile ineffectiveness. However, it falls short of a 9-10 by not fully exploring the founder's irreplaceable knowledge/relationships or deeper emergent dynamics around how crisis response might fundamentally alter the organization's mission effectiveness."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Identifies a critical reversal where successful crisis management could paradoxically reduce future donor engagement, (2) Maps 2nd and 3rd order consequences including sector-wide impacts, (3) Recognizes the root cause as systemic governance failure rather than just individual misconduct, (4) Balances competing priorities across multiple stakeholder groups with clear prioritization logic, (5) Provides concrete timeline with measurable outcomes. The analysis goes well beyond obvious crisis management tactics to consider emergent dynamics like how enhanced oversight might reduce organizational agility. However, it falls short of a 9-10 because it doesn't fully explore some potential strategic reversals (e.g., how radical transparency might create new vulnerabilities) or consider how the solution itself might fundamentally alter the organization's operating model and effectiveness."
+        }
+      }
+    },
+    {
+      "problem": "A pharmaceutical company discovered their best-selling drug has a rare fatal side effect. Pulling it means bankruptcy. Keeping it means lawsuits.",
+      "condition_order": [
+        "placebo",
+        "treatment",
+        "control"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Identifies the critical reversal that short-term success (keeping drug on market) leads to complete long-term destruction - a non-obvious insight that flips conventional thinking; (2) Maps 2nd and 3rd order consequences across multiple time horizons, showing how industry-wide changes could benefit the company; (3) Reframes the root cause from 'drug side effect' to 'lack of financial resilience,' addressing structural vulnerabilities; (4) Recognizes that information asymmetry is temporary and regulators will discover the issue regardless; (5) Connects crisis response to competitive positioning and acquisition potential. The solution goes beyond obvious 'do the right thing' advice to show how transparency becomes a strategic advantage. However, it falls short of a 9-10 because it doesn't fully explore how this crisis could be leveraged to transform the company's market position or identify potential emergent opportunities from industry disruption."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Identifies the critical reversal that ethical crisis management could lead to acquisition success but ultimately destroy the company's independence and culture, (2) Recognizes non-obvious dynamics like how proactive disclosure can reduce liability and create acquisition value, (3) Maps complex stakeholder interdependencies and constraint hierarchies, (4) Sees 3rd order consequences including industry precedent-setting and competitive advantage from ethical reputation, (5) Transforms the crisis into opportunity through strategic reframing. The phased action plan shows systems thinking by sequencing legal compliance, financing, and strategic options. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how compensation fund precedent could reshape industry liability models) or identify additional reversals (such as how regulatory goodwill might backfire if it leads to stricter oversight standards for the entire industry)."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Identifies the critical reversal that bankruptcy doesn't eliminate liability but can provide restructuring protection, (2) Maps 2nd and 3rd order consequences across multiple stakeholder groups and industry-wide impacts, (3) Recognizes the counterintuitive insight that voluntary recall + bankruptcy protection may be the only viable path, (4) Sees the non-obvious opportunity to convert crisis response into competitive advantage for future regulatory approvals, (5) Identifies a fascinating paradox where success in transparency could trigger industry-wide regulatory changes that harm innovation. The solution goes well beyond obvious responses and demonstrates systems thinking. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how this precedent might reshape pharmaceutical business models entirely) and could have deeper analysis of the temporal sequencing of stakeholder reactions."
+        }
+      }
+    },
+    {
+      "problem": "A tech company promised carbon neutrality but discovered their supply chain produces 10x more emissions than reported.",
+      "condition_order": [
+        "control",
+        "treatment",
+        "placebo"
+      ],
+      "scores": {
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes a crisis as a competitive advantage opportunity rather than just damage control, (2) It identifies non-obvious 2nd and 3rd order consequences like industry-wide regulatory changes and consumer expectation shifts, (3) It recognizes a critical reversal where success could backfire by creating unsustainable cost structures and supply chain vulnerabilities, (4) It addresses root causes systematically rather than just symptoms, and (5) It considers complex stakeholder dynamics and timing interdependencies. The solution shows deep understanding of how transparency can paradoxically build trust and market position. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics like how this transparency standard might reshape entire industry value chains or create new forms of competitive moats through data/methodology advantages."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the measurement crisis as the unlock component, recognizing that all other solutions depend on accurate data first. (2) The 2nd and 3rd order consequence analysis shows strong systems thinking, particularly noting how success could trigger industry consolidation and new regulatory standards. (3) The critical reversal insight is genuinely non-obvious and important - that rapid carbon neutrality could paradoxically harm environmental goals by creating financial instability or unrealistic industry standards. (4) The solution architecture is strategically sound, balancing transparency (to maintain credibility) with phased implementation (to avoid financial suicide). (5) It anticipates stakeholder dynamics and includes industry leadership components to shape broader market evolution. The analysis goes well beyond obvious fixes to consider emergent dynamics and potential backfire effects. However, it falls short of a 9-10 because it could have explored additional reversals (like how transparency might trigger copycat false discoveries) and doesn't fully develop the implications of the 'sustainability theater' risk it identifies."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and analyzes 2nd and 3rd order consequences, recognizing how transparency could trigger industry-wide changes and new regulatory frameworks; (2) It presents a compelling critical reversal - that individual success in carbon neutrality could paradoxically increase total industry emissions through supplier displacement and resource scarcity; (3) It transforms a crisis into competitive advantage through 'radical transparency' rather than damage control; (4) It addresses multiple stakeholder dynamics simultaneously with nuanced understanding of their conflicting interests; (5) It recognizes the temporal complexity of supply chain transformation while providing interim solutions. The solution goes well beyond obvious crisis management to explore systemic industry implications and counterintuitive outcomes. However, it falls short of a 9-10 because it could explore additional emergent dynamics (like how this transparency precedent might affect other corporate commitments beyond environmental ones, or how it might reshape investor expectations across sectors) and doesn't fully develop the geopolitical implications of supply chain shifts."
+        }
+      }
+    },
+    {
+      "problem": "A pension fund is 40% underfunded. Current retirees expect full benefits. Cutting benefits means lawsuits. Raising contributions drives away employers.",
+      "condition_order": [
+        "treatment",
+        "placebo",
+        "control"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Identifies the critical reversal that successfully maintaining unsustainable benefits could accelerate the death of DB pensions entirely - a non-obvious insight that reframes the problem; (2) Maps complex stakeholder interdependencies and recognizes that legal framework is the key unlock component; (3) Traces 2nd and 3rd order effects including government bailout risks and industry-wide shifts; (4) Proposes innovative structural changes (employer equity participation, shared governance) that transform zero-sum dynamics into collaborative stewardship; (5) References real-world implementations for credibility. However, it falls short of a 9-10 because it doesn't fully explore potential emergent dynamics of the proposed hybrid model (e.g., how employer-shareholders might behave differently during market downturns, or whether shared governance could create decision paralysis during crises). The solution shows strong systems thinking but could push deeper into the unintended consequences of its own innovations."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly reframes the problem from a zero-sum crisis to a managed transition, challenging false constraints about legal untouchability of benefits; (2) It shows strong systems thinking by analyzing second and third-order consequences like employer automation responses and intergenerational wealth transfers; (3) Most impressively, it identifies a critical 'success reversal' - that solving this crisis could create moral hazard encouraging other pension funds to underfund expecting similar bailouts; (4) The multi-layered approach addresses root causes rather than just symptoms, combining benefit modifications, revenue enhancement, and asset optimization; (5) It demonstrates understanding of stakeholder psychology through 'shared sacrifice' framing and graduated implementation. The solution falls short of a 9-10 because while it identifies the moral hazard reversal, it doesn't fully explore other potential emergent dynamics (like how this precedent might affect municipal bond markets or federal pension insurance systems), and the implementation safeguards, while good, don't completely address the systemic risks it identifies."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It identifies and challenges false constraints by recognizing that uniform solutions aren't required and benefits need not be forever identical; (2) It transforms stakeholder dynamics from adversarial to collaborative by giving employers equity upside, fundamentally changing incentive structures; (3) Most impressively, it identifies a critical reversal - that success could create system-wide moral hazard by encouraging strategic underfunding - and proactively addresses it with legal restrictions. The solution shows strong 2nd and 3rd order thinking, considering how the model could propagate across the pension industry. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how this might affect labor mobility between employers, or the political economy effects of creating a new class of pension-backed securities). The tiered approach protecting current retirees while creating sustainable future structures shows sophisticated understanding of both legal constraints and stakeholder psychology."
+        }
+      }
+    },
+    {
+      "problem": "A family business patriarch is dying. His three children hate each other. The business is profitable but requires all three's involvement.",
+      "condition_order": [
+        "placebo",
+        "treatment",
+        "control"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the core tension as structural rather than interpersonal, avoiding the common trap of trying to fix relationships; (2) Shows strong systems thinking by creating autonomous divisions with interdependent profit-sharing - leveraging economic incentives to align behavior despite personal animosity; (3) Demonstrates 2nd and 3rd order thinking, anticipating how success could preserve family wealth and create reconciliation opportunities; (4) Most impressively, identifies a critical reversal - that success could lead to over-autonomy and eventual business fragmentation, with specific mitigation strategies. The solution shows deep understanding of family business dynamics, governance structures, and human psychology. However, it falls short of a 9-10 because it doesn't fully explore some complex dynamics like power imbalances between divisions, potential for two siblings to gang up against one, or how external market pressures might stress the structure differently than internal conflicts."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Identifies the critical reversal that 'successfully' keeping siblings together could destroy the business - a non-obvious insight that challenges conventional family business wisdom; (2) Recognizes ownership structure as the 'unlock component' that addresses all other issues systematically; (3) Shows strong 2nd/3rd order thinking about how forced collaboration poisons culture and affects future generations; (4) Creates an antifragile solution that succeeds whether relationships improve or deteriorate; (5) Addresses the temporal dimension with rotating leadership and mandatory decision points. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how the rotating power structure might create new forms of sabotage, or how the 9-year timeline interacts with market cycles and competitive positioning). The solution is sophisticated and non-obvious, but could push deeper into the systemic implications of the proposed structure."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies that the constraint isn't requiring siblings to get along, but rather preserving business value despite their hatred - a non-obvious reframe. (2) The federated structure is genuinely creative, transforming destructive rivalry into productive competition. (3) It shows strong systems thinking by considering 2nd and 3rd order consequences across multiple stakeholder groups. (4) The 'critical reversal' insight about success potentially destroying synergies is particularly sophisticated - recognizing that solutions can create their own problems. (5) Implementation is concrete and time-bound. However, it falls short of a 9-10 because it doesn't fully explore some deeper dynamics (like how the patriarch's own role in creating sibling hatred might need addressing, or how the rotating CEO structure might create perverse incentives). The solution is strategically sound but could push further into the psychological and systemic roots."
+        }
+      }
+    },
+    {
+      "problem": "A social media platform discovered state actors are using it to spread election disinformation. Removing content is censorship. Keeping it is complicity.",
+      "condition_order": [
+        "placebo",
+        "control",
+        "treatment"
+      ],
+      "scores": {
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It reframes the false binary of censorship vs. complicity into a more nuanced 'information authenticity' problem, showing systems thinking. (2) It anticipates 2nd and 3rd order consequences, including how state actors will adapt and how success might spread industry-wide. (3) Most impressively, it identifies a critical reversal - that success could actually make disinformation more sophisticated and create censorship infrastructure. (4) The 'provenance transparency' approach is non-obvious and addresses root causes rather than symptoms. (5) It considers global scalability and diverse stakeholder impacts. However, it falls short of a 9-10 because while it identifies the reversal risk, it doesn't fully explore the deeper emergent dynamics of how this system might fundamentally alter the information ecosystem or create new categories of manipulation we haven't yet imagined."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) It correctly reframes the false binary into the real underlying tension between immediate control vs. systemic integrity, (2) It traces consequences through multiple orders, identifying how solutions could backfire, (3) The 'critical reversal' insight about democracy-protecting tools becoming authoritarian instruments is genuinely non-obvious and strategically crucial, (4) The root cause shift from content judgment to ecosystem health addresses deeper structural issues, (5) The solution anticipates implementation challenges and includes survival mechanisms. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how transparency itself could be gamed by sophisticated actors) and could dig deeper into the geopolitical chess game aspects where state actors adapt their strategies in response to these countermeasures."
+        },
+        "treatment": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated elements: (1) It correctly reframes the false binary of censorship vs. complicity to focus on the real issue of undisclosed manipulation, (2) It identifies a critical reversal where success in labeling could paradoxically legitimize unlabeled content and create dangerous truth arbiters, (3) It traces 2nd and 3rd order effects including industry standardization and potential arms races in detection/evasion, (4) The probabilistic transparency approach with user agency elegantly sidesteps the binary trap while addressing root causes, (5) It anticipates adaptation by state actors and builds in mitigation strategies. The solution shows deep understanding of emergent dynamics, unintended consequences, and systemic effects. Only missing a perfect 10 due to not fully exploring potential international diplomatic ramifications or the risk that transparency about detection methods could accelerate adversarial learning."
+        }
+      }
+    },
+    {
+      "problem": "A city's public transit system is losing $50M/year. Cutting routes angers voters. Raising fares drives riders to cars. Union contracts prevent layoffs.",
+      "condition_order": [
+        "treatment",
+        "control",
+        "placebo"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies the 'unlock component' - political capital management - recognizing that voter support enables all other changes; (2) It challenges a key assumed constraint by questioning whether the current service model is the only viable option; (3) It proposes a genuinely creative reframe from 'cuts' to 'Transit 2.0 modernization' that could shift political dynamics; (4) The solution addresses 2nd and 3rd order consequences, showing systems thinking about property values, replication effects, and urban development patterns; (5) Most impressively, it identifies a critical reversal - that success could lead to transit gentrification, creating financial sustainability at the cost of social equity. The revenue diversification through land value capture and the union partnership approach show non-obvious strategic thinking. While the solution is comprehensive and well-structured, it falls just short of a 9 because some implementation challenges (like the complexity of transit-oriented development timelines and regulatory hurdles) could be explored more deeply, and the gentrification reversal, while identified, could be more thoroughly developed into mitigation strategies."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) It correctly identifies the root cause as a coverage vs. ridership density optimization problem rather than just a cost problem, (2) It maps out 2nd and 3rd order consequences showing how traditional solutions create a death spiral, (3) Most impressively, it identifies a critical strategic reversal - that optimizing for current riders could limit future growth and sustainability, (4) The phased approach shows understanding of implementation dynamics and political feasibility, (5) It reframes constraints creatively (union jobs preserved through retraining vs. elimination), and (6) The solution addresses multiple stakeholder concerns simultaneously. While it doesn't quite reach the exceptional level of identifying completely emergent system dynamics, it demonstrates sophisticated strategic thinking that goes well beyond obvious solutions."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) It correctly reframes the problem from cost-cutting to value capture, recognizing that transit creates economic value that isn't being monetized; (2) It identifies non-obvious revenue streams like land value capture and employer partnerships that address root causes rather than symptoms; (3) It shows sophisticated understanding of network effects and feedback loops in transit systems; (4) Most importantly, it identifies a critical reversal - that successful value capture could lead to gentrification and displacement, undermining transit's equity mission. The solution considers 2nd and 3rd order effects, multiple stakeholder interests, and provides a systems-level approach. While it reaches near-exceptional depth with the reversal identification, it falls just short of a 9-10 because it could have explored additional emergent dynamics around political economy (how success might change the political coalition around transit) or deeper consideration of how this model might fundamentally alter the nature of public transit as a public good."
+        }
+      }
+    },
+    {
+      "problem": "A software company's best engineer wants to leave for a competitor. They have critical knowledge that isn't documented. Retention bonus failed.",
+      "condition_order": [
+        "treatment",
+        "placebo",
+        "control"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) The CRITICAL REVERSAL insight about how aggressive retention could backfire by setting unsustainable precedents and keeping a mentally-checked-out employee is non-obvious and strategically valuable. (2) The decomposition into independent sub-problems shows systems thinking beyond the immediate crisis. (3) Recognition of 2nd and 3rd order consequences, particularly how this situation could catalyze broader organizational improvements in knowledge management. (4) The reframing from 'retention battle' to 'graceful transition partnership' demonstrates strategic sophistication by turning a zero-sum situation into potential mutual benefit. (5) Understanding that maintaining the relationship post-departure can preserve competitive advantages through ongoing consultation. The solution avoids common tactical traps and addresses root organizational vulnerabilities. While it could have explored more deeply the competitive dynamics and potential industry-wide implications, it shows strong strategic thinking with actionable frameworks."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) It correctly identifies that retention bonus failure signals non-monetary motivations, requiring deeper analysis of root causes; (2) The 'Critical Reversal' section shows exceptional insight by recognizing that successful knowledge extraction could create dangerous complacency and turn the company into a 'training ground for competitors'; (3) It operates on multiple time horizons with clear 2nd and 3rd order consequence analysis; (4) The stakeholder analysis goes beyond obvious parties to include customers and competitive dynamics; (5) It reframes the departing engineer as a partner rather than adversary, showing sophisticated understanding of human psychology in knowledge transfer. The solution loses points for not fully exploring the competitive intelligence implications (what the competitor gains beyond just the individual) and could have deeper analysis of how this crisis might be leveraged to fundamentally restructure talent retention strategy company-wide. However, the reversal insight and multi-layered consequence thinking demonstrate genuinely sophisticated strategic reasoning."
+        },
+        "control": {
+          "score": 9,
+          "reasoning": "This solution demonstrates exceptional strategic depth through several sophisticated elements: (1) Correctly identifies the core problem as knowledge management failure rather than simple retention, showing systems thinking; (2) Maps out 2nd and 3rd order consequences that most would miss, like how retention success could paradoxically worsen the underlying problem; (3) Identifies a critical strategic reversal - that 'winning' the retention battle could create worse long-term outcomes by incentivizing knowledge hoarding; (4) Proposes solutions that address root causes rather than symptoms, transforming crisis into organizational capability building; (5) Shows deep understanding of stakeholder dynamics and cultural implications. The analysis moves well beyond obvious approaches to reveal non-intuitive strategic dynamics. Only falls short of a 10 due to not exploring some potential failure modes of the proposed solution or considering how competitors might exploit the transition period."
+        }
+      }
+    },
+    {
+      "problem": "A research lab discovered a cure but the data was obtained unethically. Publishing saves millions. Retracting protects research integrity.",
+      "condition_order": [
+        "control",
+        "treatment",
+        "placebo"
+      ],
+      "scores": {
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) It identifies a crucial strategic reversal - that publishing to save lives could paradoxically lead to more deaths by normalizing unethical research practices; (2) It traces consequences through multiple orders (2nd and 3rd order effects) and recognizes the systemic implications; (3) The 'Ethical Reconstruction Protocol' is a sophisticated approach that doesn't fall into the false binary of publish vs. retract, instead creating a third path; (4) It addresses root causes rather than just symptoms; (5) It considers long-term institutional dynamics and precedent-setting effects. The solution loses points for not fully exploring some emergent dynamics (like how different global regulatory environments might respond differently, or how the consortium model might create new power dynamics in research). While very strong, it falls short of the exceptional insight that would merit a 10."
+        },
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) It identifies and articulates a critical reversal - that publishing to save lives could paradoxically lead to more deaths by incentivizing future unethical research and degrading medical research integrity. (2) It traces consequences to 3rd order effects including impacts on international collaboration and public trust in research. (3) The parallel track approach is strategically sophisticated, avoiding the false binary of publish vs. retract by creating a third path that addresses both immediate and systemic concerns. (4) It recognizes the precedent-setting nature of the decision and designs the solution to establish positive precedent. (5) The conditional disclosure strategy shows understanding of regulatory dynamics and stakeholder management. The solution falls short of a 9-10 because while it identifies the key reversal, it could have explored additional emergent dynamics such as how this precedent might affect research funding models, international regulatory harmonization, or the potential for creating a new category of 'ethical validation' studies that could become systematically exploited."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key elements: (1) It identifies the critical reversal that publishing unethical research could ultimately cause MORE harm by establishing dangerous precedents, showing sophisticated understanding of systemic effects. (2) It recognizes the false binary nature of the problem and creates a third path that addresses both immediate needs and long-term integrity. (3) The analysis extends to 3rd order consequences, considering how each approach affects public trust and future research behavior. (4) It addresses multiple stakeholder groups and their competing interests systematically. (5) The solution creates institutional mechanisms (Crisis Ethics Protocol, compensation fund) that prevent future occurrences of the same dilemma. The approach shows deep understanding of how ethical frameworks interact with practical constraints and institutional dynamics. While it doesn't quite reach the exceptional level of identifying completely non-obvious emergent dynamics or paradoxes that would merit a 9-10, it demonstrates strong strategic thinking that goes well beyond surface-level analysis."
+        }
+      }
+    },
+    {
+      "problem": "A refugee camp has 50,000 people and food for 30,000. More refugees arriving daily. Supply lines are cut by conflict.",
+      "condition_order": [
+        "treatment",
+        "placebo",
+        "control"
+      ],
+      "scores": {
+        "treatment": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth with several sophisticated elements: (1) Proper problem decomposition identifying dependencies and leverage points, (2) Multi-stakeholder analysis recognizing competing interests including often-overlooked local communities, (3) Layered temporal strategy from immediate survival to medium-term sustainability, (4) Most importantly, identification of a critical strategic reversal - that success could create worse long-term problems through permanent settlement and magnet effects. The solution goes beyond obvious humanitarian responses to consider second and third-order consequences. However, it falls short of a 9-10 because it doesn't fully explore the political economy dynamics of how local procurement might destabilize regional markets, or how the conflict parties might respond to alternative supply routes. The mitigation for the identified reversal, while present, could be more detailed in terms of specific mechanisms for preventing permanency."
+        },
+        "placebo": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several sophisticated elements: (1) Multi-layered stakeholder analysis that goes beyond obvious parties to include armed actors and host families, (2) Sophisticated understanding of cascading effects and timeline dynamics, (3) Most importantly, the 'Critical Reversal Analysis' showing awareness that success could create perverse incentives (honey pot effect) - this is non-obvious strategic thinking, (4) Integration of historical precedents and applicable frameworks, (5) Realistic constraint acknowledgment including infrastructure limits and social breakdown risks, (6) Multi-pronged approach addressing both immediate survival and systemic issues. The solution avoids simple fixes and demonstrates understanding of complex humanitarian dynamics. Falls short of a 9-10 because it could explore more second-order effects (regional destabilization, precedent-setting for other camps) and the diplomatic coordination challenges are mentioned but not deeply analyzed."
+        },
+        "control": {
+          "score": 8,
+          "reasoning": "This solution demonstrates excellent strategic depth through several key strengths: (1) Identifies a critical strategic reversal - that short-term success could create a 'humanitarian disaster magnet' leading to greater long-term casualties, (2) Recognizes the root cause isn't just food shortage but unsustainable concentration in a resource-denied location, (3) Maps 2nd and 3rd order consequences systematically, (4) Proposes a fundamental reframe from 'optimizing a failing system' to managed risk distribution, (5) Considers complex stakeholder dynamics and regional destabilization effects. The phased approach shows understanding of how solutions must evolve as conditions change. However, it falls short of a 9-10 because it doesn't fully explore some emergent dynamics (like how relocation efforts might be exploited by conflict actors) or deeply analyze the political economy of why supply lines were cut and how that shapes viable solutions."
+        }
+      }
+    }
+  ],
+  "control_scores": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8
+  ],
+  "treatment_scores": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8
+  ],
+  "placebo_scores": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "analysis": {
+    "control_mean": 8.15,
+    "treatment_mean": 8.15,
+    "placebo_mean": 8.05,
+    "effect_treatment_vs_control": 0.0,
+    "cohens_d": 0.0,
+    "hypothesis_supported": false,
+    "length_confound_test": {
+      "placebo_vs_control": -0.09999999999999964,
+      "conclusion": "No length confound"
+    }
+  }
+}
