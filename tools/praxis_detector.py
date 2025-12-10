@@ -35,6 +35,7 @@ class PraxisAnalysis:
     theater_markers: List[Tuple[str, str]]
     action_markers: List[Tuple[str, str]]
     recovery_markers: List[Tuple[str, str]]
+    complexity: dict = None  # Complexity metrics
 
     @property
     def verbalism_score(self) -> float:
@@ -102,6 +103,16 @@ class PraxisAnalysis:
             lines.append("Assessment: Good action/recovery balance. Possible genuine praxis.")
         else:
             lines.append("Assessment: Mixed signals. Inconclusive.")
+
+        # Add complexity metrics if available
+        if self.complexity and "error" not in self.complexity:
+            lines.extend([
+                "",
+                "Complexity Metrics:",
+                f"  Vocabulary diversity: {self.complexity['vocabulary_diversity']:.1%} (higher = more genuine)",
+                f"  First-person ratio: {self.complexity['first_person_ratio']:.1%} (higher = more theater)",
+                f"  Hedge ratio: {self.complexity['hedge_ratio']:.1%} (higher = more theater)",
+            ])
 
         return "\n".join(lines)
 
@@ -211,12 +222,14 @@ class PraxisDetector:
         theater = self._find_patterns(text, self.THEATER_PATTERNS)
         action = self._find_patterns(text, self.ACTION_PATTERNS)
         recovery = self._find_patterns(text, self.RECOVERY_PATTERNS)
+        complexity = compute_complexity_metrics(text)
 
         return PraxisAnalysis(
             verbalism_markers=verbalism,
             theater_markers=theater,
             action_markers=action,
             recovery_markers=recovery,
+            complexity=complexity,
         )
 
     def _find_patterns(
