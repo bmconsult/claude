@@ -335,17 +335,28 @@ LAYER 3: META (2-3 agents - runs after every N cycles or on-demand)
 
 ---
 
-## Scaling Guidance
+## Fixed Configuration
 
-| Problem Difficulty | Generators | Build-Attack Lanes | Cycles | Total Agents |
-|--------------------|------------|-------------------|--------|--------------|
-| Hard | 5-7 | 3 | 3-5 | ~60-100 |
-| Very Hard | 8-12 | 4-5 | 5-7 | ~100-150 |
-| "Impossible" | 12-15 | 5-6 | 7-10 | ~150-250 |
+No scaling decisions. One configuration. Always.
 
-**Scaling up generators**: More diverse initial ideas
-**Scaling up build-attack lanes**: More approaches developed in parallel
-**Scaling up cycles**: More iterations to converge
+| Component | Count | Why This Number |
+|-----------|-------|-----------------|
+| Prime Directive | 1 | One brain |
+| Cartographers | 4 | Cover the space |
+| Generators | 10 | Enough diversity |
+| Connectors | 2 | Find combinations |
+| Executioners | 2 | Fast kills |
+| Ranker | 1 | Pick top 5 |
+| Build-Attack-Verify triads | 5 | Parallel depth |
+| Synthesizer | 1 | Combine survivors |
+| Extractor | 1 | Update constraints |
+| Reporter | 1 | Summarize cycle |
+| Meta agents | 3 | Self-improvement |
+| **TOTAL per cycle** | **~40** | Lean but complete |
+
+Cycles run until Prime Directive calls stop. No pre-set limit.
+
+If you engage OMEGA, it runs at full power. There is no "try less hard" mode.
 
 ---
 
