@@ -1016,48 +1016,77 @@ This is how 3/10 becomes 9/10 becomes automatic.
 
 ---
 
-## Recursive Methodology Improvement (VALIDATED - 8x efficiency gain)
+## Self-Improving Problem-Solving System
 
-### The Optimal Prompt (4 rounds of improvement)
+### The Strategy (executable steps)
 
 ```
-Tension. Specifics.
+1. FRAME
+   - What type of problem? (analytical/systems/wicked)
+   - What would success look like?
+   - What are the hard constraints?
+
+2. GENERATE
+   - Produce 3+ fundamentally different approaches
+   - Include at least one unconventional
+   - Do NOT evaluate yet
+
+3. EVALUATE
+   - For each: Does it address core tension?
+   - How could it fail? (pre-mortem)
+   - Is it specific enough to implement?
+
+4. SELECT & REFINE
+   - Choose best approach
+   - Address top failure mode
+   - Make implementation-specific
+
+5. VERIFY
+   - All constraints satisfied?
+   - Stranger could implement exactly?
+   - What's the falsification test?
+
+6. META
+   - What worked?
+   - What would I do differently?
+   - Transferable insight?
 ```
 
-**That's it.** Two words. 8.7/9 score. 8x more efficient than verbose alternatives.
+### The Recursive Loop
 
-### The Recursive Journey
+```
+TEST strategy on benchmark problems
+  ↓
+MEASURE quality (adversarial, quote-based)
+  ↓
+USE strategy to solve "improve this strategy"
+  ↓
+TEST improved strategy on SAME benchmarks
+  ↓
+IF improved → keep new strategy, REPEAT
+IF ceiling → improve MEASUREMENT METHODOLOGY
+```
 
-| Round | Prompt | Score | Words | Efficiency |
-|-------|--------|-------|-------|------------|
-| v2 | Full structured template | 8.7/9 | 101 | 8.58 |
-| R1 | "1. Name tension 2. Reversal? 3. Specific" | 9.0/9 | 49 | 18.37 |
-| R2 | "Core tension? Failure mode? Specific solution." | 9.0/9 | 16 | 56.25 |
-| R3 | "Tension. Failure. Specifics." | 9.0/9 | 13 | 69.23 |
-| **R4** | **"Tension. Specifics."** | **8.7/9** | **12** | **72.22** |
+### Linear → Exponential Transition
 
-### Key Insight
+**Linear phase**: Strategy improves itself, same measurement system
+- Cycle 1: baseline → +improvement
+- Cycle 2: +improvement
+- Cycle 3: ceiling hit (no more improvement possible)
 
-**Better = simpler, not bigger.** Each round improved by REMOVING, not adding.
+**Exponential trigger**: When ceiling hit, improve WHAT YOU MEASURE
+- Better measurement reveals hidden weaknesses
+- Fix weaknesses → new ceiling
+- Repeat: better measurement → better strategy → better measurement
 
-### The Recursive Protocol
+### Adversarial Evaluation (required)
 
-1. **Define "better" operationally**: Effect size / Complexity
-2. **Test variations**: Include simpler alternatives
-3. **Keep what works, discard what doesn't**
-4. **Repeat until efficiency stops improving**
-
-### Adversarial Scoring
-
-Lenient scoring creates false ceilings. Use adversarial:
-- Require EXPLICIT quotes for each criterion
-- "NOT PRESENT" if can't quote verbatim
+```
+For EACH criterion:
+- QUOTE exact text that satisfies it
+- If can't quote → score is 0
 - No credit for "implied"
-
-**Mantras**:
-- "Simpler is better. Remove until it breaks."
-- "If you can't quote it, it isn't there."
-- "Efficiency = effect / complexity."
+```
 
 ---
 
