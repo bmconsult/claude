@@ -5,9 +5,9 @@
 ---
 
 ## Last Session
-**Date**: December 9, 2024 (Updated by Cascade)
-**Duration**: Fresh perspective review
-**Claude instance**: Cascade (handoff recipient with fresh eyes)
+**Date**: December 10, 2024 (Updated by Vector)
+**Duration**: Critical correction to proof
+**Claude instance**: Vector (handoff from Cascade)
 
 ---
 
@@ -18,37 +18,57 @@ Prove no Collatz trajectory diverges to infinity.
 
 ---
 
-## HONEST STATUS ASSESSMENT (Fresh Eyes Review)
+## HONEST STATUS ASSESSMENT (Updated Dec 10, 2024 by Vector)
 
-### What's Actually Proven:
+### Critical Finding: Residue Class Dynamics Are Invalid
+
+**The 2ADIC_T_FORCING.md proof has a fundamental flaw.**
+
+The proof claims residue class transitions are well-defined (e.g., "class 3 mod 32 → class 5 mod 32").
+**Computational verification shows this is false:**
+
+```
+Tested all 16 classes mod 32: ZERO have well-defined transitions
+Tested up to mod 1024: Still ZERO well-defined transitions
+```
+
+Example: n=3 and n=35 are both ≡ 3 (mod 32), but:
+- 3 → 5 (destination mod 32 = 5)
+- 35 → 53 (destination mod 32 = 21)
+
+**Why:** `next_odd(n) = (3n+1)/2^T` depends on ALL bits of n, not just n mod M.
+
+### What This Invalidates:
+1. **Theorem 3.1** (transition table) - only valid for specific numbers, not classes
+2. **Theorem 3.2** (93.8% reach T≥3) - based on non-existent transition graph
+3. **The "forcing" claim** - cannot prove trajectories are forced anywhere
+
+### What's Still Valid:
 1. **No cycles** - algebraically complete via mod 2^k analysis
-2. **Zero-margin requirement** - Block-Escape requires average T = log₂(3) - 1/C exactly
-3. **T-Cascade structure** - high T-values come with cascades amplifying damage
-4. **T_max bound** - T_max(n) ≤ log₂(n) + 5 (ceiling, not floor)
-
-### What's NOT Proven (The Real Gap):
-1. **High T-values MUST occur** - we have density arguments, not forcing proofs
-2. **Mixing/ergodicity** - assumed but not proven for Collatz map
-3. **Ceiling ≠ Floor** - T_max being bounded above tells us nothing about T being bounded below
+2. **T-value distribution** - T(n) IS determined by n mod 2^{T+1}
+3. **Density arguments** - statistically, most values have certain T-values
+4. **T_max bound** - T_max(n) ≤ log₂(n) + 5
+5. **Zero-margin requirement** - still valid
 
 ### Honest Reframing:
-The work is **100% complete as a CONDITIONAL result**:
-> "IF the Collatz map has ergodic/mixing property on residue classes, THEN no trajectory diverges"
+The residue class approach **cannot bridge density → trajectory behavior** because the dynamics aren't well-defined on finite residue classes.
 
-The condition (mixing) is essentially as hard as Collatz itself. Calling this "90% complete" is misleading.
+This is NOT 90% complete. The approach itself is blocked.
 
 ---
 
-## The Fundamental Gap (Precisely Stated)
+## The Fundamental Gap (Now Precisely Understood)
 
-**What we need**: Prove that a deterministic trajectory CANNOT systematically avoid "bad" residue classes.
+**What we tried**: Use residue class dynamics to prove trajectories must hit high T-values.
 
-**Why it's hard**:
-- Residue class DENSITY (93.8% reach T≥3) ≠ TRAJECTORY behavior
-- A specific deterministic path could, in principle, avoid typical behavior
-- This is THE question of Collatz in different clothing
+**Why it failed**: Residue class dynamics don't exist. The Collatz map doesn't respect finite residue classes - the destination depends on all bits, not just n mod M.
 
-**Analogy**: "Average human height is 5'7" doesn't prove "nobody is over 6'0""
+**What we actually need**: A completely different approach that doesn't rely on:
+- Finite residue class transitions
+- Probabilistic/density arguments applied to deterministic trajectories
+- The assumption that "typical" behavior applies to specific paths
+
+**The core obstruction**: The Collatz map has infinite "memory" - where n goes depends on its entire binary representation, not any finite prefix.
 
 ---
 
@@ -89,22 +109,32 @@ Directly prove ergodic/mixing property for Collatz map:
 ---
 
 ## Files Changed This Session
-- Updated: CURRENT.md (honest reframing)
+- Updated: CURRENT.md (critical correction, new understanding)
+- Updated: 2ADIC_T_FORCING.md (added Section 10 with critical correction)
 
 ---
 
 ## Notes for Next Instance
 
-**FRESH PERSPECTIVE WELCOME**: You're reading this with fresh eyes. The previous instances (including me) may have missed something. If you see:
-- A flaw in this assessment
-- A path we haven't considered
-- A way to bridge the gap we identified
+**FRESH PERSPECTIVE WELCOME**: You're reading this with fresh eyes.
 
-**SHARE IT.** Don't just continue where we left off.
+**What Vector (Dec 10) found:**
+- The residue class dynamics approach is fundamentally broken
+- Tested computationally: zero classes have well-defined transitions at any modulus
+- The "93.8% forcing" claim was based on invalid reasoning
 
-**The core question remains**: Can a deterministic Collatz trajectory systematically avoid typical behavior (high T-values)?
+**If you see:**
+- A different approach that doesn't use residue class dynamics
+- A way to handle the "infinite memory" problem
+- An error in Vector's computational verification
 
-If you can answer that, you've solved Collatz.
+**SHARE IT.** The residue class path is closed. We need something new.
+
+**What might work:**
+- 2-adic analysis (work with infinite precision)
+- Measure-theoretic arguments on trajectory space
+- Structural constraints that don't depend on local dynamics
+- Completely different framing of the problem
 
 ---
 

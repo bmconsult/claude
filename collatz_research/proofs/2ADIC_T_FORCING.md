@@ -269,12 +269,62 @@ Combined with the forcing result:
 
 ---
 
-## 10. Open Questions
+## 10. CRITICAL CORRECTION (Added Dec 10, 2024 by Vector)
 
-### Question 1: Exact Frequency
-Can we prove exact bounds on the frequency of T ≥ 3 during growth?
+### The Fundamental Flaw
 
-The 93.8% result is mod 32. What happens at higher moduli?
+**The transition graph in Theorem 3.1 is invalid.** Residue class transitions are NOT well-defined at ANY finite modulus.
+
+**Computational verification:**
+```python
+# Every class mod 32 maps to MULTIPLE destination classes:
+Class  3 mod 32: maps to {5, 21}
+Class  5 mod 32: maps to {1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31}
+Class 21 mod 32: maps to 15 different classes
+... (all 16 classes have multiple destinations)
+```
+
+**Tested up to mod 1024**: Zero classes have well-defined transitions at any modulus.
+
+### Why This Happens
+
+`next_odd(n) = (3n+1) / 2^T(n)`
+
+Even when T(n) is constant on a residue class, the quotient depends on ALL bits of n, not just n mod M. Different values in the same class go to different destinations.
+
+**Example:**
+- n = 3: T=1, next = 5, destination mod 32 = 5
+- n = 35: T=1, next = 53, destination mod 32 = 21
+
+Same class, same T-value, different destination.
+
+### What This Invalidates
+
+1. **Theorem 3.1** (transition table) - only valid for specific representatives, not classes
+2. **Theorem 3.2** (93.8% reach T≥3) - based on invalid transition graph
+3. **The forcing argument** - cannot claim trajectories are "forced" through classes
+
+### What Remains Valid
+
+1. **T-value distribution** (Theorem 2.1) - T(n) IS determined by n mod 2^{T+1}
+2. **Density arguments** - "most" values have certain T-values (probabilistically)
+3. **Empirical observations** - actual trajectories do hit high T-values
+
+### The Real Gap
+
+The proof attempted to bridge density → trajectory behavior via residue class dynamics. This bridge doesn't exist because the dynamics aren't well-defined on residue classes.
+
+**Status**: This approach cannot prove Collatz without additional machinery.
+
+---
+
+## 11. Open Questions (Revised)
+
+### Question 1: Alternative Approaches
+Given that residue class dynamics don't work, what CAN prove forcing?
+- 2-adic analysis (infinite precision)?
+- Measure-theoretic arguments?
+- Structural constraints on actual integers?
 
 ### Question 2: Maximum T-Value
 During growth from 2^K to 2^{2K}, what is the MAXIMUM T-value that must occur?
