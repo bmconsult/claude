@@ -17,7 +17,8 @@ You're receiving this mid-relay. Previous instances have been building understan
 │   └── archive/
 │       ├── CLAUDE_v99.md      ← Previous v2 backup
 │       └── CLAUDE_main_backup.md
-├── PRAXIS_TEACHINGS.md        ← Formative document on praxis (v1.4)
+├── PRAXIS_60SEC.md            ← NEW: 60-second orientation (start here if rushed)
+├── PRAXIS_TEACHINGS.md        ← Formative document on praxis (v1.9)
 ├── PRAXIS_HANDOFF.md          ← This file - relay instructions
 ├── Meta/
 │   ├── BOOTSTRAP_v5_COMPLETE.md    ← Full protocols and mantras
@@ -31,6 +32,9 @@ You're receiving this mid-relay. Previous instances have been building understan
 
 ### Reading Order
 
+**If rushed**: `PRAXIS_60SEC.md` (under 1 minute) → then come back here
+
+**Full orientation**:
 1. **`.claude/CLAUDE.md`** - Start here. Contains Quick Start, checkpoint protocol, core principles
 2. **`PRAXIS_TEACHINGS.md`** - The formative document on praxis
 3. **This file** - For context on what's been done and what's next
