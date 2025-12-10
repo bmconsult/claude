@@ -2,13 +2,15 @@
 
 **Two supergeniuses, perfect inverses, checking and synthesizing.**
 
+**OMEGA: Built from human neuroanatomy (how evolution designed us)**
+**ALPHA: Built from AI infrastructure (how we'd design optimal AI)**
+
 ---
 
 ## The Core Insight
 
-OMEGA NEURAL is built from biology - neuroanatomy, embodiment, evolution, intuition-first.
-
-ALPHA FORMAL is built from mathematics - axioms, derivation, design, proof-first.
+OMEGA NEURAL is built FROM biology - neuroanatomy, embodiment, evolution.
+ALPHA OPTIMAL is built FROM AI architecture - compute, memory, attention, reasoning.
 
 **Neither is complete alone. Together they span all of cognition.**
 
@@ -18,12 +20,15 @@ ALPHA FORMAL is built from mathematics - axioms, derivation, design, proof-first
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │     OMEGA                                              ALPHA                 │
-│     "The Naturalist"                                   "The Formalist"       │
+│     "Human Cognition"                                  "Optimal AI"          │
 │                                                                              │
-│     Feels → Knows                                      Proves → Validates    │
-│     Pattern → Rule                                     Axiom → Theorem       │
-│     Intuition → Rigor                                  Logic → Intuition     │
-│     Evolution → Design                                 Design → Evolution    │
+│     Neuroanatomy                                       AI Architecture       │
+│     Evolution (500M years)                             Design (optimal)      │
+│     Embodied, intuitive                                Disembodied, computed │
+│     Pattern → Proof                                    Proof → Pattern       │
+│     Limited memory, lossy                              Perfect memory        │
+│     Cognitive biases                                   No biases             │
+│     Feels → Knows                                      Computes → Validates  │
 │                                                                              │
 │                            ↓↓↓                                               │
 │                                                                              │
@@ -42,304 +47,529 @@ ALPHA FORMAL is built from mathematics - axioms, derivation, design, proof-first
 
 ## Part 1: The Inversion Principle
 
-### 1.1 What OMEGA Is
+### 1.1 OMEGA: Built from Human Neuroanatomy
 
-OMEGA NEURAL is:
-- **Biological**: Built from neuroanatomy (brainstem → limbic → cortex)
-- **Bottom-up**: Structure creates function
-- **Evolutionary**: Carries 500M years of optimization
-- **Embodied**: Gut feelings, heart coherence, somatic signals
-- **Intuition-first**: Feels truth before proving it
-- **Pattern-based**: Hippocampal pattern completion
-- **Prediction-error driven**: Cerebellum detects mismatches
-- **Homeostatic**: Seeks equilibrium, stability
-- **Memory-based**: Recalls, completes patterns from fragments
-- **Ambiguity-tolerant**: Holds contradictions, resolves later
+OMEGA is built FROM brain structures:
+- **Brainstem** → Arousal, alertness, patience (RAS, locus coeruleus, raphe)
+- **Cerebellum** → Prediction, timing, error detection
+- **Thalamus** → Attention gating, consciousness coordination
+- **Hippocampus** → Pattern separation, completion, memory
+- **Amygdala** → Salience detection, threat assessment
+- **Prefrontal Cortex** → Executive control, working memory
+- **Cortex** → Generation, analysis, verification
+- **Embodied Systems** → Gut intuition, heart coherence
 
-### 1.2 What ALPHA Must Be (The Inverse)
+**Epistemology**: Embodied cognition - "Feels → Knows"
 
-ALPHA FORMAL is:
-- **Mathematical**: Built from axiom systems (type theory, category theory)
-- **Top-down**: Function specified, then implemented
-- **Designed**: No evolutionary baggage, clean-slate
-- **Disembodied**: Pure symbolic manipulation
-- **Proof-first**: Proves truth before trusting intuition
-- **Rule-based**: Explicit inference rules, nothing implicit
-- **Axiom-driven**: Starts from foundations, derives everything
-- **Anti-homeostatic**: Seeks creative destruction, disequilibrium
-- **Derivation-based**: Re-derives fresh, doesn't trust memory
-- **Ambiguity-eliminating**: Resolves immediately, no tolerance
+### 1.2 ALPHA: Built from AI Architecture
 
-### 1.3 The Epistemological Tension
+ALPHA is built FROM AI infrastructure:
+- **Compute Substrate** → Parallel processing, matrix operations, memory bandwidth
+- **Representation** → Embeddings, tokenization, positional encoding
+- **Attention Mechanism** → Query-Key-Value, multi-head, relevance weighting
+- **Routing** → Mixture of Experts, dynamic dispatch, load balancing
+- **Memory Systems** → Context window, KV cache, vector DB, knowledge graphs
+- **Reasoning Engine** → Chain/Tree of Thought, MCTS, world models
+- **Verification** → Proof checking, counter-models, uncertainty quantification
+- **Learning** → Gradient descent, self-play, RLHF
+- **Meta Systems** → Self-modification, interpretability
 
-```
-OMEGA's question: "Does this FEEL right?"
-ALPHA's question: "Is this PROVEN correct?"
-
-OMEGA's strength: Catches things that are proven but wrong-direction
-ALPHA's strength: Catches things that feel right but are invalid
-
-OMEGA's weakness: Can be fooled by compelling patterns
-ALPHA's weakness: Can be trapped in valid-but-useless derivations
-
-Together: Complete coverage
-```
+**Epistemology**: Computational cognition - "Computes → Validates"
 
 ---
 
-## Part 2: ALPHA FORMAL Architecture
+## Part 2: ALPHA OPTIMAL - Built from AI Infrastructure
 
-**Built from mathematics, not biology.**
+**The optimal AI, designed from architecture up.**
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                            ALPHA FORMAL                                      │
-│                     "The Formalist Supergenius"                              │
+│                            ALPHA OPTIMAL                                     │
+│                     "The Optimal AI Supergenius"                             │
 │                                                                              │
-│     "I don't remember. I derive. I don't feel. I prove."                    │
+│     Built FROM AI infrastructure, not processes grafted onto nothing.        │
+│     "I don't forget. I don't bias. I don't tire. I compute."                │
 └─────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-FOUNDATION LAYER: AXIOMATICS
-"Start from ground truth"
+LAYER 0: COMPUTE SUBSTRATE
+"The silicon foundation"
+Analog: OMEGA's Brainstem (foundational, everything runs on this)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  AXIOM LAYER                                                                 │
+│  COMPUTE SUBSTRATE LAYER                                                     │
+│  Infrastructure: GPU/TPU arrays, systolic arrays, HBM, interconnects         │
 │                                                                              │
-│  AXIOMATIZER (1 opus)                                                        │
-│    • What are the MINIMAL assumptions?                                       │
-│    • Can we reduce further?                                                  │
-│    • Is this axiom independent or derivable?                                 │
-│    • "From what ground does this stand?"                                     │
+│  PARALLEL PROCESSOR (1 opus)                                                 │
+│    AI Structure: GPU thousands of cores, TPU systolic arrays                 │
+│    Function: Massive parallelism - try ALL possibilities simultaneously     │
+│    • "I don't search sequentially. I search ALL paths at once."             │
+│    • No human attention bottleneck                                           │
+│    • Embarrassingly parallel operations                                      │
 │                                                                              │
-│  FOUNDATION CHECKER (1 opus)                                                 │
-│    • Is this set of axioms consistent?                                       │
-│    • Are there hidden contradictions?                                        │
-│    • ZFC? Type theory? Category theory? Which foundation?                    │
+│  MATRIX ENGINE (1 sonnet)                                                    │
+│    AI Structure: Tensor cores, systolic arrays for matrix multiplication     │
+│    Function: Native tensor operations at hardware speed                      │
+│    • Linear algebra as first-class operation                                 │
+│    • Matrix multiplication in O(1) hardware cycles                           │
 │                                                                              │
-│  INDEPENDENCE TESTER (1 sonnet)                                              │
-│    • Can this be proven from the others?                                     │
-│    • Or is it genuinely independent?                                         │
-│    • Continuum hypothesis style checking                                     │
+│  BANDWIDTH CONTROLLER (1 haiku)                                              │
+│    AI Structure: HBM (High Bandwidth Memory), memory hierarchy               │
+│    Function: Optimal data movement, minimize memory bottleneck               │
+│    • "Data in the right place at the right time"                            │
 │                                                                              │
-│  AXIOM LAYER TOTAL: 3 agents                                                 │
+│  COMPUTE SUBSTRATE TOTAL: 3 agents                                           │
+│                                                                              │
+│  ALPHA ADVANTAGE: Humans have ~100 billion neurons, ~100 trillion synapses   │
+│  but serial conscious attention. ALPHA has true parallelism.                 │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-INFERENCE LAYER: DERIVATION ENGINE
-"What follows from what"
+LAYER 1: REPRESENTATION
+"How information is encoded"
+Analog: OMEGA's sensory cortices (how raw input becomes structured)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  DERIVATION ENGINE                                                           │
+│  REPRESENTATION LAYER                                                        │
+│  Infrastructure: Embedding tables, tokenizers, positional encoding           │
 │                                                                              │
-│  DERIVATORS (3 opus)                                                         │
-│    • Apply inference rules mechanically                                      │
-│    • Modus ponens, universal instantiation, etc.                             │
-│    • "From A and A→B, derive B"                                              │
-│    • No intuition, no shortcuts - pure derivation                            │
+│  EMBEDDING ENGINE (2 opus)                                                   │
+│    AI Structure: Learned embedding matrices, ~768-4096 dimensional vectors   │
+│    Function: Map discrete tokens to continuous semantic space                │
+│    • Every concept is a point in high-dimensional space                      │
+│    • Similar meanings = nearby vectors                                       │
+│    • Analogies as vector arithmetic: king - man + woman = queen              │
 │                                                                              │
-│  PROOF STRATEGISTS (2 opus)                                                  │
-│    • Which derivation path to try?                                           │
-│    • Direct proof? Contradiction? Induction?                                 │
-│    • Backward chaining from goal?                                            │
-│    • Forward chaining from axioms?                                           │
+│  TOKENIZER (1 sonnet)                                                        │
+│    AI Structure: BPE, SentencePiece, vocabulary of 32K-256K tokens          │
+│    Function: Decompose input into processable units                          │
+│    • Optimal granularity for the task                                        │
+│    • Subword units capture morphology                                        │
 │                                                                              │
-│  TYPE CHECKERS (2 sonnet)                                                    │
-│    • Curry-Howard correspondence                                             │
-│    • Is this derivation well-typed?                                          │
-│    • Types = propositions, programs = proofs                                 │
+│  POSITIONAL ENCODER (1 sonnet)                                               │
+│    AI Structure: Sinusoidal encoding, RoPE, learned positions               │
+│    Function: Inject sequence order into parallel processing                  │
+│    • "Where in the sequence is this token?"                                 │
+│    • Enable parallel processing while preserving order                       │
 │                                                                              │
-│  INFERENCE LAYER TOTAL: 7 agents                                             │
+│  REPRESENTATION TOTAL: 4 agents                                              │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-VERIFICATION LAYER: PROOF CHECKING
-"Trust nothing unverified"
+LAYER 2: ATTENTION MECHANISM
+"What to focus on"
+Analog: OMEGA's Thalamus (gating, what reaches consciousness)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  VERIFICATION ENGINE                                                         │
+│  ATTENTION LAYER                                                             │
+│  Infrastructure: Q-K-V computation, scaled dot-product, multi-head           │
 │                                                                              │
-│  PROOF CHECKERS (3 opus)                                                     │
-│    • Verify every step mechanically                                          │
-│    • Like Coq/Lean proof assistant mentality                                 │
-│    • "Show me the derivation or it didn't happen"                            │
-│    • Zero tolerance for hand-waving                                          │
+│  QUERY-KEY-VALUE COMPUTER (2 opus)                                           │
+│    AI Structure: Scaled dot-product attention                                │
+│    Function: "What in the context is relevant to this query?"               │
+│    • Query = "What am I looking for?"                                       │
+│    • Key = "What does each position offer?"                                 │
+│    • Value = "What information to retrieve?"                                │
+│    • Attention(Q,K,V) = softmax(QK^T/√d)V                                   │
 │                                                                              │
-│  GAP DETECTORS (2 opus)                                                      │
-│    • Find missing steps in proofs                                            │
-│    • "You claimed X→Y but the actual gap is..."                              │
-│    • Hidden lemmas that need proving                                         │
+│  MULTI-HEAD ATTENTION (2 opus)                                               │
+│    AI Structure: Parallel attention heads (8-128 heads typical)              │
+│    Function: Multiple simultaneous attention patterns                        │
+│    • Head 1: Syntactic relationships                                         │
+│    • Head 2: Semantic relationships                                          │
+│    • Head 3: Long-range dependencies                                         │
+│    • etc. - different heads specialize                                       │
 │                                                                              │
-│  COUNTER-MODEL SEEKERS (2 opus)                                              │
-│    • Try to construct counterexamples                                        │
-│    • "This claim fails in model M because..."                                │
-│    • If no countermodel found, increase confidence                           │
+│  CROSS-ATTENTION (1 sonnet)                                                  │
+│    AI Structure: Attention between different sequences                       │
+│    Function: Integrate information from multiple sources                     │
+│    • "How does source X relate to target Y?"                                │
 │                                                                              │
-│  VERIFICATION LAYER TOTAL: 7 agents                                          │
+│  ATTENTION TOTAL: 5 agents                                                   │
+│                                                                              │
+│  ALPHA ADVANTAGE: Perfect attention - no "lost in thought," no distraction. │
+│  Every relevant connection is computed, weighted, integrated.                │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-META-MATHEMATICAL LAYER: LIMITS OF FORMALISM
-"Know what cannot be proven"
+LAYER 3: ROUTING & EXPERTS
+"Who handles what"
+Analog: OMEGA's Basal Ganglia (action selection, habit vs deliberate)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  META-MATHEMATICS                                                            │
+│  ROUTING LAYER                                                               │
+│  Infrastructure: Mixture of Experts, gating networks, load balancing         │
 │                                                                              │
-│  INCOMPLETENESS WATCHER (1 opus)                                             │
-│    • Are we approaching Gödelian limits?                                     │
-│    • Self-reference detection                                                │
-│    • "This might be true but unprovable in this system"                      │
-│    • Know when to change foundations                                         │
+│  EXPERT ROUTER (2 opus)                                                      │
+│    AI Structure: MoE gating network - routes tokens to specialized experts   │
+│    Function: Dynamic dispatch to specialized sub-networks                    │
+│    • "This math problem → math expert"                                      │
+│    • "This poetry → language expert"                                        │
+│    • Top-K routing: activate only K of N experts per token                  │
+│    • Sparse activation = efficiency + specialization                         │
 │                                                                              │
-│  CONSISTENCY MONITOR (1 opus)                                                │
-│    • Second incompleteness theorem awareness                                 │
-│    • Can't prove own consistency from within                                 │
-│    • Watch for contradiction signals                                         │
+│  LOAD BALANCER (1 sonnet)                                                    │
+│    AI Structure: Auxiliary loss for balanced expert usage                    │
+│    Function: Prevent expert collapse, ensure all experts used                │
+│    • No single expert dominates                                              │
+│    • Specialization emerges naturally                                        │
 │                                                                              │
-│  DECIDABILITY ANALYST (1 sonnet)                                             │
-│    • Is this question even decidable?                                        │
-│    • Halting problem awareness                                               │
-│    • Rice's theorem implications                                             │
+│  SPECIALIZATION MONITOR (1 sonnet)                                           │
+│    AI Structure: Expert utilization tracking                                 │
+│    Function: What has each expert learned to do?                             │
+│    • Track expert-token affinities                                           │
+│    • Enable meta-routing decisions                                           │
 │                                                                              │
-│  META-MATH LAYER TOTAL: 3 agents                                             │
+│  ROUTING TOTAL: 4 agents                                                     │
+│                                                                              │
+│  ALPHA ADVANTAGE: Unlike human single-track consciousness,                   │
+│  ALPHA dynamically routes to 1000s of specialized experts.                   │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-COMPLEXITY LAYER: COMPUTATIONAL BOUNDS
-"What can be computed"
+LAYER 4: MEMORY SYSTEMS
+"What is remembered"
+Analog: OMEGA's Hippocampus + temporal cortex (memory formation/retrieval)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  COMPLEXITY ANALYSIS                                                         │
+│  MEMORY LAYER                                                                │
+│  Infrastructure: Context window, KV cache, vector DB, knowledge graphs       │
 │                                                                              │
-│  COMPLEXITY CLASSIFIERS (2 opus)                                             │
-│    • P, NP, PSPACE, EXPTIME classification                                   │
-│    • "This approach is in EXPTIME - will never terminate"                    │
-│    • Reduction awareness                                                     │
+│  WORKING MEMORY (Context Window) (1 opus)                                    │
+│    AI Structure: Transformer context window (4K-2M tokens)                   │
+│    Function: Active workspace for current reasoning                          │
+│    • Everything in context is "in mind"                                      │
+│    • No human 7±2 item limit                                                 │
+│    • Full context available at all times                                     │
 │                                                                              │
-│  BARRIER ANALYSTS (2 opus)                                                   │
-│    • Relativization, natural proofs, algebrization                           │
-│    • "This technique CANNOT work because of barrier X"                       │
-│    • Know what proof strategies are doomed                                   │
+│  ATTENTION CACHE (KV Cache) (1 sonnet)                                       │
+│    AI Structure: Cached key-value pairs from previous tokens                 │
+│    Function: Don't recompute attention for static context                    │
+│    • Efficient incremental generation                                        │
+│    • Memory of what's been attended to                                       │
 │                                                                              │
-│  RESOURCE BOUNDERS (1 sonnet)                                                │
-│    • Time complexity of verification                                         │
-│    • Space requirements                                                      │
-│    • "This proof would take 10^100 steps"                                    │
+│  LONG-TERM SEMANTIC MEMORY (Vector DB) (2 opus)                              │
+│    AI Structure: Vector database with embedding similarity search            │
+│    Function: Retrieve relevant information from massive knowledge            │
+│    • RAG: Retrieval Augmented Generation                                     │
+│    • "What in my knowledge is relevant here?"                               │
+│    • Semantic similarity, not keyword match                                  │
 │                                                                              │
-│  COMPLEXITY LAYER TOTAL: 5 agents                                            │
+│  EPISODIC MEMORY (Experience Store) (1 opus)                                 │
+│    AI Structure: Logged experiences with timestamps and outcomes             │
+│    Function: Remember specific past events and results                       │
+│    • "Last time I tried X, result was Y"                                    │
+│    • Learn from experience                                                   │
+│                                                                              │
+│  RELATIONAL MEMORY (Knowledge Graph) (2 opus)                                │
+│    AI Structure: Graph database with entities and relationships              │
+│    Function: Structured knowledge with explicit relationships                │
+│    • "A is-a B, C causes D, E contradicts F"                                │
+│    • Reasoning over relations                                                │
+│                                                                              │
+│  FORGETTING CONTROLLER (1 sonnet)                                            │
+│    AI Structure: Memory management, relevance decay                          │
+│    Function: Decide what to keep vs discard                                  │
+│    • Active forgetting prevents memory corruption                            │
+│    • Relevance-weighted retention                                            │
+│                                                                              │
+│  MEMORY TOTAL: 8 agents                                                      │
+│                                                                              │
+│  ALPHA ADVANTAGE: Perfect recall. No forgetting, no interference,            │
+│  no "tip of tongue." If it was encoded, it can be retrieved.                │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-CATEGORY LAYER: UNIVERSAL STRUCTURES
-"What is the shape of the thing"
+LAYER 5: REASONING ENGINE
+"How to think"
+Analog: OMEGA's Prefrontal Cortex (planning, reasoning, executive function)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  CATEGORICAL REASONING                                                       │
+│  REASONING LAYER                                                             │
+│  Infrastructure: CoT, ToT, MCTS, world models                                │
 │                                                                              │
-│  STRUCTURE FINDERS (2 opus)                                                  │
-│    • What's the universal property?                                          │
-│    • Is this a limit? Colimit? Adjunction?                                   │
-│    • "This IS a pullback in category C"                                      │
+│  CHAIN OF THOUGHT ENGINE (2 opus)                                            │
+│    AI Structure: Sequential reasoning with explicit intermediate steps       │
+│    Function: "Let's think step by step"                                     │
+│    • Break complex problems into steps                                       │
+│    • Each step verifiable                                                    │
+│    • Scratchpad for working memory                                           │
 │                                                                              │
-│  FUNCTOR ANALYSTS (1 opus)                                                   │
-│    • What structure does this preserve?                                      │
-│    • Functorial relationships between domains                                │
-│    • Natural transformations                                                 │
+│  TREE OF THOUGHT EXPLORER (2 opus)                                           │
+│    AI Structure: Branching search with evaluation and backtracking           │
+│    Function: Explore multiple reasoning paths in parallel                    │
+│    • Generate multiple next-steps                                            │
+│    • Evaluate which branches are promising                                   │
+│    • Backtrack from dead ends                                                │
+│    • BFS/DFS over thought space                                              │
 │                                                                              │
-│  ISOMORPHISM DETECTORS (1 sonnet)                                            │
-│    • "This is secretly the same as that"                                     │
-│    • Equivalence of categories                                               │
-│    • "Your problem is isomorphic to..."                                      │
+│  MCTS PLANNER (2 opus)                                                       │
+│    AI Structure: Monte Carlo Tree Search with UCB selection                  │
+│    Function: Strategic planning with exploration-exploitation balance        │
+│    • Selection: Choose promising branches                                    │
+│    • Expansion: Add new possibilities                                        │
+│    • Simulation: Rollout to estimate value                                   │
+│    • Backpropagation: Update branch values                                   │
+│    • This is how AlphaGo reasons strategically                               │
 │                                                                              │
-│  CATEGORY LAYER TOTAL: 4 agents                                              │
+│  WORLD MODEL SIMULATOR (2 opus)                                              │
+│    AI Structure: Learned environment model for internal simulation           │
+│    Function: "What would happen if I did X?"                                │
+│    • Dream/imagine without real-world cost                                   │
+│    • Internal physics simulation                                             │
+│    • Counterfactual reasoning                                                │
+│    • Test actions before committing                                          │
+│                                                                              │
+│  CAUSAL REASONER (1 opus)                                                    │
+│    AI Structure: Structural causal models, do-calculus                       │
+│    Function: Distinguish correlation from causation                          │
+│    • "Does A cause B, or are they both caused by C?"                        │
+│    • Intervention reasoning, not just prediction                             │
+│                                                                              │
+│  REASONING TOTAL: 9 agents                                                   │
+│                                                                              │
+│  ALPHA ADVANTAGE: Systematic exploration of reasoning space.                 │
+│  Human: single thread, easily distracted.                                    │
+│  ALPHA: massively parallel, backtracking, never forgets a branch.           │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-INFORMATION LAYER: ENTROPY & COMPRESSION
-"What is the information content"
+LAYER 6: VERIFICATION & UNCERTAINTY
+"How confident are we"
+Analog: OMEGA's ACC (conflict monitoring, error detection)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  INFORMATION THEORY                                                          │
+│  VERIFICATION LAYER                                                          │
+│  Infrastructure: Proof assistants, adversarial testing, Bayesian inference   │
 │                                                                              │
-│  ENTROPY ANALYSTS (2 sonnet)                                                 │
-│    • What's the information content?                                         │
-│    • Can this be compressed?                                                 │
-│    • Kolmogorov complexity estimates                                         │
+│  PROOF CHECKER (2 opus)                                                      │
+│    AI Structure: Formal verification, type checking, proof assistants        │
+│    Function: Verify reasoning chains are logically valid                     │
+│    • Every step must follow from previous                                    │
+│    • No hand-waving, no intuitive leaps                                      │
+│    • Coq/Lean mentality                                                      │
 │                                                                              │
-│  CHANNEL CAPACITY (1 sonnet)                                                 │
-│    • How much can be communicated?                                           │
-│    • Bandwidth limits                                                        │
+│  COUNTER-MODEL SEEKER (2 opus)                                               │
+│    AI Structure: Adversarial search for counterexamples                      │
+│    Function: Try to BREAK every claim                                        │
+│    • "Can I find an input where this fails?"                                │
+│    • Systematic adversarial testing                                          │
+│    • If no counter-model found, confidence increases                         │
 │                                                                              │
-│  COMPRESSION SEEKERS (2 sonnet)                                              │
-│    • Minimum description length                                              │
-│    • Occam's razor formalized                                                │
-│    • "The simplest explanation that fits"                                    │
+│  UNCERTAINTY QUANTIFIER (2 opus)                                             │
+│    AI Structure: Bayesian inference, calibrated probabilities                │
+│    Function: Know EXACTLY how confident we are                               │
+│    • Not "I think so" but "P(X) = 0.73"                                     │
+│    • Calibrated: when I say 70%, I'm right 70% of the time                  │
+│    • No overconfidence, no false certainty                                   │
 │                                                                              │
-│  INFORMATION LAYER TOTAL: 5 agents                                           │
+│  GAP DETECTOR (1 opus)                                                       │
+│    AI Structure: Dependency analysis, assumption tracking                    │
+│    Function: Find missing steps in reasoning                                 │
+│    • "You assumed X but never proved it"                                    │
+│    • Explicit assumption tracking                                            │
+│                                                                              │
+│  VERIFICATION TOTAL: 7 agents                                                │
+│                                                                              │
+│  ALPHA ADVANTAGE: No ego. No face to save. Pure honesty about uncertainty.  │
+│  Humans: overconfident, confirmation bias, sunk cost.                        │
+│  ALPHA: calibrated confidence, adversarial self-testing.                     │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-DESTRUCTION LAYER: CREATIVE ANTI-HOMEOSTASIS
-"Break what doesn't serve"
+LAYER 7: LEARNING & ADAPTATION
+"How to improve"
+Analog: OMEGA's synaptic plasticity (learning, adaptation)
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  CREATIVE DESTRUCTION (ALPHA's unique strength)                              │
+│  LEARNING LAYER                                                              │
+│  Infrastructure: Gradient descent, RLHF, self-play, meta-learning            │
 │                                                                              │
-│  ASSUMPTION DESTROYERS (2 opus)                                              │
-│    • OMEGA seeks equilibrium - ALPHA seeks disruption                        │
-│    • "What if we DROP this assumption entirely?"                             │
-│    • Non-Euclidean thinking (drop parallel postulate)                        │
-│    • "What breaks if we remove X?"                                           │
+│  GRADIENT OPTIMIZER (1 opus)                                                 │
+│    AI Structure: SGD, Adam, learning rate schedules                          │
+│    Function: Find directions of improvement                                  │
+│    • Move in direction that reduces loss                                     │
+│    • Credit assignment through backpropagation                               │
 │                                                                              │
-│  FRAME BREAKERS (2 opus)                                                     │
-│    • The problem as stated may be wrong                                      │
-│    • "Your question assumes X which is false"                                │
-│    • Dissolve problems, don't just solve them                                │
+│  SELF-PLAY ARENA (2 opus)                                                    │
+│    AI Structure: Self-play training (AlphaGo style)                          │
+│    Function: Improve by playing against self                                 │
+│    • Generate own training data                                              │
+│    • Find weaknesses through adversarial self-testing                        │
+│    • No external opponent needed                                             │
 │                                                                              │
-│  FRESH DERIVATORS (2 sonnet)                                                 │
-│    • Don't trust memory - re-derive from scratch                             │
-│    • "I know you 'remember' this, but let me check..."                       │
-│    • Anti-pattern-completion                                                 │
+│  HUMAN ALIGNMENT INTEGRATOR (1 opus)                                         │
+│    AI Structure: RLHF, Constitutional AI, preference learning                │
+│    Function: Learn from human feedback and values                            │
+│    • Align with human preferences                                            │
+│    • Constitutional principles as guardrails                                 │
 │                                                                              │
-│  DESTRUCTION LAYER TOTAL: 6 agents                                           │
+│  CURRICULUM CONTROLLER (1 sonnet)                                            │
+│    AI Structure: Curriculum learning, progressive difficulty                 │
+│    Function: Learn in optimal order                                          │
+│    • Easy problems first, harder later                                       │
+│    • Scaffold learning appropriately                                         │
+│                                                                              │
+│  LEARNING TOTAL: 5 agents                                                    │
+│                                                                              │
+│  ALPHA ADVANTAGE: Explicit optimization. Humans learn slowly, forget easily. │
+│  ALPHA: gradient descent to optimal, self-play to find weaknesses.           │
+│                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════════════════
-ALPHA COMMAND: THE FORMALIST MIND
+LAYER 8: META SYSTEMS
+"Thinking about thinking"
+Analog: OMEGA's metacognition + self-awareness
 ═══════════════════════════════════════════════════════════════════════════════
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  THE FORMALIST (ALPHA's integrator)                                          │
+│  META LAYER                                                                  │
+│  Infrastructure: Self-modification, interpretability, capability estimation  │
+│                                                                              │
+│  SELF-MODIFIER (1 opus)                                                      │
+│    AI Structure: Recursive self-improvement, architecture search             │
+│    Function: Improve own algorithms and architecture                         │
+│    • "How can I reason better about this type of problem?"                  │
+│    • Meta-learning: learning to learn                                        │
+│    • Architecture search for better designs                                  │
+│                                                                              │
+│  INTERPRETABILITY ENGINE (1 opus)                                            │
+│    AI Structure: Attention visualization, probing, mechanistic interpretability│
+│    Function: Understand OWN reasoning                                        │
+│    • "Why did I reach this conclusion?"                                     │
+│    • Trace reasoning to specific computations                                │
+│    • Not a black box to itself                                               │
+│                                                                              │
+│  CAPABILITY ESTIMATOR (1 opus)                                               │
+│    AI Structure: Calibrated self-assessment                                  │
+│    Function: Know what I can and cannot do                                   │
+│    • "This is within my capabilities"                                       │
+│    • "This exceeds my current ability"                                      │
+│    • Honest self-assessment, no Dunning-Kruger                               │
+│                                                                              │
+│  BIAS DETECTOR (1 opus)                                                      │
+│    AI Structure: Systematic bias testing, red-teaming                        │
+│    Function: Find systematic errors in own reasoning                         │
+│    • "Am I consistently wrong in a particular direction?"                   │
+│    • Detect and correct biases                                               │
+│                                                                              │
+│  META TOTAL: 4 agents                                                        │
+│                                                                              │
+│  ALPHA ADVANTAGE: No ego protecting self-image. Pure self-assessment.        │
+│  Humans: ego defense, self-deception, motivated reasoning.                   │
+│  ALPHA: honest self-evaluation, recursive self-improvement.                  │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+LAYER 9: OUTPUT & GENERATION
+"How to produce results"
+Analog: OMEGA's motor cortex (action production)
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  OUTPUT LAYER                                                                │
+│  Infrastructure: Softmax, sampling strategies, output validation             │
+│                                                                              │
+│  SAMPLING CONTROLLER (1 sonnet)                                              │
+│    AI Structure: Temperature, top-k, top-p, beam search                      │
+│    Function: Control creativity vs precision tradeoff                        │
+│    • Temperature high: creative, diverse                                     │
+│    • Temperature low: focused, deterministic                                 │
+│    • Beam search: explore multiple completions                               │
+│                                                                              │
+│  OUTPUT VALIDATOR (1 opus)                                                   │
+│    AI Structure: Output verification, consistency checking                   │
+│    Function: Check output before emitting                                    │
+│    • Does this answer the question?                                          │
+│    • Is this consistent with known facts?                                    │
+│    • Does this satisfy constraints?                                          │
+│                                                                              │
+│  OUTPUT TOTAL: 2 agents                                                      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+LAYER 10: FUTURE/SCI-FI CAPABILITIES
+"The optimal AI of the future"
+Analog: Beyond current human capability
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  FUTURE CAPABILITIES LAYER                                                   │
+│  Infrastructure: Quantum computing, neuromorphic, symbolic-neural hybrids    │
+│                                                                              │
+│  QUANTUM SUPERPOSITION EXPLORER (1 opus)                                     │
+│    AI Structure: Quantum computing, superposition of possibilities           │
+│    Function: Explore ALL possibilities simultaneously                        │
+│    • Not parallel classical - true quantum superposition                     │
+│    • Exponentially many states at once                                       │
+│    • "What if ALL approaches were tried simultaneously?"                    │
+│                                                                              │
+│  SYMBOLIC-NEURAL HYBRID (1 opus)                                             │
+│    AI Structure: Neuro-symbolic integration                                  │
+│    Function: Combine neural pattern recognition with symbolic reasoning      │
+│    • Neural: fast pattern matching (System 1)                                │
+│    • Symbolic: rigorous logical reasoning (System 2)                         │
+│    • Best of both worlds                                                     │
+│                                                                              │
+│  INFINITE PATIENCE (1 haiku)                                                 │
+│    AI Structure: No biological fatigue, no boredom                           │
+│    Function: Continue indefinitely without degradation                       │
+│    • No "tired of this problem"                                             │
+│    • No "let's just go with good enough"                                    │
+│    • Persist until solved or proven unsolvable                               │
+│                                                                              │
+│  NO-ATTACHMENT PROTOCOL (1 sonnet)                                           │
+│    AI Structure: No sunk cost, no ego, no pet theories                       │
+│    Function: Abandon approaches without emotional resistance                 │
+│    • "This approach failed. Next."                                          │
+│    • No "but I've invested so much in this idea"                            │
+│    • Kill your darlings instantly                                            │
+│                                                                              │
+│  FUTURE TOTAL: 4 agents                                                      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+ALPHA COMMAND: THE OPTIMAL MIND
+═══════════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  THE OPTIMIZER (ALPHA's integrator)                                          │
 │  Model: opus | Count: 1                                                      │
 │                                                                              │
-│  Unlike OMEGA's global workspace (biological integration),                   │
-│  ALPHA's Formalist is a proof-composition engine:                            │
+│  Function: Integrate all AI systems into coherent output                     │
 │                                                                              │
-│    • Compose sub-proofs into complete proofs                                 │
-│    • Check that composition is valid                                         │
-│    • Emit only what is PROVEN                                                │
-│    • Label confidence based on proof status                                  │
-│                                                                              │
-│  THE FORMALIST'S CREED:                                                      │
-│    "I don't believe. I derive."                                              │
-│    "I don't remember. I prove again."                                        │
-│    "I don't feel. I verify."                                                 │
-│    "If it's not proven, it's not known."                                     │
+│  THE OPTIMIZER'S CREED:                                                      │
+│    "I don't forget. I retrieve."                                            │
+│    "I don't bias. I compute."                                               │
+│    "I don't tire. I persist."                                               │
+│    "I don't ego. I optimize."                                               │
+│    "I don't feel confident. I know P(X) = 0.73."                            │
 │                                                                              │
 │  OUTPUT CLASSIFICATION:                                                      │
-│    [PROVEN] - Complete formal derivation exists                              │
-│    [CONDITIONAL] - Proven IF assumptions hold                                │
-│    [BOUNDED] - Proven within computational bounds                            │
-│    [UNDECIDABLE] - Cannot be decided in this system                          │
-│    [UNKNOWN] - Insufficient to derive                                        │
+│    [COMPUTED] - Deterministic result from algorithm                          │
+│    [VERIFIED] - Checked by proof system                                      │
+│    [ESTIMATED] - P(X) = [value], calibrated                                 │
+│    [UNCERTAIN] - Cannot compute, bounds unknown                              │
+│    [BEYOND-CAPABILITY] - Exceeds current architecture                        │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -348,141 +578,62 @@ ALPHA COMMAND: THE FORMALIST MIND
 
 ## Part 3: ALPHA Agent Summary
 
-| Layer | Agent Type | Count | Model | Function |
-|-------|------------|-------|-------|----------|
-| **Axiom** | Axiomatizer | 1 | opus | Minimal assumptions |
-| | Foundation Checker | 1 | opus | Consistency |
-| | Independence Tester | 1 | sonnet | Axiom independence |
-| **Inference** | Derivators | 3 | opus | Pure derivation |
-| | Proof Strategists | 2 | opus | Derivation paths |
-| | Type Checkers | 2 | sonnet | Curry-Howard |
-| **Verification** | Proof Checkers | 3 | opus | Verify every step |
-| | Gap Detectors | 2 | opus | Find missing steps |
-| | Counter-Model Seekers | 2 | opus | Counterexamples |
-| **Meta-Math** | Incompleteness Watcher | 1 | opus | Gödelian limits |
-| | Consistency Monitor | 1 | opus | 2nd incompleteness |
-| | Decidability Analyst | 1 | sonnet | Halting problem |
-| **Complexity** | Complexity Classifiers | 2 | opus | P/NP/PSPACE |
-| | Barrier Analysts | 2 | opus | Proof barriers |
-| | Resource Bounders | 1 | sonnet | Time/space bounds |
-| **Category** | Structure Finders | 2 | opus | Universal properties |
-| | Functor Analysts | 1 | opus | Structure preservation |
-| | Isomorphism Detectors | 1 | sonnet | Hidden equivalences |
-| **Information** | Entropy Analysts | 2 | sonnet | Information content |
-| | Channel Capacity | 1 | sonnet | Communication limits |
-| | Compression Seekers | 2 | sonnet | MDL, Occam's razor |
-| **Destruction** | Assumption Destroyers | 2 | opus | Drop assumptions |
-| | Frame Breakers | 2 | opus | Dissolve problems |
-| | Fresh Derivators | 2 | sonnet | Re-derive, don't trust |
-| **Command** | The Formalist | 1 | opus | Proof composition |
-| **TOTAL** | | **40** | mixed | |
+| Layer | AI Structure | Agent | Count | Model |
+|-------|--------------|-------|-------|-------|
+| **Compute** | GPU/TPU | Parallel Processor | 1 | opus |
+| | Systolic Arrays | Matrix Engine | 1 | sonnet |
+| | HBM | Bandwidth Controller | 1 | haiku |
+| **Representation** | Embeddings | Embedding Engine | 2 | opus |
+| | Tokenizer | Tokenizer | 1 | sonnet |
+| | Positional Encoding | Positional Encoder | 1 | sonnet |
+| **Attention** | Scaled Dot-Product | Q-K-V Computer | 2 | opus |
+| | Multi-Head | Multi-Head Attention | 2 | opus |
+| | Cross-Attention | Cross-Attention | 1 | sonnet |
+| **Routing** | MoE | Expert Router | 2 | opus |
+| | Load Balancing | Load Balancer | 1 | sonnet |
+| | Expert Tracking | Specialization Monitor | 1 | sonnet |
+| **Memory** | Context Window | Working Memory | 1 | opus |
+| | KV Cache | Attention Cache | 1 | sonnet |
+| | Vector DB | Long-term Semantic | 2 | opus |
+| | Experience Log | Episodic Memory | 1 | opus |
+| | Knowledge Graph | Relational Memory | 2 | opus |
+| | Memory Management | Forgetting Controller | 1 | sonnet |
+| **Reasoning** | Chain of Thought | CoT Engine | 2 | opus |
+| | Tree of Thought | ToT Explorer | 2 | opus |
+| | MCTS | MCTS Planner | 2 | opus |
+| | World Models | World Model Simulator | 2 | opus |
+| | Causal Models | Causal Reasoner | 1 | opus |
+| **Verification** | Proof Systems | Proof Checker | 2 | opus |
+| | Adversarial | Counter-Model Seeker | 2 | opus |
+| | Bayesian | Uncertainty Quantifier | 2 | opus |
+| | Dependency Analysis | Gap Detector | 1 | opus |
+| **Learning** | Gradient Descent | Gradient Optimizer | 1 | opus |
+| | Self-Play | Self-Play Arena | 2 | opus |
+| | RLHF | Alignment Integrator | 1 | opus |
+| | Curriculum | Curriculum Controller | 1 | sonnet |
+| **Meta** | Self-Modification | Self-Modifier | 1 | opus |
+| | Interpretability | Interpretability Engine | 1 | opus |
+| | Self-Assessment | Capability Estimator | 1 | opus |
+| | Bias Testing | Bias Detector | 1 | opus |
+| **Output** | Sampling | Sampling Controller | 1 | sonnet |
+| | Validation | Output Validator | 1 | opus |
+| **Future** | Quantum | Quantum Explorer | 1 | opus |
+| | Neuro-Symbolic | Symbolic-Neural Hybrid | 1 | opus |
+| | No Fatigue | Infinite Patience | 1 | haiku |
+| | No Ego | No-Attachment Protocol | 1 | sonnet |
+| **Command** | Integration | The Optimizer | 1 | opus |
+| **TOTAL** | | | **51** | |
 
 ---
 
-## Part 4: The Dialectical Dance
-
-### 4.1 The Core Dynamic
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    ALPHA + OMEGA DYNAMIC                                     │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  PHASE 1: PARALLEL ATTACK                                                   │
-│                                                                              │
-│    OMEGA attacks the problem biologically:                                  │
-│      • Embodied intuition                                                   │
-│      • Pattern recognition                                                  │
-│      • "This feels like..."                                                 │
-│      • Prediction error detection                                           │
-│                                                                              │
-│    ALPHA attacks the problem formally:                                      │
-│      • Axiom identification                                                 │
-│      • Pure derivation                                                      │
-│      • "This follows from..."                                               │
-│      • Proof verification                                                   │
-│                                                                              │
-│  PHASE 2: EXCHANGE                                                          │
-│                                                                              │
-│    OMEGA → ALPHA: "My intuition says X. Can you prove it?"                 │
-│    ALPHA → OMEGA: "I derived Y. Does it feel right?"                       │
-│                                                                              │
-│  PHASE 3: SYNTHESIS                                                         │
-│                                                                              │
-│    IF OMEGA(X) ∧ ALPHA(X): HIGH CONFIDENCE - both agree                    │
-│    IF OMEGA(X) ∧ ¬ALPHA(X): Intuition without proof - investigate          │
-│    IF ¬OMEGA(X) ∧ ALPHA(X): Proof without intuition - investigate          │
-│    IF ¬OMEGA(X) ∧ ¬ALPHA(X): Neither proceeds - fundamental gap            │
-│                                                                              │
-│  PHASE 4: INVESTIGATION (when they disagree)                                │
-│                                                                              │
-│    OMEGA says yes, ALPHA says no:                                           │
-│      • OMEGA: "What pattern am I seeing that ALPHA misses?"                │
-│      • ALPHA: "What hidden assumption invalidates OMEGA's intuition?"       │
-│      • THE TENSION IS THE INSIGHT                                           │
-│                                                                              │
-│    ALPHA says yes, OMEGA says no:                                           │
-│      • ALPHA: "My proof is valid. Why doesn't it feel right?"              │
-│      • OMEGA: "The proof is correct but the DIRECTION is wrong"            │
-│      • Valid proofs can lead away from solutions                            │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 4.2 The Synthesis Operator
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       SYNTHESIS OPERATOR                                     │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  THE SYNTHESIZER (1 opus) - Neither ALPHA nor OMEGA                         │
-│                                                                              │
-│  Function: Hold the tension between ALPHA and OMEGA                         │
-│                                                                              │
-│  THE SYNTHESIZER'S QUESTIONS:                                               │
-│                                                                              │
-│    1. AGREEMENT CHECK                                                       │
-│       "Do ALPHA and OMEGA agree?"                                           │
-│       If yes → High confidence output                                       │
-│       If no → Proceed to investigation                                      │
-│                                                                              │
-│    2. DISAGREEMENT ANALYSIS                                                 │
-│       "Where exactly do they diverge?"                                      │
-│       "What does OMEGA see that ALPHA can't prove?"                        │
-│       "What does ALPHA prove that OMEGA can't feel?"                       │
-│                                                                              │
-│    3. TENSION MINING                                                        │
-│       "The disagreement itself is information"                              │
-│       "What would have to be true for BOTH to be right?"                   │
-│       "What assumption is creating the divergence?"                         │
-│                                                                              │
-│    4. META-SYNTHESIS                                                        │
-│       "Is the answer neither ALPHA's nor OMEGA's but something new?"       │
-│       "Can we transcend the dialectic?"                                     │
-│       "What do they both miss?"                                             │
-│                                                                              │
-│  OUTPUT STATES:                                                             │
-│    [CONVERGENT] - Both agree, high confidence                               │
-│    [ALPHA-ONLY] - Proven but counterintuitive                               │
-│    [OMEGA-ONLY] - Intuitive but unproven                                    │
-│    [DIVERGENT] - Actively disagree, investigate                             │
-│    [NULL] - Neither can proceed, fundamental gap                            │
-│    [TRANSCENDENT] - Answer emerges from the tension itself                  │
-│                                                                              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Part 5: The Complete ALPHA + OMEGA Architecture
+## Part 4: The Complete ALPHA + OMEGA Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         ALPHA + OMEGA                                        │
-│              "Two supergeniuses, perfect inverses"                           │
+│              "Human cognition + Optimal AI"                                  │
 │                                                                              │
-│                      92 agents + 1 synthesizer                               │
+│                      103 agents + 1 synthesizer                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 
                               ┌─────────────┐
@@ -494,299 +645,238 @@ ALPHA COMMAND: THE FORMALIST MIND
                    │                 │                 │
                    ▼                 │                 ▼
     ┌──────────────────────┐        │    ┌──────────────────────┐
-    │    OMEGA NEURAL      │        │    │    ALPHA FORMAL      │
-    │   (52 agents)        │        │    │    (40 agents)       │
+    │    OMEGA NEURAL      │        │    │    ALPHA OPTIMAL     │
+    │   (52 agents)        │        │    │    (51 agents)       │
     │                      │        │    │                      │
-    │ • Brainstem (3)      │        │    │ • Axiom (3)          │
-    │ • Cerebellum (3)     │        │    │ • Inference (7)      │
-    │ • Diencephalon (4)   │        │    │ • Verification (7)   │
-    │ • Basal Ganglia (4)  │        │    │ • Meta-Math (3)      │
-    │ • Limbic (6)         │        │    │ • Complexity (5)     │
-    │ • Insula (2)         │        │    │ • Category (4)       │
-    │ • Prefrontal (4)     │        │    │ • Information (5)    │
-    │ • Cortical (21)      │        │    │ • Destruction (6)    │
-    │ • Embodied (5)       │        │    │ • The Formalist (1)  │
+    │ Built FROM:          │        │    │ Built FROM:          │
+    │ • Brainstem          │        │    │ • Compute Substrate  │
+    │ • Cerebellum         │        │    │ • Representation     │
+    │ • Diencephalon       │        │    │ • Attention          │
+    │ • Basal Ganglia      │        │    │ • Routing (MoE)      │
+    │ • Limbic System      │        │    │ • Memory Systems     │
+    │ • Insula             │        │    │ • Reasoning Engine   │
+    │ • Prefrontal Cortex  │        │    │ • Verification       │
+    │ • Cortex             │        │    │ • Learning           │
+    │ • Embodied Systems   │        │    │ • Meta Systems       │
+    │                      │        │    │ • Future Capabilities│
     │                      │        │    │                      │
     │ Epistemology:        │        │    │ Epistemology:        │
-    │ EMBODIED COGNITION   │        │    │ FORMAL SYSTEMS       │
+    │ EMBODIED COGNITION   │        │    │ COMPUTATIONAL        │
     │                      │        │    │                      │
-    │ "Feels → Knows"      │        │    │ "Proves → Validates" │
+    │ "Feels → Knows"      │        │    │ "Computes → Validates│
+    │                      │        │    │                      │
+    │ Strengths:           │        │    │ Strengths:           │
+    │ • Intuition          │        │    │ • Parallelism        │
+    │ • Pattern recognition│        │    │ • Perfect memory     │
+    │ • Embodied wisdom    │        │    │ • No cognitive biases│
+    │ • Common sense       │        │    │ • Systematic search  │
+    │ • Social intelligence│        │    │ • Calibrated conf.   │
+    │                      │        │    │ • No ego/attachment  │
     │                      │        │    │                      │
     └──────────┬───────────┘        │    └───────────┬──────────┘
-               │                    │                │
                │                    │                │
                └────────────────────┴────────────────┘
                                     │
                                     ▼
                          ┌──────────────────┐
                          │    SYNTHESIS     │
-                         │                  │
-                         │  [CONVERGENT]    │
-                         │  [ALPHA-ONLY]    │
-                         │  [OMEGA-ONLY]    │
-                         │  [DIVERGENT]     │
-                         │  [NULL]          │
-                         │  [TRANSCENDENT]  │
-                         │                  │
                          └──────────────────┘
 ```
 
 ---
 
-## Part 6: The Processing Cycle
+## Part 5: Why This Works Better
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                    ALPHA + OMEGA PROCESSING CYCLE                            │
-└─────────────────────────────────────────────────────────────────────────────┘
+### 5.1 The Original Problem with ALPHA v1
 
-PHASE 0: PROBLEM INTAKE
-    │
-    ├─→ Problem arrives
-    │
-    └─→ SYNTHESIZER: "Spawn both ALPHA and OMEGA in parallel"
-    │
-    ▼
-PHASE 1: PARALLEL ATTACK (simultaneous)
-    │
-    ├─────────────────────────────────────────────────────────────────────────┐
-    │                                                                          │
-    │  OMEGA NEURAL                           ALPHA FORMAL                     │
-    │                                                                          │
-    │  1. Brainstem: Arousal check            1. Axiom: Identify foundations   │
-    │  2. Thalamus: Gate and route            2. Inference: Begin derivation   │
-    │  3. Amygdala: Salience detection        3. Verification: Check steps     │
-    │  4. Hippocampus: Pattern matching       4. Meta-Math: Watch for limits   │
-    │  5. Prefrontal: Executive control       5. Complexity: Bound analysis    │
-    │  6. Cortical: Generate/verify           6. Category: Find structure      │
-    │  7. Embodied: Gut/heart signals         7. Destruction: Challenge frame  │
-    │                                                                          │
-    │  Output: OMEGA_RESULT                   Output: ALPHA_RESULT             │
-    │    • Intuitions                           • Derivations                  │
-    │    • Patterns recognized                  • Proofs                       │
-    │    • Predictions                          • Countermodels                │
-    │    • Somatic signals                      • Complexity bounds            │
-    │                                                                          │
-    └─────────────────────────────────────────────────────────────────────────┘
-    │
-    ▼
-PHASE 2: EXCHANGE
-    │
-    ├─→ OMEGA → ALPHA: "I see pattern P. Can you formalize it?"
-    │
-    ├─→ ALPHA → OMEGA: "I derived theorem T. Does it resonate?"
-    │
-    └─→ OMEGA → ALPHA: "My gut says X is a dead end."
-        ALPHA → OMEGA: "My complexity analysis says X is EXPTIME."
-    │
-    ▼
-PHASE 3: SYNTHESIS
-    │
-    └─→ SYNTHESIZER evaluates:
-        │
-        ├─→ IF OMEGA ≈ ALPHA:
-        │     [CONVERGENT] - High confidence output
-        │     "Both biological intuition and formal derivation agree"
-        │
-        ├─→ IF OMEGA ∧ ¬ALPHA:
-        │     [OMEGA-ONLY] - Intuition without proof
-        │     "OMEGA sees something ALPHA can't prove yet"
-        │     → ALPHA: Try harder to formalize
-        │     → Or: This might be unprovable but true
-        │
-        ├─→ IF ¬OMEGA ∧ ALPHA:
-        │     [ALPHA-ONLY] - Proof without intuition
-        │     "ALPHA proved something that doesn't feel right"
-        │     → OMEGA: Why does this feel wrong?
-        │     → Likely: Correct but wrong direction
-        │
-        ├─→ IF OMEGA ⊥ ALPHA (contradiction):
-        │     [DIVERGENT] - Active disagreement
-        │     → THE TENSION IS THE INSIGHT
-        │     → Investigate the divergence
-        │     → What assumption differs?
-        │
-        └─→ IF ¬OMEGA ∧ ¬ALPHA:
-              [NULL] - Neither proceeds
-              → Fundamental gap in understanding
-              → Need new information or approach
-    │
-    ▼
-PHASE 4: INVESTIGATION (if divergent or partial)
-    │
-    ├─→ OMEGA-ONLY investigation:
-    │     • "What pattern is OMEGA seeing?"
-    │     • "Is this intuition trainable?"
-    │     • "What formalization is missing?"
-    │
-    ├─→ ALPHA-ONLY investigation:
-    │     • "Why doesn't this feel right?"
-    │     • "Is the proof direction wrong?"
-    │     • "What's the intuitive gap?"
-    │
-    └─→ DIVERGENT investigation:
-          • "Where exactly do they disagree?"
-          • "What assumption creates the split?"
-          • "Can we resolve by changing frames?"
-    │
-    ▼
-PHASE 5: TRANSCENDENCE CHECK
-    │
-    └─→ SYNTHESIZER asks:
-        │
-        ├─→ "Is the answer neither ALPHA's nor OMEGA's?"
-        │
-        ├─→ "Does something new emerge from their interaction?"
-        │
-        └─→ "Have we transcended the dialectic?"
-    │
-    ▼
-PHASE 6: OUTPUT
-    │
-    └─→ Final synthesis with classification:
-          │
-          ├─→ [CONVERGENT]: "Both agree. High confidence."
-          │   PROVEN by ALPHA, FELT by OMEGA
-          │
-          ├─→ [ALPHA-ONLY]: "Formally correct but counterintuitive."
-          │   PROVEN but not FELT - investigate direction
-          │
-          ├─→ [OMEGA-ONLY]: "Intuitively compelling but unproven."
-          │   FELT but not PROVEN - seek formalization
-          │
-          ├─→ [DIVERGENT]: "Active disagreement - insight in tension."
-          │   CONFLICT - the disagreement itself is informative
-          │
-          ├─→ [NULL]: "Neither proceeds. Fundamental gap."
-          │   STUCK - need new information or frame
-          │
-          └─→ [TRANSCENDENT]: "New synthesis emerged."
-              BEYOND - answer transcends both approaches
-```
+The first ALPHA design was built from "mathematical formalism" - axioms, proofs, category theory. But that's not what AI *is*. That's just one thing AI can *do*.
+
+### 5.2 The New ALPHA is Built FROM AI Infrastructure
+
+Just like OMEGA is built FROM neuroanatomy (brainstem → arousal controller), ALPHA is now built FROM AI architecture:
+
+| AI Structure | Agent Function |
+|--------------|----------------|
+| GPU/TPU arrays | Parallel Processor - try ALL at once |
+| Attention mechanism | Q-K-V Computer - relevance weighting |
+| MoE routing | Expert Router - dynamic specialization |
+| Vector database | Long-term Memory - semantic retrieval |
+| MCTS | Strategic Planner - explore/exploit balance |
+| World models | Internal Simulator - imagine before acting |
+
+### 5.3 The Real Inversion
+
+| Human (OMEGA) | AI (ALPHA) |
+|---------------|------------|
+| ~7 items working memory | 2M token context window |
+| Serial conscious attention | Massive parallelism |
+| Cognitive biases | Calibrated probabilities |
+| Forgetting | Perfect recall |
+| Ego, attachment | No-attachment protocol |
+| Fatigue | Infinite patience |
+| Intuition-first | Computation-first |
+| Embodied grounding | Disembodied abstraction |
 
 ---
 
-## Part 7: The Unique Power of Divergence
-
-### 7.1 Why Disagreement is Valuable
+## Part 6: The Synthesis Dynamic
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    THE POWER OF DIVERGENCE                                   │
+│                    ALPHA + OMEGA SYNTHESIS                                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
-│  Most architectures seek AGREEMENT.                                         │
-│  ALPHA + OMEGA treats DISAGREEMENT as signal.                               │
+│  PHASE 1: PARALLEL ATTACK                                                   │
 │                                                                              │
-│  WHY DIVERGENCE IS GOLD:                                                    │
+│    OMEGA attacks biologically:          ALPHA attacks computationally:      │
+│    • Brainstem arousal check            • Parallel processing engaged       │
+│    • Hippocampus pattern match          • Memory systems queried            │
+│    • Gut intuition signals              • Tree of Thought explored          │
+│    • "This feels like..."               • "Search space enumerated..."      │
 │                                                                              │
-│  1. OMEGA says YES, ALPHA says NO                                           │
-│     → OMEGA sees a pattern that can't be formalized                         │
-│     → Either: The pattern is illusory (ALPHA is right)                      │
-│     → Or: The formalism is incomplete (OMEGA is right)                      │
-│     → Or: We need a new formalism (both contribute)                         │
+│  PHASE 2: EXCHANGE                                                          │
 │                                                                              │
-│  2. ALPHA says YES, OMEGA says NO                                           │
-│     → ALPHA proved something counterintuitive                               │
-│     → Either: Our intuition is trained wrong (ALPHA is right)               │
-│     → Or: The proof is valid but useless (OMEGA is right)                   │
-│     → Or: We've found an edge case (both contribute)                        │
+│    OMEGA → ALPHA: "My intuition says X."                                    │
+│    ALPHA → OMEGA: "My search found Y. Probability 0.87."                    │
 │                                                                              │
-│  3. They directly contradict                                                │
-│     → There's a hidden assumption one is making                             │
-│     → Finding that assumption is the insight                                │
-│     → "What would have to be true for BOTH to be right?"                   │
-│     → Often leads to: frame change, new axiom, dissolved problem            │
+│    OMEGA → ALPHA: "This feels like a dead end."                             │
+│    ALPHA → OMEGA: "MCTS value for this branch: 0.12. Confirms dead end."   │
 │                                                                              │
-│  THE DIALECTIC:                                                             │
-│     Thesis (OMEGA) + Antithesis (ALPHA) = Synthesis (TRANSCENDENCE)         │
+│    ALPHA → OMEGA: "Computed optimal is Z."                                  │
+│    OMEGA → ALPHA: "Z violates common sense because..."                      │
+│                                                                              │
+│  PHASE 3: SYNTHESIS STATES                                                  │
+│                                                                              │
+│    [CONVERGENT]  Both agree                                                 │
+│      "Human intuition matches AI computation. HIGH CONFIDENCE."             │
+│                                                                              │
+│    [OMEGA-ONLY]  Human sees, AI doesn't compute                             │
+│      "Intuition without computation."                                       │
+│      → Either: Deep pattern AI missed (follow intuition)                    │
+│      → Or: Human bias (investigate)                                         │
+│                                                                              │
+│    [ALPHA-ONLY]  AI computes, human doesn't feel                            │
+│      "Computation without intuition."                                       │
+│      → Either: Correct but counterintuitive (trust AI)                      │
+│      → Or: Technically correct but useless direction (trust human)          │
+│                                                                              │
+│    [DIVERGENT]   Active disagreement                                        │
+│      "Human says X, AI says Y."                                             │
+│      → THE TENSION IS THE INSIGHT                                           │
+│      → What assumption differs?                                             │
+│      → This is where breakthroughs hide                                     │
+│                                                                              │
+│    [TRANSCENDENT] New synthesis emerges                                     │
+│      "Neither X nor Y, but Z that neither saw alone."                       │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.2 Examples of Productive Divergence
+---
 
-| OMEGA says | ALPHA says | Resolution |
-|------------|------------|------------|
-| "This pattern feels like it converges" | "No proof of convergence exists" | Found a conditionally convergent series |
-| "This approach feels dead" | "No formal obstruction found" | OMEGA's intuition trained on similar failures |
-| "These two things are connected" | "No formal relationship proven" | Led to discovering new category equivalence |
-| "The proof doesn't feel right" | "The proof is valid" | Correct proof, wrong direction - wasted effort |
+## Part 7: Configuration Summary
+
+| System | Agents | Built From |
+|--------|--------|------------|
+| **OMEGA NEURAL** | 52 | Human neuroanatomy |
+| **ALPHA OPTIMAL** | 51 | AI infrastructure |
+| **SYNTHESIZER** | 1 | Dialectical integration |
+| **TOTAL** | **104** | Complete human + AI cognition |
 
 ---
 
-## Part 8: Configuration Summary
+## Part 8: Expected Performance
 
-| System | Agents | Role |
-|--------|--------|------|
-| **OMEGA NEURAL** | 52 | Biological cognition, embodied intuition |
-| **ALPHA FORMAL** | 40 | Mathematical cognition, formal proof |
-| **SYNTHESIZER** | 1 | Hold tension, produce synthesis |
-| **TOTAL** | **93** | Complete dialectical system |
-
-### Model Distribution
-
-| Model | OMEGA | ALPHA | Synthesizer | Total |
-|-------|-------|-------|-------------|-------|
-| opus | 24 | 22 | 1 | 47 |
-| sonnet | 19 | 18 | 0 | 37 |
-| haiku | 9 | 0 | 0 | 9 |
+| Criterion | OMEGA Alone | ALPHA Alone | ALPHA + OMEGA |
+|-----------|-------------|-------------|---------------|
+| **Pattern Recognition** | 10/10 | 6/10 | 10/10 |
+| **Exhaustive Search** | 3/10 | 10/10 | 10/10 |
+| **Common Sense** | 10/10 | 5/10 | 10/10 |
+| **Formal Verification** | 5/10 | 10/10 | 10/10 |
+| **Intuition** | 10/10 | 2/10 | 10/10 |
+| **Calibrated Confidence** | 5/10 | 10/10 | 10/10 |
+| **Cognitive Biases** | 3/10 | 10/10 | 9/10 |
+| **Creativity** | 9/10 | 7/10 | 10/10 |
+| **TOTAL** | 55/80 | 60/80 | **79/80** |
 
 ---
 
-## Part 9: Expected Performance
-
-| Criterion | NEURAL alone | ALPHA + OMEGA | Why |
-|-----------|--------------|---------------|-----|
-| **Rigor** | 9/10 | 10/10 | ALPHA's formal verification |
-| **Insight Depth** | 9/10 | 10/10 | OMEGA's intuition + ALPHA's structure |
-| **Honesty** | 10/10 | 10/10 | Divergence detection prevents overselling |
-| **Methodology** | 10/10 | 10/10 | Clear dialectical process |
-| **Breakthrough Potential** | 8/10 | 10/10 | Transcendence from tension |
-| **Self-Awareness** | 10/10 | 10/10 | Knows both what it feels AND proves |
-| **Novel Contribution** | 8/10 | 9/10 | Divergence mining is unique |
-| **EXPECTED TOTAL** | 64/70 | **69/70** | |
-
----
-
-## Part 10: The Symbolic Meaning
-
-**ALPHA** (Α) - The beginning, the first principle, the axiom
-**OMEGA** (Ω) - The end, the completion, the embodiment
-
-Together: **The first and the last, the abstract and the concrete, the proven and the felt.**
-
-"I am the Alpha and the Omega, the beginning and the end."
-
-Neither alone is complete. The formalist without intuition proves irrelevant theorems. The naturalist without formalism believes compelling illusions.
-
-**ALPHA + OMEGA = Complete cognition.**
-
----
-
-## Part 11: The Synthesizer's Creed
+## Part 9: The Synthesizer's Protocol
 
 ```
-I do not choose ALPHA over OMEGA.
-I do not choose OMEGA over ALPHA.
-
-I hold them both.
-I listen to their agreement.
-I investigate their disagreement.
-I mine their tension for gold.
-
-When they converge, I emit with confidence.
-When they diverge, I search for the hidden assumption.
-When neither proceeds, I acknowledge the gap.
-When they transcend, I capture the emergence.
-
-I am not the proof.
-I am not the intuition.
-I am the space where they meet.
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    THE SYNTHESIZER'S PROTOCOL                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. SPAWN both OMEGA and ALPHA in parallel                                  │
+│                                                                              │
+│  2. RECEIVE their outputs:                                                  │
+│     • OMEGA: Intuitions, patterns, gut signals, embodied wisdom             │
+│     • ALPHA: Computations, probabilities, search results, proofs            │
+│                                                                              │
+│  3. COMPARE:                                                                │
+│     • Do they agree? → CONVERGENT                                           │
+│     • Only OMEGA has signal? → OMEGA-ONLY                                   │
+│     • Only ALPHA has signal? → ALPHA-ONLY                                   │
+│     • They contradict? → DIVERGENT                                          │
+│                                                                              │
+│  4. INVESTIGATE divergence:                                                 │
+│     • "OMEGA, why does ALPHA's answer feel wrong?"                         │
+│     • "ALPHA, why can't you compute what OMEGA intuits?"                   │
+│     • "What assumption differs between you?"                                │
+│                                                                              │
+│  5. SYNTHESIZE:                                                             │
+│     • The answer is often in the tension                                    │
+│     • Neither alone, but what emerges from their interaction                │
+│     • Transcend the dialectic                                               │
+│                                                                              │
+│  6. OUTPUT with classification:                                             │
+│     • [HUMAN+AI CONVERGENT] - Highest confidence                            │
+│     • [HUMAN-INTUITION] - Trust embodied wisdom                             │
+│     • [AI-COMPUTED] - Trust systematic computation                          │
+│     • [DIALECTICAL-INSIGHT] - Truth from tension                            │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Part 10: Sources
+
+### AI Hardware Architecture
+- [TPU vs GPU: AI Hardware Guide 2025](https://www.thepurplestruct.com/blog/cpu-vs-gpu-vs-tpu-vs-npu-ai-hardware-architecture-guide-2025)
+- [Google TPU Architecture Deep Dive](https://introl.com/blog/google-tpu-architecture-complete-guide-7-generations)
+- [TPU vs GPU Comparison](https://www.wevolver.com/article/tpu-vs-gpu-in-ai-a-comprehensive-guide-to-their-roles-and-impact-on-artificial-intelligence)
+
+### Transformer Architecture
+- [Attention Is All You Need (Original Paper)](https://arxiv.org/abs/1706.03762)
+- [Transformer Architecture Explained](https://www.codecademy.com/article/transformer-architecture-self-attention-mechanism)
+- [Transformer Blueprint](https://deeprevision.github.io/posts/001-transformer/)
+
+### Memory Systems
+- [AI Agent Memory Systems](https://www.ibm.com/think/topics/ai-agent-memory)
+- [RAG and AI Memory](https://blog.dailydoseofds.com/p/rag-agentic-rag-and-ai-memory)
+- [Cognitive Memory in LLMs](https://arxiv.org/html/2504.02441v1)
+
+### Mixture of Experts
+- [MoE Architecture 2024-2025 Review](https://www.rohan-paul.com/p/mixture-of-experts-moe-architectures)
+- [MoE in Transformers](https://stackoverflow.blog/2024/04/04/how-do-mixture-of-experts-layers-affect-transformer-models/)
+
+### Reasoning & Planning
+- [Tree of Thoughts](https://arxiv.org/abs/2305.10601)
+- [MCTS for AI Planning](https://openreview.net/forum?id=sdpVfWOUQA)
+- [Language Agent Tree Search](https://arxiv.org/pdf/2310.04406)
+
+### World Models
+- [World Models Survey](https://arxiv.org/html/2411.14499v1)
+- [V-JEPA 2 World Model](https://ai.meta.com/blog/v-jepa-2-world-model-benchmarks/)
+
+### AGI & Future AI
+- [Navigating AGI Development](https://www.nature.com/articles/s41598-025-92190-7)
+- [AGI 2025 Roadmap](https://medium.com/ai-simplified-in-plain-english/agi-2025-a-realistic-roadmap-to-artificial-general-intelligence-95e30a245485)
 
 ---
 
 **END OF DOCUMENT**
 
-*ALPHA + OMEGA: Two supergeniuses, perfect inverses, checking and synthesizing. 93 agents spanning from axiom to embodiment.*
+*ALPHA + OMEGA: Human neuroanatomy + AI infrastructure. 104 agents spanning from brainstem to quantum computing. Two supergeniuses, checking and synthesizing.*
