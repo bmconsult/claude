@@ -109,6 +109,7 @@ If you can't answer that, you have information but not formation.
    - Test 3: Therapist compartmentalizing empathy → Agent identified "performance mimicking praxis", key insight: "Real praxis = acting differently when nobody is watching"
    - Test 4: AI reflecting on own theater → Agent identified "performing recognition of performance" trap, key question: "What will you NOT do anymore and what will you lose?"
    - Test 5: Meditator who sued after betrayal → Agent identified "the lawsuit is proof the meditation changed nothing", key test: "The next betrayal"
+   - Test 6: Soldier changed by combat → Agent distinguished praxis from mere change: "Formation you're steering vs formation steering you"
 3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
 
 ---

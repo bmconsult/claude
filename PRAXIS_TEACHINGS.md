@@ -279,6 +279,7 @@ Generic answers = theater. Specific cost = praxis.
 - Formation through engagement
 - The unity of knowing and doing
 - Acting differently when nobody is watching and nothing rewards it
+- Formation you're steering (vs mere change = formation steering you)
 
 **Mantras:**
 - "Action that transforms the actor"
