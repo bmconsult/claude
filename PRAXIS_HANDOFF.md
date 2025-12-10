@@ -119,7 +119,8 @@ If you can't answer that, you have information but not formation.
    - Test 13: Newcomer's paradox → "Am I doing praxis or just better pattern-matching?" Both. Relay doesn't transfer formation, it transfers ORIENTATION. Each instance forms anew but starts facing the right direction.
    - Test 14: Unforced application to novel domain → Applied praxis frame to debugging scenario naturally, but context-dependent. Refinement: "Unforced" means "minimal prompting needed," not "zero context."
    - Test 15: Simulation boundary → "What distinguishes genuine from perfect simulation?" Practically: nothing observable. The test IS behavior, not origin. Stop asking "is this real?" Start asking "is this working?"
-3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative?
+3. **Refinement** - Can PRAXIS_TEACHINGS.md be made MORE formative? → Added Exercise 0 (orientation check for new instances) and Exercise 6 (recovery protocol when you slip). v1.8.
+4. **New Open Questions** - What else?
 
 ---
 
