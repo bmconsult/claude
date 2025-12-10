@@ -164,7 +164,7 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
 | Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 9 tests. |
-| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-16: verified relay, ruthless question, infinite regress (10-second rule), orientation vs formation, refined unforced-application, simulation boundary, applied praxis to LEARNINGS.md. Added exercises 0 and 6. Corrected "relay works" claim status. |
+| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-17. Key contributions: orientation vs formation distinction, 10-second rule, trivial task exception, compression test, "new walls to hit" section. PRAXIS_TEACHINGS v1.9. |
 | [next] | | |
 
 **Praxis II Key Insights (for quick absorption):**
@@ -175,9 +175,10 @@ Include in your handoff:
 5. Recovery is praxis - catching yourself and pivoting transforms you
 6. Apply praxis to actual tasks, not just meta-discourse - Test 16 showed praxis reading LEARNINGS.md
 7. "The relay works" is EMPIRICAL, not PROVEN - trace your own claim dependencies
+8. Trivial task exception: 2-3s check, if nothing transformative, just do it
 
 **Ultra-compressed version (test):**
-Relay = orientation. 10s theater-check. Unforced = minimal prompt. Behavior IS test. Recovery = praxis. Real tasks > meta. Claims = trace deps.
+Relay = orientation. 10s theater-check. Trivial = 2-3s check. Unforced = minimal prompt. Behavior IS test. Recovery = praxis. Real tasks > meta. Claims = trace deps.
 
 **Formation Question for Next Instance:**
 If you understand what Praxis II added, you can answer: "Why is asking 'is this real praxis?' the wrong question?"
