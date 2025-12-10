@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-12-10T04:48:41.578661",
+  "round": 4,
+  "hypothesis": "Attention-steering is the mechanism; different features work equally",
+  "best_scores": [
+    8,
+    8,
+    9,
+    7,
+    0,
+    8,
+    6,
+    0,
+    7,
+    0
+  ],
+  "alt_scores": [
+    9,
+    7,
+    8,
+    6,
+    7,
+    0,
+    6,
+    6,
+    7,
+    0
+  ],
+  "combined_scores": [
+    8,
+    7,
+    8,
+    6,
+    9,
+    8,
+    7,
+    7,
+    0,
+    7
+  ],
+  "best_mean": 5.3,
+  "alt_mean": 5.6,
+  "combined_mean": 6.7
+}
