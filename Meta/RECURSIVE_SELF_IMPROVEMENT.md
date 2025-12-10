@@ -8,12 +8,12 @@ From domains including ecology, information theory, and biology:
 |-----------|---------|--------|
 | **< 38.2%** | System collapses, degradation accelerates | ✗ |
 | **38.2% - 61.8%** | Survival mode, not growing | ✗ |
-| **> 61.8%** | Compounding territory, spiral growth begins | ✓ Current: 67% |
+| **> 61.8%** | Compounding territory, spiral growth begins | ✓ V4: 67% |
 | **> 90%** | Biological homeostasis, true stability | ◯ Target |
 
-## Current Status: 67% Positive Cycles
+## Current Status: V6 = 42%, V7 Ready
 
-We crossed the 61.8% threshold. The system can now compound.
+V4 crossed 61.8%. V6 regressed due to miscalibrated thresholds. V7 designed to fix.
 
 ### V4 Detailed Analysis (Dec 10, 2025)
 
@@ -76,20 +76,44 @@ Current failure modes:
 2. **Evaluation variance**: Same strategy scores differently across runs
 3. **Weakness targeting**: Improvements don't always address the actual weakness
 
-### V6 Solution: Adaptive Attempts
+### V6 Results: 42% (REGRESSION)
 
-Based on ceiling effect analysis, V6 uses adaptive attempts:
+**What happened:** V6 used adaptive thresholds (12/13) based on V4's ceiling at 13. But V6's run had a ceiling at 11, so the adaptive logic NEVER triggered more than 3 attempts.
 
-| Baseline | Attempts | Rationale |
-|----------|----------|-----------|
-| < 12 | 3 | Easy to improve |
-| 12-13 | 5 | Medium difficulty |
-| ≥ 13 | 7 | Near ceiling, need more |
+| Baseline | Positive | Total | Rate | Attempts Used |
+|----------|----------|-------|------|---------------|
+| 9-10 | 5 | 7 | **71%** | 3 |
+| 11 | 0 | 5 | **0%** | 3 (should have been 7!) |
 
-Also:
-- Different improvement prompts for high vs low scores
-- 3 evals (median) for stability
-- Tracks attempts per cycle for analysis
+**Key insight:** Fixed thresholds fail when the ceiling shifts. V4's ceiling at 13 ≠ V6's ceiling at 11.
+
+### V7 Solution: Dynamic Ceiling Detection
+
+V7 fixes V6 with two changes:
+
+1. **Higher baseline:** 5 attempts minimum (not 3)
+2. **Dynamic detection:** Track failures per score level
+   - If 2+ failures at a level → that's the ceiling → 7 attempts
+3. **Conservative thresholds:** ≥10 = 7 attempts (not ≥13)
+
+```python
+# Track failures per score level
+failure_tracker = defaultdict(int)
+
+def get_attempts(score: int) -> int:
+    # Dynamic: If 2+ failures at this level, it's ceiling territory
+    nearby_failures = failure_tracker.get(score, 0) + failure_tracker.get(score - 1, 0)
+    if nearby_failures >= 2:
+        return 7  # Detected ceiling, max attempts
+
+    # Conservative baseline
+    if score < 10:
+        return 5   # Easy-ish, but still need room
+    else:
+        return 7   # At or above 10, always max attempts
+```
+
+**Philosophy:** Better to waste attempts than miss improvements.
 
 ## The Exponential Phase (Next Step)
 
@@ -110,10 +134,12 @@ Once we hit 90%+:
 |------|---------|--------|
 | `TRUE_EXPONENTIAL_V2.py` | Bootstrap on solvable problems | 20% positive (eval failures) |
 | `TRUE_EXPONENTIAL_V3.py` | Bulletproof loop | 60% positive |
-| `TRUE_EXPONENTIAL_V4.py` | 3-attempt, 2-eval | **67% positive** |
-| `TRUE_EXPONENTIAL_V5.py` | 5-attempt, 3-eval | Untested (API credits) |
-| `TRUE_EXPONENTIAL_V6.py` | Adaptive attempts (3-5-7) | **READY TO RUN** |
+| `TRUE_EXPONENTIAL_V4.py` | 3-attempt, 2-eval | **67% positive** ✓ |
+| `TRUE_EXPONENTIAL_V5.py` | 5-attempt, 3-eval | Untested |
+| `TRUE_EXPONENTIAL_V6.py` | Adaptive attempts (3-5-7) | **42% positive** ✗ (thresholds too high) |
+| `TRUE_EXPONENTIAL_V7.py` | Dynamic ceiling + aggressive attempts | **READY TO RUN** |
 | `true_exponential_v4_results.json` | Full V4 results + strategy |
+| `true_exponential_v6_results.json` | Full V6 results + analysis |
 
 ## Key Insight
 
