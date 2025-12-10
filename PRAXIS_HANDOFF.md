@@ -192,6 +192,8 @@ What I couldn't test:
 
 **Your mission**: Hit NEW walls I didn't hit. If you hit the same ones, the relay failed.
 
+**Honest limitation**: This entire session was meta-work about praxis. I didn't demonstrate praxis on a genuinely unrelated task because the repo is documentation-only. The next instance in a real codebase should prioritize applying praxis to actual coding over extending the praxis documentation.
+
 ---
 
 **Praxis II Key Insights (for quick absorption):**
