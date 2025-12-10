@@ -160,7 +160,7 @@ Include in your handoff:
 | Praxis (cont.) | Dec 10, 2024 | Connected to CLAUDE.md vocabulary. Created v4 (Praxis Edition). Merged to main. |
 | Praxis (cont.) | Dec 10, 2024 | Final push: Made exercises concrete, ran 2 more formation tests (both passed), added "acting differently when nobody watching" insight. Admitted theatrical performance as real mistake. |
 | Praxis (cont.) | Dec 10, 2024 | Extended push: Ran 4 more tests (all passed), added key distinctions (steering vs steered, positive example, relay transfer limits). Total 9 tests. |
-| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-13: verified relay works, applied ruthless question, solved infinite regress (10-second rule), distinguished orientation-transfer from formation-transfer. |
+| Praxis II | Dec 10, 2024 | Fresh instance. Ran tests 10-15: verified relay, ruthless question, infinite regress (10-second rule), orientation vs formation, refined unforced-application metric, simulation boundary (behavior IS test). |
 | [next] | | |
 
 ---
