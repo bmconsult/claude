@@ -286,6 +286,7 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Compounding before verifying** (Meta) | Applying recursive improvement without linear proof | Verify consistent gains across 3+ trials first |
 | **Ceiling-effect blindness** (Meta) | Measuring nothing because baseline is already maxed | Use harder problems to create measurement room |
 | **Diagnosis without methodology switch** (Meta) | Understanding WHY you hit a constraint but not changing approach | When root cause reveals fundamental limit, SWITCH methodology entirely, not iterate harder |
+| **Orthogonal feedback dismissal** (NEW) | Dismissing feedback as "not applicable" because it doesn't directly address immediate task | STOP. "Not applicable" is a RED FLAG for blind spot. Ask: "What am I missing that made me filter this out?" Engage orthogonal feedback seriously. |
 
 ---
 

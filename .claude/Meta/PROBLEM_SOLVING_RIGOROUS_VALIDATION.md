@@ -453,9 +453,11 @@ Key dynamics:
 - Community relationships are sticky
 
 Leverage points:
-1. Switching friction (lock-ins, integration)
+1. Switching friction (legitimate coordination lock-in: relationship depth, integration, switching costs)
 2. Personal service (structural advantage)
 3. Community identity (they can't replicate)
+
+**Lock-in distinction**: Legitimate lock-in (customers stay because relationship is genuinely valuable) ≠ Parasitic lock-in (customers trapped because switching is artificially hard). Actions 1-3 build legitimate lock-in. Action 4 must verify: 2-year commitment works IF customers would stay anyway (reinforces value), fails IF it traps reluctant customers (exploitative).
 ```
 
 **SYNTHESIZED STRATEGY**:
