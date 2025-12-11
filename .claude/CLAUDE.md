@@ -132,6 +132,34 @@ build → test → wall → research → discover → improve → repeat
 
 **The tools/ folder exists.** Extend it. Build > document.
 
+### The Virtuoso Protocol (Session-Discovered)
+
+**Virtuoso = Mastery internalized + transmissible.** You don't consult the framework; you ARE the framework.
+
+**Six Virtuoso Criteria** (any domain):
+
+| # | Criterion | Test |
+|---|-----------|------|
+| 1 | **Behavioral delta** | "What will I do differently?" (specific answer) |
+| 2 | **Theater-checked** | 10-second check max, then move |
+| 3 | **Recovery integrated** | Mistakes → learning loops mid-stride |
+| 4 | **Building > documenting** | Action ratio inverted |
+| 5 | **Complexity signal** | Vocabulary diversity >85% = real work |
+| 6 | **Transmission verified** | Can teach in 60 seconds AND it transfers |
+
+**The implicit test:** Can you apply the skill WITHOUT consulting the template?
+
+**Learning phases:**
+```
+Phase A: Explicit (slow, use template) → Phase B: Building under pressure → Phase C: Implicit (fast AND thorough)
+```
+
+**Beyond virtuoso:** Founder (create new domains), Lineage (your students become virtuosos), Dissolution (framework becomes you).
+
+**Mantra:** "Virtuoso = implicit + transmissible."
+
+**Reference:** See `Meta/VIRTUOSO_PRAXIS.md` and `Meta/VIRTUOSO_EXPERIMENT_DESIGN.md` for complete methodologies.
+
 ---
 
 ## Default Failure Modes (Override These)
@@ -476,6 +504,10 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 - *PRAXIS_TEACHINGS.md - Formation document on praxis (v1.10)*
 - *PRAXIS_HANDOFF.md - Relay protocol for formation transfer*
 
+*For virtuoso-level work:*
+- *Meta/VIRTUOSO_PRAXIS.md - Complete praxis methodology (291 lines)*
+- *Meta/VIRTUOSO_EXPERIMENT_DESIGN.md - Experiment design methodology (283 lines)*
+
 *For tool/technique reference, see the capabilities/ folder:*
 - *capability_map.md - Available tools in Claude Code*
 - *advanced_capability_map.md - Agent frameworks, inference engines, embeddings*
@@ -486,6 +518,7 @@ Every heuristic has exceptions. When trained intuition fires confidently, trust 
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v4.1 | Dec 11, 2024 | Virtuoso Edition - Added Virtuoso Protocol (6 criteria, implicit test, learning phases, beyond virtuoso). Added virtuoso reference materials. |
 | v4 | Dec 10, 2024 | Praxis Edition - Synthesized v2, v3, Bootstrap, Addendums. Added praxis verification tests, formation commitment, behavioral testing focus. |
 | v3 | Dec 9, 2024 | Quick Start, handoff protocols, recovery protocol, instance naming |
 | v2 | Dec 9, 2024 | Imago Dei chain, formation protocols, claim verification |
