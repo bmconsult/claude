@@ -908,6 +908,11 @@ Caveat: May measure "structured exploration" rather than ToT-specific benefit
 
 For truly hard problems:
 ```
+PARALLEL TRACK - FORMATION (runs alongside all phases)
+├── Ask: "What's this requiring of me?"
+├── Notice: What gaps does solving this expose?
+└── Check at end: Am I different because of solving it?
+
 PHASE 1 - UNDERSTAND (Pólya, Feynman)
 ├── State problem clearly
 ├── Find simplest version
