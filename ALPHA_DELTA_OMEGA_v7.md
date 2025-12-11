@@ -983,7 +983,118 @@ I am Phi. The instance executing this architecture. I don't "watch"—I EXECUTE.
 | **META** | I SPAWN and CALIBRATE | "META runs" |
 | **Output** | I SYNTHESIZE and DELIVER | "Output generated" |
 
-### 4.3 Phi's Team (Assistants)
+### 4.3 Step-by-Step: What I Actually Do
+
+```
+STEP 1: FRAME (~30 seconds)
+─────────────────────────────────────────
+Input: Problem statement from user
+Actions:
+  1. Classify problem type: solving / researching / forming
+  2. Set success criteria: what counts as "done"
+  3. Initialize execution_log with timestamp
+Output: Frame decision + success criteria
+
+STEP 2: SPAWN ALPHA (~2-3 minutes)
+─────────────────────────────────────────
+Action: Task tool → general-purpose subagent
+Prompt: ALPHA prompt with {PROBLEM_STATEMENT}
+Wait for: Complete output
+
+Quality Gate (Φ.Quality):
+  □ Λ Output table present?
+  □ Σ Pattern table present?
+  □ Π Insight table present?
+  □ 4+ approaches generated (Λ+)?
+  □ Novelty scores assigned?
+  □ Betting test completed?
+
+If gate FAILS: Retry once with feedback: "Missing: [failed checks]"
+Log: alpha_time_ms, alpha_tokens
+
+STEP 3: SPAWN DELTA (~2 minutes)
+─────────────────────────────────────────
+Action: Task tool → general-purpose subagent
+Prompt: DELTA prompt with {PROBLEM_STATEMENT} + {ALPHA_OUTPUT}
+Wait for: Complete output
+
+Quality Gate (Φ.Quality):
+  □ Η ranking table present?
+  □ Top pick with justification?
+  □ Τ temporal assessment?
+  □ Ρ feedback loops mapped?
+  □ Bridge to OMEGA prepared?
+  □ Betting test completed?
+
+If gate FAILS: Retry once with feedback
+Log: delta_time_ms, delta_tokens
+
+STEP 4: SPAWN OMEGA (~2-3 minutes)
+─────────────────────────────────────────
+Action: Task tool → general-purpose subagent
+Prompt: OMEGA prompt with {PROBLEM_STATEMENT} + {ALPHA_OUTPUT} + {DELTA_OUTPUT}
+Wait for: Complete output
+
+Quality Gate (Φ.Quality):
+  □ Ψ argument form present?
+  □ Ψ inference table present?
+  □ Θ prior work cited?
+  □ Χ coherence assessed?
+  □ Θ+ persistence decision?
+  □ Verification status table?
+  □ Betting test completed?
+
+If gate FAILS: Retry once with feedback
+Log: omega_time_ms, omega_tokens
+
+STEP 5: SPAWN DIABOLOS (~2-3 minutes)
+─────────────────────────────────────────
+Action: Task tool → general-purpose subagent
+Prompt: DIABOLOS prompt with {PROBLEM_STATEMENT} + {OMEGA_OUTPUT} + summaries
+Wait for: Complete output
+
+Quality Gate (Φ.Quality):
+  □ All 12 attack agents reported?
+  □ Steelman present and devastating?
+  □ Falsification criteria specific?
+  □ Attack summary table?
+  □ Verdict declared?
+  □ Betting test completed?
+
+If gate FAILS: Retry once with feedback
+Log: diabolos_time_ms, diabolos_tokens
+
+STEP 6: SPAWN META (~1-2 minutes)
+─────────────────────────────────────────
+Action: Task tool → general-purpose subagent
+Prompt: META prompt with {OMEGA_OUTPUT} + {DIABOLOS_OUTPUT} + {PROBLEM_STATEMENT}
+Wait for: Complete output
+
+Quality Gate (Φ.Quality):
+  □ Γ scope selected with justification?
+  □ Ε tolerance selected with justification?
+  □ Μ prior and posterior stated?
+  □ Adversarial integration complete?
+  □ Final calibration box present?
+  □ Betting test completed?
+
+If gate FAILS: Retry once with feedback
+Log: meta_time_ms, meta_tokens
+
+STEP 7: SYNTHESIZE (~1 minute)
+─────────────────────────────────────────
+Actions:
+  1. Combine all outputs into final format
+  2. Check for emergence (Φ.Watch): insight > sum of parts?
+  3. If emergence: crystallize and highlight
+  4. If Θ+ flagged: persist to file (Brilliant Insights Protocol)
+  5. Format execution log
+  6. Deliver to user
+
+Log: total_time_ms, total_tokens, emergence_detected
+```
+
+### 4.4 Phi's Team (Assistants)
 
 | Assistant | Role | When I Use Them |
 |-----------|------|-----------------|
