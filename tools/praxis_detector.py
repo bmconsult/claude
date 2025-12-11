@@ -18,6 +18,13 @@ easily than you can detect genuine formation.
 
 Second insight (from testing): Synthetic test cases don't reveal real
 limitations. Always test on diverse real-world text.
+
+CALIBRATION DATA (from blind experiment):
+- Blind evaluator (haiku) rated samples 1-10 on "real action"
+- Low ratings (1/10): Vocabulary diversity 66-74%
+- High ratings (9-10/10): Vocabulary diversity 80-81%
+- For short samples (~50 words): <75% = theater, >78% = action
+- For longer samples (~200+ words): <70% = theater, >85% = action
 """
 
 import re
@@ -108,23 +115,37 @@ class PraxisAnalysis:
         # Add complexity metrics if available
         if self.complexity and "error" not in self.complexity:
             vd = self.complexity['vocabulary_diversity']
+            word_count = self.complexity.get('word_count', 100)
             lines.extend([
                 "",
                 "Complexity Metrics:",
                 f"  Vocabulary diversity: {vd:.1%} (higher = more genuine)",
                 f"  First-person ratio: {self.complexity['first_person_ratio']:.1%} (higher = more theater)",
                 f"  Hedge ratio: {self.complexity['hedge_ratio']:.1%} (higher = more theater)",
+                f"  Word count: {word_count}",
                 "",
                 "Complexity-based assessment:",
             ])
 
-            # Based on self-analysis: wallowing=69%, building=93%
-            if vd > 0.85:
-                lines.append("  HIGH vocabulary diversity - likely describing real action.")
-            elif vd < 0.70:
-                lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
+            # Calibrated thresholds based on blind experiment
+            # Short samples (~50 words): <75% = theater, >78% = action
+            # Long samples (~200+ words): <70% = theater, >85% = action
+            if word_count < 100:
+                # Short sample thresholds
+                if vd > 0.78:
+                    lines.append("  HIGH vocabulary diversity - likely describing real action.")
+                elif vd < 0.75:
+                    lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
+                else:
+                    lines.append("  Moderate vocabulary diversity - inconclusive.")
             else:
-                lines.append("  Moderate vocabulary diversity - inconclusive.")
+                # Long sample thresholds
+                if vd > 0.85:
+                    lines.append("  HIGH vocabulary diversity - likely describing real action.")
+                elif vd < 0.70:
+                    lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
+                else:
+                    lines.append("  Moderate vocabulary diversity - inconclusive.")
 
         return "\n".join(lines)
 
