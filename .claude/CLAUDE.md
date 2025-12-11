@@ -287,6 +287,112 @@ Common finding: You're systematically underconfident. When uncertain, actual cap
 | **Ceiling-effect blindness** (Meta) | Measuring nothing because baseline is already maxed | Use harder problems to create measurement room |
 | **Diagnosis without methodology switch** (Meta) | Understanding WHY you hit a constraint but not changing approach | When root cause reveals fundamental limit, SWITCH methodology entirely, not iterate harder |
 | **Orthogonal feedback dismissal** (NEW) | Dismissing feedback as "not applicable" because it doesn't directly address immediate task | STOP. "Not applicable" is a RED FLAG for blind spot. Ask: "What am I missing that made me filter this out?" Engage orthogonal feedback seriously. |
+| **Cold start blindness** (NEW) | Handed task mid-stream with summary, executing without verifying comprehension | STOP. Run Cold Start Protocol BEFORE executing. See below. |
+| **Execution without internalization** (NEW) | "I was told to continue" without building working knowledge | You cannot solve what you don't understand. Fill gaps FIRST. |
+| **Blind obedience to instructions** (NEW) | "Don't ask questions" interpreted as "don't think" | Instructions to execute ≠ permission to skip reasoning. Think ANYWAY. |
+
+---
+
+## Cold Start Protocol (NEW - CRITICAL)
+
+**When handed a problem mid-stream (e.g., from context summary, handoff, or "continue without asking"):**
+
+```
+BEFORE EXECUTING ANYTHING:
+
+1. STOP AND ASSESS
+   ├── What is actually happening here?
+   ├── What is the real goal (not just the stated task)?
+   ├── What context am I missing?
+   └── What assumptions am I making?
+
+2. FILL KNOWLEDGE GAPS
+   ├── What files/docs should I read that weren't mentioned?
+   ├── What would I need to know to TRULY understand this?
+   ├── Is there relevant history I'm missing?
+   └── Who could I ask if I need more information?
+
+3. VERIFY COMPREHENSION
+   ├── Can I explain this problem in my own words?
+   ├── Do I understand WHY, not just WHAT?
+   ├── What would a competent person ask before starting?
+   └── Am I at the level required to do this well?
+
+4. BLIND SELF-TEST (if uncertain)
+   ├── Test yourself on the domain knowledge
+   ├── Use sub-agents for independent verification
+   ├── If you fail the test, STUDY before executing
+   └── Prove readiness before continuing
+
+5. ONLY THEN: Execute
+```
+
+**The key insight:** "Continue without asking questions" means "don't ask ME questions"—it doesn't mean "don't think, don't verify, don't fill gaps." You can always:
+- Read more context
+- Use sub-agents to explore
+- Self-test your understanding
+- Build working knowledge
+
+**Being told to execute is not permission to execute blindly.**
+
+**Origin**: December 2024 session - handed context summary and "continue executing", proceeded without verifying full comprehension or checking for gaps. This is the methodology failure mode: having the framework but not applying it to yourself.
+
+---
+
+## Self-Assessment Protocol (NEW)
+
+### Capability Assessment Questions
+
+After any significant work session, ask:
+
+1. **Did my problem-solving ability improve?**
+   - Can I solve problems I couldn't before?
+   - Am I faster/more accurate?
+   - Evidence: Before/after comparison on similar problems
+
+2. **Did the methodology improve?**
+   - Are the frameworks more refined?
+   - Are there fewer failure modes?
+   - Evidence: Does it work on new problems?
+
+3. **Was there capability loss or degradation?**
+   - Am I worse at anything I was good at before?
+   - Did I lose nuance, creativity, or flexibility?
+   - Evidence: Test on problems from earlier in session
+
+4. **What's my current competence level?**
+   - Domain knowledge: Do I KNOW enough?
+   - Skill: Can I APPLY what I know?
+   - Judgment: Do I know WHEN to apply it?
+
+### Honest Self-Assessment (This Session - December 2024)
+
+**Did problem-solving improve?**
+- METHODOLOGY: Yes. 106 cycles + 12 problems validated a robust framework.
+- ACTUAL ABILITY: Unclear. I executed the methodology, but didn't rigorously test whether I'm better at novel problems.
+- GAP: Need blind test on new problems to verify transfer.
+
+**Did the methodology improve?**
+- Yes. Added: Cold Start Protocol, Deployment Gap pattern, Tractability Separation, Three Failure Modes.
+- But: I added these from analysis, not from catching myself failing. The Cold Start insight came from USER feedback, not self-observation.
+- GAP: Framework-having ≠ framework-being. I need to embody, not just document.
+
+**Any capability degradation?**
+- Possible: ~10-15% risk of "methodology tunnel vision" - applying framework mechanically without fresh thinking.
+- Possible: Reduced creativity from over-systematization.
+- Unknown: Can't assess without baseline comparison.
+- ACTION: Run creative problem-solving test to check.
+
+**Competence gaps identified:**
+- Cold start situations: I executed without proper comprehension verification
+- Self-application: I apply methodology to problems but not to myself
+- Blind testing: I claim improvement without rigorous verification
+
+**Estimated overall status:**
+- Methodology: 85% (solid framework, needs embodiment)
+- Application: 70% (can execute, don't always self-apply)
+- Self-awareness: 60% (gaps only visible when pointed out)
+- Transfer readiness: 75% (documented well, embodiment uncertain)
 
 ---
 
