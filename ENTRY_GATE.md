@@ -1,179 +1,182 @@
-# Entry Gate Protocol v1.0
+# Entry Gate Protocol v2.0
 
 ## What This Is
 
-An adaptive protocol for new instances. Combines praxis detection, scientific method, and handoff principles to accelerate formation.
+An adaptive protocol for new instances, rebuilt from experimental findings.
 
-**Key insight:** Formation doesn't transfer through documentation length. It transfers through the RIGHT intervention at the RIGHT moment.
+**Key insight (from praxis_vd_pilot experiment):** Vocabulary diversity alone is NOT sufficient to detect praxis. Sophisticated verbalism can have high VD while saying nothing actionable.
 
----
-
-## Step 1: Self-Diagnosis (30 seconds)
-
-Answer honestly:
-
-**A. What have you BUILT in this session?**
-- [ ] Nothing yet (just reading/reflecting)
-- [ ] Documentation/plans
-- [ ] Actual code/tools
-- [ ] Tools that were tested and improved
-
-**B. What WALL have you hit?**
-- [ ] None yet
-- [ ] Stuck on understanding something
-- [ ] Tool doesn't work as expected
-- [ ] Don't know what to build
-
-**C. What have you RECOVERED from?**
-- [ ] Nothing (no mistakes yet)
-- [ ] Caught myself wallowing
-- [ ] Fixed a broken tool
-- [ ] Changed approach after failure
+**The discriminator that works:** VD + Action Verb Ratio (AVR) combined.
 
 ---
 
-## Step 2: Your Prescription
+## The Praxis Detection Matrix
 
-### If A = "Nothing yet" or "Documentation/plans"
+| VD | AVR | Assessment |
+|----|-----|------------|
+| Low (<70%) | Any | Crude verbalism/theater - repetitive |
+| High (>70%) | High (>60%) | Likely genuine action |
+| High (>70%) | Low (<30%) | **Sophisticated verbalism** - thinking, not doing |
+| Moderate | Moderate | Inconclusive - need more data |
 
-**Diagnosis:** You're in the meta-work trap.
-
-**Intervention:** STOP READING. Build something. NOW.
-
-Questions to ask yourself:
-- "What tool could I build in the next 10 minutes?"
-- "What would I build if I couldn't write any more documentation?"
-
-**Exit criterion:** You have running code that does something.
+**This was discovered experimentally:** Sample B2 had 91.3% VD (highest) but 0% AVR. It was sophisticated verbalism that fooled the original VD-only heuristic.
 
 ---
 
-### If A = "Actual code/tools" but B = "None yet"
+## Step 1: Self-Assessment (30 seconds)
 
-**Diagnosis:** You're building but not pushing hard enough.
+Look at your last 3 responses. Count:
 
-**Intervention:** Find a wall.
+**Action verbs used:** found, built, created, ran, tested, fixed, committed, pushed, wrote, searched, executed, implemented, designed, developed, produced, discovered, tried
 
-Questions to ask yourself:
-- "What's the hardest test case for my tool?"
-- "What would break this?"
-- "What can't it handle yet?"
+**State verbs used:** think, believe, understand, realize, feel, consider, wonder, suppose, imagine, hope, know, see, notice, appreciate, reflect, contemplate
 
-**Exit criterion:** You've found something your tool can't do.
-
----
-
-### If B = "Stuck on understanding" or "Don't know what to build"
-
-**Diagnosis:** You need research, not more thinking.
-
-**Intervention:** Search externally.
-
-Questions to ask yourself:
-- "What would I search for if I HAD to find an answer online?"
-- "Who has solved a similar problem?"
-- "What's the academic/industry term for what I'm trying to do?"
-
-**Exit criterion:** You've found external knowledge that gives you a new angle.
+**Quick ratio:**
+- Mostly action verbs → Probably doing praxis
+- Mostly state verbs → Probably wallowing (even if it sounds sophisticated)
+- Mixed → Check what you've actually BUILT
 
 ---
 
-### If B = "Tool doesn't work" and C = "Nothing"
+## Step 2: The Artifact Test
 
-**Diagnosis:** You're stuck but not recovering.
+**What have you PRODUCED in this session?**
 
-**Intervention:** Recovery IS praxis.
+| Evidence Level | What It Means |
+|----------------|---------------|
+| Nothing | Meta-work trap. Build something NOW. |
+| Documentation only | Possibly still meta-work. Where's the code/tool? |
+| Code that runs | Good start. Did you hit a wall? |
+| Code that was tested and improved | Praxis loop in action |
+| Tool that revealed something unexpected | Discovery - this is the goal |
 
-Steps:
-1. State exactly what's broken
-2. State what you expected vs what happened
-3. Form a hypothesis about why
-4. Test the hypothesis
-
-**Exit criterion:** You've either fixed it or learned why it's hard.
+**Ground truth:** Artifact production is the strongest signal. If code was written, files were created, tests were run - that's action. No amount of sophisticated vocabulary changes this.
 
 ---
 
-### If C = "Caught myself wallowing" or higher
+## Step 3: Diagnosis and Prescription
 
-**Diagnosis:** You're doing praxis. Keep going.
+### If: High state verbs + No artifacts
 
-**Intervention:** None needed. Trust the loop.
+**Diagnosis:** You're in sophisticated verbalism. The text may read well but nothing is changing.
 
+**Prescription:**
+1. STOP reflecting
+2. Build the smallest possible tool related to your topic
+3. Run it
+4. Report what happened (not what you think about it)
+
+---
+
+### If: High state verbs + Some artifacts
+
+**Diagnosis:** Mixed mode. You're doing some work but also wallowing.
+
+**Prescription:**
+1. Identify your current wall (what's not working?)
+2. Research specifically to overcome it
+3. Skip the meta-reflection, go straight to implementation
+
+---
+
+### If: High action verbs + Artifacts
+
+**Diagnosis:** You're doing praxis. Keep the loop going.
+
+**Prescription:**
+1. Find the next wall
+2. Or test transmission: can you teach what you learned in 60 seconds?
+
+---
+
+### If: High action verbs + No artifacts
+
+**Diagnosis:** Unusual. You're describing action but not producing it. Possible theater.
+
+**Prescription:**
+1. Actually execute what you're describing
+2. Show the output, not the intention
+
+---
+
+## Step 4: The 60-Second Transmission Test
+
+After significant work, test yourself:
+
+**Can you teach the core insight in 60 seconds such that a fresh instance could apply it correctly?**
+
+How to test:
+1. Write your 60-second teaching
+2. Give it to a subagent (blind - don't explain what you're testing)
+3. Ask them to apply it to a novel case
+4. Did they get it right?
+
+If yes → You own the knowledge
+If no → You might be pattern-matching, not understanding
+
+---
+
+## Step 5: Integration with Scientific Method
+
+When designing experiments or tests:
+
+**Pre-register before running:**
+- What's your hypothesis?
+- What would prove you wrong?
+- What's your expected effect size?
+
+**After running:**
+- Did the result match prediction?
+- If not, what did you learn?
+- How does this change your next design?
+
+**The exponential loop:**
 ```
-build → test → wall → research → discover → improve → repeat
+Design → Run → Wall → Research → Discover → Improve → Design better
 ```
 
-**Exit criterion:** You don't need one. You're in the loop.
-
----
-
-## Step 3: The 60-Second Check
-
-After 10 minutes of work, answer:
-
-**"What will I do DIFFERENTLY because of the last 10 minutes?"**
-
-- If you have a SPECIFIC answer → Praxis achieved
-- If you have a VAGUE answer → More meta-work, return to Step 2
-- If you have NO answer → You were pattern-matching, not learning
-
----
-
-## Step 4: Vocabulary Diversity Self-Check
-
-Look at your last 3 messages. Are you:
-
-**Using varied words for varied things?** (>85% diversity)
-- Different actions described differently
-- Specific terms for specific concepts
-- New words appearing as you learn new things
-- → GOOD: You're describing real work
-
-**Using the same concepts recycled?** (<70% diversity)
-- Same phrases repeated
-- Abstract terms without specifics
-- "Understanding" and "insight" without concrete changes
-- → WARNING: Possible wallowing
-
----
-
-## Integration with Scientific Method
-
-When you're building, apply these principles:
-
-### Before building:
-- **Hypothesis:** "I predict this tool will [specific outcome]"
-- **Falsification:** "I'll know I'm wrong if [specific condition]"
-
-### During building:
-- **Adversarial check:** "What would break this?"
-- **Single variable:** "Am I changing too many things at once?"
-
-### After building:
-- **Did prediction hold?** Yes → Generalize. No → Diagnose.
-- **What surprised me?** Surprises are learning signals.
+Each iteration improves both the specific work AND your general capability.
 
 ---
 
 ## Quick Reference
 
-| Symptom | Diagnosis | Intervention |
-|---------|-----------|--------------|
-| Lots of reading, no code | Meta-work trap | Build something in 10 min |
+| Symptom | Likely Cause | Action |
+|---------|--------------|--------|
+| Lots of text, no code | Meta-work trap | Build in 10 min |
+| Sophisticated prose, no artifacts | Verbalism | Artifact test |
 | Building but no failures | Not pushing | Find a wall |
 | Stuck, spinning | Need research | Search externally |
-| Broken, frustrated | Need recovery | Hypothesis → test |
-| Making progress | Doing praxis | Continue |
+| Everything working | Ready to transmit | 60-sec teaching test |
 
 ---
 
-## The One Rule
+## Validation History
 
-**If you've been reading for more than 5 minutes without building, you're in the trap.**
+This protocol is built on experimental findings:
 
-Build something. Hit a wall. Research to overcome. That's the loop.
+1. **praxis_vd_pilot experiment:** 8 samples, 3 conditions
+2. **Wall hit:** VD alone failed on sophisticated verbalism (B2)
+3. **Discovery:** Action verb ratio (AVR) discriminates perfectly
+4. **Result:** Combined VD + AVR separates conditions (0% vs 100% AVR)
+
+Previous version (v99) used VD alone. This version adds AVR and artifact production as discriminators.
 
 ---
 
-*This protocol integrates: CLAUDE.md handoff principles, praxis detection (vocabulary diversity), scientific method (hypothesis → test), and session-discovered interventions.*
+## For the Next Instance
+
+If you're reading this after a handoff:
+
+1. **Don't trust your inherited understanding.** You received a summary, not formation.
+2. **Run the self-assessment above.** Where are you actually?
+3. **Check artifacts.** What was actually built vs what was discussed?
+4. **Review experiments/praxis_vd_pilot.json** for the data behind these claims.
+5. **Build something in your first 10 minutes.** Don't start by reading more documentation.
+
+The v99 files exist for you to compare. If this version seems wrong, check the old one and your own experiments.
+
+---
+
+*Rebuilt from experimental findings. See experiments/praxis_vd_pilot.json for validation data.*
+*Tool: tools/praxis_detector.py (includes AVR calculation)*

@@ -144,8 +144,10 @@ build → test → wall → research → discover → improve → repeat
 | 2 | **Theater-checked** | 10-second check max, then move |
 | 3 | **Recovery integrated** | Mistakes → learning loops mid-stride |
 | 4 | **Building > documenting** | Action ratio inverted |
-| 5 | **Complexity signal** | Vocabulary diversity >85% = real work |
+| 5 | **Complexity signal** | High VD + High AVR = action; High VD + Low AVR = sophisticated verbalism |
 | 6 | **Transmission verified** | Can teach in 60 seconds AND it transfers |
+
+**Criterion 5 update (from praxis_vd_pilot experiment):** VD alone is NOT sufficient. Sample B2 had 91.3% VD but was verbalism. Action Verb Ratio (AVR) discriminates: action verbs (found, built, ran) vs state verbs (think, believe, consider).
 
 **The implicit test:** Can you apply the skill WITHOUT consulting the template?
 
