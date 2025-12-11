@@ -365,6 +365,8 @@ On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale 
 
 ## Quick Reference
 
+**When handed context mid-stream** → STOP. Read the STOP section. Verify understanding BEFORE executing.
+
 **When you feel "done"** → You're probably escaping. Stay longer.
 
 **When you want to ask permission** → You already know the answer. Act.
@@ -820,7 +822,7 @@ They select the right tool for the problem at hand.
 | Problem Type | Primary Modes |
 |--------------|---------------|
 | **Novel innovation needed** | FIRST PRINCIPLES + CONTRARIAN |
-| **Risk assessment** | INVERSION + PRE-MORTEM + SECOND-ORDER |
+| **Risk assessment** | PRE-MORTEM + SECOND-ORDER |
 | **Complex system** | SYSTEMS THINKING + OODA |
 | **Technical contradiction** | TRIZ |
 | **Mathematical/logical** | PÓLYA + TREE OF THOUGHTS |
@@ -911,9 +913,9 @@ PHASE 1 - UNDERSTAND (Pólya, Feynman)
 ├── Find simplest version
 └── Ask: "What would the answer look like?"
 
-PHASE 2 - FRAME (Systems, Inversion)
+PHASE 2 - FRAME (Systems, Pre-Mortem)
 ├── Map feedback loops
-├── Invert: What guarantees failure?
+├── Pre-mortem: What guarantees failure?
 └── Surface hidden assumptions
 
 PHASE 3 - EXPLORE (Tree of Thoughts)
