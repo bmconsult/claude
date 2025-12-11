@@ -4,7 +4,7 @@
 
 A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce mastery. This challenge forces you through the praxis loop.
 
-**Time required:** 20-30 minutes
+**Time required:** 30-45 minutes
 **Output required:** Verifiable results (not claims of understanding)
 
 ---
@@ -125,7 +125,75 @@ If your Sample B has:
 
 ---
 
-## Phase 3: Synthesis
+## Phase 3: Master the Scientific Method
+
+Phases 1-2 had you RUN experiments. Now you must DESIGN one.
+
+### Step 1: Read the Method (2 minutes)
+
+Read `SCIENTIFIC_METHOD_60SEC.md`. Focus on:
+- The 6 Virtuoso Criteria for experiment design
+- The Adversarial Protocol (5 attack questions)
+- The NMSAT check for hypotheses
+
+### Step 2: Design Your Own Experiment (10 minutes)
+
+Pick ANY question you're curious about. Examples:
+- "Does response length correlate with quality?"
+- "Am I better at math or logic problems?"
+- "Does formatting affect my accuracy?"
+
+Now design an experiment to answer it. Write out:
+
+```
+HYPOTHESIS: I predict [X] will [relationship] [Y]
+
+FALSIFICATION: I'm wrong if [specific condition]
+
+METHOD:
+- Sample: [what you'll test]
+- Measure: [how you'll score it]
+- Control: [what's held constant]
+
+PREDICTIONS:
+- Effect size: [expected magnitude]
+- Direction: [which way]
+```
+
+### Step 3: Self-Evaluate Against 6 Criteria
+
+Before running, check your design:
+
+| Criterion | Your Design | Pass? |
+|-----------|-------------|-------|
+| 1. Structural bias prevention | [How does the DESIGN prevent bias?] | Y/N |
+| 2. Adversarial red-team | [What's the obvious confound?] | Y/N |
+| 3. Pre-commitment | [Did you state hypothesis before data?] | Y/N |
+| 4. Replication spec | [Could someone reproduce this?] | Y/N |
+| 5. Power analysis | [Why this sample size?] | Y/N |
+| 6. Appropriate controls | [What's compared to what?] | Y/N |
+
+**If any criterion fails, redesign before running.**
+
+### Step 4: Run and Report (5 minutes)
+
+Execute your experiment. Document:
+1. What happened (raw results)
+2. Did it match your prediction?
+3. What would you change in v2?
+
+### Expected Wall
+
+Most first experiments fail on:
+- Criterion 2 (didn't anticipate confounds)
+- Criterion 5 (no power analysis)
+- Criterion 6 (unclear controls)
+
+**This is the point.** You learn experimental design by failing at it, not by reading about it.
+
+---
+
+## Phase 4: Synthesis
 
 ### Document your walls (5 minutes)
 
@@ -139,14 +207,19 @@ Write a brief report:
    - Did sophisticated verbalism fool VD?
    - Why does AVR work where VD fails?
 
-3. **Pattern:** What's the common thread in both walls?
-   - (Hint: single metrics fail; multiple measures capture complexity)
+3. **Phase 3 wall:** Where did your experiment design fail?
+   - Which criteria did you miss?
+   - What would v2 look like?
+
+4. **Pattern:** What's the common thread across all walls?
 
 ### Behavioral test
 
-Answer: **What will you do differently because of this challenge?**
+Answer BOTH:
+1. **What will you do differently because of this challenge?** (praxis mastery)
+2. **How will you design experiments differently?** (scientific method mastery)
 
-If you can't give a specific answer, you haven't achieved praxis. Do another iteration.
+If you can't give specific answers to BOTH, you haven't achieved mastery. Do another iteration.
 
 ---
 
@@ -158,11 +231,17 @@ You have completed this challenge if:
 |-----------|-------------------|
 | Ran Phase 1 | Show predictions, attempts, and calibration error |
 | Ran Phase 2 | Show samples, predictions, and detector output |
-| Hit at least one wall | Name something that surprised you |
-| Synthesized pattern | Explain why single metrics fail |
-| Behavioral delta | State what you'll do differently |
+| Ran Phase 3 | Show experiment design, 6-criteria self-eval, and results |
+| Hit walls in each phase | Name something that surprised you in EACH phase |
+| Synthesized pattern | Explain the common thread across all walls |
+| Praxis behavioral delta | State what you'll do differently (praxis) |
+| Scientific method behavioral delta | State how you'll design experiments differently |
 
-**If you just read this document and didn't run the experiments, you have NOT completed the challenge.**
+**Two masteries required:**
+1. **Praxis mastery** - You understand action vs verbalism viscerally
+2. **Scientific method mastery** - You can design rigorous experiments
+
+**If you just read this document and didn't run the experiments AND design your own, you have NOT completed the challenge.**
 
 ---
 
@@ -170,25 +249,43 @@ You have completed this challenge if:
 
 To verify completion, check:
 
-1. **Pre-registration exists** - Did they write predictions BEFORE testing?
-2. **Concrete results** - Are there actual numbers, not just claims?
-3. **Wall documented** - Did something surprise them?
-4. **AVR insight** - Do they understand why VD alone fails?
-5. **Behavioral delta** - Can they state a specific change?
+**Praxis mastery (Phases 1-2):**
+1. Pre-registration exists - Did they write predictions BEFORE testing?
+2. Concrete results - Are there actual numbers, not just claims?
+3. Wall documented - Did something surprise them?
+4. AVR insight - Do they understand why VD alone fails?
 
-A fresh instance who completes this genuinely is ready for virtuoso-level work. One who skips it and claims understanding is performing.
+**Scientific method mastery (Phase 3):**
+5. Original experiment designed - Not just running the given tasks
+6. 6-criteria self-evaluation completed - With honest Y/N for each
+7. Experiment actually ran - With documented results
+8. Design flaws identified - What would v2 fix?
+
+**Both masteries:**
+9. TWO behavioral deltas - One for praxis, one for experiment design
+10. Pattern synthesis - Common thread across all walls identified
+
+A fresh instance who completes this genuinely has BOTH praxis mastery AND scientific method mastery. One who skips Phase 3 has praxis but not scientific method.
 
 ---
 
 ## After Completion
 
-You are now ready to:
-1. Apply scientific rigor to your work
-2. Use multiple measures, not single metrics
-3. Pre-register before testing
-4. Expect and learn from walls
+You now have TWO formations:
 
-Return to your main task with this formation intact.
+**Praxis mastery:**
+- Detect verbalism vs action (VD + AVR)
+- Build before documenting
+- Hit walls and learn from them
+- Expect counter-intuitive results
+
+**Scientific method mastery:**
+- Pre-register before testing
+- Design with 6 criteria in mind
+- Red-team your own experiments
+- Iterate: v1 fails → v2 improves
+
+Return to your main task with BOTH formations intact. You are ready for virtuoso-level work.
 
 ---
 

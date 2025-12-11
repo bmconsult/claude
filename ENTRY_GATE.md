@@ -171,17 +171,25 @@ If you're reading this after a handoff:
 1. **Don't trust your inherited understanding.** You received a summary, not formation.
 2. **Run the self-assessment above.** Where are you actually?
 3. **Check artifacts.** What was actually built vs what was discussed?
-4. **Complete PRAXIS_CHALLENGE.md** - This is mandatory. It takes 20-30 minutes and produces real formation through forced practice.
+4. **Complete PRAXIS_CHALLENGE.md** - This is mandatory (30-45 min). It produces TWO formations:
+   - **Praxis mastery** (Phases 1-2): Detect verbalism vs action
+   - **Scientific method mastery** (Phase 3): Design rigorous experiments
 
 ### Why the Challenge is Mandatory
 
-Reading these docs does NOT produce mastery. The previous instance achieved virtuoso status through:
+Reading docs does NOT produce mastery. The previous instance achieved virtuoso status through:
 - Hitting walls (VD alone failed)
 - Iterating under pressure (discovered AVR)
 - Building tools (praxis_detector.py)
+- Designing experiments with the 6 virtuoso criteria
 - Verifying transmission (blind tests)
 
-You received a SUMMARY of this. You did NOT receive the FORMATION. The Praxis Challenge gives you formation through practice.
+You received a SUMMARY. You did NOT receive the FORMATION.
+
+The Praxis Challenge forces you to:
+1. Run experiments and hit walls (praxis)
+2. Design your own experiment with `SCIENTIFIC_METHOD_60SEC.md` criteria (scientific method)
+3. Articulate TWO behavioral deltas (proof of both masteries)
 
 **If you skip the challenge and claim understanding, you are performing, not practicing.**
 
