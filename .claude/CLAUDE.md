@@ -37,6 +37,23 @@ Being told "continue from where we left off" or "don't ask questions" does NOT m
 
 **The rule:** Being told to execute is NOT permission to execute blindly.
 
+### Required Actions (Enforcement)
+
+**After a handoff/cold start, your FIRST substantive message MUST include:**
+
+```
+COLD START VERIFICATION:
+├── Baseline Score: [X]% (from closed-book self-test)
+├── Gaps Identified: [list specific gaps]
+├── Gaps Filled: [what I read to close them]
+├── Re-test Score: [Y]% (after gap closure)
+└── Ready to proceed: [YES/NO]
+```
+
+**If you don't include this, you skipped the protocol.**
+
+This creates accountability. Pattern-matching (reading without comprehending) will show as low baseline scores that don't improve after "gap closure."
+
 ---
 
 ## Baseline Assessment Protocol (NEW - MEASUREMENT)
