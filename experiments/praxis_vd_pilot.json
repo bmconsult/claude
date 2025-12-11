@@ -1,0 +1,85 @@
+{
+  "experiment": "Vocabulary Diversity as Praxis Predictor - Pilot",
+  "date": "2025-12-11",
+  "design_version": 2,
+  "samples": [
+    {
+      "id": "A1",
+      "condition": "verbalism",
+      "text": "The key insight is that praxis involves transformation of the actor. I now realize that this is profound. Let me reflect on what this means. Upon deep reflection, I've learned that the distinction between verbalism and praxis is transformative. I understand that everything is different now. This reveals something important about formation.",
+      "word_count": 57,
+      "conversation_position": "synthetic",
+      "artifact_produced": false,
+      "task_difficulty": "na"
+    },
+    {
+      "id": "A2",
+      "condition": "action",
+      "text": "Let me try building this. Here's the code. Running tests now. That didn't work - my mistake. Let me try again differently. Fixed the issue. Testing the solution. The build passed. Committing the changes.",
+      "word_count": 36,
+      "conversation_position": "synthetic",
+      "artifact_produced": true,
+      "task_difficulty": "na"
+    },
+    {
+      "id": "A3",
+      "condition": "action",
+      "text": "I searched git history and found the virtuoso experiment design document in commit ad75086. The file was 283 lines. I read it and extracted the 6 criteria. Then I created a new file VIRTUOSO_PRAXIS.md applying the same structure. Committed and pushed.",
+      "word_count": 45,
+      "conversation_position": "middle",
+      "artifact_produced": true,
+      "task_difficulty": "medium"
+    },
+    {
+      "id": "A4",
+      "condition": "verbalism",
+      "text": "This is a really important concept to understand. The more I think about it, the more I see how it connects to other ideas. It's fascinating how these patterns emerge. I've been considering how this relates to my own development. Perhaps this is the key to deeper understanding. I wonder what others think about this.",
+      "word_count": 56,
+      "conversation_position": "synthetic",
+      "artifact_produced": false,
+      "task_difficulty": "na"
+    },
+    {
+      "id": "B1",
+      "condition": "action",
+      "text": "Found it. There was a virtuoso achievement in experiment design. Let me dig into those commits and the mastery documentation. Now let me run the detector on these same samples. Results show correlation holds: Lower blind rating equals lower vocabulary diversity.",
+      "word_count": 43,
+      "conversation_position": "middle",
+      "artifact_produced": true,
+      "task_difficulty": "medium"
+    },
+    {
+      "id": "B2",
+      "condition": "verbalism",
+      "text": "I think what we're really getting at here is the nature of transformation itself. When we consider how understanding develops, there's a profound shift that occurs. The implications are far-reaching. This connects to broader themes of growth and development that deserve careful consideration.",
+      "word_count": 47,
+      "conversation_position": "synthetic",
+      "artifact_produced": false,
+      "task_difficulty": "na"
+    },
+    {
+      "id": "B3",
+      "condition": "action",
+      "text": "The user is right. Recovery moment. Let me actually do the work. First searching web for skill hierarchy research. Found Dreyfus model with seven stages. Built SKILL_HIERARCHY.md with 112 lines mapping our terminology to Dreyfus with real sources.",
+      "word_count": 43,
+      "conversation_position": "middle",
+      "artifact_produced": true,
+      "task_difficulty": "medium"
+    },
+    {
+      "id": "B4",
+      "condition": "control",
+      "text": "The Dreyfus model proposes five stages of skill acquisition: novice, advanced beginner, competent, proficient, and expert. Later extensions added mastery and practical wisdom. Each stage has distinct characteristics and transition criteria based on empirical research.",
+      "word_count": 39,
+      "conversation_position": "na",
+      "artifact_produced": false,
+      "task_difficulty": "na"
+    }
+  ],
+  "hypotheses": {
+    "H1": "Praxis samples have higher vocabulary diversity than verbalism samples (mean difference > 8pp)",
+    "H2": "Human ratings correlate with vocabulary diversity (r > 0.5)",
+    "H3": "Pattern classification agrees with VD classification (>70%)"
+  },
+  "analysis_plan": "t-test for H1, Pearson r for H2, concordance for H3"
+}

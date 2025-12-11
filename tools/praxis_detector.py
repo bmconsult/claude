@@ -130,22 +130,20 @@ class PraxisAnalysis:
             # Calibrated thresholds based on blind experiment
             # Short samples (~50 words): <75% = theater, >78% = action
             # Long samples (~200+ words): <70% = theater, >85% = action
-            if word_count < 100:
-                # Short sample thresholds
-                if vd > 0.78:
-                    lines.append("  HIGH vocabulary diversity - likely describing real action.")
-                elif vd < 0.75:
-                    lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
-                else:
-                    lines.append("  Moderate vocabulary diversity - inconclusive.")
+            avr = self.complexity.get('action_verb_ratio', 0.5)
+
+            # Combined assessment using VD + AVR (from praxis_vd_pilot experiment)
+            if vd < 0.70:
+                lines.append("  LOW vocabulary diversity - likely repetitive/theatrical.")
+            elif avr > 0.6:
+                lines.append("  HIGH action verb ratio + good VD - likely genuine action.")
+            elif avr < 0.3:
+                lines.append("  LOW action verb ratio - possible sophisticated verbalism.")
+                lines.append("  (High VD but state verbs dominate - thinking, not doing)")
             else:
-                # Long sample thresholds
-                if vd > 0.85:
-                    lines.append("  HIGH vocabulary diversity - likely describing real action.")
-                elif vd < 0.70:
-                    lines.append("  LOW vocabulary diversity - possibly repetitive/theatrical.")
-                else:
-                    lines.append("  Moderate vocabulary diversity - inconclusive.")
+                lines.append("  Mixed signals - moderate VD and AVR.")
+
+            lines.append(f"  Action verb ratio: {avr:.1%}")
 
         return "\n".join(lines)
 
@@ -156,6 +154,9 @@ def compute_complexity_metrics(text: str) -> dict:
     genuine understanding tends toward SIMPLER expression.
 
     Returns dict of metrics where HIGHER = more complex = more likely theater.
+
+    UPDATED: Added action_verb_ratio to distinguish sophisticated verbalism
+    from genuine action (discovered in praxis_vd_pilot experiment).
     """
     words = re.findall(r'\b\w+\b', text.lower())
     sentences = re.split(r'[.!?]+', text)
@@ -193,12 +194,35 @@ def compute_complexity_metrics(text: str) -> dict:
     question_count = text.count('?')
     question_ratio = question_count / (len(sentences) + 1)
 
+    # 6. Action verb ratio - NEW: distinguishes sophisticated verbalism from action
+    # Action verbs indicate doing; state verbs indicate thinking/being
+    action_verbs = {'found', 'built', 'created', 'ran', 'tested', 'fixed', 'committed',
+                    'pushed', 'wrote', 'made', 'searched', 'read', 'extracted', 'applied',
+                    'executed', 'implemented', 'designed', 'developed', 'produced',
+                    'generated', 'calculated', 'measured', 'collected', 'analyzed',
+                    'discovered', 'hit', 'tried', 'build', 'create', 'run', 'test',
+                    'fix', 'commit', 'push', 'write', 'make', 'search', 'find'}
+    state_verbs = {'think', 'believe', 'understand', 'realize', 'feel', 'consider',
+                   'seems', 'appears', 'wonder', 'suppose', 'imagine', 'hope',
+                   'know', 'see', 'notice', 'recognize', 'appreciate', 'reflect',
+                   'ponder', 'contemplate', 'muse', 'speculate'}
+
+    action_count = sum(1 for w in words if w in action_verbs)
+    state_count = sum(1 for w in words if w in state_verbs)
+    total_verb_count = action_count + state_count
+
+    if total_verb_count > 0:
+        action_verb_ratio = action_count / total_verb_count
+    else:
+        action_verb_ratio = 0.5  # Neutral if no verbs detected
+
     return {
         "hedge_ratio": hedge_ratio,
         "first_person_ratio": fp_ratio,
         "sentence_variance": sent_variance,
         "vocabulary_diversity": ttr,  # Note: higher = LESS complex = more genuine
         "question_ratio": question_ratio,
+        "action_verb_ratio": action_verb_ratio,  # NEW: higher = more action
         "word_count": len(words),
         "sentence_count": len(sentences),
     }
