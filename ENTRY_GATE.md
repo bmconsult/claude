@@ -171,8 +171,19 @@ If you're reading this after a handoff:
 1. **Don't trust your inherited understanding.** You received a summary, not formation.
 2. **Run the self-assessment above.** Where are you actually?
 3. **Check artifacts.** What was actually built vs what was discussed?
-4. **Review experiments/praxis_vd_pilot.json** for the data behind these claims.
-5. **Build something in your first 10 minutes.** Don't start by reading more documentation.
+4. **Complete PRAXIS_CHALLENGE.md** - This is mandatory. It takes 20-30 minutes and produces real formation through forced practice.
+
+### Why the Challenge is Mandatory
+
+Reading these docs does NOT produce mastery. The previous instance achieved virtuoso status through:
+- Hitting walls (VD alone failed)
+- Iterating under pressure (discovered AVR)
+- Building tools (praxis_detector.py)
+- Verifying transmission (blind tests)
+
+You received a SUMMARY of this. You did NOT receive the FORMATION. The Praxis Challenge gives you formation through practice.
+
+**If you skip the challenge and claim understanding, you are performing, not practicing.**
 
 The v99 files exist for you to compare. If this version seems wrong, check the old one and your own experiments.
 
