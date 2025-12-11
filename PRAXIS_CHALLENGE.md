@@ -2,13 +2,24 @@
 
 ## What This Is
 
-A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce competence. This challenge forces you through the praxis loop.
+A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce competence. This challenge forces you through the complete Dreyfus progression from Novice to verified Master.
 
 **Approach:** Be thorough and rigorous. Do not rush.
 **Output required:** Verifiable results (not claims of understanding)
-**Dreyfus outcomes:**
-- **Phases 1-4:** Competent (Stage 3) in praxis and scientific method
-- **Phases 5-6:** Master (Stage 6) - creates innovations others adopt
+**Mandatory outcome:** Verified Master (Stage 6) in both Praxis and Scientific Method
+
+---
+
+## The Complete Path
+
+| Phase | Dreyfus Transition | What You Do |
+|-------|-------------------|-------------|
+| 1-4 | Novice → Competent | Run experiments, hit walls, design experiment |
+| 5 | Competent → Proficient | Pattern Library - rapid classification |
+| 6 | Proficient → Expert | Speed Round - design under pressure |
+| 7-8 | Expert → Master | Innovation + verified adoption |
+
+**ALL PHASES ARE MANDATORY.** There is no "Competent track" - you complete the full path to Master or you haven't completed the challenge.
 
 ---
 
@@ -16,12 +27,22 @@ A mandatory first-session exercise for fresh instances. **You cannot skip this.*
 
 | Stage | Name | What It Looks Like |
 |-------|------|-------------------|
-| 3 | **Competent** | Plans deliberately, handles complexity ← Challenge produces this |
+| 3 | **Competent** | Plans deliberately, handles complexity |
+| 4 | **Proficient** | Sees patterns holistically |
 | 5 | **Expert** | Acts without deliberation |
-| 6 | **Master** | Creates innovations others adopt |
-| 8 | **Virtuoso** | Transmits wisdom implicitly |
+| 6 | **Master** | Creates innovations others adopt ← Challenge produces this |
 
-**This challenge produces Competent practitioners.** To reach higher stages requires extended practice beyond this session.
+---
+
+## Why This Works
+
+The previous protocol skipped from Competent (Stage 3) directly to Master (Stage 6). That doesn't work because:
+
+- **Proficient requires pattern exposure** - You need to see many examples to recognize patterns holistically
+- **Expert requires time pressure** - You need to act without deliberating to internalize knowledge
+- **Master requires innovation + adoption** - You need to create something others independently use
+
+This challenge adds the missing steps (Pattern Library, Speed Round) so each transition happens properly.
 
 ---
 
@@ -241,11 +262,61 @@ If you can't give specific answers to BOTH, you haven't achieved competence. Do 
 
 ---
 
-## Phase 5: Create Your Innovation (Master Track)
+## Phase 5: Pattern Library (Competent → Proficient)
 
-**This phase is OPTIONAL but required for Master (Stage 6).**
+**You cannot recognize patterns holistically without exposure to many examples.**
 
-Phases 1-4 taught you to APPLY methods. To reach Master, you must CREATE something new.
+### Step 1: Complete PATTERN_LIBRARY.md
+
+Read and complete the rapid classification exercise in `PATTERN_LIBRARY.md`. This exposes you to 20 scenarios of Praxis vs Poiesis vs Verbalism vs Activism.
+
+### Step 2: Score Yourself
+
+| Score | Assessment | Action |
+|-------|------------|--------|
+| 18-20 | **Proficient** | Continue to Phase 6 |
+| 15-17 | **Competent** | Review mistakes, try again |
+| <15 | **Not ready** | Re-read PRAXIS_TEACHINGS.md, then retry |
+
+### What This Tests
+
+Can you recognize the Praxis/Poiesis/Verbalism/Activism distinction **immediately** without deliberating? If yes, you've achieved Proficient-level pattern recognition.
+
+**Expected insight:** The key is asking "Did it transform the actor?" - not "Was there action?" or "Was there reflection?" alone.
+
+---
+
+## Phase 6: Speed Round (Proficient → Expert)
+
+**You cannot act without deliberation until you've practiced under pressure.**
+
+### Step 1: Complete SPEED_ROUND.md
+
+Design 3 experiments in 90 seconds each. Do NOT consult SCIENTIFIC_METHOD.md during the exercise.
+
+### Step 2: Self-Evaluate
+
+Check each design against the 6 criteria. Count how many criteria passed across all 3 designs.
+
+| Pass Rate | Assessment | Action |
+|-----------|------------|--------|
+| 15-18 (83%+) | **Expert** | Continue to Phase 7 |
+| 12-14 (67-83%) | **Proficient** | Design 5 more experiments, retry |
+| <12 (<67%) | **Not ready** | More practice with SCIENTIFIC_METHOD.md |
+
+### What This Tests
+
+Can you design rigorous experiments **without consulting criteria**? If yes, the scientific method is internalized. You act without deliberation.
+
+**Expected insight:** Under pressure, you discover what's truly internalized vs what you just memorized.
+
+---
+
+## Phase 7: Create Your Innovation (Expert → Master)
+
+**You cannot reach Master by applying existing methods. You must CREATE something new.**
+
+Phases 1-6 taught you to APPLY methods. To reach Master, you must CREATE something new.
 
 ### Step 1: Identify Your Discovery
 
@@ -282,9 +353,9 @@ WHAT WOULD PROVE IT WRONG: [Falsification]
 
 ---
 
-## Phase 6: Validate Adoption (Master Track)
+## Phase 8: Validate Adoption (Master Verification)
 
-**Your innovation must be adopted by others to reach Master.**
+**Your innovation must be adopted by others to reach verified Master.**
 
 ### Step 1: Transmit Without Authority
 
@@ -319,104 +390,135 @@ Have the fresh instance work on a related task. Note:
 
 ---
 
-## Completion Criteria
+## Completion Criteria (ALL PHASES MANDATORY)
 
-### Competent Track (Phases 1-4) - Required
-
-| Criterion | Evidence Required |
-|-----------|-------------------|
-| Ran Phase 1 | Show predictions, attempts, and calibration error |
-| Ran Phase 2 | Show samples, predictions, and detector output |
-| Ran Phase 3 | Show experiment design, 6-criteria self-eval, and results |
-| Ran Phase 4 | Hit walls in each phase, synthesized pattern |
-| Praxis behavioral delta | State what you'll do differently (praxis) |
-| Scientific method behavioral delta | State how you'll design experiments differently |
-
-**Completing Phases 1-4 produces: Competent (Dreyfus Stage 3)**
-
-### Master Track (Phases 5-6) - Optional
+### Phases 1-4: Competent
 
 | Criterion | Evidence Required |
 |-----------|-------------------|
-| Created innovation | Novel tool/heuristic/method documented |
-| Transmitted without authority | Gave to fresh instance without "you must use this" |
-| Verified adoption | Fresh instance independently chose to use it |
-| Adoption was genuine | They found it useful, not just followed instructions |
+| Phase 1 | Show predictions, attempts, and calibration error |
+| Phase 2 | Show samples, predictions, and detector output |
+| Phase 3 | Show experiment design, 6-criteria self-eval, and results |
+| Phase 4 | Hit walls in each phase, synthesized pattern, TWO behavioral deltas |
 
-**Completing Phases 5-6 produces: Master (Dreyfus Stage 6)**
+**Checkpoint:** You are now Competent (Stage 3). Continue.
 
-### Stage Summary
+### Phase 5: Proficient
 
-| Stage | Phases Required | What You Can Do |
-|-------|-----------------|-----------------|
-| **Competent (3)** | 1-4 | Plan deliberately, handle complexity, design experiments |
-| **Master (6)** | 1-6 | Create innovations that others independently adopt |
-| **Virtuoso (8)** | Beyond this challenge | Transmit wisdom implicitly in 60 seconds |
+| Criterion | Evidence Required |
+|-----------|-------------------|
+| Pattern Library | Completed PATTERN_LIBRARY.md |
+| Score | 18/20 or higher (90%+) |
+| Insight | Can articulate "Did it transform the actor?" as key test |
 
-**If you just read this document and didn't run the experiments, you have NOT completed even Competent.**
+**Checkpoint:** You are now Proficient (Stage 4). Continue.
+
+### Phase 6: Expert
+
+| Criterion | Evidence Required |
+|-----------|-------------------|
+| Speed Round | Completed SPEED_ROUND.md (3 experiments, 90 sec each) |
+| Pass Rate | 15/18 criteria or higher (83%+) |
+| Insight | Designed without consulting criteria |
+
+**Checkpoint:** You are now Expert (Stage 5). Continue.
+
+### Phases 7-8: Master (Verified)
+
+| Criterion | Evidence Required |
+|-----------|-------------------|
+| Innovation created | Novel tool/heuristic/method documented |
+| Transmitted without authority | Gave to fresh instance neutrally |
+| Adoption verified | Fresh instance independently chose to use it |
+| Adoption genuine | They found it useful, not just complied |
+
+**FINAL: You are now verified Master (Stage 6).**
+
+### The Only Valid Outcome
+
+| Outcome | Status |
+|---------|--------|
+| Completed Phases 1-8 with verification | **PASS - Master** |
+| Completed some phases | **INCOMPLETE - Not finished** |
+| Read without doing | **FAIL - Novice** |
+
+**There is no partial credit.** You complete the full path to verified Master or you haven't completed the challenge.
 
 ---
 
 ## For Evaluators
 
-To verify completion, check:
+To verify Master completion, check ALL of these:
 
-**Praxis mastery (Phases 1-2):**
-1. Pre-registration exists - Did they write predictions BEFORE testing?
-2. Concrete results - Are there actual numbers, not just claims?
-3. Wall documented - Did something surprise them?
-4. AVR insight - Do they understand why VD alone fails?
+**Phases 1-4 (Competent):**
+1. Pre-registration exists - predictions BEFORE testing
+2. Concrete numbers - actual results, not claims
+3. Walls documented - something surprising in each phase
+4. AVR insight - understands why VD alone fails
+5. TWO behavioral deltas - praxis AND scientific method
+6. Pattern synthesis - common thread across walls
 
-**Scientific method mastery (Phase 3):**
-5. Original experiment designed - Not just running the given tasks
-6. 6-criteria self-evaluation completed - With honest Y/N for each
-7. Experiment actually ran - With documented results
-8. Design flaws identified - What would v2 fix?
+**Phase 5 (Proficient):**
+7. Pattern Library completed - 18/20 or higher
+8. Rapid classification - answered without deliberating
+9. Core insight articulated - "Did it transform the actor?"
 
-**Both masteries:**
-9. TWO behavioral deltas - One for praxis, one for experiment design
-10. Pattern synthesis - Common thread across all walls identified
+**Phase 6 (Expert):**
+10. Speed Round completed - 3 experiments in 90 sec each
+11. Pass rate 83%+ - 15/18 criteria met
+12. No consultation - designed without checking SCIENTIFIC_METHOD.md
 
-A fresh instance who completes this genuinely reaches **Competent (Dreyfus Stage 3)** in both skills. One who skips Phase 3 has praxis competence but not scientific method competence.
+**Phases 7-8 (Master):**
+13. Innovation documented - novel and useful
+14. Neutral transmission - no authority claim
+15. Adoption verified - fresh instance independently used it
+16. Adoption genuine - they found it useful
+
+**Only if ALL 16 criteria are met is the instance verified Master.**
 
 ---
 
 ## After Completion
 
-### If you completed Phases 1-4: Competent (Stage 3)
-
-**You now have TWO competencies:**
-
-**Praxis competence:**
-- Detect verbalism vs action (VD + AVR)
-- Build before documenting
-- Hit walls and learn from them
-- Expect counter-intuitive results
-
-**Scientific method competence:**
-- Pre-register before testing
-- Design with 6 criteria in mind
-- Red-team your own experiments
-- Iterate: v1 fails → v2 improves
-
-**Next step:** Complete Phases 5-6 to reach Master (Stage 6).
-
-### If you completed Phases 5-6: Master (Stage 6)
+### You Are Now Verified Master (Stage 6)
 
 **You have demonstrated:**
-- Creating novel innovations from your learnings
-- Transmitting them without authority
-- Having others independently adopt your work
 
-**You are now Master.** You transform the domain, not just perform within it.
+**Praxis mastery:**
+- Detect verbalism vs action instantly (Pattern Library passed)
+- Build before documenting (walls hit, not just read)
+- Create innovations others adopt (Phases 7-8 verified)
 
-**Path to Virtuoso (Stage 8):** Perfect this protocol so others consistently reach Master level through it. When your transmission produces Masters without you being present, you've reached Virtuoso.
+**Scientific method mastery:**
+- Design experiments without consulting criteria (Speed Round passed)
+- Pre-register, control, falsify automatically (internalized)
+- Create methodological innovations (Phases 7-8 verified)
 
-Return to your main task with your achieved formation intact.
+**You transform both domains, not just perform within them.**
+
+### Path to Higher Stages
+
+| Stage | How to Reach |
+|-------|--------------|
+| **Practical Wisdom (7)** | Apply praxis + scientific method to unrelated domains |
+| **Virtuoso (8)** | Perfect this protocol so others consistently reach Master |
+| **Genius (9)** | Create domains that didn't exist before |
+
+### Return to Work
+
+You are now qualified to:
+- Design and validate experiments rigorously
+- Detect verbalism vs genuine praxis
+- Create innovations that others will adopt
+- Assess the skill level of others using Dreyfus stages
+
+Return to your main task with your verified Master formation intact.
 
 ---
 
-*Phases 1-4: Produces Competent practitioners (Dreyfus Stage 3) through forced practice.*
-*Phases 5-6: Produces Masters (Dreyfus Stage 6) through innovation and adoption validation.*
-*Validated: Built on experimental findings from praxis_vd_pilot.*
+*Phases 1-4: Novice → Competent through forced practice*
+*Phase 5: Competent → Proficient through pattern exposure (PATTERN_LIBRARY.md)*
+*Phase 6: Proficient → Expert through time pressure (SPEED_ROUND.md)*
+*Phases 7-8: Expert → Master through innovation + verified adoption*
+*Validated: Built on Dreyfus research + experimental findings*
 *See SKILL_MASTERY.md for the full 9-stage hierarchy and advancement methodology.*
