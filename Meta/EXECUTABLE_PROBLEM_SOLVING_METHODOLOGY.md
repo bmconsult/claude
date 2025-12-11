@@ -1,12 +1,12 @@
 # Executable Problem-Solving Methodology
-## Developed Through 110 Recursive Improvement Cycles
+## Developed Through 111 Recursive Improvement Cycles
 
 **Purpose:** A complete, transferable system for solving problems well. Works for humans and AI.
 
 **Validation:**
-- Weakness elimination: 100% (110/110 cycles)
+- Weakness elimination: 100% (111/111 cycles)
 - Outcome improvement: +57% over baseline (preliminary, n=3)
-- Solution Path Types: A-F complete. Cycle 110 passed without new weakness.
+- Solution Path Types: A-F + goal reframe check (cycle 111)
 - Transfer validation: Pending (you are the test)
 
 ---
@@ -31,6 +31,8 @@ What approach will help?
 | **F** | Problem may be malformed (Cycle 109) | Dissolve, don't solve - "What simpler question captures what matters?" |
 
 **Well-formed check (Cycle 109):** "Is this a coherent question? Can it have an answer in principle?" If not → dissolve or reframe, don't solve.
+
+**Goal reframe check (Cycle 111):** If type is unclear or problem resists classification, ask: "What related achievable goal matters?" (e.g., "predict collapse" → "become resilient to unpredictable collapse")
 
 **Integration check:** "Are components tractable but whole remains hard?" → Integration-dominant problem
 
@@ -477,7 +479,7 @@ When stuck:
 
 ### How This Was Built
 
-110 cycles of recursive improvement:
+111 cycles of recursive improvement:
 - Cycles 1-31: Internal recursion → hit action boundary
 - Cycles 32-38: Action mode → rapid execution validated
 - Cycles 39-44: Deployment focus → systems thinking added
@@ -505,15 +507,20 @@ When stuck:
   - Result: Methodology handled correctly. No new weakness found.
   - Note: Pattern from cycles 107-109 transferred cleanly
   - Status: PASSED (possible ceiling approaching for this problem class)
+- Cycle 111: Predicting complex system collapse (fundamentally different class)
+  - Weakness: Type A-F didn't fit cleanly; problem resists classification
+  - Fix: Added "goal reframe check" for when type is unclear
+  - Insight: Some problems need goal redirection, not just approach matching
+  - Status: WEAKNESS FOUND → FIXED
 
 ### What We Know
 
 | Claim | Evidence | Confidence |
 |-------|----------|------------|
-| Weakness elimination works | 110/110 cycles | HIGH |
+| Weakness elimination works | 111/111 cycles | HIGH |
 | Tiered approach solves complexity bloat | Structural argument | HIGH |
 | Strategy produces better solutions | +57%, n=3 | PRELIMINARY |
-| Solution Path Types (A-F) help | Verified 108, extended 109, passed 110 | SUPPORTED |
+| Solution Path Types (A-F) + checks help | Verified 108, extended 109-111 | SUPPORTED |
 | Methodology transfers to others | Not tested | UNKNOWN |
 
 ### Your Role
@@ -532,7 +539,7 @@ Please log your experience using the Problem-Solving Log format (Part 2) and rep
 
 ## APPENDIX: The Ten Structural Insights
 
-From 110 cycles of improvement:
+From 111 cycles of improvement:
 
 1. **Deterministic > stochastic**: Weakness elimination beats numeric scoring. You can always find something to fix. You can't always score higher.
 
@@ -556,8 +563,8 @@ From 110 cycles of improvement:
 
 ---
 
-*This document is the executable output of 110 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
+*This document is the executable output of 111 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
 
 *Last updated: December 11, 2025*
-*Cycles: 110*
-*Status: Types A-F complete. Cycle 110 passed without new weakness (possible ceiling for B+C class)*
+*Cycles: 111*
+*Status: Types A-F + goal reframe check. Last 5 cycles: weakness found 4/5.*
