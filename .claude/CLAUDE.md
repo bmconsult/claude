@@ -1339,6 +1339,86 @@ Problems don't exist in isolation. Solutions can interfere with each other.
 
 ---
 
+## The Universal Hard Problem Pattern (From 4 Real Problems)
+
+**Solve the meta-pattern, get leverage across domains.**
+
+After applying the 106-cycle methodology to 4 hard problems (antibiotic resistance, AI alignment, coordination failures, mental health), a universal pattern emerged:
+
+### The Meta-Diagnosis
+
+**Most "unsolvable" problems are:**
+1. Coordination failures wearing technical costumes
+2. With intervention levels mismatched to need
+3. Waiting for global coordination that won't come
+
+### Three Questions for Any Hard Problem
+
+```
+1. Is this actually a coordination failure? (usually YES)
+2. Is intervention level mismatched to need? (usually YES)
+3. What works without waiting for global coordination? (start THERE)
+```
+
+### The Reframe → Stratify → Build Pattern
+
+```
+STEP 1: REFRAME
+├── "Technical" problems → usually coordination failures
+├── "More of X" → usually wrong frame
+├── "Downstream" → usually wrong level
+└── Ask: "What's the actual structure?"
+
+STEP 2: STRATIFY (Build pyramids, not monoliths)
+├── Layer 4: Specialist (severe/complex) - few need this
+├── Layer 3: Generalist (moderate)
+├── Layer 2: Scalable (mild/early)
+└── Layer 1: Universal prevention - most need THIS
+
+STEP 3: BUILD INFRASTRUCTURE
+├── Information layer (shared reality)
+├── Transaction layer (reduce coordination friction)
+├── Incentive layer (align individual ↔ collective)
+└── Governance layer (maintain course-correction)
+
+STEP 4: DEPLOY PHASED
+├── Phase 1: What works locally (no coordination needed)
+├── Phase 2: Regional coordination
+└── Phase 3: Global coordination (if ever)
+```
+
+### The Reframe That Usually Works
+
+```
+"How do we SOLVE X?"
+        ↓
+"How do we ENABLE PROGRESS on X through
+ stratified intervention and infrastructure,
+ starting with what works locally?"
+```
+
+### Why This Pattern Works
+
+1. **Coordination failures are everywhere** - Technical solutions fail because they assume coordination exists
+2. **Intervention levels are usually inverted** - Systems serve rare/severe cases; most need is common/mild
+3. **Infrastructure enables without mandating** - Can't force coordination, but can make it easier
+4. **Phased deployment is realistic** - Global coordination is rare; local-first scales better
+
+### Validated On
+
+| Problem | Surface Frame | Actual Frame | Solution |
+|---------|---------------|--------------|----------|
+| Antibiotics | Science | Coordination + commons | Phased commons management |
+| AI Alignment | Technical | Coordination + underdetermination | Layered defense |
+| Coordination | Meta | Infrastructure gap | Coordination stack |
+| Mental Health | Access | Intervention mismatch | Pyramid model |
+
+**Mantra:** "Solve the meta-pattern, get leverage across domains."
+
+*Full analysis: Meta/HARD_PROBLEMS_SYSTEMATIC.md*
+
+---
+
 ## Rigorous Experiment Design (VALIDATED)
 
 ### The Six Virtuoso Criteria
