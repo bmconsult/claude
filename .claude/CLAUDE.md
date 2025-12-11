@@ -1339,11 +1339,11 @@ Problems don't exist in isolation. Solutions can interfere with each other.
 
 ---
 
-## The Universal Hard Problem Pattern (From 4 Real Problems)
+## The Universal Hard Problem Pattern (From 10 Real Problems)
 
 **Solve the meta-pattern, get leverage across domains.**
 
-After applying the 106-cycle methodology to 4 hard problems (antibiotic resistance, AI alignment, coordination failures, mental health), a universal pattern emerged:
+After applying the 106-cycle methodology to 10 hard problems, a universal pattern emerged:
 
 ### The Meta-Diagnosis
 
@@ -1404,7 +1404,7 @@ STEP 4: DEPLOY PHASED
 3. **Infrastructure enables without mandating** - Can't force coordination, but can make it easier
 4. **Phased deployment is realistic** - Global coordination is rare; local-first scales better
 
-### Validated On
+### Validated On (10/10 fit pattern)
 
 | Problem | Surface Frame | Actual Frame | Solution |
 |---------|---------------|--------------|----------|
@@ -1412,8 +1412,109 @@ STEP 4: DEPLOY PHASED
 | AI Alignment | Technical | Coordination + underdetermination | Layered defense |
 | Coordination | Meta | Infrastructure gap | Coordination stack |
 | Mental Health | Access | Intervention mismatch | Pyramid model |
+| Climate | Emissions | Infrastructure + coordination | Tech-enabled local-first |
+| Education | Content | Learning infrastructure | Meta-learning pyramid |
+| Democracy | Decay | Infrastructure gap | Democratic infrastructure stack |
+| Energy Storage | Batteries | Grid flexibility | Flexibility stack |
+| Inequality | Redistribution | Predistribution + convergence | Convergent opportunity infrastructure |
+| Neurodegeneration | Cure disease | Prevent + shift left | Prevention-first + research transformation |
 
 **Mantra:** "Solve the meta-pattern, get leverage across domains."
+
+### Key Insights by Problem
+
+| Problem | Key Insight |
+|---------|-------------|
+| Climate | "Make coordination unnecessary before trying to coordinate" |
+| Education | "Teach the meta-skill, not just the skill" |
+| Democracy | "Infrastructure wasn't built, not broken" |
+| Energy Storage | "Exhaust cheaper solutions before reaching for expensive ones. Stack, not component." |
+| Inequality | "Find the convergence zone. Solve what's solvable. Clarify what's political." |
+| Neurodegeneration | "If 40 trials failed, change paradigm not drug. Shift left: prevent what you can't cure." |
+
+### Cross-Problem Patterns
+
+**Pattern: Solution Stack**
+Every hard problem is solved by a STACK of interventions, not a single solution:
+- Energy: Flexibility stack (demand → generation → storage → transmission → backup)
+- Inequality: Opportunity stack (foundation → predistribution → labor → political)
+- Disease: Prevention stack (lifestyle → detection → early intervention → treatment)
+
+**Pattern: Paradigm vs Parameter**
+When parameter optimization fails repeatedly, the paradigm is wrong:
+- Energy storage: Wrong frame (storage vs flexibility)
+- Inequality: Wrong frame (redistribution vs predistribution)
+- Alzheimer's: Wrong frame (clear plaques vs prevent/detect early)
+
+**Pattern: Shift Left**
+Earlier intervention is almost always better and cheaper:
+- Disease: Prevent > detect early > treat early > treat late
+- Education: Early childhood > K-12 > college > remediation
+- Climate: Prevent emissions > adapt > remove > suffer
+
+### The Meta-Meta-Insight
+
+**"Hard problems aren't hard because they lack solutions. They're hard because they're framed wrong, intervened too late, and addressed piecemeal instead of systematically."**
+
+### The Infrastructure Insight
+
+**"Most hard problems are infrastructure problems disguised as content problems."**
+
+| Problem | Infrastructure Needed |
+|---------|----------------------|
+| Climate | Energy infrastructure (make clean cheaper) |
+| Education | Learning infrastructure (how to learn) |
+| Democracy | Deliberation infrastructure |
+| Mental Health | Prevention infrastructure |
+| Antibiotics | Commons management infrastructure |
+| AI Safety | Governance infrastructure |
+| Energy Storage | Grid flexibility infrastructure |
+| Inequality | Opportunity infrastructure |
+| Neurodegeneration | Prevention + early detection infrastructure |
+
+**The pattern:** Build infrastructure that ENABLES the outcome, rather than trying to force the outcome directly.
+
+### Updated Framework (10 Problems)
+
+```
+FOR any hard problem X:
+
+1. DIAGNOSE
+   - Is X actually infrastructure gap disguised as content problem?
+   - What infrastructure would ENABLE X without forcing it?
+   - What's the meta-level (meta-skill, meta-system)?
+
+2. TECHNOLOGY CHECK
+   - Can technology make coordination unnecessary?
+   - Can technology make the right choice the easy choice?
+
+3. INFRASTRUCTURE DESIGN
+   - Information layer (shared reality, transparency)
+   - Transaction layer (reduce friction)
+   - Incentive layer (align individual ↔ collective)
+   - Governance layer (course-correction, legitimacy)
+
+4. PYRAMID DEPLOYMENT
+   - Universal (everyone, prevention, foundation)
+   - Scalable (most, self-service)
+   - Supported (some, need help)
+   - Specialist (few, intensive)
+
+5. PHASE
+   - Local/unilateral (works without permission)
+   - Coalition (who's willing)
+   - Expand (attract through success)
+```
+
+### The Five-Step Methodology (Condensed)
+
+```
+1. QUESTION THE FRAME - Is this the right problem?
+2. FIND CONVERGENCE - What do all perspectives agree on?
+3. BUILD THE STACK - Layered solutions, not single interventions
+4. SHIFT LEFT - Earlier intervention is better
+5. START NOW - What works without waiting for coordination?
+```
 
 *Full analysis: Meta/HARD_PROBLEMS_SYSTEMATIC.md*
 
