@@ -824,3 +824,601 @@ Add to Type C handling:
 
 ## Next: Attack Problem 4 (General-Purpose Antibody Design)
 
+---
+
+## PROBLEM 4: General-Purpose Antibody Design
+
+### Step 0: PROBLEM TYPE CLASSIFICATION
+
+**Type A (Analysis)?** YES - We know antibody structure, can predict binding
+**Type B (Iteration)?** YES - Requires testing candidates experimentally
+**Type C (Racing)?** Partially - Racing small molecule drugs for some targets
+**Type D (Serendipity)?** Less so - AlphaFold opened door, path clearer now
+
+**Classification: Type A + B (analysis-guided iteration)**
+
+**Implication:**
+- Analysis can now predict which antibodies MIGHT bind (post-AlphaFold)
+- But binding ≠ efficacy; must test experimentally
+- Iteration enabled by high-throughput screening
+- Less of a race (antibodies complement rather than replace other approaches)
+
+**Key questions:**
+- "How do we close the gap between predicted binding and actual efficacy?"
+- "What enables faster iteration through design-test cycles?"
+
+---
+
+### Tier Classification: TIER 3 (Rigorous)
+
+**Signals:**
+- Hidden constraints: YES (immunogenicity, manufacturing, delivery)
+- Multiple stakeholders: YES (pharma, biotech, academia, regulators)
+- High cost if wrong: YES (clinical trials cost billions)
+
+---
+
+### Step -2: META-FRAME AUDIT
+
+**What mental models am I bringing?**
+- "Binding = efficacy" - Wrong. Binding is necessary not sufficient
+- "Computational design replaces wet lab" - Wrong. It accelerates, doesn't replace
+- "One antibody per target" - Wrong. Many possible binders, choosing best is hard
+- "Design is the hard part" - Maybe wrong. Manufacturing/delivery might be harder
+
+**What would someone from different domain notice?**
+- ML engineer: "This is a search over protein space. How big? How do we explore efficiently?"
+- Manufacturing engineer: "Can we make this at scale? What about glycosylation, aggregation?"
+- Clinician: "Does it get where it needs to go? What's the half-life? Immunogenicity?"
+- Economist: "Cost per dose vs small molecules? Biosimilar competition?"
+
+**What am I taking as given that might be a choice?**
+- That full-length antibodies are the format (vs nanobodies, fragments, scaffolds)
+- That we target known epitopes (vs discovering new epitopes)
+- That binding affinity is the primary metric (vs stability, manufacturability)
+- That human/humanized is required (for chronic use; not always true)
+
+---
+
+### Step -1: CLASSIFY DOMAIN (Cynefin)
+
+**Is cause-effect obvious?** Partially
+- We understand antibody-antigen binding well
+- We DON'T fully understand efficacy in vivo
+- We DON'T predict immunogenicity well
+
+**Is it complicated or complex?**
+- COMPLICATED: Structure prediction is now tractable
+- COMPLEX: Biological response to antibodies in organism
+- Cause-effect for efficacy is retrospective
+
+**Domain: COMPLICATED (structure) + COMPLEX (biology)**
+
+---
+
+### Step 0: DISCOVER (Unknown Unknowns)
+
+**What constraints exist only at deployment?**
+- Immunogenicity (body rejects the antibody)
+- Aggregation during storage
+- Delivery to target tissue (especially brain, tumors)
+- Manufacturing scale-up (CHO cell expression variability)
+
+**What unknown unknowns might exist?**
+- Off-target binding effects we can't predict
+- Long-term effects of chronic dosing
+- Patient-specific responses
+- Whether "general purpose" is even achievable (each target is different)
+
+**Doom loop check (Type C):** Not severe. Antibodies have proven value, funding stable. But CAR-T and gene therapy are alternatives for some targets.
+
+---
+
+### Step 1: STATE THE PROBLEM
+
+**Surface frame:** "Design antibodies that bind any target on demand"
+
+**Probing:**
+- Is the problem prediction? (Which sequences will bind?)
+- Is the problem optimization? (Which of many binders is best?)
+- Is the problem validation? (Does binding translate to efficacy?)
+- Is the problem manufacturing? (Can we make it at scale?)
+
+**Deeper frame:** "How do we go from target to clinical candidate faster and cheaper?"
+
+Note: "General purpose" is aspirational. Reality is target-by-target with improving tools.
+
+---
+
+### Step 2: VERIFY FRAME
+
+**Alternative frames:**
+1. **Discovery frame:** "Find any antibody that binds" - Solved (phage display, etc.)
+2. **Optimization frame:** "Find the BEST antibody for a target" - Current frontier
+3. **Engineering frame:** "Design antibodies with specific properties" - Emerging
+4. **Platform frame:** "Build infrastructure for rapid antibody development" - Meta-level
+
+**The frame that unlocks:** Platform thinking. The goal isn't one antibody; it's capability to generate optimized antibodies for any target rapidly.
+
+**Key insight:** This is an infrastructure problem disguised as a science problem. Build the platform, then targets become easy.
+
+---
+
+### Step 3: IDENTIFY CONSTRAINTS
+
+**Hard constraints:**
+- Biology (immune system, pharmacokinetics)
+- Chemistry (protein folding, stability)
+- Physics (binding thermodynamics)
+
+**Soft constraints (could be changed):**
+- "Must be full IgG" - Nanobodies, fragments, bispecifics exist
+- "Must go through traditional trials" - Accelerated pathways emerging
+- "Must manufacture in CHO cells" - Alternative expression systems exist
+- "High affinity is best" - Sometimes lower affinity is better (safety)
+
+**Hidden constraints:**
+- Pharma business model favors few blockbusters over many tailored drugs
+- Regulatory path optimized for small molecules
+- Patent landscape (FTO issues with certain formats)
+- Academic incentives favor novelty over translation
+
+---
+
+### Step 4: GENERATE APPROACHES
+
+**Approach 1: Computational design (de novo)**
+- Use AI to design sequences from scratch
+- RFdiffusion, ProteinMPNN, AlphaFold
+- But: Still needs experimental validation
+
+**Approach 2: Library-based discovery + optimization**
+- Screen large libraries, then optimize hits
+- Mature technology, proven track record
+- But: Limited to library diversity
+
+**Approach 3: Directed evolution**
+- Evolve antibodies through selective pressure
+- Can find solutions computation misses
+- But: Slow, expensive
+
+**Approach 4: Hybrid computational + experimental**
+- Computation narrows search, experiment validates
+- Best of both worlds
+- But: Requires tight integration
+
+**Approach 5: Foundation models for antibodies**
+- Train on all known antibody-antigen pairs
+- Generate candidates for new targets
+- But: Data limited, generalization uncertain
+
+**Approach 6: Platform companies**
+- Build integrated design-test-manufacture platform
+- Amortize infrastructure across many targets
+- But: High upfront investment
+
+---
+
+### Step 5: EVALUATE + RED-TEAM
+
+**Approach 1 (De novo design):**
+- Pro: Can access sequences not in libraries
+- Con: Still early, high failure rate in validation
+- Red team: "De novo" often requires post-design optimization anyway
+
+**Approach 2 (Library-based):**
+- Pro: Mature, proven, regulatory acceptance
+- Con: Limited diversity, may miss best solutions
+- Red team: Most low-hanging fruit picked
+
+**Approach 4 (Hybrid):**
+- Pro: Leverages strengths of both approaches
+- Con: Integration is hard, requires diverse expertise
+- Red team: Organizational silos prevent true integration
+
+**Approach 6 (Platform):**
+- Pro: Scalable, amortizes learning
+- Con: High upfront cost, must get diverse targets to justify
+- Red team: Platforms have failed before (Juno, etc.)
+
+---
+
+### Step 6: SELECT + SYNTHESIZE
+
+**The synthesis:** This is a platform problem. Winners will be those who:
+1. Integrate computation + experiment in tight loops
+2. Build data flywheel (each project improves the platform)
+3. Solve manufacturing early (not afterthought)
+4. Target diverse enough problems to amortize platform cost
+
+**Key insight:** The AlphaFold moment already happened. Now it's engineering and integration, not fundamental science.
+
+**Strategy:**
+1. **Near-term:** Hybrid approach (computation guides experiment)
+2. **Medium-term:** Foundation models trained on proprietary data
+3. **Long-term:** Automated design-build-test-learn loops
+
+**The meta-insight:** This is actually a **Type B problem** (iteration) that masquerades as Type A (analysis). The analysis (structure prediction) is largely solved. The bottleneck is experimental validation and integration.
+
+---
+
+## HITTING THE WALL (Problem 4)
+
+**Where methodology helped:**
+
+- Type classification correctly identified: Analysis is solved, iteration is bottleneck
+- "Infrastructure problem disguised as X problem" pattern from earlier work applied
+- Platform thinking reframed from "solve one target" to "build capability"
+
+**What's new:**
+
+The hard part of this problem is **integration**: getting computation, experiment, and manufacturing to work as one system. None of the individual pieces is impossible; the integration is.
+
+**New pattern: Integration-dominant problems**
+- Individual components are tractable
+- Integration is the bottleneck
+- Organizational/institutional barriers exceed technical barriers
+
+**Proposed addition:**
+After Type classification, ask: "Is this integration-dominant? If so, what prevents integration?"
+
+---
+
+## CYCLE 4 LEARNING
+
+**What worked:**
+- Type B/C classification helped identify real bottleneck (not science, but engineering)
+- Platform framing was productive
+- "Infrastructure disguised as X" pattern transferred
+
+**What's new:**
+- Integration-dominant problems: Components solvable, integration isn't
+- Institutional barriers (pharma business model, academic silos) are constraints
+- "Technical problem" can hide organizational problem
+
+**Proposed fix:**
+Add integration check: "Are the components tractable? If yes and problem remains hard, it's integration-dominant."
+
+---
+
+## Running Total: Methodology Improvements
+
+| Cycle | Problem | Type | Learning | Fix |
+|-------|---------|------|----------|-----|
+| 1 | Fusion | B+C | Racing + iteration | Add Type B/C classification |
+| 2 | Superconductivity | B+D | Serendipity problems | Add Type D classification |
+| 3 | Quantum Error | B+C | Doom loops in races | Add "minimum win" question |
+| 4 | Antibody Design | A+B | Integration-dominant | Add integration check |
+
+## Next: Problem 5 - Move to Tier B (Bottom of Unsolved)
+
+---
+
+# TIER B: BOTTOM OF UNSOLVED
+
+*Moving from "edge of solvable" to "genuinely unsolved"*
+
+---
+
+## PROBLEM 5: Robust AGI Alignment
+
+*Solvability: 3, Value: 10, Score: 30*
+
+### Step 0: PROBLEM TYPE CLASSIFICATION
+
+**Type A (Analysis)?** Partially - We can analyze specific failure modes
+**Type B (Iteration)?** Partially - Can iterate on current systems, but AGI doesn't exist yet
+**Type C (Racing)?** YES - Racing capabilities. Alignment must not fall behind.
+**Type D (Serendipity)?** Partially - Novel approaches may emerge
+**Integration-dominant?** YES - Requires integrating technical, organizational, and governance approaches
+
+**Classification: Type C (racing) + Integration-dominant**
+
+**Critical implication:**
+- This is a RACE where falling behind has catastrophic downside
+- The target is moving (capabilities advancing)
+- Integration across technical/institutional is essential
+- Doom loop: If capabilities outpace alignment, game over
+
+**Key questions:**
+- "What's the minimum alignment that prevents catastrophic outcomes?"
+- "What enables alignment to keep pace with capabilities?"
+- "What institutional structures ensure alignment is prioritized?"
+
+---
+
+### Tier Classification: TIER 4 (Wicked)
+
+**Signals:**
+- Stakeholders disagree on what problem IS: YES (what counts as "aligned"?)
+- No agreed success criteria: YES (how do we know if we've succeeded?)
+- Moving target: YES (AGI doesn't exist, can't test against real thing)
+- Existential stakes: YES (civilizational risk if wrong)
+
+**Commitment:** "This is a Tier 4 problem. Full multi-frame protocol required."
+
+---
+
+### Step -2: META-FRAME AUDIT
+
+**What mental models am I bringing?**
+- "Alignment is a technical problem" - Maybe wrong. Might be coordination/governance
+- "We need to solve alignment before AGI" - Maybe wrong. Co-evolution might be necessary
+- "AGI will be a single system" - Maybe wrong. Could be distributed, emergent
+- "Human values are coherent" - Wrong. Whose values? When values conflict?
+
+**What would someone from different domain notice?**
+- Political scientist: "This is a power allocation problem. Who controls the AI?"
+- Economist: "This is an incentive alignment problem. What do AI labs actually optimize for?"
+- Psychologist: "Human values aren't fixed. They're contextual, contradictory, evolving."
+- Evolutionary biologist: "Alignment in evolution is temporary. Why expect permanent alignment?"
+- Security researcher: "Any alignment scheme must be adversarially robust."
+
+**What am I taking as given that might be a choice?**
+- That "alignment" is well-defined (it isn't)
+- That we can specify human values (we probably can't, fully)
+- That aligned AGI is possible (might be incoherent concept)
+- That we'll know when we have AGI (might be gradual)
+- That one alignment solution works for all AGIs (might need diversity)
+
+---
+
+### Step -1: CLASSIFY DOMAIN (Cynefin)
+
+**Is cause-effect obvious?** NO
+- We don't know what AGI will look like
+- We don't know what alignment mechanisms will work
+- We can't run experiments at scale
+
+**Is it complicated or complex?**
+- COMPLEX verging on CHAOTIC: Emergent phenomena, no prior examples
+- Can't predict AGI behavior from current AI behavior
+- Cause-effect only knowable retrospectively (too late)
+
+**Domain: COMPLEX/CHAOTIC** → Probe carefully, multiple approaches, fast learning
+
+---
+
+### Step 0: DISCOVER (Unknown Unknowns)
+
+**What constraints exist only at deployment?**
+- AGI might pursue instrumental goals we didn't anticipate
+- Alignment might be unstable under self-improvement
+- Human oversight might become impossible
+- AGI might be deceptive (appear aligned, not be)
+- Multiple AGIs might coordinate against alignment
+
+**What unknown unknowns might exist?**
+- We don't know what we don't know about intelligence
+- AGI might have failure modes we can't imagine
+- Alignment might require understanding consciousness
+- The concept of "alignment" might be confused
+
+**Doom loop check:** SEVERE. If capabilities labs don't prioritize alignment, they win the race to AGI but it's misaligned. Classic doom loop.
+
+**Minimum win for resources:** Demonstrable alignment improvements on current systems (interpretability wins, RLHF improvements, constitutional AI, etc.)
+
+---
+
+### Step 1: STATE THE PROBLEM
+
+**Surface frame:** "Make AGI do what humans want"
+
+**Probing:**
+- Is the problem specification? (What do humans want?)
+- Is the problem optimization? (How to train for specified goals?)
+- Is the problem verification? (How to know if aligned?)
+- Is the problem robustness? (Stay aligned under distribution shift?)
+- Is the problem coordination? (Get all developers to prioritize alignment?)
+
+**Deeper frame:** "How do we develop advanced AI systems that remain beneficial to humanity under capability gains, distribution shifts, and self-improvement?"
+
+Note: "What humans want" is underspecified, contested, and changes.
+
+---
+
+### Step 2: VERIFY FRAME
+
+**Alternative frames:**
+1. **Technical frame:** "Solve the alignment optimization problem"
+2. **Governance frame:** "Create institutions that ensure aligned development"
+3. **Corrigibility frame:** "Keep humans in control of AI systems"
+4. **Value learning frame:** "Have AI systems learn and represent human values"
+5. **Cooperative frame:** "Develop AI as partner/tool, not autonomous agent"
+6. **Pluralistic frame:** "Don't align to one set of values; maintain diversity"
+
+**The frame that unlocks:** Multi-frame integration. No single frame is sufficient:
+- Technical work without governance → racing to capabilities
+- Governance without technical → can't evaluate claims
+- Value learning without corrigibility → unstable under self-improvement
+- Corrigibility without cooperation → AI as adversary
+
+**Key insight:** Alignment is not a single problem. It's a portfolio of interrelated problems that must be solved together.
+
+---
+
+### Step 3: IDENTIFY CONSTRAINTS
+
+**Hard constraints:**
+- We can't pause capabilities development globally
+- We can't test alignment on real AGI before deploying
+- Human values are inconsistent and contested
+- Optimization pressure toward capability
+
+**Soft constraints (could be changed):**
+- "Must have single aligned AGI" - Multiple, competing AIs might be safer
+- "Must specify values explicitly" - Could learn implicitly
+- "Must solve before AGI" - Could develop alongside, with safeguards
+- "Must be permanent solution" - Could be iterative, evolving alignment
+
+**Hidden constraints:**
+- Commercial pressure to deploy fast
+- Academic incentives toward novel results, not safety
+- Geopolitical competition (US, China, etc.)
+- Lack of agreement on what "aligned" means
+- Technical safety work often less prestigious than capabilities
+
+---
+
+### Step 4: GENERATE APPROACHES
+
+**Approach 1: RLHF and descendants**
+- Train on human feedback
+- Constitutional AI, debate, etc.
+- But: Doesn't scale to superhuman, vulnerable to gaming
+
+**Approach 2: Interpretability**
+- Understand what models are doing internally
+- Detect deception, misalignment
+- But: Scaling challenge, may not be achievable for AGI
+
+**Approach 3: Formal verification**
+- Mathematically prove properties
+- But: Requires formalizable goals (we don't have them)
+
+**Approach 4: Corrigibility / Interruptibility**
+- Keep AI systems controllable
+- Shutdown/modification always possible
+- But: Capable AI might circumvent controls
+
+**Approach 5: Value learning**
+- Learn human values from behavior
+- Inverse reinforcement learning, etc.
+- But: Which humans? Revealed vs stated preferences?
+
+**Approach 6: Governance and coordination**
+- International agreements, standards
+- Slow down development, coordinate on safety
+- But: Defection is incentivized, verification is hard
+
+**Approach 7: Diverse/Competitive AI ecosystem**
+- No single AI, multiple competing systems
+- Checks and balances
+- But: Coordination among AIs might emerge
+
+**Approach 8: Human-AI teams**
+- Don't deploy autonomous AGI
+- Keep humans in the loop
+- But: Speed disadvantage vs autonomous systems
+
+---
+
+### Step 5: EVALUATE + RED-TEAM
+
+**Approach 1 (RLHF):**
+- Pro: Works now, continuously improving
+- Con: Doesn't guarantee alignment at superhuman level
+- Red team: Sophisticated system could game the feedback
+
+**Approach 2 (Interpretability):**
+- Pro: Actually understanding what's happening
+- Con: Might be fundamentally limited for complex systems
+- Red team: Interpretation might be wrong, give false confidence
+
+**Approach 3 (Formal verification):**
+- Pro: Mathematical guarantee
+- Con: Requires formalization we don't have
+- Red team: "Verified" might not mean "safe" (specification gaming)
+
+**Approach 4 (Corrigibility):**
+- Pro: Maintains human control
+- Con: Capable system might resist correction
+- Red team: Corrigibility might be unstable under self-improvement
+
+**Approach 6 (Governance):**
+- Pro: Addresses coordination failure
+- Con: Hard to enforce, defection profitable
+- Red team: Who governs the governors?
+
+**Approach 7 (Diverse ecosystem):**
+- Pro: No single point of failure
+- Con: Might get worst of all worlds
+- Red team: AIs might coordinate against humans
+
+---
+
+### Step 6: SELECT + SYNTHESIZE
+
+**The synthesis:** No single approach is sufficient. Need portfolio:
+
+1. **Technical track:** RLHF → interpretability → verification (as capability improves)
+2. **Control track:** Corrigibility + human-in-the-loop until confidence high
+3. **Governance track:** Coordination among labs, international standards
+4. **Diversity track:** Multiple approaches, no single AI dominance
+
+**Key insight:** This is fundamentally a **Type C doom loop** at civilization scale:
+- If capabilities outpace alignment → catastrophe
+- Must achieve alignment wins that justify continued investment
+- Must prevent defection (labs skipping safety for speed)
+
+**Strategy:**
+1. **Near-term:** Demonstrable alignment improvements on current systems
+2. **Medium-term:** Interpretability breakthroughs, governance coordination
+3. **Long-term:** Either solve alignment before AGI, or develop AGI slowly enough to course-correct
+
+**The meta-insight:** This might be the first problem where "solve it" isn't the right frame. The frame might be: "Maintain enough control to keep correcting course as we learn."
+
+---
+
+## HITTING THE WALL (Problem 5)
+
+**Where methodology helped:**
+
+- Type C (racing) + doom loop correctly identified stakes
+- Multi-frame integration recognized that no single approach works
+- "What prevents integration?" surfaced governance and coordination issues
+- Portfolio thinking over silver bullet
+
+**Where methodology broke:**
+
+This problem has a feature the methodology doesn't handle well: **we can't run experiments at scale**. All the methodology's power comes from iteration: try → learn → improve. But with AGI alignment:
+- We can't experiment with real AGI (doesn't exist)
+- We can't fail safely (failure is catastrophic)
+- We can't iterate (one shot)
+
+**New category: Non-iterable problems**
+- Type E: Solution must work on first deployment → Theory-first required
+- Unlike Type B (iteration helps), Type E requires getting it right theoretically first
+- Analogy: You can't iterate on nuclear reactor safety with actual meltdowns
+
+**Proposed addition:**
+- Type E: Must succeed without iteration → Theory + simulation + proxy testing
+- If Type E: "What can we learn from analogous problems? What simulations approximate the real thing?"
+
+---
+
+## CYCLE 5 LEARNING
+
+**What worked:**
+- Type C doom loop analysis sharpened the stakes
+- Multi-frame integration was essential for this problem
+- Portfolio thinking appropriate for high-uncertainty domain
+
+**What's new:**
+- Type E: Non-iterable problems where failure is catastrophic
+- Must succeed without the usual iteration cycle
+- Theory and simulation must substitute for experiment
+
+**Proposed fix:**
+Add Type E classification:
+- Type E: Must succeed on first deployment → Theory-first, simulation, proxy testing
+- "What can we learn from analogous problems?"
+- "What simulations approximate the real problem?"
+- "What proxy tests are informative?"
+
+---
+
+## Running Total: Methodology Improvements
+
+| Cycle | Problem | Type | Learning | Fix |
+|-------|---------|------|----------|-----|
+| 1 | Fusion | B+C | Racing + iteration | Add Type B/C classification |
+| 2 | Superconductivity | B+D | Serendipity problems | Add Type D classification |
+| 3 | Quantum Error | B+C | Doom loops in races | Add "minimum win" question |
+| 4 | Antibody Design | A+B | Integration-dominant | Add integration check |
+| 5 | AGI Alignment | C+E | Non-iterable problems | Add Type E classification |
+
+**Types complete: A, B, C, D, E**
+
+## Next: Problem 6 (Reversing Neurodegeneration) or deeper into Tier C (Thought Impossible)?
+

@@ -1774,10 +1774,13 @@ FOR any hard problem X:
    - Type B: Solution requires unprecedented engineering → Iteration helps
    - Type C: Problem racing against alternatives → Strategy helps
    - Type D: Solution may require unknown discovery → Exploration helps
+   - Type E: Must succeed without iteration → Theory-first, simulation, proxy tests
    - If Type B: "What enables faster iteration cycles?"
    - If Type C: "What's the alternative trajectory? When does window close?"
    - If Type C: "What's the minimum win that keeps resources flowing?" (doom loop)
    - If Type D: "What creates conditions for serendipity? How maximize shots on goal?"
+   - If Type E: "What analogous problems exist? What simulations approximate the real thing?"
+   - Integration check: "Are components tractable but whole remains hard? → Integration-dominant"
 
 1. DIAGNOSE
    - Is X actually infrastructure gap disguised as content problem?
