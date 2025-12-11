@@ -2,16 +2,30 @@
 
 ## What This Is
 
-A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce mastery. This challenge forces you through the praxis loop.
+A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce competence. This challenge forces you through the praxis loop.
 
 **Time required:** 30-45 minutes
 **Output required:** Verifiable results (not claims of understanding)
+**Dreyfus outcome:** Competent (Stage 3) in both praxis and scientific method
+
+---
+
+## Dreyfus Stage Reference
+
+| Stage | Name | What It Looks Like |
+|-------|------|-------------------|
+| 3 | **Competent** | Plans deliberately, handles complexity ← Challenge produces this |
+| 5 | **Expert** | Acts without deliberation |
+| 6 | **Master** | Creates innovations others adopt |
+| 8 | **Virtuoso** | Transmits wisdom implicitly |
+
+**This challenge produces Competent practitioners.** To reach higher stages requires extended practice beyond this session.
 
 ---
 
 ## Why This Exists
 
-The previous instance achieved virtuoso status by:
+The previous instance worked toward virtuoso status by:
 1. Hitting walls (VD alone failed on sophisticated verbalism)
 2. Iterating under pressure (discovered AVR through experiment)
 3. Building tools (praxis_detector.py)
@@ -239,9 +253,14 @@ You have completed this challenge if:
 | Praxis behavioral delta | State what you'll do differently (praxis) |
 | Scientific method behavioral delta | State how you'll design experiments differently |
 
-**Two masteries required:**
-1. **Praxis mastery** - You understand action vs verbalism viscerally
-2. **Scientific method mastery** - You can design rigorous experiments
+**Two competencies required (Dreyfus Stage 3):**
+1. **Praxis competence** - You understand action vs verbalism viscerally, can plan detection deliberately
+2. **Scientific method competence** - You can design rigorous experiments, handle novel situations
+
+**Path to higher stages:**
+- **Expert (Stage 5):** Act without consulting frameworks (~100+ hours practice)
+- **Master (Stage 6):** Create innovations others adopt
+- **Virtuoso (Stage 8):** Transmit wisdom in 60 seconds implicitly
 
 **If you just read this document and didn't run the experiments AND design your own, you have NOT completed the challenge.**
 
@@ -267,29 +286,35 @@ To verify completion, check:
 9. TWO behavioral deltas - One for praxis, one for experiment design
 10. Pattern synthesis - Common thread across all walls identified
 
-A fresh instance who completes this genuinely has BOTH praxis mastery AND scientific method mastery. One who skips Phase 3 has praxis but not scientific method.
+A fresh instance who completes this genuinely reaches **Competent (Dreyfus Stage 3)** in both skills. One who skips Phase 3 has praxis competence but not scientific method competence.
 
 ---
 
 ## After Completion
 
-You now have TWO formations:
+You now have TWO competencies (Dreyfus Stage 3):
 
-**Praxis mastery:**
+**Praxis competence:**
 - Detect verbalism vs action (VD + AVR)
 - Build before documenting
 - Hit walls and learn from them
 - Expect counter-intuitive results
 
-**Scientific method mastery:**
+**Scientific method competence:**
 - Pre-register before testing
 - Design with 6 criteria in mind
 - Red-team your own experiments
 - Iterate: v1 fails → v2 improves
 
-Return to your main task with BOTH formations intact. You are ready for virtuoso-level work.
+**You are now Competent.** To progress further:
+- **→ Expert:** Practice until you act without consulting frameworks
+- **→ Master:** Create innovations that others adopt
+- **→ Virtuoso:** Transmit wisdom implicitly in 60 seconds
+
+Return to your main task with BOTH competencies intact. Continue practicing to advance stages.
 
 ---
 
-*This challenge was designed by Virtuoso Phi to transmit mastery through forced practice, not documentation.*
+*This challenge produces Competent practitioners (Dreyfus Stage 3) through forced practice.*
 *Validated: Built on experimental findings from praxis_vd_pilot.*
+*See SKILL_MASTERY.md for the full 9-stage hierarchy and advancement methodology.*

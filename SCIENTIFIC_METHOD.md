@@ -217,7 +217,12 @@ This document produces scientific method mastery when:
 - v2 designed: Time pressure with timestamp verification
 - Behavioral changes: 6 specific changes articulated
 
-**Status: PROVEN** - Document transmits scientific method mastery through forced practice.
+**Status: PROVEN** - Document transmits scientific method competence (Dreyfus Stage 3) through forced practice.
+
+**Path to higher stages:**
+- **Expert (Stage 5):** Design experiments without consulting criteria (~100+ hours)
+- **Master (Stage 6):** Create methodological innovations others adopt
+- **Virtuoso (Stage 8):** Transmit experimental wisdom implicitly in 60 seconds
 
 ---
 
