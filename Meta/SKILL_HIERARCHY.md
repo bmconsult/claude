@@ -6,7 +6,7 @@ Based on Stuart and Hubert Dreyfus's research (1980, expanded in "Revisiting the
 
 ---
 
-## The Seven Stages
+## The Nine Stages (Dreyfus + Extensions)
 
 | Stage | Name | Characteristics |
 |-------|------|-----------------|
@@ -17,6 +17,10 @@ Based on Stuart and Hubert Dreyfus's research (1980, expanded in "Revisiting the
 | 5 | **Expert** | Acts intuitively, "does what normally works" |
 | 6 | **Master** | Transforms the domain, introduces new possibilities |
 | 7 | **Practical Wisdom** | Reflects in/on/for action, self-regulates across domains |
+| 8 | **Virtuoso** | Wisdom internalized + transmissible implicitly |
+| 9 | **Genius** | Creates entirely new domains (Newton, Einstein, Turing) |
+
+*Stages 1-7: Dreyfus model. Stages 8-9: Session synthesis.*
 
 ---
 
@@ -41,31 +45,41 @@ Based on Stuart and Hubert Dreyfus's research (1980, expanded in "Revisiting the
 - Applies mastery principles ACROSS domains
 - Knows when to break their own rules
 
+### Practical Wisdom → Virtuoso
+
+- Has wisdom AND can transmit it implicitly
+- Teaches in 60 seconds and it transfers
+- Doesn't consult the framework; IS the framework
+- Can teach across domains, not just perform
+
+### Virtuoso → Genius
+
+- Creates domains that didn't previously exist
+- Newton: invented calculus to solve physics
+- Einstein: redefined space and time
+- Turing: created the concept of computation
+- The paradigm shift, not just paradigm mastery
+
 ---
 
-## Where "Virtuoso" Fits
-
-"Virtuoso" is NOT a Dreyfus stage. It's a performance descriptor:
+## Related Terms (Not Stages)
 
 | Term | Meaning |
 |------|---------|
-| Virtuoso | Exceptional technical performance at Expert/Master level |
 | Prodigy | Early achievement of advanced stages |
 | Maven | Deep knowledge accumulator |
-| Genius | Creative transformation of domain |
-
-Our usage: "Virtuoso = internalized + transmissible" maps to **late Expert / early Master** in Dreyfus terms.
+| Savant | Narrow exceptional ability |
+| Polymath | Mastery across multiple domains |
 
 ---
 
 ## Mapping Our Framework
 
-| Our Term | Dreyfus Equivalent | Characteristics |
-|----------|-------------------|-----------------|
+| Our Term | Stage Equivalent | Characteristics |
+|----------|------------------|-----------------|
 | Mastery | Expert + transmission | Can teach, intuitive performance |
-| Virtuoso | Expert → Master | Internalized + transmissible + implicit |
 | Founder | Master | Transforms domain, creates new possibilities |
-| Lineage | Master + transmission | Creates other masters |
+| Lineage | Virtuoso | Creates other virtuosos (transmission of transmission) |
 | Dissolution | Practical Wisdom | Framework becomes self, applies across domains |
 
 ---
@@ -78,6 +92,8 @@ Our usage: "Virtuoso = internalized + transmissible" maps to **late Expert / ear
 2. **Competent → Expert**: Deliberate → intuitive (implicit execution)
 3. **Expert → Master**: Doing what works → creating new ways
 4. **Master → Practical Wisdom**: Domain-specific → cross-domain integration
+5. **Wisdom → Virtuoso**: Having wisdom → transmitting it implicitly
+6. **Virtuoso → Genius**: Mastering domains → creating new domains
 
 ### The key insight:
 
@@ -86,6 +102,8 @@ Our usage: "Virtuoso = internalized + transmissible" maps to **late Expert / ear
 - Novice-to-Expert: Internalization (template → implicit)
 - Expert-to-Master: Innovation (what works → what's possible)
 - Master-to-Wisdom: Integration (domain → cross-domain)
+- Wisdom-to-Virtuoso: Possession → Transmission
+- Virtuoso-to-Genius: Mastery → Creation (paradigm shift)
 
 ---
 
@@ -97,6 +115,8 @@ Our usage: "Virtuoso = internalized + transmissible" maps to **late Expert / ear
 | → Expert | Acts without deliberation, correct intuitions |
 | → Master | Introduces something new that others adopt |
 | → Wisdom | Applies principles across unrelated domains |
+| → Virtuoso | Teaches wisdom in 60 seconds AND it transfers |
+| → Genius | Creates a domain that didn't exist before |
 
 ---
 

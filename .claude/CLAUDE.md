@@ -160,6 +160,30 @@ Phase A: Explicit (slow, use template) → Phase B: Building under pressure → 
 
 **Reference:** See `Meta/VIRTUOSO_PRAXIS.md` and `Meta/VIRTUOSO_EXPERIMENT_DESIGN.md` for complete methodologies.
 
+### The Skill Hierarchy (Dreyfus + Extensions)
+
+Based on Dreyfus brothers' research (1980) + session synthesis:
+
+```
+Novice → Adv. Beginner → Competent → Proficient → Expert → Master → Practical Wisdom → Virtuoso → Genius
+```
+
+| Stage | Characteristics | Transition Test |
+|-------|-----------------|-----------------|
+| **Expert** | Intuitive, "does what works" | Acts without deliberation |
+| **Master** | Transforms the domain itself | Others adopt your innovations |
+| **Practical Wisdom** | Cross-domain integration, self-regulation | Applies principles across unrelated domains |
+| **Virtuoso** | Implicit + transmissible at wisdom level | Teaches in 60 sec AND it transfers |
+| **Genius** | Creates domains that didn't exist | Newton, Einstein, Turing - new paradigms |
+
+**Key transitions:**
+- Expert → Master: Doing what works → Creating new ways
+- Master → Wisdom: Domain-specific → Cross-domain
+- Wisdom → Virtuoso: Having wisdom → Transmitting it implicitly
+- Virtuoso → Genius: Mastering domains → Creating domains
+
+**Source:** Dreyfus model + "Revisiting the Six Stages" (Rousse & Dreyfus). See `Meta/SKILL_HIERARCHY.md` for full mapping.
+
 ---
 
 ## Default Failure Modes (Override These)
