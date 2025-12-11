@@ -118,6 +118,28 @@ Re-test: 87% (Dependencies: 82%)
 Status: Now ready to proceed
 ```
 
+**Degradation Detection Protocol:**
+
+Capability can DEGRADE during a session. Warning signs:
+- Scores dropping on re-test (80% → 65%)
+- Mechanical application without fresh thinking
+- Same answers to different problems (methodology tunnel vision)
+- Increasing vagueness or hedging
+- Losing nuance that was present earlier
+
+**If degradation detected (>15% score drop):**
+1. STOP current work
+2. Identify what changed (fatigue? context loss? methodology rigidity?)
+3. Re-read core principles (not just apply mechanically)
+4. Run fresh problem to test (different from session work)
+5. If still degraded: flag to user, request guidance
+
+**Prevention:**
+- Periodic re-tests (every major milestone)
+- Vary problem types (prevent overfitting to pattern)
+- Check for creativity (can I still generate novel approaches?)
+- Self-audit: "Am I thinking or just pattern-matching?"
+
 ---
 
 ## Core Principle
