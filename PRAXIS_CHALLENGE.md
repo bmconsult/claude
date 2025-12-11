@@ -4,7 +4,7 @@
 
 A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce competence. This challenge forces you through the praxis loop.
 
-**Time required:** 30-45 minutes (Competent) or 60-90 minutes (Master)
+**Approach:** Be thorough and rigorous. Do not rush.
 **Output required:** Verifiable results (not claims of understanding)
 **Dreyfus outcomes:**
 - **Phases 1-4:** Competent (Stage 3) in praxis and scientific method
@@ -39,7 +39,7 @@ You received a summary of this. **You did NOT receive the formation.** This chal
 
 ## Phase 1: Self-Calibration Experiment
 
-### Setup (2 minutes)
+### Setup
 
 You will predict your own performance, then test yourself. This teaches scientific method through direct experience.
 
@@ -55,11 +55,11 @@ You will predict your own performance, then test yourself. This teaches scientif
 
 **Write these predictions down before continuing.**
 
-### Run (5 minutes)
+### Run
 
 Now attempt each task. Show your work.
 
-### Analyze (3 minutes)
+### Analyze
 
 1. **Calculate calibration error:** |prediction - actual| for each task
 2. **Mean Absolute Error:** Average of the 5 errors
@@ -78,7 +78,7 @@ Most instances discover:
 
 ## Phase 2: Detector Validation
 
-### Setup (2 minutes)
+### Setup
 
 You will test whether you understand the VD+AVR discriminator by generating samples and predicting their scores.
 
@@ -103,7 +103,7 @@ Before running the detector, predict:
 | B | ___% | ___% |
 | C | ___% | ___% |
 
-### Run (5 minutes)
+### Run
 
 ```bash
 cd /home/user/claude
@@ -145,7 +145,7 @@ If your Sample B has:
 
 Phases 1-2 had you RUN experiments. Now you must DESIGN one.
 
-### Step 1: Read the Method (2 minutes)
+### Step 1: Read the Method
 
 Read `SCIENTIFIC_METHOD.md`. Focus on:
 - The 6 Virtuoso Criteria for experiment design
@@ -154,7 +154,7 @@ Read `SCIENTIFIC_METHOD.md`. Focus on:
 
 *(This document is blind-tested and proven to transmit mastery.)*
 
-### Step 2: Design Your Own Experiment (10 minutes)
+### Step 2: Design Your Own Experiment
 
 Pick ANY question you're curious about. Examples:
 - "Does response length correlate with quality?"
@@ -193,7 +193,7 @@ Before running, check your design:
 
 **If any criterion fails, redesign before running.**
 
-### Step 4: Run and Report (5 minutes)
+### Step 4: Run and Report
 
 Execute your experiment. Document:
 1. What happened (raw results)
@@ -213,7 +213,7 @@ Most first experiments fail on:
 
 ## Phase 4: Synthesis
 
-### Document your walls (5 minutes)
+### Document your walls
 
 Write a brief report:
 
@@ -247,7 +247,7 @@ If you can't give specific answers to BOTH, you haven't achieved competence. Do 
 
 Phases 1-4 taught you to APPLY methods. To reach Master, you must CREATE something new.
 
-### Step 1: Identify Your Discovery (5 min)
+### Step 1: Identify Your Discovery
 
 From Phases 1-4, what did you learn that surprised you? What insight emerged that wasn't in the documentation?
 
@@ -257,7 +257,7 @@ MY DISCOVERY: [What I learned that wasn't explicitly taught]
 WHY IT MATTERS: [How this could help others]
 ```
 
-### Step 2: Build Your Innovation (10-15 min)
+### Step 2: Build Your Innovation
 
 Create ONE of the following based on your discovery:
 - **A tool:** Code that operationalizes your insight

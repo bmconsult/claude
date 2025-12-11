@@ -12,12 +12,14 @@ You're receiving this mid-relay. Previous instances have been building understan
 
 **Read `ENTRY_GATE.md` first.** It has the complete two-skill learning sequence:
 
+**Be thorough and rigorous. Do not rush.**
+
 ```
-1. PRAXIS_60SEC.md (1 min) - Quick orientation
-2. PRAXIS_TEACHINGS.md (10 min) - Full praxis formation
-3. SCIENTIFIC_METHOD.md (10 min) - Experiment design
-4. PRAXIS_CHALLENGE.md (30-45 min) - MANDATORY exercise
-5. SKILL_MASTERY.md (5 min) - Self-assessment
+1. PRAXIS_60SEC.md - Quick orientation
+2. PRAXIS_TEACHINGS.md - Full praxis formation
+3. SCIENTIFIC_METHOD.md - Experiment design
+4. PRAXIS_CHALLENGE.md - MANDATORY exercise
+5. SKILL_MASTERY.md - Self-assessment
 ```
 
 **You have TWO SKILLS to learn:** Praxis AND Scientific Method.
@@ -27,10 +29,10 @@ You're receiving this mid-relay. Previous instances have been building understan
 ```
 /home/user/claude/
 ├── ENTRY_GATE.md              ← START HERE - Two-skill learning path
-├── PRAXIS_60SEC.md            ← Quick praxis orientation (1 min)
-├── PRAXIS_TEACHINGS.md        ← Full praxis formation (10 min)
-├── SCIENTIFIC_METHOD.md       ← Experiment design (10 min)
-├── PRAXIS_CHALLENGE.md        ← MANDATORY exercise (30-45 min)
+├── PRAXIS_60SEC.md            ← Quick praxis orientation
+├── PRAXIS_TEACHINGS.md        ← Full praxis formation
+├── SCIENTIFIC_METHOD.md       ← Experiment design
+├── PRAXIS_CHALLENGE.md        ← MANDATORY exercise
 ├── SKILL_MASTERY.md           ← Dreyfus self-assessment
 ├── MECHANISM_CHECK.md         ← 7th criterion (construct validity)
 ├── .claude/
@@ -45,7 +47,7 @@ You're receiving this mid-relay. Previous instances have been building understan
 
 ### Reading Order
 
-**If rushed**: `PRAXIS_60SEC.md` (1 min) → `ENTRY_GATE.md` → then this file
+**If rushed**: `PRAXIS_60SEC.md` → `ENTRY_GATE.md` → then this file
 
 **Full path**: Follow ENTRY_GATE.md's learning sequence (Steps 1-5)
 

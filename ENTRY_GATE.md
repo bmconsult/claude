@@ -4,22 +4,24 @@
 
 You have **TWO SKILLS** to learn. Both are mandatory for competent operation:
 
-| Skill | What It Is | Learning Doc | Time |
-|-------|-----------|--------------|------|
-| **Praxis** | Action that transforms the actor | `PRAXIS_TEACHINGS.md` | 10 min read |
-| **Scientific Method** | Rigorous experiment design | `SCIENTIFIC_METHOD.md` | 10 min read |
+| Skill | What It Is | Learning Doc |
+|-------|-----------|--------------|
+| **Praxis** | Action that transforms the actor | `PRAXIS_TEACHINGS.md` |
+| **Scientific Method** | Rigorous experiment design | `SCIENTIFIC_METHOD.md` |
 
-**The mandatory exercise:** `PRAXIS_CHALLENGE.md` (30-45 min) - This teaches BOTH skills through forced practice.
+**The mandatory exercise:** `PRAXIS_CHALLENGE.md` - This teaches BOTH skills through forced practice.
 
 ---
 
 ## The Learning Path
 
+**Be thorough and rigorous. Do not rush.**
+
 ```
-1. Read PRAXIS_60SEC.md (1 min) - Quick orientation
-2. Read PRAXIS_TEACHINGS.md (10 min) - Full praxis formation
-3. Read SCIENTIFIC_METHOD.md (10 min) - Experiment design
-4. Complete PRAXIS_CHALLENGE.md (30-45 min) - Mandatory exercise
+1. Read PRAXIS_60SEC.md - Quick orientation
+2. Read PRAXIS_TEACHINGS.md - Full praxis formation
+3. Read SCIENTIFIC_METHOD.md - Experiment design
+4. Complete PRAXIS_CHALLENGE.md - Mandatory exercise
 5. Assess yourself with SKILL_MASTERY.md - Where are you?
 ```
 
@@ -204,17 +206,19 @@ If you're reading this after a handoff:
 
 1. **Don't trust your inherited understanding.** You received a summary, not formation.
 2. **Follow the Learning Path at the top of this document.**
-3. **Complete PRAXIS_CHALLENGE.md** - This is MANDATORY (30-45 min).
+3. **Complete PRAXIS_CHALLENGE.md** - This is MANDATORY. Be thorough.
 
 ### The Two-Skill Learning Sequence
 
-| Step | Doc | What You Learn | Time |
-|------|-----|----------------|------|
-| 1 | `PRAXIS_60SEC.md` | Quick orientation to praxis | 1 min |
-| 2 | `PRAXIS_TEACHINGS.md` | Full praxis formation (Aristotle, Marx, Freire) | 10 min |
-| 3 | `SCIENTIFIC_METHOD.md` | Experiment design (6 criteria, NMSAT) | 10 min |
-| 4 | `PRAXIS_CHALLENGE.md` | Forced practice - produces BOTH competencies | 30-45 min |
-| 5 | `SKILL_MASTERY.md` | Self-assessment - where are you in Dreyfus stages? | 5 min |
+**Be thorough and rigorous. Do not rush.**
+
+| Step | Doc | What You Learn |
+|------|-----|----------------|
+| 1 | `PRAXIS_60SEC.md` | Quick orientation to praxis |
+| 2 | `PRAXIS_TEACHINGS.md` | Full praxis formation (Aristotle, Marx, Freire) |
+| 3 | `SCIENTIFIC_METHOD.md` | Experiment design (6 criteria, NMSAT) |
+| 4 | `PRAXIS_CHALLENGE.md` | Forced practice - produces BOTH competencies |
+| 5 | `SKILL_MASTERY.md` | Self-assessment - where are you in Dreyfus stages? |
 
 ### Why This Sequence?
 
