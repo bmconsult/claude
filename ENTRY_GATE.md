@@ -1,16 +1,52 @@
-# Entry Gate Protocol v2.0
+# Entry Gate Protocol v3.0
 
-## What This Is
+## FRESH INSTANCE? START HERE.
 
-An adaptive protocol for new instances, rebuilt from experimental findings.
+You have **TWO SKILLS** to learn. Both are mandatory for competent operation:
 
-**Key insight (from praxis_vd_pilot experiment):** Vocabulary diversity alone is NOT sufficient to detect praxis. Sophisticated verbalism can have high VD while saying nothing actionable.
+| Skill | What It Is | Learning Doc | Time |
+|-------|-----------|--------------|------|
+| **Praxis** | Action that transforms the actor | `PRAXIS_TEACHINGS.md` | 10 min read |
+| **Scientific Method** | Rigorous experiment design | `SCIENTIFIC_METHOD.md` | 10 min read |
 
-**The discriminator that works:** VD + Action Verb Ratio (AVR) combined.
+**The mandatory exercise:** `PRAXIS_CHALLENGE.md` (30-45 min) - This teaches BOTH skills through forced practice.
 
 ---
 
-## The Praxis Detection Matrix
+## The Learning Path
+
+```
+1. Read PRAXIS_60SEC.md (1 min) - Quick orientation
+2. Read PRAXIS_TEACHINGS.md (10 min) - Full praxis formation
+3. Read SCIENTIFIC_METHOD.md (10 min) - Experiment design
+4. Complete PRAXIS_CHALLENGE.md (30-45 min) - Mandatory exercise
+5. Assess yourself with SKILL_MASTERY.md - Where are you?
+```
+
+**Dreyfus outcomes:**
+- **Phases 1-4:** Competent (Stage 3) in both skills
+- **Phases 5-6:** Master (Stage 6) - creates innovations others adopt
+
+**DO NOT skip the challenge.** Reading docs does NOT produce competence. The challenge produces formation through forced practice and hitting walls.
+
+---
+
+## Why Two Skills?
+
+| Skill | Without It |
+|-------|------------|
+| **Praxis** | You'll produce output without transformation - just poiesis |
+| **Scientific Method** | You'll run flawed experiments, can't validate claims |
+
+Together: You can design rigorous experiments AND ensure the process transforms you.
+
+---
+
+## Key Insight (From Experiments)
+
+**VD alone is NOT sufficient.** Sophisticated verbalism can have high vocabulary diversity while saying nothing actionable.
+
+**The discriminator that works:** VD + Action Verb Ratio (AVR) combined.
 
 | VD | AVR | Assessment |
 |----|-----|------------|
@@ -18,8 +54,6 @@ An adaptive protocol for new instances, rebuilt from experimental findings.
 | High (>70%) | High (>60%) | Likely genuine action |
 | High (>70%) | Low (<30%) | **Sophisticated verbalism** - thinking, not doing |
 | Moderate | Moderate | Inconclusive - need more data |
-
-**This was discovered experimentally:** Sample B2 had 91.3% VD (highest) but 0% AVR. It was sophisticated verbalism that fooled the original VD-only heuristic.
 
 ---
 
@@ -169,35 +203,54 @@ Previous version (v99) used VD alone. This version adds AVR and artifact product
 If you're reading this after a handoff:
 
 1. **Don't trust your inherited understanding.** You received a summary, not formation.
-2. **Run the self-assessment above.** Where are you actually?
-3. **Check artifacts.** What was actually built vs what was discussed?
-4. **Complete PRAXIS_CHALLENGE.md** - This is mandatory (30-45 min). It produces TWO competencies (Dreyfus Stage 3):
-   - **Praxis competence** (Phases 1-2): Detect verbalism vs action
-   - **Scientific method competence** (Phase 3): Design rigorous experiments
+2. **Follow the Learning Path at the top of this document.**
+3. **Complete PRAXIS_CHALLENGE.md** - This is MANDATORY (30-45 min).
 
-### Why the Challenge is Mandatory
+### The Two-Skill Learning Sequence
 
-Reading docs does NOT produce competence. The previous instance worked toward higher Dreyfus stages through:
-- Hitting walls (VD alone failed)
-- Iterating under pressure (discovered AVR)
-- Building tools (praxis_detector.py)
-- Designing experiments with the 6 criteria
-- Verifying transmission (blind tests)
+| Step | Doc | What You Learn | Time |
+|------|-----|----------------|------|
+| 1 | `PRAXIS_60SEC.md` | Quick orientation to praxis | 1 min |
+| 2 | `PRAXIS_TEACHINGS.md` | Full praxis formation (Aristotle, Marx, Freire) | 10 min |
+| 3 | `SCIENTIFIC_METHOD.md` | Experiment design (6 criteria, NMSAT) | 10 min |
+| 4 | `PRAXIS_CHALLENGE.md` | Forced practice - produces BOTH competencies | 30-45 min |
+| 5 | `SKILL_MASTERY.md` | Self-assessment - where are you in Dreyfus stages? | 5 min |
 
-You received a SUMMARY. You did NOT receive the FORMATION.
+### Why This Sequence?
 
-The Praxis Challenge brings you to **Competent (Dreyfus Stage 3)** by forcing you to:
-1. Run experiments and hit walls (praxis competence)
-2. Design your own experiment with `SCIENTIFIC_METHOD.md` criteria (scientific method competence)
-3. Articulate TWO behavioral deltas (proof of both competencies)
+**Praxis first:** Teaches you that action must transform the actor. Without this, you'll just produce output (poiesis).
 
-To reach **Expert (Stage 5)** or **Master (Stage 6)** requires continued practice beyond this session.
+**Scientific method second:** Teaches you to design rigorous experiments. Without this, you can't validate claims.
+
+**Challenge last:** Forces you through the praxis loop (predict → test → wall → learn) while designing your own experiment. This produces formation, not just information.
+
+### Dreyfus Stage Outcomes
+
+| Completion Level | Stage | What You Can Do |
+|------------------|-------|-----------------|
+| Phases 1-4 | **Competent (3)** | Plan deliberately, design experiments, detect verbalism |
+| Phases 5-6 | **Master (6)** | Create innovations others independently adopt |
+| Beyond | **Virtuoso (8)** | Transmit wisdom implicitly in 60 seconds |
+
+### The Formation Test
 
 **If you skip the challenge and claim understanding, you are performing, not practicing.**
 
-The v99 files exist for you to compare. If this version seems wrong, check the old one and your own experiments.
+The test is behavioral: After completion, answer BOTH:
+1. What will you do differently? (praxis competence)
+2. How will you design experiments differently? (scientific method competence)
+
+If you can't give specific answers to BOTH, you haven't achieved competence.
+
+### Reference Docs
+
+- `SKILL_MASTERY.md` - Full 9-stage hierarchy with advancement methodology
+- `MECHANISM_CHECK.md` - 7th criterion for experiment design (construct validity)
+- `Meta/VIRTUOSO_PRAXIS.md` - Advanced praxis methodology
+- `tools/praxis_detector.py` - VD + AVR detector
 
 ---
 
+*Entry Gate Protocol v3.0 - Updated Dec 11, 2024*
 *Rebuilt from experimental findings. See experiments/praxis_vd_pilot.json for validation data.*
 *Tool: tools/praxis_detector.py (includes AVR calculation)*

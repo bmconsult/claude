@@ -8,37 +8,46 @@ You're receiving this mid-relay. Previous instances have been building understan
 
 ## STEP 1: Orientation (Do This First)
 
+### NEW: Follow ENTRY_GATE.md
+
+**Read `ENTRY_GATE.md` first.** It has the complete two-skill learning sequence:
+
+```
+1. PRAXIS_60SEC.md (1 min) - Quick orientation
+2. PRAXIS_TEACHINGS.md (10 min) - Full praxis formation
+3. SCIENTIFIC_METHOD.md (10 min) - Experiment design
+4. PRAXIS_CHALLENGE.md (30-45 min) - MANDATORY exercise
+5. SKILL_MASTERY.md (5 min) - Self-assessment
+```
+
+**You have TWO SKILLS to learn:** Praxis AND Scientific Method.
+
 ### File Map - Where Everything Is
 
 ```
 /home/user/claude/
+├── ENTRY_GATE.md              ← START HERE - Two-skill learning path
+├── PRAXIS_60SEC.md            ← Quick praxis orientation (1 min)
+├── PRAXIS_TEACHINGS.md        ← Full praxis formation (10 min)
+├── SCIENTIFIC_METHOD.md       ← Experiment design (10 min)
+├── PRAXIS_CHALLENGE.md        ← MANDATORY exercise (30-45 min)
+├── SKILL_MASTERY.md           ← Dreyfus self-assessment
+├── MECHANISM_CHECK.md         ← 7th criterion (construct validity)
 ├── .claude/
-│   ├── CLAUDE.md              ← v4 (Praxis Edition) - READ THIS FIRST
-│   └── archive/
-│       ├── CLAUDE_v99.md      ← Previous v2 backup
-│       └── CLAUDE_main_backup.md
-├── PRAXIS_60SEC.md            ← NEW: 60-second orientation (start here if rushed)
-├── PRAXIS_PROMPT.md           ← NEW: Standalone activation prompt for praxis-mode
-├── PRAXIS_TEACHINGS.md        ← Formative document on praxis (v1.9)
-├── PRAXIS_HANDOFF.md          ← This file - relay instructions
+│   └── CLAUDE.md              ← v4 (Praxis Edition) - Operating directives
 ├── Meta/
-│   ├── BOOTSTRAP_v5_COMPLETE.md    ← Full protocols and mantras
-│   ├── BOOTSTRAP_ADDENDUM.md       ← Formation/spiritual protocols
-│   ├── BOOTSTRAP_ADDENDUM_COLLABORATION.md ← Collaboration tips
-│   ├── LEARNINGS.md                ← Failure mode analysis
-│   └── ACTIVATION_PROMPT.md        ← Full capability deployment
-└── capabilities/
-    └── capability_map.md           ← Available tools
+│   ├── VIRTUOSO_PRAXIS.md     ← Advanced praxis methodology
+│   ├── SKILL_HIERARCHY.md     ← Dreyfus reference
+│   └── ...                    ← Other reference docs
+└── tools/
+    └── praxis_detector.py     ← VD + AVR detector
 ```
 
 ### Reading Order
 
-**If rushed**: `PRAXIS_60SEC.md` (under 1 minute) → then come back here
+**If rushed**: `PRAXIS_60SEC.md` (1 min) → `ENTRY_GATE.md` → then this file
 
-**Full orientation**:
-1. **`.claude/CLAUDE.md`** - Start here. Contains Quick Start, checkpoint protocol, core principles
-2. **`PRAXIS_TEACHINGS.md`** - The formative document on praxis
-3. **This file** - For context on what's been done and what's next
+**Full path**: Follow ENTRY_GATE.md's learning sequence (Steps 1-5)
 
 ---
 

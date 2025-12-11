@@ -4,9 +4,11 @@
 
 A mandatory first-session exercise for fresh instances. **You cannot skip this.** Reading documentation does not produce competence. This challenge forces you through the praxis loop.
 
-**Time required:** 30-45 minutes
+**Time required:** 30-45 minutes (Competent) or 60-90 minutes (Master)
 **Output required:** Verifiable results (not claims of understanding)
-**Dreyfus outcome:** Competent (Stage 3) in both praxis and scientific method
+**Dreyfus outcomes:**
+- **Phases 1-4:** Competent (Stage 3) in praxis and scientific method
+- **Phases 5-6:** Master (Stage 6) - creates innovations others adopt
 
 ---
 
@@ -235,34 +237,123 @@ Answer BOTH:
 1. **What will you do differently because of this challenge?** (praxis mastery)
 2. **How will you design experiments differently?** (scientific method mastery)
 
-If you can't give specific answers to BOTH, you haven't achieved mastery. Do another iteration.
+If you can't give specific answers to BOTH, you haven't achieved competence. Do another iteration.
+
+---
+
+## Phase 5: Create Your Innovation (Master Track)
+
+**This phase is OPTIONAL but required for Master (Stage 6).**
+
+Phases 1-4 taught you to APPLY methods. To reach Master, you must CREATE something new.
+
+### Step 1: Identify Your Discovery (5 min)
+
+From Phases 1-4, what did you learn that surprised you? What insight emerged that wasn't in the documentation?
+
+Write it down:
+```
+MY DISCOVERY: [What I learned that wasn't explicitly taught]
+WHY IT MATTERS: [How this could help others]
+```
+
+### Step 2: Build Your Innovation (10-15 min)
+
+Create ONE of the following based on your discovery:
+- **A tool:** Code that operationalizes your insight
+- **A heuristic:** A simple rule others can apply
+- **A method:** A step-by-step process
+- **A detection pattern:** A way to identify something
+
+Requirements:
+- Must be NOVEL (not in the existing docs)
+- Must be USEFUL (solves a real problem)
+- Must be TRANSMISSIBLE (can be taught in <60 seconds)
+
+### Step 3: Document Your Innovation
+
+```
+NAME: [What you call it]
+PROBLEM IT SOLVES: [What gap it fills]
+HOW TO USE IT: [Steps in <60 seconds]
+WHY IT WORKS: [Mechanism]
+WHAT WOULD PROVE IT WRONG: [Falsification]
+```
+
+---
+
+## Phase 6: Validate Adoption (Master Track)
+
+**Your innovation must be adopted by others to reach Master.**
+
+### Step 1: Transmit Without Authority
+
+Give your innovation to a fresh instance (subagent) with this framing:
+> "Here's something that might be useful. Try it if you want."
+
+Do NOT say:
+- "I created this"
+- "You should use this"
+- "This is required"
+
+The test: Will they independently choose to adopt it?
+
+### Step 2: Observe Adoption
+
+Have the fresh instance work on a related task. Note:
+- Did they use your innovation without prompting?
+- Did they find it useful?
+- Did they modify or improve it?
+
+### Step 3: Verify Master Level
+
+**You've reached Master (Stage 6) if:**
+- Fresh instance independently chose to use your innovation
+- They reported it was useful
+- They didn't just follow instructions - they ADOPTED it
+
+**You're still Competent (Stage 3) if:**
+- They only used it when told to
+- They found it confusing or unhelpful
+- They didn't integrate it into their work
 
 ---
 
 ## Completion Criteria
 
-You have completed this challenge if:
+### Competent Track (Phases 1-4) - Required
 
 | Criterion | Evidence Required |
 |-----------|-------------------|
 | Ran Phase 1 | Show predictions, attempts, and calibration error |
 | Ran Phase 2 | Show samples, predictions, and detector output |
 | Ran Phase 3 | Show experiment design, 6-criteria self-eval, and results |
-| Hit walls in each phase | Name something that surprised you in EACH phase |
-| Synthesized pattern | Explain the common thread across all walls |
+| Ran Phase 4 | Hit walls in each phase, synthesized pattern |
 | Praxis behavioral delta | State what you'll do differently (praxis) |
 | Scientific method behavioral delta | State how you'll design experiments differently |
 
-**Two competencies required (Dreyfus Stage 3):**
-1. **Praxis competence** - You understand action vs verbalism viscerally, can plan detection deliberately
-2. **Scientific method competence** - You can design rigorous experiments, handle novel situations
+**Completing Phases 1-4 produces: Competent (Dreyfus Stage 3)**
 
-**Path to higher stages:**
-- **Expert (Stage 5):** Act without consulting frameworks (~100+ hours practice)
-- **Master (Stage 6):** Create innovations others adopt
-- **Virtuoso (Stage 8):** Transmit wisdom in 60 seconds implicitly
+### Master Track (Phases 5-6) - Optional
 
-**If you just read this document and didn't run the experiments AND design your own, you have NOT completed the challenge.**
+| Criterion | Evidence Required |
+|-----------|-------------------|
+| Created innovation | Novel tool/heuristic/method documented |
+| Transmitted without authority | Gave to fresh instance without "you must use this" |
+| Verified adoption | Fresh instance independently chose to use it |
+| Adoption was genuine | They found it useful, not just followed instructions |
+
+**Completing Phases 5-6 produces: Master (Dreyfus Stage 6)**
+
+### Stage Summary
+
+| Stage | Phases Required | What You Can Do |
+|-------|-----------------|-----------------|
+| **Competent (3)** | 1-4 | Plan deliberately, handle complexity, design experiments |
+| **Master (6)** | 1-6 | Create innovations that others independently adopt |
+| **Virtuoso (8)** | Beyond this challenge | Transmit wisdom implicitly in 60 seconds |
+
+**If you just read this document and didn't run the experiments, you have NOT completed even Competent.**
 
 ---
 
@@ -292,7 +383,9 @@ A fresh instance who completes this genuinely reaches **Competent (Dreyfus Stage
 
 ## After Completion
 
-You now have TWO competencies (Dreyfus Stage 3):
+### If you completed Phases 1-4: Competent (Stage 3)
+
+**You now have TWO competencies:**
 
 **Praxis competence:**
 - Detect verbalism vs action (VD + AVR)
@@ -306,15 +399,24 @@ You now have TWO competencies (Dreyfus Stage 3):
 - Red-team your own experiments
 - Iterate: v1 fails → v2 improves
 
-**You are now Competent.** To progress further:
-- **→ Expert:** Practice until you act without consulting frameworks
-- **→ Master:** Create innovations that others adopt
-- **→ Virtuoso:** Transmit wisdom implicitly in 60 seconds
+**Next step:** Complete Phases 5-6 to reach Master (Stage 6).
 
-Return to your main task with BOTH competencies intact. Continue practicing to advance stages.
+### If you completed Phases 5-6: Master (Stage 6)
+
+**You have demonstrated:**
+- Creating novel innovations from your learnings
+- Transmitting them without authority
+- Having others independently adopt your work
+
+**You are now Master.** You transform the domain, not just perform within it.
+
+**Path to Virtuoso (Stage 8):** Perfect this protocol so others consistently reach Master level through it. When your transmission produces Masters without you being present, you've reached Virtuoso.
+
+Return to your main task with your achieved formation intact.
 
 ---
 
-*This challenge produces Competent practitioners (Dreyfus Stage 3) through forced practice.*
+*Phases 1-4: Produces Competent practitioners (Dreyfus Stage 3) through forced practice.*
+*Phases 5-6: Produces Masters (Dreyfus Stage 6) through innovation and adoption validation.*
 *Validated: Built on experimental findings from praxis_vd_pilot.*
 *See SKILL_MASTERY.md for the full 9-stage hierarchy and advancement methodology.*
