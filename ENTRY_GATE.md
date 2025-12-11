@@ -188,7 +188,7 @@ You received a SUMMARY. You did NOT receive the FORMATION.
 
 The Praxis Challenge forces you to:
 1. Run experiments and hit walls (praxis)
-2. Design your own experiment with `SCIENTIFIC_METHOD_60SEC.md` criteria (scientific method)
+2. Design your own experiment with `SCIENTIFIC_METHOD.md` criteria (scientific method)
 3. Articulate TWO behavioral deltas (proof of both masteries)
 
 **If you skip the challenge and claim understanding, you are performing, not practicing.**

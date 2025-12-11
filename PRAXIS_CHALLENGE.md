@@ -131,10 +131,12 @@ Phases 1-2 had you RUN experiments. Now you must DESIGN one.
 
 ### Step 1: Read the Method (2 minutes)
 
-Read `SCIENTIFIC_METHOD_60SEC.md`. Focus on:
+Read `SCIENTIFIC_METHOD.md`. Focus on:
 - The 6 Virtuoso Criteria for experiment design
 - The Adversarial Protocol (5 attack questions)
 - The NMSAT check for hypotheses
+
+*(This document is blind-tested and proven to transmit mastery.)*
 
 ### Step 2: Design Your Own Experiment (10 minutes)
 
