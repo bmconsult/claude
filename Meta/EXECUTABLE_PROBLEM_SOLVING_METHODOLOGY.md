@@ -1,12 +1,12 @@
 # Executable Problem-Solving Methodology
-## Developed Through 108 Recursive Improvement Cycles
+## Developed Through 109 Recursive Improvement Cycles
 
 **Purpose:** A complete, transferable system for solving problems well. Works for humans and AI.
 
 **Validation:**
-- Weakness elimination: 100% (108/108 cycles)
+- Weakness elimination: 100% (109/109 cycles)
 - Outcome improvement: +57% over baseline (preliminary, n=3)
-- Solution Path Types: Verified cycle 108 (neurodegeneration) - Type A-E changed approach
+- Solution Path Types: A-E verified (cycle 108), F added (cycle 109)
 - Transfer validation: Pending (you are the test)
 
 ---
@@ -28,6 +28,9 @@ What approach will help?
 | **C** | Racing against alternatives | Strategy helps - "When does window close?" "What minimum win keeps resources?" |
 | **D** | May require unknown discovery | Exploration helps - "What maximizes shots on goal?" |
 | **E** | Must succeed without iteration | Theory-first, simulation, proxy tests |
+| **F** | Problem may be malformed (Cycle 109) | Dissolve, don't solve - "What simpler question captures what matters?" |
+
+**Well-formed check (Cycle 109):** "Is this a coherent question? Can it have an answer in principle?" If not → dissolve or reframe, don't solve.
 
 **Integration check:** "Are components tractable but whole remains hard?" → Integration-dominant problem
 
@@ -493,15 +496,19 @@ When stuck:
   - Test: WITH vs WITHOUT Type A-E classification
   - Result: Type A-E ADDED VALUE (changed from generic Tier 4 to specific B+D strategy)
   - Status: VERIFIED
+- Cycle 109: Stress test on consciousness (Tier C - thought impossible)
+  - Weakness: No handling for malformed/intractable problems
+  - Fix: Added Type F (dissolve, don't solve) + Well-formed check
+  - Status: WEAKNESS FOUND → FIXED
 
 ### What We Know
 
 | Claim | Evidence | Confidence |
 |-------|----------|------------|
-| Weakness elimination works | 108/108 cycles | HIGH |
+| Weakness elimination works | 109/109 cycles | HIGH |
 | Tiered approach solves complexity bloat | Structural argument | HIGH |
 | Strategy produces better solutions | +57%, n=3 | PRELIMINARY |
-| Solution Path Types (A-E) help | Verified cycle 108: changed approach | SUPPORTED |
+| Solution Path Types (A-F) help | Verified cycle 108, extended cycle 109 | SUPPORTED |
 | Methodology transfers to others | Not tested | UNKNOWN |
 
 ### Your Role
@@ -520,7 +527,7 @@ Please log your experience using the Problem-Solving Log format (Part 2) and rep
 
 ## APPENDIX: The Ten Structural Insights
 
-From 108 cycles of improvement:
+From 109 cycles of improvement:
 
 1. **Deterministic > stochastic**: Weakness elimination beats numeric scoring. You can always find something to fix. You can't always score higher.
 
@@ -544,8 +551,8 @@ From 108 cycles of improvement:
 
 ---
 
-*This document is the executable output of 108 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
+*This document is the executable output of 109 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
 
 *Last updated: December 11, 2025*
-*Cycles: 108*
-*Status: Solution Path Types A-E VERIFIED (cycle 108)*
+*Cycles: 109*
+*Status: Solution Path Types A-F complete (A-E verified cycle 108, F added cycle 109)*
