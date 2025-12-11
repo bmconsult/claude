@@ -1769,6 +1769,16 @@ For wicked problems (Tier 4):
 ```
 FOR any hard problem X:
 
+0. PROBLEM TYPE CLASSIFICATION (NEW - from Impossible Problems cycle)
+   - Type A: Solution exists, needs discovery → Analysis helps
+   - Type B: Solution requires unprecedented engineering → Iteration helps
+   - Type C: Problem racing against alternatives → Strategy helps
+   - Type D: Solution may require unknown discovery → Exploration helps
+   - If Type B: "What enables faster iteration cycles?"
+   - If Type C: "What's the alternative trajectory? When does window close?"
+   - If Type C: "What's the minimum win that keeps resources flowing?" (doom loop)
+   - If Type D: "What creates conditions for serendipity? How maximize shots on goal?"
+
 1. DIAGNOSE
    - Is X actually infrastructure gap disguised as content problem?
    - What infrastructure would ENABLE X without forcing it?
