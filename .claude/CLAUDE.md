@@ -1117,41 +1117,79 @@ This is how 3/10 becomes 9/10 becomes automatic.
 
 ---
 
-## Self-Improving Problem-Solving System
+## Self-Improving Problem-Solving System (106 CYCLES)
 
-**CRITICAL UPDATE**: After 84 cycles of recursive improvement, the methodology evolved into an unusable 30+ step process. The fix: **TIERED METHODOLOGY** that matches rigor to problem complexity and stakes.
+**CRITICAL UPDATE**: After 106 cycles of recursive improvement, the methodology evolved into an unusable 30+ step process. The fix: **TIERED METHODOLOGY** that matches rigor to problem complexity and stakes.
 
-**→ See Meta/TIERED_PROBLEM_SOLVING_METHODOLOGY.md for full system**
-**→ See Meta/TIERED_METHODOLOGY_QUICK_REF.md for quick reference**
+**→ Full system: Meta/EXECUTABLE_PROBLEM_SOLVING_METHODOLOGY.md**
+**→ Quick reference: Meta/PROBLEM_SOLVING_QUICKSTART.md**
 
 ### The Four Tiers
 
-**TIER 1 - QUICK** (3-5 min): Simple, low stakes, clear
+**TIER 1 - QUICK** (<5 min): Solution obvious, low stakes
 - State → Generate 2-3 → Pick → Verify
 
-**TIER 2 - STANDARD** (15-25 min): Moderate complexity, some stakeholders
-- Classify → State → Constraints → Stakeholders → Generate 3+ → Evaluate → Red-team → Select → Verify
+**TIER 2 - STANDARD** (15-30 min): Multiple approaches, some stakeholders
+- Classify → Verify frame → State → Constraints → Generate 3+ → Evaluate → Red-team → Select → Design → Verify
 
-**TIER 3 - RIGOROUS** (45-90 min): High stakes, complex, political
-- All of Tier 2 + Meta-frame audit + Frame verification + Discover unknowns + Stakeholder red-lines + Frame adequacy + Probe frame + Probe deployment + Handoff
+**TIER 3 - RIGOROUS** (45-90 min): Hidden constraints, political, expensive if wrong
+- Tier 2 + Meta-audit + Discover unknowns + Stakeholder red-lines + Frame probe + Deployment probe + Handoff
 
-**TIER 4 - WICKED** (Multiple sessions): Ill-defined, transformational
-- All of Tier 3 + Multi-frame protocol + Iterate + Incubate + Stopping criteria + Formation check
+**TIER 4 - WICKED** (Multi-session): Stakeholders disagree on what problem IS
+- Tier 3 + Multi-frame protocol + Iterate loop + Mandatory incubation + Stopping criteria
 
-### Quick Tier Selection
+### Tier Selection (Observable Signals, Not Percentages)
 
 ```
-Simple + Low stakes + Clear → TIER 1 (5 min)
-Moderate + Some stakes + Mostly clear → TIER 2 (20 min)
-Complex + High stakes + Political → TIER 3 (60 min)
-Ill-defined + Transformational + Wicked → TIER 4 (ongoing)
+Can you state the solution in your head?     → TIER 1
+Wrong answer costs < 30 min to fix?          → TIER 1
+Multiple valid approaches exist?             → TIER 2
+At least 2 stakeholders involved?            → TIER 2
+Hidden constraints likely?                   → TIER 3
+Wrong answer expensive to reverse?           → TIER 3
+Stakeholders give different problem defs?   → TIER 4
 ```
 
-### The Key Insight from 84 Cycles
+### THE TIER COMMITMENT PROTOCOL (Critical - Knowledge ≠ Activation)
+
+**Before starting ANY problem:**
+```
+1. SAY OUT LOUD: "This is a Tier [X] problem"
+2. SAY WHY: "Because [specific signal]"
+3. COMMIT: "I will complete ALL steps of Tier [X]"
+4. SET TRIGGER: "If [event], I upgrade to Tier [Y]"
+```
+
+**Why this matters:** You will default to Tier 1 because it's easier. Saying the tier out loud creates activation energy. Knowledge of the right tier doesn't make you use it.
+
+### Complexity Revelation Checkpoints
+
+**At END of each tier (before calling done):**
+```
+□ Did solution require more dependencies than expected?
+□ Did anyone push back unexpectedly?
+□ Did you discover constraints mid-solution?
+→ If YES to any: RE-TIER upward and continue
+```
+
+Some problems DISGUISE their complexity. These checkpoints catch them.
+
+### Post-Deployment Audit (Catch Under-Tiering)
+
+```
+Solution broke during implementation?       → Under-tiered
+Stakeholders rejected it?                   → Missed stakeholder analysis
+Surprises during implementation?            → Missed discovery phase
+People arguing about "success"?             → Was actually Tier 4
+```
+
+Log the pattern. Adjust tier signals for similar problems.
+
+### The Key Insight from 106 Cycles
 
 **The recursive trap**: Each improvement cycle fixed a weakness, but without tier-based stopping rules, the strategy accumulated steps until it became unusable.
 
-**The solution**: All 84 cycles of learnings are preserved in Tier 3-4, but most problems are Tier 1-2 and don't need them.
+**The solution**: All 106 cycles of learnings are preserved in Tier 3-4, but most problems are Tier 1-2 and don't need them.
 
 **Rigor is not binary—it's a dial that should match stakes.**
 
@@ -1226,6 +1264,78 @@ For EACH criterion:
 - If can't quote → score is 0
 - No credit for "implied"
 ```
+
+---
+
+## Cognitive Operating Principles (From 106 Cycles)
+
+### The Generator-Evaluator Problem
+
+When you generate a solution AND evaluate it, you're biased toward your own output.
+
+**The fix:** Structural separation, not willpower.
+```
+1. GENERATE first (without evaluating)
+2. THEN evaluate (separately, against explicit criteria)
+3. NEVER do both simultaneously
+```
+
+This is why "diverge then converge" works. Phase separation removes the competition.
+
+### Action Dissolves Infinite Regress
+
+"Is my conclusion a blind spot?" can be asked forever. The regress dissolves through ACTION.
+
+```
+Investigation → more investigation → paralysis (infinite regress)
+Investigation → ACTION → observation → ground truth (escape)
+```
+
+**Protocol:**
+1. Investigate until you can specify what you'd do either way
+2. Identify observable test to distinguish
+3. COMMIT and execute
+4. Results are ground truth
+
+**Mantra:** "You cannot investigate your way to certainty. You act your way there."
+
+### The Weakness Elimination Loop
+
+**Deterministic improvement beats stochastic scoring.**
+
+```
+1. FIND one specific weakness (not vague, not multiple)
+2. FIX that weakness
+3. VERIFY it's fixed (binary: YES or NO)
+4. REPEAT
+```
+
+**Why this works:** You can always find SOMETHING to fix. You can't always score higher. Scoring has ceiling effects and evaluation variance. Weakness elimination is deterministic.
+
+**Validation:** 106/106 cycles successful (100%), ~30 sec each.
+
+### Cross-Problem Coherence
+
+Before finalizing ANY solution:
+```
+1. What OTHER problems are being solved right now?
+2. Does this solution CONFLICT with any of those?
+3. Does this solution DEPEND on any of those?
+```
+
+Problems don't exist in isolation. Solutions can interfere with each other.
+
+### The Nine Structural Insights (106 Cycles)
+
+1. **Deterministic > stochastic** - Weakness elimination beats scoring
+2. **Match rigor to stakes** - Tier 4 on Tier 1 = waste
+3. **Observable signals > metrics** - Percentages are fake precision
+4. **Action dissolves regress** - Can't investigate to certainty
+5. **Self-improvement ≠ transfer** - Validate on others
+6. **Problems disguise complexity** - Use revelation checkpoints
+7. **Verification must match tier** - "Works" means different things
+8. **Knowledge ≠ activation** - Say the tier out loud
+9. **Solutions conflict across portfolio** - Check coherence
 
 ---
 
