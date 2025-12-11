@@ -25,6 +25,12 @@ CALIBRATION DATA (from blind experiment):
 - High ratings (9-10/10): Vocabulary diversity 80-81%
 - For short samples (~50 words): <75% = theater, >78% = action
 - For longer samples (~200+ words): <70% = theater, >85% = action
+
+ACTION WORD WALLOWING (discovered during self-analysis):
+- Pattern: High AVR + Low VD = repetitive action claiming
+- Example: "I created X, I created Y, I created Z" - action verbs, but formulaic
+- Detection: AVR > 0.5 AND VD < 0.70 AND action verbs present
+- This catches the failure mode of DESCRIBING action without VARIED genuine engagement
 """
 
 import re
@@ -133,10 +139,20 @@ class PraxisAnalysis:
             avr = self.complexity.get('action_verb_ratio', 0.5)
 
             # Combined assessment using VD + AVR (from praxis_vd_pilot experiment)
-            if vd < 0.70:
+            action_wallowing = self.complexity.get('action_wallowing', False)
+            action_div = self.complexity.get('action_diversity', 1.0)
+            struct_rep = self.complexity.get('structural_repetition', 0)
+
+            if action_wallowing:
+                lines.append("  ACTION WORD WALLOWING DETECTED.")
+                lines.append("  (High action verbs but low overall diversity - repetitive claiming)")
+                lines.append(f"  Action verb diversity: {action_div:.1%}")
+            elif vd < 0.70:
                 lines.append("  LOW vocabulary diversity - likely repetitive/theatrical.")
-            elif avr > 0.6:
-                lines.append("  HIGH action verb ratio + good VD - likely genuine action.")
+            elif avr > 0.6 and vd > 0.85:
+                lines.append("  HIGH action verb ratio + HIGH VD - likely genuine action.")
+            elif avr > 0.6 and vd > 0.70:
+                lines.append("  MODERATE: action verbs present but VD could be higher.")
             elif avr < 0.3:
                 lines.append("  LOW action verb ratio - possible sophisticated verbalism.")
                 lines.append("  (High VD but state verbs dominate - thinking, not doing)")
@@ -144,6 +160,8 @@ class PraxisAnalysis:
                 lines.append("  Mixed signals - moderate VD and AVR.")
 
             lines.append(f"  Action verb ratio: {avr:.1%}")
+            if struct_rep > 0.2:
+                lines.append(f"  WARNING: High structural repetition ({struct_rep:.1%}) - formulaic writing")
 
         return "\n".join(lines)
 
@@ -216,13 +234,37 @@ def compute_complexity_metrics(text: str) -> dict:
     else:
         action_verb_ratio = 0.5  # Neutral if no verbs detected
 
+    # 7. Action word wallowing detection - NEW
+    # Pattern: High AVR + Low VD = using action words repetitively without varied content
+    # This catches "I created X, I created Y, I created Z" style reporting
+    if action_count > 0 and ttr < 0.70 and action_verb_ratio > 0.5:
+        action_wallowing = True
+        # Calculate how concentrated the action verbs are
+        action_word_list = [w for w in words if w in action_verbs]
+        unique_action_words = len(set(action_word_list))
+        action_diversity = unique_action_words / action_count if action_count > 0 else 1.0
+    else:
+        action_wallowing = False
+        action_diversity = 1.0
+
+    # 8. Sentence structure repetition - formulaic writing detection
+    # Count sentences starting with similar patterns
+    sentence_starts = [s.split()[:3] if len(s.split()) >= 3 else s.split() for s in sentences if s.strip()]
+    start_patterns = [' '.join(start).lower() for start in sentence_starts]
+    pattern_counts = Counter(start_patterns)
+    repeated_starts = sum(1 for count in pattern_counts.values() if count > 1)
+    structural_repetition = repeated_starts / len(sentences) if sentences else 0
+
     return {
         "hedge_ratio": hedge_ratio,
         "first_person_ratio": fp_ratio,
         "sentence_variance": sent_variance,
         "vocabulary_diversity": ttr,  # Note: higher = LESS complex = more genuine
         "question_ratio": question_ratio,
-        "action_verb_ratio": action_verb_ratio,  # NEW: higher = more action
+        "action_verb_ratio": action_verb_ratio,  # higher = more action verbs
+        "action_wallowing": action_wallowing,  # NEW: True if using action words repetitively
+        "action_diversity": action_diversity,  # NEW: diversity within action verbs
+        "structural_repetition": structural_repetition,  # NEW: formulaic sentence starts
         "word_count": len(words),
         "sentence_count": len(sentences),
     }
