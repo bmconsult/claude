@@ -1764,7 +1764,7 @@ For wicked problems (Tier 4):
 
 **The pattern:** Build infrastructure that ENABLES the outcome, rather than trying to force the outcome directly.
 
-### Updated Framework (12 Problems)
+### Updated Framework (13 Problems)
 
 ```
 FOR any hard problem X:
