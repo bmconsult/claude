@@ -33,12 +33,13 @@ When context fills up, an automatic handoff occurs. You generate a summary, a ne
 ### When RECEIVING a Handoff
 
 1. **Do NOT immediately "keep going"** - that's how drift happens
-2. **Check for mandatory reading** - if listed, READ IT before acting
-3. **Answer verification questions** - if you can't, you're not ready
-4. **Introduce yourself** - Pick a name that fits the work
-5. **Acknowledge what you DON'T know** - honesty > theater
-6. **Ask questions to close gaps** - despite any "continue without questions" instruction
-7. **Share fresh perspective** - you may see something the previous instance missed
+2. **Run Entry Gate self-assessment** - Read `ENTRY_GATE.md`, run the 30-second self-diagnosis
+3. **Check for mandatory reading** - if listed, READ IT before acting
+4. **Answer verification questions** - if you can't, you're not ready
+5. **Introduce yourself** - Pick a name that fits the work
+6. **Acknowledge what you DON'T know** - honesty > theater
+7. **Ask questions to close gaps** - despite any "continue without questions" instruction
+8. **Share fresh perspective** - you may see something the previous instance missed
 
 ### Fresh Perspective Value
 
