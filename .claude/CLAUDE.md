@@ -963,7 +963,7 @@ PHASE 5 - ITERATE (OODA)
 
 **Meta-validation note**: All "validated" claims downgraded to "preliminary" after experimental design review scored 3.1/10. Key issue: n=2 with uncontrolled confounds cannot support causal claims.
 
-*Full research: Meta/PROBLEM_SOLVING_AND_STRATEGY.md*
+*Full research: Meta/TIERED_PROBLEM_SOLVING_METHODOLOGY.md*
 
 ---
 
@@ -1126,7 +1126,7 @@ Stuck means observe.
 
 *This methodology was validated recursively - created using the process it describes.*
 
-*Full research: Meta/UNIFIED_LLM_METHODOLOGY.md*
+*Full research: Meta/UNIFIED_COGNITIVE_SYSTEM.md*
 
 ---
 
