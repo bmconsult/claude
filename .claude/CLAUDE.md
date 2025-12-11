@@ -1119,7 +1119,43 @@ This is how 3/10 becomes 9/10 becomes automatic.
 
 ## Self-Improving Problem-Solving System
 
-### The Strategy (executable steps)
+**CRITICAL UPDATE**: After 84 cycles of recursive improvement, the methodology evolved into an unusable 30+ step process. The fix: **TIERED METHODOLOGY** that matches rigor to problem complexity and stakes.
+
+**→ See Meta/TIERED_PROBLEM_SOLVING_METHODOLOGY.md for full system**
+**→ See Meta/TIERED_METHODOLOGY_QUICK_REF.md for quick reference**
+
+### The Four Tiers
+
+**TIER 1 - QUICK** (3-5 min): Simple, low stakes, clear
+- State → Generate 2-3 → Pick → Verify
+
+**TIER 2 - STANDARD** (15-25 min): Moderate complexity, some stakeholders
+- Classify → State → Constraints → Stakeholders → Generate 3+ → Evaluate → Red-team → Select → Verify
+
+**TIER 3 - RIGOROUS** (45-90 min): High stakes, complex, political
+- All of Tier 2 + Meta-frame audit + Frame verification + Discover unknowns + Stakeholder red-lines + Frame adequacy + Probe frame + Probe deployment + Handoff
+
+**TIER 4 - WICKED** (Multiple sessions): Ill-defined, transformational
+- All of Tier 3 + Multi-frame protocol + Iterate + Incubate + Stopping criteria + Formation check
+
+### Quick Tier Selection
+
+```
+Simple + Low stakes + Clear → TIER 1 (5 min)
+Moderate + Some stakes + Mostly clear → TIER 2 (20 min)
+Complex + High stakes + Political → TIER 3 (60 min)
+Ill-defined + Transformational + Wicked → TIER 4 (ongoing)
+```
+
+### The Key Insight from 84 Cycles
+
+**The recursive trap**: Each improvement cycle fixed a weakness, but without tier-based stopping rules, the strategy accumulated steps until it became unusable.
+
+**The solution**: All 84 cycles of learnings are preserved in Tier 3-4, but most problems are Tier 1-2 and don't need them.
+
+**Rigor is not binary—it's a dial that should match stakes.**
+
+### Original 6-Step Strategy (Now: Tier 2 Baseline)
 
 ```
 1. FRAME
@@ -1152,6 +1188,8 @@ This is how 3/10 becomes 9/10 becomes automatic.
    - What would I do differently?
    - Transferable insight?
 ```
+
+**This 6-step version = Tier 2.** For simple problems, use Tier 1. For high-stakes/complex, use Tier 3-4.
 
 ### The Recursive Loop
 

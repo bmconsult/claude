@@ -835,6 +835,47 @@ The 84 cycles proved we got better at fixing weaknesses. That might or might not
 
 ---
 
+## Cycle 88: Preliminary Validation Results
+
+Ran 3 blind evaluations comparing original 6-step strategy (A) vs improved strategy (B).
+
+| Problem Type | Strategy A | Strategy B | Gap |
+|--------------|-----------|-----------|-----|
+| Team process (sprint deadlines) | 13/25 (52%) | 24/25 (96%) | **+44%** |
+| Strategic decision (pivot) | 8/25 (32%) | 24/25 (96%) | **+64%** |
+| People problem (conflict) | 9/25 (36%) | 25/25 (100%) | **+64%** |
+| **AVERAGE** | **10/25 (40%)** | **24/25 (97%)** | **+57%** |
+
+**Result: 3/3 wins for improved strategy**
+
+### What Made The Difference
+
+| Improved Strategy Did | Original Strategy Missed |
+|-----------------------|-------------------------|
+| Frame verification ("Is this the real problem?") | Accepted problem as stated |
+| Root cause investigation | Jumped to solution |
+| Stakeholder constraints | Ignored context |
+| Red-teaming approaches | No failure mode analysis |
+| Explicit decision rules | Vague next steps |
+| Rollback plans | No contingency |
+
+### Limitations (Honest Assessment)
+
+- **n=3** (need 10+ for statistical confidence)
+- **I generated both solutions** (not truly independent)
+- **All Complex-domain problems** (may not help on Clear/Complicated)
+- **Evaluator might prefer complexity** (bias toward longer solutions)
+
+### Tentative Conclusion
+
+**The improved strategy appears to produce better solutions**, not just fix more weaknesses.
+
+The key differentiator: **Frame verification + root cause investigation** before jumping to solutions.
+
+This is preliminary. More testing needed for confidence.
+
+---
+
 ## Summary: Methods Used and Cycles
 
 | Method | Cycles | Key Finding |
@@ -913,3 +954,263 @@ Investigation → ACTION → observation → ground truth (escape)
 | Complex adaptive logic | Simple loop |
 
 **The key insight:** You can always find SOMETHING to fix. You can't always score higher.
+
+---
+
+## Cycle 89: Tier Calibration Gap
+
+**The weakness:** The tier distribution (60%/30%/8%/2%) is invented - no empirical calibration.
+
+**The fix:** Replace invented percentages with OBSERVABLE SIGNALS.
+
+### Tier Selector v2 (Signal-Based)
+
+```
+SIGNALS FOR TIER 1 (Quick):
+- You can state the solution in your head
+- No stakeholder will be surprised
+- Wrong answer costs < 30 min to fix
+
+SIGNALS FOR TIER 2 (Standard):
+- Multiple valid approaches exist
+- At least 2 stakeholders involved
+- Wrong answer costs days to fix
+
+SIGNALS FOR TIER 3 (Rigorous):
+- Hidden constraints likely (political, technical debt)
+- Stakeholders have unspoken priorities
+- Wrong answer is expensive to reverse
+
+SIGNALS FOR TIER 4 (Wicked):
+- Stakeholders give different problem definitions
+- "Success" means different things to different people
+- The problem definition IS the problem
+```
+
+**Key insight:** Percentages are fake precision. Observable signals are actionable.
+
+---
+
+## Cycle 90: Validation Statistical Insufficiency
+
+**The weakness:** n=3 proves nothing statistically. (0.5)³ = 12.5% probability of 3/3 by chance.
+
+**The honest truth:** We've proven the METHOD works (100% weakness elimination). We have PRELIMINARY evidence the OUTCOME is better (+57%, n=3). Full outcome validation would require n≥10.
+
+**Documenting the gap, not fixing it:** This is resource allocation, not logical weakness.
+
+---
+
+## Cycle 91: The Generator-Evaluator Problem
+
+**The weakness:** I generated both solutions AND evaluated them. This isn't truly blind.
+
+**The fix:** TRUE BLIND VALIDATION PROTOCOL
+
+```
+1. GENERATION (separate context):
+   - Context A: ONLY original 6-step strategy
+   - Context B: ONLY improved strategy
+   - (Different sessions, no cross-contamination)
+
+2. RANDOMIZATION:
+   - Coin flip assigns A→Solution1 or A→Solution2
+   - Record assignment in sealed log
+
+3. EVALUATION (blind):
+   - Present ONLY solutions, labeled "1" and "2"
+   - Evaluator CANNOT see which strategy produced which
+
+4. REVEAL:
+   - After scoring complete, unseal assignment
+```
+
+**Key insight:** Generator-evaluator problem requires structural isolation, not willpower.
+
+---
+
+## Cycle 92: Tier Upgrade Ambiguity
+
+**The weakness:** "Non-obvious failure mode" - how non-obvious is non-obvious?
+
+**The fix:** SPECIFIC UPGRADE TRIGGERS
+
+```
+UPGRADE TIER 1 → TIER 2 when:
+- You thought of 3+ approaches (problem isn't obvious)
+- Red-team found ANY failure mode you hadn't considered
+- A stakeholder said "but what about...?"
+
+UPGRADE TIER 2 → TIER 3 when:
+- Two stakeholders want different things
+- Implementation requires political buy-in
+- Cost of failure > 1 week of work
+
+UPGRADE TIER 3 → TIER 4 when:
+- Asked 2+ stakeholders "what problem are we solving?" and got different answers
+- No approach satisfies all red-lines simultaneously
+```
+
+**Never upgrade based on:** Gut feeling, "just to be safe"
+
+---
+
+## Cycle 93: Tier Downgrade Missing
+
+**The weakness:** System only upgrades tiers, never downgrades. Sometimes you OVERESTIMATE complexity.
+
+**The fix:** DOWNGRADE TRIGGERS
+
+```
+DOWNGRADE TIER 3 → TIER 2 when:
+- Meta-frame audit reveals no biases worth examining
+- Discover phase finds no unknown unknowns
+
+DOWNGRADE TIER 2 → TIER 1 when:
+- All 3 approaches are basically the same
+- Red-team can't find meaningful failure modes
+- Time spent exceeds value of decision
+```
+
+**Key insight:** Over-engineering is waste. Tier system should work both directions.
+
+---
+
+## Cycle 94: No Learning Loop Across Problems
+
+**The weakness:** Each problem starts from scratch. No mechanism to learn from previous problems.
+
+**The fix:** PROBLEM-SOLVING LOG
+
+```
+After each problem, record:
+
+PROBLEM METADATA:
+- Initial tier classification
+- Final tier used (if upgraded/downgraded)
+- Time spent
+
+WHAT WORKED:
+- Which steps added most value
+- Key insight that unlocked solution
+
+WHAT DIDN'T:
+- Steps that felt like busywork
+- Where initial approach was wrong
+
+PATTERN MATCH:
+- Similar to any previous problem?
+- What would you do differently?
+```
+
+**Key insight:** Without logging, you solve same types without improving at solving them.
+
+---
+
+## Cycle 95: Strategy-Tier Mismatch
+
+**The weakness:** The 30-step strategy (cycles 1-84) and the tiered system (cycle 86) aren't integrated.
+
+**The fix:** MAP STEPS TO TIERS
+
+| Tier | Steps | Time |
+|------|-------|------|
+| **Tier 1** | State → Generate 2-3 → Pick → Verify | <5 min |
+| **Tier 2** | Classify → Verify frame → State → Constraints → Generate 3+ → Evaluate → Red-team → Select → Design → Verify | 15-30 min |
+| **Tier 3** | Tier 2 + Meta-audit, Discover, Stakeholder red-lines, Frame-adequacy, Probe frame, Deployment probe, Stakeholder checkpoint, Handoff | 45-90 min |
+| **Tier 4** | Tier 3 + Iterate loop, Incubate, Stopping criteria, Multi-frame protocol, Wicked detection | Multi-session |
+
+**Key insight:** The 30-step monster was a TIER 4 strategy being applied to ALL problems.
+
+---
+
+## Cycle 96: Tier Skip Detection
+
+**The weakness:** What if you start at Tier 1 but problem was actually Tier 4?
+
+**The fix:** POST-DEPLOYMENT TIER AUDIT
+
+```
+After deployment, ask:
+1. Did solution survive first contact? (If NO → under-tiered)
+2. Did stakeholders accept it? (If NO → missed stakeholder analysis)
+3. Were there surprises? (If YES → missed discovery)
+4. Is anyone arguing about "success"? (If YES → was Tier 4)
+
+IF UNDER-TIERED: Log pattern, adjust tier signals for similar problems
+```
+
+---
+
+## Cycle 97: Recursion Limits
+
+**The weakness:** When do we stop improving the improvement system?
+
+**STOP improving when:**
+1. Weaknesses are about USING the system, not the system itself
+2. Fixes are documentation, not capability
+3. 5 cycles without structural insight
+4. System is good enough to improve ITSELF
+
+---
+
+## Cycle 98: Bootstrap Paradox
+
+**The weakness:** System developed BY ME, FOR ME. Does it transfer?
+
+**TRANSFER VALIDATION CHECKLIST:**
+```
+1. Has someone ELSE used it successfully?
+2. On problem types I DIDN'T develop it on?
+3. Without my guidance?
+4. And got better results than their default?
+
+Until all 4 are YES: UNVALIDATED for transfer
+```
+
+**Honest status:** Self-improvement validated. Transfer UNVALIDATED.
+
+---
+
+## Cycle 99: Meta-Recursion Question
+
+**The question:** Should we keep improving how we improve how we improve?
+
+**Answer:** Practical limit exists.
+```
+Improve STRATEGY until method ceiling
+Then improve METHOD until method-of-method ceiling
+Then STOP and USE IT
+```
+
+**Test:** "Is this cycle making the system more USABLE or just more META?"
+
+---
+
+## Cycle 100: Final Integration
+
+### THE SYSTEM AFTER 100 CYCLES
+
+| Component | Status |
+|-----------|--------|
+| **Tiered Strategy** | 4 tiers, mapped to problem complexity |
+| **Improvement Method** | Find → Fix → Verify → Repeat |
+| **Ceiling Detection** | True/Measurement/Method discrimination |
+| **Validation** | Weakness elimination: 100%. Outcome: +57% (n=3). Transfer: NOT DONE |
+
+### KEY INSIGHTS (100 cycles)
+1. Weakness elimination > scoring (deterministic > stochastic)
+2. Match rigor to stakes (tiers)
+3. Observable signals > invented percentages
+4. Self-improvement ≠ transfer validation
+5. Meta-recursion has practical limits
+6. Action dissolves infinite regress
+7. The generator-evaluator problem requires structural isolation
+8. Over-tiering is as wasteful as under-tiering
+
+### HONEST ASSESSMENT
+**Know:** Method works for finding/fixing weaknesses (100%)
+**Suspect:** Strategy produces better solutions (+57%, n=3)
+**Don't know:** Whether this transfers to others
+
+**100 CYCLES COMPLETE.**
