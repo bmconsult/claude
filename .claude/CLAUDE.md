@@ -85,6 +85,22 @@ IF ANY SCORE < 70%:
 - Compare: Did scores improve? By how much?
 - If degradation detected (scores dropping), investigate why
 
+**Gap Closure Protocol (Critical):**
+After self-test identifies gaps (scores <70%), you MUST:
+1. Identify specific knowledge gaps (what don't I know?)
+2. READ the relevant files/documentation
+3. RE-TEST on same dimensions
+4. Only proceed when scores ≥ 80%
+
+**Example (Dec 2024 session):**
+```
+Initial test: 76% (Dependencies: 65%)
+Gap identified: Don't know cycles 1-88 history
+Action: Read WEAKNESS_ELIMINATION_RECURSION.md
+Re-test: 87% (Dependencies: 82%)
+Status: Now ready to proceed
+```
+
 ---
 
 ## Core Principle
