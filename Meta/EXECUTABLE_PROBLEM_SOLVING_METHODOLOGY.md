@@ -1,11 +1,12 @@
 # Executable Problem-Solving Methodology
-## Developed Through 106 Recursive Improvement Cycles
+## Developed Through 111 Recursive Improvement Cycles
 
 **Purpose:** A complete, transferable system for solving problems well. Works for humans and AI.
 
 **Validation:**
-- Weakness elimination: 100% (106/106 cycles)
+- Weakness elimination: 100% (111/111 cycles)
 - Outcome improvement: +57% over baseline (preliminary, n=3)
+- Solution Path Types: Analyzed on 5 impossible/hard problems (cycles 107-111)
 - Transfer validation: Pending (you are the test)
 
 ---
@@ -15,6 +16,20 @@
 ### Step 0: Tier Selection (DO THIS FIRST)
 
 Before solving anything, classify the problem. Match rigor to stakes.
+
+**ALSO: Solution Path Classification (Cycles 107-111)**
+
+What approach will help?
+
+| Type | Signal | Strategy |
+|------|--------|----------|
+| **A** | Solution exists, needs discovery | Analysis helps |
+| **B** | Requires unprecedented engineering | Iteration helps - "What enables faster cycles?" |
+| **C** | Racing against alternatives | Strategy helps - "When does window close?" "What minimum win keeps resources?" |
+| **D** | May require unknown discovery | Exploration helps - "What maximizes shots on goal?" |
+| **E** | Must succeed without iteration | Theory-first, simulation, proxy tests |
+
+**Integration check:** "Are components tractable but whole remains hard?" → Integration-dominant problem
 
 ```
 ASK YOURSELF:
@@ -459,7 +474,7 @@ When stuck:
 
 ### How This Was Built
 
-106 cycles of recursive improvement:
+111 cycles of recursive improvement:
 - Cycles 1-31: Internal recursion → hit action boundary
 - Cycles 32-38: Action mode → rapid execution validated
 - Cycles 39-44: Deployment focus → systems thinking added
@@ -470,14 +485,21 @@ When stuck:
 - Cycles 85: Ceiling detection → method boundary identified
 - Cycles 86-88: Tiered methodology created + preliminary validation
 - Cycles 89-106: Operational refinement → signals, triggers, usage debugging
+- Cycles 107-111: Impossible problems frontier → Solution Path Types A-E added
+  - 107: Fusion → Type B/C (racing + iteration)
+  - 108: Superconductivity → Type D (serendipity)
+  - 109: Quantum Error → Doom loop awareness
+  - 110: Antibody Design → Integration-dominant check
+  - 111: AGI Alignment → Type E (non-iterable)
 
 ### What We Know
 
 | Claim | Evidence | Confidence |
 |-------|----------|------------|
-| Weakness elimination works | 106/106 cycles | HIGH |
+| Weakness elimination works | 111/111 cycles | HIGH |
 | Tiered approach solves complexity bloat | Structural argument | HIGH |
 | Strategy produces better solutions | +57%, n=3 | PRELIMINARY |
+| Solution Path Types (A-E) help | 5 impossible problems analyzed | PRELIMINARY |
 | Methodology transfers to others | Not tested | UNKNOWN |
 
 ### Your Role
@@ -494,9 +516,9 @@ Please log your experience using the Problem-Solving Log format (Part 2) and rep
 
 ---
 
-## APPENDIX: The Nine Structural Insights
+## APPENDIX: The Ten Structural Insights
 
-From 106 cycles of improvement:
+From 111 cycles of improvement:
 
 1. **Deterministic > stochastic**: Weakness elimination beats numeric scoring. You can always find something to fix. You can't always score higher.
 
@@ -516,10 +538,12 @@ From 106 cycles of improvement:
 
 9. **Solutions can conflict across portfolio**: Problems don't exist in isolation. Check coherence before finalizing.
 
+10. **Solution path matters as much as problem type** (Cycles 107-111): The same problem can be Type A (analysis helps), B (iteration helps), C (racing), D (serendipity), or E (must succeed first try). Matching approach to solution path is as important as matching tier to stakes.
+
 ---
 
-*This document is the executable output of 106 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
+*This document is the executable output of 111 recursive improvement cycles. It is structurally complete. Further improvement comes from using it on real problems and learning from friction.*
 
 *Last updated: December 11, 2025*
-*Cycles: 106*
-*Status: Ready for transfer testing*
+*Cycles: 111*
+*Status: Ready for transfer testing + Solution Path Types (A-E) need validation*
