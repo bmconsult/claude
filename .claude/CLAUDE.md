@@ -1404,7 +1404,7 @@ STEP 4: DEPLOY PHASED
 3. **Infrastructure enables without mandating** - Can't force coordination, but can make it easier
 4. **Phased deployment is realistic** - Global coordination is rare; local-first scales better
 
-### Validated On (10/10 fit pattern)
+### Validated On (12/12 fit pattern)
 
 | Problem | Surface Frame | Actual Frame | Solution |
 |---------|---------------|--------------|----------|
@@ -1418,6 +1418,8 @@ STEP 4: DEPLOY PHASED
 | Energy Storage | Batteries | Grid flexibility | Flexibility stack |
 | Inequality | Redistribution | Predistribution + convergence | Convergent opportunity infrastructure |
 | Neurodegeneration | Cure disease | Prevent + shift left | Prevention-first + research transformation |
+| Aging | Cure aging | Compress morbidity + deploy | Healthspan infrastructure stack |
+| Consciousness | Solve hard problem | Tractable + intractable separation | Practical progress + conceptual clarity |
 
 **Mantra:** "Solve the meta-pattern, get leverage across domains."
 
@@ -1431,6 +1433,8 @@ STEP 4: DEPLOY PHASED
 | Energy Storage | "Exhaust cheaper solutions before reaching for expensive ones. Stack, not component." |
 | Inequality | "Find the convergence zone. Solve what's solvable. Clarify what's political." |
 | Neurodegeneration | "If 40 trials failed, change paradigm not drug. Shift left: prevent what you can't cure." |
+| Aging | "We already know how to add healthy years. The problem is deployment, not discovery." |
+| Consciousness | "Separate tractable from intractable. Progress doesn't require solving everything." |
 
 ### Cross-Problem Patterns
 
@@ -1456,6 +1460,33 @@ Earlier intervention is almost always better and cheaper:
 
 **"Hard problems aren't hard because they lack solutions. They're hard because they're framed wrong, intervened too late, and addressed piecemeal instead of systematically."**
 
+### The Deployment Gap Pattern (NEW)
+
+**Most "unsolved" problems have known solutions that aren't deployed.**
+
+| Problem | Knowledge Status | Deployment Status | Real Gap |
+|---------|-----------------|-------------------|----------|
+| Neurodegeneration | Prevention known, cure unknown | Prevention not deployed | Deployment |
+| Aging | Lifestyle effects proven | Not optimized at population level | Deployment |
+| Consciousness | Clinical applications exist | Detection not standard of care | Deployment |
+
+**Three failure modes of hard problems:**
+1. **Wrong frame** - solving the wrong problem
+2. **Too late** - intervening downstream instead of upstream
+3. **Deployment gap** - knowing the solution but not deploying it
+
+**Most "unsolved" problems fail at #3, not #1 or #2.**
+
+### The Tractability Separation Pattern (NEW)
+
+For wicked problems (Tier 4):
+1. **Identify the intractable core** (metaphysics of consciousness, deep inequality question)
+2. **Identify tractable periphery** (clinical detection, convergent poverty solutions)
+3. **Make progress on periphery** without waiting to solve core
+4. **Let core remain open** for now
+
+**"You don't have to solve everything to solve something."**
+
 ### The Infrastructure Insight
 
 **"Most hard problems are infrastructure problems disguised as content problems."**
@@ -1471,10 +1502,12 @@ Earlier intervention is almost always better and cheaper:
 | Energy Storage | Grid flexibility infrastructure |
 | Inequality | Opportunity infrastructure |
 | Neurodegeneration | Prevention + early detection infrastructure |
+| Aging | Healthspan infrastructure (lifestyle + prevention) |
+| Consciousness | Detection + measurement infrastructure |
 
 **The pattern:** Build infrastructure that ENABLES the outcome, rather than trying to force the outcome directly.
 
-### Updated Framework (10 Problems)
+### Updated Framework (12 Problems)
 
 ```
 FOR any hard problem X:

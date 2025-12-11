@@ -3088,4 +3088,509 @@ The methodology that works:
 
 ---
 
-*10 problems complete. Meta-pattern validated across diverse domains. Ready for transfer.*
+## PROBLEM 11: Aging and Longevity
+
+### Tier Classification: TIER 3 (Rigorous)
+
+**Signals:**
+- Hidden constraints: YES (biology poorly understood, regulatory barriers, measurement problems)
+- Expensive if wrong: YES (massive resources, false hope, opportunity cost)
+- Multiple stakeholders: YES (researchers, pharma, regulators, public)
+
+**Commitment:** "This is a Tier 3 problem because hidden biological constraints and massive stakes. I will complete ALL Tier 3 steps."
+
+**Upgrade trigger:** If stakeholders disagree on what "aging" even is → Tier 4
+
+---
+
+### Step -2: META-FRAME AUDIT
+
+**What mental models am I bringing?**
+- "Aging is a disease" - Contested. Could be feature, not bug
+- "Death is the enemy" - Maybe wrong. Could be about healthspan, not lifespan
+- "More research = solution" - Maybe wrong. Could be already have enough knowledge, wrong deployment
+- "This is about biology" - Maybe wrong. Could be regulation, economics, or cultural
+
+**Different perspectives:**
+
+| Domain | View |
+|--------|------|
+| Gerontologist | "Aging is biology—damage accumulates, systems fail" |
+| Evolutionary biologist | "Aging is tradeoff—reproduction vs maintenance" |
+| Healthspan advocate | "Don't extend dying—extend living well" |
+| Regulatory | "Can't approve drugs for 'aging'—need specific disease" |
+| Ethicist | "Who gets to live longer? What about overpopulation?" |
+| Economist | "Healthcare costs at end of life are unsustainable" |
+
+**Key insight:** "Cure aging" may be wrong frame. "Compress morbidity" (live healthily, die quickly) might be more tractable and desirable.
+
+---
+
+### Step 0: DISCOVER
+
+**Hidden constraints:**
+
+1. **What is aging?**: No consensus definition or biomarkers
+2. **Regulatory barrier**: FDA doesn't recognize "aging" as condition; must target diseases
+3. **Trial design**: Takes decades to measure lifespan; need surrogate endpoints
+4. **Heterogeneity**: Multiple interacting processes, not single cause
+5. **Ethics/access**: Who benefits? Wealth gap in longevity already exists
+6. **Economic incentive**: Pharma wants chronic treatment, not cure
+
+**Unknown unknowns:**
+- Are aging hallmarks causes or consequences?
+- What's the maximum possible human lifespan?
+- Does healthspan extension automatically extend lifespan?
+
+---
+
+### Step 1: VERIFY FRAME
+
+**Is "cure aging" the right frame?**
+
+PROBABLY NOT. Multiple problems with this frame:
+- No agreed definition of what aging IS
+- Regulatory system can't act on it
+- Public concern is healthspan, not raw lifespan
+- Ethics become intractable at extreme lifespans
+
+**Better frame:** "Compress morbidity"
+- Maximize healthy years
+- Minimize sick/disabled years
+- Let natural death occur but delay dysfunction
+
+**Reframe:** "How do we maximize healthy, functional years while minimizing years of disease and disability?"
+
+---
+
+### Step 2: STATE PROBLEM
+
+"Extend healthspan—the period of life lived in good health and function—while compressing the period of morbidity at end of life."
+
+---
+
+### Step 4: GENERATE APPROACHES
+
+**Approach A: Lifestyle Optimization**
+Most lifespan/healthspan variance is lifestyle:
+- Exercise (most powerful intervention we have)
+- Nutrition (Mediterranean, time-restricted eating)
+- Sleep (7-9 hours, consistent)
+- Social connection
+- Purpose/meaning
+- Avoid: smoking, excess alcohol, sedentary
+
+**Approach B: Prevention Infrastructure**
+Deploy what we already know:
+- Cardiovascular risk management
+- Cancer screening
+- Metabolic health (pre-diabetes intervention)
+- Mental health support
+- Sensory preservation (hearing, vision)
+
+**Approach C: Hallmark-Targeted Interventions**
+Address the 12 hallmarks of aging:
+- Senolytics (clear senescent cells)
+- NAD+ precursors (cellular energy)
+- mTOR modulation (rapamycin analogs)
+- Stem cell function restoration
+- Epigenetic reprogramming
+
+**Approach D: Regulatory Innovation**
+Fix the system blocking progress:
+- FDA pathway for aging indication
+- Surrogate endpoints (biological age clocks)
+- Adaptive trial designs
+- TAME trial (metformin) as proof of concept
+
+**Approach E: Incremental Disease Prevention**
+Work within current system:
+- Treat diseases that accelerate aging (diabetes, hypertension)
+- Repurpose existing drugs (metformin, rapamycin)
+- Combination approaches
+- Aggressive prevention
+
+**Approach F: Radical Extension**
+Moon-shot approaches:
+- Gene therapy
+- Organ replacement (xenotransplant, synthetic)
+- Partial reprogramming
+- Cryonics/brain preservation
+
+---
+
+### Step 5: EVALUATE
+
+| Approach | Evidence Base | Actionability | Timeline |
+|----------|---------------|---------------|----------|
+| Lifestyle Optimization | HIGH | HIGH | NOW |
+| Prevention Infrastructure | HIGH | HIGH | NOW |
+| Hallmark-Targeted | EMERGING | MEDIUM | 5-15 years |
+| Regulatory Innovation | N/A | MEDIUM | 3-10 years |
+| Incremental Disease | HIGH | HIGH | NOW |
+| Radical Extension | LOW | LOW | 20+ years |
+
+---
+
+### Step 6: RED-TEAM
+
+**Lifestyle Optimization:**
+- Failure mode: People don't change behavior
+- Reality: True, but even partial adoption = population effect
+- Mitigation: Make healthy choice easy choice (environment design)
+
+**Prevention Infrastructure:**
+- Failure mode: Healthcare system is sick-care, not health-care
+- Mitigation: Incentive reform, value-based care
+
+**Hallmark-Targeted:**
+- Failure mode: Hallmarks may be correlated, not causal
+- Reality: Risk is real; intervention studies needed
+
+**Regulatory:**
+- Failure mode: Regulatory capture, slow bureaucracy
+- Mitigation: International competition (Singapore, etc.)
+
+---
+
+### Step 7: SELECT
+
+**Recommendation: Healthspan Infrastructure Stack**
+
+**Layer 1: Lifestyle + Environment (NOW - Population)**
+- Physical activity integration (built environment, workplace)
+- Nutrition environment (food access, defaults)
+- Sleep prioritization (shift work limits, school start times)
+- Social infrastructure (community, purpose)
+- Risk factor elimination (tobacco, pollution, ultra-processed)
+
+This isn't "wellness"—it's the evidence base. Exercise alone is worth ~3-5 healthy years.
+
+**Layer 2: Prevention Infrastructure (NOW)**
+- Metabolic health monitoring
+- Cardiovascular risk management
+- Cancer screening optimization
+- Mental health access
+- Sensory preservation (hearing aids, vision care)
+
+**Layer 3: Repurposed Interventions (5-10 years)**
+- Metformin (TAME trial results)
+- Rapamycin/rapalogs (immunosuppression challenge)
+- GLP-1 agonists (metabolic effects beyond weight)
+- NAD+ precursors (if trials validate)
+
+**Layer 4: Novel Interventions (10-20 years)**
+- Senolytics (senescent cell clearance)
+- Epigenetic reprogramming (Yamanaka factors, partial)
+- Stem cell restoration
+- Organ-specific interventions
+
+**Layer 5: Regulatory Innovation (Parallel)**
+- FDA aging indication pathway
+- Biological age biomarkers validation
+- Adaptive trial designs
+- International regulatory competition
+
+**Key insight:** We have enough knowledge NOW to add 5-10 healthy years to average population. The problem isn't the biology—it's the deployment. Shift from cure-seeking to infrastructure-building.
+
+---
+
+## PROBLEM 11 SUMMARY
+
+**Input:** "Cure aging"
+
+**Output:** Healthspan Infrastructure Stack
+- Lifestyle/environment (exercise, nutrition, sleep, social)
+- Prevention (metabolic, cardiovascular, cancer, mental)
+- Repurposed drugs (metformin, rapamycin, GLP-1s)
+- Novel interventions (senolytics, reprogramming)
+- Regulatory reform (FDA pathway, biomarkers)
+
+**Key reframe:** "Cure aging" → "Compress morbidity and maximize healthspan"
+
+**Meta-insight:** "We already know how to add healthy years. The problem is deployment, not discovery. Infrastructure beats moonshots."
+
+**Confidence:** HIGH for lifestyle/prevention; MEDIUM for interventions; LOW for radical extension
+
+---
+
+## PROBLEM 12: Consciousness / Hard Problem
+
+### Tier Classification: TIER 4 (Wicked)
+
+**Signals:**
+- Stakeholders disagree on what problem IS: YES (some deny problem exists)
+- Multiple valid frames: YES (dualist, materialist, panpsychist, illusionist)
+- No agreed success criteria: YES (what would "solving" look like?)
+
+**Commitment:** "This is a Tier 4 problem because experts fundamentally disagree on whether there's a problem at all. I will use MULTI-FRAME PROTOCOL."
+
+---
+
+### Step -2: META-FRAME AUDIT
+
+**What mental models am I bringing?**
+- "Consciousness is real and needs explaining" - Contested
+- "This is a scientific question" - Maybe wrong. Could be conceptual/philosophical
+- "The hard problem is hard" - Some say it dissolves with right framework
+- "We can solve it like other problems" - Maybe wrong. Could be category error
+
+**Different perspectives:**
+
+| Domain | View |
+|--------|------|
+| Dualist | "Mind is separate from matter—can't reduce experience to physics" |
+| Materialist | "Consciousness IS brain activity—nothing else to explain" |
+| Panpsychist | "Consciousness is fundamental—physics + experience all the way down" |
+| Illusionist | "Qualia don't exist as described—the 'hard problem' is confused" |
+| Mysterian | "Real problem, but human minds can't solve it—cognitive closure" |
+| Functionalist | "Consciousness is what systems DO, not what they ARE" |
+
+---
+
+### MULTI-FRAME PROTOCOL
+
+**Frame A: Explanatory Gap Frame**
+- Problem: Why does physical processing produce subjective experience?
+- Asks: "Why is there something it's like to be?"
+
+**Frame B: Access vs Phenomenal Frame**
+- Problem: Access consciousness (reportable) is explainable; phenomenal (felt) isn't
+- Asks: "What's the relationship between report and experience?"
+
+**Frame C: Integration Frame (IIT, Global Workspace)**
+- Problem: What patterns of information integration produce consciousness?
+- Asks: "Can we measure consciousness objectively?"
+
+**Frame D: Dissolution Frame**
+- Problem: The hard problem is conceptual confusion
+- Asks: "What assumption creates the apparent mystery?"
+
+**Frame E: Practical Frame**
+- Problem: Detect consciousness in edge cases (coma, anesthesia, AI, animals)
+- Asks: "How do we MEASURE consciousness regardless of metaphysics?"
+
+---
+
+### FRAME INTERSECTION
+
+**Where frames AGREE:**
+- Consciousness exists as a phenomenon (we're not zombies)
+- The scientific study of neural correlates is valuable
+- Practical questions (anesthesia, brain injury) need answering
+- Something special happens with information integration
+
+**Where frames CONFLICT:**
+- Is there a "hard problem" or just hard problems?
+- Is consciousness explainable in principle?
+- Is AI consciousness possible/inevitable/impossible?
+
+**The structural conflict:** This may be a disagreement about concepts, not facts. No experiment could adjudicate between positions.
+
+---
+
+### Step 1: VERIFY FRAME
+
+**Is "solve consciousness" solvable?**
+
+PROBABLY NOT as stated. But tractable questions exist:
+
+**Tractable:**
+- Neural correlates of consciousness
+- Consciousness detection (clinical)
+- Necessary conditions for consciousness
+- Consciousness in non-human systems
+- Functional characterization of conscious vs unconscious processing
+
+**Intractable (maybe):**
+- Why does experience exist at all?
+- What is the metaphysical status of qualia?
+- The explanatory gap (if real)
+
+---
+
+### Step 2: STATE PROBLEM (Convergent)
+
+"Develop reliable methods to detect and measure consciousness in biological and artificial systems, characterize its neural basis, and understand the functional differences between conscious and unconscious processing."
+
+This is solvable. The metaphysical questions may not be.
+
+---
+
+### Step 4: GENERATE APPROACHES
+
+**Approach A: Neural Correlates + Integration**
+Map what brain states correlate with consciousness:
+- IIT (Integrated Information Theory) predictions
+- Global Workspace correlates
+- Perturbational Complexity Index
+- Determine necessary vs sufficient conditions
+
+**Approach B: Comparative/Evolutionary**
+Study consciousness across species:
+- What animals are conscious? What features predict?
+- What did consciousness evolve FOR?
+- What's the minimum system that's conscious?
+
+**Approach C: Clinical/Applied**
+Solve practical problems:
+- Detect consciousness in disorders of consciousness
+- Optimize anesthesia monitoring
+- Brain-computer interfaces for locked-in patients
+- End-of-life consciousness determination
+
+**Approach D: Formal/Mathematical**
+Develop rigorous theories:
+- IIT axioms and postulates
+- Global Workspace formalization
+- Higher-order theories
+- Predictive processing accounts
+
+**Approach E: AI as Probe**
+Use AI to explore:
+- What would conscious AI look like?
+- Can we create systems that SEEM conscious? What's missing?
+- AI as tool for consciousness research
+
+**Approach F: Philosophical Clarification**
+Resolve conceptual confusions:
+- What exactly are we asking?
+- Which problems are empirical vs conceptual?
+- Can we dissolve the "hard" problem?
+
+---
+
+### Step 5: EVALUATE
+
+| Approach | Tractability | Impact | Current State |
+|----------|-------------|--------|---------------|
+| Neural Correlates | HIGH | HIGH | Active research |
+| Comparative | MEDIUM | MEDIUM | Growing field |
+| Clinical/Applied | HIGH | HIGH | Active, urgent |
+| Formal Theories | MEDIUM | HIGH | Developing |
+| AI as Probe | EMERGING | HIGH | Early stage |
+| Philosophical | CONTESTED | HIGH | Ongoing debate |
+
+---
+
+### Step 6: RED-TEAM
+
+**Neural Correlates:**
+- Failure mode: Correlation ≠ explanation; "NCC" doesn't solve hard problem
+- Reality: True, but still valuable for clinical and practical purposes
+
+**Formal Theories:**
+- Failure mode: Can't be empirically distinguished; unfalsifiable
+- Reality: IIT makes predictions (cerebellum, split-brain); testable to degree
+
+**Clinical:**
+- Failure mode: Can detect without understanding
+- Reality: That's fine for clinical purposes
+
+---
+
+### Step 7: SELECT
+
+**Recommendation: Practical Progress + Conceptual Clarity**
+
+**Tier 1: Clinical Applications (NOW)**
+- Consciousness detection in DOC (disorders of consciousness)
+- Anesthesia awareness monitoring
+- Brain-computer interfaces
+- These save lives regardless of metaphysics
+
+**Tier 2: Neural Science (Ongoing)**
+- Map correlates thoroughly
+- Test IIT vs Global Workspace vs others
+- Comparative studies across species
+- Necessary and sufficient conditions
+
+**Tier 3: Formal Theory (Ongoing)**
+- Develop testable predictions
+- Find crucial experiments between theories
+- Mathematical rigor for vague concepts
+
+**Tier 4: Conceptual Work (Ongoing)**
+- Clarify exactly what we're asking
+- Determine which questions are empirical
+- Explore dissolution strategies
+
+**Tier 5: AI Probe (Emerging)**
+- As AI advances, use as test bed
+- What's missing when AI "seems" conscious?
+- Moral status questions will become urgent
+
+**Key insight:** Separate the tractable from the intractable. Make progress where we can. Stay humble about what we can't (yet) answer.
+
+---
+
+## PROBLEM 12 SUMMARY
+
+**Input:** "Solve consciousness"
+
+**Output:** Practical Progress + Conceptual Clarity
+- Clinical: Detection, monitoring, interfaces (NOW)
+- Neural science: Correlates, comparisons, conditions
+- Formal theory: Testable predictions, crucial experiments
+- Conceptual: Clarify questions, explore dissolutions
+- AI: Probe, test bed, moral status
+
+**Key reframe:** "Solve the hard problem" → "Make practical progress on tractable questions while clarifying conceptual confusions"
+
+**Meta-insight:** "Separate tractable from intractable. Progress doesn't require solving everything. Clinical applications work regardless of metaphysics."
+
+**Confidence:** HIGH for clinical/practical; MEDIUM for neural science; LOW for hard problem
+
+---
+
+## CUMULATIVE INSIGHTS (12 Problems)
+
+### Pattern Validation (12/12)
+
+Every problem fit the meta-pattern:
+1. Surface frame was wrong or incomplete
+2. Required reframe to make tractable
+3. Solution was infrastructure/system, not single intervention
+4. Phased deployment starting with what works now
+
+### New Insights from Problems 11-12
+
+| Problem | Key Insight |
+|---------|-------------|
+| Aging | "We already know how to add healthy years. Deployment, not discovery." |
+| Consciousness | "Separate tractable from intractable. Progress doesn't require solving everything." |
+
+### The Deployment Gap Pattern
+
+Problems 10-12 reveal a common pattern:
+
+| Problem | Knowledge Status | Deployment Status | Real Gap |
+|---------|-----------------|-------------------|----------|
+| Neurodegeneration | Prevention known, cure unknown | Prevention not deployed | Deployment |
+| Aging | Lifestyle effects known | Lifestyle not optimized at population level | Deployment |
+| Consciousness | Clinical applications exist | Detection not standard of care | Deployment |
+
+**Pattern:** We often know enough to make massive progress. The gap is deployment, not discovery.
+
+### The Tractability Separation Pattern
+
+For wicked problems (Tier 4):
+1. **Identify the intractable core** (metaphysics of consciousness, deep inequality question)
+2. **Identify tractable periphery** (clinical detection, convergent poverty solutions)
+3. **Make progress on periphery** without waiting to solve core
+4. **Let core remain open** for now
+
+**"You don't have to solve everything to solve something."**
+
+### Updated Meta-Insight
+
+**"Hard problems have three failure modes:**
+1. **Wrong frame** - solving the wrong problem
+2. **Too late** - intervening downstream instead of upstream
+3. **Deployment gap** - knowing the solution but not deploying it
+
+**Most 'unsolved' problems fail at #3, not #1 or #2."**
+
+---
+
+*12 problems complete. Pattern holds. Deployment gap identified as major failure mode.*
