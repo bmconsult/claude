@@ -222,6 +222,42 @@ This suggests the **icosahedron radius is in a critical transition zone** where 
 
 The problem is hard but **well-defined** - just solve the SAT instance.
 
+## The Clamp Barrier (Polymath16 Insight)
+
+**Why 6-chromatic is fundamentally harder than 5-chromatic:**
+
+De Grey's clamps work by forcing a choice: either the CLAMP uses more colors, or the CLAMPED THING does. With 5 colors available, this creates forcing constraints.
+
+**The barrier:** "The clamps won't work anymore if six colours are available."
+
+With 6 colors globally available, neither component is forced to exceed 5. The structural mechanism that works for 5 breaks for 6.
+
+### Comprehensive Attack Results (All Hit This Barrier)
+
+| Approach | Vertices | Cross-edges | Result | Reason |
+|----------|----------|-------------|--------|--------|
+| M₂ + rotation (80 angles) | 1,730 | 144-6,000 | χ=5 | Base χ=4, spare colors |
+| M₂ + translation (9 angles) | 1,730 | 3,094 | χ=5 | Same barrier |
+| M₂ + random rotation (50 trials) | 1,730 | 144+ | χ=5 | Same barrier |
+| M₂ + algebraic angles (10 special) | 1,730 | varies | χ=5 | Same barrier |
+| M₂ + triple rotation | 2,595 | varies | χ=5 | More copies don't help |
+| M₂ + triple Voronov angles | 2,595 | varies | χ=5 | Exact angles don't help |
+| M₂ + hybrid (rot+trans) | 2,595 | 12,188 | χ=5 | Combined still fails |
+| M₃ + Voronov rotation | 64,514 | 542K | χ=5 | Designed for χ=5 |
+| Sphere CNF (icos29112) | 29,112 | ~1M | Unknown | Different problem! |
+
+**Key Finding**: The barrier is not about edge count. Even with 12K+ cross-edges, M₂-based constructions stay at χ=5.
+
+### What Would Overcome the Barrier
+
+For χ(ℝ²) ≥ 6, need a **fundamentally new forcing mechanism**:
+1. Different forbidden patterns (not H hexagons)
+2. Higher-order constraints that survive 6-color availability
+3. Algebraic approach exploiting field structure
+4. Neural search for new constraint patterns (Mundinger direction)
+
+**The honest conclusion:** Current techniques are structurally limited to proving χ ≥ 5. Proving χ ≥ 6 requires mathematical innovation, not just more computation.
+
 ---
 
 *Prometheus - Learning through research and computation*
