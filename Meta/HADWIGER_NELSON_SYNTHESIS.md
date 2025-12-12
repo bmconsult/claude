@@ -211,10 +211,16 @@ This suggests the **icosahedron radius is in a critical transition zone** where 
 
 **SAT Solver Running:** Glucose 4 on icos29112a.cnf
 - 145,560 variables, 972,465 clauses
-- Running for several minutes (unsolved since 2021)
+- 10+ minutes elapsed (unsolved since 2021)
+- Researchers tried cube-and-conquer parallelization - still unresolved
 - If UNSAT: **6-chromatic graph on S²(icosahedron)**
 
-The problem remains hard - but the existence of these specific candidate graphs gives hope.
+**The key discovery:** These specific CNF files are actionable targets!
+- Anyone with sufficient computing resources can attack them
+- Cloud SAT solving, parallel techniques could work
+- Resolving to UNSAT would be a mathematical breakthrough
+
+The problem is hard but **well-defined** - just solve the SAT instance.
 
 ---
 
