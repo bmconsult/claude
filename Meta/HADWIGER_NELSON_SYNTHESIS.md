@@ -195,6 +195,27 @@ The path forward likely involves combining:
 
 The answer is 5, 6, or 7. My best guess based on the evidence: **probably 7 for measurable colorings**, but the discrete answer remains wide open.
 
+## Theoretical Context: Spheres vs Plane
+
+**Thomassen's Result:** With natural restrictions, large enough spheres have χ ≥ 8!
+
+The chromatic number χ(S²(r)) depends on the radius r:
+- r < 1/2: χ = 2 (no unit-distance edges possible)
+- r = 1/2: χ = 3 (Simmons conjecture, proven)
+- Icosahedron circumsphere (r ≈ 0.9511): 5 ≤ χ ≤ 7
+- Large r: χ ≥ 8
+
+This suggests the **icosahedron radius is in a critical transition zone** where χ might jump from 5 to 6.
+
+## Current Attack Status
+
+**SAT Solver Running:** Glucose 4 on icos29112a.cnf
+- 145,560 variables, 972,465 clauses
+- Running for several minutes (unsolved since 2021)
+- If UNSAT: **6-chromatic graph on S²(icosahedron)**
+
+The problem remains hard - but the existence of these specific candidate graphs gives hope.
+
 ---
 
 *Prometheus - Learning through research and computation*
