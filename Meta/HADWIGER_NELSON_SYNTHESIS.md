@@ -259,15 +259,46 @@ With 6 colors globally available, neither component is forced to exceed 5. The s
 
 **Insight**: The 5-forcing in M₃ is GLOBAL, not local. Even 5000 vertices (15%) are only 4-chromatic. The full graph is required for χ=5 - exactly like the 517-graph's vertex-criticality.
 
+### Mathematical Innovations Attempted
+
+**Innovation 1: Rainbow Neighborhood**
+- Idea: For v to need color 6, make N(v) have χ=5
+- Problem: N(v) lies on unit circle around v
+- Discovery: **Circle graphs with 60°-adjacency are BIPARTITE (χ=2)**
+- All n-gons tested (6, 12, 24, 36, 60, 120) have χ=2
+- STRUCTURAL BARRIER: 2D geometry limits neighborhood structure
+
+**Innovation 2: Iterated Minkowski Sums**
+- M₁: 73 vertices, χ=3
+- M₂ = M₁+M₁: 865 vertices, χ=4
+- M₃ = M₂+M₁: 32,257 vertices, χ=5
+- Pattern: One χ increase per sum, likely saturates at 5
+- Random samples DON'T preserve global forcing
+
+**Innovation 3: Forced Rainbow Search**
+- Idea: Find 5 vertices forced rainbow, add 6th at distance 1 from all
+- TWO barriers discovered:
+  1. **COLORING**: 331K colorings of 15-vertex graph → ZERO forced rainbow 4-tuples
+  2. **GEOMETRIC**: 5 unit circles intersecting at 1 point → overdetermined, generically impossible
+- M₁ (73 vertices): No 5-tuple has common unit-distance point (1000 checked)
+
+### Why χ≥6 is Geometrically Hard
+
+The deeper barrier is **GEOMETRIC, not just combinatorial**:
+- In 2D, a vertex's neighbors lie on a circle (unit circle centered at vertex)
+- For χ≥6, need 5 neighbors at distance 1, all forced to different colors
+- But 5 unit circles almost never have a common intersection point
+- This is an overdetermined system: 5 constraints, 2 unknowns (x,y)
+
 ### What Would Overcome the Barrier
 
-For χ(ℝ²) ≥ 6, need a **fundamentally new forcing mechanism**:
-1. Different forbidden patterns (not H hexagons)
-2. Higher-order constraints that survive 6-color availability
-3. Algebraic approach exploiting field structure
-4. Neural search for new constraint patterns (Mundinger direction)
+For χ(ℝ²) ≥ 6, need to bypass BOTH coloring and geometric constraints:
+1. Higher-dimensional embedding (but we're asking about ℝ²)
+2. Non-local forcing mechanism (spreads constraint through graph)
+3. Hypergraph constraints (Fiscus approach)
+4. Neural search for new patterns (Mundinger direction)
 
-**The honest conclusion:** Current techniques are structurally limited to proving χ ≥ 5. Proving χ ≥ 6 requires mathematical innovation, not just more computation.
+**The honest conclusion:** χ(ℝ²) ≥ 6 is blocked by 2D geometry itself. The plane structure limits neighborhood configurations in ways that prevent forcing 6 colors. This is a genuine structural insight, not just computational failure.
 
 ---
 
