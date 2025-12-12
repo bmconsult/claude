@@ -54,6 +54,31 @@ Almost all norms on ℝ² have chromatic number 4. The Euclidean norm is excepti
 - Moser spindle exploits equilateral triangles
 - The geometry creates dense constraint networks
 
+### 7. Voronov-Neopryatnaya-Dergachev Construction (Major Discovery!)
+
+**Found:** The vsvor/dist-graphs GitHub repo contains:
+
+1. **Proven 5-chromatic graphs on spheres:**
+   - 372 vertices on icosahedron circumsphere (unit edge)
+   - 972 vertices on great icosahedron circumsphere
+
+2. **Plane embeddings via Minkowski sums:**
+   - M₁ → M₂ = M₁ + M₁ → M₃ = M₂ + M₁
+   - Series 1: Q(√3, √11) extension, Moser spindle-based
+   - Series 2: Q(√2, √3) extension, L₁₀,₁-based
+
+3. **Key technique:** M₃ ∪ ψ·M₃ where ψ is an algebraically-chosen rotation
+   - Creates new unit-distance edges between copies
+   - Specific angles computed from `points_to_rotation()`
+
+4. **⚠️ UNSOLVED 6-CHROMATIC CANDIDATES:**
+   - `icos29112a.cnf`: 29,112 vertices, 145K variables, 972K clauses
+   - `icos54072a.cnf`: 54,072 vertices (even larger)
+   - **5-colorability UNKNOWN** - SAT solvers haven't resolved it!
+   - If UNSAT → **6-CHROMATIC UNIT-DISTANCE GRAPH EXISTS**
+
+**Quote from authors:** "It seems probable that there exists an infinite number of such examples with different values of the radius. Besides, it is not excluded that for some values of the radius there exists 6-chromatic distance graphs."
+
 ## What Remains Unsolved
 
 | Question | Status | Notes |
@@ -61,7 +86,8 @@ Almost all norms on ℝ² have chromatic number 4. The Euclidean norm is excepti
 | Is χ(ℝ²) = 5, 6, or 7? | OPEN | The main problem |
 | Smallest 5-chromatic graph? | 509 vertices | Could be smaller |
 | Is 517-graph edge-critical? | Untested | Likely yes |
-| 6-chromatic construction? | None known | Would prove χ ≥ 6 |
+| 6-chromatic construction? | **CANDIDATE EXISTS** | icos29112 graph unsolved! |
+| Is icos29112 5-colorable? | **UNSOLVED SAT** | Would prove χ(S²(r)) ≥ 6 |
 
 ## Potential Paths Forward
 
@@ -103,6 +129,21 @@ Almost all norms on ℝ² have chromatic number 4. The Euclidean norm is excepti
 2. Axiom dependence (Shelah-Soifer) shows some variants depend on set theory
 3. Prove χ_measurable = 7 would be major progress
 
+### Path 5: Solve the Unsolved CNFs (Direct Attack on χ ≥ 6)
+
+**Target:** `dist-graphs/unsolved CNFs/icos29112a.cnf`
+- 29,112 vertices on icosahedron circumsphere
+- 145,560 SAT variables, 972,465 clauses
+- 5-colorability unsolved since 2021
+
+**Approaches to try:**
+1. Modern SAT solvers (CaDiCaL 2.0, Glucose 4.1)
+2. Symmetry breaking (icosahedral symmetry)
+3. Preprocessing (max-clique, Mycielskian bounds)
+4. Distributed solving (parallel SAT)
+
+**If UNSAT:** χ(S²(r)) ≥ 6 for that specific sphere radius!
+
 ## Technical Tools Developed
 
 | Tool | Purpose |
@@ -112,6 +153,9 @@ Almost all norms on ℝ² have chromatic number 4. The Euclidean norm is excepti
 | `spectral_analysis.py` | Eigenvalue bounds |
 | `neural_5chromatic_search.py` | Potts-based neural search (POC) |
 | `hub_pattern_analysis.py` | Structural analysis |
+| `solve_6chromatic_candidate.py` | Attacks unsolved 6-chromatic CNFs |
+| `algebraic_rotation_search.py` | Geometric rotation with exact coordinates |
+| `heuristic_coloring.py` | DSatur/local search coloring |
 
 ## Key Insights
 
