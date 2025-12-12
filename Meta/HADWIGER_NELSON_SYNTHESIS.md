@@ -248,6 +248,17 @@ With 6 colors globally available, neither component is forced to exceed 5. The s
 
 **Key Finding**: The barrier is not about edge count. Even with 12K+ cross-edges, M₂-based constructions stay at χ=5.
 
+### Why M₃ Subsets Don't Help
+
+| M₃ Subset Size | Vertices | Edges | χ |
+|----------------|----------|-------|---|
+| First 1,000 | 1,000 | 3,919 | 4 |
+| First 2,000 | 2,000 | 8,688 | 4 |
+| First 5,000 | 5,000 | 26,495 | 4 |
+| Full M₃ | 32,257 | ~100K | 5 |
+
+**Insight**: The 5-forcing in M₃ is GLOBAL, not local. Even 5000 vertices (15%) are only 4-chromatic. The full graph is required for χ=5 - exactly like the 517-graph's vertex-criticality.
+
 ### What Would Overcome the Barrier
 
 For χ(ℝ²) ≥ 6, need a **fundamentally new forcing mechanism**:
