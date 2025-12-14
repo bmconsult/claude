@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APX Instinct | Investor Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #0f172a;
+            --bg-card: rgba(15, 23, 42, 0.8);
+            --text-primary: #f8fafc;
+            --text-secondary: rgba(248, 250, 252, 0.7);
+            --text-muted: rgba(248, 250, 252, 0.5);
+            --cyan: #00d4ff;
+            --cyan-glow: rgba(0, 212, 255, 0.3);
+            --purple: #c084fc;
+            --magenta: #e879f9;
+            --gradient-text: linear-gradient(135deg, #00d4ff 0%, #c084fc 50%, #e879f9 100%);
+            --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #c084fc 100%);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Light mode */
+        body.light-mode {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #e2e8f0;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: rgba(15, 23, 42, 0.7);
+            --text-muted: rgba(15, 23, 42, 0.5);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-bg: #ffffff;
+        }
+
+        body.light-mode .slide::before {
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(192, 132, 252, 0.04) 0%, transparent 50%);
+        }
+
+        body.light-mode .glass-card,
+        body.light-mode .metric-card,
+        body.light-mode .metric-box,
+        body.light-mode .proof-card,
+        body.light-mode .product-card,
+        body.light-mode .team-card,
+        body.light-mode .ask-box,
+        body.light-mode .scenario-table {
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        body.light-mode .timeline-item {
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border-radius: 12px;
+            padding: 16px 10px;
+            margin: 0 6px;
+        }
+
+        body.light-mode .timeline-dot {
+            background: #ffffff !important;
+            border: 2px solid var(--cyan);
+        }
+
+        body.light-mode .glass-card.accent {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(192, 132, 252, 0.08) 100%) !important;
+            border-color: rgba(0, 212, 255, 0.2) !important;
+        }
+
+        body.light-mode .scenario-table th {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        body.light-mode .scenario-table td {
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        body.light-mode .funds-bar {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .progress-dots {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        body.light-mode .progress-dot {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-mode .progress-dot.active {
+            background: var(--cyan);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Slide Container */
+        .deck {
+            max-width: 100%;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            padding: 48px 80px 72px 80px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background: var(--bg-primary);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.exiting {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        /* Keep title slide and closing slide centered */
+        .title-slide {
+            padding: 40px 80px 80px 80px;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(192, 132, 252, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Typography */
+        .slide-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 16px;
+        }
+
+        .slide-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .slide-title .gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .slide-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .glass-card.accent {
+            border-color: rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(192, 132, 252, 0.05) 100%);
+        }
+
+        /* Metric Boxes */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .metric-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-box:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .metric-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .metric-label {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Problem Bullets */
+        .problem-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+        }
+
+        .problem-list .icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ef4444;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .solution-list .icon {
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--cyan);
+        }
+
+        /* Big Stat */
+        .big-stat {
+            text-align: center;
+            padding: 32px 0;
+        }
+
+        .big-stat-value {
+            font-size: 5rem;
+            font-weight: 900;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .big-stat-label {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .timeline-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            max-width: 180px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Market Circles */
+        .market-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .market-circle {
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid;
+            transition: all 0.3s ease;
+        }
+
+        .market-circle.tam {
+            width: 240px;
+            height: 240px;
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .market-circle.sam {
+            width: 190px;
+            height: 190px;
+            border-color: rgba(192, 132, 252, 0.4);
+            background: rgba(192, 132, 252, 0.08);
+        }
+
+        .market-circle.som {
+            width: 140px;
+            height: 140px;
+            border-color: rgba(232, 121, 249, 0.5);
+            background: rgba(232, 121, 249, 0.1);
+        }
+
+        .market-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .market-circle.sam .market-value,
+        .market-circle.som .market-value {
+            font-size: 1.625rem;
+        }
+
+        .market-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Revenue Table */
+        .revenue-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 28px;
+        }
+
+        .revenue-table th,
+        .revenue-table td {
+            padding: 12px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .revenue-table th {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .revenue-table td {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .revenue-table .highlight {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* The Ask */
+        .ask-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .ask-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .ask-amount {
+            font-size: 3.25rem;
+            font-weight: 900;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .ask-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        .ask-terms {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Use of Funds */
+        .funds-bar {
+            display: flex;
+            height: 48px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+
+        .funds-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: white;
+            transition: flex-grow 1s ease-out, opacity 1s ease-out;
+        }
+
+        .funds-segment:nth-child(1) { background: var(--cyan); }
+        .funds-segment:nth-child(2) { background: #818cf8; }
+        .funds-segment:nth-child(3) { background: var(--purple); }
+        .funds-segment:nth-child(4) { background: var(--magenta); }
+        .funds-segment:nth-child(5) { background: #f472b6; }
+
+        .funds-legend {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .funds-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .funds-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 32px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .slide-number {
+            font-weight: 600;
+        }
+
+        /* Progress Dots */
+        .progress-dots {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 12px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(248, 250, 252, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot:hover {
+            background: rgba(248, 250, 252, 0.4);
+            transform: scale(1.2);
+        }
+
+        .progress-dot.active {
+            background: var(--cyan);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Element Animations - No delay, just visible */
+        .animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Metric count-up animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .slide.active .metric-value,
+        .slide.active .big-stat-value,
+        .slide.active .hero-metric-value {
+            animation: countUp 0.6s ease forwards;
+        }
+
+        /* Clean gradient text without shimmer */
+        .gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        /* Bar fill animation */
+        @keyframes fillBar {
+            from {
+                flex-grow: 0;
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .funds-segment {
+            flex-grow: 0;
+            opacity: 0;
+        }
+
+        .slide.active .funds-segment {
+            animation: fillBar 1s ease-out forwards;
+        }
+
+        .slide.active .funds-segment:nth-child(1) {
+            animation-delay: 0.2s;
+            flex-grow: 32;
+        }
+
+        .slide.active .funds-segment:nth-child(2) {
+            animation-delay: 0.3s;
+            flex-grow: 26;
+        }
+
+        .slide.active .funds-segment:nth-child(3) {
+            animation-delay: 0.4s;
+            flex-grow: 21;
+        }
+
+        .slide.active .funds-segment:nth-child(4) {
+            animation-delay: 0.5s;
+            flex-grow: 14;
+        }
+
+        .slide.active .funds-segment:nth-child(5) {
+            animation-delay: 0.6s;
+            flex-grow: 7;
+        }
+
+        /* Logo */
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-image {
+            height: 120px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+        }
+
+        /* Title Slide Specific */
+        .title-slide {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .title-slide .slide-title {
+            font-size: 5rem;
+            margin-bottom: 16px;
+        }
+
+        .title-slide .tagline {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .title-hero-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 0;
+        }
+
+        .hero-metric {
+            text-align: center;
+        }
+
+        .hero-metric-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyan);
+        }
+
+        .hero-metric-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Traction Proof Points */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .proof-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .proof-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(192, 132, 252, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .proof-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .proof-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Quote */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(192, 132, 252, 0.05));
+            border-left: 4px solid var(--cyan);
+            padding: 24px 32px;
+            margin-top: 32px;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .quote-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .quote-attr {
+            margin-top: 12px;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        /* Team */
+        .team-card {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .team-info h3 {
+            font-size: 1.625rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-size: 1rem;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+
+        .team-bio {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .team-stats {
+            display: flex;
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .team-stat {
+            text-align: center;
+        }
+
+        .team-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--cyan);
+        }
+
+        .team-stat-label {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+        }
+
+        /* Vision Slide */
+        .vision-statement {
+            font-size: 1.75rem;
+            font-weight: 300;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        .vision-statement strong {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .vision-statement .highlight {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* CTA */
+        .cta-box {
+            text-align: center;
+            margin-top: 48px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(192, 132, 252, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 24px;
+        }
+
+        .cta-text {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .cta-contact {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        /* Print Styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                page-break-inside: avoid;
+                min-height: 100vh;
+                height: 100vh;
+                display: flex !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .slide:last-child {
+                page-break-after: auto;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Force two-col to stay side-by-side in print */
+            .two-col {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 32px !important;
+            }
+
+            .metrics-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+
+            .proof-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+
+            /* Show all animated elements in print */
+            .animate-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            /* Hide progress dots in print */
+            .progress-dots {
+                display: none !important;
+            }
+
+            /* Show full bars in print */
+            .funds-segment {
+                opacity: 1 !important;
+            }
+
+            .funds-segment:nth-child(1) { flex-grow: 32 !important; }
+            .funds-segment:nth-child(2) { flex-grow: 26 !important; }
+            .funds-segment:nth-child(3) { flex-grow: 21 !important; }
+            .funds-segment:nth-child(4) { flex-grow: 14 !important; }
+            .funds-segment:nth-child(5) { flex-grow: 7 !important; }
+
+            /* Disable animations in print */
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @page {
+            size: 16in 9in;
+            margin: 0;
+        }
+
+        /* Responsive for smaller screens */
+        @media screen and (max-width: 1200px) {
+            .slide {
+                padding: 40px 48px;
+            }
+
+            .slide-title {
+                font-size: 2.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 900px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .slide {
+                padding: 16px 24px;
+            }
+
+            .slide-content {
+                gap: 6px;
+            }
+
+            .slide-label {
+                font-size: 7px;
+                letter-spacing: 2px;
+                margin-bottom: 2px;
+            }
+
+            .slide-title {
+                font-size: 1.1rem;
+                line-height: 1.15;
+            }
+
+            .slide-subtitle {
+                font-size: 10px;
+                line-height: 1.35;
+            }
+
+            /* Title slide - BIGGER */
+            .title-slide .logo-image {
+                height: 70px !important;
+            }
+
+            .title-slide .slide-title {
+                font-size: 1.6rem;
+                margin-top: 12px !important;
+            }
+
+            .tagline {
+                font-size: 12px !important;
+            }
+
+            .title-hero-metrics {
+                gap: 10px;
+                margin-top: 16px;
+            }
+
+            .hero-metric {
+                padding: 10px 8px;
+            }
+
+            .hero-metric-value {
+                font-size: 22px;
+            }
+
+            .hero-metric-label {
+                font-size: 8px;
+            }
+
+            /* Other slides - smaller/tighter */
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px;
+            }
+
+            .metric-card, .metric-box {
+                padding: 8px 6px;
+                border-radius: 6px;
+            }
+
+            .metric-value, .big-stat-value {
+                font-size: 16px !important;
+            }
+
+            .metric-label {
+                font-size: 6px;
+            }
+
+            .metric-sublabel, .metric-detail {
+                font-size: 5px;
+            }
+
+            .glass-card {
+                padding: 8px;
+                border-radius: 6px;
+            }
+
+            .glass-card h3 {
+                font-size: 9px;
+                margin-bottom: 4px;
+            }
+
+            .glass-card h4 {
+                font-size: 10px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .glass-card p, .glass-card li {
+                font-size: 8px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 4px !important;
+            }
+
+            .glass-card ul {
+                font-size: 8px !important;
+            }
+
+            .glass-card ul li {
+                margin-bottom: 4px !important;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr !important;
+                gap: 8px;
+                margin-top: 8px !important;
+            }
+
+            .timeline {
+                gap: 4px;
+            }
+
+            .timeline-item {
+                padding: 6px 4px;
+                min-width: 60px;
+            }
+
+            .timeline-phase {
+                font-size: 6px;
+            }
+
+            .timeline-title {
+                font-size: 8px;
+            }
+
+            .timeline-items {
+                font-size: 6px;
+            }
+
+            .product-cards, .products-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px;
+            }
+
+            .product-card {
+                padding: 6px;
+            }
+
+            .product-card h4 {
+                font-size: 8px;
+            }
+
+            .product-card p {
+                font-size: 6px;
+            }
+
+            .product-icon {
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+
+            .proof-cards, .proof-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 6px;
+            }
+
+            .proof-card {
+                padding: 8px;
+            }
+
+            .proof-icon {
+                font-size: 12px !important;
+                margin-bottom: 4px !important;
+            }
+
+            .proof-title {
+                font-size: 9px !important;
+                margin-bottom: 3px !important;
+            }
+
+            .proof-stat {
+                font-size: 14px;
+            }
+
+            .proof-label {
+                font-size: 6px;
+            }
+
+            .proof-desc {
+                font-size: 7px !important;
+                line-height: 1.3 !important;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 6px;
+            }
+
+            .team-card {
+                padding: 6px;
+            }
+
+            .team-name {
+                font-size: 8px;
+            }
+
+            .team-role {
+                font-size: 6px;
+            }
+
+            .team-bio {
+                display: none;
+            }
+
+            .funds-bar {
+                height: 16px;
+                margin: 6px 0;
+            }
+
+            .funds-segment {
+                font-size: 5px;
+            }
+
+            .funds-legend {
+                gap: 3px;
+                flex-wrap: wrap;
+            }
+
+            .funds-legend-item {
+                font-size: 6px;
+                padding: 2px 4px;
+            }
+
+            .scenario-table, .revenue-table {
+                font-size: 6px !important;
+            }
+
+            .scenario-table th, .scenario-table td,
+            .revenue-table th, .revenue-table td {
+                padding: 3px 2px !important;
+                font-size: 6px !important;
+            }
+
+            .scenario-table th, .revenue-table th {
+                font-size: 5px !important;
+            }
+
+            /* Closing slide */
+            .vision-statement {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+                margin-top: 12px !important;
+            }
+
+            .cta-box {
+                padding: 10px !important;
+                margin-top: 16px !important;
+            }
+
+            .cta-text {
+                font-size: 9px !important;
+            }
+
+            .cta-contact {
+                font-size: 10px !important;
+            }
+
+            /* Financial metrics boxes at bottom */
+            .metric-highlight, .highlight-box {
+                padding: 6px !important;
+            }
+
+            .metric-highlight .value, .highlight-box .value {
+                font-size: 14px !important;
+            }
+
+            .metric-highlight .label, .highlight-box .label {
+                font-size: 6px !important;
+            }
+
+            .ask-box {
+                padding: 10px;
+            }
+
+            .ask-amount {
+                font-size: 24px;
+            }
+
+            .ask-label {
+                font-size: 8px;
+            }
+
+            .ask-terms {
+                font-size: 7px;
+                gap: 4px;
+            }
+
+            .slide-footer {
+                padding: 4px 12px;
+                font-size: 6px;
+            }
+
+            .slide-number {
+                font-size: 7px;
+            }
+
+            .progress-dots {
+                bottom: 6px;
+                gap: 3px;
+                padding: 3px 6px;
+            }
+
+            .progress-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .mode-toggle {
+                top: 8px;
+                right: 8px;
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            /* Feature lists tighter */
+            .feature-list, .benefits-list {
+                gap: 2px;
+            }
+
+            .feature-list li, .benefits-list li {
+                font-size: 7px;
+                padding: 2px 0;
+            }
+
+            /* Problem/Solution list */
+            .problem-list, .solution-list {
+                margin-top: 8px !important;
+            }
+
+            .problem-list li, .solution-list li {
+                font-size: 9px !important;
+                gap: 8px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.3 !important;
+            }
+
+            .problem-list .icon, .solution-list .icon {
+                width: 16px !important;
+                height: 16px !important;
+                font-size: 9px !important;
+                border-radius: 4px !important;
+            }
+
+            .problem-list strong, .solution-list strong {
+                font-size: 9px !important;
+            }
+
+            /* Big stat card */
+            .big-stat {
+                padding: 12px 0 !important;
+            }
+
+            .big-stat-value {
+                font-size: 2rem !important;
+            }
+
+            .big-stat-label {
+                font-size: 10px !important;
+                margin-top: 4px !important;
+            }
+
+            /* Quote box */
+            .quote-box {
+                padding: 10px !important;
+                margin-top: 12px !important;
+            }
+
+            .quote-text {
+                font-size: 9px !important;
+                line-height: 1.3 !important;
+            }
+
+            .quote-attr {
+                font-size: 7px !important;
+                margin-top: 6px !important;
+            }
+
+            /* Stats rows */
+            .stats-row {
+                gap: 4px;
+            }
+
+            .stat-item {
+                padding: 6px;
+            }
+
+            .stat-value {
+                font-size: 14px;
+            }
+
+            .stat-label {
+                font-size: 6px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .slide {
+                padding: 12px 20px;
+            }
+
+            .slide-title {
+                font-size: 1rem;
+            }
+
+            .title-slide .slide-title {
+                font-size: 1.4rem;
+            }
+
+            .metric-value, .big-stat-value {
+                font-size: 14px !important;
+            }
+
+            .hero-metric-value {
+                font-size: 18px;
+            }
+
+            .ask-amount {
+                font-size: 20px;
+            }
+
+            .proof-stat {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="deck">
+        
+        <!-- Slide 1: Title -->
+        <section class="slide title-slide">
+            <div class="slide-content">
+                <img src="logofull.svg" alt="APX INSTINCT" class="logo-image animate-in" style="height: 120px; margin-bottom: 8px;">
+                <h1 class="slide-title animate-in" style="margin-top: 24px;">
+                    <span class="gradient">AI-Powered</span><br>Education Revolution
+                </h1>
+                <p class="tagline animate-in">Teaching anyone anything through intelligent synthesis</p>
+                
+                <div class="title-hero-metrics animate-in">
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">$2.5M</div>
+                        <div class="hero-metric-label">Raising</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">85%</div>
+                        <div class="hero-metric-label">Conversion Rate</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">$2.8T</div>
+                        <div class="hero-metric-label">Market Opportunity</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>Confidential & Proprietary</span>
+                <span class="slide-number">apxinstinct.ai</span>
+            </div>
+        </section>
+
+        <!-- Slide 2: Problem -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label animate-in">The Problem</span>
+                <h2 class="slide-title animate-in">Education is <span class="gradient">Fundamentally Broken</span></h2>
+                
+                <div class="two-col animate-in" style="margin-top: 48px;">
+                    <div>
+                        <ul class="problem-list">
+                            <li>
+                                <span class="icon">✕</span>
+                                <div><strong>$160K/year</strong> tuition costs are economically unsustainable for most learners</div>
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <div><strong>69M teacher shortage</strong> by 2030 makes human-only education impossible</div>
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <div><strong>One-size-fits-all</strong> curriculum ignores individual learning styles and pace</div>
+                            </li>
+                            <li>
+                                <span class="icon">✕</span>
+                                <div><strong>Corporate training</strong> delivers generic content that doesn't stick</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="glass-card accent">
+                        <div class="big-stat">
+                            <div class="big-stat-value">73%</div>
+                            <div class="big-stat-label">of Gen Z prefer AI tutoring<br>over traditional methods</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">02</span>
+            </div>
+        </section>
+
+        <!-- Slide 3: Solution -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label animate-in">The Solution</span>
+                <h2 class="slide-title animate-in"><span class="gradient">APX Instinct</span> — The AI Teacher</h2>
+                <p class="slide-subtitle animate-in">Proprietary synthesis technology that creates personalized learning experiences adapted in real-time to each individual learner.</p>
+                
+                <ul class="problem-list solution-list animate-in" style="margin-top: 40px;">
+                    <li>
+                        <span class="icon">✓</span>
+                        <div><strong>Synthesis Engine</strong> — AI generates customized content, exercises, and learning paths at scale</div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div><strong>6-Phase Execution Framework</strong> — Systematic methodology for human-AI collaboration</div>
+                    </li>
+                    <li>
+                        <span class="icon">✓</span>
+                        <div><strong>Immersive Delivery</strong> — Premium, tech-enabled seminars that feel like software products</div>
+                    </li>
+                </ul>
+
+                <div class="quote-box">
+                    <p class="quote-text">"It was both engaging and visually impressive... beautifully designed and demonstrated the creative potential of AI beyond its traditional scope."</p>
+                    <p class="quote-attr">— Corporate Seminar Participant</p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">03</span>
+            </div>
+        </section>
+
+        <!-- Slide 4: Why Now -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Market Timing</span>
+                <h2 class="slide-title">Why <span class="gradient">Now</span> is the Moment</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">AI</div>
+                        <div class="timeline-title">AI Capabilities Mature</div>
+                        <div class="timeline-desc">GPT and Claude enable real-time personalization at scale</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">$</div>
+                        <div class="timeline-title">Economic Crisis</div>
+                        <div class="timeline-desc">Education costs create massive demand for alternatives</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">📈</div>
+                        <div class="timeline-title">Workforce Gap</div>
+                        <div class="timeline-desc">69M teachers needed by 2030 makes AI necessary</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">🎯</div>
+                        <div class="timeline-title">Market Pull</div>
+                        <div class="timeline-desc">Gen Z actively prefers AI-powered learning</div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-top: 48px; text-align: center; padding: 24px;">
+                    <p style="font-size: 1.25rem; color: var(--text-secondary);">
+                        <strong style="color: var(--cyan);">6-12 month window</strong> to establish category leadership before competitors capture market share
+                    </p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">04</span>
+            </div>
+        </section>
+
+        <!-- Slide 5: Product -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">The Product</span>
+                <h2 class="slide-title">Multiple <span class="gradient">Revenue Streams</span></h2>
+                
+                <div class="proof-grid">
+                    <div class="proof-card">
+                        <div class="proof-icon">🎓</div>
+                        <h3 class="proof-title">Corporate Seminars</h3>
+                        <p class="proof-desc">High-touch, premium workshops for enterprise teams with AI-powered breakout sessions and personalized exercises.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-icon">💼</div>
+                        <h3 class="proof-title">Consulting</h3>
+                        <p class="proof-desc">Strategic AI integration consulting expanding from seminar relationships into long-term engagements.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-icon">📱</div>
+                        <h3 class="proof-title">Mobile App</h3>
+                        <p class="proof-desc">APX Solo — Conversation-driven AI teacher with adaptive learning paths. Freemium model at scale.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-icon">🏷️</div>
+                        <h3 class="proof-title">White Label</h3>
+                        <p class="proof-desc">Complete platform for partners to deploy APX technology under their own brand.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-icon">💳</div>
+                        <h3 class="proof-title">Subscriptions</h3>
+                        <p class="proof-desc">Premium content access, tools, and community with high retention and viral referrals.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-icon">🔧</div>
+                        <h3 class="proof-title">Facilitator Portal</h3>
+                        <p class="proof-desc">Self-service platform for consultants and firms to deploy APX methodology independently.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">05</span>
+            </div>
+        </section>
+
+        <!-- Slide 6: Traction -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label animate-in">Validation</span>
+                <h2 class="slide-title animate-in">Proven <span class="gradient">Traction</span></h2>
+                
+                <div class="metrics-grid animate-in">
+                    <div class="metric-box">
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label">Conversion Rate</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">$1.5M+</div>
+                        <div class="metric-label">Assets Created</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">7.5x</div>
+                        <div class="metric-label">Capital Efficiency</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">$200K</div>
+                        <div class="metric-label">Invested to Date</div>
+                    </div>
+                </div>
+
+                <div class="two-col" style="margin-top: 48px;">
+                    <div class="glass-card">
+                        <h4 style="color: var(--cyan); margin-bottom: 16px;">What's Been Built</h4>
+                        <ul style="list-style: none; font-size: 0.9375rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 12px;">✓ Proprietary Synthesis Engine (production-ready)</li>
+                            <li style="margin-bottom: 12px;">✓ Seminar methodology & visual aids</li>
+                            <li style="margin-bottom: 12px;">✓ Website with payment processing</li>
+                            <li style="margin-bottom: 12px;">✓ HTML investor portal</li>
+                            <li style="margin-bottom: 12px;">✓ Legal foundation (LLC, S-Corp, trademark)</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card">
+                        <h4 style="color: var(--cyan); margin-bottom: 16px;">Market Feedback</h4>
+                        <ul style="list-style: none; font-size: 0.9375rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 12px;">✓ "Would definitely buy" — direct quote</li>
+                            <li style="margin-bottom: 12px;">✓ "Fascinating" visual presentation system</li>
+                            <li style="margin-bottom: 12px;">✓ "Framework felt more memorable and accessible"</li>
+                            <li style="margin-bottom: 12px;">✓ Participants wanted MORE exercises</li>
+                            <li style="margin-bottom: 12px;">✓ Referral commitments secured</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">06</span>
+            </div>
+        </section>
+
+        <!-- Slide 7: Market -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Market Opportunity</span>
+                <h2 class="slide-title">Targeting <span class="gradient">$2.8 Trillion</span></h2>
+                
+                <div class="market-visual">
+                    <div class="market-circle tam">
+                        <div class="market-value">$10T</div>
+                        <div class="market-label">TAM</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Global Education</div>
+                    </div>
+                    <div class="market-circle sam">
+                        <div class="market-value">$2.8T</div>
+                        <div class="market-label">SAM</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">AI-Replaceable</div>
+                    </div>
+                    <div class="market-circle som">
+                        <div class="market-value">$75B</div>
+                        <div class="market-label">SOM</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Corporate AI Training</div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-top: 48px;">
+                    <p style="text-align: center; font-size: 1.125rem; color: var(--text-secondary);">
+                        AI-powered education isn't a feature—it's a <strong style="color: var(--text-primary);">category replacement</strong>. 
+                        We're positioned at the intersection of the two largest technology shifts: 
+                        <span style="color: var(--cyan);">AI capability</span> and <span style="color: var(--purple);">education crisis</span>.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">07</span>
+            </div>
+        </section>
+
+        <!-- Slide 8: Go-to-Market -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Execution</span>
+                <h2 class="slide-title"><span class="gradient">90-Day</span> Launch Plan</h2>
+                
+                <div class="timeline" style="margin-top: 36px;">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">30</div>
+                        <div class="timeline-title">Foundation</div>
+                        <div class="timeline-desc">File patents, begin mobile app recruitment, launch paid pilots</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">60</div>
+                        <div class="timeline-title">Product</div>
+                        <div class="timeline-desc">Mobile dev launch, first paid corporate seminars, marketing begins</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">90</div>
+                        <div class="timeline-title">Scale</div>
+                        <div class="timeline-desc">White label development, app beta, referral engine live</div>
+                    </div>
+                </div>
+
+                <div class="ask-container" style="margin-top: 40px;">
+                    <div class="glass-card" style="padding: 20px;">
+                        <h4 style="color: var(--cyan); margin-bottom: 16px; font-size: 1rem;">Day 90 Target</h4>
+                        <ul style="list-style: none; font-size: 0.875rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;">✓ Paying customers with revenue traction</li>
+                            <li style="margin-bottom: 10px;">✓ Mobile app in beta testing</li>
+                            <li style="margin-bottom: 10px;">✓ Case studies from corporate seminars</li>
+                            <li style="margin-bottom: 10px;">✓ Clear path to aggressive scaling</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card" style="padding: 20px;">
+                        <h4 style="color: var(--purple); margin-bottom: 16px; font-size: 1rem;">Month 8 Target</h4>
+                        <ul style="list-style: none; font-size: 0.875rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 10px;">✓ Cash flow positive</li>
+                            <li style="margin-bottom: 10px;">✓ Multiple revenue streams active</li>
+                            <li style="margin-bottom: 10px;">✓ Self-sustaining growth option</li>
+                            <li style="margin-bottom: 10px;">✓ No VC pressure required</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">08</span>
+            </div>
+        </section>
+
+        <!-- Slide 9: Team -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Leadership</span>
+                <h2 class="slide-title">Proven <span class="gradient">Execution</span></h2>
+                
+                <div class="team-card">
+                    <div class="team-photo">BM</div>
+                    <div class="team-info">
+                        <h3>Ben Miller</h3>
+                        <p class="team-role">Founder & CEO</p>
+                        <p class="team-bio">
+                            15+ years of consulting experience with deep expertise in AI collaboration methodologies 
+                            and systematic business frameworks. PMP certified. Track record of building sophisticated 
+                            technology infrastructure and delivering exceptional client outcomes.
+                        </p>
+                        <div class="team-stats">
+                            <div class="team-stat">
+                                <div class="team-stat-value">15+</div>
+                                <div class="team-stat-label">Years Experience</div>
+                            </div>
+                            <div class="team-stat">
+                                <div class="team-stat-value">7.5x</div>
+                                <div class="team-stat-label">Capital Efficiency</div>
+                            </div>
+                            <div class="team-stat">
+                                <div class="team-stat-value">PMP</div>
+                                <div class="team-stat-label">Certified</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-top: 32px; text-align: center; padding: 24px;">
+                    <p style="font-size: 1rem; color: var(--text-secondary);">
+                        Investment amplifies <strong style="color: var(--text-primary);">proven capability</strong> rather than testing an unproven team.
+                        $1.5-2M in assets built with $200K demonstrates execution discipline.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">09</span>
+            </div>
+        </section>
+
+        <!-- Slide 10: Financials -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Financial Projections</span>
+                <h2 class="slide-title">Path to <span class="gradient">$671M ARR</span></h2>
+                
+                <table class="revenue-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Month 6</th>
+                            <th>Month 12</th>
+                            <th>Month 18</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monthly Revenue</td>
+                            <td>$1.33M</td>
+                            <td>$10.35M</td>
+                            <td class="highlight">$55.89M</td>
+                        </tr>
+                        <tr>
+                            <td>Annual Run Rate</td>
+                            <td>$15.95M</td>
+                            <td>$124.16M</td>
+                            <td class="highlight">$670.71M</td>
+                        </tr>
+                        <tr>
+                            <td>App Premium Users</td>
+                            <td>1,693</td>
+                            <td>76,866</td>
+                            <td class="highlight">520,469</td>
+                        </tr>
+                        <tr>
+                            <td>Gross Margin</td>
+                            <td>66%</td>
+                            <td>72%</td>
+                            <td class="highlight">79%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="metrics-grid" style="margin-top: 32px; grid-template-columns: repeat(3, 1fr);">
+                    <div class="metric-box">
+                        <div class="metric-value">17.6:1</div>
+                        <div class="metric-label">LTV:CAC Ratio</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">M9</div>
+                        <div class="metric-label">Cash Flow Positive</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Net Margin at Scale</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">10</span>
+            </div>
+        </section>
+
+        <!-- Slide 11: The Ask -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label animate-in">Investment Opportunity</span>
+                <h2 class="slide-title animate-in">The <span class="gradient">Ask</span></h2>
+                
+                <div class="ask-container animate-in">
+                    <div class="ask-box">
+                        <div class="ask-amount">$2.5M</div>
+                        <div class="ask-label">SAFE Investment</div>
+                        <div class="ask-terms">
+                            $22.5M cap + 20% discount<br>
+                            Standard Y Combinator terms
+                        </div>
+                    </div>
+                    <div class="ask-box">
+                        <div class="ask-amount">10%</div>
+                        <div class="ask-label">Ownership</div>
+                        <div class="ask-terms">
+                            Clean cap table<br>
+                            Founder: 75% / Investors: 10%
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h4 style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.875rem; letter-spacing: 0.1em;">USE OF FUNDS</h4>
+                    <div class="funds-bar">
+                        <div class="funds-segment">32%</div>
+                        <div class="funds-segment">26%</div>
+                        <div class="funds-segment">21%</div>
+                        <div class="funds-segment">14%</div>
+                        <div class="funds-segment">7%</div>
+                    </div>
+                    <div class="funds-legend">
+                        <div class="funds-item"><div class="funds-dot" style="background: var(--cyan);"></div>Engineering (32%)</div>
+                        <div class="funds-item"><div class="funds-dot" style="background: #818cf8;"></div>Working Capital (26%)</div>
+                        <div class="funds-item"><div class="funds-dot" style="background: var(--purple);"></div>Operations (21%)</div>
+                        <div class="funds-item"><div class="funds-dot" style="background: var(--magenta);"></div>Sales & Marketing (14%)</div>
+                        <div class="funds-item"><div class="funds-dot" style="background: #f472b6;"></div>Growth Reserve (7%)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">11</span>
+            </div>
+        </section>
+
+        <!-- Slide 12: Returns -->
+        <section class="slide">
+            <div class="slide-content">
+                <span class="slide-label">Return Analysis</span>
+                <h2 class="slide-title"><span class="gradient">Base Case:</span> Acquisition at Month 18</h2>
+                
+                <table class="revenue-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>ARR</th>
+                            <th>Multiple</th>
+                            <th>Return on $2.5M</th>
+                            <th>Multiple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Conservative</td>
+                            <td>$335M</td>
+                            <td>5-8x</td>
+                            <td>$168M - $268M</td>
+                            <td class="highlight">67x - 107x</td>
+                        </tr>
+                        <tr>
+                            <td>Base Case</td>
+                            <td>$671M</td>
+                            <td>5-8x</td>
+                            <td>$336M - $537M</td>
+                            <td class="highlight">134x - 215x</td>
+                        </tr>
+                        <tr>
+                            <td>Bull Case</td>
+                            <td>$671M</td>
+                            <td>8-12x</td>
+                            <td>$537M - $805M</td>
+                            <td class="highlight">215x - 322x</td>
+                        </tr>
+                        <tr>
+                            <td>Home Run</td>
+                            <td>$1.34B</td>
+                            <td>8-12x</td>
+                            <td>$1.07B - $1.61B</td>
+                            <td class="highlight">428x - 644x</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="two-col" style="margin-top: 32px;">
+                    <div class="glass-card" style="text-align: center; border-color: rgba(0, 212, 255, 0.3); padding: 20px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 6px;">PROTECTED DOWNSIDE</h4>
+                        <p style="font-size: 0.9375rem; color: var(--text-secondary);">
+                            $22.5M pre-money with $1.5M+ built assets.<br>
+                            <strong style="color: var(--text-primary);">Even 50% miss delivers 67x+ returns.</strong>
+                        </p>
+                    </div>
+                    <div class="glass-card" style="text-align: center; border-color: rgba(192, 132, 252, 0.3); padding: 20px;">
+                        <h4 style="color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 6px;">ASYMMETRIC UPSIDE</h4>
+                        <p style="font-size: 0.9375rem; color: var(--text-secondary);">
+                            Education is AI's killer app.<br>
+                            <strong style="color: var(--text-primary);">Category leaders reach 1,800x+ returns.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>APX Instinct | Investor Deck</span>
+                <span class="slide-number">12</span>
+            </div>
+        </section>
+
+        <!-- Slide 13: Vision / Close -->
+        <section class="slide title-slide">
+            <div class="slide-content">
+                <p class="vision-statement">
+                    We're building a future where <span class="highlight">anyone can learn anything</span>—
+                    personalized, affordable, and infinitely scalable.
+                </p>
+                <p class="vision-statement" style="font-size: 1.75rem; margin-top: 32px;">
+                    From <strong>validated MVP</strong> to <strong>category-defining platform</strong>.
+                </p>
+
+                <div class="cta-box">
+                    <p class="cta-text">Join us at the inflection point of the AI-powered education revolution.</p>
+                    <p class="cta-contact">ben@apxinstinct.ai | apxinstinct.ai</p>
+                </div>
+
+                <div class="title-hero-metrics" style="margin-top: 48px;">
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">$2.5M</div>
+                        <div class="hero-metric-label">Investment</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">10%</div>
+                        <div class="hero-metric-label">Ownership</div>
+                    </div>
+                    <div class="hero-metric">
+                        <div class="hero-metric-value">67x+</div>
+                        <div class="hero-metric-label">Return Potential</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>Confidential & Proprietary | © 2025 APX Instinct</span>
+                <span class="slide-number">13</span>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress-dots"></div>
+
+    <script>
+        // Detect light mode from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('mode') === 'light') {
+            document.body.classList.add('light-mode');
+            // Swap to dark logo for light mode
+            const logo = document.querySelector('.logo-image');
+            if (logo) logo.src = 'logo_dark.svg';
+        }
+
+        // Slide Navigation System
+        const slides = document.querySelectorAll('.slide');
+        const progressDots = document.querySelector('.progress-dots');
+        let currentSlide = 0;
+
+        // Create progress dots
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'progress-dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            progressDots.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.progress-dot');
+
+        // Initialize first slide
+        slides[0].classList.add('active');
+
+        function goToSlide(index) {
+            if (index < 0 || index >= slides.length || index === currentSlide) return;
+
+            // Exit current slide
+            slides[currentSlide].classList.add('exiting');
+            dots[currentSlide].classList.remove('active');
+
+            setTimeout(() => {
+                slides[currentSlide].classList.remove('active', 'exiting');
+                
+                // Enter new slide
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }, 400);
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(slides.length - 1);
+            } else if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            } else if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Fullscreen not supported');
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Mouse wheel navigation (optional - can be disabled if too sensitive)
+        let wheelTimeout;
+        document.addEventListener('wheel', (e) => {
+            clearTimeout(wheelTimeout);
+            wheelTimeout = setTimeout(() => {
+                if (e.deltaY > 50) {
+                    nextSlide();
+                } else if (e.deltaY < -50) {
+                    prevSlide();
+                }
+            }, 150);
+        }, { passive: true });
+
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+
+        // Click on left/right edges to navigate
+        document.addEventListener('click', (e) => {
+            const windowWidth = window.innerWidth;
+            if (e.clientX < windowWidth * 0.2) {
+                prevSlide();
+            } else if (e.clientX > windowWidth * 0.8) {
+                nextSlide();
+            }
+        });
+    </script>
+</body>
+</html>
