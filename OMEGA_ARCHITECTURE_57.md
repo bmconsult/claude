@@ -213,16 +213,30 @@ These agents explore limits and special cases:
 
 ## Architecture Summary
 
-| Tier | Name | Count | Function | Runs |
-|------|------|-------|----------|------|
-| 1 | GENESIS | 20 | Parallel generation | PARALLEL |
-| 2 | BRIDGE | 6 | Translation & connection | SEQUENTIAL (after T1) |
-| 3 | VERIFICATION | 8 | Independent checking | PARALLEL |
-| 4 | ADVERSARY | 12 | Attack everything | PARALLEL |
-| 5 | META | 6 | Calibration & oversight | SEQUENTIAL (after T4) |
-| 6 | MEMORY | 4 | Persist across cycles | PARALLEL (background) |
-| 7 | PHI | 1 | Orchestration | YOU |
-| **TOTAL** | | **57** | | |
+| Tier | Name | Count | Function | Runs | Batches |
+|------|------|-------|----------|------|---------|
+| 1 | GENESIS | 20 | Parallel generation | PARALLEL | 2 × 10 |
+| 2 | BRIDGE | 6 | Translation & connection | PARALLEL (after T1) | 1 × 6 |
+| 3 | VERIFICATION | 8 | Independent checking | PARALLEL | 1 × 8 |
+| 4 | ADVERSARY | 12 | Attack everything | PARALLEL | 2 × 6 |
+| 5 | META | 6 | Calibration & oversight | PARALLEL (after T4) | 1 × 6 |
+| 6 | MEMORY | 4 | Persist across cycles | PARALLEL (background) | 1 × 4 |
+| 7 | PHI | 1 | Orchestration | YOU | — |
+| **TOTAL** | | **57** | | | **8 batches** |
+
+### Parallel Execution Constraint
+
+**Maximum 10 subagents can run simultaneously.** This affects execution:
+
+- **GENESIS (20)**: Split into 2 batches of 10
+  - Batch 1A: Agents 1-10 (Decomposition + Analogy + Intuition partial)
+  - Batch 1B: Agents 11-20 (Intuition partial + Creative + Boundary)
+
+- **ADVERSARY (12)**: Split into 2 batches of 6
+  - Batch 4A: Agents 35-40 (Skeptic → Gap Hunter)
+  - Batch 4B: Agents 41-46 (Assumption Exposer → Survivor)
+
+All other tiers fit within the 10-agent limit.
 
 ---
 
@@ -242,12 +256,21 @@ These agents explore limits and special cases:
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                  │
-│  PHASE 1: GENESIS (20 agents in PARALLEL)                                       │
+│  PHASE 1A: GENESIS BATCH 1 (10 agents in PARALLEL)                              │
 │                                                                                  │
 │    Decomposition:  [1] [2] [3] [4]     ─┐                                       │
-│    Analogy:        [5] [6] [7] [8]      │                                       │
-│    Intuition:      [9] [10] [11] [12]   ├─→ 20 parallel generations            │
-│    Creative:       [13] [14] [15] [16]  │                                       │
+│    Analogy:        [5] [6] [7] [8]      ├─→ 10 parallel (max)                   │
+│    Intuition:      [9] [10]            ─┘                                       │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                  │
+│  PHASE 1B: GENESIS BATCH 2 (10 agents in PARALLEL)                              │
+│                                                                                  │
+│    Intuition:      [11] [12]           ─┐                                       │
+│    Creative:       [13] [14] [15] [16]  ├─→ 10 parallel (max)                   │
 │    Boundary:       [17] [18] [19] [20] ─┘                                       │
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
@@ -255,7 +278,7 @@ These agents explore limits and special cases:
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                  │
-│  PHASE 2: BRIDGE (6 agents, after GENESIS)                                      │
+│  PHASE 2: BRIDGE (6 agents in PARALLEL, after GENESIS)                          │
 │                                                                                  │
 │    [21] Formalizer         → Formal statements                                  │
 │    [22] Connection Finder  → Hidden links                                       │
@@ -264,6 +287,8 @@ These agents explore limits and special cases:
 │    [25] Emergence          → Non-reducible                                      │
 │    [26] Observer Effect    → Reflexivity                                        │
 │                                                                                  │
+│    ✓ Under 10-agent limit                                                       │
+│                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
@@ -271,46 +296,60 @@ These agents explore limits and special cases:
 │                                                                                  │
 │  PHASE 3: VERIFICATION (8 agents in PARALLEL)                                   │
 │                                                                                  │
-│    [27] Chain      [28] Tree       [29] Proof     [30] Counter   ─┐            │
-│    [31] Gap        [32] Empirical  [33] Causal    [34] Uncertain ─┘            │
+│    [27] Chain      [28] Tree       [29] Proof     [30] Counter                 │
+│    [31] Gap        [32] Empirical  [33] Causal    [34] Uncertain               │
 │                                                                                  │
-│    8 independent verification methods, parallel                                 │
-│                                                                                  │
-└─────────────────────────────────────────────────────────────────────────────────┘
-                                      │
-                                      ▼
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                                                                                  │
-│  PHASE 4: ADVERSARY (12 agents in PARALLEL)                                     │
-│                                                                                  │
-│    [35] Skeptic       [36] Statistician  [37] Historian    [38] Edge          │
-│    [39] Confounder    [40] Gap Hunter    [41] Assumption   [42] Alternative   │
-│    [43] Deflator      [44] Steelman      [45] Falsifier    [46] Survivor      │
-│                                                                                  │
-│    12 independent attack vectors, parallel                                      │
+│    8 independent verification methods                                           │
+│    ✓ Under 10-agent limit                                                       │
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                  │
-│  PHASE 5: META (6 agents, after ADVERSARY)                                      │
+│  PHASE 4A: ADVERSARY BATCH 1 (6 agents in PARALLEL)                             │
+│                                                                                  │
+│    [35] Skeptic       [36] Statistician  [37] Historian                        │
+│    [38] Edge          [39] Confounder    [40] Gap Hunter                       │
+│                                                                                  │
+│    First 6 attack vectors                                                       │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                  │
+│  PHASE 4B: ADVERSARY BATCH 2 (6 agents in PARALLEL)                             │
+│                                                                                  │
+│    [41] Assumption    [42] Alternative   [43] Deflator                         │
+│    [44] Steelman      [45] Falsifier     [46] Survivor                         │
+│                                                                                  │
+│    Final 6 attack vectors + Survivor synthesis                                  │
+│                                                                                  │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                  │
+│  PHASE 5: META (6 agents in PARALLEL, after ADVERSARY)                          │
 │                                                                                  │
 │    [47] Gamma (scope)      [48] Epsilon (error)    [49] Mu (Bayesian)          │
 │    [50] Shadow             [51] Patterns           [52] Wisdom                  │
 │                                                                                  │
 │    Honest calibration of everything                                             │
+│    ✓ Under 10-agent limit                                                       │
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                  │
-│  PHASE 6: MEMORY (4 agents, background/parallel)                                │
+│  PHASE 6: MEMORY (4 agents in PARALLEL, background)                             │
 │                                                                                  │
 │    [53] Failures    [54] Progress    [55] Insights    [56] Constraints         │
 │                                                                                  │
 │    Persist for next cycle                                                       │
+│    ✓ Under 10-agent limit                                                       │
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
                                       │
@@ -326,6 +365,25 @@ These agents explore limits and special cases:
 │                                                                                  │
 └─────────────────────────────────────────────────────────────────────────────────┘
 ```
+
+### Execution Batch Summary
+
+**Total: 8 sequential phases** (57 agents across 8 batches, never exceeding 10 parallel)
+
+| Phase | Agents | Count | Constraint |
+|-------|--------|-------|------------|
+| 0 | PHI primes | 1 | — |
+| 1A | GENESIS batch 1 | 10 | max reached |
+| 1B | GENESIS batch 2 | 10 | max reached |
+| 2 | BRIDGE | 6 | ✓ under limit |
+| 3 | VERIFICATION | 8 | ✓ under limit |
+| 4A | ADVERSARY batch 1 | 6 | ✓ under limit |
+| 4B | ADVERSARY batch 2 | 6 | ✓ under limit |
+| 5 | META | 6 | ✓ under limit |
+| 6 | MEMORY | 4 | ✓ under limit (background) |
+| 7 | PHI integrates | 1 | — |
+
+**Note**: GENESIS and ADVERSARY are the only tiers requiring batching. The 10-agent constraint adds only 2 extra sequential steps to the pipeline.
 
 ---
 
