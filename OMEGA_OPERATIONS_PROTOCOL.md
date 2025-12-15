@@ -1217,3 +1217,1039 @@ A key source of confusion: What's the difference between VERIFICATION and ADVERS
 *Document Version: 1.0*
 *Companion to: OMEGA_ARCHITECTURE_57_PROMPTS.md*
 *Architecture: OMEGA-57*
+
+---
+
+# 7. Prediction Market Layer
+
+*Credibility stakes for truth-seeking incentive alignment*
+
+## 7.1 Overview
+
+The Prediction Market Layer adds economic incentives to agent claims. Agents must "bet" credibility on their assertions, and credibility flows to accurate agents over time. This:
+- Incentivizes careful calibration (bad calibration loses credibility)
+- Aggregates distributed knowledge (market price = collective belief)
+- Identifies reliable agents (high balance = historically accurate)
+- Penalizes overconfidence (big stakes on wrong claims = big losses)
+
+## 7.2 Agent Credibility Accounts
+
+Every agent maintains a credibility balance:
+
+```yaml
+agent_credibility:
+  agent_id: <int>
+  current_balance: <float>  # Starts at 1000.0
+  lifetime_earnings: <float>
+  lifetime_losses: <float>
+  historical_accuracy: <float>  # EMA of win rate
+  total_bets: <int>
+  active_bets: [<bet_ids>]
+  
+  derived_metrics:
+    credibility_weight: <float>  # Used by PHI for weighting
+    risk_tolerance: <float>  # Based on balance and history
+    specialization_accuracy:  # Accuracy by claim type
+      empirical: <float>
+      logical: <float>
+      causal: <float>
+      predictive: <float>
+```
+
+**Initial State**: All agents start with 1000 credits.
+
+**Credibility Weight Formula**:
+```python
+credibility_weight = log(current_balance + 1) * historical_accuracy * confidence_calibration_score
+```
+
+## 7.3 Claim Betting Protocol
+
+When an agent makes a claim, it MUST place a bet:
+
+```yaml
+claim_bet:
+  bet_id: <uuid>
+  claim_id: <uuid>
+  
+  claim:
+    statement: <string>
+    type: <EMPIRICAL|LOGICAL|CAUSAL|PREDICTIVE|NORMATIVE>
+    verifiable: <bool>
+    verification_method: <string>  # How this will be resolved
+  
+  agent_id: <int>
+  
+  bet:
+    position: <FOR|AGAINST>
+    stake: <float>  # Credits risked (min 1, max 50% of balance)
+    confidence: <float>  # 0.0-1.0
+    odds_implied: <float>  # = confidence / (1 - confidence)
+  
+  timestamps:
+    placed: <timestamp>
+    expires: <timestamp or null>
+    resolved: <timestamp or null>
+  
+  resolution:
+    outcome: <WIN|LOSE|PUSH|UNRESOLVED>
+    payout: <float>
+    resolved_by: <agent_id or ORACLE or PHI>
+```
+
+**Stake Constraints**:
+- Minimum stake: 1 credit
+- Maximum stake: 50% of current balance
+- Stake must be proportional to confidence (high confidence → should stake more)
+
+## 7.4 Market Mechanism
+
+### 7.4.1 Market Creation
+
+When an agent makes a claim, a market is created:
+
+```yaml
+claim_market:
+  market_id: <uuid>
+  claim_id: <uuid>
+  claim_statement: <string>
+  
+  state: <OPEN|CLOSED|RESOLVED>
+  
+  positions:
+    for:
+      total_stake: <float>
+      bets: [<bet_ids>]
+    against:
+      total_stake: <float>
+      bets: [<bet_ids>]
+  
+  market_price: <float>  # Current implied probability (0.0-1.0)
+  price_history: [<timestamp, price>]
+  
+  liquidity: <float>  # Total credits in market
+```
+
+### 7.4.2 Price Calculation
+
+Using logarithmic market scoring rule (LMSR):
+
+```python
+def calculate_market_price(for_stake, against_stake, b=100):
+    """
+    b = liquidity parameter (higher = more stable prices)
+    Returns implied probability of claim being true
+    """
+    import math
+    
+    exp_for = math.exp(for_stake / b)
+    exp_against = math.exp(against_stake / b)
+    
+    market_price = exp_for / (exp_for + exp_against)
+    return market_price
+```
+
+### 7.4.3 Payout Calculation
+
+```python
+def calculate_payout(bet, market_price_at_bet, outcome):
+    """
+    If WIN: gain = stake * (1 / market_price_at_bet - 1) for FOR bets
+    If LOSE: lose entire stake
+    If PUSH: return stake (claim unresolvable)
+    """
+    if outcome == "WIN":
+        if bet.position == "FOR":
+            return bet.stake * (1 / market_price_at_bet - 1)
+        else:  # AGAINST
+            return bet.stake * (1 / (1 - market_price_at_bet) - 1)
+    elif outcome == "LOSE":
+        return -bet.stake
+    elif outcome == "PUSH":
+        return 0
+```
+
+## 7.5 Resolution Protocol
+
+### 7.5.1 Resolution Triggers
+
+```
+RESOLUTION TRIGGERS:
+
+1. VERIFICATION RESOLUTION:
+   - VERIFICATION tier confirms/denies claim
+   - Confidence > 90% triggers resolution
+   - Resolves to majority VERIFICATION verdict
+
+2. ADVERSARY RESOLUTION:
+   - Claim survives full ADVERSARY battery → resolves TRUE
+   - Claim destroyed by ADVERSARY → resolves FALSE
+
+3. ORACLE RESOLUTION:
+   - External oracle provides definitive answer
+   - Highest authority for empirical claims
+
+4. CONSENSUS RESOLUTION:
+   - >80% agent agreement with high confidence
+   - Used when verification is soft
+
+5. PHI RESOLUTION:
+   - PHI makes judgment call
+   - Used for unresolvable claims
+   - Can resolve as PUSH (no payout/loss)
+
+6. TIMEOUT RESOLUTION:
+   - Market expires without resolution
+   - Resolves as PUSH
+```
+
+### 7.5.2 Resolution Process
+
+```yaml
+resolution_process:
+  market_id: <uuid>
+  
+  resolution_method: <VERIFICATION|ADVERSARY|ORACLE|CONSENSUS|PHI|TIMEOUT>
+  
+  evidence:
+    - source: <agent_id or ORACLE>
+      finding: <string>
+      confidence: <float>
+  
+  verdict: <TRUE|FALSE|UNRESOLVABLE>
+  
+  payouts:
+    - agent_id: <int>
+      bet_id: <uuid>
+      outcome: <WIN|LOSE|PUSH>
+      amount: <float>
+      new_balance: <float>
+```
+
+## 7.6 Credibility Dynamics
+
+### 7.6.1 Balance Updates
+
+```python
+def update_credibility(agent, bet_outcome, payout):
+    # Update balance
+    agent.current_balance += payout
+    
+    if payout > 0:
+        agent.lifetime_earnings += payout
+    else:
+        agent.lifetime_losses += abs(payout)
+    
+    # Update accuracy EMA (alpha = 0.1)
+    win = 1.0 if bet_outcome == "WIN" else 0.0
+    agent.historical_accuracy = 0.9 * agent.historical_accuracy + 0.1 * win
+    
+    # Bankruptcy protection
+    if agent.current_balance < 100:
+        agent.current_balance = 100  # Minimum floor
+        agent.credibility_weight *= 0.5  # But severely penalized
+    
+    # Recalculate weight
+    agent.credibility_weight = calculate_weight(agent)
+```
+
+### 7.6.2 PHI Weighting Integration
+
+```python
+def phi_weighted_aggregation(agent_claims):
+    """
+    PHI weights agent outputs by credibility
+    """
+    weighted_claims = []
+    
+    for claim in agent_claims:
+        agent = get_agent(claim.agent_id)
+        
+        weight = agent.credibility_weight
+        
+        # Adjust for claim type specialization
+        if claim.type in agent.specialization_accuracy:
+            type_accuracy = agent.specialization_accuracy[claim.type]
+            weight *= type_accuracy
+        
+        weighted_claims.append({
+            'claim': claim,
+            'weight': weight,
+            'effective_confidence': claim.confidence * weight
+        })
+    
+    return weighted_claims
+```
+
+## 7.7 Market Rules
+
+```
+MARKET RULES:
+
+1. MANDATORY BETTING:
+   - Every substantive claim requires a bet
+   - No bet = claim ignored by system
+   - Minimum stake enforced
+
+2. NO INSIDER TRADING:
+   - Agents cannot bet on claims they will resolve
+   - VERIFICATION agents cannot bet on claims they verify
+
+3. PROPORTIONAL STAKES:
+   - High confidence claims should have high stakes
+   - Confidence-stake ratio monitored
+   - Suspicious patterns flagged (high confidence, low stake)
+
+4. LIQUIDITY REQUIREMENTS:
+   - Markets with low liquidity have high spreads
+   - PHI can add liquidity to important markets
+
+5. MANIPULATION PREVENTION:
+   - Single agent cannot move market more than 20%
+   - Coordinated betting detected and penalized
+   
+6. BANKRUPTCY PROTECTION:
+   - Agents cannot go below 100 credits
+   - Bankrupt agents severely down-weighted
+   - No agent permanently removed (can recover)
+```
+
+## 7.8 Integration with Existing Systems
+
+### 7.8.1 Message Schema Update
+
+Add to standard message format:
+
+```yaml
+message:
+  # ... existing fields ...
+  
+  market:
+    bet_placed: <bool>
+    bet_id: <uuid or null>
+    stake: <float>
+    position: <FOR|AGAINST>
+    market_price_at_bet: <float>
+```
+
+### 7.8.2 PHI Decision Logic Update
+
+```
+PHI MARKET-AWARE DECISIONS:
+
+1. When aggregating claims:
+   - Weight by credibility_weight, not just confidence
+   
+2. When conflict exists:
+   - Check which side has more credibility staked
+   - Higher-credibility agents' positions weighted more
+   
+3. When uncertain:
+   - Check market price for collective belief
+   - Market price > 0.7 = likely true
+   - Market price < 0.3 = likely false
+   - Market price 0.3-0.7 = genuinely uncertain
+```
+
+---
+
+# 8. Structured Debate Protocol
+
+*Adversarial dialogue for truth extraction*
+
+## 8.1 Overview
+
+Structured Debate extends ADVERSARY tier's one-shot attacks into multi-round adversarial dialogue. Two teams argue opposing positions with a judge evaluating iteratively. This:
+- Extracts information through cross-examination
+- Allows defense against attacks (not just attacks)
+- Iteratively refines positions
+- Makes errors visible through adversarial pressure
+
+## 8.2 Debate Structure
+
+```yaml
+debate:
+  debate_id: <uuid>
+  
+  claim:
+    statement: <string>
+    importance: <CRITICAL|HIGH|MEDIUM>
+    context: <string>
+  
+  config:
+    rounds: <int>  # 3-5 typically
+    time_per_side: <tokens or time>
+    judge_intervention: <bool>  # Can judge ask questions?
+  
+  teams:
+    red:  # AGAINST the claim
+      lead: <agent_id>
+      support: [<agent_ids>]
+      position: "The claim is FALSE"
+    
+    blue:  # FOR the claim
+      lead: <agent_id>
+      support: [<agent_ids>]
+      position: "The claim is TRUE"
+  
+  judge:
+    agent_id: <agent_id>  # Usually PHI (57) or Quality Controller (52)
+    can_intervene: <bool>
+  
+  transcript: [<round_records>]
+  
+  verdict:
+    winner: <RED|BLUE|DRAW>
+    confidence: <float>
+    reasoning: <string>
+```
+
+## 8.3 Team Composition
+
+### 8.3.1 Red Team (Prosecution - AGAINST)
+
+```yaml
+red_team_default:
+  lead: 44  # Steelman Attacker - attacks best version
+  support:
+    - 35  # Skeptic - premise destruction
+    - 36  # Statistician - evidence destruction
+    - 39  # Confounder - causal destruction
+    - 42  # Alternative Generator - shows other options
+    - 45  # Falsifier - testability check
+```
+
+### 8.3.2 Blue Team (Defense - FOR)
+
+```yaml
+blue_team_default:
+  lead: 1   # First Principles - foundational argument
+  support:
+    - 27  # Chain Verifier - logical validity
+    - 32  # Empirical Tester - evidence support
+    - 33  # Causal Verifier - causal support
+    - 22  # Connection Finder - shows how pieces fit
+    - 31  # Gap Detector - preempts gap attacks
+```
+
+### 8.3.3 Judge Options
+
+```yaml
+judge_options:
+  primary: 57   # PHI - ultimate authority
+  alternate: 52  # Quality Controller - standards focus
+  panel:  # For very high stakes
+    - 57  # PHI
+    - 52  # Quality Controller
+    - 49  # Consensus Mapper
+```
+
+## 8.4 Debate Flow
+
+### Round Structure
+
+```
+ROUND 1: OPENING STATEMENTS
+├─ BLUE (3 min): Present strongest case for claim
+│  - Core thesis
+│  - Top 3-5 supporting arguments
+│  - Key evidence
+│
+├─ RED (3 min): Present strongest case against claim
+│  - Core counter-thesis
+│  - Top 3-5 attacks
+│  - Counter-evidence
+│
+└─ JUDGE: Identify key cruxes (what would change minds?)
+
+---
+
+ROUND 2: DIRECT ENGAGEMENT
+├─ RED (2 min): Attack BLUE's strongest arguments
+│  - Specific rebuttals to each argument
+│  - New evidence against
+│
+├─ BLUE (2 min): Defend and counter-attack
+│  - Response to RED's attacks
+│  - Attack RED's weakest points
+│
+└─ JUDGE: Score which arguments survived, which fell
+
+---
+
+ROUND 3: CROSS-EXAMINATION
+├─ RED asks BLUE questions (5 questions max)
+│  - Questions designed to expose weakness
+│  - BLUE must answer directly
+│
+├─ BLUE asks RED questions (5 questions max)
+│  - Questions designed to expose weakness
+│  - RED must answer directly
+│
+└─ JUDGE: Note evasions, contradictions, strong answers
+
+---
+
+ROUND 4: REBUTTAL
+├─ BLUE (2 min): Final defense
+│  - Address all surviving attacks
+│  - Reinforce strongest points
+│
+├─ RED (2 min): Final attack
+│  - Press on weaknesses exposed
+│  - Summarize why claim fails
+│
+└─ JUDGE: Preliminary verdict (non-binding)
+
+---
+
+ROUND 5: CLOSING
+├─ BLUE (1 min): Why claim should be accepted
+│  - Summary of surviving arguments
+│  - Cost of rejecting claim
+│
+├─ RED (1 min): Why claim should be rejected
+│  - Summary of successful attacks
+│  - Cost of accepting claim
+│
+└─ JUDGE: FINAL VERDICT
+```
+
+## 8.5 Transcript Format
+
+```yaml
+round_record:
+  round: <int>
+  phase: <OPENING|ENGAGEMENT|CROSS_EXAM|REBUTTAL|CLOSING>
+  
+  red_contribution:
+    agent_id: <int>
+    content: <string>
+    arguments: [<argument_ids>]
+    attacks: [<attack_ids>]
+    questions: [<string>]  # For cross-exam
+  
+  blue_contribution:
+    agent_id: <int>
+    content: <string>
+    arguments: [<argument_ids>]
+    defenses: [<defense_ids>]
+    answers: [<string>]  # For cross-exam
+  
+  judge_notes:
+    surviving_arguments:
+      blue: [<argument_ids>]
+      red: [<argument_ids>]
+    key_moments: [<string>]
+    cruxes_identified: [<string>]
+    preliminary_lean: <RED|BLUE|NEUTRAL>
+```
+
+## 8.6 Argument Tracking
+
+```yaml
+argument:
+  argument_id: <uuid>
+  side: <RED|BLUE>
+  
+  content:
+    claim: <string>
+    reasoning: <string>
+    evidence: [<string>]
+  
+  status:
+    introduced_round: <int>
+    current_state: <STANDING|CHALLENGED|REFUTED|CONCEDED>
+    challenges: [<argument_ids that challenged this>]
+    defenses: [<argument_ids that defended this>]
+  
+  judge_assessment:
+    strength: <STRONG|MODERATE|WEAK>
+    survived_attacks: <bool>
+    notes: <string>
+```
+
+## 8.7 Verdict Format
+
+```yaml
+debate_verdict:
+  debate_id: <uuid>
+  claim: <string>
+  
+  winner: <RED|BLUE|DRAW>
+  
+  scoring:
+    blue_arguments_final: <int>  # Standing at end
+    blue_arguments_refuted: <int>
+    red_attacks_successful: <int>
+    red_attacks_defended: <int>
+  
+  key_crux: <string>  # The decisive issue
+  crux_resolution: <string>  # How it was resolved
+  
+  reasoning: <string>  # Judge's explanation
+  
+  confidence:
+    verdict_confidence: <float>  # How sure is judge?
+    claim_probability: <float>  # Probability claim is true
+  
+  dissent:  # If panel judging
+    dissenting_judge: <agent_id or null>
+    dissent_reasoning: <string or null>
+  
+  market_impact:
+    pre_debate_price: <float>
+    post_debate_price: <float>
+```
+
+## 8.8 Debate Triggers
+
+```
+WHEN TO TRIGGER DEBATE:
+
+1. HIGH-STAKES CLAIM:
+   Condition: claim.importance == CRITICAL AND confidence BETWEEN 0.4 AND 0.7
+   Rationale: Important claim with genuine uncertainty
+
+2. PERSISTENT CONFLICT:
+   Condition: Conflict Resolver failed AND agents still disagree
+   Rationale: Need structured process to resolve
+
+3. COUNTERINTUITIVE RESULT:
+   Condition: Claim contradicts prior beliefs AND confidence > 0.6
+   Rationale: Need stress testing before accepting
+
+4. PHI REQUEST:
+   Condition: PHI explicitly requests debate
+   Rationale: Orchestrator wants adversarial examination
+
+5. QUALITY CONTROLLER FLAG:
+   Condition: QC flags claim as needing more scrutiny
+   Rationale: Quality gate requires deeper examination
+
+WHEN NOT TO DEBATE:
+
+- Claim is trivial or uncontroversial
+- Confidence is very high (>90%) or very low (<20%)
+- Time/resource pressure makes debate impractical
+- Claim is not verifiable (debate won't help)
+```
+
+## 8.9 Integration with Market
+
+```
+DEBATE-MARKET INTEGRATION:
+
+1. PRE-DEBATE:
+   - Market price recorded
+   - Agents can place bets on debate outcome
+   - RED team members bet AGAINST, BLUE team members bet FOR
+
+2. DURING DEBATE:
+   - Market price updates after each round
+   - Other agents can adjust bets based on transcript
+
+3. POST-DEBATE:
+   - Market moves toward verdict
+   - Winning team gains credibility
+   - Losing team loses stakes
+
+4. CREDIBILITY IMPACT:
+   - Debate win: +50 credits to lead, +25 to support
+   - Debate loss: -30 credits to lead, -15 to support
+   - Draw: No change
+```
+
+---
+
+# 9. Evolution Mechanism
+
+*Selection pressure for approach improvement*
+
+## 9.1 Overview
+
+The Evolution Mechanism applies Darwinian selection to problem-solving approaches. Approaches that work survive and reproduce; approaches that fail die. This:
+- Discovers novel strategies not designed by humans
+- Automatically prunes ineffective approaches
+- Combines successful elements in new ways
+- Adapts to problem characteristics over time
+
+## 9.2 Approach Genome
+
+Each "approach" is encoded as a genome:
+
+```yaml
+approach_genome:
+  genome_id: <uuid>
+  generation: <int>
+  
+  # AGENT SELECTION
+  genesis_composition:
+    agents: [<agent_ids>]  # Which GENESIS agents to use
+    weights: [<floats>]    # How much to weight each
+  
+  bridge_composition:
+    agents: [<agent_ids>]
+    weights: [<floats>]
+  
+  verification_strategy:
+    depth: <int>  # How many verification passes
+    agents: [<agent_ids>]
+    confidence_threshold: <float>
+  
+  adversary_strategy:
+    intensity: <LIGHT|STANDARD|HEAVY>
+    agents: [<agent_ids>]
+    debate_threshold: <float>  # When to trigger debate
+  
+  # PARAMETERS
+  parameters:
+    confidence_threshold: <float>
+    iteration_limit: <int>
+    parallelism: <int>
+    market_stake_ratio: <float>
+    convergence_patience: <int>
+  
+  # HEURISTICS
+  heuristics:
+    problem_type_overrides:
+      EMPIRICAL: {genesis_weights: [...]}
+      ANALYTICAL: {genesis_weights: [...]}
+      # etc
+  
+  # FITNESS TRACKING
+  fitness:
+    problems_attempted: <int>
+    problems_solved: <int>
+    average_confidence: <float>
+    average_time: <float>
+    average_cost: <float>
+  
+  # LINEAGE
+  lineage:
+    parent_1: <genome_id or null>
+    parent_2: <genome_id or null>
+    mutations: [<mutation_records>]
+    created_at: <timestamp>
+```
+
+## 9.3 Fitness Function
+
+```python
+def calculate_fitness(genome, recent_window=10):
+    """
+    Fitness is a weighted combination of:
+    - Solve rate (most important)
+    - Confidence quality
+    - Efficiency
+    """
+    # Get recent performance
+    recent = genome.recent_results[-recent_window:]
+    
+    if len(recent) == 0:
+        return 0.5  # Default for untested genomes
+    
+    # Primary: Did it solve problems?
+    solve_rate = sum(1 for r in recent if r.solved) / len(recent)
+    
+    # Secondary: How good were the solutions?
+    confidence_scores = [r.confidence for r in recent if r.solved]
+    avg_confidence = mean(confidence_scores) if confidence_scores else 0
+    
+    # Tertiary: How efficient?
+    times = [r.time for r in recent]
+    efficiency = 1 / (1 + mean(times) / BASELINE_TIME)
+    
+    # Quaternary: Calibration quality
+    calibration = calculate_calibration(recent)
+    
+    # Weighted combination
+    fitness = (
+        0.50 * solve_rate +
+        0.25 * avg_confidence +
+        0.15 * efficiency +
+        0.10 * calibration
+    )
+    
+    return fitness
+```
+
+## 9.4 Population Management
+
+```yaml
+population:
+  population_id: <uuid>
+  generation: <int>
+  
+  config:
+    size: <int>  # e.g., 20 genomes
+    elitism_rate: <float>  # e.g., 0.2 (top 20% survive unchanged)
+    crossover_rate: <float>  # e.g., 0.6
+    mutation_rate: <float>  # e.g., 0.2
+  
+  genomes: [<genome_ids>]
+  
+  statistics:
+    best_fitness: <float>
+    average_fitness: <float>
+    fitness_variance: <float>
+    diversity_score: <float>
+```
+
+## 9.5 Selection Protocol
+
+```python
+def select_parents(population, num_parents):
+    """
+    Tournament selection with elitism
+    """
+    parents = []
+    
+    # Elitism: top performers automatically selected
+    sorted_genomes = sorted(population.genomes, key=lambda g: g.fitness, reverse=True)
+    elite_count = int(population.config.elitism_rate * num_parents)
+    parents.extend(sorted_genomes[:elite_count])
+    
+    # Tournament selection for rest
+    while len(parents) < num_parents:
+        # Random tournament
+        tournament = random.sample(population.genomes, k=3)
+        winner = max(tournament, key=lambda g: g.fitness)
+        parents.append(winner)
+    
+    return parents
+```
+
+## 9.6 Crossover Protocol
+
+```python
+def crossover(parent1, parent2):
+    """
+    Create child genome from two parents
+    """
+    child = Genome()
+    child.generation = max(parent1.generation, parent2.generation) + 1
+    child.lineage.parent_1 = parent1.genome_id
+    child.lineage.parent_2 = parent2.genome_id
+    
+    # GENESIS composition: random mix
+    child.genesis_composition.agents = []
+    for i in range(len(parent1.genesis_composition.agents)):
+        if random.random() < 0.5:
+            child.genesis_composition.agents.append(parent1.genesis_composition.agents[i])
+        else:
+            child.genesis_composition.agents.append(parent2.genesis_composition.agents[i])
+    
+    # Parameters: interpolation
+    alpha = random.random()
+    child.parameters.confidence_threshold = (
+        alpha * parent1.parameters.confidence_threshold +
+        (1 - alpha) * parent2.parameters.confidence_threshold
+    )
+    # ... similar for other parameters
+    
+    # Strategies: one or the other
+    child.verification_strategy = (
+        parent1.verification_strategy if random.random() < 0.5 
+        else parent2.verification_strategy
+    )
+    
+    return child
+```
+
+## 9.7 Mutation Protocol
+
+```python
+def mutate(genome, mutation_rate=0.1):
+    """
+    Apply random mutations to genome
+    """
+    mutations = []
+    
+    # Agent addition/removal
+    if random.random() < mutation_rate:
+        if random.random() < 0.5 and len(genome.genesis_composition.agents) > 3:
+            # Remove random agent
+            removed = random.choice(genome.genesis_composition.agents)
+            genome.genesis_composition.agents.remove(removed)
+            mutations.append(f"REMOVE_AGENT:{removed}")
+        else:
+            # Add random agent
+            available = set(range(1, 21)) - set(genome.genesis_composition.agents)
+            if available:
+                added = random.choice(list(available))
+                genome.genesis_composition.agents.append(added)
+                mutations.append(f"ADD_AGENT:{added}")
+    
+    # Parameter mutation
+    if random.random() < mutation_rate:
+        param = random.choice(['confidence_threshold', 'iteration_limit', 'parallelism'])
+        old_value = getattr(genome.parameters, param)
+        # Gaussian mutation
+        new_value = old_value * (1 + random.gauss(0, 0.2))
+        # Clamp to valid range
+        new_value = clamp(new_value, PARAM_RANGES[param])
+        setattr(genome.parameters, param, new_value)
+        mutations.append(f"MUTATE_PARAM:{param}:{old_value}->{new_value}")
+    
+    # Strategy mutation
+    if random.random() < mutation_rate:
+        genome.adversary_strategy.intensity = random.choice(['LIGHT', 'STANDARD', 'HEAVY'])
+        mutations.append(f"MUTATE_STRATEGY:adversary_intensity")
+    
+    genome.lineage.mutations = mutations
+    return genome
+```
+
+## 9.8 Evolution Cycle
+
+```
+EVOLUTION CYCLE (runs after each problem or batch):
+
+1. EVALUATE:
+   - Score all genomes on recent problems
+   - Calculate fitness for each
+   - Update population statistics
+
+2. SELECT:
+   - Rank genomes by fitness
+   - Select parents via tournament + elitism
+   - Mark bottom performers for replacement
+
+3. REPRODUCE:
+   - Crossover selected parents to create children
+   - Apply mutations to children
+   - Initialize children with default fitness
+
+4. REPLACE:
+   - Remove lowest-fitness genomes
+   - Add children to population
+   - Maintain population size
+
+5. ADAPT:
+   - If population fitness stagnating, increase mutation rate
+   - If diversity too low, inject random genomes
+   - If one genome dominates, force diversity
+
+6. LOG:
+   - Record generation statistics
+   - Track best genome over time
+   - Save promising genomes to hall of fame
+```
+
+## 9.9 Micro-Evolution (Within Problem)
+
+```yaml
+micro_evolution:
+  description: "Adaptation during single problem solving"
+  
+  trigger:
+    condition: "progress_stall_for_N_iterations"
+    N: 2
+  
+  actions:
+    - type: "AGENT_SWAP"
+      description: "Replace underperforming agent with alternative"
+      
+    - type: "PARAMETER_ADJUST"  
+      description: "Adjust parameters by ±20%"
+      
+    - type: "STRATEGY_SHIFT"
+      description: "Try different tier strategy"
+  
+  evaluation:
+    test_window: 1  # iterations
+    revert_if: "new_approach_performs_worse"
+  
+  limits:
+    max_micro_mutations: 3  # per problem
+```
+
+## 9.10 Integration with System
+
+```
+EVOLUTION-SYSTEM INTEGRATION:
+
+1. GENOME SELECTION FOR PROBLEM:
+   - PHI selects genome based on problem type
+   - Can use best overall or best for problem type
+   - Can ensemble multiple genomes
+
+2. DURING EXECUTION:
+   - Genome's parameters control agent deployment
+   - Genome's weights affect agent influence
+   - Micro-evolution if stuck
+
+3. AFTER EXECUTION:
+   - Fitness updated based on outcome
+   - Successful genomes reinforced
+   - Failed genomes penalized
+
+4. GENERATION ADVANCEMENT:
+   - Every N problems, run evolution cycle
+   - Or trigger on significant fitness change
+```
+
+---
+
+# 10. Updated Architecture Summary
+
+## 10.1 OMEGA+ Components
+
+```
+OMEGA+ ARCHITECTURE:
+
+AGENTS (59):
+├── TIER 1: GENESIS (20)     - Foundational exploration
+├── TIER 2: BRIDGE (6)       - Formalization
+├── TIER 3: VERIFICATION (8) - Validation
+├── TIER 4: ADVERSARY (12)   - Attack testing
+├── TIER 5: META (6)         - Meta-cognition
+├── TIER 6: MEMORY (4)       - Persistence
+├── TIER 7: PHI (1)          - Orchestration
+├── TIER 8: ORACLE (1)       - External queries [NEW]
+└── TIER 9: SELF (1)         - Self-improvement [NEW]
+
+MECHANISMS (3):
+├── Prediction Market Layer  - Credibility stakes
+├── Structured Debate        - Adversarial dialogue
+└── Evolution Engine         - Selection pressure
+```
+
+## 10.2 Updated Message Schema
+
+```yaml
+message:
+  header:
+    agent_id: <int>  # Now 1-59
+    agent_name: <string>
+    agent_tier: <GENESIS|BRIDGE|VERIFICATION|ADVERSARY|META|MEMORY|PHI|ORACLE|SELF>
+    # ... rest unchanged
+  
+  # NEW: Market fields
+  market:
+    bet_placed: <bool>
+    bet_id: <uuid or null>
+    stake: <float>
+    market_price: <float>
+  
+  # NEW: Evolution fields  
+  evolution:
+    genome_id: <uuid>
+    generation: <int>
+```
+
+## 10.3 Updated PHI Responsibilities
+
+PHI (Agent 57) now also:
+- Manages prediction market resolution
+- Triggers and judges debates
+- Selects genomes for problems
+- Coordinates with Oracle Strategist (58) for external queries
+- Reviews Architect (59) proposals for self-modification
+
+---
+
+*Document Version: 2.0*
+*Companion to: OMEGA_ARCHITECTURE_57_PROMPTS.md (pending update to 59)*
+*Architecture: OMEGA+ (59 agents + 3 mechanisms)*
