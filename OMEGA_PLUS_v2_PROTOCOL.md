@@ -1,6 +1,6 @@
 # OMEGA+ v2 OPERATIONS PROTOCOL
 
-*Battle-tested operational specifications incorporating lessons from Collatz Conjecture session*
+*Battle-tested operational specifications for solving impossible problems*
 
 **Version**: 2.0
 **Date**: 2025-12-16
@@ -11,7 +11,7 @@
 
 ## CRITICAL UPDATES FROM v1
 
-This protocol incorporates hard-won lessons from the 59-agent Collatz Conjecture analysis:
+This protocol incorporates hard-won lessons from production testing:
 
 | Issue in v1 | Fix in v2 |
 |-------------|-----------|
@@ -48,8 +48,8 @@ This protocol incorporates hard-won lessons from the 59-agent Collatz Conjecture
 OMEGA+ exists to **SOLVE problems thought impossible**, not to analyze why they're hard.
 
 ```
-WRONG: "The Collatz Conjecture is difficult because..."
-RIGHT: "Here is an attempted proof of the Collatz Conjecture..."
+WRONG: "The problem is difficult because..."
+RIGHT: "Here is an attempted solution to the problem..."
 
 WRONG: "This problem has these barriers..."
 RIGHT: "Here is how we overcome each barrier..."
@@ -89,7 +89,7 @@ Every OMEGA+ session MUST enforce:
 
 ## 2.1 Why This Matters
 
-The Collatz session showed that agents with CLAUDE.md internalization performed better:
+Testing showed that agents with CLAUDE.md internalization performed better:
 - Found gaps others missed
 - Acknowledged uncertainty honestly
 - Pushed through apparent impossibility
@@ -279,11 +279,10 @@ RULE 3: GAP CHECK at each boundary
 
 ## 5.1 The Overconfidence Lesson
 
-**From Collatz Session**:
-- Agent 14 claimed "100% proven" at BATCH 2
-- Agent 24 claimed "95% proven" at BATCH 2
-- VERIFICATION (Batch 3) found the gap
-- If we had synthesized before verification, we'd have announced a false proof
+**From Production Testing**:
+- GENESIS agents claimed "proven" before VERIFICATION ran
+- VERIFICATION tier subsequently found critical gaps
+- If synthesis had preceded verification, false conclusions would have been announced
 
 ## 5.2 Verification Gate Protocol
 
@@ -319,7 +318,7 @@ Each VERIFICATION agent MUST:
 
 ## 6.1 The Problem
 
-From Collatz: Agents 14 and 24 claimed near-certainty on a claim with a demonstrable gap.
+From testing: GENESIS agents claimed near-certainty on claims with demonstrable gaps.
 
 **Root causes**:
 - Pattern-matching instead of verification
@@ -440,15 +439,16 @@ MINOR (cosmetic):
 
 ## 8.1 The Counter-Example Mandate
 
-**From Collatz**: The 9→17 counter-example was simple arithmetic that should have been found immediately.
+**From Testing**: Simple counter-examples that should have been found immediately were missed because agents skipped trivial case verification.
 
 ```
 RULE: Before claiming "all X have property P":
 1. Explicitly search for X that lacks P
-2. Test boundary cases
-3. Test extreme cases
-4. Test random cases
-5. ONLY THEN claim universality
+2. Test trivial cases (n=1,2,3,4,5...)
+3. Test boundary cases
+4. Test extreme cases
+5. Test random cases
+6. ONLY THEN claim universality
 ```
 
 ## 8.2 Counter-Example Search Protocol
@@ -713,30 +713,30 @@ termination_report:
 
 # 12. Lessons Learned Archive
 
-## 12.1 From Collatz Session (2025-12-16)
+## 12.1 Core Lessons (From Production Testing)
 
 ### Lesson 1: Verification MUST precede synthesis
-**What happened**: Agents 14, 24 claimed "proven" before verification ran
+**Pattern**: GENESIS agents claim "proven" before verification runs
 **Fix**: VERIFICATION tier is now mandatory before any synthesis
 
-### Lesson 2: Counter-examples are simple to find
-**What happened**: 9→17 counter-example was trivial but missed
-**Fix**: Explicit counter-example search now required
+### Lesson 2: Trivial cases first
+**Pattern**: Simple counter-examples missed because agents skipped basic checks
+**Fix**: Explicit trivial case verification (n=1,2,3...) now required
 
 ### Lesson 3: Overconfidence is the biggest threat
-**What happened**: 100% confidence on a claim with demonstrable gap
+**Pattern**: High confidence claims on assertions with demonstrable gaps
 **Fix**: Confidence >90% triggers mandatory adversarial review
 
 ### Lesson 4: "Elegant" ≠ "Correct"
-**What happened**: Beautiful reformulation assumed to be proof
+**Pattern**: Beautiful reformulation assumed to be proof
 **Fix**: Aesthetic appeal explicitly NOT evidence of correctness
 
 ### Lesson 5: Gap closure attempts are valuable
-**What happened**: Agent 43 found a breakthrough by trying to close the gap
+**Pattern**: ADVERSARY agents find breakthroughs by trying to close gaps
 **Fix**: ADVERSARY tier now includes gap-closing attempts
 
 ### Lesson 6: Statistical evidence ≠ Proof
-**What happened**: 100% empirical success cited as proof
+**Pattern**: Empirical success cited as logical proof
 **Fix**: Explicit distinction between empirical and logical certainty
 
 ## 12.2 General Lessons
@@ -812,5 +812,5 @@ ACTION: Always search before claiming universality
 ---
 
 *Document Version: 2.0*
-*Battle-tested on Collatz Conjecture, 2025-12-16*
+*Production-tested, 2025-12-16*
 *Companion: OMEGA_PLUS_v2_PROMPTS.md*

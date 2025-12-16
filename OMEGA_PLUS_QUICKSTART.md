@@ -60,11 +60,11 @@ After all batches, PHI (Agent 57) and SELF (Agent 59) produce final synthesis.
 
 ---
 
-## Critical Rules (Learned from Collatz)
+## Critical Rules (From Testing)
 
 ### 1. TRIVIAL CASES FIRST
 Before complex analysis, check n=1,2,3,4,5...
-The 9→17 counter-example was simple. Don't skip simple checks.
+Simple counter-examples are often missed. Don't skip trivial checks.
 
 ### 2. NEVER CLAIM "PROVEN" WITHOUT VERIFICATION
 Only Verification tier (Agents 27-34) can authorize "PROVEN" status.
@@ -201,7 +201,7 @@ After running all 6 batches, your final synthesis should include:
 
 ## Contact / Issues
 
-This system was developed through iterative testing on the Collatz Conjecture. Lessons learned are baked into v2 prompts.
+This system was developed through iterative production testing. Lessons learned are baked into v2 prompts.
 
 If you find bugs or improvements, update the protocol files and document changes.
 
