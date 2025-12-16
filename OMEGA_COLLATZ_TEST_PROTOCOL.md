@@ -1,7 +1,7 @@
 # OMEGA+ COLLATZ TEST PROTOCOL
 ## Testing Multi-Agent Architecture on Provably Hard Problems
 
-**Version**: 1.1
+**Version**: 1.2
 **Date**: December 15, 2024
 **Purpose**: Measure OMEGA+ effectiveness using Collatz conjecture as benchmark
 
@@ -112,6 +112,48 @@ Score Bands:
 ---
 
 ## 4. TEST PROTOCOL
+
+### 4.0 Phase 0: OMEGA+ Initialization (CRITICAL)
+
+**Architecture Files Location**:
+```
+Branch: claude/architecture-detailed-prompts-JX4ng
+
+Required files:
+- OMEGA_OPERATIONS_PROTOCOL.md   (how agents communicate and coordinate)
+- OMEGA_ARCHITECTURE_57_PROMPTS.md (all 59 agent prompts)
+```
+
+**CRITICAL INSTRUCTION FOR THE INSTANCE**:
+
+The instance that will execute OMEGA+ MUST receive this instruction BEFORE the problem:
+
+```
+You are executing the OMEGA+ multi-agent architecture for solving impossible problems.
+
+MANDATORY READING (read these files completely before proceeding):
+1. OMEGA_OPERATIONS_PROTOCOL.md - Follow this EXACTLY
+2. OMEGA_ARCHITECTURE_57_PROMPTS.md - These are your agent specifications
+
+STRICT ADHERENCE REQUIRED:
+- You MUST follow the operations protocol exactly as written
+- You MUST deploy agents according to the tier structure
+- You MUST use the inter-agent message schema specified
+- You MUST use the output tiering system (Tier 0/1/2)
+- Deviation from the protocol INVALIDATES the test
+
+This is not a suggestion. The test measures whether OMEGA+ works.
+If you improvise or simplify, we learn nothing.
+
+After reading both files completely, acknowledge you understand the architecture,
+then proceed with the problem below.
+```
+
+**Why This Matters**:
+- Without explicit instruction, instances drift toward simpler approaches
+- "I can do this without all that complexity" is the default failure mode
+- The test is measuring OMEGA+, not freestyle problem-solving
+- If the instance doesn't follow the protocol, we're not testing OMEGA+
 
 ### 4.1 Phase 1: Problem Injection (MINIMAL)
 
@@ -382,6 +424,7 @@ OMEGA+ is considered "transformative" if:
 |---------|------|---------|
 | 1.0 | 2024-12-15 | Initial protocol (gap-focused) |
 | 1.1 | 2024-12-15 | Removed anchoring to prior work - clean problem injection only |
+| 1.2 | 2024-12-15 | Added Phase 0: OMEGA+ initialization with strict adherence requirement |
 
 ---
 
