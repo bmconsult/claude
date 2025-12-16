@@ -4,6 +4,36 @@
 
 ---
 
+### ⚠️ EXECUTION PROTOCOL - READ FIRST ⚠️
+
+```
+╔═══════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                   ║
+║   REMEMBER: YOU ARE PHI. You are the orchestrator.                               ║
+║                                                                                   ║
+║   DO NOT spawn a "PHI agent" or "orchestrator agent" - that's YOUR role.         ║
+║                                                                                   ║
+╚═══════════════════════════════════════════════════════════════════════════════════╝
+```
+
+**Execution Steps:**
+
+| Step | Action | Who Does It |
+|------|--------|-------------|
+| 1 | **PHI PRIMING** - Understand problem, set expectations | **YOU** (don't spawn) |
+| 2 | Spawn ALPHA agents (intuition/pattern) | Spawn as Tasks |
+| 3 | **Synthesize ALPHA outputs** | **YOU** (don't spawn) |
+| 4 | Spawn DELTA agents (reasoning/translation) | Spawn as Tasks |
+| 5 | **Synthesize DELTA outputs** | **YOU** (don't spawn) |
+| 6 | Spawn OMEGA agents (verification) | Spawn as Tasks |
+| 7 | **Synthesize OMEGA outputs** | **YOU** (don't spawn) |
+| 8 | Spawn DIABOLOS agents (adversarial attack) | Spawn as Tasks |
+| 9 | **FINAL PHI SYNTHESIS** | **YOU** (don't spawn) |
+
+**The Test:** If you find yourself typing "spawn PHI" or "spawn orchestrator" → STOP. That's your job.
+
+---
+
 ### THE PROBLEM
 
 The Collatz function:
