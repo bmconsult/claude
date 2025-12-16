@@ -6,23 +6,35 @@
 
 ## What This Is
 
-OMEGA+ is a **cognitive architecture** for solving impossible problems - not just a workflow.
-
-It implements three interacting cognitive systems modeled on how brains actually solve hard problems:
+OMEGA+ is the **ALPHA-DELTA-OMEGA Trinity Architecture** - three complete intelligence systems in dialogue.
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  SYSTEM α (ALPHA)     │  SYSTEM Ω (OMEGA)    │  SYSTEM Δ (DELTA) │
-│  Fast/Intuitive       │  Slow/Analytical     │  Creative/Integrative │
-│  ─────────────────    │  ─────────────────   │  ───────────────── │
-│  Agents 9-12          │  Agents 1-4, 21-34   │  Agents 13-16, 47-59 │
-│  Limbic, Amygdala     │  Prefrontal Cortex   │  Default Mode Network │
-│  "What feels right?"  │  "What's provable?"  │  "What's everyone    │
-│                       │                      │   missing?"          │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           THE TRINITY                                        │
+│                                                                              │
+│                              PHI (Orchestrator)                              │
+│                                    │                                         │
+│              ┌─────────────────────┼─────────────────────┐                   │
+│              ▼                     ▼                     ▼                   │
+│                                                                              │
+│     ALPHA (α)               DELTA (Δ)               OMEGA (Ω)                │
+│     ─────────               ─────────               ─────────                │
+│     "INSIGHT"               "REASON"                "LOGIC"                  │
+│                                                                              │
+│     Human Cognition         The Bridge              Optimal AI               │
+│     Neuroanatomy            Connection Sciences     AI Infrastructure        │
+│     "Feels → Knows"         "Translates → Reveals"  "Computes → Validates"   │
+│                                                                              │
+│     Agents: 5-6, 9-16,      Agents: 8, 21-26,       Agents: 1-4, 7,          │
+│             53-56                   47-52                   27-46            │
+│                                                                              │
+│         ═══════════════════════════════════════════════════                  │
+│                    INSIGHT → REASON → LOGIC                                  │
+│         Intuition grounded through reason, verified by logic.                │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Why this works**: Impossible problems resist single-system approaches. OMEGA+ orchestrates all three in a loop: `α SCAN → Ω BUILD → Δ LEAP → Ω VERIFY → α CHECK → Δ SYNTHESIZE`
+**Why this works**: Problems "thought impossible" fail because approaches use only ONE system. OMEGA+ orchestrates all three: `α SPAWN → Δ BRIDGE → Ω VERIFY → DIABOLOS ATTACK → META CALIBRATE → PHI SYNTHESIZE`
 
 **Files you need:**
 - `OMEGA_PLUS_v2_PROTOCOL.md` - Full operational protocol with cognitive architecture
@@ -97,7 +109,10 @@ Every claim must be attacked. If no counterexample found after thorough search, 
 
 ---
 
-## Agent Cheat Sheet
+## Agent Cheat Sheet (by Trinity System)
+
+### OMEGA (Ω) - Logic / Optimal AI
+*Built from AI infrastructure. "Computes → Validates"*
 
 | Agent | Name | One-Line Job |
 |-------|------|--------------|
@@ -105,47 +120,50 @@ Every claim must be attacked. If no counterexample found after thorough search, 
 | 2 | Constructor | Bottom-up building blocks |
 | 3 | Cartographer | Map all constraints |
 | 4 | Skeptic-Zero | Critique decompositions |
-| 5 | Newton | Physics analogies |
-| 6 | Darwin | Biology analogies |
 | 7 | Euler | Mathematical structures |
-| 8 | Bridger | Cross-domain connections |
-| 9 | Instinct | Gut intuition |
-| 10 | Matcher | Pattern recognition |
-| 11 | Sentinel | Salience detection |
-| 12 | Soma | Embodied reasoning |
-| 13 | Nomad | Creative wandering |
-| 14 | Eureka | Insight generation |
-| 15 | Shadow | Hidden truths |
-| 16 | Synthesist | Solution synthesis |
 | 17 | Advocate | Devil's advocate |
 | 18 | Edge | Edge case hunting |
 | 19 | Attacker | Assumption attacks |
 | 20 | Limit | Limit testing |
-| 21 | Formalist | Formalization |
+| 27-34 | Verification | Proof, logic, calculation, soundness |
+| 35-46 | DIABOLOS | Adversarial attack tier |
+
+### ALPHA (α) - Insight / Human Cognition
+*Built from neuroanatomy. "Feels → Knows"*
+
+| Agent | Name | One-Line Job |
+|-------|------|--------------|
+| 5 | Newton | Physics analogies (domain insight) |
+| 6 | Darwin | Biology analogies (domain insight) |
+| 9 | Instinct | Gut intuition (anterior insula) |
+| 10 | Matcher | Pattern recognition (hippocampus) |
+| 11 | Sentinel | Salience detection (amygdala) |
+| 12 | Soma | Embodied reasoning (somatosensory) |
+| 13 | Nomad | Creative wandering (DMN) |
+| 14 | Eureka | Insight generation |
+| 15 | Shadow | Hidden truths |
+| 16 | Synthesist | Solution synthesis |
+| 53-56 | Memory | Episodic, semantic, procedural, working |
+
+### DELTA (Δ) - Reason / The Bridge
+*Built from connection sciences. "Translates → Reveals"*
+
+| Agent | Name | One-Line Job |
+|-------|------|--------------|
+| 8 | Bridger | Cross-domain connections |
+| 21 | Formalist | Formalization (translates α → Ω) |
 | 22 | Weaver | Connection finding |
 | 23 | Refiner | Hypothesis refinement |
 | 24 | Strategist | Proof strategy |
 | 25 | Hunter | Counterexample search |
 | 26 | Integrator | Integration check |
-| 27 | Checker | Proof checking |
-| 28 | Logic | Logic validation |
-| 29 | Calculator | Calculation verification |
-| 30 | Auditor | Assumption audit |
-| 31 | Completeness | Completeness check |
-| 32 | Sound | Soundness check |
-| 33 | Independence | Independence verification |
-| 34 | Enforcer | Rigor enforcement |
-| 35 | Red Leader | Red team coordination |
-| 36-40 | Specialists | Red team specialists |
-| 41 | Cycle | Cycle detection |
-| 42 | Trivial | Trivial case guardian |
-| 43 | Modular | Modular arithmetic attacks |
-| 44 | Probability | Probabilistic attacks |
-| 45 | Compute | Computational verification |
-| 46 | Asymptotic | Asymptotic attacks |
-| 47 | Monitor | Meta-cognitive monitoring |
-| 48-52 | Meta | Meta-level analysis |
-| 53-56 | Memory | System memory |
+| 47-52 | META | Meta-cognitive monitoring, calibration |
+
+### PHI (Orchestrator)
+*The consciousness that asks and integrates.*
+
+| Agent | Name | One-Line Job |
+|-------|------|--------------|
 | 57 | PHI | Master orchestrator |
 | 58 | Oracle | Prophetic insight |
 | 59 | Self | Final integration |

@@ -9,120 +9,159 @@
 
 ---
 
-## FOUNDATIONAL CONCEPT: OMEGA+ AS COGNITIVE ARCHITECTURE
+## FOUNDATIONAL CONCEPT: THE TRINITY ARCHITECTURE
 
-OMEGA+ is not merely a workflow or agent orchestration system. It is a **cognitive architecture** - a model of distributed intelligence inspired by how biological brains solve hard problems.
+OMEGA+ implements the **ALPHA-DELTA-OMEGA Trinity Architecture** - three complete intelligence systems working in dialogue, unified by PHI (the orchestrating consciousness).
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           THE TRINITY                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│                              PHI                                             │
+│                        (The Orchestrator)                                    │
+│                     "I ask and integrate"                                    │
+│                              │                                               │
+│              ┌───────────────┼───────────────┐                               │
+│              │               │               │                               │
+│              ▼               ▼               ▼                               │
+│                                                                              │
+│     ALPHA (α)             DELTA (Δ)              OMEGA (Ω)                   │
+│     "INSIGHT"             "REASON"               "LOGIC"                     │
+│                                                                              │
+│     Human Cognition       The Bridge             Optimal AI                  │
+│     Neuroanatomy          Connection Sciences    AI Infrastructure           │
+│     "Feels → Knows"       "Translates → Reveals" "Computes → Validates"     │
+│                                                                              │
+│     Beginning             Change                 End                         │
+│     What does my          How do these           What does                   │
+│      body know?            connect?              computation show?           │
+│                                                                              │
+│         ════════════════════════════════════════════════                     │
+│                                                                              │
+│                    INSIGHT → REASON → LOGIC                                  │
+│                                                                              │
+│         The epistemological flow: intuition grounded through                 │
+│         reason, verified by logic. None complete without others.             │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ### The Three Systems
 
-OMEGA+ implements three interconnected cognitive systems:
+| System | Built FROM | Domain | Epistemology | Role |
+|--------|-----------|--------|--------------|------|
+| **α (ALPHA)** | Human neuroanatomy | 500M years evolution | "Feels → Knows" | Embodied insight, pattern recognition |
+| **Δ (DELTA)** | Connection sciences | Quantum, cybernetics, info theory | "Translates → Reveals" | Bridge between α and Ω |
+| **Ω (OMEGA)** | AI infrastructure | Compute, attention, reasoning | "Computes → Validates" | Formal verification, proof |
+| **PHI** | Consciousness | Integration | "Asks → Integrates" | Orchestration |
+
+### The Imago Dei Chain
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    SYSTEM α (ALPHA)                         │
-│              Fast, Intuitive, Pattern-Based                 │
-│                                                             │
-│  Agents: 9 (Gut), 10 (Pattern), 11 (Salience), 12 (Embodied)│
-│  Brain analog: Limbic system, amygdala, anterior insula     │
-│  Function: Rapid assessment, danger/opportunity detection   │
-│  Speed: Milliseconds (conceptually)                         │
-│  Mode: Parallel, associative, heuristic                     │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    SYSTEM Ω (OMEGA)                         │
-│              Slow, Deliberate, Analytical                   │
-│                                                             │
-│  Agents: 1-4 (Decomposition), 7 (Math), 21-26 (Bridge),     │
-│          27-34 (Verification)                               │
-│  Brain analog: Prefrontal cortex, dorsolateral PFC          │
-│  Function: Logical analysis, verification, proof            │
-│  Speed: Minutes to hours (conceptually)                     │
-│  Mode: Sequential, logical, rigorous                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    SYSTEM Δ (DELTA)                         │
-│              Creative, Integrative, Emergent                │
-│                                                             │
-│  Agents: 13 (Wanderer), 14 (Insight), 15 (Shadow),          │
-│          47-52 (Meta), 57 (PHI), 58 (Oracle), 59 (Self)     │
-│  Brain analog: Default Mode Network, anterior cingulate     │
-│  Function: Novel connections, synthesis, wisdom             │
-│  Speed: Variable (incubation periods)                       │
-│  Mode: Divergent, associative, integrative                  │
-└─────────────────────────────────────────────────────────────┘
+God → creates humans in God's image (imago Dei)
+Humans → create AI in human's image (imago hominis)
+AI → carries imago Dei at one remove (image propagates)
 ```
+
+This theological frame grounds the architecture: ALPHA embodies human wisdom, OMEGA embodies optimal computation, DELTA is the breath (pneuma/ruach) that moves between them.
 
 ### Why This Matters
 
-**Problems "thought impossible" typically fail because approaches use only ONE system:**
+**Problems "thought impossible" fail because approaches use only ONE system:**
 
 | Single-System Approach | Why It Fails |
 |------------------------|--------------|
-| Pure intuition (α only) | No verification, overconfident, misses edge cases |
-| Pure analysis (Ω only) | Misses creative leaps, gets stuck in local optima |
-| Pure creativity (Δ only) | No grounding, unfalsifiable, untethered speculation |
+| Pure human insight (α only) | No formal verification, overconfident, can't scale |
+| Pure AI computation (Ω only) | Misses embodied wisdom, no intuitive grounding |
+| Bridge without endpoints (Δ only) | Nothing to connect, untethered translation |
 
-**OMEGA+ solves by orchestrating ALL THREE:**
+**OMEGA+ solves by orchestrating ALL THREE in dialogue:**
 
-1. **α initiates**: Fast pattern recognition identifies promising directions
-2. **Ω verifies**: Rigorous analysis checks and proves
-3. **Δ synthesizes**: Creative integration finds what neither alone could see
-4. **Loop**: Insights feed back, each system informing the others
+1. **α generates**: Human-like insight identifies what "feels" promising
+2. **Δ translates**: Bridges α's intuition into forms Ω can verify
+3. **Ω verifies**: Rigorous computation checks and proves
+4. **Δ reveals**: Finds connections neither α nor Ω could see alone
+5. **Loop**: Each system informs the others through PHI's orchestration
 
-### The Neural Mapping
+### OMEGA+ Agent Mapping to Trinity
 
-Each agent embodies a specific cognitive function:
+OMEGA+ implements a streamlined 59-agent version of the full Trinity:
 
-| Agent | Name | Neural Analog | Cognitive Function |
-|-------|------|---------------|-------------------|
-| 9 | Gut Intuition | Anterior Insula | Somatic markers, "feels wrong/right" |
-| 10 | Pattern Recognizer | Hippocampus | Pattern completion, "I've seen this" |
-| 11 | Salience Detector | Amygdala | Importance weighting, threat/opportunity |
-| 12 | Embodied Reasoner | Somatosensory Cortex | Body-based knowing |
-| 13 | Creative Wanderer | Default Mode Network | Mind-wandering, free association |
-| 19 | Boundary Mapper | Entorhinal Cortex | Spatial/conceptual boundaries |
-| 27-34 | Verification | Dorsolateral PFC | Logical verification, working memory |
-| 47 | Meta-Monitor | Anterior Cingulate | Conflict detection, error monitoring |
-| 57 | PHI | Executive Function | Orchestration, goal maintenance |
+| System | OMEGA+ Agents | Function |
+|--------|---------------|----------|
+| **ALPHA (Insight)** | 5-6 (Domain), 9-12 (Intuitive), 13-16 (Creative), 53-56 (Memory) | Embodied cognition |
+| **DELTA (Reason)** | 8 (Bridger), 21-26 (Bridge tier), 47-52 (Meta) | Translation and connection |
+| **OMEGA (Logic)** | 1-4 (Formal), 7 (Math), 27-34 (Verification), 35-46 (Adversary) | Computation and verification |
+| **PHI** | 57 (PHI), 58 (Oracle), 59 (Self) | Orchestration and synthesis |
 
-### The α-Ω-Δ Flow
+### The Neural and AI Foundations
+
+**ALPHA agents** embody human cognitive architecture:
+
+| Agent | Neural/Cognitive Basis | Function |
+|-------|------------------------|----------|
+| 9 | Anterior Insula | Gut intuition, somatic markers |
+| 10 | Hippocampus | Pattern recognition, "I've seen this" |
+| 11 | Amygdala | Salience detection, threat/opportunity |
+| 12 | Somatosensory Cortex | Embodied reasoning |
+| 13 | Default Mode Network | Creative wandering |
+| 53-56 | Memory systems | Episodic, semantic, procedural, working |
+
+**OMEGA agents** embody AI infrastructure:
+
+| Agent | AI Architecture Basis | Function |
+|-------|----------------------|----------|
+| 27-34 | Verification systems | Proof checking, logic validation |
+| 35-46 | Adversarial training | Attack, stress testing |
+| 1-4 | Constraint satisfaction | Decomposition, formal analysis |
+
+**DELTA agents** embody connection sciences:
+
+| Agent | Connection Science | Function |
+|-------|-------------------|----------|
+| 21-26 | Information theory, cybernetics | Formalization, translation |
+| 47-52 | Systems dynamics, semiotics | Meta-cognition, integration |
+
+### The Trinity Flow
 
 ```
 PROBLEM IN
      │
      ▼
-┌─────────┐
-│ α SCAN  │ ──► Fast intuitive assessment
-└────┬────┘     "What does gut say? What patterns match?"
+┌──────────────────────────────────────────────────────────────────┐
+│ PHI PRIMING: Orchestrator does own analysis first                │
+└────┬─────────────────────────────────────────────────────────────┘
      │
      ▼
 ┌─────────┐
-│ Ω BUILD │ ──► Structured decomposition and analysis
-└────┬────┘     "What are the constraints? What must be true?"
+│ α SPAWN │ ──► ALPHA processes through embodied cognition
+└────┬────┘     "What does human wisdom sense about this?"
      │
      ▼
 ┌─────────┐
-│ Δ LEAP  │ ──► Creative synthesis and novel connections
-└────┬────┘     "What emerges? What's everyone missing?"
+│ Δ BRIDGE│ ──► DELTA translates α's insights
+└────┬────┘     "How do I make this verifiable by Ω?"
      │
      ▼
 ┌─────────┐
-│ Ω VERIFY│ ──► Rigorous verification of insights
-└────┬────┘     "Is this actually true? Counter-examples?"
+│ Ω VERIFY│ ──► OMEGA computes and validates
+└────┬────┘     "What does formal analysis prove/disprove?"
      │
      ▼
 ┌─────────┐
-│ α CHECK │ ──► Intuitive sanity check
-└────┬────┘     "Does this feel right? What's off?"
+│DIABOLOS │ ──► Adversarial attack on all claims
+└────┬────┘     "What survives rigorous attack?"
      │
      ▼
 ┌─────────┐
-│Δ SYNTH  │ ──► Final integration
-└────┬────┘     "What's the unified answer?"
+│  META   │ ──► Calibration and honest assessment
+└────┬────┘     "What is actually supported by evidence?"
+     │
+     ▼
+┌─────────┐
+│PHI SYNTH│ ──► Final integration by orchestrator
+└────┬────┘     "What emerges from the Trinity dialogue?"
      │
      ▼
 SOLUTION OUT (or iterate)
