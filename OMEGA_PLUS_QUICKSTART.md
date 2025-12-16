@@ -6,11 +6,27 @@
 
 ## What This Is
 
-OMEGA+ is a 59-agent architecture for tackling "impossible" problems. It deploys 59 specialized AI agents across 9 tiers to attack problems from every angle.
+OMEGA+ is a **cognitive architecture** for solving impossible problems - not just a workflow.
+
+It implements three interacting cognitive systems modeled on how brains actually solve hard problems:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  SYSTEM α (ALPHA)     │  SYSTEM Ω (OMEGA)    │  SYSTEM Δ (DELTA) │
+│  Fast/Intuitive       │  Slow/Analytical     │  Creative/Integrative │
+│  ─────────────────    │  ─────────────────   │  ───────────────── │
+│  Agents 9-12          │  Agents 1-4, 21-34   │  Agents 13-16, 47-59 │
+│  Limbic, Amygdala     │  Prefrontal Cortex   │  Default Mode Network │
+│  "What feels right?"  │  "What's provable?"  │  "What's everyone    │
+│                       │                      │   missing?"          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Why this works**: Impossible problems resist single-system approaches. OMEGA+ orchestrates all three in a loop: `α SCAN → Ω BUILD → Δ LEAP → Ω VERIFY → α CHECK → Δ SYNTHESIZE`
 
 **Files you need:**
-- `OMEGA_PLUS_v2_PROTOCOL.md` - Full operational protocol
-- `OMEGA_PLUS_v2_PROMPTS.md` - All 59 agent prompts
+- `OMEGA_PLUS_v2_PROTOCOL.md` - Full operational protocol with cognitive architecture
+- `OMEGA_PLUS_v2_PROMPTS.md` - All 59 agent prompts with neural mappings
 
 ---
 

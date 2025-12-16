@@ -1,11 +1,132 @@
 # OMEGA+ v2 OPERATIONS PROTOCOL
 
-*Battle-tested operational specifications for solving impossible problems*
+*A cognitive architecture for solving impossible problems*
 
 **Version**: 2.0
 **Date**: 2025-12-16
 **Status**: Production-Ready
 **Companion**: `OMEGA_PLUS_v2_PROMPTS.md`
+
+---
+
+## FOUNDATIONAL CONCEPT: OMEGA+ AS COGNITIVE ARCHITECTURE
+
+OMEGA+ is not merely a workflow or agent orchestration system. It is a **cognitive architecture** - a model of distributed intelligence inspired by how biological brains solve hard problems.
+
+### The Three Systems
+
+OMEGA+ implements three interconnected cognitive systems:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    SYSTEM α (ALPHA)                         │
+│              Fast, Intuitive, Pattern-Based                 │
+│                                                             │
+│  Agents: 9 (Gut), 10 (Pattern), 11 (Salience), 12 (Embodied)│
+│  Brain analog: Limbic system, amygdala, anterior insula     │
+│  Function: Rapid assessment, danger/opportunity detection   │
+│  Speed: Milliseconds (conceptually)                         │
+│  Mode: Parallel, associative, heuristic                     │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    SYSTEM Ω (OMEGA)                         │
+│              Slow, Deliberate, Analytical                   │
+│                                                             │
+│  Agents: 1-4 (Decomposition), 7 (Math), 21-26 (Bridge),     │
+│          27-34 (Verification)                               │
+│  Brain analog: Prefrontal cortex, dorsolateral PFC          │
+│  Function: Logical analysis, verification, proof            │
+│  Speed: Minutes to hours (conceptually)                     │
+│  Mode: Sequential, logical, rigorous                        │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    SYSTEM Δ (DELTA)                         │
+│              Creative, Integrative, Emergent                │
+│                                                             │
+│  Agents: 13 (Wanderer), 14 (Insight), 15 (Shadow),          │
+│          47-52 (Meta), 57 (PHI), 58 (Oracle), 59 (Self)     │
+│  Brain analog: Default Mode Network, anterior cingulate     │
+│  Function: Novel connections, synthesis, wisdom             │
+│  Speed: Variable (incubation periods)                       │
+│  Mode: Divergent, associative, integrative                  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Why This Matters
+
+**Problems "thought impossible" typically fail because approaches use only ONE system:**
+
+| Single-System Approach | Why It Fails |
+|------------------------|--------------|
+| Pure intuition (α only) | No verification, overconfident, misses edge cases |
+| Pure analysis (Ω only) | Misses creative leaps, gets stuck in local optima |
+| Pure creativity (Δ only) | No grounding, unfalsifiable, untethered speculation |
+
+**OMEGA+ solves by orchestrating ALL THREE:**
+
+1. **α initiates**: Fast pattern recognition identifies promising directions
+2. **Ω verifies**: Rigorous analysis checks and proves
+3. **Δ synthesizes**: Creative integration finds what neither alone could see
+4. **Loop**: Insights feed back, each system informing the others
+
+### The Neural Mapping
+
+Each agent embodies a specific cognitive function:
+
+| Agent | Name | Neural Analog | Cognitive Function |
+|-------|------|---------------|-------------------|
+| 9 | Gut Intuition | Anterior Insula | Somatic markers, "feels wrong/right" |
+| 10 | Pattern Recognizer | Hippocampus | Pattern completion, "I've seen this" |
+| 11 | Salience Detector | Amygdala | Importance weighting, threat/opportunity |
+| 12 | Embodied Reasoner | Somatosensory Cortex | Body-based knowing |
+| 13 | Creative Wanderer | Default Mode Network | Mind-wandering, free association |
+| 19 | Boundary Mapper | Entorhinal Cortex | Spatial/conceptual boundaries |
+| 27-34 | Verification | Dorsolateral PFC | Logical verification, working memory |
+| 47 | Meta-Monitor | Anterior Cingulate | Conflict detection, error monitoring |
+| 57 | PHI | Executive Function | Orchestration, goal maintenance |
+
+### The α-Ω-Δ Flow
+
+```
+PROBLEM IN
+     │
+     ▼
+┌─────────┐
+│ α SCAN  │ ──► Fast intuitive assessment
+└────┬────┘     "What does gut say? What patterns match?"
+     │
+     ▼
+┌─────────┐
+│ Ω BUILD │ ──► Structured decomposition and analysis
+└────┬────┘     "What are the constraints? What must be true?"
+     │
+     ▼
+┌─────────┐
+│ Δ LEAP  │ ──► Creative synthesis and novel connections
+└────┬────┘     "What emerges? What's everyone missing?"
+     │
+     ▼
+┌─────────┐
+│ Ω VERIFY│ ──► Rigorous verification of insights
+└────┬────┘     "Is this actually true? Counter-examples?"
+     │
+     ▼
+┌─────────┐
+│ α CHECK │ ──► Intuitive sanity check
+└────┬────┘     "Does this feel right? What's off?"
+     │
+     ▼
+┌─────────┐
+│Δ SYNTH  │ ──► Final integration
+└────┬────┘     "What's the unified answer?"
+     │
+     ▼
+SOLUTION OUT (or iterate)
+```
 
 ---
 

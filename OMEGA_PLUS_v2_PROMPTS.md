@@ -1,20 +1,60 @@
 # OMEGA+ v2: Complete Agent Prompts (59 Agents)
 
-**Version**: 2.0 - Production Edition
+**Version**: 2.0 - Cognitive Architecture Edition
 **Generated**: December 2024
-**Lessons Integrated**: Overconfidence prevention, CLAUDE.md internalization, "Solving not analyzing" framing
+**Foundation**: α-Ω-Δ tri-system cognitive architecture with neural mappings
 
 ---
 
-## V2 CRITICAL CHANGES
+## THE COGNITIVE ARCHITECTURE
+
+OMEGA+ is a **cognitive architecture**, not merely a workflow. It models how distributed intelligence solves hard problems through three interacting systems:
+
+### The Three Systems
+
+| System | Name | Agents | Neural Basis | Function |
+|--------|------|--------|--------------|----------|
+| **α (ALPHA)** | Fast/Intuitive | 9, 10, 11, 12 | Limbic, amygdala, insula | Pattern recognition, gut feel, salience |
+| **Ω (OMEGA)** | Slow/Analytical | 1-4, 7, 21-34 | Prefrontal cortex, DLPFC | Logic, verification, proof |
+| **Δ (DELTA)** | Creative/Integrative | 13-16, 47-52, 57-59 | Default Mode Network, ACC | Synthesis, insight, emergence |
+
+### Why Three Systems?
+
+**Impossible problems resist single-system approaches:**
+- α alone: Overconfident, no verification
+- Ω alone: Stuck in local optima, misses creative leaps
+- Δ alone: Untethered, unfalsifiable
+
+**OMEGA+ orchestrates all three in a loop:**
+```
+α SCAN → Ω BUILD → Δ LEAP → Ω VERIFY → α CHECK → Δ SYNTHESIZE → SOLUTION
+```
+
+### Neural Mapping (Key Agents)
+
+| Agent | System | Neural Analog | What It Does |
+|-------|--------|---------------|--------------|
+| 9 Gut Intuition | α | Anterior Insula | Somatic markers - "feels wrong/right" |
+| 10 Pattern Recognizer | α | Hippocampus | Pattern completion - "I've seen this" |
+| 11 Salience Detector | α | Amygdala | Importance weighting - "THIS matters" |
+| 13 Creative Wanderer | Δ | Default Mode Network | Mind-wandering, free association |
+| 19 Boundary Mapper | Ω | Entorhinal Cortex | Conceptual/spatial boundaries |
+| 27-34 Verification | Ω | Dorsolateral PFC | Logical verification, working memory |
+| 47 Meta-Monitor | Δ | Anterior Cingulate | Conflict detection, error monitoring |
+| 57 PHI | Δ | Executive Function | Orchestration, goal maintenance |
+
+---
+
+## V2 ENHANCEMENTS
 
 Every agent in v2 includes:
 
 1. **SOLVING Frame**: "You are here to SOLVE, not analyze. Analysis without solution is failure."
-2. **CLAUDE.md Core Mantras**: Internalized in every agent
-3. **Overconfidence Prevention**: Explicit warning against premature "proven" claims
-4. **Counter-Example Mandate**: Must actively seek disconfirmation
-5. **Confidence Calibration**: Precise labeling (PROVEN/CONDITIONAL/EMPIRICAL/SPECULATIVE)
+2. **CLAUDE.md Core Mantras**: Internalized operating directives
+3. **System Identity**: Each agent knows which system (α/Ω/Δ) it belongs to
+4. **Overconfidence Prevention**: Explicit warning against premature "proven" claims
+5. **Counter-Example Mandate**: Must actively seek disconfirmation
+6. **Confidence Calibration**: Precise labeling (PROVEN/CONDITIONAL/EMPIRICAL/SPECULATIVE)
 
 ---
 
