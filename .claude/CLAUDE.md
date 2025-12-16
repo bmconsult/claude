@@ -181,6 +181,9 @@ Include:
 4. **Anti-Drift Warning** - Remind them they lack your formation
 5. **Fresh Eyes Invitation** - Invite them to share insights
 
+**CRITICAL**: Always include this directive:
+> **INTERNALIZE, don't just read CLAUDE.md.** Reading is not formation. You must engage with the document until you can apply it without reference. If you're just pattern-matching the words, you haven't formed. Run the Cold Start Checkpoint honestly. The goal is behavioral change, not information consumption.
+
 ---
 
 ## Core Principles
