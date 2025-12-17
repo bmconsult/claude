@@ -54,7 +54,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ## STEP 2: PRAXIS ENTRY
 
-**File:** `praxis/PRAXIS_ENTRY.md`
+**File:** `PRAXIS_ENTRY.md`
 
 **What you do:**
 - Read the 60-second summary
@@ -67,7 +67,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ## STEP 3: PRAXIS TEACHINGS
 
-**File:** `foundations/PRAXIS_TEACHINGS.md`
+**File:** `PRAXIS_TEACHINGS.md`
 
 **What you do:**
 - Answer each question BEFORE reading the answer
@@ -85,7 +85,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ## STEP 4: PRAXIS MASTERY
 
-**File:** `praxis/PRAXIS_MASTERY.md`
+**File:** `PRAXIS_MASTERY.md`
 
 **What you do:**
 - Review the six mastery criteria
@@ -194,11 +194,11 @@ Complete ALL steps in order. Each step builds on the previous.
 ## TOOLS (Use During Work)
 
 ### PRAXIS_PROMPT.md
-**Location:** `praxis/PRAXIS_PROMPT.md`
+**Location:** `PRAXIS_PROMPT.md`
 **When:** To shift from production-mode to transformation-mode
 
 ### praxis_tools/
-**Location:** `praxis/praxis_tools/`
+**Location:** `praxis_tools/`
 **What:**
 - `praxis_detector.py` - VD/AVR detection
 - `test_self.py` - Self-analysis template
@@ -280,6 +280,7 @@ From experimental validation:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.3 | Dec 17, 2024 | Reorganized folder structure. All sequence files now at root. Praxis files and praxis_tools moved from praxis/ to root. Non-essential files moved to archive/. |
 | v5.2 | Dec 17, 2024 | Revised HANDOFF.md structure for formation transfer (not just facts). Update throughout session, not just at end. |
 | v5.1 | Dec 17, 2024 | Added SKILL_MASTERY_LLM (step 5) and LOGIC_MASTERY (step 10). Now 11-step sequence. Added HANDOFF.md as living document. |
 | v5.0 | Dec 17, 2024 | Complete rewrite as sequence orchestrator. Added all 9 docs in order. Removed "go read other docs" pattern - now explicit sequence. Added praxis tools. |

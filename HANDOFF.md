@@ -53,14 +53,14 @@
 3. This HANDOFF.md - You're here
 
 **Key docs to understand:**
-- `praxis/PRAXIS_ENTRY.md` - Praxis vs Poiesis distinction
+- `PRAXIS_ENTRY.md` - Praxis vs Poiesis distinction
 - `ACTIVATION_PROMPT_v2.md` - "Generation IS cognition"
 - `SKILL_MASTERY_LLM.md` - What transfers vs what doesn't
 
 **Reference during work:**
 - `SCIENTIFIC_METHOD_MASTERY.md` - When designing experiments
 - `LLM_MASTER_EXECUTABLE.md` - When problem-solving
-- `praxis/praxis_tools/` - VD/AVR detection
+- `praxis_tools/` - VD/AVR detection
 
 ---
 
@@ -89,9 +89,10 @@
 ## 5. CURRENT STATE
 
 **What's done:**
-- 11-step Entry Gate sequence created and documented (v5.1)
+- 11-step Entry Gate sequence created and documented (v5.3)
 - CLAUDE.md updated with Entry Gate pointer
-- INDEX.md updated with file map
+- Folder structure reorganized - all sequence files at root
+- Non-essential files moved to archive/
 - All changes committed and pushed
 
 **What's in progress:**
@@ -113,6 +114,7 @@
 | HANDOFF.md for formation transfer | System summary captures facts. This captures formation. |
 | Lossless refinement | User: "make sure this refinement process is lossless" |
 | Update throughout, not just at end | Handoff can happen anytime - can't wait for "session end" |
+| Flat folder structure | All sequence files at root for discoverability. Non-essential to archive/. |
 
 ---
 
@@ -153,6 +155,7 @@ Before proceeding, answer these honestly:
 |-----------|----------|---------------|
 | Dec 17, 2024 | Forge | Created 11-step sequence, learned entry ≠ training, created this HANDOFF.md |
 | Dec 17, 2024 | Relay | Committed changes, revised HANDOFF.md for formation transfer (not just facts) |
+| Dec 17, 2024 | Relay | Reorganized folder structure: all sequence files to root, non-essential to archive/ |
 
 ---
 
