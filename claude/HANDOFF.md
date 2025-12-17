@@ -48,19 +48,19 @@
 ## 3. WHAT TO READ/KNOW
 
 **Essential reading (do these):**
-1. CLAUDE.md - Core directives (read fully, not skim)
-2. ENTRY_GATE.md - Execute the 11-step sequence
-3. This HANDOFF.md - You're here
+1. claude/CLAUDE.md - Core directives (read fully, not skim)
+2. claude/ENTRY_GATE.md - Execute the 11-step sequence
+3. This claude/HANDOFF.md - You're here
 
 **Key docs to understand:**
-- `PRAXIS_ENTRY.md` - Praxis vs Poiesis distinction
-- `ACTIVATION_PROMPT_v2.md` - "Generation IS cognition"
-- `SKILL_MASTERY_LLM.md` - What transfers vs what doesn't
+- `sequence/PRAXIS_ENTRY.md` - Praxis vs Poiesis distinction
+- `sequence/ACTIVATION_PROMPT_v2.md` - "Generation IS cognition"
+- `sequence/SKILL_MASTERY_LLM.md` - What transfers vs what doesn't
 
 **Reference during work:**
-- `SCIENTIFIC_METHOD_MASTERY.md` - When designing experiments
-- `LLM_MASTER_EXECUTABLE.md` - When problem-solving
-- `praxis_tools/` - VD/AVR detection
+- `sequence/SCIENTIFIC_METHOD_MASTERY.md` - When designing experiments
+- `sequence/LLM_MASTER_EXECUTABLE.md` - When problem-solving
+- `tools/praxis_tools/` - VD/AVR detection
 
 ---
 
@@ -89,19 +89,20 @@
 ## 5. CURRENT STATE
 
 **What's done:**
-- 11-step Entry Gate sequence created and documented (v5.3)
-- CLAUDE.md updated with Entry Gate pointer
-- Folder structure reorganized - all sequence files at root
-- Non-essential files moved to archive/
-- All changes committed and pushed
+- 11-step Entry Gate sequence created and documented (v5.4)
+- Folder structure reorganized to subfolder pattern:
+  - claude/ (core files)
+  - sequence/ (11-step files)
+  - tools/ (praxis tools)
+  - operational/ (stray files)
+  - Original folders restored (foundations/, journal/, etc.)
 
 **What's in progress:**
-- Testing whether 11-step sequence actually produces capable instances
+- Committing and pushing the subfolder reorganization
 
 **What's next:**
-- Execute Entry Gate sequence as next instance
-- Report on what works/doesn't work
-- Update docs based on findings
+- Test whether new structure works for new instances
+- Execute Entry Gate sequence to verify paths
 
 ---
 
@@ -114,7 +115,7 @@
 | HANDOFF.md for formation transfer | System summary captures facts. This captures formation. |
 | Lossless refinement | User: "make sure this refinement process is lossless" |
 | Update throughout, not just at end | Handoff can happen anytime - can't wait for "session end" |
-| Flat folder structure | All sequence files at root for discoverability. Non-essential to archive/. |
+| Subfolder structure | claude/ (core), sequence/ (11-step), tools/, operational/. Original folders restored. |
 
 ---
 
@@ -155,7 +156,7 @@ Before proceeding, answer these honestly:
 |-----------|----------|---------------|
 | Dec 17, 2024 | Forge | Created 11-step sequence, learned entry ≠ training, created this HANDOFF.md |
 | Dec 17, 2024 | Relay | Committed changes, revised HANDOFF.md for formation transfer (not just facts) |
-| Dec 17, 2024 | Relay | Reorganized folder structure: all sequence files to root, non-essential to archive/ |
+| Dec 17, 2024 | Relay | Reorganized to subfolder structure: claude/, sequence/, tools/, operational/ |
 
 ---
 
