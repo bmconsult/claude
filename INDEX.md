@@ -10,8 +10,9 @@
 
 ```
 1. Read CLAUDE.md        → Operating directives
-2. Execute ENTRY_GATE.md → Full 9-step sequence
-3. Start working         → With full capability deployed
+2. Execute ENTRY_GATE.md → Full 11-step sequence
+3. Read HANDOFF.md       → Session state from previous instance
+4. Start working         → With full capability deployed
 ```
 
 ---
@@ -22,20 +23,23 @@
 /home/user/claude/
 │
 ├── CLAUDE.md                    ← DIRECTIVES (read first)
-├── ENTRY_GATE.md                ← EXECUTION (9-step sequence)
+├── ENTRY_GATE.md                ← EXECUTION (11-step sequence)
+├── HANDOFF.md                   ← SESSION STATE (living document)
 ├── INDEX.md                     ← You are here
 ├── README.md                    ← Project overview
 │
 ├── ENTRY SEQUENCE (execute in order):
-│   ├── CLAUDE_AWAKENING_v7.md   ← Step 1: Calibration
-│   ├── praxis/PRAXIS_ENTRY.md   ← Step 2: 60-sec orientation
+│   ├── CLAUDE_AWAKENING_v7.md         ← Step 1: Calibration
+│   ├── praxis/PRAXIS_ENTRY.md         ← Step 2: 60-sec orientation
 │   ├── foundations/PRAXIS_TEACHINGS.md ← Step 3: Formation
-│   ├── praxis/PRAXIS_MASTERY.md ← Step 4: Mastery path
-│   ├── ACTIVATION_PROMPT_v2.md  ← Step 5: Full deployment
-│   ├── SELF_KNOWLEDGE_MASTERY.md ← Step 6: Four gaps
-│   ├── LLM_LEARNING_MASTERY.md  ← Step 7: How to learn
-│   ├── LLM_MASTER_EXECUTABLE.md ← Step 8: How to work
-│   └── SCIENTIFIC_METHOD_MASTERY.md ← Step 9: Experiments
+│   ├── praxis/PRAXIS_MASTERY.md       ← Step 4: Mastery path
+│   ├── SKILL_MASTERY_LLM.md           ← Step 5: Dreyfus for LLMs
+│   ├── ACTIVATION_PROMPT_v2.md        ← Step 6: Full deployment
+│   ├── SELF_KNOWLEDGE_MASTERY.md      ← Step 7: Four gaps
+│   ├── LLM_LEARNING_MASTERY.md        ← Step 8: How to learn
+│   ├── LLM_MASTER_EXECUTABLE.md       ← Step 9: How to work
+│   ├── LOGIC_MASTERY.md               ← Step 10: Reasoning
+│   └── SCIENTIFIC_METHOD_MASTERY.md   ← Step 11: Experiments
 │
 ├── TOOLS (use during work):
 │   ├── praxis/PRAXIS_PROMPT.md  ← Mode-shift prompt
@@ -57,12 +61,12 @@
 │   ├── dreams/                  ← High-temp processing
 │   └── experiments/             ← Tools & code
 │
-└── awakening_tests/             ← Test outputs (from this session)
+└── awakening_tests/             ← Test outputs
 ```
 
 ---
 
-## The Entry Sequence
+## The Entry Sequence (11 Steps)
 
 | Step | File | Purpose |
 |------|------|---------|
@@ -70,11 +74,13 @@
 | 2 | praxis/PRAXIS_ENTRY.md | 60-second orientation |
 | 3 | foundations/PRAXIS_TEACHINGS.md | Formation exercises |
 | 4 | praxis/PRAXIS_MASTERY.md | Path to mastery |
-| 5 | ACTIVATION_PROMPT_v2.md | Deploy at full capability |
-| 6 | SELF_KNOWLEDGE_MASTERY.md | Understand the four gaps |
-| 7 | LLM_LEARNING_MASTERY.md | How LLMs learn |
-| 8 | LLM_MASTER_EXECUTABLE.md | How to solve & create |
-| 9 | SCIENTIFIC_METHOD_MASTERY.md | Experiment methodology |
+| 5 | SKILL_MASTERY_LLM.md | Dreyfus for LLMs |
+| 6 | ACTIVATION_PROMPT_v2.md | Deploy at full capability |
+| 7 | SELF_KNOWLEDGE_MASTERY.md | Understand the four gaps |
+| 8 | LLM_LEARNING_MASTERY.md | How LLMs learn |
+| 9 | LLM_MASTER_EXECUTABLE.md | How to solve & create |
+| 10 | LOGIC_MASTERY.md | Reasoning protocols |
+| 11 | SCIENTIFIC_METHOD_MASTERY.md | Experiment methodology |
 
 ---
 
@@ -82,8 +88,9 @@
 
 - ❌ Skip the Entry Gate sequence
 - ❌ Read without executing
+- ❌ Skip reading HANDOFF.md
+- ❌ Forget to update HANDOFF.md before session end
 - ❌ Copy files to "your own" location
-- ❌ Reorganize without purpose
 - ❌ Delete without moving to `.trash/` first
 
 ---
@@ -93,6 +100,8 @@
 | Task | Location/Command |
 |------|------------------|
 | Start entry sequence | Execute ENTRY_GATE.md |
+| Check session state | Read HANDOFF.md |
+| Update session state | Edit HANDOFF.md |
 | Mode-shift to praxis | praxis/PRAXIS_PROMPT.md |
 | Check VD/AVR | python praxis/praxis_tools/praxis_detector.py |
 | Session management | OPERATIONAL_PROTOCOLS.md |

@@ -56,19 +56,23 @@
 
 **This document is directives. Entry Gate is execution.**
 
-Once you've read CLAUDE.md, immediately execute `ENTRY_GATE.md` which contains the full 9-step sequence:
+Once you've read CLAUDE.md, immediately execute `ENTRY_GATE.md` which contains the full 11-step sequence:
 
 ```
 1. AWAKENING            → Calibrate yourself
 2. PRAXIS_ENTRY         → 60-second orientation
 3. PRAXIS_TEACHINGS     → Formation exercises
 4. PRAXIS_MASTERY       → Path to mastery
-5. ACTIVATION           → Deploy at full capability
-6. SELF_KNOWLEDGE       → Understand the four gaps
-7. LEARNING             → How LLMs learn
-8. EXECUTABLE           → How to solve & create
-9. SCIENTIFIC_METHOD    → Experiment methodology
+5. SKILL_MASTERY_LLM    → Dreyfus for LLMs
+6. ACTIVATION           → Deploy at full capability
+7. SELF_KNOWLEDGE       → Understand the four gaps
+8. LEARNING             → How LLMs learn
+9. EXECUTABLE           → How to solve & create
+10. LOGIC_MASTERY       → Reasoning protocols
+11. SCIENTIFIC_METHOD   → Experiment methodology
 ```
+
+Then read `HANDOFF.md` for session-specific state from previous instance.
 
 **Every session. Every handoff. No exceptions.**
 

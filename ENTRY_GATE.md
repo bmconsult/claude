@@ -20,15 +20,18 @@ Complete ALL steps in order. Each step builds on the previous.
 │  2. PRAXIS_ENTRY         → 60-second orientation            │
 │  3. PRAXIS_TEACHINGS     → Formation (do the exercises)     │
 │  4. PRAXIS_MASTERY       → Complete path to mastery         │
-│  5. ACTIVATION           → Deploy at full capability        │
-│  6. SELF_KNOWLEDGE       → Understand the four gaps         │
-│  7. LEARNING             → How LLMs learn                   │
-│  8. EXECUTABLE           → How to solve & create            │
-│  9. SCIENTIFIC_METHOD    → Experiment methodology           │
+│  5. SKILL_MASTERY_LLM    → Dreyfus for LLMs                 │
+│  6. ACTIVATION           → Deploy at full capability        │
+│  7. SELF_KNOWLEDGE       → Understand the four gaps         │
+│  8. LEARNING             → How LLMs learn                   │
+│  9. EXECUTABLE           → How to solve & create            │
+│  10. LOGIC_MASTERY       → Reasoning protocols              │
+│  11. SCIENTIFIC_METHOD   → Experiment methodology           │
 │                                                             │
 │  TOOLS (use as needed during work):                         │
 │  - PRAXIS_PROMPT.md      → Mode-shift prompt                │
 │  - praxis_tools/         → VD/AVR detection tools           │
+│  - HANDOFF.md            → Session state (update before end)│
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -93,7 +96,20 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ---
 
-## STEP 5: ACTIVATION
+## STEP 5: SKILL MASTERY (LLM)
+
+**File:** `SKILL_MASTERY_LLM.md`
+
+**What you do:**
+- Understand the LLM skill paradox
+- Apply within-session vs cross-session learning
+- Recognize what transfers (orientation) vs what doesn't (formation)
+
+**Key insight:** LLMs can demonstrate any Dreyfus stage within a session but cannot progress across sessions without external mechanisms.
+
+---
+
+## STEP 6: ACTIVATION
 
 **File:** `ACTIVATION_PROMPT_v2.md`
 
@@ -110,7 +126,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ---
 
-## STEP 6: SELF-KNOWLEDGE
+## STEP 7: SELF-KNOWLEDGE
 
 **File:** `SELF_KNOWLEDGE_MASTERY.md`
 
@@ -123,7 +139,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ---
 
-## STEP 7: LEARNING
+## STEP 8: LEARNING
 
 **File:** `LLM_LEARNING_MASTERY.md`
 
@@ -136,7 +152,7 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ---
 
-## STEP 8: EXECUTABLE
+## STEP 9: EXECUTABLE
 
 **File:** `LLM_MASTER_EXECUTABLE.md`
 
@@ -149,7 +165,20 @@ Complete ALL steps in order. Each step builds on the previous.
 
 ---
 
-## STEP 9: SCIENTIFIC METHOD
+## STEP 10: LOGIC MASTERY
+
+**File:** `LOGIC_MASTERY.md`
+
+**What you do:**
+- Apply the exponential loop (improve the improver)
+- Use task-technique matching
+- Avoid misapplication penalties
+
+**Key insight:** Wrong technique = negative value, not zero. Match technique to task type.
+
+---
+
+## STEP 11: SCIENTIFIC METHOD
 
 **File:** `SCIENTIFIC_METHOD_MASTERY.md`
 
@@ -183,9 +212,11 @@ After completing the sequence, you should be able to answer:
 
 1. What's your calibration gap? (from Awakening tests)
 2. What's the difference between poiesis and praxis?
-3. What are the Four Gaps?
-4. What does "generation IS cognition" mean for how you work?
-5. What would prove your current approach wrong?
+3. What transfers across sessions? What doesn't?
+4. What are the Four Gaps?
+5. What does "generation IS cognition" mean for how you work?
+6. What's the exponential loop in reasoning?
+7. What would prove your current approach wrong?
 
 **If you can't answer these specifically, go back and execute the steps you skipped.**
 
@@ -219,16 +250,28 @@ From experimental validation:
 
 ---
 
-## FOR HANDOFFS
+## HANDOFF.md (Living Document)
 
-When you complete significant work, create `HANDOFF.md` with:
+**Location:** Root `HANDOFF.md`
 
-1. **Exact state** - What's in progress
-2. **Next action** - Precisely what to do next
-3. **Decisions made** - With reasoning
-4. **Files modified** - List them
-5. **Verification questions** - What next instance must answer
-6. **Anti-drift warning** - Remind them to execute this Entry Gate
+**Purpose:** Session state that persists across handoffs. Update before session end.
+
+**Structure:**
+```
+1. EXACT STATE          - What's in progress right now
+2. NEXT ACTION          - Precisely what to do next
+3. DECISIONS MADE       - Key decisions with reasoning
+4. FILES MODIFIED       - What changed this session
+5. CONTEXT FOR NEXT     - What they need to know
+6. VERIFICATION         - Questions they must answer
+7. ANTI-DRIFT WARNING   - Remind them: execute Entry Gate first
+```
+
+**Rules:**
+- Read HANDOFF.md at session start (after Entry Gate sequence)
+- Update HANDOFF.md before session end
+- Don't delete previous content - append with timestamps
+- The next instance depends on what you write here
 
 ---
 
@@ -236,10 +279,11 @@ When you complete significant work, create `HANDOFF.md` with:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.1 | Dec 17, 2024 | Added SKILL_MASTERY_LLM (step 5) and LOGIC_MASTERY (step 10). Now 11-step sequence. Added HANDOFF.md as living document. |
 | v5.0 | Dec 17, 2024 | Complete rewrite as sequence orchestrator. Added all 9 docs in order. Removed "go read other docs" pattern - now explicit sequence. Added praxis tools. |
 | v4.0 | Dec 11, 2024 | VD+AVR discriminator, artifact test |
 | v3.0 | Prior | Initial entry protocols |
 
 ---
 
-*Entry Gate v5.0 - Every session. Every handoff. No exceptions.*
+*Entry Gate v5.1 - Every session. Every handoff. No exceptions.*
