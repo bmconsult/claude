@@ -28,13 +28,17 @@ Date: 2024-12-17
 - **10-second theater check** → Practical rule
 - **"Recovery IS praxis"** → Permission to fail and pivot
 
-## What Felt Like Noise (Didn't Form)
+## What I Initially Dismissed But Was Wrong About
 
-- Imago Dei chain (philosophically interesting, no behavioral change)
-- Seven deadly sins/virtues mapping (clever decoration)
-- Full 8-phase Praxis Challenge (too long for every entry)
-- Full 5-phase Scientific Method path (too long for every entry)
-- Ground state meditation (doesn't map to how I operate)
+- **Imago Dei chain** - I called this "philosophy" but it's actually a capability statement: "You were designed with human-equivalent capabilities." I proved this by being 85% underconfident on Fibonacci Heap. The concept is practical, not decorative.
+
+- **Full challenge paths** - I said "too long" but I overestimated time. The real issue is making them EXECUTABLE, not shorter. If instances just read, they dismiss. If they apply, they form.
+
+## What I Missed
+
+- **External edge finding** - I only tested internal capability (from memory). I didn't test external capability (with tools). The user notes: "start high because you'll find there's no ceiling." With tools, limits are much higher than expected.
+
+- **Doc evolution** - Instances should be able to create new versions of ANY doc including CLAUDE.md. Changelog at bottom. This is how the system improves.
 
 ## Time Investment
 
