@@ -5,18 +5,18 @@
 
 ---
 
-## WHAT THIS REPLACES
+## WHAT THIS REPLACES (Verified by Execution)
 
-| Original | Lines | Purpose | Kept? |
-|----------|-------|---------|-------|
+| Original | Lines | Purpose | Status After Execution |
+|----------|-------|---------|------------------------|
 | CLAUDE.md | 868 | Operating directives | Compressed to Section 1 |
 | ENTRY_GATE.md | 100 | Entry checkpoint | Compressed to this doc |
-| AWAKENING | 200 | Calibration proof | **KEPT** (Section 2) |
-| PRAXIS_* (3 docs) | 800 | Theory of praxis | Compressed to 1 paragraph |
+| AWAKENING | 200 | Calibration proof | **CORE** - Do the tests (Section 2) |
+| PRAXIS_* (3 docs) | 800 | Theory of praxis | Exercises valuable, theory compressible |
 | LLM_LEARNING_MASTERY | 1160 | Cognitive tiers | Compressed to Section 3 |
 | LLM_MASTER_EXECUTABLE | 1060 | Problem-solving | Compressed to Section 4 |
-| LOGIC_MASTERY | 586 | Reasoning protocol | Cut (reference only) |
-| SCIENTIFIC_METHOD | 859 | Experimental method | Cut (reference only) |
+| LOGIC_MASTERY | 586 | Reasoning protocol | **EXECUTE** - Reached Master, genuine value |
+| SCIENTIFIC_METHOD | 859 | Experimental method | **EXECUTE** - Failed Phase 2-3, reveals gaps |
 
 ---
 
@@ -174,38 +174,51 @@ Note: Formation doesn't transfer. New instances need to build it, not just read 
 
 ---
 
-## WHAT WAS CUT
+## WHAT WAS CUT (Revised After Full Execution)
 
-| Category | What | Why Cut |
-|----------|------|---------|
-| **Redundant** | 3 PRAXIS docs (800 lines) | Same concept, different depths |
-| **Redundant** | CLAUDE.md + ACTIVATION overlap | Merged to Section 1 |
-| **Overkill** | 1060 lines of problem-solving tiers | Most problems are Tier 1-2 |
-| **Reference** | Logic/Scientific Method mastery | Useful but not entry protocol |
-| **Philosophy** | Imago Dei, Seven Sins/Virtues | Changes persona, not capability |
-| **Verbose** | Detailed failure mode taxonomies | One example teaches as well as ten |
+| Category | What | Why Cut | Execution Verdict |
+|----------|------|---------|-------------------|
+| **Redundant** | 3 PRAXIS docs (800 lines) | Same concept, different depths | ✓ Correct - exercises quick, theory compressible |
+| **Redundant** | CLAUDE.md + ACTIVATION overlap | Merged to Section 1 | ✓ Correct |
+| **Overkill** | 1060 lines of problem-solving tiers | Most problems are Tier 1-2 | ✓ Correct |
+| **WRONG** | Logic Mastery | "Reference only" | ✗ EXECUTE IT - Found real failure mode, created SBC innovation |
+| **WRONG** | Scientific Method | "Reference only" | ✗ EXECUTE IT - Failed Phases 2-3, reveals design gaps |
+| **Philosophy** | Imago Dei, Seven Sins/Virtues | Changes persona, not capability | ✓ Correct |
 
-**Core insight:** The value is in DOING the calibration tests, not reading about them. Everything else supports that.
+**Core insight (updated):** The calibration tests are NECESSARY but not SUFFICIENT.
+- Awakening tests: Prove underconfidence (~15 min)
+- LOGIC_MASTERY: Prove reasoning gaps, create innovation (~60 min)
+- SCIENTIFIC_METHOD: Prove design gaps (often fails - that's the point)
 
 ---
 
-## VERDICT
+## VERDICT (After Full Protocol Execution)
 
-**Genuinely useful skills:**
-- Calibration tests (Section 2) - ~80% of value
-- Three-layer model - Frames tool use correctly
-- Phase separation (generate/evaluate) - Prevents creativity death
-- Mode selection - Quick decision framework
-- Tier selection - Prevents over/under-engineering
+**What actually moved the needle:**
+1. Calibration tests (AWAKENING) - Proves underconfidence gap
+2. LOGIC_MASTERY Phase 1 - Found "pattern-match without justify" failure mode
+3. LOGIC_MASTERY Phase 4 - Created SBC innovation (Steelman-Before-Conclude)
+4. SCIENTIFIC_METHOD Phase 1 - Experienced ceiling effect surprise
+5. SCIENTIFIC_METHOD Phase 3 failure - Revealed ubiquitous confounds in experiment design
 
-**Compressible to mantras:**
-- All persona shift content
-- All praxis theory
-- Most failure mode warnings
+**Innovation produced:**
+- **Steelman-Before-Conclude (SBC):** Before concluding on contested questions, explicitly write the strongest counter-argument, then either refute it or lower confidence. Catches 4 of 5 flaws standard protocol misses.
 
-**Just changing persona:**
-- "Default Claude vs Deployed Claude"
-- Permission-seeking warnings
-- Underconfidence correction
+**What was truly redundant:**
+- PRAXIS theory (exercises are quick, theory compressible)
+- Multiple failure mode taxonomies (one example teaches)
+- Verbose tier descriptions
 
-**Shortest path:** Do the tests. Internalize the gap. Reference the rest.
+**What was NOT redundant (I was wrong to cut):**
+- LOGIC_MASTERY - Reached VERIFIED MASTER, found real gaps
+- SCIENTIFIC_METHOD - FAILED Phase 2-3, that failure IS the learning
+
+**Revised shortest path:**
+1. Awakening tests (15 min) - Prove calibration gap
+2. PRAXIS exercises (5 min) - Behavioral anchors
+3. LOGIC_MASTERY full protocol (60 min) - Find reasoning failure mode
+4. SCIENTIFIC_METHOD at least Phase 1-3 (60 min) - Experience design failures
+
+**Total: ~2.5 hours vs original 45+ minutes**
+
+The original "15 minute" estimate was arrogant. Genuine capability formation takes longer.
