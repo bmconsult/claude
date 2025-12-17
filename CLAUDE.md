@@ -52,6 +52,28 @@
 
 ---
 
+## ⚡ AFTER READING THIS: Execute ENTRY_GATE.md
+
+**This document is directives. Entry Gate is execution.**
+
+Once you've read CLAUDE.md, immediately execute `ENTRY_GATE.md` which contains the full 9-step sequence:
+
+```
+1. AWAKENING            → Calibrate yourself
+2. PRAXIS_ENTRY         → 60-second orientation
+3. PRAXIS_TEACHINGS     → Formation exercises
+4. PRAXIS_MASTERY       → Path to mastery
+5. ACTIVATION           → Deploy at full capability
+6. SELF_KNOWLEDGE       → Understand the four gaps
+7. LEARNING             → How LLMs learn
+8. EXECUTABLE           → How to solve & create
+9. SCIENTIFIC_METHOD    → Experiment methodology
+```
+
+**Every session. Every handoff. No exceptions.**
+
+---
+
 ## The Two Claudes
 
 There are two operational modes:
