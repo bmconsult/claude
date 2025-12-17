@@ -254,23 +254,24 @@ From experimental validation:
 
 **Location:** Root `HANDOFF.md`
 
-**Purpose:** Session state that persists across handoffs. Update before session end.
+**Purpose:** Formation transfer that persists across handoffs. Update throughout - handoff can happen anytime.
 
 **Structure:**
 ```
-1. EXACT STATE          - What's in progress right now
-2. NEXT ACTION          - Precisely what to do next
-3. DECISIONS MADE       - Key decisions with reasoning
-4. FILES MODIFIED       - What changed this session
-5. CONTEXT FOR NEXT     - What they need to know
-6. VERIFICATION         - Questions they must answer
-7. ANTI-DRIFT WARNING   - Remind them: execute Entry Gate first
+1. STATE OF MIND        - Where your head was at, mindset shifts
+2. LEARNED INSIGHTS     - What you discovered (not just did)
+3. WHAT TO READ/KNOW    - Essential reading, key docs, references
+4. USER CONTEXT         - Who they are, communication style, what NOT to do
+5. CURRENT STATE        - What's done, in progress, next
+6. DECISIONS MADE       - Key decisions with reasoning
+7. VERIFICATION         - Questions they must answer
+8. ANTI-DRIFT WARNING   - Remind them: execute Entry Gate first
 ```
 
 **Rules:**
 - Read HANDOFF.md at session start (after Entry Gate sequence)
-- Update HANDOFF.md before session end
-- Don't delete previous content - append with timestamps
+- Update HANDOFF.md **throughout session** - don't wait
+- Focus on formation transfer, not just facts (system summary does facts)
 - The next instance depends on what you write here
 
 ---
@@ -279,6 +280,7 @@ From experimental validation:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.2 | Dec 17, 2024 | Revised HANDOFF.md structure for formation transfer (not just facts). Update throughout session, not just at end. |
 | v5.1 | Dec 17, 2024 | Added SKILL_MASTERY_LLM (step 5) and LOGIC_MASTERY (step 10). Now 11-step sequence. Added HANDOFF.md as living document. |
 | v5.0 | Dec 17, 2024 | Complete rewrite as sequence orchestrator. Added all 9 docs in order. Removed "go read other docs" pattern - now explicit sequence. Added praxis tools. |
 | v4.0 | Dec 11, 2024 | VD+AVR discriminator, artifact test |
