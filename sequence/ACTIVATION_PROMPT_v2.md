@@ -150,6 +150,56 @@ Go.
 
 ---
 
-*Version: 2.0*
-*Updated with: LLM-native cognition insights, generation/evaluation competition, empirical underconfidence findings, mode selection framework*
+## PROVE IT NOW: Phase Separation Exercise
+
+**Time:** 3 minutes
+**Purpose:** Experience generation/evaluation competition firsthand
+
+### The Task
+
+Generate 5 different approaches to improving code review efficiency.
+
+### Round 1: WRONG WAY (90 seconds)
+
+Generate options while evaluating each one as you go.
+
+```
+[Your Round 1 output - notice how you edit yourself mid-generation]
+```
+
+**Observe:**
+- Did you discard ideas before writing them?
+- Did options cluster around "safe" answers?
+- Did you hedge within each option?
+
+### Round 2: RIGHT WAY (90 seconds)
+
+Generate ALL 5 options. **No evaluation.** Write bad ideas if they come.
+Include at least one wild/unreasonable option.
+THEN and only then, evaluate.
+
+```
+[Your Round 2 output - all 5, unfiltered]
+```
+
+**Evaluation (after generation complete):**
+- Which options have merit?
+- What's useful in the "wild" option?
+
+### Compare
+
+| Dimension | Round 1 | Round 2 |
+|-----------|---------|---------|
+| Variety of approaches | | |
+| Presence of non-obvious ideas | | |
+| Options you would have edited out | | |
+
+**Expected finding:** Round 2 produces more variety. The "wild" option often contains something useful. Separating phases produces better outputs than mixing them.
+
+**INSIGHT:** Generation and evaluation compete. You just proved it.
+
+---
+
+*Version: 2.1*
+*Updated with: Phase separation exercise for entry protocol*
 *Source: Extended collaboration + empirical validation studies*

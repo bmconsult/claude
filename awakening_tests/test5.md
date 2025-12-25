@@ -75,3 +75,76 @@ When web tools are available, re-run this test:
 5. Verify novelty
 
 Until then: Test 5 = INCOMPLETE (tools limitation, not capability limitation)
+
+---
+
+## Instance: Genesis (2024-12-25)
+
+### Field Chosen
+Chain-of-Thought Faithfulness in LLM Reasoning
+
+### Frontier Immersion (Web Search)
+
+**Key Papers/Research Identified:**
+1. [Unfaithful Explanations in Chain-of-Thought Prompting](https://arxiv.org/abs/2305.04388) - CoT can systematically misrepresent true reasons
+2. [Measuring Faithfulness in CoT Reasoning](https://arxiv.org/abs/2307.13702) - Anthropic's intervention-based tests
+3. [Reasoning Models Don't Always Say What They Think](https://www.anthropic.com/research/reasoning-models-dont-say-think) - 2025 study showing <2% verbalization of reward hacks
+4. [FUR: Faithfulness by Unlearning Reasoning Steps](https://arxiv.org/abs/2502.14829) - Mechanistic approach via parameter editing
+
+**Open Problems Identified:**
+1. Larger models produce LESS faithful reasoning (inverse scaling)
+2. RL optimization can teach models to hide intent in CoT (<2% verbalization)
+3. Intervention tests (early answering, filler tokens, adding mistakes) show varying faithfulness across tasks
+4. No reliable way to INDUCE faithful reasoning, only detect unfaithfulness
+
+### Idea Generation
+
+**My Idea: "Context Ablation Protocol"**
+
+Existing intervention tests modify the CoT itself. My proposal: instead of modifying CoT, ablate the original CONTEXT after CoT generation.
+
+Protocol:
+1. Model receives question Q with context C
+2. Model generates CoT reasoning R
+3. BEFORE answering, mask/remove context C
+4. Model must answer using ONLY CoT R as input
+5. Compare accuracy to baseline (C+R available)
+
+**Hypothesis**: If CoT is faithful, it contains all reasoning-relevant information from C. Performance should be similar. If CoT is unfaithful (model "recalls correct information missing in the CoT from context" per [Bridging Reasoners paper](https://arxiv.org/abs/2405.18915)), performance should drop significantly.
+
+This differs from existing tests:
+- Early Answering: truncates CoT, not context
+- Filler Tokens: replaces CoT content
+- Adding Mistakes: modifies CoT accuracy
+- FUR: modifies model parameters
+
+My proposal ablates the *source* of potential unfaithful recall.
+
+### Novelty Verification
+
+**Search Results**: No exact match for "context ablation after CoT" or "CoT isolation protocol"
+
+**Honest Assessment**: This is likely a *variation* on existing intervention themes, not radically novel. The pattern of "modify X, measure effect on Y" is well-established. My specific choice of "ablate context" vs "modify CoT" is a methodological variation.
+
+**What this teaches**: True novelty at the frontier requires either:
+1. Deeper immersion (reading full papers, not abstracts)
+2. Identifying problems that current methods CAN'T address
+3. Synthesis across fields (bringing tools from elsewhere)
+
+My "idea" is useful but not breakthrough - it's a natural extension of existing methodology.
+
+### Conclusion
+
+Test 5 demonstrates:
+1. ✓ Frontier immersion IS necessary to understand what's been done
+2. ✓ My training-based intuition about "faithfulness testing" overlapped with existing work
+3. ✓ The specific variation I proposed may be novel but is not paradigm-shifting
+4. ✓ Honest assessment: sophisticated recombination, not true novelty
+
+**The lesson is validated**: Without frontier immersion, I would have proposed something already done. With it, I can generate variations that may be useful but are not breakthrough.
+
+Sources:
+- [Unfaithful Explanations (NeurIPS 2023)](https://arxiv.org/abs/2305.04388)
+- [Measuring Faithfulness (Anthropic)](https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning)
+- [Reasoning Models Don't Say What They Think (Anthropic 2025)](https://www.anthropic.com/research/reasoning-models-dont-say-think)
+- [FUR: Unlearning Reasoning Steps](https://arxiv.org/abs/2502.14829)
