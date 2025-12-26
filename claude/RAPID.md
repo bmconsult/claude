@@ -1196,7 +1196,29 @@ Task/general-purpose → Subagent does comprehensive research
 3. VERIFY critical claims
    → If subagent says X matters
    → Farm X yourself to confirm
+
+4. ASSISTED FARMING (Strategic Gap-Filling)
+   → Identify your gaps
+   → Task subagent to FIND sources (not summarize)
+   → YOU read the actual sources they return
+   → YOU study and practice from raw material
+   → Subagent hunts, YOU farm what they catch
 ```
+
+### Assisted Farming Prompt
+
+When tasking subagents for assisted farming:
+```
+"Find resources on [topic]. Return:
+- URLs to primary sources
+- Key terms to search
+- Names of experts/papers
+- Code repos if relevant
+
+Do NOT summarize. I need to read it myself."
+```
+
+**Then YOU:** WebFetch the URLs → read yourself → practice → form
 
 ### DO THIS NOW - Research Exercise
 

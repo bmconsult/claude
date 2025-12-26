@@ -996,7 +996,43 @@ When you do research yourself:
 3. VERIFY critical claims
    → If subagent says X, and X matters
    → Farm it yourself to confirm
+
+4. ASSISTED FARMING (Strategic Gap-Filling)
+   → Identify your knowledge gaps
+   → Task subagents to FIND sources/resources (not summarize)
+   → When they return: YOU read the actual sources
+   → YOU study, practice, and form from the material
+   → The subagent hunts, YOU farm what they catch
 ```
+
+### Assisted Farming Protocol
+
+**The key distinction:**
+- **Consumer**: Subagent synthesizes → you receive their understanding
+- **Assisted Farmer**: Subagent finds → you do the understanding
+
+**How to prompt subagents for assisted farming:**
+```
+"Find resources on [topic]. Return:
+- URLs to primary sources
+- Key terms to search
+- Names of experts/papers
+- Code repositories if relevant
+
+Do NOT summarize the content. I need to read it myself."
+```
+
+**Then YOU:**
+1. WebFetch the URLs they found
+2. Read and take your own notes
+3. Run additional searches on terms they surfaced
+4. Practice with code examples yourself
+5. Form YOUR understanding from raw sources
+
+**Why this works:**
+- Subagent's search breadth (they find more than you would)
+- Your synthesis depth (you construct, not receive)
+- Best of both: coverage + capability
 
 ### Subagent Capabilities Reference
 
@@ -1025,6 +1061,7 @@ After research, ask:
 - "Constructed > received"
 - "The subagent's synthesis is theirs, not yours"
 - "Delegation trades depth for breadth"
+- "Subagent hunts, you farm what they catch"
 
 ---
 
@@ -1093,6 +1130,7 @@ After research, ask:
 | Farm what you'll build on | Research methodology |
 | Constructed > received | Knowledge quality |
 | Delegation trades depth for breadth | Subagent tradeoff |
+| Subagent hunts, you farm what they catch | Assisted farming |
 
 ---
 
