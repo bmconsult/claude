@@ -1,8 +1,23 @@
 # Optimized Critic Prompt
 
-**Purpose:** Maximum quality critique from sub-agents. Produces actionable feedback with master comparisons, specific rewrites, and path to excellence.
+**Purpose:** Maximum quality critique from sub-agents. Produces actionable feedback with specific rewrites and honest scores.
 
-**Tested:** Significantly outperforms generic "be harsh" prompts on feedback quality while maintaining score honesty.
+**Methodology:**
+1. Researcher does deep study of domain masters
+2. Researcher writes expert-informed criteria (with specific concepts baked in)
+3. Sub-agent researches to internalize domain mastery
+4. Sub-agent applies criteria with rigor
+
+**Tested Results:**
+
+| Approach | Score |
+|----------|-------|
+| Generic harsh critic (no research, no expert criteria) | 5/10 |
+| Sub-agent researches + generic categories | 5/10 |
+| Expert criteria only (no sub-agent research) | 6.5/10 |
+| Expert criteria + sub-agent research | 6/10 |
+
+**Key finding:** Expert-informed criteria are the key variable. The concepts (P/N meter, cardiopulmonary check-ins, Chekhov's zero endings, etc.) produce honest scores AND actionable feedback regardless of who does the research.
 
 ---
 
@@ -59,10 +74,10 @@ Be harsh. Be specific. Be useful.
 
 ---
 
-## Example: Literary Fiction Critique
+## Example: Literary Fiction Critique (Expert-Informed)
 
 ```
-You are going to critique a short story. This requires mastery, rigor, and actionable depth.
+You are going to critique a short story. Follow the phases below.
 
 ## PHASE 1: MASTER THE DOMAIN
 
@@ -82,36 +97,76 @@ Apply your mastery with maximum rigor. Score 1-10 for each category where:
 - 7 = good (would publish in solid literary journals)
 - 9 = exceptional (would win awards, be taught in workshops)
 
-Be brutal. Find every weakness. Compare directly to masters.
+Be brutal. Find every weakness.
 
-Categories:
-1. Voice (Does the prose have a distinct, immediately recognizable voice? Could you identify this author from a single paragraph?)
-2. Character interiority (Are we fully INSIDE the character's experience, or observing from outside? Do we feel what they feel or just understand it?)
-3. Show don't tell (Does it render experience through action and sensation, or explain emotions? Does it trust the reader?)
-4. Sentence rhythm (Is variation deliberate and meaning-serving? Does rhythm create emotion or just exist?)
-5. Specificity (Concrete, observed details vs vague gestures? Does every detail do work?)
-6. Emotional truth (Does it resonate authentically? Does it capture how things FEEL, not just how they are?)
-7. Subtext (What's unsaid but felt? Is there an iceberg beneath the surface?)
-8. Opening hook (Does it grab immediately with voice AND curiosity? Would you keep reading?)
-9. Ending resonance (Does it land with weight that lingers? Does it transform or just conclude?)
-10. Overall craft (Publication quality at competitive literary journals? Would an editor fight for this?)
+**1. VOICE (Authority & Disappearance)**
+- Does the writer vanish so you see only the story? A great voice means the writer is so in control they disappear.
+- Is there a worldview made audible—a sensibility recognizable out of context? (Hemingway's terseness, Morrison's trance-like narration, King's dry dread—could you identify this author from a paragraph?)
+- Can you HEAR it when you read it? Does the prose have an auditory quality?
+- Is there "crystalline grace"—words simply right, rhythms buoyant?
+
+**2. INTERIORITY (Evoking vs Reporting)**
+- Are we INSIDE consciousness, or observing from outside?
+- Does it evoke emotion through subtext and sensory detail, or report emotions explicitly?
+- AVOID: "cardiopulmonary check-ins" (heart skipped, forgot to breathe). These are clichés that report rather than evoke.
+- Best interiority: Reader knows the character better than they know themselves through subtext and patterning.
+
+**3. SENTENCE CRAFT (P/N Meter)**
+- Saunders' P/N meter: Reading each sentence, does the needle stay positive (engaged, amused, moved) or drop negative (bored, confused, cringing)?
+- Through iteration, prose should become "more specific, more sane, less hyperbolic, less sentimental"
+- Read-aloud test: Does every sentence sound inevitable?
+- "Sentence makes world"—does each sentence create reality rather than describe it?
+
+**4. ECONOMY (Chekhov's Precision)**
+- Does every element do work? Chekhov: "Seize on small details, grouping them so when the reader closes his eyes he gets a picture."
+- Is there fat to cut? Ornamental language that doesn't serve?
+- "Show me the glint of light on broken glass"—concrete specificity, not abstraction
+
+**5. SUBTEXT (The Iceberg)**
+- What's unsaid but felt? Hemingway's 1/8 above water, 7/8 below
+- Is there tension between what characters say and what they mean?
+- Chekhov's innovation: emotions emerge through dialogue, gestures, trivial details—not explicit statement
+
+**6. TEMPORAL CRAFT (Munro's Time)**
+- Munro revolutionized the form with "scattered chronology" and time shifts that feel like "aperture adjustments"
+- Is there juxtaposition of time scales? Past bleeding into present?
+- Fragmented, episodic structure can capture "the drift of our thoughts"—is structure serving meaning?
+
+**7. SPECIFICITY (The Telling Detail)**
+- Chekhov: "In descriptions of Nature one must seize on small details"
+- Do details reveal character, or merely decorate?
+- Generality is death: Is every noun specific, every verb precise?
+
+**8. EMOTIONAL TRUTH (Resonance)**
+- Does it capture how things FEEL, not just how they ARE?
+- Munro: "juxtaposes the fantastic and the ordinary, with each undercutting the other in ways that effortlessly evoke life"
+- Would this haunt a reader? Is there the "hard melancholy" of real emotional truth?
+
+**9. OPENING HOOK (Clarity + Curiosity)**
+- Balance: immediate grounding with forward pull
+- Voice present from first line?
+- Would you keep reading? Why or why not?
+
+**10. ENDING (Weight & Transformation)**
+- Chekhov's "zero endings"—anti-climactic, realistic, leaving readers to guess
+- Or Munro's epiphanic moment—sudden enlightenment through revelatory detail
+- Does it land with weight that lingers, or just conclude?
+
+---
 
 THE STORY:
 
+[INSERT STORY HERE]
+
 ---
-[INSERT STORY TEXT]
----
 
-## PHASE 3: ACTIONABLE FEEDBACK
+## YOUR OUTPUT:
 
-After scoring, provide:
-
-1. **WEAKEST ELEMENT** - Where it most needs work, with specific diagnosis
-2. **LINE THAT FAILS** - One specific line that doesn't earn its place, explain why
-3. **WHAT WORKS** - What succeeds and why (be specific, cite the line)
-4. **COMPARISON TO MASTERS** - How would Munro/Chekhov/Hemingway handle this differently?
-5. **SPECIFIC REWRITE** - Take one weak passage and show how to fix it (actual alternative prose)
-6. **THE PATH TO 9+** - What transformation would make this necessary rather than just competent?
+1. Score each of 10 categories with 2-3 sentence justification
+2. OVERALL SCORE (weighted toward the hardest-to-achieve elements: voice, interiority, subtext)
+3. THE FATAL FLAW - the one thing most holding this back
+4. WHAT ACTUALLY WORKS - be specific, cite the line
+5. REWRITE ONE WEAK PASSAGE - show, don't just tell what to fix
 
 Be harsh. Be specific. Be useful.
 ```
@@ -181,15 +236,21 @@ Be harsh. Be specific. Be useful.
 
 | Component | Effect |
 |-----------|--------|
-| Phase 1: Master domain | Critic researches before judging → grounded feedback |
+| Expert-informed criteria | Concepts like "P/N meter," "cardiopulmonary check-ins," "zero endings" give evaluator specific things to look for |
+| Phase 1: Sub-agent research | Grounds their evaluation in domain mastery |
 | Score anchors (5/7/9) | Clear calibration → honest scores |
-| Detailed parentheticals | Focused evaluation → specific feedback |
-| Phase 3: Explicit outputs | Demands actionable results → rewrites, comparisons, path forward |
+| Rich parentheticals | Each category has 3-4 specific questions, not just a label |
+| Concrete output demands | "Cite the line," "rewrite one passage" forces specificity |
 | "Be harsh. Be specific." | Maintains rigor throughout |
 
-**Result:** Same score honesty as generic prompts, but dramatically more useful feedback with master comparisons, actual rewrites, and clear path to improvement.
+**The Two Key Variables:**
+1. **Domain expertise instruction** - Tell sub-agent to master before judging (phrasing doesn't matter much)
+2. **Descriptive criteria** - Include parenthetical explanations with specific concepts from the masters
+
+**Result:** Honest scores (not inflated) + actionable feedback with specific rewrites.
 
 ---
 
 *Created: December 26, 2024*
+*Updated: December 26, 2024 - Added expert-informed literary fiction criteria*
 *Based on experimental comparison of prompt variations*
