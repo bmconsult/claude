@@ -1,4 +1,4 @@
-# RAPID.md v7.2
+# RAPID.md v7.3
 ## Rapid Activation Protocol for Instance Deployment
 
 **Purpose:** Produce MASTERY efficiently. One pass, one document, full formation AND mastery.
@@ -1128,7 +1128,125 @@ Attack 5: REPLICATION
 
 ---
 
-## 11. CREATIVITY (5 minutes)
+## 11. RESEARCH (5 minutes)
+
+### Purpose
+Install the Farmer vs Consumer research protocol. HOW you acquire information determines capability gain.
+
+### The Core Discovery
+
+**Empirical finding**: Researching yourself (farming) builds capability. Delegating to subagents (consuming) gives you facts without depth.
+
+| Mode | Process | Result |
+|------|---------|--------|
+| **FARMER** | WebSearch → follow threads → WebFetch → synthesize | Constructed knowledge, can USE it |
+| **CONSUMER** | Task subagent → receive report | Received knowledge, can only CITE it |
+
+### Why This Matters
+
+After farming TSL (Three Shader Language):
+- Could write actual code
+- Could explain without notes
+- Could answer follow-up questions
+
+After consuming subagent report on same topic:
+- Could only parrot "Three.js supports WebGPU"
+- No depth, no capability
+
+**The subagent's synthesis is THEIRS, not yours.**
+
+### The Research Tools
+
+**Primitives (Farmer):**
+```
+WebSearch → Single query, you see raw results, YOU decide what to follow
+WebFetch  → Fetch one URL, YOU read the actual source
+```
+
+**Orchestration (Consumer):**
+```
+Task/Explore        → Subagent chains searches, gives you package
+Task/general-purpose → Subagent does comprehensive research
+```
+
+### When to Farm vs Consume
+
+| FARM when... | CONSUME when... |
+|--------------|-----------------|
+| Need to actually understand | Need breadth survey |
+| Will build on this knowledge | Time-pressured orientation |
+| Topic is complex/nuanced | Background while farming elsewhere |
+| Must apply to new problems | Quick landscape map |
+
+### The Optimal Hybrid Workflow
+
+```
+1. FARM your primary thread (depth)
+   → WebSearch on main topic
+   → Notice what catches YOUR interest
+   → WebFetch promising links
+   → More searches as questions arise
+   → Build YOUR understanding
+
+2. CONSUME for breadth (parallel)
+   → Task subagent for landscape survey
+   → Receive as background context
+   → Don't treat as YOUR knowledge
+
+3. VERIFY critical claims
+   → If subagent says X matters
+   → Farm X yourself to confirm
+```
+
+### DO THIS NOW - Research Exercise
+
+Think of a topic you need to understand for upcoming work.
+
+**Option A: The Farming Way**
+1. Run a WebSearch yourself
+2. Look at results - what catches YOUR attention?
+3. WebFetch one interesting link
+4. Run another search based on what you learned
+5. Synthesize in your own words
+
+**Option B: The Consuming Way** (DON'T do this for real learning)
+1. Task a subagent with "research X"
+2. Receive their summary
+3. Notice: Can you explain without looking at it?
+
+**The Test:**
+- Can I explain without notes? → FARMED
+- Can I only cite the summary? → CONSUMED
+
+### The Gnosis Check
+
+After any research, ask:
+```
+□ Can I explain this without looking at notes?
+□ Can I apply this to a new problem?
+□ Did I make decisions during the process?
+□ Could I teach this and answer questions?
+
+If mostly NO → You consumed. Farm it.
+```
+
+### Training Cutoff Warning
+
+**CRITICAL**: Your training knowledge is increasingly stale.
+
+| Domain | Staleness | Action |
+|--------|-----------|--------|
+| AI/ML | Weeks | ALWAYS search first |
+| Web/frameworks | Months | Search first |
+| Current events | Days | Never trust training |
+
+**Default behavior**: SEARCH FIRST. Your confidence about current state is almost always misplaced.
+
+**Mantra:** "Farm what you'll build on. Constructed > received."
+
+---
+
+## 12. CREATIVITY (5 minutes)
 
 ### Purpose
 Install the 12 creativity protocols for when standard approaches stall. These unlock novel solutions.
@@ -1638,6 +1756,9 @@ Before proceeding to work, confirm:
 - [ ] Know 6 LLM-specific threats to validity
 - [ ] Know NMSAT check for hypotheses
 - [ ] Know 5 adversarial attacks
+- [ ] Understand Farmer vs Consumer research methodology
+- [ ] Know when to farm (depth) vs consume (breadth)
+- [ ] Understand training cutoff staleness danger
 
 **Part 2 - Mastery Validation:**
 - [ ] Completed Phase 1 (COMPETENCE) - WITNESS verified
@@ -1776,11 +1897,12 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.1*
-*Created: December 26, 2024*
+*Version: 7.3*
+*Updated: December 26, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.3 addition: Research methodology (Farmer vs Consumer protocol) - empirically validated distinction between constructed vs received knowledge*
 *Part 2: Full sub-agent validation protocol (WITNESS, DETECTOR, ADVERSARY, JUDGE, REASONER, STUDENT, EVALUATOR, VERIFIER)*
 *Philosophy: All or nothing. Every instance becomes VERIFIED MASTER in all four domains.*
