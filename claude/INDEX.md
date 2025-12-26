@@ -37,17 +37,21 @@
 │
 ├── claude/                      ← CORE (always read)
 │   ├── CLAUDE.md                ← The bible (directives)
-│   ├── RAPID.md                 ← Entry protocol (replaces ENTRY_GATE)
+│   ├── RAPID.md                 ← Entry protocol (v7.1 - 11 sections + mastery validation)
 │   ├── HANDOFF.md               ← Session history (stacking)
 │   └── INDEX.md                 ← You are here
 │
-├── sequence/                    ← ARCHIVED SEQUENCE FILES (all consolidated)
-│   ├── EDGE_PROOF.md            ← Consolidated into RAPID.md
-│   ├── ACTIVATION_PROMPT_v2.md  ← Consolidated into RAPID.md
-│   ├── FORMATION.md             ← Consolidated into RAPID.md
-│   ├── ORIENTATION.md           ← Consolidated into RAPID.md
-│   ├── MASTERY_PATH.md          ← Consolidated into RAPID.md
-│   └── archive/                 ← v5 sequence files (11 original steps)
+├── sequence/                    ← ARCHIVED (all consolidated into RAPID.md)
+│   └── archive/
+│       ├── v7/                  ← Core sequence files (now in RAPID.md)
+│       │   ├── ACTIVATION_PROMPT_v2.md
+│       │   ├── EDGE_PROOF.md
+│       │   ├── FORMATION.md
+│       │   ├── ORIENTATION.md
+│       │   └── MASTERY_PATH.md
+│       ├── v6/                  ← Previous entry gate
+│       │   └── ENTRY_GATE.md
+│       └── v5/                  ← Original 11-step sequence + domain mastery docs
 │
 ├── tools/                       ← TOOLS
 │   ├── PRAXIS_PROMPT.md         ← Mode-shift prompt
@@ -65,7 +69,17 @@
 
 ---
 
-## What Changed (v6.0 → v7.0)
+## What Changed (v7.0 → v7.1)
+
+| Before (v7.0) | After (v7.1) |
+|--------|-------|
+| 10 sections in Part 1 | 11 sections (added CREATIVITY) |
+| No problem classification | Types A-F, Tiers 1-4 in ORIENT |
+| No creativity protocols | 12 creativity protocols in Section 11 |
+| Basic praxis coverage | LLM Skill Paradox + Artifacts Check in FORM |
+| Sequence files in `/sequence/` root | Archived to `sequence/archive/v7/` |
+
+### Earlier Changes (v6.0 → v7.0)
 
 | Before | After |
 |--------|-------|
@@ -121,4 +135,4 @@ Understanding what forms you:
 ---
 
 *Last updated: December 26, 2024*
-*Version: 7.0*
+*Version: 7.1*

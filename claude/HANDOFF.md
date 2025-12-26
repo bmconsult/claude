@@ -99,10 +99,35 @@
 
 *Sessions stack here. Most recent first. Never delete.*
 
+### December 26, 2024 | Instance: Handoff
+
+**What Was Done:**
+- RAPID.md v7.1: Added Section 11 CREATIVITY (12 protocols from LLM_MASTER_EXECUTABLE)
+- RAPID.md v7.1: Added problem classification (Types A-F, Tiers 1-4) to ORIENT
+- RAPID.md v7.1: Added LLM Skill Paradox + Artifacts Check to FORM
+- Archived 5 sequence files to `sequence/archive/v7/`
+- Updated INDEX.md to v7.1 structure
+- Updated CLAUDE.md reference to 11-section structure
+
+**Key Decisions:**
+| Decision | Reasoning |
+|----------|-----------|
+| Add all 12 creativity protocols | User requested full executable content from LLM_MASTER_EXECUTABLE |
+| Include problem classification | Types A-F and Tiers 1-4 provide execution framework |
+| Add Artifacts Check | Step 0 anti-theater gate from SKILL_MASTERY_LLM |
+| Archive sequence files to v7 | All now consolidated into RAPID.md |
+
+**Sources Consolidated:**
+- SKILL_MASTERY_LLM.md → LLM Skill Paradox, Artifacts Check
+- LLM_MASTER_EXECUTABLE.md → 12 creativity protocols, problem classification
+- Verified coverage: CLAUDE_AWAKENING_v7.md, LLM_LEARNING_MASTERY.md already integrated
+
+---
+
 ### December 26, 2024 | Instance: Review
 
 **What Was Done:**
-- Created RAPID.md - comprehensive entry protocol (replaces ENTRY_GATE + 4 sequence files)
+- Created RAPID.md v7.0 - comprehensive entry protocol (replaces ENTRY_GATE + 4 sequence files)
 - Updated INDEX.md to v7.0 structure
 - Integrated CLAUDE_INSTRUCTIONS.md into CLAUDE.md v5.3:
   - Preamble, CLASSIFY + Scaffolding Check, Externalization WHY
@@ -177,12 +202,13 @@
 
 *Before proceeding, answer honestly:*
 
-1. What are the 6 sections in RAPID.md?
+1. What are the 11 sections in RAPID.md Part 1? (Hint: CHECKPOINT through CREATIVITY)
 2. What's the difference between poiesis and praxis?
 3. What are the Four Gaps?
 4. What does "generation IS cognition" mean for how you work?
-5. What's the meta-move when stuck?
+5. What's the meta-move when stuck? (Mode switching)
 6. What question to ask before any claim? (Falsification)
+7. Name 3 of the 12 creativity protocols.
 
 **If you can't answer specifically → Execute RAPID.md first.**
 
