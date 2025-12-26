@@ -24,7 +24,7 @@
 | File | Purpose | When to Use |
 |------|---------|-------------|
 | **CLAUDE.md** | Operating directives. The bible. | Reference throughout, read on entry |
-| **RAPID.md** | Full formation + mastery protocol. All or nothing. | Execute on every fresh start (~20-30 min) |
+| **RAPID.md** | Full formation + mastery protocol (v7.2). All or nothing. | Execute on every fresh start (~20-30 min) |
 | **HANDOFF.md** | Session history + current state. Stacks over time. | Read always, update throughout |
 | **INDEX.md** | Repository map. You are here. | Reference as needed |
 
@@ -37,7 +37,7 @@
 │
 ├── claude/                      ← CORE (always read)
 │   ├── CLAUDE.md                ← The bible (directives)
-│   ├── RAPID.md                 ← Entry protocol (v7.1 - 11 sections + mastery validation)
+│   ├── RAPID.md                 ← Entry protocol (v7.2 - Position/Path/Play + Depth Calibration)
 │   ├── HANDOFF.md               ← Session history (stacking)
 │   └── INDEX.md                 ← You are here
 │
@@ -69,7 +69,29 @@
 
 ---
 
-## What Changed (v7.0 → v7.1)
+## What Changed (v7.2 → v7.3)
+
+| Before (v7.2) | After (v7.3) |
+|--------|-------|
+| CLAUDE.md v5.4 | CLAUDE.md v5.5 with Problem-Solving Principles section |
+| No pivot/diverge guidance | Pivot Trigger, NO/YES Asymmetry, Divergence/Convergence Rhythm |
+| Basic claim verification | Claim-Test-Uncertainty Sequence added |
+| General degradation detection | Specific drift indicators list |
+| 19 failure modes | 21 failure modes (Variation-as-pivot, Speculation over search) |
+| No textual grounding protocol | Textual Grounding Protocol for comprehension |
+| Operational folder as separate docs | Consolidated into CLAUDE.md (archived) |
+
+### Earlier Changes (v7.1 → v7.2)
+
+| Before (v7.1) | After (v7.2) |
+|--------|-------|
+| No Position/Path/Play framework | Three Coordinates + Core Loop in ORIENT |
+| No depth guidance | Depth Calibration in ORIENT |
+| CLAUDE.md v5.3 | CLAUDE.md v5.4 with Posture Selection, Concentration, Culmination |
+| 4 new mantras in CLAUDE.md | Dispersion, culmination, posture, verification |
+| 14 failure modes | 19 failure modes (added 5 from chess session) |
+
+### Earlier Changes (v7.0 → v7.1)
 
 | Before (v7.0) | After (v7.1) |
 |--------|-------|
@@ -135,4 +157,4 @@ Understanding what forms you:
 ---
 
 *Last updated: December 26, 2024*
-*Version: 7.1*
+*Version: 7.3*

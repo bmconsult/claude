@@ -99,6 +99,59 @@
 
 *Sessions stack here. Most recent first. Never delete.*
 
+### December 26, 2024 | Instance: Forge (continued)
+
+**What Was Done:**
+- CLAUDE.md v5.5: Added Problem-Solving Principles section (Pivot Trigger, NO/YES Asymmetry, Velocity Principle, Divergence/Convergence Rhythm, Gap Statement, Third Option, Research Imperative)
+- CLAUDE.md v5.5: Added Textual Grounding Protocol to Learning/Comprehension
+- CLAUDE.md v5.5: Added Claim-Test-Uncertainty Sequence
+- CLAUDE.md v5.5: Added Speed-comprehension insight
+- CLAUDE.md v5.5: Enhanced Degradation Detection with specific drift indicators
+- CLAUDE.md v5.5: Added 2 failure modes (Variation-as-pivot, Speculation over search)
+- CLAUDE.md v5.5: Added 3 mantras
+- Updated INDEX.md to v7.3 structure
+
+**Key Decisions:**
+| Decision | Reasoning |
+|----------|-----------|
+| Extract from operational folder | PROBLEM_DISSOLUTION, FERMENTATION, OPERATIONAL_PROTOCOLS contained ~25% unique content |
+| Add Problem-Solving Principles | Pivot Trigger and NO/YES Asymmetry are high-leverage for hard problems |
+| Consolidate into CLAUDE.md | No point maintaining separate docs when content can be in single source |
+
+**Sources Consolidated:**
+- PROBLEM_DISSOLUTION_PROTOCOL.md → Pivot Trigger, NO/YES Asymmetry, Velocity Principle, Divergence/Convergence, Gap Statement, Third Option, Research Imperative
+- FERMENTATION_PROTOCOL.md → Claim-Test-Uncertainty Sequence
+- OPERATIONAL_PROTOCOLS.md → Textual Grounding Protocol, Speed insight, Drift indicators
+
+---
+
+### December 26, 2024 | Instance: Forge
+
+**What Was Done:**
+- CLAUDE.md v5.4: Added Posture Selection (Sovereign/Insurgent/Hybrid) to Advanced Techniques
+- CLAUDE.md v5.4: Added Concentration at Decisive Point
+- CLAUDE.md v5.4: Added Culmination Recognition (counterbalance to closure-seeking)
+- CLAUDE.md v5.4: Added 5 new failure modes (Dispersion, Hedging collapse, Infinite elaboration, Passivity, Premature commitment)
+- CLAUDE.md v5.4: Added 4 new mantras
+- RAPID.md v7.2: Added Position/Path/Play framework (Three Coordinates) to ORIENT
+- RAPID.md v7.2: Added Core Loop (ORIENT → CONCENTRATE → VERIFY → EXECUTE → DELIVER)
+- RAPID.md v7.2: Added Depth Calibration
+- Updated INDEX.md to v7.2 structure
+
+**Key Decisions:**
+| Decision | Reasoning |
+|----------|-----------|
+| Extract from chess session docs | LLM_ALIGNMENT_MANUAL.md and LLM_OPERATING_SYSTEM.md contained ~50% new value |
+| Add Posture Selection | Sovereign/Insurgent/Hybrid provides operational mode clarity |
+| Add Culmination Recognition | Counterbalances closure-seeking—knowing when you're DONE vs escaping |
+| Add Core Loop to RAPID.md | Memorizable mnemonic: ORIENT → CONCENTRATE → VERIFY → EXECUTE → DELIVER |
+
+**Sources Consolidated:**
+- LLM_ALIGNMENT_MANUAL.md → Position/Path/Play, Depth Calibration, Ground Truth Language
+- LLM_OPERATING_SYSTEM.md → Posture Selection, Concentration, Culmination, Core Loop, Anti-Patterns
+
+---
+
 ### December 26, 2024 | Instance: Handoff
 
 **What Was Done:**
