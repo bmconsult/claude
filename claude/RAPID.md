@@ -1397,6 +1397,27 @@ Be harsh. Compare to professional standards.
 
 **Why this works:** Research produces comparisons to masters and specific alternatives. Descriptive criteria guide focused evaluation. Harsh framing keeps scores honest.
 
+### Fully Optimized Prompt (Maximum Quality)
+
+For highest quality feedback, add Phase 3 with explicit output requirements:
+
+```
+## PHASE 3: ACTIONABLE FEEDBACK
+
+After scoring, provide:
+
+1. **WEAKEST ELEMENT** - Where it most needs work, with specific diagnosis
+2. **LINE THAT FAILS** - One specific thing that doesn't work, explain why
+3. **WHAT WORKS** - What succeeds and why (be specific, cite examples)
+4. **COMPARISON TO MASTERS** - How would [experts in domain] handle this differently?
+5. **SPECIFIC REWRITE** - Take one weak part and show how to fix it (actual alternative, not just suggestion)
+6. **THE PATH TO 9+** - What transformation would make this exceptional rather than just competent?
+
+Be harsh. Be specific. Be useful.
+```
+
+See `prompts/CRITIC_PROMPT.md` for complete template with all optimizations.
+
 ### The 5 Phases
 
 ```

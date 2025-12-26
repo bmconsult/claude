@@ -209,6 +209,15 @@ Categories:
 
 **Score stays honest. Feedback becomes actionable.**
 
+### Fully Optimized Prompt (Maximum Quality)
+
+For highest quality critique, add Phase 3 with explicit output requirements. See `prompts/CRITIC_PROMPT.md` for the complete template. Key additions:
+
+1. **Score anchors** - Define what 5/7/9 mean specifically
+2. **Comparison to masters** - "How would Munro/Chekhov handle this?"
+3. **Specific rewrite** - Demand actual alternative prose, not just suggestions
+4. **Path to excellence** - "What transformation would make this necessary?"
+
 ---
 
 ## Degradation Detection Protocol
