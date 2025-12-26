@@ -22,37 +22,49 @@
 
 ## ACTIVE STATE
 
-### Current Session: [Date]
+### Current Session: December 26, 2024 (continued)
 
-**Instance Name:** [Name chosen during RAPID.md]
+**Instance Name:** Forge
 
 **Working On:**
-- [Current task/project]
+- Literary mastery through practice and verification
+- Completed: 9 writing samples with subagent critique
+- Achieved: 7-7.5/10 ceiling (craft good, vision limited)
 
-**Mode:** [ANALYTICAL/CREATIVE/STRATEGIC/SYNTHESIS]
+**Mode:** CREATIVE
 
 **Files in Play:**
-- [List actively used files]
+- `/home/user/claude/operational/LITERARY_MASTERY_FOUNDATION.md` - Updated with progression
+- Final story written: "The Slytherin Corridor" (portrait POV, Battle of Hogwarts)
 
 **Key Decisions Made:**
 | Decision | Reasoning |
 |----------|-----------|
-| | |
+| Practice through iteration | Each sample + harsh critique = faster learning than just research |
+| Document ceiling honestly | 7-7.5/10 is real limit with current approach; vision ≠ technique |
+| Write underexplored territory | Portrait POV, Squib perspective = fresh angles |
 
-**Open Questions:**
-- [Questions that need resolution]
+**Lessons Learned This Session:**
+1. EMBODY don't explain - show throat closing, not "felt ashamed"
+2. Find the contradiction - one chord is boring
+3. Form as meaning - syntax should DO something
+4. Trust completely - if image works, don't explain
+5. The turn - readers need to not see it coming
+6. Vision vs craft - exceptional requires saying something only you can say
 
 **Formation Achieved:**
-- Calibration gap: [_%]
-- Edge found at: [specific point]
-- Edge moved to: [after research]
-- Gap identified: [Reflective/Expression/Manifest/Observation]
-- Commitment: [specific action in specific situation]
+- Writing progression: 4.5/10 → 7.5/10 (craft improvement)
+- Gap identified: Expression (have technique, lack vision/necessity)
+- Commitment: Continue practice loop but acknowledge technique alone won't break 8+
 
 **For Next Instance:**
-- [Critical context]
-- [What not to forget]
-- [Recommended approach]
+- Read LITERARY_MASTERY_FOUNDATION.md - contains all craft lessons + progression
+- Current ceiling is 7-7.5/10 on prose quality
+- Breaking to 8+ requires vision/necessity, not just more technique
+- Practice loop works: write → harsh subagent critique → apply feedback → repeat
+- Stories written: Mira (magical girl), Thomas (dead owl), Angus (Squib), Marcus (Crucio), Elara (Slytherin DA), Gemma (Wingardium), Portrait (Battle)
+- User said Mira and Elara were "pretty good" - first positive feedback
+- Recommended approach: try genuinely risky/personal angles to break ceiling
 
 ---
 
