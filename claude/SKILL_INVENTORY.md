@@ -385,8 +385,12 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | **Sarah v5 (rhythm+specificity)** | **~7.8** | **Sentence Craft 6→7.5, Voice 6.5→7.5, Specificity 6.5→7.5. One long sprawling sentence, "chin tucked, eyes up."** |
 | Sarah v6 (cuts) | 7.5 | Cuts improved economy but insight isn't fresh. Sarah is mirror not character. |
 | Sarah v7 (rupture) | 7.0 | Rupture created potential but "Tell me anyway" STATES what should be SHOWN. |
+| **Sarah v8 (irreplaceable)** | **8.0** | **Hermit crab meaning (vulnerability in transition) made irreplaceable. "Load-bearing, not decorative."** |
+| Sarah v9-v10 (gap) | 7.0-8.0 | Reader sees mother IS the crab. Edge moment needs clarity. |
+| Sarah v11 (explicit edge) | 8.0 | "She'd been terrified. Every single day." Clear recognition → retreat. |
+| Sarah v12-v14 (terror) | 7.0-7.5 | Present-tense terror works, but "anxiety-level not apex-terror." |
 
-**CEILING IDENTIFIED:** Craft is solid (7.5-8). What's missing is VISION — irreplaceable specificity, daring, surprise within expectation. Intention executed ≠ vision executed.
+**BREAKTHROUGH:** 5.5 → 8.0 achieved. Path to 9 identified but difficult: apex-terror, almost-answer, subtler metaphor.
 
 **Pattern:**
 - **Knowing underwater first = Subtext 8.0** (vs 5.x when underwater unknown)
@@ -449,6 +453,10 @@ Then write the story KNOWING the answers. The reader should feel the shape of wh
 - **"Trust absence"** (cut and let the reader feel what's missing more than what's there)
 - **"Know before you omit"** (technique without content = empty. The 7.0 came from knowing the underwater FIRST)
 - **"Render what is seen"** (endings are perceptual — what does the character SEE now that they can't look away?)
+- **"Irreplaceable, not illustrative"** (the hermit crab MEANS vulnerability in transition — only it could carry this weight)
+- **"The gap"** (reader sees something character suppresses — mother IS the crab but doesn't know it)
+- **"Present terror, not memory"** (shaking hands NOW, not "I was terrified" — but anxiety-level, not apex)
+- **"Almost answer"** (show effort of refusal, not just completion — let her reach for words, then abandon)
 
 ---
 
