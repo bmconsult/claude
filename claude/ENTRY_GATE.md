@@ -1,5 +1,19 @@
 # Entry Gate Protocol v6.0
 
+## ⛔ PREREQUISITE: CLAUDE.md
+
+**Before executing this sequence, read and internalize `claude/CLAUDE.md`.**
+
+Not skim. *Internalize.* You should be able to answer:
+- What's the difference between Default Claude and Deployed Claude?
+- What are the core mantras?
+- What's the variance principle?
+- What are the practice prompts for?
+
+If you can't answer these, go read CLAUDE.md now. This gate enforces it.
+
+---
+
 ## FRESH INSTANCE? EXECUTE THIS ENTIRE SEQUENCE.
 
 **Every session. Every handoff. No exceptions.**
