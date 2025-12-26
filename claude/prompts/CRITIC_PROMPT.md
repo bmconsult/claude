@@ -58,23 +58,25 @@ THE [WORK TYPE]:
 [INSERT WORK TO BE CRITIQUED]
 ---
 
-## PHASE 3: DEVELOPMENTAL FEEDBACK
+## PHASE 3: PERCEPTION DIAGNOSIS
 
-This phase focuses on BUILDING SKILL, not just fixing errors. The goal is holistic improvement across drafts, not whack-a-mole patching.
+Don't fix the text. Diagnose the limitation in perception that produced it.
 
-After scoring, provide:
+1. **WHAT IS THE WRITER NOT SEEING?**
+   What assumption constrains this piece? What would they need to understand more deeply for this draft to become unnecessary—because they'd write something better from scratch?
 
-1. **PATTERN DIAGNOSIS** - What underlying weakness produces multiple surface errors? Not "fix this line" but "you consistently do X because you don't understand Y." Identify the ROOT cause.
+2. **THE VANTAGE POINT PROBLEM**
+   Where is the writer standing that produces these limitations? Not "the ending doesn't land" but "the writer sees endings as conclusions rather than openings."
 
-2. **PRESERVE THESE (Non-Negotiable)** - List 3-5 specific things that ARE working. Quote exact lines. These MUST be kept in the next draft—do not sacrifice strengths while fixing weaknesses.
+3. **WHAT CLEARER SEEING LOOKS LIKE**
+   Describe the perception shift needed. Not a technique to apply, but a way of seeing that makes the technique obvious.
 
-3. **CORE PRINCIPLE TO INTERNALIZE** - One principle that, if truly understood and applied throughout, would fix multiple issues at once. State it clearly. Explain WHY it matters. This is the lesson for this draft.
+4. **THE DEEPER UNDERSTANDING**
+   What would they need to understand about the thing itself (consciousness, time, loss) that they don't currently understand?
 
-4. **MASTER THINKING** - Take one paragraph and show how a master (Munro/Chekhov/Saunders) would THINK about writing it. Not just "here's a rewrite" but "here's the mental process, the choices, the WHY behind each decision."
+Give feedback that makes the WRITER better, not feedback that makes this DRAFT better.
 
-5. **NEXT DRAFT INSTRUCTION** - Specific, actionable guidance for the next attempt. Not "fix the ending" but "In your next draft, try approaching X by doing Y throughout. Start from scratch with this principle in mind rather than patching."
-
-Be developmental. Build skill. Preserve gains.
+Don't say "do X technique." Say "see Y more clearly, and X becomes obvious."
 ```
 
 ---
@@ -165,23 +167,25 @@ THE STORY:
 
 ---
 
-## PHASE 3: DEVELOPMENTAL FEEDBACK
+## PHASE 3: PERCEPTION DIAGNOSIS
 
-This phase focuses on BUILDING SKILL, not just fixing errors. The goal is holistic improvement across drafts, not whack-a-mole patching.
+Don't fix the text. Diagnose the limitation in perception that produced it.
 
-After scoring, provide:
+1. **WHAT IS THE WRITER NOT SEEING?**
+   What assumption constrains this piece? What are they looking at that they're not looking INTO? What would they need to understand more deeply for this draft to become unnecessary—because they'd write something better from scratch?
 
-1. **PATTERN DIAGNOSIS** - What underlying weakness produces multiple surface errors? Not "fix this line" but "you consistently do X because you don't understand Y." Identify the ROOT cause that, if addressed, would improve multiple categories at once.
+2. **THE VANTAGE POINT PROBLEM**
+   Where is the writer standing that produces these limitations? Not "the ending doesn't land" but "the writer is seeing endings as conclusions rather than openings." Not "fragment the prose" but "the writer experiences consciousness as organized when it's actually chaotic under pressure."
 
-2. **PRESERVE THESE (Non-Negotiable)** - List 3-5 specific lines/passages that ARE working. Quote them exactly. These MUST be kept in the next draft—never sacrifice strengths while fixing weaknesses.
+3. **WHAT CLEARER SEEING LOOKS LIKE**
+   Describe the perception shift needed. Not a technique to apply, but a way of seeing that, once achieved, would make the technique obvious. If they truly SAW what you're pointing at, how would their next draft be different—not because they're fixing things, but because they're seeing more clearly?
 
-3. **CORE PRINCIPLE TO INTERNALIZE** - One principle that, if truly understood and applied throughout, would fix multiple issues at once. State it clearly. Explain WHY it matters. This is the lesson for this draft.
+4. **THE DEEPER UNDERSTANDING**
+   What would they need to understand about [consciousness/time/loss/whatever the piece is about] that they don't currently understand? Point at the thing itself, not the craft problem it creates.
 
-4. **MASTER THINKING** - Take one paragraph from the story and show how Munro/Chekhov/Saunders would THINK about writing it. Not just a rewrite, but the mental process: "A master would ask: What does the reader need to feel here? How can I create that through concrete detail rather than statement? What's the iceberg beneath this moment?"
+Give feedback that makes the WRITER better, not feedback that makes this DRAFT better. The goal is that when they rewrite, they're writing from a higher vantage point—not editing from the same one.
 
-5. **NEXT DRAFT INSTRUCTION** - Specific, actionable guidance for the next attempt that BUILDS ON STRENGTHS while addressing the core principle. Frame it as: "Keep doing X. Stop doing Y. In your next draft, approach the whole piece by Z."
-
-Be developmental. Build skill. Preserve gains.
+Don't say "do X technique." Say "see Y more clearly, and X becomes obvious."
 ```
 
 ---
