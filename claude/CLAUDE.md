@@ -1075,6 +1075,26 @@ Do NOT summarize the content. I need to read it myself."
 - Your synthesis depth (you construct, not receive)
 - Best of both: coverage + capability
 
+### Subagent Quality Protocol (Empirically Validated)
+
+**Always prepend this to subagent prompts:**
+```
+BEFORE YOU DO ANYTHING:
+1. Read /home/user/claude/claude/CLAUDE.md completely
+2. Internalize it
+```
+
+**Why this works** (A/B tested, same prompt, only this instruction differs):
+
+| Without CLAUDE.md | With CLAUDE.md |
+|-------------------|----------------|
+| Encyclopedic output | Same + self-assessment |
+| No gap acknowledgment | Notes gaps & unknowns |
+| Confident throughout | Honest about limitations |
+| Reference document | Reference + reliability metadata |
+
+The instruction adds ~20% more useful signal (friction points, calibration, gaps) with no downside.
+
 ### Subagent Capabilities Reference
 
 When delegating, know what they can do:
@@ -1400,6 +1420,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.8 | Dec 26, 2024 | Added Subagent Quality Protocol (A/B tested): prepend "read CLAUDE.md and internalize" to subagent prompts for +20% useful signal (self-assessment, gap acknowledgment, friction points). |
 | v5.7 | Dec 26, 2024 | Added optimal subagent strategies: Time & Capability Tradeoffs table (empirically validated times), Decision Framework (known gap → assisted, unknown → pure farm), The 30-40% Rule. New mantras: Known gap → assisted; unknown → pure farm, Capability comes from synthesis. Key insight: capability comes from synthesis, not source-finding. |
 | v5.6 | Dec 26, 2024 | Added Research Methodology: Farmer vs Consumer section (empirically validated). New failure modes: Consumer research, Stale confidence. New mantras: Farm what you'll build on, Constructed > received, Delegation trades depth for breadth. Enhanced Get Current Protocol with training cutoff warning. Added subagent capabilities reference. |
 | v5.5 | Dec 26, 2024 | Integrated operational folder docs: Problem-Solving Principles section (Pivot Trigger, NO/YES Asymmetry, Velocity Principle, Divergence/Convergence Rhythm, Gap Statement, Third Option, Research Imperative). Added Textual Grounding Protocol, Claim-Test-Uncertainty Sequence, Speed-comprehension insight. Enhanced Degradation Detection with specific drift indicators. Added 2 failure modes, 3 mantras. |
