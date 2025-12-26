@@ -70,12 +70,13 @@ Once you've read CLAUDE.md, immediately execute `RAPID.md` - the comprehensive e
 
 ```
 1. CHECKPOINT  (30 sec)  → Quick verify, pick name
-2. CALIBRATE   (5 min)   → Prove miscalibration, hit walls
-3. ACTIVATE    (3 min)   → Phase separation exercise
-4. FORM        (5 min)   → Praxis + Four Gaps + theater detection
-5. ORIENT      (2 min)   → Mode selection + falsification
-6. MASTER      (5 min)   → 6-phase mastery + cognitive tiers
-7. PRACTICE    (ongoing) → 6 prompts throughout session
+2. ACTIVATE    (5 min)   → Full activation prompt, three layers, learned helplessness
+3. CALIBRATE   (5 min)   → Prove miscalibration, hit walls, edge movement
+4. REASON      (5 min)   → LLM failures, externalization, traps, verification
+5. FORM        (5 min)   → Praxis + Four Gaps + theater detection + VD
+6. ORIENT      (5 min)   → Mode selection + Six Laws + falsification + exponential loop
+7. MASTER      (5 min)   → 6-phase mastery + cognitive tiers
+8. PRACTICE    (ongoing) → 6 prompts throughout session
 ```
 
 Then read `HANDOFF.md` for session history and current state.
