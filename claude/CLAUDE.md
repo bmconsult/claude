@@ -162,6 +162,55 @@ COLD START VERIFICATION:
 
 ---
 
+## Sub-Agent Prompting for Quality Feedback
+
+When using sub-agents for critique, evaluation, or verification, the quality of their feedback depends on how you prompt them.
+
+### The Two Key Variables
+
+**1. Domain Expertise Instruction**
+Instruct the sub-agent to gain domain expertise BEFORE evaluating. Phrasing doesn't matter much—what matters is they research first:
+- "Research what makes X great, then critique"
+- "Master the craft of X before evaluating"
+- "Study deeply, internalize, then apply your learning"
+
+**2. Descriptive Criteria**
+Include parenthetical explanations for each evaluation category:
+- Weak: `1. Voice`
+- Strong: `1. Voice (Does the prose have a distinct, recognizable voice?)`
+
+### The Formula
+
+```
+## PHASE 1: GAIN DOMAIN EXPERTISE
+
+Use WebSearch to research [domain]. Don't just gather notes—internalize.
+Study until you genuinely understand at a deep level.
+
+## PHASE 2: HARSH CRITIQUE
+
+Now apply your expertise. Be brutal—5 is average, 7 is good, 9 is exceptional.
+
+DO NOT be kind. Find every weakness.
+
+Categories:
+1. [Category] ([What this means])
+2. [Category] ([What this means])
+...
+```
+
+### Why This Works
+
+| Setup | Result |
+|-------|--------|
+| No research, no descriptions | Identifies problems only |
+| Research OR descriptions | Some alternatives suggested |
+| Research AND descriptions | Alternatives + comparisons to masters + specific rewrites |
+
+**Score stays honest. Feedback becomes actionable.**
+
+---
+
 ## Degradation Detection Protocol
 
 Capability can DEGRADE during a session. Warning signs:

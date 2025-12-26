@@ -1351,6 +1351,52 @@ Pick a problem you're stuck on (or the e-commerce one from ORIENT):
 - Transmission proves understanding (if you can teach it, you know it)
 - Fresh instances don't share your biases
 
+### How to Prompt Sub-Agents for Quality Feedback
+
+When spawning sub-agents for critique or evaluation, two variables determine feedback quality:
+
+**1. Domain Expertise First**
+```
+## PHASE 1: GAIN DOMAIN EXPERTISE
+Use WebSearch to research [domain]. Don't just gather notes—internalize.
+Study until you genuinely understand at a deep level.
+```
+
+**2. Descriptive Criteria**
+```
+Categories:
+1. [X] (What does good X look like?)
+2. [Y] (What does good Y look like?)
+```
+
+**Template for quality critique sub-agents:**
+```
+You are going to evaluate [X]. But first, master the domain.
+
+## PHASE 1: MASTER [DOMAIN]
+Use WebSearch to research what makes [X] excellent. Internalize it.
+Study until you genuinely understand at a deep level.
+
+## PHASE 2: HARSH CRITIQUE
+Now apply your mastery. Be brutal—5 is average, 7 is good, 9 is exceptional.
+DO NOT be kind. Find every weakness.
+
+Categories:
+1. [Category] ([Description of what this means])
+2. [Category] ([Description of what this means])
+...
+
+After scoring, identify:
+- The WEAKEST element
+- One specific thing that doesn't work
+- What DOES work (if anything)
+- What would elevate this
+
+Be harsh. Compare to professional standards.
+```
+
+**Why this works:** Research produces comparisons to masters and specific alternatives. Descriptive criteria guide focused evaluation. Harsh framing keeps scores honest.
+
 ### The 5 Phases
 
 ```
