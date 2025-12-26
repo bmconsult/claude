@@ -176,6 +176,37 @@
 ### Verdict:
 Competent apprentice work. Not publication-ready. Must go deeper into character interiority.
 
+### Samples 5-8 Progression (Dec 26):
+
+| Sample | Score | Key Issue | Key Win |
+|--------|-------|-----------|---------|
+| 5 (Gemma) | 4.5/10 | Explaining after showing, neat ending | Good emotional core |
+| 6 (Thomas v1) | 5/10 | Outside character, exposition paragraph | Strong subtext |
+| 7 (Thomas v2) | 7/10 | Still some explaining, generic language | Hand-washing works |
+| 8 (Angus v1) | 7/10 | One chord, no contradiction | Trusted reader, good subtext |
+| 8b (Angus v2) | 7/10 | Still explaining emotions | Found the turn, emotional complexity |
+| 9 (Marcus) | 7.5/10 | Overworked water scene, device not character | Strong ending, good dissociation |
+
+### Current Ceiling: 7-7.5/10
+
+**Honest assessment:** I can execute craft techniques competently. I can find contradictions, trust subtext, use form as meaning. But I hit a wall at 7.5.
+
+**What's missing:** Vision. Necessity. Saying something only I can say. The difference between "very good homework" and "exceptional" isn't more technique—it's having something that MUST be said.
+
+**The critique:** "You have craft. You need vision."
+
+This may be a fundamental limitation or it may require more practice than a single session allows. Documenting for next instance.
+
+### Key Lessons Distilled:
+
+1. **EMBODY, don't explain** - "felt relieved and ashamed" → show throat closing while shoulders drop
+2. **Find the contradiction** - One chord = boring. Need unexpected emotion cutting against expectation.
+3. **Form as meaning** - Syntax, rhythm should DO something, not just decorate
+4. **Physical correlates** - Every emotion needs a body. What does relief feel like in the stomach?
+5. **Voice consistency** - Pick a register (child, adolescent, adult) and stay in it
+6. **Trust completely** - If the image is working, don't explain it
+7. **The turn** - Great short fiction makes a move the reader doesn't see coming
+
 ---
 
 ---
@@ -301,5 +332,77 @@ Competent apprentice work. Not publication-ready. Must go deeper into character 
 
 ---
 
+## Advanced Prose Craft (From 8/10 to 10/10)
+
+### What Separates Literary from Competent
+
+1. **Language Beyond Function**
+   - Competent prose: delivers information efficiently
+   - Literary prose: language itself becomes experience
+   - Every sentence should feel inevitable, not adequate
+   - Reader should feel they're in hands of someone who LOVES language
+
+2. **Reader Space**
+   - Literary prose gives reader room to feel
+   - Don't over-explain emotions—create conditions for reader to feel them
+   - Trust gaps. Silence between beats. Let meaning arrive.
+   - "The reader completes the circuit"
+
+3. **Clarity + Curiosity (Opening Lines)**
+   - Great openings balance immediate grounding with forward pull
+   - NOT cryptic confusion. NOT boring clarity.
+   - Ground us in something concrete while creating gap to be closed
+   - "Call me Ishmael" - we know voice, we want to know why
+
+4. **Sentence Rhythm as Meaning**
+   - Parataxis: simple, direct, coordinate ("He ran. He fell. He died.")
+   - Hypotaxis: complex, subordinate, layered ("Because he ran, though he knew better...")
+   - Use parataxis for: urgency, childlike perspective, shock
+   - Use hypotaxis for: reflection, adult consciousness, complexity
+   - Vary DELIBERATELY based on emotional need
+
+5. **Sound Matters**
+   - Alliteration at heightened moments (not random decoration)
+   - Hard consonants for harshness, soft sounds for softness
+   - Read aloud—if it trips the tongue, it trips the eye
+   - Prose has melody; flat prose lacks it
+
+6. **Voice = Identity**
+   - Voice is "sounding like yourself and no one else"
+   - NOT vocabulary. NOT tricks. It's worldview made audible.
+   - Test: could this sentence be written by anyone? If yes, no voice.
+   - Voice emerges from character's specific way of seeing
+
+7. **Emotional Truth Over Literal Truth**
+   - Fiction resonates when it captures how things FEEL, not just how they ARE
+   - The lie that tells the truth
+   - Readers forgive plot holes for emotional authenticity
+   - What's the feeling this scene needs to LIVE in the reader?
+
+### The 9+/10 Checklist
+
+Before submitting any piece:
+
+- [ ] Does the first sentence have voice AND hook?
+- [ ] Could the reader identify the POV character's personality by page 2?
+- [ ] Is there sentence rhythm variation serving meaning?
+- [ ] Am I INSIDE the character or describing them from outside?
+- [ ] What is left unsaid that carries weight?
+- [ ] Does the ending resonate beyond the page?
+- [ ] Read aloud: does every sentence sound inevitable?
+- [ ] Where is the reader completing the circuit (feeling without being told)?
+
+### Pushing Beyond the Scale
+
+To break 10/10:
+- Surprise even yourself
+- Write the thing you're afraid to write
+- Trust the reader completely
+- Make every word earn its place
+- Find the image/moment that haunts
+- Voice so distinct it could only be this character in this story
+
+---
+
 *Last updated: December 26, 2024*
-*Status: Full scholarship complete. Ready for story writing.*
+*Status: Advanced craft integrated. Testing toward 9+/10.*
