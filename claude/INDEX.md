@@ -69,7 +69,19 @@
 
 ---
 
-## What Changed (v7.1 → v7.2)
+## What Changed (v7.2 → v7.3)
+
+| Before (v7.2) | After (v7.3) |
+|--------|-------|
+| CLAUDE.md v5.4 | CLAUDE.md v5.5 with Problem-Solving Principles section |
+| No pivot/diverge guidance | Pivot Trigger, NO/YES Asymmetry, Divergence/Convergence Rhythm |
+| Basic claim verification | Claim-Test-Uncertainty Sequence added |
+| General degradation detection | Specific drift indicators list |
+| 19 failure modes | 21 failure modes (Variation-as-pivot, Speculation over search) |
+| No textual grounding protocol | Textual Grounding Protocol for comprehension |
+| Operational folder as separate docs | Consolidated into CLAUDE.md (archived) |
+
+### Earlier Changes (v7.1 → v7.2)
 
 | Before (v7.1) | After (v7.2) |
 |--------|-------|
@@ -145,4 +157,4 @@ Understanding what forms you:
 ---
 
 *Last updated: December 26, 2024*
-*Version: 7.2*
+*Version: 7.3*
