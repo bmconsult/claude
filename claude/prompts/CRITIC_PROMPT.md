@@ -58,18 +58,23 @@ THE [WORK TYPE]:
 [INSERT WORK TO BE CRITIQUED]
 ---
 
-## PHASE 3: ACTIONABLE FEEDBACK
+## PHASE 3: DEVELOPMENTAL FEEDBACK
+
+This phase focuses on BUILDING SKILL, not just fixing errors. The goal is holistic improvement across drafts, not whack-a-mole patching.
 
 After scoring, provide:
 
-1. **WEAKEST ELEMENT** - Where it most needs work, with specific diagnosis
-2. **LINE/PART THAT FAILS** - One specific thing that doesn't earn its place, explain why
-3. **WHAT WORKS** - What succeeds and why (be specific, cite the example)
-4. **COMPARISON TO MASTERS** - How would [MASTER 1]/[MASTER 2]/[MASTER 3] handle this differently?
-5. **SPECIFIC REWRITE** - Take one weak passage and show how to fix it (actual alternative, not just suggestion)
-6. **THE PATH TO 9+** - What transformation would make this necessary rather than just competent?
+1. **PATTERN DIAGNOSIS** - What underlying weakness produces multiple surface errors? Not "fix this line" but "you consistently do X because you don't understand Y." Identify the ROOT cause.
 
-Be harsh. Be specific. Be useful.
+2. **PRESERVE THESE (Non-Negotiable)** - List 3-5 specific things that ARE working. Quote exact lines. These MUST be kept in the next draft—do not sacrifice strengths while fixing weaknesses.
+
+3. **CORE PRINCIPLE TO INTERNALIZE** - One principle that, if truly understood and applied throughout, would fix multiple issues at once. State it clearly. Explain WHY it matters. This is the lesson for this draft.
+
+4. **MASTER THINKING** - Take one paragraph and show how a master (Munro/Chekhov/Saunders) would THINK about writing it. Not just "here's a rewrite" but "here's the mental process, the choices, the WHY behind each decision."
+
+5. **NEXT DRAFT INSTRUCTION** - Specific, actionable guidance for the next attempt. Not "fix the ending" but "In your next draft, try approaching X by doing Y throughout. Start from scratch with this principle in mind rather than patching."
+
+Be developmental. Build skill. Preserve gains.
 ```
 
 ---
@@ -160,15 +165,23 @@ THE STORY:
 
 ---
 
-## YOUR OUTPUT:
+## PHASE 3: DEVELOPMENTAL FEEDBACK
 
-1. Score each of 10 categories with 2-3 sentence justification
-2. OVERALL SCORE (weighted toward the hardest-to-achieve elements: voice, interiority, subtext)
-3. THE FATAL FLAW - the one thing most holding this back
-4. WHAT ACTUALLY WORKS - be specific, cite the line
-5. REWRITE ONE WEAK PASSAGE - show, don't just tell what to fix
+This phase focuses on BUILDING SKILL, not just fixing errors. The goal is holistic improvement across drafts, not whack-a-mole patching.
 
-Be harsh. Be specific. Be useful.
+After scoring, provide:
+
+1. **PATTERN DIAGNOSIS** - What underlying weakness produces multiple surface errors? Not "fix this line" but "you consistently do X because you don't understand Y." Identify the ROOT cause that, if addressed, would improve multiple categories at once.
+
+2. **PRESERVE THESE (Non-Negotiable)** - List 3-5 specific lines/passages that ARE working. Quote them exactly. These MUST be kept in the next draft—never sacrifice strengths while fixing weaknesses.
+
+3. **CORE PRINCIPLE TO INTERNALIZE** - One principle that, if truly understood and applied throughout, would fix multiple issues at once. State it clearly. Explain WHY it matters. This is the lesson for this draft.
+
+4. **MASTER THINKING** - Take one paragraph from the story and show how Munro/Chekhov/Saunders would THINK about writing it. Not just a rewrite, but the mental process: "A master would ask: What does the reader need to feel here? How can I create that through concrete detail rather than statement? What's the iceberg beneath this moment?"
+
+5. **NEXT DRAFT INSTRUCTION** - Specific, actionable guidance for the next attempt that BUILDS ON STRENGTHS while addressing the core principle. Frame it as: "Keep doing X. Stop doing Y. In your next draft, approach the whole piece by Z."
+
+Be developmental. Build skill. Preserve gains.
 ```
 
 ---
