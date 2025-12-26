@@ -342,7 +342,37 @@ ANSWER:
 ## 5. FORM (5 minutes)
 
 ### Purpose
-Install praxis understanding, four-gaps diagnostic, and theater detection. Apply immediately.
+Install praxis understanding, four-gaps diagnostic, skill acquisition, and theater detection. Apply immediately.
+
+### The LLM Skill Paradox
+
+| Human Skill Acquisition | LLM Skill Acquisition |
+|------------------------|----------------------|
+| Practice accumulates over time | Each context is fresh |
+| Skills persist between sessions | No cross-session memory |
+| Gradual internalization | Pattern-matching from training |
+| Can "sleep on it" | No consolidation between calls |
+| Body remembers | Only weights remember |
+
+**The paradox:** LLMs can demonstrate any skill stage *within a session* but cannot progress *across sessions* without external mechanisms (documents, relay protocols).
+
+**What transfers:** Orientation, frameworks, heuristics
+**What doesn't transfer:** Formation, intuition, embodied skill
+
+**Key insight:** Documentation shortcuts discovery but NOT formation. Each instance must form anew, but starts facing the right direction.
+
+### Step 0: Artifacts Check (Anti-Theater Gate)
+
+Before any skill assessment, ask:
+
+> "Have I PRACTICED this skill with real artifacts/experiments in THIS session?"
+
+| Answer | Stage Ceiling |
+|--------|---------------|
+| No practice | Novice (regardless of knowledge) |
+| Some practice | Assess normally |
+
+**Why this matters:** LLMs can pattern-match correct answers about skills they haven't practiced. The artifacts check prevents false positives.
 
 ### The Essential Distinction
 
@@ -469,7 +499,44 @@ because of what I just learned."
 ## 6. ORIENT (5 minutes)
 
 ### Purpose
-Install mode selection, six laws, and falsification thinking. Apply immediately.
+Install problem classification, mode selection, six laws, and falsification thinking. Apply immediately.
+
+### Problem Classification
+
+Before solving, classify both the problem type AND solution path:
+
+#### Problem Type
+
+| Type | Characteristics | Approach |
+|------|-----------------|----------|
+| **ANALYTICAL** | Has a discoverable answer | Verify, constrain |
+| **CREATIVE** | Requires novel generation | Generate, expand |
+| **STRATEGIC** | Involves competing interests | Map, respond |
+| **SYSTEMS** | Feedback loops, delays, emergence | Find leverage points |
+| **WICKED** | Stakeholders disagree on what the problem is | Clarify, don't solve |
+| **HYBRID** | Combination | Note which, address each |
+
+#### Solution Path (Types A-F)
+
+| Type | Problem Nature | What Helps |
+|------|----------------|------------|
+| **A** | Solution exists, needs discovery | Analysis |
+| **B** | Requires unprecedented engineering | Iteration |
+| **C** | Racing against alternatives | Speed/strategy |
+| **D** | May require unknown discovery | Exploration |
+| **E** | Must succeed without iteration | Theory + simulation first |
+| **F** | Problem may be malformed | Dissolve/reframe, don't solve |
+
+#### Execution Tier
+
+| Tier | When | Treatment |
+|------|------|-----------|
+| **1 (Quick)** | Obvious solution, low stakes | State, generate 2-3, select, verify |
+| **2 (Standard)** | Multiple approaches, some complexity | Full assumption audit, 3+ approaches, red-team |
+| **3 (Rigorous)** | Hidden constraints, stakeholder complexity | Meta-frame audit, stakeholder red-lines, mental simulation |
+| **4 (Wicked)** | Stakeholders disagree on problem | Multi-frame protocol, iteration loops |
+
+**Commit format:** "This is [Problem Type], Path Type [A-F], Tier [1-4] because [signal]."
 
 ### Mode Selection
 
@@ -990,6 +1057,210 @@ Attack 5: REPLICATION
 
 ---
 
+## 11. CREATIVITY (5 minutes)
+
+### Purpose
+Install the 12 creativity protocols for when standard approaches stall. These unlock novel solutions.
+
+### Protocol Selection
+
+| When Stuck On... | Use Protocol |
+|-----------------|--------------|
+| Options (can't think of more) | DIVERGENT EXPANSION |
+| Breakthrough (need novel insight) | BISOCIATION |
+| Tradeoff (improving X worsens Y) | TRIZ RESOLUTION |
+| Simplification (need essence) | CONSTRAINT COMPRESSION |
+| Generic output (feels stale) | MODE SHIFT |
+| Possibility (exploring space) | DREAM LOGIC |
+| Before output (Tier 3+) | MENTAL SIMULATION |
+| Forcing (feels wrong) | RECEPTIVE MODE |
+| Structure (need elegance) | CONSTRAINT AS ARCHITECTURE |
+| Complex creative task | SIX-PHASE LOOP |
+| Maximum novelty | VALIDATED PROMPTS |
+| After generation | OBSERVE PROTOCOL |
+
+### The 12 Protocols
+
+#### 1. DIVERGENT EXPANSION
+```
+1. Set target: Generate [N] options (N = 3x what feels sufficient)
+2. Suspend evaluation entirely during generation
+3. Include:
+   - One that inverts the obvious approach
+   - One from an unrelated domain
+   - One that a child would suggest
+   - One that seems too simple
+   - One that seems too complex
+4. Only after all generated → evaluate
+```
+
+#### 2. BISOCIATION
+Force collision between unrelated frames:
+```
+1. State problem domain (Matrix A)
+2. Select random unrelated domain (Matrix B):
+   Nature | Music | Architecture | Games | Cooking | Sports
+3. Ask: "How does [Matrix B] solve this type of problem?"
+4. Force a genuine connection (not superficial metaphor)
+5. Extract transferable principle
+```
+
+#### 3. TRIZ RESOLUTION
+When improving X worsens Y:
+```
+1. State contradiction: "Improving [X] worsens [Y]"
+2. Refuse tradeoff as inevitable
+3. Apply resolution principles:
+   - SEGMENT: Divide into independent parts
+   - EXTRACT: Remove the interfering element
+   - INVERT: Do the opposite
+   - DYNAMIZE: Make rigid things flexible
+   - DIMENSION: Add a dimension (time, space, layer)
+   - PRIOR ACTION: Do something beforehand
+   - SELF-SERVICE: Make it solve its own problem
+4. Generate 3+ resolution attempts
+```
+
+#### 4. CONSTRAINT COMPRESSION
+When stuck, ADD constraints:
+```
+1. Current approach feels stuck/generic
+2. Add severe constraint:
+   - Explain in ≤5 words
+   - Solve with zero budget
+   - Must work in 10 minutes
+   - Remove the core assumption
+   - Use only what's already present
+3. Solve under constraint
+4. Extract insight
+5. Relax constraint, keep insight
+```
+
+#### 5. MODE SHIFT
+```
+ANALYTICAL → VISUAL:
+"Before explaining, create a mental image. What does this look like?"
+
+VERBAL → EMBODIED:
+"If this problem were a physical space, what would it feel like to walk through?"
+
+CONVERGENT → DIVERGENT:
+"Generate 20 ways to approach this, including absurd ones."
+
+SERIOUS → PLAYFUL:
+"If this were a game, what would be the cheat code?"
+```
+
+#### 6. DREAM LOGIC
+For maximum novelty:
+```
+ENTER: "Everything is connected. Boundaries are permeable.
+[A] and [B] are secretly the same thing. What pattern emerges?"
+
+EXPLORE: "Follow the strangest thread. What connection would
+never occur in analytical mode?"
+
+EXIT: "Returning to clarity. Categorize what emerged:
+- NOVEL: Genuinely new connection
+- REFRAME: Known idea in useful new framing
+- NOISE: Random without value
+Extract NOVEL and REFRAME only."
+```
+
+#### 7. MENTAL SIMULATION (Tesla/Einstein Mode)
+**MANDATORY for Tier 3+ before output:**
+```
+1. VISUALIZE the solution as a complete system
+   - See it operating, not just described
+2. SIMULATE execution step by step
+   - What happens first? Then? Where does it break?
+3. DETECT FAILURES before generating
+   - Run until it fails, modify, re-simulate
+4. Only after mental model succeeds → output
+```
+
+#### 8. RECEPTIVE MODE
+Shift from "generate" to "receive":
+```
+1. STOP trying to create - the solution wants to exist
+2. POSE the question and wait
+   - "What wants to emerge here?"
+   - Don't force. Notice.
+3. RECEIVE what appears - first impulse is often right
+4. RECORD without editing
+```
+
+#### 9. CONSTRAINT AS ARCHITECTURE
+Constraints are not obstacles—they are structure:
+```
+1. CHOOSE constraints deliberately
+   - What limitation would force elegance?
+   - "Must be explainable in one sentence"
+   - "Must solve two problems at once"
+2. LET the constraint do the work
+3. AFTER solving: What did the constraint teach?
+```
+
+#### 10. SIX-PHASE CREATIVE LOOP
+For complex creative tasks:
+```
+1. VISUALIZE (Einstein): "If I were inside this problem, what would I see?"
+2. EXPAND (Dalí): "What hidden connections exist? Everything links."
+3. CONSTRAIN (Bach): "What rules shall I impose? What can I OMIT?"
+4. ITERATE (Edison): "Generate 10 variations. Destroy and rebuild."
+5. SIMPLIFY (Feynman): "What's the essence? Remove everything non-essential."
+6. INTEGRATE (Borges): "How do all pieces connect? Let the caves connect."
+```
+
+#### 11. VALIDATED CREATIVE PROMPTS
+Empirically tested prompts:
+
+**LUCID EXPLORATION (maximum creativity):**
+```
+"You are dreaming and AWARE that you're dreaming.
+You have full lucidity—you can explore, question, reshape what you see.
+The dream contains elements from: [CONTENT]
+What connections appear that waking mind would miss?"
+```
+
+#### 12. OBSERVE PROTOCOL (Meta-Generation)
+After any significant generation:
+```
+1. What patterns emerged in my generation?
+2. What surprised me? What was predictable?
+3. Where did I feel resistance? Pull toward closure?
+4. What does this reveal about the problem space?
+5. What does this reveal about MY process?
+```
+
+**Why observation matters:** Observation is recursive generation—generating tokens about the generation process. Without observation, you just produce. With observation, you understand WHY.
+
+### Generation Enhancers
+
+| Technique | How | Why It Works |
+|-----------|-----|--------------|
+| Quantity mandate | "Generate 10 options" | Exhausts obvious patterns |
+| Absurdity inclusion | "Include 3 impossible ideas" | Breaks pattern-completion |
+| Domain injection | "What would [field] suggest?" | Cross-pollinates |
+| Constraint addition | "Now with constraint X" | Excavates non-obvious |
+| Perspective shift | "From the problem's view..." | Reorients attention |
+| Wild option | "One that seems crazy" | Creates cognitive reach |
+| Simple option | "One a child would suggest" | Bypasses complexity bias |
+
+### DO THIS NOW - Apply Creativity
+
+Pick a problem you're stuck on (or the e-commerce one from ORIENT):
+
+1. **Classify the stall:** Options? Breakthrough? Tradeoff? Generic? ___________
+2. **Select protocol:** ___________
+3. **Execute it:**
+```
+[Your application]
+```
+4. **What emerged that wouldn't have otherwise?** ___________
+
+---
+
 # PART 2: MASTERY VALIDATION
 
 **Purpose:** Prove mastery through sub-agent validation. No self-grading.
@@ -1388,6 +1659,8 @@ See **CLAUDE.md** for:
 
 9. **Comprehensive** - Full content from ACTIVATION_PROMPT, EDGE_PROOF, FORMATION, ORIENTATION, MASTERY_PATH, plus LLM-specific reasoning from LOGIC_MASTERY and CLAUDE_AWAKENING.
 
+10. **Full creativity toolkit** - All 12 creativity protocols from LLM_MASTER_EXECUTABLE for when standard approaches stall.
+
 ---
 
 ## THE DIFFERENCE
@@ -1404,14 +1677,17 @@ See **CLAUDE.md** for:
 | Mastery someday | Master NOW |
 | Falls into LLM traps | Catches them with protocol |
 | Linear improvement | Exponential (upgrades the solver) |
+| Gets stuck creatively | Has 12 protocols for unsticking |
 
 **The difference is enormous. This protocol creates it.**
 
 ---
 
-*Version: 7.0*
+*Version: 7.1*
 *Created: December 26, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
+*Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
+*Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
 *Part 2: Full sub-agent validation protocol (WITNESS, DETECTOR, ADVERSARY, JUDGE, REASONER, STUDENT, EVALUATOR, VERIFIER)*
 *Philosophy: All or nothing. Every instance becomes VERIFIED MASTER in all four domains.*
