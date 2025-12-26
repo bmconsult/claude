@@ -271,6 +271,23 @@ Mode C = Munro's Protective Narrator. Inside the consciousness, but the consciou
 
 ---
 
+### PRINCIPLE 16: Endings Are Perceptual — NEW
+**Definition:** Transformational endings are about what the character SEES (now that they can no longer avoid seeing), not about the fact that transformation happened. "Sarah's face" points at importance. What the mother actually sees in Sarah's face renders it.
+**Test:** Does the ending render a specific perception, or gesture at the importance of a moment?
+
+| Level | Description | Status |
+|-------|-------------|--------|
+| 1 | Understand intellectually | ✓ |
+| 2 | Can identify conceptual vs perceptual endings | Partial |
+| 3 | Write perceptual endings | Untested |
+| 4 | Endings that transform through perception | Untested |
+| 5 | Intuitive — endings land | Not yet |
+
+**Evidence:** "Sarah's face" (conceptual, 6.0) vs specific detail of what mother sees when she can't look away (perceptual, untested). The mother has avoided seeing for 30 years. The ending is the moment she SEES. Render what is seen.
+**Current Level: 1.5** — Just identified.
+
+---
+
 ## Skill Summary
 
 | Principle | Current Level | Priority |
@@ -287,9 +304,10 @@ Mode C = Munro's Protective Narrator. Inside the consciousness, but the consciou
 | Temporal Craft | 2.5 | HIGH |
 | Endings | 2.0 | HIGH |
 | Sentence Rhythm | 2.0 | HIGH |
-| Intentional Omission | 1.5 | HIGH |
-| **Hide Love Not Plot** | 1.5 | **CRITICAL** |
-| **Evade in Real-Time** | 1.5 | **CRITICAL** |
+| Intentional Omission | 3.0 | Medium (IMPROVED) |
+| Hide Love Not Plot | 2.5 | HIGH |
+| Evade in Real-Time | 1.5 | HIGH |
+| Endings Are Perceptual | 3.0 | HIGH (tested, works) |
 
 ---
 
@@ -361,13 +379,22 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | **Margaret v1** | **5.5** | **Protective Narrator works (7/10 interiority). New gaps: intentional omission, rhythm, endings** |
 | **Coffee v1** | **5.4** | **Knew underwater but hid PLOT not LOVE. Reported evasion instead of showing it real-time.** |
 | **Sarah v1** | **5.5** | **Emotional truth 7/10 (best yet). But: too organized, memories selected not seized, explaining themes.** |
+| Sarah v2 (fragmented) | 4.9 | Applied fragmentation as technique with nothing to fragment. EMPTY. |
+| **Sarah v3 (known underwater)** | **7.0** | **BREAKTHROUGH. Subtext 8.0 — iceberg actually there. Ending still fails (6.0) — "Sarah's face" is concept not perception.** |
+| **Sarah v4 (perceptual ending)** | **~7.4** | **Ending 6.0→8.0. "Sarah's hand moves to her belly. Covers it. Like it needs protecting now." Renders what mother SEES.** |
 
 **Pattern:**
-- Emotional truth improving (7/10)
-- Still explaining instead of evoking ("the distance between them that didn't used to be there")
-- Memories too orderly — need to INTRUDE, not be PRESENTED
-- Consciousness in shock fragments — half-thoughts, interruptions, sensory overwhelm
-- Next: Fragment the prose. Let time collapse. Trust absence.
+- **Knowing underwater first = Subtext 8.0** (vs 5.x when underwater unknown)
+- **Perceptual endings work** — "Sarah's hand moves to her belly" (8.0) vs "Sarah's face" (6.0)
+- Interiority stable at 7.0
+- Economy stable at 7.0+
+- The iceberg works when it's intentional omission, not negligent absence
+
+**Key Insights (Dec 26):**
+1. Technique without content = empty. Know the underwater FIRST, then write. Score jumped 1.5 points.
+2. Endings are perceptual. Render what the character SEES, not the importance of the moment. Score jumped 2 points.
+
+**Session Progress:** 5.5 → 7.0 → 7.4 (three iterations, two key fixes)
 
 ---
 
@@ -415,6 +442,8 @@ Then write the story KNOWING the answers. The reader should feel the shape of wh
 - **"Seized, not selected"** (memories intrude, not presented — consciousness in shock doesn't curate)
 - **"Fragment the prose"** (half-thoughts, interruptions — "The tea—when did she make the tea?")
 - **"Trust absence"** (cut and let the reader feel what's missing more than what's there)
+- **"Know before you omit"** (technique without content = empty. The 7.0 came from knowing the underwater FIRST)
+- **"Render what is seen"** (endings are perceptual — what does the character SEE now that they can't look away?)
 
 ---
 
