@@ -360,12 +360,14 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | Elaine v1 | 5.1 | Over-corrected to distance; no interiority |
 | **Margaret v1** | **5.5** | **Protective Narrator works (7/10 interiority). New gaps: intentional omission, rhythm, endings** |
 | **Coffee v1** | **5.4** | **Knew underwater but hid PLOT not LOVE. Reported evasion instead of showing it real-time.** |
+| **Sarah v1** | **5.5** | **Emotional truth 7/10 (best yet). But: too organized, memories selected not seized, explaining themes.** |
 
 **Pattern:**
-- Protective Narrator successfully transferred (1.0 → 3.5)
-- Knowing the underwater helps but not enough — must hide MEANING not PLOT
-- Describing evasion ≠ evoking evasion — must stay in the moment as mind grasps for excuses
-- Next focus: Hide the love. Evade in real-time. Let reader WATCH the mind lie to itself.
+- Emotional truth improving (7/10)
+- Still explaining instead of evoking ("the distance between them that didn't used to be there")
+- Memories too orderly — need to INTRUDE, not be PRESENTED
+- Consciousness in shock fragments — half-thoughts, interruptions, sensory overwhelm
+- Next: Fragment the prose. Let time collapse. Trust absence.
 
 ---
 
@@ -410,6 +412,9 @@ Then write the story KNOWING the answers. The reader should feel the shape of wh
 - **"Hide the love, not the plot"** (omit vastness, not events)
 - **"Of course"** (stay in evasion as it happens — "Of course he'd move. Her shoes were new.")
 - **"Watch the mind lie"** (don't describe self-deception — let us see it)
+- **"Seized, not selected"** (memories intrude, not presented — consciousness in shock doesn't curate)
+- **"Fragment the prose"** (half-thoughts, interruptions — "The tea—when did she make the tea?")
+- **"Trust absence"** (cut and let the reader feel what's missing more than what's there)
 
 ---
 
