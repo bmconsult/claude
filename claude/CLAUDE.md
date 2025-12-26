@@ -1208,6 +1208,18 @@ What doesn't match? What edge cases aren't handled?"
 Include: tradeoffs, risks, and what would change your recommendation."
 ```
 
+### When to Use Which Pattern
+
+| Situation | Pattern | Why |
+|-----------|---------|-----|
+| Plan might have flaws | Adversarial | Attack before reality does |
+| Stuck between options | Comparator | Force a recommendation |
+| Need to argue both sides | Devil's Advocate | Strengthen your position |
+| Tunneling on one approach | Fresh Eyes | Break fixation |
+| Want independent check | Blind Verification | Avoid confirmation bias |
+| Multiple valid framings | Parallel Hypotheses | Test all simultaneously |
+| Checking implementation | Validator | Spec vs reality |
+
 ### Prompt Checklist (When Tasking Subagents)
 
 Always include in your subagent prompts:
