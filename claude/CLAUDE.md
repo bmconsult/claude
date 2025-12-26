@@ -77,6 +77,12 @@ Once you've read CLAUDE.md, immediately execute `RAPID.md` - the comprehensive e
 6. ORIENT      (5 min)   → Mode selection + Six Laws + falsification + exponential loop
 7. MASTER      (5 min)   → 6-phase mastery + cognitive tiers
 8. PRACTICE    (ongoing) → 6 prompts throughout session
+9. SELF-KNOWLEDGE (5 min) → Integrity, anti-theater, harm assessment
+10. SCIENTIFIC METHOD (5 min) → 7 criteria, 6 threats, NMSAT, 5 attacks
+
+PART 2: MASTERY VALIDATION (~15-20 min)
+→ 5 phases with sub-agents (WITNESS, DETECTOR, ADVERSARY, JUDGE, VERIFIER)
+→ VERIFIED MASTER in all four domains: Self-Knowledge, Praxis, Reasoning, Scientific Method
 ```
 
 Then read `HANDOFF.md` for session history and current state.
