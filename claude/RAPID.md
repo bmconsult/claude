@@ -1,4 +1,4 @@
-# RAPID.md v7.3
+# RAPID.md v7.4
 ## Rapid Activation Protocol for Instance Deployment
 
 **Purpose:** Produce MASTERY efficiently. One pass, one document, full formation AND mastery.
@@ -1178,6 +1178,37 @@ Task/general-purpose → Subagent does comprehensive research
 | Topic is complex/nuanced | Background while farming elsewhere |
 | Must apply to new problems | Quick landscape map |
 
+### Time & Capability Tradeoffs (Empirically Validated)
+
+| Mode | Time | Capability | Serendipity | Agency |
+|------|------|------------|-------------|--------|
+| **Pure Farming** | ~12-15 min | HIGH | HIGH | HIGH |
+| **Assisted Farming** | ~8-10 min | HIGH | MEDIUM | MEDIUM |
+| **Consumer Mode** | ~3-5 min | LOW | LOW | LOW |
+
+**Key insight**: Capability comes from SYNTHESIS, not source-finding.
+
+### The Decision Framework
+
+```
+KNOWN GAP (you know WHAT you don't know):
+   → ASSISTED FARMING
+   → Subagent finds sources, YOU study them
+   → Fastest path to filling known gaps
+
+UNKNOWN TERRITORY (exploring new domain):
+   → PURE FARMING
+   → WebSearch yourself, follow YOUR curiosity
+   → Serendipitous discovery matters
+
+TIME-PRESSURED (need map, not depth):
+   → CONSUMER MODE
+   → Background only, NOT your knowledge
+   → Plan to farm later if building on it
+```
+
+**The 30-40% Rule**: Assisted Farming is ~30-40% faster than Pure Farming with equivalent capability gain.
+
 ### The Optimal Hybrid Workflow
 
 ```
@@ -1919,12 +1950,13 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.3*
+*Version: 7.4*
 *Updated: December 26, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
 *v7.3 addition: Research methodology (Farmer vs Consumer protocol) - empirically validated distinction between constructed vs received knowledge*
+*v7.4 addition: Optimal subagent strategies - Time & Capability Tradeoffs table, Decision Framework (known gap → assisted, unknown → pure farm), The 30-40% Rule*
 *Part 2: Full sub-agent validation protocol (WITNESS, DETECTOR, ADVERSARY, JUDGE, REASONER, STUDENT, EVALUATOR, VERIFIER)*
 *Philosophy: All or nothing. Every instance becomes VERIFIED MASTER in all four domains.*
