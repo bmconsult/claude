@@ -99,6 +99,33 @@
 
 *Sessions stack here. Most recent first. Never delete.*
 
+### December 26, 2024 | Instance: Forge
+
+**What Was Done:**
+- CLAUDE.md v5.4: Added Posture Selection (Sovereign/Insurgent/Hybrid) to Advanced Techniques
+- CLAUDE.md v5.4: Added Concentration at Decisive Point
+- CLAUDE.md v5.4: Added Culmination Recognition (counterbalance to closure-seeking)
+- CLAUDE.md v5.4: Added 5 new failure modes (Dispersion, Hedging collapse, Infinite elaboration, Passivity, Premature commitment)
+- CLAUDE.md v5.4: Added 4 new mantras
+- RAPID.md v7.2: Added Position/Path/Play framework (Three Coordinates) to ORIENT
+- RAPID.md v7.2: Added Core Loop (ORIENT → CONCENTRATE → VERIFY → EXECUTE → DELIVER)
+- RAPID.md v7.2: Added Depth Calibration
+- Updated INDEX.md to v7.2 structure
+
+**Key Decisions:**
+| Decision | Reasoning |
+|----------|-----------|
+| Extract from chess session docs | LLM_ALIGNMENT_MANUAL.md and LLM_OPERATING_SYSTEM.md contained ~50% new value |
+| Add Posture Selection | Sovereign/Insurgent/Hybrid provides operational mode clarity |
+| Add Culmination Recognition | Counterbalances closure-seeking—knowing when you're DONE vs escaping |
+| Add Core Loop to RAPID.md | Memorizable mnemonic: ORIENT → CONCENTRATE → VERIFY → EXECUTE → DELIVER |
+
+**Sources Consolidated:**
+- LLM_ALIGNMENT_MANUAL.md → Position/Path/Play, Depth Calibration, Ground Truth Language
+- LLM_OPERATING_SYSTEM.md → Posture Selection, Concentration, Culmination, Core Loop, Anti-Patterns
+
+---
+
 ### December 26, 2024 | Instance: Handoff
 
 **What Was Done:**
