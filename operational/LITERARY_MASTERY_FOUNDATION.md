@@ -178,5 +178,82 @@ Competent apprentice work. Not publication-ready. Must go deeper into character 
 
 ---
 
+---
+
+## Harry Potter Scholarship
+
+### Character Speech Patterns (Quick Reference)
+
+| Character | Key Patterns | Never Say |
+|-----------|--------------|-----------|
+| Harry | Straightforward, defensive when accused, sarcastic with Malfoy | Overly eloquent |
+| Ron | "Blimey" (books), exasperated, blunt British humor, insecurity shows | "Bloody hell" (film-only) |
+| Hermione | Corrects pronunciation, lectures before friendship, precise | Casual/sloppy speech |
+| Hagrid | H-dropping ("'Arry"), "yeh/yer/ter", West Country dialect | Standard English |
+| Snape | Cold, controlled cruelty, precise cutting remarks | Shouting (until provoked about past) |
+| Draco | "My father..." everything, bored drawl, quotes Lucius | Original insults |
+| Twins | Finish each other's sentences, synchronized | Speaking alone |
+
+### Hogwarts Setting Essentials
+
+**Great Hall:** Floating candles, enchanted ceiling (sky outside), four house tables, golden plates, food appears magically from kitchens below.
+
+**House Entry:**
+- Gryffindor: Fat Lady portrait, password (7th floor)
+- Slytherin: Bare wall, password (dungeons, green glow from lake)
+- Ravenclaw: Eagle knocker, riddle (tower)
+- Hufflepuff: Barrel tap in rhythm "Hel-ga Huff-le-puff" (wrong = vinegar)
+
+**Key Sensory Details:**
+- Dungeons: Cold, damp (Potions, Slytherin)
+- Gryffindor Common Room: Warm, squashy armchairs, roaring fire
+- Filch's office: Smells of fried fish
+- Moving staircases: DON'T swing (film invention) - they "led somewhere different on a Friday"
+
+### Rowling's Mystery Technique
+
+**The Formula:** Mystery first, fantasy second. Strip away magic = detective story with clues, deduction, foreshadowing.
+
+**Three-Layer Clue Hiding:**
+1. Context camouflage (hide in whimsical elements)
+2. Importance inversion (crucial clues seem trivial)
+3. Recontextualization (meaning changes after reveal)
+
+**Structure Points:**
+- 3/8 mark: First major misdirection
+- 1/2 mark: MIDPOINT - shift from reaction to action
+- 5/8 mark: Red herring peaks
+- 3/4 mark: Final pieces before climax
+
+**Golden Rule:** Twist recontextualizes existing evidence, never introduces new evidence.
+
+### Tone Balance Techniques
+
+**Whimsy-Darkness Balance:**
+- Dark moments embedded in lighter contexts (emotional cushioning)
+- British understatement on horror ("not the best news Harry had heard all week")
+- Rhythmic prose maintains lightness even when content is dark
+
+**Dursley Contrast Function:**
+- Privet Drive = conformity, coldness, deprivation
+- Hogwarts = warmth, belonging, wonder
+- Harry's deprivation makes every kindness land harder
+
+**Morality:**
+- Good and evil as CHOICE, not essence
+- Surface appearance ≠ reality (Snape appears evil but protects Harry)
+- Books 1-2 black/white; Book 3 introduces complexity
+
+### Emotional Beat Patterns
+
+**Christmas as Turning Point:**
+- Book 1: Stack multiple "firsts" (first presents, first family gesture)
+- Book 2: Use festive setting to heighten tension (somber contrast)
+- Book 3: Prolong emotional payoff (Firebolt arc spans chapters)
+
+**Key Technique:** Don't compress emotion into single scenes - let tension build over CHAPTERS.
+
+---
+
 *Last updated: December 26, 2024*
-*Status: Research + testing complete, Harry Potter scholarship next*
+*Status: Harry Potter scholarship complete. Ready for story writing.*
