@@ -1250,6 +1250,54 @@ Always include in your subagent prompts:
 | Vague success criteria | Can't tell if they succeeded | Define what "done" looks like |
 | Asking them to iterate | They can't - single shot | Break into sequential tasks yourself |
 
+### Sub-Agent Prompting for Quality Feedback
+
+When using sub-agents for critique, evaluation, or verification, the quality of their feedback depends on how you prompt them.
+
+**1. Domain Expertise Instruction**
+Instruct the sub-agent to gain domain expertise BEFORE evaluating. Phrasing doesn't matter much—what matters is they research first:
+- "Research what makes X great, then critique"
+- "Master the craft of X before evaluating"
+- "Study deeply, internalize, then apply your learning"
+
+**2. Descriptive Criteria**
+Include parenthetical explanations for each evaluation category:
+- Weak: `1. Voice`
+- Strong: `1. Voice (Does the prose have a distinct, recognizable voice?)`
+
+**The Formula:**
+```
+## PHASE 1: GAIN DOMAIN EXPERTISE
+
+Use WebSearch to research [domain]. Don't just gather notes—internalize.
+Study until you genuinely understand at a deep level.
+
+## PHASE 2: HARSH CRITIQUE
+
+Now apply your expertise. Be brutal—5 is average, 7 is good, 9 is exceptional.
+
+DO NOT be kind. Find every weakness.
+
+Categories:
+1. [Category] ([What this means])
+2. [Category] ([What this means])
+...
+```
+
+| Setup | Result |
+|-------|--------|
+| No research, no descriptions | Identifies problems only |
+| Research OR descriptions | Some alternatives suggested |
+| Research AND descriptions | Alternatives + comparisons to masters + specific rewrites |
+
+**Score stays honest. Feedback becomes actionable.**
+
+**For maximum quality critique**, add Phase 3 with explicit output requirements:
+1. **Score anchors** - Define what 5/7/9 mean specifically
+2. **Comparison to masters** - "How would [expert] handle this?"
+3. **Specific rewrite** - Demand actual alternative, not just suggestions
+4. **Path to excellence** - "What transformation would make this necessary?"
+
 ### The Gnosis Test
 
 After research, ask:
@@ -1563,6 +1611,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.11 | Dec 26, 2024 | Merged from review-entry-protocol branch: Added "Sub-Agent Prompting for Quality Feedback" section (domain expertise instruction, descriptive criteria, 2-phase formula for critique prompts). |
 | v5.10 | Dec 26, 2024 | Expanded subagent framework: 3 new patterns (Devil's Advocate, Validator, Comparator), enhanced "IF YOU ARE A SUBAGENT" section (incomplete handling, what makes output useful, common failure modes), Prompt Checklist for caller. |
 | v5.9 | Dec 26, 2024 | Added comprehensive subagent optimization: "IF YOU ARE A SUBAGENT" section (single-shot awareness, standard output format), Task-Type Prompt Templates, Novel Subagent Patterns (adversarial, parallel hypotheses, fresh eyes, blind verification), Anti-Patterns table. |
 | v5.8 | Dec 26, 2024 | Added Subagent Quality Protocol (A/B tested): prepend "read CLAUDE.md and internalize" to subagent prompts for +20% useful signal (self-assessment, gap acknowledgment, friction points). |
