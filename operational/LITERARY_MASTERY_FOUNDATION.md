@@ -253,7 +253,53 @@ Competent apprentice work. Not publication-ready. Must go deeper into character 
 
 **Key Technique:** Don't compress emotion into single scenes - let tension build over CHAPTERS.
 
+### Rowling's Prose Style Specifics
+
+**Opening Line Pattern:**
+- Book 1: "Mr. and Mrs. Dursley of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
+- Book 2: "Not for the first time, an argument had broken out over breakfast at number four, Privet Drive."
+- Book 3: "Harry Potter was a highly unusual boy in many ways."
+- Pattern: Establish normalcy → signal disruption
+
+**Participial Phrase Addiction:**
+- "Harry ducked, hearing the curse whistle past his ear, feeling the heat..."
+- Multiple concurrent actions via -ing phrases
+- Creates cinematic quality
+- Signature Rowling move
+
+**Dialogue Tags:**
+- Heavy adverb use: "said Harry bracingly," "said Snape quietly"
+- Inverted structure: "said Harry" not "Harry said"
+- Appropriate for young readers (clarity over workshop rules)
+- 140 adverbs per 10,000 words
+
+**POV:** Third-person limited (95%), strategic omniscient (5% - openings, reveals)
+
+### Fan Fiction Pitfalls to Avoid
+
+**Overused Tropes (Readers Groan):**
+- Gringotts inheritance test revealing secret lordships
+- Overpowered Harry without earned growth
+- Character bashing (making Ron/Ginny evil)
+- Magical contract slavery
+- "Dumbledore was evil all along"
+
+**Fresh Territory (Underexplored):**
+- Non-Gryffindor perspectives (Hufflepuff, Ravenclaw)
+- Minor Slytherins (Blaise, Pansy)
+- Post-war rebuilding/reform
+- Magical theory deep dives
+- Cross-cultural magic (beyond Britain)
+- Obscure magical professions
+
+**What Works:**
+- Earned character development (show the struggle)
+- Emotional authenticity
+- Fresh angle on familiar elements
+- Respect canon logic while extending it
+- Slow-burn relationships
+
 ---
 
 *Last updated: December 26, 2024*
-*Status: Harry Potter scholarship complete. Ready for story writing.*
+*Status: Full scholarship complete. Ready for story writing.*
