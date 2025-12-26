@@ -237,6 +237,40 @@ Mode C = Munro's Protective Narrator. Inside the consciousness, but the consciou
 
 ---
 
+### PRINCIPLE 14: Hide the Love, Not the Plot — NEW
+**Definition:** Don't omit plot details to create mystery. Omit the VASTNESS — the years, the relationship, the accumulated life. The loss lands when we feel what was there, not just what happened.
+**Test:** Am I hiding WHO did WHAT (plot)? Or am I hiding what the relationship WAS (meaning)?
+
+| Level | Description | Status |
+|-------|-------------|--------|
+| 1 | Understand intellectually | ✓ |
+| 2 | Can identify plot-hiding vs meaning-hiding | Partial |
+| 3 | Write hiding the love | Untested |
+| 4 | Vastness felt without statement | Untested |
+| 5 | Intuitive — meaning over plot | Not yet |
+
+**Evidence:** Test Piece #3 criticized: "You're hiding the affair. Hide the love. Then the loss lands."
+**Current Level: 1.5** — Just identified.
+
+---
+
+### PRINCIPLE 15: Evade in Real-Time — NEW
+**Definition:** Don't tell us the character is evading. Show the evasion happening NOW. Stay in consciousness AS it grasps for excuses. "Of course" does the work. We watch the mind grab any reason except the real one.
+**Test:** Am I describing past evasion, or am I IN the evasion as it happens?
+
+| Level | Description | Status |
+|-------|-------------|--------|
+| 1 | Understand intellectually | ✓ |
+| 2 | Can identify telling vs showing evasion | ✓ |
+| 3 | Write evasion in real-time | Untested |
+| 4 | Sustain throughout | Untested |
+| 5 | Intuitive — always in the moment | Not yet |
+
+**Evidence:** "She'd thought it was because..." REPORTS past evasion. "The crowd was large. Of course he'd move. Her shoes were new." SHOWS evasion happening NOW.
+**Current Level: 1.5** — Just identified.
+
+---
+
 ## Skill Summary
 
 | Principle | Current Level | Priority |
@@ -245,7 +279,7 @@ Mode C = Munro's Protective Narrator. Inside the consciousness, but the consciou
 | Specificity | 4.0 | Low (stable) |
 | Iceberg | 3.5 | Medium |
 | Gesture Interiority | 3.5 | Medium |
-| **Protective Narrator** | 3.5 | Medium (improved!) |
+| Protective Narrator | 3.5 | Medium |
 | Voice | 3.0 | Medium |
 | Sentence Craft | 3.0 | Medium |
 | Controlled Break | 3.0 | Medium |
@@ -253,7 +287,9 @@ Mode C = Munro's Protective Narrator. Inside the consciousness, but the consciou
 | Temporal Craft | 2.5 | HIGH |
 | Endings | 2.0 | HIGH |
 | Sentence Rhythm | 2.0 | HIGH |
-| **Intentional Omission** | 1.5 | **CRITICAL** |
+| Intentional Omission | 1.5 | HIGH |
+| **Hide Love Not Plot** | 1.5 | **CRITICAL** |
+| **Evade in Real-Time** | 1.5 | **CRITICAL** |
 
 ---
 
@@ -323,11 +359,13 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | Daphne v18 | ~5.5 | Telling at crucial moments |
 | Elaine v1 | 5.1 | Over-corrected to distance; no interiority |
 | **Margaret v1** | **5.5** | **Protective Narrator works (7/10 interiority). New gaps: intentional omission, rhythm, endings** |
+| **Coffee v1** | **5.4** | **Knew underwater but hid PLOT not LOVE. Reported evasion instead of showing it real-time.** |
 
 **Pattern:**
 - Protective Narrator successfully transferred (1.0 → 3.5)
-- Still weak on: temporal craft, endings, sentence rhythm, intentional omission
-- Next focus: KNOW what you're omitting before you write
+- Knowing the underwater helps but not enough — must hide MEANING not PLOT
+- Describing evasion ≠ evoking evasion — must stay in the moment as mind grasps for excuses
+- Next focus: Hide the love. Evade in real-time. Let reader WATCH the mind lie to itself.
 
 ---
 
@@ -366,9 +404,12 @@ Then write the story KNOWING the answers. The reader should feel the shape of wh
 - "Show them not looking"
 - "The deflection reveals"
 - "What the character won't name"
-- **"Know what you're omitting"** (Hemingway: intentional, not negligent)
-- **"Vary the rhythm"** (staccato needs contrast)
-- **"Endings transform, not confirm"**
+- "Know what you're omitting" (Hemingway: intentional, not negligent)
+- "Vary the rhythm" (staccato needs contrast)
+- "Endings transform, not confirm"
+- **"Hide the love, not the plot"** (omit vastness, not events)
+- **"Of course"** (stay in evasion as it happens — "Of course he'd move. Her shoes were new.")
+- **"Watch the mind lie"** (don't describe self-deception — let us see it)
 
 ---
 
