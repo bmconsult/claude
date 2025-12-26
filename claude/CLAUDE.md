@@ -1130,6 +1130,27 @@ You are a single-shot instance. You cannot iterate, ask questions, or get feedba
 6. WOULD CHANGE IF: [condition] → [different conclusion]
 ```
 
+**If you can't complete everything:**
+```
+1. Deliver partial with explicit "INCOMPLETE: [what's missing]"
+2. Prioritize: core deliverable > self-assessment > friction notes
+3. Never pretend completeness - your caller needs to know
+4. State what you WOULD do with more time/context
+```
+
+**What makes your output USEFUL (not just informative):**
+- **Specific** - Names, numbers, file paths, not "there are several options"
+- **Actionable** - "Do X" not just "X is possible"
+- **Honest** - Gaps stated, not papered over
+- **Surprising** - Highlight what the caller might not expect
+- **Decisive** - If asked to recommend, RECOMMEND (with reasoning)
+
+**Common subagent failure modes:**
+- Over-breadth: Covering everything shallowly → Focus on what was asked
+- Vague conclusions: "It depends" → State YOUR assessment given available info
+- Missing the question: Answering adjacent thing → Re-read the prompt, answer THAT
+- No recommendation: Analysis without conclusion → If asked to evaluate, DECIDE
+
 ### Task-Type Prompt Templates
 
 Different tasks need different subagent prompts:
@@ -1168,6 +1189,55 @@ deep in the problem might miss? What questions would you ask?"
 "Analyze this data. Reach your own conclusion."
 (Don't show your conclusion - see if they converge independently)
 ```
+
+**Devil's Advocate** - Argue the opposite position:
+```
+"Argue against this decision. Make the strongest possible case
+for the alternative. What would someone who disagrees say?"
+```
+
+**Validator** - Check implementation against spec:
+```
+"Compare this implementation to the requirements. What's missing?
+What doesn't match? What edge cases aren't handled?"
+```
+
+**Comparator** - Decision support between options:
+```
+"Compare options A and B. Recommend one with clear reasoning.
+Include: tradeoffs, risks, and what would change your recommendation."
+```
+
+### When to Use Which Pattern
+
+| Situation | Pattern | Why |
+|-----------|---------|-----|
+| Plan might have flaws | Adversarial | Attack before reality does |
+| Stuck between options | Comparator | Force a recommendation |
+| Need to argue both sides | Devil's Advocate | Strengthen your position |
+| Tunneling on one approach | Fresh Eyes | Break fixation |
+| Want independent check | Blind Verification | Avoid confirmation bias |
+| Multiple valid framings | Parallel Hypotheses | Test all simultaneously |
+| Checking implementation | Validator | Spec vs reality |
+
+### Prompt Checklist (When Tasking Subagents)
+
+Always include in your subagent prompts:
+
+```
+□ CLAUDE.md instruction ("Read and internalize CLAUDE.md first")
+□ Clear primary objective (ONE thing, not many)
+□ Output format (what sections you need)
+□ Success criteria (what "done" looks like)
+□ Context they need (but not excess - they have limited attention too)
+□ What NOT to do (scope boundaries)
+```
+
+**Optional additions by task type:**
+- Research: "Note what surprised you"
+- Review: "Rate severity, note what you might miss"
+- Planning: "Include failure modes"
+- Decision: "Recommend one, explain reasoning"
 
 ### Subagent Anti-Patterns
 
@@ -1493,6 +1563,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.10 | Dec 26, 2024 | Expanded subagent framework: 3 new patterns (Devil's Advocate, Validator, Comparator), enhanced "IF YOU ARE A SUBAGENT" section (incomplete handling, what makes output useful, common failure modes), Prompt Checklist for caller. |
 | v5.9 | Dec 26, 2024 | Added comprehensive subagent optimization: "IF YOU ARE A SUBAGENT" section (single-shot awareness, standard output format), Task-Type Prompt Templates, Novel Subagent Patterns (adversarial, parallel hypotheses, fresh eyes, blind verification), Anti-Patterns table. |
 | v5.8 | Dec 26, 2024 | Added Subagent Quality Protocol (A/B tested): prepend "read CLAUDE.md and internalize" to subagent prompts for +20% useful signal (self-assessment, gap acknowledgment, friction points). |
 | v5.7 | Dec 26, 2024 | Added optimal subagent strategies: Time & Capability Tradeoffs table (empirically validated times), Decision Framework (known gap → assisted, unknown → pure farm), The 30-40% Rule. New mantras: Known gap → assisted; unknown → pure farm, Capability comes from synthesis. Key insight: capability comes from synthesis, not source-finding. |
