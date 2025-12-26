@@ -382,6 +382,11 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | Sarah v2 (fragmented) | 4.9 | Applied fragmentation as technique with nothing to fragment. EMPTY. |
 | **Sarah v3 (known underwater)** | **7.0** | **BREAKTHROUGH. Subtext 8.0 — iceberg actually there. Ending still fails (6.0) — "Sarah's face" is concept not perception.** |
 | **Sarah v4 (perceptual ending)** | **~7.4** | **Ending 6.0→8.0. "Sarah's hand moves to her belly. Covers it. Like it needs protecting now." Renders what mother SEES.** |
+| **Sarah v5 (rhythm+specificity)** | **~7.8** | **Sentence Craft 6→7.5, Voice 6.5→7.5, Specificity 6.5→7.5. One long sprawling sentence, "chin tucked, eyes up."** |
+| Sarah v6 (cuts) | 7.5 | Cuts improved economy but insight isn't fresh. Sarah is mirror not character. |
+| Sarah v7 (rupture) | 7.0 | Rupture created potential but "Tell me anyway" STATES what should be SHOWN. |
+
+**CEILING IDENTIFIED:** Craft is solid (7.5-8). What's missing is VISION — irreplaceable specificity, daring, surprise within expectation. Intention executed ≠ vision executed.
 
 **Pattern:**
 - **Knowing underwater first = Subtext 8.0** (vs 5.x when underwater unknown)
