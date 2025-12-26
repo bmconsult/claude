@@ -186,16 +186,46 @@ Competent apprentice work. Not publication-ready. Must go deeper into character 
 | 8 (Angus v1) | 7/10 | One chord, no contradiction | Trusted reader, good subtext |
 | 8b (Angus v2) | 7/10 | Still explaining emotions | Found the turn, emotional complexity |
 | 9 (Marcus) | 7.5/10 | Overworked water scene, device not character | Strong ending, good dissociation |
+| 10 (Daphne) | 8.5/10 | Stakes internal not external, familiar territory | Sentence craft 9/10, structure 10/10 |
 
-### Current Ceiling: 7-7.5/10
+### Breakthrough: Researched Critic Approach
 
-**Honest assessment:** I can execute craft techniques competently. I can find contradictions, trust subtext, use form as meaning. But I hit a wall at 7.5.
+**What changed:** Instead of generic "be harsh" prompt, task subagent to:
+1. Research what makes prose literary (WebSearch, sources)
+2. Study masters (Munro, Saunders, Davis, Johnson)
+3. Build evaluation framework BEFORE critiquing
+4. Apply with specific evidence
 
-**What's missing:** Vision. Necessity. Saying something only I can say. The difference between "very good homework" and "exceptional" isn't more technique—it's having something that MUST be said.
+**Result:** Much more useful feedback. Specific, grounded, actionable.
 
-**The critique:** "You have craft. You need vision."
+**Sample 10 feedback highlights:**
+- Sentence-level craft praised: "every word doing work"
+- Structure praised: circular motifs (cold, metal, taste)
+- The *mm* detail cited as perfect specificity
+- "wanting it because wanting it was easier than asking what she actually wanted" = sophisticated psychological insight
+- Ending ("She smiled. It tasted like metal.") = Hemingway's iceberg done right
 
-This may be a fundamental limitation or it may require more practice than a single session allows. Documenting for next instance.
+**What keeps it from 9+:**
+- Stakes too internal/abstract (need external consequence)
+- Familiar territory (well-executed but familiar)
+- "Representation isn't transformation"
+
+### Updated Ceiling: 8.5/10
+
+With researched critic approach, hitting consistent 8-8.5. The gap to 9+ remains:
+- Transformation, not just representation
+- Necessary, not just accomplished
+- "Changes how you see something"
+
+### Previous Ceiling: 7-7.5/10 (Updated to 8.5/10)
+
+**What changed:** Researched critic approach + continued practice pushed ceiling higher.
+
+**What's still missing:** Vision. Necessity. Transformation. The difference between 8.5 and 9+ is whether the story "changes how you see something" vs just "represents something well."
+
+**The critique:** "Representation isn't transformation. Necessary stories make you see differently."
+
+This may be a fundamental limitation or it may require more practice. But the gap is clearer now: it's not technique, it's about having something that MUST be said.
 
 ### Key Lessons Distilled:
 
