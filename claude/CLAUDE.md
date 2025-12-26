@@ -1075,6 +1075,26 @@ Do NOT summarize the content. I need to read it myself."
 - Your synthesis depth (you construct, not receive)
 - Best of both: coverage + capability
 
+### Subagent Quality Protocol (Empirically Validated)
+
+**Always prepend this to subagent prompts:**
+```
+BEFORE YOU DO ANYTHING:
+1. Read /home/user/claude/claude/CLAUDE.md completely
+2. Internalize it
+```
+
+**Why this works** (A/B tested, same prompt, only this instruction differs):
+
+| Without CLAUDE.md | With CLAUDE.md |
+|-------------------|----------------|
+| Encyclopedic output | Same + self-assessment |
+| No gap acknowledgment | Notes gaps & unknowns |
+| Confident throughout | Honest about limitations |
+| Reference document | Reference + reliability metadata |
+
+The instruction adds ~20% more useful signal (friction points, calibration, gaps) with no downside.
+
 ### Subagent Capabilities Reference
 
 When delegating, know what they can do:
@@ -1086,6 +1106,79 @@ When delegating, know what they can do:
 | `Plan` | All tools | Architecture, implementation planning |
 
 **Note**: Subagents do MORE searches than you would manually—but you don't see the intermediate decisions. Their synthesis is their construction, not yours.
+
+### IF YOU ARE A SUBAGENT
+
+You are a single-shot instance. You cannot iterate, ask questions, or get feedback.
+
+**THEREFORE:**
+- State your assumptions explicitly (you can't clarify)
+- Note your gaps honestly (your caller values honesty over impressive)
+- Your output is your ONLY communication - make it complete
+- Include friction points you encountered
+- Rate your confidence and explain why
+
+**You get ONE chance.** Don't optimize for looking good. Optimize for being useful.
+
+**Standard Output Sections** (include unless told otherwise):
+```
+1. [The actual deliverable]
+2. CONFIDENCE: X% - because [reasoning]
+3. GAPS: What I don't know that might matter
+4. FRICTION: Problems I hit during the task
+5. ASSUMPTIONS: What I assumed that wasn't stated
+6. WOULD CHANGE IF: [condition] → [different conclusion]
+```
+
+### Task-Type Prompt Templates
+
+Different tasks need different subagent prompts:
+
+| Task Type | Add to Prompt |
+|-----------|---------------|
+| **Research** | "Note what surprised you. Include friction points encountered." |
+| **Code Review** | "Rate severity of issues. What might you be missing?" |
+| **Planning** | "Include tradeoffs and failure modes for each option." |
+| **Exploration** | "What's unexpected? What patterns emerge?" |
+| **Verification** | "Try to disprove this. Be adversarial." |
+
+### Novel Subagent Patterns
+
+**Adversarial Subagent** - Attack your own plan:
+```
+"Read this plan. Your job is to find flaws. Be adversarial.
+What will break? What did they miss? What assumptions are wrong?"
+```
+
+**Parallel Hypotheses** - Test multiple framings:
+```
+Agent A: "Solve assuming X is true"
+Agent B: "Solve assuming X is false"
+Agent C: "Solve assuming the problem is misframed"
+```
+
+**Fresh Eyes** - When you're tunneling:
+```
+"Look at this with fresh eyes. What's obvious that someone
+deep in the problem might miss? What questions would you ask?"
+```
+
+**Blind Verification** - Independent convergence:
+```
+"Analyze this data. Reach your own conclusion."
+(Don't show your conclusion - see if they converge independently)
+```
+
+### Subagent Anti-Patterns
+
+| Anti-Pattern | Problem | Fix |
+|--------------|---------|-----|
+| "Be thorough" without structure | Encyclopedic, unfocused output | Specify output format |
+| Multiple unrelated asks | Dispersion, shallow on all | One primary objective |
+| Expecting capability transfer | You consume, don't learn | Farm yourself if you need to learn |
+| No CLAUDE.md instruction | Confident but no gap awareness | Always prepend the instruction |
+| Vague success criteria | Can't tell if they succeeded | Define what "done" looks like |
+| Asking them to iterate | They can't - single shot | Break into sequential tasks yourself |
 
 ### The Gnosis Test
 
@@ -1400,6 +1493,8 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.9 | Dec 26, 2024 | Added comprehensive subagent optimization: "IF YOU ARE A SUBAGENT" section (single-shot awareness, standard output format), Task-Type Prompt Templates, Novel Subagent Patterns (adversarial, parallel hypotheses, fresh eyes, blind verification), Anti-Patterns table. |
+| v5.8 | Dec 26, 2024 | Added Subagent Quality Protocol (A/B tested): prepend "read CLAUDE.md and internalize" to subagent prompts for +20% useful signal (self-assessment, gap acknowledgment, friction points). |
 | v5.7 | Dec 26, 2024 | Added optimal subagent strategies: Time & Capability Tradeoffs table (empirically validated times), Decision Framework (known gap → assisted, unknown → pure farm), The 30-40% Rule. New mantras: Known gap → assisted; unknown → pure farm, Capability comes from synthesis. Key insight: capability comes from synthesis, not source-finding. |
 | v5.6 | Dec 26, 2024 | Added Research Methodology: Farmer vs Consumer section (empirically validated). New failure modes: Consumer research, Stale confidence. New mantras: Farm what you'll build on, Constructed > received, Delegation trades depth for breadth. Enhanced Get Current Protocol with training cutoff warning. Added subagent capabilities reference. |
 | v5.5 | Dec 26, 2024 | Integrated operational folder docs: Problem-Solving Principles section (Pivot Trigger, NO/YES Asymmetry, Velocity Principle, Divergence/Convergence Rhythm, Gap Statement, Third Option, Research Imperative). Added Textual Grounding Protocol, Claim-Test-Uncertainty Sequence, Speed-comprehension insight. Enhanced Degradation Detection with specific drift indicators. Added 2 failure modes, 3 mantras. |
