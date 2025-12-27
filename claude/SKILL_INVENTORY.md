@@ -389,8 +389,17 @@ Currently just using flashbacks as explanation. Need to layer time for MEANING.
 | Sarah v9-v10 (gap) | 7.0-8.0 | Reader sees mother IS the crab. Edge moment needs clarity. |
 | Sarah v11 (explicit edge) | 8.0 | "She'd been terrified. Every single day." Clear recognition → retreat. |
 | Sarah v12-v14 (terror) | 7.0-7.5 | Present-tense terror works, but "anxiety-level not apex-terror." |
+| Sarah v15-v16 (apex) | 8.0 | Physiological rupture achieved. Need interoceptive detail. |
+| Sarah v17-v18 (strangeness) | 7.0-8.0 | "She'd flushed it, after. Sarah never asked." Unresolved strangeness persists. |
+| Sarah v19 (throughline) | 8.5 | Belly gesture echo. "For a reader listening to gesture: this reads as 9." |
+| **Sarah v20 (essential)** | **9.0** | **"Her body knows this room. What it doesn't know, it doesn't look at." Throughline essential, not enhancement.** |
 
-**BREAKTHROUGH:** 5.5 → 8.0 achieved. Path to 9 identified but difficult: apex-terror, almost-answer, subtler metaphor.
+**BREAKTHROUGH:** 5.5 → 9.0 achieved.
+
+**What broke the ceiling:**
+1. Ask for EXEMPLARS, not fixes (apex terror = physiological rupture)
+2. Unresolved strangeness that persists (flushed the crab, Sarah never asked)
+3. Essential throughline (body echo planted early, paid off with belly gesture)
 
 **Pattern:**
 - **Knowing underwater first = Subtext 8.0** (vs 5.x when underwater unknown)
@@ -457,6 +466,9 @@ Then write the story KNOWING the answers. The reader should feel the shape of wh
 - **"The gap"** (reader sees something character suppresses — mother IS the crab but doesn't know it)
 - **"Present terror, not memory"** (shaking hands NOW, not "I was terrified" — but anxiety-level, not apex)
 - **"Almost answer"** (show effort of refusal, not just completion — let her reach for words, then abandon)
+- **"Apex = rupture"** (terror is physiological failure, not emotion — body won't obey, throat closes, can't move)
+- **"Unresolved strangeness"** (something that persists after reading — "She'd flushed it, after. Sarah never asked.")
+- **"Essential, not enhancement"** (throughlines must be load-bearing — story wouldn't work without them)
 
 ---
 
