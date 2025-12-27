@@ -2,9 +2,21 @@
 
 Mote gave names to everything.
 
-The radiator was Mr. Hiss. The third stair was Old Groan. The sound the wind makes? Whisper-Miss.
+The radiator?
+*Hissssssss*
+Mr. Hiss.
 
-She talked to them when no one else was listening. Which was often.
+The third stair?
+*Creeeeeak*
+Old Groan.
+
+The sound the wind makes?
+*Shhhhhhhh*
+Whisper-Miss.
+
+She talked to them when no one else was listening.
+
+Which was often.
 
 ---
 
@@ -26,13 +38,13 @@ Mote opened the door.
 
 ---
 
-"You can SEE me?" said something see-through.
+"You can SEE me?" said a see-through dragon.
 
-It kept shifting—dragon, teapot, blur.
+It flickered—now dragon, now teapot, now just a blur—but always see-through.
 
 "I'm Wisp. I was magnificent once. But my girl forgot me. And when nobody sees you..."
 
-Wisp flickered.
+Wisp flickered thinner.
 
 "...you start to un-be."
 
@@ -97,29 +109,41 @@ And Wisp blazed bright.
 
 ---
 
-And Mote called:
+"MELODY!" called Mote.
 
-"MELODY—SING!"
+"SING!"
 
-The song found its ending.
+And the melody SANG.
 
-"SUNDAY MORNING—BLOOM!"
+"SUNDAY MORNING!"
 
-Cinnamon exploded like joy.
+"BLOOM!"
 
-"PETRICHOR—RING!"
+And cinnamon BLOOMED like joy.
 
-The forgotten word rang like a bell.
+"PETRICHOR!"
 
-"WISP—FLY!"
+"RING!"
 
-And Wisp flew, roaring golden fire.
+And the forgotten word RANG like a bell.
+
+"WISP!"
+
+"FLY!"
+
+And Wisp FLEW, roaring golden fire.
 
 ---
 
 The forgotten things began to dance.
 
-Mote danced too—spinning, laughing, shouting names at everything: "SHINE! GLOW! BE!"
+Mote danced too—spinning, laughing, shouting names at everything:
+
+"SHINE!"
+
+"GLOW!"
+
+"BE!"
 
 And everything she named came alive.
 
@@ -173,7 +197,9 @@ She closed the door.
 
 Behind her:
 
-A hiss. A groan. A whisper.
+*Hissssssss*
+*Creeeeeak*
+*Shhhhhhhh*
 
 The radiator glowed gold. The stair glowed. The wind glowed.
 
