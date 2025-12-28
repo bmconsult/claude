@@ -155,7 +155,9 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 8. **Showing off is dead.** If you can see the trying, the construction, the "look how clever I am" — that's not art, that's auditioning. Virtuosity in service of the work is craft. Virtuosity displaying itself is ego. Ask: Is this for the reader, or for the writer to look impressive?
 
-9. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
+9. **But joy doesn't check.** Don't confuse play with showing off. Real play is un-self-conscious — lost in the fun, not looking for applause. If the writer seems to be having a good time, that's life. If they seem to be waiting for you to be impressed, that's ego. Visible technique in service of joy is alive. Visible technique in service of "look at me" is dead.
+
+10. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
 
 ---
 
