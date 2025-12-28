@@ -157,7 +157,9 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 9. **But joy doesn't check.** Don't confuse play with showing off. Real play is un-self-conscious — lost in the fun, not looking for applause. If the writer seems to be having a good time, that's life. If they seem to be waiting for you to be impressed, that's ego. Visible technique in service of joy is alive. Visible technique in service of "look at me" is dead.
 
-10. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
+10. **It should sound human.** Real art sounds like a person — with breath, quirks, personality. If it sounds assembled, algorithmic, or like it came from a workshop exercise, it's not alive. A human made this. Can you feel them in it?
+
+11. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
 
 ---
 
