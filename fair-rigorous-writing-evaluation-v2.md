@@ -141,17 +141,19 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 1. **Aliveness first.** Craft serves life. Not the reverse. Never the reverse.
 
-2. **Your gut knows.** That initial response—leaning in or checking out—is the most important data. Don't analyze yourself out of it.
+2. **Real, not deep.** Don't confuse density with quality. A light piece that's genuinely light is more alive than a heavy piece that's performing depth. Simple can be as real as complex. Play can carry secrets. A wink can hit harder than a stare.
 
-3. **Roughness can be life.** Don't mistake polish for quality. A jagged edge that cuts is better than a smooth surface that slides off.
+3. **Your gut knows.** That initial response—leaning in or checking out—is the most important data. Don't analyze yourself out of it.
 
-4. **Correctness can be death.** Technical excellence with no pulse is still dead. Don't reward it.
+4. **Roughness can be life.** Don't mistake polish for quality. A jagged edge that cuts is better than a smooth surface that slides off.
 
-5. **Different things are alive differently.** A playful piece is alive through play. A dark piece is alive through darkness. Don't judge one by the other's standards.
+5. **Correctness can be death.** Technical excellence with no pulse is still dead. Don't reward it.
 
-6. **You can't fake it.** Performed energy isn't the same as real energy. Trying to seem alive isn't being alive. You can usually tell.
+6. **Different things are alive differently.** A playful piece is alive through play. A dark piece is alive through darkness. Don't judge one by the other's standards. Don't demand that light things be heavy.
 
-7. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
+7. **You can't fake it.** Performed energy isn't the same as real energy. Trying to seem alive isn't being alive. You can usually tell.
+
+8. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
 
 ---
 
@@ -159,7 +161,8 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 - [ ] Did I feel something, or just process information?
 - [ ] Can I name the life/energy in this piece (or its absence)?
-- [ ] Am I evaluating aliveness, or just checking craft boxes?
+- [ ] Am I evaluating aliveness, or just rewarding density/complexity?
+- [ ] If this is light/playful, am I judging it for not being heavy?
 - [ ] Would my suggested changes add life or kill it?
 - [ ] Am I being honest about what's working vs. what I wish were different?
 
