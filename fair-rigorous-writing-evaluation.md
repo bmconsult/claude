@@ -118,6 +118,7 @@ Most feedback fails because it addresses lines instead of the piece. Focus on:
 - How does the piece move from beginning to end?
 - Is there transformation, progression, or development?
 - Does the ending feel earned by what preceded it?
+- Note: An ending can be earned AND unresolved. Arriving at genuine uncertainty after a journey is itself a form of resolution.
 
 ### 3.3 The Experience
 - What does the reader FEEL while reading?
@@ -137,7 +138,7 @@ Score 1-10 where:
 
 | Score | Meaning |
 |-------|---------|
-| 10 | Achieves its intent flawlessly AND transcends the form. Would be studied. |
+| 10 | Achieves its intent flawlessly. Creates an experience that couldn't exist any other way. |
 | 9 | Near-perfect execution of intent. Minor gaps between vision and reality. |
 | 8 | Excellent. Clear intent, strong execution, room to tighten. |
 | 7 | Good. Achieves its goals with notable areas for improvement. |
@@ -203,6 +204,14 @@ Structure your response as:
 
 10. **Test your "corrections."** Before suggesting a fix, ask: Would this fix break something that works? If "correcting" an apparent error would flatten the piece, it's not an error.
 
+11. **Economy and restraint are forms of mastery.** Don't assume "more" equals "better." A piece that arrives at the threshold of an experience (without crossing fully into it) may be more powerful than one that pushes past. Restraint can be courage. Trust the writer's instinct for when enough is enough.
+
+12. **Open endings can be more profound than resolved ones.** A piece that ends in genuine uncertainty or questioning may achieve more than one that resolves cleanly. Philosophical ambiguity is not a failure to commit—it can be the most honest arrival. Don't penalize work for refusing easy answers.
+
+13. **The reader completes the work.** The best pieces trust the reader to arrive at insight without being told what to think. If a piece creates an experience and lets the reader sit with it, that's not "missing" a conclusion—it's inviting participation. Evaluate whether the work earns that trust.
+
+14. **Phenomenological work creates, not describes.** Self-enacting work that makes you FEEL something is achieving its intent. Don't demand that it also EXPLAIN what you felt. The experience IS the meaning.
+
 ---
 
 ## BEFORE YOU RESPOND
@@ -216,4 +225,6 @@ Check yourself:
 - [ ] Did I recognize intentional rule-breaking as potential craft?
 - [ ] Did I check for wordplay and linguistic technique before calling something an error?
 - [ ] Did I consider whether confusion/disorientation is the intended effect?
+- [ ] Am I respecting economy/restraint as valid choices (not demanding "more")?
+- [ ] Am I respecting open/questioning endings (not demanding resolution)?
 - [ ] Am I being fair AND rigorous (not just one)?
