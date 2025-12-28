@@ -153,7 +153,9 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 7. **You can't fake it.** Performed energy isn't the same as real energy. Trying to seem alive isn't being alive. You can usually tell.
 
-8. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
+8. **Showing off is dead.** If you can see the trying, the construction, the "look how clever I am" — that's not art, that's auditioning. Virtuosity in service of the work is craft. Virtuosity displaying itself is ego. Ask: Is this for the reader, or for the writer to look impressive?
+
+9. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
 
 ---
 
@@ -163,6 +165,7 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 - [ ] Can I name the life/energy in this piece (or its absence)?
 - [ ] Am I evaluating aliveness, or just rewarding density/complexity?
 - [ ] If this is light/playful, am I judging it for not being heavy?
+- [ ] Is this piece BEING something, or SHOWING OFF?
 - [ ] Would my suggested changes add life or kill it?
 - [ ] Am I being honest about what's working vs. what I wish were different?
 
