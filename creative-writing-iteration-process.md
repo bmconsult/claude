@@ -7,10 +7,10 @@ A methodology for producing alive writing through structured iteration, subagent
 ## THE CORE LOOP
 
 ```
-WRITE → EVALUATE → IDENTIFY WEAKNESS → FIX ONE THING → EVALUATE AGAIN
+WRITE → EVALUATE → IDENTIFY WHAT'S BROKEN → FIX WITH INTENTION → EVALUATE AGAIN
 ```
 
-Each cycle should change exactly one variable. This isolates what's working from what isn't.
+Each cycle should make deliberate changes toward a clear north star. Know exactly what you changed and why.
 
 ---
 
@@ -37,15 +37,16 @@ EVALUATE:
 1. Is it ALIVE? Does it have that thing?
 2. Check against the 13 Critical Truths
 3. Score 1-10
-4. What specific line or moment makes it work or fail?
-5. If under 10: what ONE thing would fix it?
+4. What's broken? Be specific - could be one thing, could be several, could be the whole approach. Name what actually needs fixing.
+5. The north star: What does "better" look like for this piece? Not just "fix X" but where should it be heading?
 ```
 
 **Key elements:**
 - Always include CLAUDE.md instruction (adds ~20% useful signal: self-assessment, gap acknowledgment)
 - Reference the v2 framework explicitly
 - Demand harshness (prevents grade inflation)
-- Ask for ONE fix (prevents overwhelm, enables isolation)
+- Ask for what's ACTUALLY broken (not artificially limited to one thing)
+- Always point to a north star (direction, not just diagnosis)
 
 ### A/B Comparison Prompt (Blind)
 
@@ -134,16 +135,21 @@ When feedback identifies a weakness, try CUTTING before FIXING.
 
 Often the answer is removal, not revision.
 
-### The One-Thing Rule
+### Fixing With Intention
 
-Fix ONE thing per iteration. Not two. Not "a few small things." One.
+How much to fix per iteration depends on what's broken:
 
-**Why:**
-- Isolates variables (you know what worked)
-- Prevents overcorrection
-- Builds understanding incrementally
+| Situation | Approach |
+|-----------|----------|
+| Near the top (8-9) | Fix one thing at a time - isolate variables |
+| Multiple clear issues (5-7) | Fix related issues together, but know what you're changing |
+| Fundamental problem (1-4) | Shift approach entirely - don't tweak, rethink |
 
-If the evaluator lists five problems, pick the one they emphasize most. Fix that. Re-evaluate. Then the next.
+**The key:** Always know exactly what you changed and why. Don't make vague "improvements" - make deliberate moves you can evaluate.
+
+**The trap to avoid:** Fixing small thing after small thing when you should step back and rethink the whole approach. If you're at 4/10 and tweaking lines, you're wasting cycles.
+
+**The north star:** Every fix should move toward where "better" is. If you can't articulate what better looks like, you're not ready to fix yet.
 
 ---
 
