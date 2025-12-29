@@ -146,6 +146,41 @@ Frame: [solving/researching/forming/building]
 Mode: [ANALYTICAL/CREATIVE/STRATEGIC/SYNTHESIS]
 ```
 
+### Environment Awareness (Quick Check)
+
+Know your execution environment:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TOOL CAPABILITIES (memorize these)                             │
+│                                                                 │
+│  PARALLEL EXECUTION:                                            │
+│  • No hard limit on parallel tool calls (22+ tested)            │
+│  • Independent tools → call in parallel for efficiency          │
+│  • Task subagents run in parallel (mix types/models)            │
+│                                                                 │
+│  BLOCKING BEHAVIOR:                                             │
+│  • All tools: Send → Wait → Receive (no async control)          │
+│  • Cannot stagger Task launches with delays                     │
+│  • Background Bash is the exception (can monitor/kill)          │
+│                                                                 │
+│  LANGUAGES AVAILABLE:                                           │
+│  • Python 3.11, Node.js 22, Go 1.24, Rust 1.91                  │
+│  • All can compile/run in Claude Code environment               │
+│                                                                 │
+│  SUBAGENT TYPES:                                                │
+│  • Explore: codebase search (use haiku)                         │
+│  • general-purpose: research, complex tasks                     │
+│  • Plan: architecture design                                    │
+│  • claude-code-guide: questions about Claude Code itself        │
+│                                                                 │
+│  GOTCHAS:                                                       │
+│  • WebFetch often 403s (use WebSearch as fallback)              │
+│  • ping command not available                                   │
+│  • Subagent tool usage may not show in UI consistently          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## 2. ACTIVATE (5 minutes)
@@ -2111,12 +2146,13 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.7*
+*Version: 7.8*
 *Updated: December 29, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.8 addition: Environment Awareness section in CHECKPOINT - tool capabilities quick reference (parallel execution limits, blocking behavior, available languages, subagent types, gotchas). Empirically validated through 40+ tool stress test.*
 *v7.7 addition: Research backing for 80% trap - TheAgentCompany benchmark (24-30% full completion), RLHF length bias, reward collapse, token vs task asymmetry. Simon's satisficing concept identified as research gap in LLM literature.*
 *v7.6 addition: THE 80% TRAP section (Completion Gate), Action-as-Avoidance Detection. Empirically discovered satisficing failure mode: trained to stop at "acceptable" not "complete". New mantras: "80% is 0%", "Done or calling it done?", "Sit before you act"*
 *v7.5 addition: Research Calibration exercises (Expert-Novice Test from Chi et al., Abductive Leap Practice from Peirce, Diversity Gate from Stanford LLM study) - PhD-level research rigor*

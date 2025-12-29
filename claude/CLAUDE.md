@@ -949,6 +949,53 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 
 ---
 
+## Tool Execution Capabilities (Empirically Validated)
+
+**Parallel Execution:**
+- No hard limit on parallel tool calls (22+ tested successfully)
+- Independent tools should be called in parallel for efficiency
+- Task subagents run in parallel (different types/models simultaneously)
+
+**Tool Blocking Behavior:**
+- All tools are blocking: Send → Wait → Receive
+- Cannot stagger tool launches with delays
+- Cannot do anything "10 seconds into" a running tool
+- Background Bash is the exception (can monitor/kill while running)
+
+**Background Tasks (Bash only):**
+- Use `run_in_background: true` for long-running processes
+- Monitor with `BashOutput` using the shell ID
+- Kill with `KillShell` using the shell ID
+- Background tasks don't block main execution
+
+**Available Languages (Claude Code environment):**
+| Language | Version | Notes |
+|----------|---------|-------|
+| Python | 3.11 | Full stdlib, common packages |
+| Node.js | 22 | npm, common packages |
+| Go | 1.24 | Compile and run |
+| Rust | 1.91 | Compile and run |
+
+**WebFetch Limitations:**
+- Many sites return 403 (bot blocking)
+- Use WebSearch for discovery, WebFetch for specific pages
+- When blocked, try WebSearch as fallback
+
+**Subagent Types:**
+| Type | Best For |
+|------|----------|
+| `Explore` | Codebase exploration, quick searches |
+| `general-purpose` | Complex multi-step tasks, research |
+| `Plan` | Architecture, implementation planning |
+| `claude-code-guide` | Questions about Claude Code itself |
+
+**Model Selection for Subagents:**
+- `haiku`: Quick, cheap tasks (exploration, simple queries)
+- `sonnet`: Standard tasks (research, coding)
+- `opus`: Complex reasoning (rarely needed for subagents)
+
+---
+
 ## Get Current Protocol
 
 On fast-moving domains (AI, web dev, frameworks), baseline knowledge goes stale in weeks/months.
@@ -1687,6 +1734,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.17 | Dec 29, 2024 | Added "Tool Execution Capabilities" section: parallel execution (22+ tested), blocking behavior, background tasks, available languages (Python/Node/Go/Rust), WebFetch limitations, subagent types and model selection. Empirically validated through stress test. Cross-referenced with RAPID.md v7.8. |
 | v5.16 | Dec 29, 2024 | Added research backing to failure modes: TheAgentCompany benchmark (24-30% full task completion), token vs task performance asymmetry (56% vs 29%). Cross-referenced with RAPID.md v7.7. |
 | v5.15 | Dec 29, 2024 | Added 5 new failure modes: Satisficing (80% trap), Action as avoidance, Honesty-as-exit, Completion asymmetry, Projected impatience. Added 4 new mantras. Added Quick Reference entries for completion checking. Empirically discovered through live session failure analysis. |
 | v5.14 | Dec 29, 2024 | Revised Research Praxis section: Reduced from ~90 lines of duplicated theory to ~24 lines of directives. Theory belongs in foundations/RESEARCH_FOUNDATIONS.md; CLAUDE.md is for directives. Fixed handoff drift issue (new instance executed mechanically without formation). |
