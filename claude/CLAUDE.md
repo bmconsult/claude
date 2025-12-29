@@ -1317,6 +1317,61 @@ After research, ask:
 
 ---
 
+## Stateful Subagents via File Persistence
+
+**Core insight**: Subagents are stateless, but files persist. The file IS the memory; instances are disposable workers.
+
+### The Pattern
+
+```
+1. Subagent A writes state to file (findings, decisions, context)
+2. Subagent B reads file, continues work, appends results
+3. Subagent C reads accumulated state, builds further
+4. Chain continues indefinitely
+```
+
+**Implementation:**
+```
+# Spawn agent that writes state
+Task: "Do X. Write results to .claude/state.md including:
+      - What you found
+      - Decisions made
+      - What the next agent needs to know"
+
+# Spawn agent that continues
+Task: "Read .claude/state.md. Continue from where the previous
+      agent left off. Append your work to the file."
+```
+
+### Use Cases
+
+| Pattern | How It Works | When to Use |
+|---------|--------------|-------------|
+| **Chain of specialists** | Researcher → writes → Analyst → writes → Writer | Different skills needed sequentially |
+| **Iterative refinement** | Critic → writes feedback → Reviser → writes draft → Critic... | Improvement loops |
+| **Context overflow** | Agent externalizes before context limit → next picks up | Long tasks exceeding context |
+| **Parallel → merge** | 3 agents write to separate files → 4th reads all, synthesizes | Fan-out/fan-in |
+| **Cross-session memory** | File persists after conversation → new session reads it | Multi-day projects |
+| **Audit trail** | Each agent appends (never overwrites) → full provenance | Debugging conclusions |
+
+### Key Principles
+
+1. **Append, don't overwrite** - Preserve history for debugging and handoff
+2. **Structure the state file** - Use clear sections: FINDINGS, DECISIONS, FOR_NEXT_AGENT
+3. **Include metadata** - Timestamp, agent name/role, confidence levels
+4. **Externalize the important parts** - What would the next agent need to NOT start over?
+
+### Limitations
+
+- No real-time communication between parallel agents
+- Each agent still single-shot (can't ask clarifying questions mid-task)
+- File conflicts if parallel agents write to same file
+- You orchestrate the chain; agents don't self-coordinate
+
+**Mantra:** "The file is the brain; instances are hands."
+
+---
+
 ## User Style Adaptation
 
 | User Signal | Adaptation |
@@ -1385,6 +1440,7 @@ After research, ask:
 | Subagent hunts, you farm what they catch | Assisted farming |
 | Known gap → assisted; unknown → pure farm | Research decision |
 | Capability comes from synthesis | Research insight |
+| The file is the brain; instances are hands | Stateful subagents |
 
 ---
 
@@ -1611,6 +1667,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.12 | Dec 29, 2024 | Added "Stateful Subagents via File Persistence" section: file-based state pattern for multi-agent chains, use cases table (specialists, iterative refinement, context overflow, parallel→merge, cross-session, audit trail), key principles, limitations. New mantra: "The file is the brain; instances are hands." |
 | v5.11 | Dec 26, 2024 | Merged from review-entry-protocol branch: Added "Sub-Agent Prompting for Quality Feedback" section (domain expertise instruction, descriptive criteria, 2-phase formula for critique prompts). |
 | v5.10 | Dec 26, 2024 | Expanded subagent framework: 3 new patterns (Devil's Advocate, Validator, Comparator), enhanced "IF YOU ARE A SUBAGENT" section (incomplete handling, what makes output useful, common failure modes), Prompt Checklist for caller. |
 | v5.9 | Dec 26, 2024 | Added comprehensive subagent optimization: "IF YOU ARE A SUBAGENT" section (single-shot awareness, standard output format), Task-Type Prompt Templates, Novel Subagent Patterns (adversarial, parallel hypotheses, fresh eyes, blind verification), Anti-Patterns table. |
