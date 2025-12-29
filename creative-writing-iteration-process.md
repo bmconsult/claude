@@ -16,7 +16,7 @@ Each cycle should make deliberate changes toward a clear north star. Know exactl
 
 ## SUBAGENT EVALUATION PROMPTS
 
-### Standard Evaluation Prompt
+### Standard Evaluation Prompt (v3)
 
 ```
 BEFORE YOU DO ANYTHING:
@@ -52,21 +52,38 @@ THE PIECE:
 
 ---
 
-EVALUATE:
-1. Is it ALIVE? Does it have that thing?
-2. Check against the 13 Critical Truths
-3. Score 1-10
-4. What's broken? Be specific - could be one thing, could be several, could be the whole approach. Name what actually needs fixing.
-5. The north star: What does "better" look like for this piece? Not just "fix X" but where should it be heading? Draw on what you learned from the masters.
+EVALUATE (be thorough - this is your only chance to give feedback):
+
+1. **Gut response** - What did you FEEL? Did you lean in or check out?
+
+2. **Score: X/10** - Apply the framework strictly
+
+3. **What's working** - Quote specific lines/moments that are alive. Why do they work?
+
+4. **What's broken** - Quote specific lines/moments that are dead or weak. Could be one thing, several, or the whole approach.
+
+5. **Craft diagnosis** - What specific techniques would improve this? Draw on what you learned from the masters. How would [specific master you studied] approach this?
+
+6. **The north star** - What does "better" look like? Not just "fix X" but paint a picture of where this should be heading.
+
+7. **If you could rewrite one moment** - Show, don't just tell. Give an example of how a weak line could become strong.
+
+8. **Audience check** - How would the target reader experience this? What would land? What would lose them?
+
+9. **Confidence and gaps** - What are you certain about? What are you uncertain about? What might you be missing?
+
+10. **Biggest opportunity** - If the writer could only hear ONE thing from this evaluation, what should it be?
 ```
 
 **Key elements:**
-- Always include CLAUDE.md instruction (adds ~20% useful signal: self-assessment, gap acknowledgment)
-- Reference the v2 framework explicitly
-- PHASE 0: Become an expert before judging (research craft, masters, audience, theory)
-- Demand harshness (prevents grade inflation)
-- Ask for what's ACTUALLY broken (not artificially limited to one thing)
-- North star informed by mastery (what would the greats do?)
+- Phase 0: Become an expert before judging
+- Gut response first (most honest signal)
+- Quote specific lines (not vague)
+- Craft techniques from masters (grounded in expertise)
+- Show don't tell (rewrite example)
+- Audience perspective (outside-in)
+- Confidence/gaps (honest about limits)
+- Biggest opportunity (if nothing else lands, this does)
 
 ### A/B Comparison Prompt (Blind)
 
@@ -127,6 +144,58 @@ Be decisive. Don't hedge.
 ```
 
 **Warning:** This prompt leads the witness. Use blind testing first, then this for understanding.
+
+---
+
+## USING JUDGMENT WITH FEEDBACK
+
+### Evaluators Are Not Gospel
+
+Evaluator feedback is valuable signal, not absolute truth. Always:
+
+1. **Understand the POINT of the feedback** - What problem are they actually identifying? The diagnosis matters more than their specific fix.
+
+2. **Use best judgment** - Sometimes the evaluator is wrong. Sometimes they're right about the problem but wrong about the solution. You know the piece; they just met it.
+
+3. **Watch for evaluator biases** - Different evaluators have different calibrations, blind spots, and preferences. One might romanticize rawness while another overvalues polish.
+
+4. **Trust convergence, question outliers** - If multiple evaluators say the same thing, listen. If one says something wildly different, interrogate it.
+
+### Double-Blind Validation
+
+For important decisions, don't trust a single evaluation. Run double-blind:
+
+```
+1. Send the SAME piece to TWO independent evaluators (same prompt)
+2. Compare their responses WITHOUT showing them each other's
+3. Where they CONVERGE → high confidence signal
+4. Where they DIVERGE → needs more investigation
+```
+
+**Convergence examples:**
+- Both say line 4 is weak → Probably weak
+- Both say the ending lands → Probably lands
+- Both score 7/10 → Probably 7/10
+
+**Divergence examples:**
+- One says 9/10, other says 6/10 → Something's off, dig deeper
+- One loves the ending, other hates it → Subjective; YOUR call
+- One says cut, other says expand → The problem is real, solution unclear
+
+### When to Override Evaluators
+
+Override when:
+- Your gut strongly disagrees AND you can articulate why
+- The evaluator clearly missed something (didn't notice a pattern, misread intent)
+- Their suggestion would kill something you know is alive
+- Multiple attempts at their suggested fix make things worse
+
+Don't override just because:
+- You don't like hearing it
+- It's hard to fix
+- You're attached to the current version
+
+**The rule:** Understand the feedback fully. Then decide whether to follow it.
 
 ---
 
