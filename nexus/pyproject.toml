@@ -1,0 +1,54 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "nexus"
+version = "0.1.0"
+description = "Nexus: Hybrid Intelligence Architecture"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Nexus Team"}
+]
+keywords = ["ai", "machine-learning", "transformers", "ssm", "hybrid"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.20",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-benchmark>=4.0",
+]
+training = [
+    "torch>=2.0",
+    "datasets>=2.0",
+    "transformers>=4.30",
+    "wandb>=0.15",
+]
+
+[project.urls]
+Homepage = "https://github.com/nexus-ai/nexus"
+Documentation = "https://nexus-ai.readthedocs.io"
+Repository = "https://github.com/nexus-ai/nexus"
+
+[tool.maturin]
+features = ["python"]
+python-source = "python"
+module-name = "nexus._nexus"

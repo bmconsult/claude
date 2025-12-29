@@ -5,6 +5,7 @@
 //! - Test-time learning memory (Titans-style)
 //! - Latent world model (JEPA-inspired)
 //! - Neuro-symbolic reasoning pipeline
+//! - Automatic differentiation for training
 
 pub mod tensor;
 pub mod attention;
@@ -13,6 +14,11 @@ pub mod memory;
 pub mod block;
 pub mod world_model;
 pub mod symbolic;
+pub mod autograd;
+pub mod training;
+
+#[cfg(feature = "python")]
+pub mod python;
 
 // Re-exports
 pub use tensor::Tensor;
@@ -21,9 +27,13 @@ pub use ssm::SelectiveSSM;
 pub use memory::TitansMemory;
 pub use block::HybridBlock;
 pub use symbolic::{Expr, ReasoningPipeline, ConstraintSolver};
+pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer};
+pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
+
+use serde::{Deserialize, Serialize};
 
 /// Configuration for Nexus model
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct NexusConfig {
     /// Hidden dimension
     pub d_model: usize,
@@ -108,6 +118,18 @@ impl Nexus {
         // Combine hidden state with memory
         hidden.add(&memory_context)
     }
+
+    /// Get number of parameters (approximate)
+    pub fn num_parameters(&self) -> usize {
+        let d = self.config.d_model;
+        let n_layers = self.config.layers_per_block;
+        let d_ff = d * 4;
+
+        // Per layer: attention/SSM + MLP
+        let per_layer = d * d * 4 + d_ff * d * 3;
+
+        n_layers * per_layer
+    }
 }
 
 #[cfg(test)]
@@ -119,5 +141,42 @@ mod tests {
         let config = NexusConfig::default();
         assert_eq!(config.d_model, 512);
         assert_eq!(config.attention_ratio, 1);
+    }
+
+    #[test]
+    fn test_nexus_creation() {
+        let config = NexusConfig {
+            d_model: 64,
+            n_heads: 4,
+            layers_per_block: 4,
+            ..Default::default()
+        };
+
+        let model = Nexus::new(config);
+        assert_eq!(model.blocks.len(), 4);
+    }
+
+    #[test]
+    fn test_nexus_forward() {
+        let config = NexusConfig {
+            d_model: 64,
+            n_heads: 4,
+            layers_per_block: 2,
+            ..Default::default()
+        };
+
+        let mut model = Nexus::new(config);
+        let input = Tensor::randn(1, 4, 64);
+        let output = model.forward(&input, true);
+
+        assert_eq!(output.shape(), (1, 4, 64));
+    }
+
+    #[test]
+    fn test_config_serialization() {
+        let config = NexusConfig::default();
+        let json = serde_json::to_string(&config).unwrap();
+        let loaded: NexusConfig = serde_json::from_str(&json).unwrap();
+        assert_eq!(config.d_model, loaded.d_model);
     }
 }

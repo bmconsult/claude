@@ -3,22 +3,69 @@ name = "nexus"
 version = "0.1.0"
 edition = "2021"
 description = "Hybrid Intelligence Architecture: Attention + SSM + Test-Time Memory + Neuro-Symbolic"
+authors = ["Nexus Team"]
+license = "MIT"
 
 [lib]
 name = "nexus"
 crate-type = ["cdylib", "rlib"]
 
+[[bin]]
+name = "nexus-train"
+path = "src/bin/train.rs"
+
+[[bin]]
+name = "nexus-infer"
+path = "src/bin/infer.rs"
+
+[features]
+default = ["python"]
+python = ["pyo3"]
+cuda = []  # Future GPU support
+
 [dependencies]
-ndarray = "0.16"
+# Core numerics
+ndarray = { version = "0.16", features = ["serde", "rayon"] }
 num-traits = "0.2"
+
+# Random number generation
 rand = "0.8"
 rand_distr = "0.4"
+
+# Serialization
 serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+
+# Parallelization
 rayon = "1.10"
+
+# Python bindings
+pyo3 = { version = "0.22", features = ["extension-module"], optional = true }
+
+# Logging and progress
+log = "0.4"
+env_logger = "0.11"
+indicatif = "0.17"
+
+# Error handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# Memory mapping for large datasets
+memmap2 = "0.9"
+
+# Tokenization (for text processing)
+tokenizers = "0.21"
 
 [dev-dependencies]
 criterion = "0.5"
+tempfile = "3.15"
 
 [profile.release]
 opt-level = 3
 lto = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 1  # Faster dev builds but not too slow
