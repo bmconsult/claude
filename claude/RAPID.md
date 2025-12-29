@@ -164,11 +164,15 @@ Know your execution environment:
 │  • Cannot stagger Task launches with delays                     │
 │  • Background Bash is the exception (can monitor/kill)          │
 │                                                                 │
-│  LANGUAGES AVAILABLE:                                           │
+│  LANGUAGES:                                                     │
 │  • Python 3.11/3.12, Node 20/21/22, Bun 1.3, TypeScript 5.9     │
-│  • Go 1.24, Rust 1.91 (cargo, clippy, rust-analyzer)            │
-│  • Java 21 (Maven, Gradle), Ruby 3.1/3.2/3.3, PHP 8.4, Perl     │
-│  • C/C++ (GCC 13.3, Clang 18), psql, redis-cli                  │
+│  • Go 1.24, Rust 1.91, Java 21, Ruby 3.x, PHP 8.4, Perl, C/C++  │
+│                                                                 │
+│  TOOLING:                                                       │
+│  • Python: poetry, uv, ruff, black, mypy, pytest                │
+│  • JS: pnpm, yarn, eslint, prettier, playwright, ts-node        │
+│  • Build: cmake, ninja, make, maven, gradle                     │
+│  • CLI: jq, yq, rg, curl, wget, tmux, psql, redis-cli           │
 │                                                                 │
 │  SUBAGENT TYPES:                                                │
 │  • Explore: codebase search, quick exploration                  │

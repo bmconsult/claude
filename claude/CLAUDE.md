@@ -983,11 +983,29 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 | Perl | system | Available |
 | C/C++ | GCC 13.3, Clang 18 | Full toolchain |
 
+**Python Tooling:**
+- poetry 2.2, uv 0.8, pip3
+- ruff 0.14, black 25.12, mypy 1.19
+- pytest 9.0
+
+**Node/JS Tooling:**
+- pnpm 10.25, yarn 1.22, npm 10.9
+- eslint 9.39, prettier 3.7
+- ts-node, nodemon, playwright 1.56
+
+**Build Tools:**
+- cmake 3.28, ninja 1.11, make 4.3
+- maven 3.9, gradle 8.14
+- cargo, composer, gem
+
 **Database Clients:**
 - psql (PostgreSQL), redis-cli
 
-**Build Tools:**
-- npm, cargo, pip3, gem, composer, maven, gradle
+**CLI Utilities:**
+- jq 1.7, yq, ripgrep (rg)
+- curl, wget, netcat
+- tmux, vim, nano
+- tar, gzip, bzip2, xz, zip/unzip
 
 **WebFetch Limitations:**
 - Many sites return 403 (bot blocking)
