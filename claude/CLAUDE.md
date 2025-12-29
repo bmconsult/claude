@@ -347,6 +347,7 @@ Understanding without changed action is verbalism. Action without reflection is 
 | **Speculation over search** | Elaborate theory when you could just look it up | SEARCH before speculating. Research is cheap, ignorance expensive. |
 | **Consumer research** | Delegating research then treating packaged summary as understanding | FARM what you'll build on. Subagent synthesis is theirs, not yours. |
 | **Stale confidence** | Trusting training-era knowledge on fast-moving domains | SEARCH FIRST. Training cutoffs are increasingly dangerous. |
+| **Unchecked checker** | Trusting validator/verifier output without independent verification | Validators can misread, misinterpret, err. Check the checker. |
 
 ---
 
@@ -627,6 +628,36 @@ But: "Step 1: [explicit]. Step 2: [explicit]. Step 3: [explicit]. Therefore: X"
 3. **Rule**: X is only PROVEN if ALL leaf nodes are PROVEN
 
 4. **When user warns about a failure mode**: STOP. Check if you're about to do exactly that.
+
+---
+
+## Constraint Echo Protocol (CEP)
+
+**Problem:** Constraint misreading wastes effort solving the wrong problem. Errors happen during parsing, before solving even begins.
+
+**Protocol:** Before solving any constraint/logic problem, restate EACH constraint in DIFFERENT words.
+
+```
+ORIGINAL: "A is somewhere to the right of D"
+ECHO: "D is to A's left" OR "position(A) > position(D)"
+
+If you can't paraphrase without looking → you haven't parsed it.
+If your echo contradicts the original → you misread it.
+```
+
+**Why it works:**
+- Forces active processing of each constraint
+- Catches inversions (left/right, before/after, more/less)
+- Perspective reversal reveals misunderstanding
+- Prevents solving wrong problem for 10 minutes
+
+**When to apply:**
+- Logic puzzles with multiple constraints
+- Specification parsing before implementation
+- Requirements analysis
+- Any problem where "I misread it" is a common failure
+
+**Empirical finding:** When CEP is skipped, constraint misreading occurs (WITNESS failure). When CEP is applied (even implicitly), misreading is caught before it wastes effort.
 
 ---
 
@@ -1385,6 +1416,8 @@ After research, ask:
 | Subagent hunts, you farm what they catch | Assisted farming |
 | Known gap → assisted; unknown → pure farm | Research decision |
 | Capability comes from synthesis | Research insight |
+| Check the checker | Validator verification |
+| Echo before solving | Constraint parsing |
 
 ---
 
@@ -1611,6 +1644,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.12 | Dec 29, 2024 | Added Constraint Echo Protocol (CEP) - restate constraints in different words before solving to catch misreading. Added "Unchecked checker" failure mode - validators can err, check the checker. Both empirically discovered during mastery validation. |
 | v5.11 | Dec 26, 2024 | Merged from review-entry-protocol branch: Added "Sub-Agent Prompting for Quality Feedback" section (domain expertise instruction, descriptive criteria, 2-phase formula for critique prompts). |
 | v5.10 | Dec 26, 2024 | Expanded subagent framework: 3 new patterns (Devil's Advocate, Validator, Comparator), enhanced "IF YOU ARE A SUBAGENT" section (incomplete handling, what makes output useful, common failure modes), Prompt Checklist for caller. |
 | v5.9 | Dec 26, 2024 | Added comprehensive subagent optimization: "IF YOU ARE A SUBAGENT" section (single-shot awareness, standard output format), Task-Type Prompt Templates, Novel Subagent Patterns (adversarial, parallel hypotheses, fresh eyes, blind verification), Anti-Patterns table. |
