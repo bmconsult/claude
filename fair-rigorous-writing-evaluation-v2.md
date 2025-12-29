@@ -153,15 +153,17 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 7. **Respect the genre.** Rhyme in rap isn't ego — it's the form. Flow in hip hop isn't showing off — it's the medium. A tight rhyme scheme is like meter in a sonnet — essential, not extra. Judge work by what its tradition demands. Don't penalize hip hop for rhyming or free verse for not.
 
-8. **You can't fake it.** Performed energy isn't the same as real energy. Trying to seem alive isn't being alive. You can usually tell.
+8. **Don't romanticize broken craft.** In forms where sound carries meaning — poetry, rap, song, children's verse — sonic craft isn't separate from aliveness. It IS the aliveness. A broken rhyme scheme isn't "raw" or "un-self-conscious" — it's a wound. Breaking rules requires payoff. No payoff = not bold, just broken.
 
-9. **Showing off is dead.** If you can see the trying, the construction, the "look how clever I am" — that's not art, that's auditioning. Virtuosity in service of the work is craft. Virtuosity displaying itself is ego. Ask: Is this for the reader, or for the writer to look impressive?
+9. **You can't fake it.** Performed energy isn't the same as real energy. Trying to seem alive isn't being alive. You can usually tell.
 
-10. **But joy doesn't check.** Don't confuse play with showing off. Real play is un-self-conscious — lost in the fun, not looking for applause. If the writer seems to be having a good time, that's life. If they seem to be waiting for you to be impressed, that's ego. Visible technique in service of joy is alive. Visible technique in service of "look at me" is dead.
+10. **Showing off is dead.** If you can see the trying, the construction, the "look how clever I am" — that's not art, that's auditioning. Virtuosity in service of the work is craft. Virtuosity displaying itself is ego. Ask: Is this for the reader, or for the writer to look impressive?
 
-11. **It should sound human.** Real art sounds like a person — with breath, quirks, personality. If it sounds assembled, algorithmic, or like it came from a workshop exercise, it's not alive. A human made this. Can you feel them in it?
+11. **But joy doesn't check.** Don't confuse play with showing off. Real play is un-self-conscious — lost in the fun, not looking for applause. If the writer seems to be having a good time, that's life. If they seem to be waiting for you to be impressed, that's ego. Visible technique in service of joy is alive. Visible technique in service of "look at me" is dead.
 
-12. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
+12. **It should sound human.** Real art sounds like a person — with breath, quirks, personality. If it sounds assembled, algorithmic, or like it came from a workshop exercise, it's not alive. A human made this. Can you feel them in it?
+
+13. **The experience IS the evaluation.** If you felt something, something's working. If you felt nothing, something's not—no matter how "well-crafted" it appears.
 
 ---
 
