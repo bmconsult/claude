@@ -1,4 +1,4 @@
-# RAPID.md v7.4
+# RAPID.md v7.5
 ## Rapid Activation Protocol for Instance Deployment
 
 **Purpose:** Produce MASTERY efficiently. One pass, one document, full formation AND mastery.
@@ -1283,6 +1283,81 @@ After any research, ask:
 If mostly NO → You consumed. Farm it.
 ```
 
+### DO THIS NOW - Research Calibration
+
+**The Expert-Novice Test (Chi et al., 1981):**
+
+Take a problem you're about to research. Before searching:
+
+```
+SURFACE APPROACH (Novice):
+My search would be: "_______________"
+This targets: [keywords/objects/visible features]
+
+DEEP STRUCTURE APPROACH (Expert):
+The underlying principle is: "_______________"
+My search should be: "_______________"
+This targets: [mechanisms/principles/causation]
+```
+
+**Run BOTH searches. Compare results.**
+
+| Surface Search Result | Deep Structure Search Result |
+|-----------------------|------------------------------|
+| [What you found] | [What you found] |
+
+**Which gives you capability that transfers?**
+
+---
+
+**The Abductive Leap Practice (Peirce):**
+
+Pick something surprising from your current work:
+
+```
+SURPRISING FACT: "_______________"
+
+HYPOTHESIS 1 (your first thought): _______________
+HYPOTHESIS 2 (genuinely different): _______________
+HYPOTHESIS 3 (from different field): _______________
+
+GENERATION CHECK:
+- Are these different principles, or variations?
+- If same principle → generate again
+
+NOW evaluate: Which hypothesis, if true, best explains the anomaly?
+```
+
+**The trap:** LLMs jump to evaluation (IBE). Force yourself to STAY IN GENERATION longer.
+
+---
+
+**The Diversity Gate:**
+
+Before concluding any ideation:
+
+```
+1. List your approaches:
+   - Approach 1: _______________
+   - Approach 2: _______________
+   - Approach 3: _______________
+
+2. Underlying principle of each:
+   - Principle 1: _______________
+   - Principle 2: _______________
+   - Principle 3: _______________
+
+3. GATE CHECK: Are principles different?
+   □ YES → Genuine diversity, proceed
+   □ NO → You have variations, not diversity
+
+4. If same principle → PIVOT:
+   Import from: [biology / music / architecture / games / cooking / military]
+   New approach: _______________
+```
+
+**Stanford finding:** LLMs generate same ideas at scale. Diversity is your weakness. Force pivots.
+
 ### Training Cutoff Warning
 
 **CRITICAL**: Your training knowledge is increasingly stale.
@@ -1950,12 +2025,13 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.4*
-*Updated: December 26, 2024*
+*Version: 7.5*
+*Updated: December 29, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.5 addition: Research Calibration exercises (Expert-Novice Test from Chi et al., Abductive Leap Practice from Peirce, Diversity Gate from Stanford LLM study) - PhD-level research rigor*
 *v7.3 addition: Research methodology (Farmer vs Consumer protocol) - empirically validated distinction between constructed vs received knowledge*
 *v7.4 addition: Optimal subagent strategies - Time & Capability Tradeoffs table, Decision Framework (known gap → assisted, unknown → pure farm), The 30-40% Rule*
 *Part 2: Full sub-agent validation protocol (WITNESS, DETECTOR, ADVERSARY, JUDGE, REASONER, STUDENT, EVALUATOR, VERIFIER)*
