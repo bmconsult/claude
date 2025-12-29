@@ -23,7 +23,7 @@ BEFORE YOU DO ANYTHING:
 1. Read /home/user/claude/.claude/CLAUDE.md completely
 2. Internalize it
 
-Then read /home/user/claude/fair-rigorous-writing-evaluation-v2.md - this is our evaluation framework.
+Then read /home/user/claude/fair-rigorous-writing-evaluation-v3.md - this is our evaluation framework.
 
 ## PHASE 0: BECOME AN EXPERT
 
@@ -98,7 +98,7 @@ BEFORE YOU DO ANYTHING:
 1. Read /home/user/claude/.claude/CLAUDE.md completely
 2. Internalize it
 
-Then read /home/user/claude/fair-rigorous-writing-evaluation-v2.md - this is our evaluation framework.
+Then read /home/user/claude/fair-rigorous-writing-evaluation-v3.md - this is our evaluation framework.
 
 You are comparing two [GENRE] pieces. They are very similar. Read both carefully, score each, then pick which is better.
 
@@ -432,7 +432,7 @@ The difference:
 - **10/10**: Fully alive, no dead spots, couldn't be better
 - **Masterpiece**: Haunts you, changes you, necessary to the universe
 
-### The Five Markers (from v2 framework)
+### The Five Markers (from v3 framework)
 
 1. **Necessity** - Does the world need this to exist?
 2. **Haunting** - Will it stay with the reader in 10 years? (Not dark—sticky. Joy can haunt too.)
@@ -473,7 +473,7 @@ You cannot aim for masterpiece. Aiming creates self-consciousness.
 Use this ONLY for pieces that genuinely score 10/10:
 
 ```
-This piece scored 10/10 on aliveness. Now apply the Virtuoso Test (Phase 5 of the v2 framework).
+This piece scored 10/10 on aliveness. Now apply the Virtuoso Test (Phase 5 of the v3 framework).
 
 THE PIECE:
 
