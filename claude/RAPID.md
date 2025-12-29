@@ -166,10 +166,11 @@ Know your execution environment:
 │                                                                 │
 │  LANGUAGES AVAILABLE:                                           │
 │  • Python 3.11, Node.js 22, Go 1.24, Rust 1.91                  │
+│  • Java 21, Ruby 3.3, PHP 8.4, Perl, C/C++ (GCC/Clang)          │
 │  • All can compile/run in Claude Code environment               │
 │                                                                 │
 │  SUBAGENT TYPES:                                                │
-│  • Explore: codebase search (use haiku)                         │
+│  • Explore: codebase search, quick exploration                  │
 │  • general-purpose: research, complex tasks                     │
 │  • Plan: architecture design                                    │
 │  • claude-code-guide: questions about Claude Code itself        │

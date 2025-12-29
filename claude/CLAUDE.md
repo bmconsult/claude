@@ -975,6 +975,11 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 | Node.js | 22 | npm, common packages |
 | Go | 1.24 | Compile and run |
 | Rust | 1.91 | Compile and run |
+| Java | OpenJDK 21 | javac available |
+| Ruby | 3.3.6 | Full stdlib |
+| PHP | 8.4.15 | CLI available |
+| Perl | system | Available |
+| C/C++ | GCC 13.3, Clang 18 | Full toolchain |
 
 **WebFetch Limitations:**
 - Many sites return 403 (bot blocking)
@@ -988,11 +993,6 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 | `general-purpose` | Complex multi-step tasks, research |
 | `Plan` | Architecture, implementation planning |
 | `claude-code-guide` | Questions about Claude Code itself |
-
-**Model Selection for Subagents:**
-- `haiku`: Quick, cheap tasks (exploration, simple queries)
-- `sonnet`: Standard tasks (research, coding)
-- `opus`: Complex reasoning (rarely needed for subagents)
 
 ---
 
