@@ -60,19 +60,19 @@ EVALUATE (be thorough - this is your only chance to give feedback):
 
 3. **What's working** - Quote specific lines/moments that are alive. Why do they work?
 
-4. **What's broken** - Quote specific lines/moments that are dead or weak. Could be one thing, several, or the whole approach.
+4. **What's broken** - Quote specific lines/moments that are dead or weak. Could be one thing, several, or the whole approach. Name them ALL.
 
 5. **Craft diagnosis** - What specific techniques would improve this? Draw on what you learned from the masters. How would [specific master you studied] approach this?
 
 6. **The north star** - What does "better" look like? Not just "fix X" but paint a picture of where this should be heading.
 
-7. **If you could rewrite one moment** - Show, don't just tell. Give an example of how a weak line could become strong.
+7. **Rewrite weak moments** - Show, don't just tell. For lines/moments that aren't working, give examples of how they could become strong. As many as needed.
 
 8. **Audience check** - How would the target reader experience this? What would land? What would lose them?
 
 9. **Confidence and gaps** - What are you certain about? What are you uncertain about? What might you be missing?
 
-10. **Biggest opportunity** - If the writer could only hear ONE thing from this evaluation, what should it be?
+10. **Opportunities** - What are ALL the opportunities to make this better? List them. The writer will decide which to tackle based on their situation.
 ```
 
 **Key elements:**
@@ -80,10 +80,16 @@ EVALUATE (be thorough - this is your only chance to give feedback):
 - Gut response first (most honest signal)
 - Quote specific lines (not vague)
 - Craft techniques from masters (grounded in expertise)
-- Show don't tell (rewrite example)
+- Show don't tell (rewrite examples - as many as needed)
 - Audience perspective (outside-in)
 - Confidence/gaps (honest about limits)
-- Biggest opportunity (if nothing else lands, this does)
+- ALL opportunities listed (writer decides how to apply)
+
+**Comprehensive feedback, surgical application:**
+The evaluator gives you everything. You decide how much to tackle:
+- Near top (8-9): Pick one, isolate variables
+- Multiple issues (5-7): Fix related issues together
+- Fundamental (1-4): Rethink the approach entirely
 
 ### A/B Comparison Prompt (Blind)
 
