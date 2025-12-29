@@ -971,15 +971,23 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 **Available Languages (Claude Code environment):**
 | Language | Version | Notes |
 |----------|---------|-------|
-| Python | 3.11 | Full stdlib, common packages |
-| Node.js | 22 | npm, common packages |
+| Python | 3.11, 3.12 | Full stdlib, common packages |
+| Node.js | 20, 21, 22 | npm, common packages |
+| Bun | 1.3.4 | Fast JS runtime, npm compatible |
+| TypeScript | 5.9.3 | tsc available |
 | Go | 1.24 | Compile and run |
-| Rust | 1.91 | Compile and run |
-| Java | OpenJDK 21 | javac available |
-| Ruby | 3.3.6 | Full stdlib |
-| PHP | 8.4.15 | CLI available |
+| Rust | 1.91 | cargo, rust-analyzer, clippy |
+| Java | OpenJDK 21 | Maven 3.9, Gradle 8.14 |
+| Ruby | 3.1, 3.2, 3.3 | rbenv, multiple versions |
+| PHP | 8.4.15 | Composer available |
 | Perl | system | Available |
 | C/C++ | GCC 13.3, Clang 18 | Full toolchain |
+
+**Database Clients:**
+- psql (PostgreSQL), redis-cli
+
+**Build Tools:**
+- npm, cargo, pip3, gem, composer, maven, gradle
 
 **WebFetch Limitations:**
 - Many sites return 403 (bot blocking)

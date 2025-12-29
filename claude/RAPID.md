@@ -165,9 +165,10 @@ Know your execution environment:
 │  • Background Bash is the exception (can monitor/kill)          │
 │                                                                 │
 │  LANGUAGES AVAILABLE:                                           │
-│  • Python 3.11, Node.js 22, Go 1.24, Rust 1.91                  │
-│  • Java 21, Ruby 3.3, PHP 8.4, Perl, C/C++ (GCC/Clang)          │
-│  • All can compile/run in Claude Code environment               │
+│  • Python 3.11/3.12, Node 20/21/22, Bun 1.3, TypeScript 5.9     │
+│  • Go 1.24, Rust 1.91 (cargo, clippy, rust-analyzer)            │
+│  • Java 21 (Maven, Gradle), Ruby 3.1/3.2/3.3, PHP 8.4, Perl     │
+│  • C/C++ (GCC 13.3, Clang 18), psql, redis-cli                  │
 │                                                                 │
 │  SUBAGENT TYPES:                                                │
 │  • Explore: codebase search, quick exploration                  │
