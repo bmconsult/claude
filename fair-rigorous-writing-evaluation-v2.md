@@ -18,6 +18,26 @@ You know it when you feel it. You also know when it's missing—when something i
 
 ---
 
+## PHASE 0: BECOME AN EXPERT
+
+Before evaluating, research the craft:
+
+1. **The craft of this genre** - What separates good from great from virtuoso?
+2. **Masters of this form** - Who does this brilliantly? What makes their work transcendent?
+3. **The target audience** - What do they need? What moves them?
+4. **Advanced theory** - What do serious practitioners know that amateurs don't?
+
+Study until you genuinely understand what excellence looks like in this specific tradition. Read examples. Internalize what works and why.
+
+**You should know:**
+- What a 5/10 looks like in this form (competent but forgettable)
+- What a 10/10 looks like (the best of the best)
+- What separates them (not just "better" but specifically HOW)
+
+Only then proceed to evaluation.
+
+---
+
 ## PHASE 1: EXPERIENCE FIRST
 
 Don't analyze yet. Just read.
@@ -168,34 +188,44 @@ Masterpieces are discovered, not constructed.
 
 ---
 
-## PHASE 6: FEEDBACK THAT SERVES THE LIFE
+## PHASE 6: COMPREHENSIVE FEEDBACK
 
-### Score: X/10
+*Be thorough - this is your only chance to give feedback.*
 
-### Where the life IS (Protect these)
-- Name specifically what's alive in this piece
-- These are the things that must survive any revision
-- If you "improve" these away, you've killed the piece
+### 1. Gut response
+What did you FEEL? Did you lean in or check out? Write this down before analyzing.
 
-### Where the life ISN'T (Be honest)
-- Where does energy die?
-- Is craft smothering something?
-- Are there dead spots, or is the whole thing flat?
-- Is something trying to be alive but not quite making it?
+### 2. Score: X/10
+Apply the framework strictly. 5 is average. 7 is good. 9 is exceptional. 10 breaks you.
 
-### What's broken? (Be specific)
-- Could be one thing, could be several, could be the whole approach
-- Name what actually needs fixing - don't artificially limit to one issue
-- Is this a line-level problem, or something fundamental?
+### 3. What's working
+Quote specific lines/moments that are alive. Why do they work? These must survive any revision.
 
-### The north star
-- What does "better" look like for this piece?
-- Not just "fix X" but where should it be heading?
-- Sometimes that's tightening. Sometimes it's loosening. Sometimes it's rethinking entirely.
+### 4. What's broken
+Quote specific lines/moments that are dead or weak. Could be one thing, several, or the whole approach. **Name them ALL.**
+
+### 5. Craft diagnosis
+What specific techniques would improve this? Draw on what you learned from the masters. How would [specific master you studied] approach this?
+
+### 6. The north star
+What does "better" look like? Not just "fix X" but paint a picture of where this should be heading.
+
+### 7. Rewrite weak moments
+Show, don't just tell. For lines/moments that aren't working, give examples of how they could become strong. **As many as needed.**
+
+### 8. Audience check
+How would the target reader experience this? What would land? What would lose them?
+
+### 9. Confidence and gaps
+What are you certain about? What are you uncertain about? What might you be missing?
+
+### 10. Opportunities
+What are ALL the opportunities to make this better? List them. The writer will decide which to tackle based on their situation.
 
 ### Even at 10: What's beyond?
 - What risk isn't being taken?
 - What would make this not just alive but UNDENIABLE?
+- Apply the Virtuoso Test (Phase 5) if warranted.
 
 ---
 
