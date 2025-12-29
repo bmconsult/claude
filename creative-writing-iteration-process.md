@@ -25,6 +25,25 @@ BEFORE YOU DO ANYTHING:
 
 Then read /home/user/claude/fair-rigorous-writing-evaluation-v2.md - this is our evaluation framework.
 
+## PHASE 0: BECOME AN EXPERT
+
+Before evaluating, use WebSearch to research:
+1. The craft of [GENRE] - what separates good from great from virtuoso?
+2. Masters of this form - who does this brilliantly? What makes their work transcendent?
+3. The target audience - what do they need? What moves them?
+4. Advanced theory - what do serious practitioners know that amateurs don't?
+
+Study until you genuinely understand what excellence looks like in this specific tradition. Read examples. Internalize what works and why.
+
+You should know:
+- What a 5/10 looks like in this form (competent but forgettable)
+- What a 10/10 looks like (the best of the best)
+- What separates them (not just "better" but specifically HOW)
+
+Only then proceed to evaluation.
+
+---
+
 You are scoring this [GENRE]. Apply the framework HARSHLY. 5 is average. 7 is good. 9 is exceptional. 10 breaks you.
 
 THE PIECE:
@@ -38,15 +57,16 @@ EVALUATE:
 2. Check against the 13 Critical Truths
 3. Score 1-10
 4. What's broken? Be specific - could be one thing, could be several, could be the whole approach. Name what actually needs fixing.
-5. The north star: What does "better" look like for this piece? Not just "fix X" but where should it be heading?
+5. The north star: What does "better" look like for this piece? Not just "fix X" but where should it be heading? Draw on what you learned from the masters.
 ```
 
 **Key elements:**
 - Always include CLAUDE.md instruction (adds ~20% useful signal: self-assessment, gap acknowledgment)
 - Reference the v2 framework explicitly
+- PHASE 0: Become an expert before judging (research craft, masters, audience, theory)
 - Demand harshness (prevents grade inflation)
 - Ask for what's ACTUALLY broken (not artificially limited to one thing)
-- Always point to a north star (direction, not just diagnosis)
+- North star informed by mastery (what would the greats do?)
 
 ### A/B Comparison Prompt (Blind)
 
