@@ -124,10 +124,11 @@ A 10 is fully alive. But masterpieces go further. They don't just live—they HA
 - Does it fill a gap no one knew was there?
 - If this piece didn't exist, would something be missing from the universe?
 
-**2. Haunting**
+**2. Haunting** (not dark—sticky)
 - Will this stay with the reader tomorrow? Next week? In ten years?
 - Does it lodge somewhere and refuse to leave?
 - Does it change something in the reader permanently?
+- Note: A joyful piece can haunt as much as a dark one. "Haunting" = powerful and indelible, not scary.
 
 **3. Irreplaceability**
 - Could anyone else have written this?

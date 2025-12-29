@@ -334,7 +334,7 @@ The difference:
 ### The Five Markers (from v2 framework)
 
 1. **Necessity** - Does the world need this to exist?
-2. **Haunting** - Will it stay with the reader in 10 years?
+2. **Haunting** - Will it stay with the reader in 10 years? (Not dark—sticky. Joy can haunt too.)
 3. **Irreplaceability** - Could only this creator have made it?
 4. **Surprise → Inevitable** - Unpredictable in prospect, inevitable in retrospect
 5. **Risk** - Is there a move that could have failed catastrophically?
