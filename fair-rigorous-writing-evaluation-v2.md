@@ -183,10 +183,15 @@ Masterpieces are discovered, not constructed.
 - Are there dead spots, or is the whole thing flat?
 - Is something trying to be alive but not quite making it?
 
-### The path to more life
-- What's the ONE thing that would add the most energy?
-- Not "what would make this more technically correct" but "what would make this more ALIVE"?
-- Sometimes that's tightening. Sometimes it's loosening. Sometimes it's risk.
+### What's broken? (Be specific)
+- Could be one thing, could be several, could be the whole approach
+- Name what actually needs fixing - don't artificially limit to one issue
+- Is this a line-level problem, or something fundamental?
+
+### The north star
+- What does "better" look like for this piece?
+- Not just "fix X" but where should it be heading?
+- Sometimes that's tightening. Sometimes it's loosening. Sometimes it's rethinking entirely.
 
 ### Even at 10: What's beyond?
 - What risk isn't being taken?
