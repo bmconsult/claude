@@ -111,7 +111,63 @@ Raw energy with craft problems might be a 6 or 7—because there's something the
 
 ---
 
-## PHASE 5: FEEDBACK THAT SERVES THE LIFE
+## PHASE 5: THE VIRTUOSO TEST (For pieces that reach 10)
+
+A 10 is fully alive. But masterpieces go further. They don't just live—they HAUNT.
+
+**Apply this test only to pieces that genuinely score 10.** This is not a higher bar for the same scale—it's a different dimension entirely.
+
+### The Five Markers of Mastery
+
+**1. Necessity**
+- Does the world need this piece to exist?
+- Does it fill a gap no one knew was there?
+- If this piece didn't exist, would something be missing from the universe?
+
+**2. Haunting**
+- Will this stay with the reader tomorrow? Next week? In ten years?
+- Does it lodge somewhere and refuse to leave?
+- Does it change something in the reader permanently?
+
+**3. Irreplaceability**
+- Could anyone else have written this?
+- Is there something here that could ONLY come from this voice, this mind, this moment?
+- Not just "distinctive style" but "could not exist without this specific creator"?
+
+**4. Surprise That Feels Inevitable**
+- Did it go somewhere you didn't expect?
+- But once it went there, did you think: "Of course. How could it have been any other way?"
+- The highest art: unpredictable in prospect, inevitable in retrospect.
+
+**5. Risk**
+- Is there a move here that could have failed catastrophically?
+- Did the creator bet something real?
+- Safe work caps at excellent. Masterpieces risk disaster.
+
+### Scoring Beyond 10
+
+| Level | What it means |
+|-------|---------------|
+| 10 | Fully alive. Couldn't exist any other way. |
+| 10+ | Alive AND haunting. You'll remember this. |
+| 10++ | Alive, haunting, AND necessary. The world needed this. |
+| 10+++ | Masterpiece. All five markers. Changes the reader. Changes the form. |
+
+### The Virtuoso Paradox
+
+You cannot AIM for masterpiece. Aiming creates self-consciousness, which kills it.
+
+You can only:
+- Take real risks
+- Write from genuine obsession
+- Surprise yourself
+- Let it be what it needs to be, not what you planned
+
+Masterpieces are discovered, not constructed.
+
+---
+
+## PHASE 6: FEEDBACK THAT SERVES THE LIFE
 
 ### Score: X/10
 

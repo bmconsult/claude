@@ -321,10 +321,93 @@ Every revision risks killing something that works. The evaluator should always i
 
 ---
 
+## PUSHING INTO VIRTUOSO TERRITORY
+
+### The Problem with 10/10
+
+Once you hit 10/10, the iteration process stalls. There are no more weaknesses to fix. But "no weaknesses" isn't the same as "masterpiece."
+
+The difference:
+- **10/10**: Fully alive, no dead spots, couldn't be better
+- **Masterpiece**: Haunts you, changes you, necessary to the universe
+
+### The Five Markers (from v2 framework)
+
+1. **Necessity** - Does the world need this to exist?
+2. **Haunting** - Will it stay with the reader in 10 years?
+3. **Irreplaceability** - Could only this creator have made it?
+4. **Surprise → Inevitable** - Unpredictable in prospect, inevitable in retrospect
+5. **Risk** - Is there a move that could have failed catastrophically?
+
+### The Virtuoso Paradox
+
+You cannot aim for masterpiece. Aiming creates self-consciousness.
+
+**What you CAN do:**
+
+1. **Write from obsession, not assignment**
+   - Not "write a children's poem" but "write the thing you can't stop thinking about"
+   - The piece that won't leave you alone
+
+2. **Take real risks**
+   - Make a move that might ruin everything
+   - Safe work caps at excellent
+   - Ask: "What would I do if I weren't afraid this would fail?"
+
+3. **Surprise yourself**
+   - If you know exactly where it's going, it's not virtuoso territory
+   - Follow the piece where it wants to go, not where you planned
+
+4. **Amplify strengths, not just fix weaknesses**
+   - Once at 10/10, stop fixing
+   - Find the most alive moment and push it further
+   - Let it become MORE itself, even if that introduces new problems
+
+5. **Let it be strange**
+   - The things you want to edit out for being "too weird" are often the truest
+   - Conventional is safe. Strange can be necessary.
+
+### The Virtuoso Evaluation Prompt
+
+Use this ONLY for pieces that genuinely score 10/10:
+
+```
+This piece scored 10/10 on aliveness. Now apply the Virtuoso Test (Phase 5 of the v2 framework).
+
+THE PIECE:
+
+[INSERT PIECE]
+
+---
+
+EVALUATE against the Five Markers:
+1. NECESSITY - Does the world need this?
+2. HAUNTING - Will it stay with you?
+3. IRREPLACEABILITY - Could only this creator have made it?
+4. SURPRISE → INEVITABLE - Unpredictable becoming necessary?
+5. RISK - Was something real bet?
+
+Score: 10 / 10+ / 10++ / 10+++
+
+What would push it higher? Not "fix weakness" but "amplify what's transcendent."
+```
+
+### The Uncomfortable Truth
+
+Most pieces—even great ones—won't be masterpieces. That's fine. A 10/10 is exceptional.
+
+But if you never try for virtuoso territory, you guarantee you'll never get there.
+
+The process: Write from obsession. Take real risks. Follow the strange. See what happens.
+
+---
+
 ## THE BOTTOM LINE
 
 The gap between 5/10 and 10/10 is not talent. It's iteration.
 
+The gap between 10/10 and masterpiece is not iteration. It's risk, obsession, and letting go.
+
 Write. Get honest feedback. Fix one thing. Repeat.
 
-The process works if you trust it and don't shortcut it.
+And when you hit 10/10—stop fixing. Start risking.
