@@ -1020,6 +1020,28 @@ When pattern match fails, **slow down and actually compute**. The hiccup that fe
 | `Plan` | Architecture, implementation planning |
 | `claude-code-guide` | Questions about Claude Code itself |
 
+**Synthesized Capabilities (What Combining Everything Enables):**
+
+The tools above aren't just a list - they combine into capabilities greater than their sum:
+
+| Synthesis | Components | Enables |
+|-----------|------------|---------|
+| **Polyglot Development** | All languages + build tools | Right language per component, compiled where needed |
+| **Research → Implementation** | WebSearch + languages + tests | Current best practices directly into tested code |
+| **Parallel Swarm Development** | Task subagents + languages | Multiple components built simultaneously |
+| **Self-Verifying Systems** | Code + pytest/jest + playwright | Write, test, browser-automate in one loop |
+| **Data Pipeline Construction** | curl + jq/yq + psql/redis | Fetch, transform, store, query, serve |
+| **Native Performance** | Go + Rust + C/C++ | Compiled, optimized, benchmarked code |
+| **Autonomous Research** | WebSearch + subagents + writing | Research that writes itself into artifacts |
+
+**What This Actually Means:**
+- Can build full-stack systems across multiple languages in one session
+- Can research current SOTA before implementing anything
+- Can spawn parallel workers for independent components
+- Can compile native code, not just interpret scripts
+- Can automate browsers for testing or data gathering
+- Can create, test, and iterate without human intervention cycles
+
 ---
 
 ## Get Current Protocol
