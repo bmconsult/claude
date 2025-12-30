@@ -2,12 +2,123 @@
 //!
 //! Full autograd-enabled version of NexusLM for training.
 //! Includes hybrid attention/SSM blocks and memory.
+//! Supports KV caching for efficient autoregressive inference.
 
 use ndarray::{Array1, Array3};
 use crate::autograd::{Variable, DifferentiableLinear};
 use crate::differentiable_ssm::DifferentiableSSM;
 use crate::differentiable_memory::DifferentiableMemory;
 use crate::NexusConfig;
+
+/// KV Cache for a single attention layer during inference
+#[derive(Clone)]
+pub struct AttentionKVCache {
+    /// Cached keys: [batch, cached_len, d_model]
+    keys: Option<Array3<f32>>,
+    /// Cached values: [batch, cached_len, d_model]
+    values: Option<Array3<f32>>,
+    /// Current cached length
+    cached_len: usize,
+}
+
+impl AttentionKVCache {
+    pub fn new() -> Self {
+        Self {
+            keys: None,
+            values: None,
+            cached_len: 0,
+        }
+    }
+
+    /// Update cache with new keys/values and return full K, V
+    pub fn update(&mut self, new_k: &Array3<f32>, new_v: &Array3<f32>) -> (Array3<f32>, Array3<f32>) {
+        let (batch, new_len, d_model) = new_k.dim();
+
+        match (&self.keys, &self.values) {
+            (Some(cached_k), Some(cached_v)) => {
+                // Concatenate with existing cache
+                let total_len = self.cached_len + new_len;
+                let mut full_k = Array3::zeros((batch, total_len, d_model));
+                let mut full_v = Array3::zeros((batch, total_len, d_model));
+
+                // Copy cached values
+                for b in 0..batch {
+                    for s in 0..self.cached_len {
+                        for d in 0..d_model {
+                            full_k[[b, s, d]] = cached_k[[b, s, d]];
+                            full_v[[b, s, d]] = cached_v[[b, s, d]];
+                        }
+                    }
+                    // Add new values
+                    for s in 0..new_len {
+                        for d in 0..d_model {
+                            full_k[[b, self.cached_len + s, d]] = new_k[[b, s, d]];
+                            full_v[[b, self.cached_len + s, d]] = new_v[[b, s, d]];
+                        }
+                    }
+                }
+
+                self.keys = Some(full_k.clone());
+                self.values = Some(full_v.clone());
+                self.cached_len = total_len;
+
+                (full_k, full_v)
+            }
+            _ => {
+                // First update
+                self.keys = Some(new_k.clone());
+                self.values = Some(new_v.clone());
+                self.cached_len = new_len;
+                (new_k.clone(), new_v.clone())
+            }
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.cached_len
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.cached_len == 0
+    }
+
+    pub fn clear(&mut self) {
+        self.keys = None;
+        self.values = None;
+        self.cached_len = 0;
+    }
+}
+
+impl Default for AttentionKVCache {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+/// Model-level inference cache for all attention layers
+#[derive(Clone)]
+pub struct InferenceCache {
+    /// Per-layer attention KV caches
+    pub layer_caches: Vec<AttentionKVCache>,
+    /// Past sequence length (for position tracking)
+    pub past_len: usize,
+}
+
+impl InferenceCache {
+    pub fn new(n_attention_layers: usize) -> Self {
+        Self {
+            layer_caches: (0..n_attention_layers).map(|_| AttentionKVCache::new()).collect(),
+            past_len: 0,
+        }
+    }
+
+    pub fn clear(&mut self) {
+        for cache in &mut self.layer_caches {
+            cache.clear();
+        }
+        self.past_len = 0;
+    }
+}
 
 /// Differentiable RMS Normalization
 #[derive(Clone)]
@@ -168,6 +279,70 @@ impl DifferentiableAttention {
         self.out_proj.forward(&attn_output)
     }
 
+    /// Forward pass with KV cache for efficient autoregressive inference
+    ///
+    /// During prefill: x contains the full prompt, cache is empty
+    /// During decode: x contains only the new token, cache has previous K/V
+    pub fn forward_cached(&self, x: &Variable, cache: &mut AttentionKVCache) -> Variable {
+        let (batch, seq_len, _) = x.shape();
+
+        // Project to Q, K, V for new tokens only
+        let q = self.q_proj.forward(x);
+        let new_k = self.k_proj.forward(x);
+        let new_v = self.v_proj.forward(x);
+
+        // Update cache and get full K, V
+        let (full_k, full_v) = cache.update(&new_k.data(), &new_v.data());
+        let total_len = full_k.dim().1;
+
+        let scale = (self.d_model as f32).sqrt();
+        let q_data = q.data();
+
+        let mut output_data = Array3::zeros((batch, seq_len, self.d_model));
+
+        for b in 0..batch {
+            for i in 0..seq_len {
+                // Compute attention scores for position i
+                // Position in the full sequence is cache.len() - seq_len + i
+                let query_pos = total_len - seq_len + i;
+                let mut scores = vec![0.0f32; total_len];
+                let mut max_score = f32::NEG_INFINITY;
+
+                for j in 0..=query_pos {  // Causal mask
+                    let mut score = 0.0f32;
+                    for d in 0..self.d_model {
+                        score += q_data[[b, i, d]] * full_k[[b, j, d]];
+                    }
+                    score /= scale;
+                    scores[j] = score;
+                    max_score = max_score.max(score);
+                }
+
+                // Softmax
+                let mut exp_sum = 0.0f32;
+                for j in 0..=query_pos {
+                    scores[j] = (scores[j] - max_score).exp();
+                    exp_sum += scores[j];
+                }
+                for j in 0..=query_pos {
+                    scores[j] /= exp_sum;
+                }
+
+                // Weighted sum of values
+                for d in 0..self.d_model {
+                    let mut sum = 0.0f32;
+                    for j in 0..=query_pos {
+                        sum += scores[j] * full_v[[b, j, d]];
+                    }
+                    output_data[[b, i, d]] = sum;
+                }
+            }
+        }
+
+        let attn_output = Variable::new(output_data, false);  // No grad for inference
+        self.out_proj.forward(&attn_output)
+    }
+
     pub fn parameters(&self) -> Vec<Variable> {
         let mut params = self.q_proj.parameters();
         params.extend(self.k_proj.parameters());
@@ -292,6 +467,37 @@ impl DifferentiableHybridBlock {
         x.add(&mlp_out)
     }
 
+    /// Forward pass with KV cache for attention layers
+    /// SSM layers don't use KV cache (they have inherent recurrent state)
+    pub fn forward_cached(&self, x: &Variable, cache: Option<&mut AttentionKVCache>) -> Variable {
+        // Pre-norm attention/SSM with residual
+        let normed = self.norm1.forward(x);
+
+        let hidden = if self.use_attention {
+            // Use cached forward for attention
+            if let Some(c) = cache {
+                self.attn.as_ref().unwrap().forward_cached(&normed, c)
+            } else {
+                self.attn.as_ref().unwrap().forward(&normed)
+            }
+        } else {
+            // SSM doesn't use KV cache
+            self.ssm.as_ref().unwrap().forward(&normed)
+        };
+
+        let x = x.add(&hidden);
+
+        // Pre-norm MLP with residual
+        let normed = self.norm2.forward(&x);
+        let mlp_out = self.mlp.forward(&normed);
+        x.add(&mlp_out)
+    }
+
+    /// Whether this block uses attention (requires cache slot)
+    pub fn uses_attention(&self) -> bool {
+        self.use_attention
+    }
+
     pub fn parameters(&self) -> Vec<Variable> {
         let mut params = self.norm1.parameters();
         if let Some(ref attn) = self.attn {
@@ -391,6 +597,59 @@ impl DifferentiableHybridNexusLM {
 
         // Query memory and combine
         hidden = self.memory.forward(&hidden);
+
+        // Final norm
+        hidden = self.norm_f.forward(&hidden);
+
+        // Output projection to logits
+        self.output.forward(&hidden)
+    }
+
+    /// Create an inference cache for this model
+    pub fn create_cache(&self) -> InferenceCache {
+        // Count attention layers
+        let n_attention = self.blocks.iter().filter(|b| b.uses_attention()).count();
+        InferenceCache::new(n_attention)
+    }
+
+    /// Forward pass with KV cache for efficient autoregressive generation
+    ///
+    /// Uses cached K/V from previous tokens to avoid recomputation.
+    /// For prefill, pass the full prompt. For decode, pass one token at a time.
+    pub fn forward_cached(&self, token_ids: &[u32], cache: &mut InferenceCache) -> Variable {
+        let seq_len = token_ids.len();
+        let d_model = self.config.d_model;
+        let vocab_size = self.config.vocab_size;
+
+        // Embed tokens
+        let embed_data = self.embed.data();
+        let mut hidden_data = Array3::zeros((1, seq_len, d_model));
+        for (t, &tid) in token_ids.iter().enumerate() {
+            let tid = (tid as usize).min(vocab_size - 1);
+            for d in 0..d_model {
+                hidden_data[[0, t, d]] = embed_data[[0, tid, d]];
+            }
+        }
+        let mut hidden = Variable::new(hidden_data, false);  // No grad for inference
+
+        // Forward through hybrid blocks with cache
+        let mut cache_idx = 0;
+        for block in &self.blocks {
+            if block.uses_attention() {
+                hidden = block.forward_cached(&hidden, Some(&mut cache.layer_caches[cache_idx]));
+                cache_idx += 1;
+            } else {
+                hidden = block.forward_cached(&hidden, None);
+            }
+        }
+
+        // Update past length
+        cache.past_len += seq_len;
+
+        // Query memory (skip for single-token decode for speed)
+        if seq_len > 1 {
+            hidden = self.memory.forward(&hidden);
+        }
 
         // Final norm
         hidden = self.norm_f.forward(&hidden);

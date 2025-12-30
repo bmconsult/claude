@@ -51,6 +51,7 @@ pub use embedding::Embedding;
 pub use differentiable::{
     DifferentiableNexusLM, DifferentiableBlock, DifferentiableMLP,
     DifferentiableHybridBlock, DifferentiableHybridNexusLM,
+    AttentionKVCache, InferenceCache,
 };
 pub use differentiable_ssm::DifferentiableSSM;
 pub use differentiable_memory::DifferentiableMemory;
