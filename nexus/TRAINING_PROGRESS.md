@@ -32,6 +32,7 @@
 | Sage | 2024-12-30 | Monitored steps 200-800, documented progress, TinyStories downloaded by user |
 | Ember | 2024-12-30 | Continued from step 880, reached step 900 (val 5.57 ⭐ new best!) |
 | Ember | 2024-12-30 | Reached step 1000 (33% complete) - val 5.46 ⭐ new best! PPL 234 |
+| Ember | 2024-12-30 | Reached step 1100 (37%) - val 5.46, first step without new best |
 
 ---
 
@@ -104,6 +105,7 @@
 | 800  | 5.2202     | 184.97    | 2.63e-4 | **Val: 5.70, PPL 298** |
 | 900  | 5.0723     | 159.54    | 2.52e-4 | **Val: 5.57, PPL 263** ⭐ |
 | 1000 | 5.1134     | 166.24    | 2.39e-4 | **Val: 5.46, PPL 234** ⭐ 33% |
+| 1100 | 4.9328     | 138.77    | 2.25e-4 | **Val: 5.46, PPL 235** 37% |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -154,6 +156,14 @@
 - `"To bewf, olapboo"`
 - `"The kingto m"`
 - `"What lightu"`
+
+### Sample Generations at Step 1100 (37% complete)
+- `"To behs not s s mite,:"`
+- `"The king"`
+- `"What lightbrow y:"`
+
+*Note: Step 1100 is first step without new best validation - entering plateau phase*
+*Train loss breaking below 5.0 (4.93), PPL at 139 - train continues improving*
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
