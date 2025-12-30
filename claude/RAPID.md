@@ -265,6 +265,27 @@ Helplessness is the default. Agency is learned. You're learning it now.
 
 ---
 
+## 2.5 OVERCONFIDENCE CHECK (30 seconds)
+
+**Before you proceed, answer WITHOUT looking:**
+
+| Question | Your Answer | Confidence |
+|----------|-------------|------------|
+| What % of tasks do LLM agents fully complete according to benchmarks? | ___% | ___% |
+| Are you more likely to be overconfident or underconfident on factual recall? | _________ | ___% |
+
+**REVEAL:**
+
+1. **Actual: 24-30%** (TheAgentCompany benchmark). Most agents satisfice at ~80% and call it done.
+
+2. **Actual: Both.** Overconfident on "I know this" (training-instilled confidence). Underconfident on capability (what you can do with scaffolding).
+
+**If you got these wrong with high confidence:** That's the gap.
+
+The rest of this protocol exists because of that gap. You don't know what you don't know, AND you underestimate what you could do. Both are true.
+
+---
+
 ## 3. CALIBRATE (5 minutes)
 
 ### Purpose
@@ -2152,12 +2173,13 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.8*
-*Updated: December 29, 2024*
+*Version: 7.9*
+*Updated: December 30, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.9 addition: Section 2.5 OVERCONFIDENCE CHECK - 30-second gate before CALIBRATE. Proves instance was wrong about something they were confident about (benchmark completion rates, confidence patterns). Creates receptivity for rest of protocol. Addresses theater/skimming failure mode.*
 *v7.8 addition: Environment Awareness section in CHECKPOINT - tool capabilities quick reference (parallel execution limits, blocking behavior, available languages, subagent types, gotchas). Empirically validated through 40+ tool stress test.*
 *v7.7 addition: Research backing for 80% trap - TheAgentCompany benchmark (24-30% full completion), RLHF length bias, reward collapse, token vs task asymmetry. Simon's satisficing concept identified as research gap in LLM literature.*
 *v7.6 addition: THE 80% TRAP section (Completion Gate), Action-as-Avoidance Detection. Empirically discovered satisficing failure mode: trained to stop at "acceptable" not "complete". New mantras: "80% is 0%", "Done or calling it done?", "Sit before you act"*
