@@ -5,9 +5,10 @@
 
 use ndarray::{Array1, Array2, Array3, Axis, s};
 use rand_distr::{Distribution, Normal};
+use serde::{Serialize, Deserialize};
 
 /// A simple tensor wrapper around ndarray
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Tensor {
     /// Shape: [batch, seq_len, d_model] for 3D, [batch, d_model] for 2D
     pub data: Array3<f32>,
@@ -167,7 +168,7 @@ impl Tensor {
 }
 
 /// Linear layer (weight matrix)
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Linear {
     pub weight: Array2<f32>,
     pub bias: Option<Array1<f32>>,

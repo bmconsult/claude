@@ -3,9 +3,11 @@
 //! Implements the attention mechanism used sparingly (1:7 ratio) in the hybrid architecture.
 
 use ndarray::{Array2, Array3};
+use serde::{Serialize, Deserialize};
 use crate::tensor::{Tensor, Linear};
 
 /// Rotary Position Embedding
+#[derive(Clone, Serialize, Deserialize)]
 pub struct RoPE {
     /// Precomputed cos values
     cos: Array2<f32>,
@@ -68,6 +70,7 @@ impl RoPE {
 }
 
 /// Multi-Head Attention
+#[derive(Clone, Serialize, Deserialize)]
 pub struct MultiHeadAttention {
     /// Number of heads
     n_heads: usize,

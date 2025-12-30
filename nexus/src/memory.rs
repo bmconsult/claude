@@ -5,10 +5,11 @@
 //! Memory updates via mini-gradient descent on incoming tokens.
 
 use ndarray::{Array1, Array2, Array3};
+use serde::{Serialize, Deserialize};
 use crate::tensor::Tensor;
 
 /// Memory entry with associated key and value
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 struct MemoryEntry {
     /// Key for retrieval (what to match)
     key: Array1<f32>,
@@ -26,6 +27,7 @@ struct MemoryEntry {
 /// 1. Short-term: Current attention context
 /// 2. Long-term: Learned representations (test-time updated)
 /// 3. Persistent: Task knowledge (not updated here)
+#[derive(Clone, Serialize, Deserialize)]
 pub struct TitansMemory {
     /// Model dimension
     d_model: usize,

@@ -4,12 +4,14 @@
 //! Each block includes RMSNorm for stability.
 
 use ndarray::Array1;
+use serde::{Serialize, Deserialize};
 use crate::tensor::Tensor;
 use crate::attention::MultiHeadAttention;
 use crate::ssm::SelectiveSSM;
 use crate::NexusConfig;
 
 /// RMS Normalization layer
+#[derive(Clone, Serialize, Deserialize)]
 pub struct RMSNorm {
     weight: Array1<f32>,
     eps: f32,
@@ -29,6 +31,7 @@ impl RMSNorm {
 }
 
 /// MLP (Feed-Forward Network)
+#[derive(Clone, Serialize, Deserialize)]
 pub struct MLP {
     up_proj: crate::tensor::Linear,
     down_proj: crate::tensor::Linear,
@@ -54,6 +57,7 @@ impl MLP {
 }
 
 /// A single hybrid block (either attention or SSM based)
+#[derive(Clone, Serialize, Deserialize)]
 pub struct HybridBlock {
     /// Whether this block uses attention (true) or SSM (false)
     use_attention: bool,

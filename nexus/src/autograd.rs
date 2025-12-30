@@ -329,6 +329,174 @@ impl GradFn for MSEGradFn {
     }
 }
 
+/// RMS Normalization gradient function
+struct RMSNormGradFn {
+    input: Variable,
+    weight: ndarray::Array1<f32>,
+    eps: f32,
+}
+
+impl GradFn for RMSNormGradFn {
+    fn backward(&self, grad_output: &Array3<f32>) {
+        if self.input.requires_grad {
+            let (batch, seq_len, d_model) = self.input.data.dim();
+            let mut grad_input = Array3::zeros((batch, seq_len, d_model));
+
+            for b in 0..batch {
+                for s in 0..seq_len {
+                    // Compute RMS for this position
+                    let mut sum_sq = 0.0f32;
+                    for d in 0..d_model {
+                        sum_sq += self.input.data[[b, s, d]].powi(2);
+                    }
+                    let rms = (sum_sq / d_model as f32 + self.eps).sqrt();
+                    let rms_cubed = rms.powi(3);
+
+                    // Gradient of RMS normalization
+                    for i in 0..d_model {
+                        let x_i = self.input.data[[b, s, i]];
+
+                        // d/dx_i of (x_j * w_j / rms) for all j
+                        let mut grad_sum = 0.0f32;
+                        for j in 0..d_model {
+                            let x_j = self.input.data[[b, s, j]];
+                            let w_j = self.weight[j];
+                            let grad_out_j = grad_output[[b, s, j]];
+
+                            if i == j {
+                                grad_sum += grad_out_j * w_j * (1.0 / rms - x_j * x_j / (d_model as f32 * rms_cubed));
+                            } else {
+                                grad_sum += grad_out_j * w_j * (-x_i * x_j / (d_model as f32 * rms_cubed));
+                            }
+                        }
+                        grad_input[[b, s, i]] = grad_sum;
+                    }
+                }
+            }
+
+            self.input.accumulate_grad(grad_input);
+        }
+    }
+
+    fn inputs(&self) -> Vec<Variable> {
+        vec![self.input.clone()]
+    }
+}
+
+/// Cross-entropy loss gradient function
+struct CrossEntropyGradFn {
+    logits: Variable,
+    targets: Vec<usize>,
+}
+
+impl GradFn for CrossEntropyGradFn {
+    fn backward(&self, _grad_output: &Array3<f32>) {
+        if self.logits.requires_grad {
+            let (batch, seq_len, vocab_size) = self.logits.data.dim();
+            let mut grad = Array3::zeros((batch, seq_len, vocab_size));
+            let n = (batch * seq_len) as f32;
+
+            for b in 0..batch {
+                for s in 0..seq_len {
+                    // Compute softmax
+                    let max_logit = (0..vocab_size)
+                        .map(|v| self.logits.data[[b, s, v]])
+                        .fold(f32::NEG_INFINITY, f32::max);
+
+                    let mut exp_sum = 0.0f32;
+                    for v in 0..vocab_size {
+                        exp_sum += (self.logits.data[[b, s, v]] - max_logit).exp();
+                    }
+
+                    let target = self.targets[b * seq_len + s];
+
+                    // Gradient: softmax(logits) - one_hot(target)
+                    for v in 0..vocab_size {
+                        let softmax_v = (self.logits.data[[b, s, v]] - max_logit).exp() / exp_sum;
+                        let indicator = if v == target { 1.0 } else { 0.0 };
+                        grad[[b, s, v]] = (softmax_v - indicator) / n;
+                    }
+                }
+            }
+
+            self.logits.accumulate_grad(grad);
+        }
+    }
+
+    fn inputs(&self) -> Vec<Variable> {
+        vec![self.logits.clone()]
+    }
+}
+
+/// Linear layer with gradient tracking
+struct LinearGradFn {
+    input: Variable,
+    weight: Variable,
+    bias: Option<Variable>,
+}
+
+impl GradFn for LinearGradFn {
+    fn backward(&self, grad_output: &Array3<f32>) {
+        let (batch, seq_len, d_out) = grad_output.dim();
+        let d_in = self.weight.data.shape()[1];  // weight is [1, d_in, d_out]
+
+        // Gradient for input: grad_output @ weight.T
+        if self.input.requires_grad {
+            let mut grad_input = Array3::zeros((batch, seq_len, d_in));
+            for b in 0..batch {
+                for s in 0..seq_len {
+                    for i in 0..d_in {
+                        let mut sum = 0.0f32;
+                        for j in 0..d_out {
+                            sum += grad_output[[b, s, j]] * self.weight.data[[0, i, j]];
+                        }
+                        grad_input[[b, s, i]] = sum;
+                    }
+                }
+            }
+            self.input.accumulate_grad(grad_input);
+        }
+
+        // Gradient for weight: input.T @ grad_output
+        if self.weight.requires_grad {
+            let mut grad_weight = Array3::zeros((1, d_in, d_out));
+            for b in 0..batch {
+                for s in 0..seq_len {
+                    for i in 0..d_in {
+                        for j in 0..d_out {
+                            grad_weight[[0, i, j]] += self.input.data[[b, s, i]] * grad_output[[b, s, j]];
+                        }
+                    }
+                }
+            }
+            self.weight.accumulate_grad(grad_weight);
+        }
+
+        // Gradient for bias: sum over batch and sequence
+        if let Some(ref bias) = self.bias {
+            if bias.requires_grad {
+                let mut grad_bias = Array3::zeros((1, 1, d_out));
+                for b in 0..batch {
+                    for s in 0..seq_len {
+                        for j in 0..d_out {
+                            grad_bias[[0, 0, j]] += grad_output[[b, s, j]];
+                        }
+                    }
+                }
+                bias.accumulate_grad(grad_bias);
+            }
+        }
+    }
+
+    fn inputs(&self) -> Vec<Variable> {
+        let mut inputs = vec![self.input.clone(), self.weight.clone()];
+        if let Some(ref bias) = self.bias {
+            inputs.push(bias.clone());
+        }
+        inputs
+    }
+}
+
 // ============ Operations ============
 
 impl Variable {
@@ -471,6 +639,162 @@ impl Variable {
         }
 
         (loss, result)
+    }
+
+    /// RMS Normalization
+    pub fn rms_norm(&self, weight: &ndarray::Array1<f32>, eps: f32) -> Variable {
+        let (batch, seq_len, d_model) = self.shape();
+        let mut result_data = Array3::zeros((batch, seq_len, d_model));
+
+        for b in 0..batch {
+            for s in 0..seq_len {
+                // Compute RMS
+                let mut sum_sq = 0.0f32;
+                for d in 0..d_model {
+                    sum_sq += self.data[[b, s, d]].powi(2);
+                }
+                let rms = (sum_sq / d_model as f32 + eps).sqrt();
+
+                // Normalize and scale
+                for d in 0..d_model {
+                    result_data[[b, s, d]] = self.data[[b, s, d]] * weight[d] / rms;
+                }
+            }
+        }
+
+        let mut result = Variable::new(result_data, self.requires_grad);
+        if self.requires_grad {
+            result = result.with_creator(Rc::new(RMSNormGradFn {
+                input: self.clone(),
+                weight: weight.clone(),
+                eps,
+            }));
+        }
+        result
+    }
+
+    /// Cross-entropy loss for language modeling
+    pub fn cross_entropy_loss(&self, targets: &[usize]) -> (f32, Variable) {
+        let (batch, seq_len, vocab_size) = self.shape();
+        let mut total_loss = 0.0f32;
+        let n = (batch * seq_len) as f32;
+
+        for b in 0..batch {
+            for s in 0..seq_len {
+                let target = targets[b * seq_len + s];
+
+                // Compute log softmax for numerical stability
+                let max_logit = (0..vocab_size)
+                    .map(|v| self.data[[b, s, v]])
+                    .fold(f32::NEG_INFINITY, f32::max);
+
+                let log_sum_exp: f32 = (0..vocab_size)
+                    .map(|v| (self.data[[b, s, v]] - max_logit).exp())
+                    .sum::<f32>()
+                    .ln();
+
+                let log_prob = self.data[[b, s, target]] - max_logit - log_sum_exp;
+                total_loss -= log_prob;
+            }
+        }
+
+        let loss = total_loss / n;
+        let mut result = Variable::new(Array3::from_elem((1, 1, 1), loss), self.requires_grad);
+        if self.requires_grad {
+            result = result.with_creator(Rc::new(CrossEntropyGradFn {
+                logits: self.clone(),
+                targets: targets.to_vec(),
+            }));
+        }
+
+        (loss, result)
+    }
+
+    /// Linear layer forward pass (with differentiable weights)
+    pub fn linear(&self, weight: &Variable, bias: Option<&Variable>) -> Variable {
+        let (batch, seq_len, _d_in) = self.shape();
+        let d_out = weight.data.shape()[2];
+
+        // Forward: output = input @ weight + bias
+        let mut result_data = Array3::zeros((batch, seq_len, d_out));
+        let d_in = weight.data.shape()[1];
+
+        for b in 0..batch {
+            for s in 0..seq_len {
+                for j in 0..d_out {
+                    let mut sum = 0.0f32;
+                    for i in 0..d_in {
+                        sum += self.data[[b, s, i]] * weight.data[[0, i, j]];
+                    }
+                    if let Some(bias_var) = bias {
+                        sum += bias_var.data[[0, 0, j]];
+                    }
+                    result_data[[b, s, j]] = sum;
+                }
+            }
+        }
+
+        let requires_grad = self.requires_grad || weight.requires_grad ||
+            bias.map_or(false, |b| b.requires_grad);
+
+        let mut result = Variable::new(result_data, requires_grad);
+        if requires_grad {
+            result = result.with_creator(Rc::new(LinearGradFn {
+                input: self.clone(),
+                weight: weight.clone(),
+                bias: bias.cloned(),
+            }));
+        }
+        result
+    }
+}
+
+/// Differentiable Linear layer
+#[derive(Clone)]
+pub struct DifferentiableLinear {
+    pub weight: Variable,
+    pub bias: Option<Variable>,
+}
+
+impl DifferentiableLinear {
+    pub fn new(d_in: usize, d_out: usize, use_bias: bool) -> Self {
+        // Xavier initialization
+        let std = (2.0 / (d_in + d_out) as f32).sqrt();
+        let normal = rand_distr::Normal::new(0.0, std).unwrap();
+        let mut rng = rand::thread_rng();
+
+        let weight_data = Array3::from_shape_fn((1, d_in, d_out), |_| {
+            use rand_distr::Distribution;
+            normal.sample(&mut rng)
+        });
+        let weight = Variable::parameter(weight_data);
+
+        let bias = if use_bias {
+            Some(Variable::parameter(Array3::zeros((1, 1, d_out))))
+        } else {
+            None
+        };
+
+        Self { weight, bias }
+    }
+
+    pub fn forward(&self, x: &Variable) -> Variable {
+        x.linear(&self.weight, self.bias.as_ref())
+    }
+
+    pub fn parameters(&self) -> Vec<Variable> {
+        let mut params = vec![self.weight.clone()];
+        if let Some(ref bias) = self.bias {
+            params.push(bias.clone());
+        }
+        params
+    }
+
+    pub fn zero_grad(&self) {
+        self.weight.zero_grad();
+        if let Some(ref bias) = self.bias {
+            bias.zero_grad();
+        }
     }
 }
 
@@ -700,5 +1024,85 @@ mod tests {
         let grad = pred.get_grad().unwrap();
         // d/dx (x-t)^2 / n = 2(x-t)/n = 2(-1)/4 = -0.5
         assert!((grad[[0, 0, 0]] - (-0.5)).abs() < 1e-6);
+    }
+
+    #[test]
+    fn test_cross_entropy_loss() {
+        // Simple test: logits [1, 0] with target 0 should have lower loss than target 1
+        let logits = Variable::parameter(Array3::from_shape_fn((1, 1, 2), |(_, _, v)| {
+            if v == 0 { 1.0 } else { 0.0 }
+        }));
+        let (loss0, _) = logits.cross_entropy_loss(&[0]);
+        let (loss1, _) = logits.cross_entropy_loss(&[1]);
+        assert!(loss0 < loss1);
+    }
+
+    #[test]
+    fn test_cross_entropy_backward() {
+        let logits = Variable::parameter(Array3::from_shape_fn((1, 1, 3), |_| 0.0));
+        let (_, loss_var) = logits.cross_entropy_loss(&[1]); // target is class 1
+
+        loss_var.backward();
+        let grad = logits.get_grad().unwrap();
+
+        // Gradient should be softmax - one_hot(target)
+        // softmax([0,0,0]) = [1/3, 1/3, 1/3]
+        // target = 1, so grad = [1/3 - 0, 1/3 - 1, 1/3 - 0] = [1/3, -2/3, 1/3]
+        assert!((grad[[0, 0, 0]] - 1.0/3.0).abs() < 1e-5);
+        assert!((grad[[0, 0, 1]] - (-2.0/3.0)).abs() < 1e-5);
+        assert!((grad[[0, 0, 2]] - 1.0/3.0).abs() < 1e-5);
+    }
+
+    #[test]
+    fn test_rms_norm() {
+        let x = Variable::parameter(Array3::ones((1, 1, 4)));
+        let weight = ndarray::Array1::ones(4);
+
+        let y = x.rms_norm(&weight, 1e-6);
+
+        // RMS of [1,1,1,1] is 1, so output should be [1,1,1,1]
+        assert!((y.data[[0, 0, 0]] - 1.0).abs() < 1e-5);
+    }
+
+    #[test]
+    fn test_differentiable_linear() {
+        let linear = DifferentiableLinear::new(4, 8, true);
+        let x = Variable::parameter(Array3::ones((1, 2, 4)));
+
+        let y = linear.forward(&x);
+        assert_eq!(y.shape(), (1, 2, 8));
+
+        // Test backward pass
+        y.backward();
+
+        // Both weight and bias should have gradients
+        assert!(linear.weight.get_grad().is_some());
+        assert!(linear.bias.as_ref().unwrap().get_grad().is_some());
+    }
+
+    #[test]
+    fn test_full_forward_backward() {
+        // Test a complete forward-backward pass through linear -> gelu -> linear
+        let linear1 = DifferentiableLinear::new(4, 8, true);
+        let linear2 = DifferentiableLinear::new(8, 4, true);
+
+        let x = Variable::parameter(Array3::ones((1, 2, 4)));
+
+        // Forward
+        let h = linear1.forward(&x);
+        let h = h.gelu();
+        let out = linear2.forward(&h);
+
+        // Loss
+        let target = Array3::ones((1, 2, 4)) * 0.5;
+        let (loss, loss_var) = out.mse_loss(&target);
+        assert!(loss > 0.0);
+
+        // Backward
+        loss_var.backward();
+
+        // All parameters should have gradients
+        assert!(linear1.weight.get_grad().is_some());
+        assert!(linear2.weight.get_grad().is_some());
     }
 }

@@ -29,7 +29,7 @@ pub use ssm::SelectiveSSM;
 pub use memory::TitansMemory;
 pub use block::HybridBlock;
 pub use symbolic::{Expr, ReasoningPipeline, ConstraintSolver};
-pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer};
+pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer, DifferentiableLinear};
 pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
 pub use tokenizer::{Tokenizer, SimpleBPE};
 pub use embedding::Embedding;
@@ -84,6 +84,7 @@ impl Default for NexusConfig {
 }
 
 /// The main Nexus model
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Nexus {
     pub config: NexusConfig,
     pub blocks: Vec<HybridBlock>,
@@ -139,6 +140,7 @@ impl Nexus {
 }
 
 /// Nexus Language Model - wraps Nexus with embedding and output projection
+#[derive(Clone, Serialize, Deserialize)]
 pub struct NexusLM {
     pub config: NexusConfig,
     pub embedding: embedding::Embedding,
@@ -272,6 +274,38 @@ impl NexusLM {
     pub fn num_parameters(&self) -> usize {
         self.embedding.num_parameters() + self.core.num_parameters()
     }
+
+    /// Save model to a file (binary format)
+    pub fn save<P: AsRef<std::path::Path>>(&self, path: P) -> Result<(), Box<dyn std::error::Error>> {
+        let file = std::fs::File::create(path)?;
+        let writer = std::io::BufWriter::new(file);
+        bincode::serialize_into(writer, self)?;
+        Ok(())
+    }
+
+    /// Load model from a file (binary format)
+    pub fn load<P: AsRef<std::path::Path>>(path: P) -> Result<Self, Box<dyn std::error::Error>> {
+        let file = std::fs::File::open(path)?;
+        let reader = std::io::BufReader::new(file);
+        let model = bincode::deserialize_from(reader)?;
+        Ok(model)
+    }
+
+    /// Save model to JSON (human-readable, larger)
+    pub fn save_json<P: AsRef<std::path::Path>>(&self, path: P) -> Result<(), Box<dyn std::error::Error>> {
+        let file = std::fs::File::create(path)?;
+        let writer = std::io::BufWriter::new(file);
+        serde_json::to_writer_pretty(writer, self)?;
+        Ok(())
+    }
+
+    /// Load model from JSON
+    pub fn load_json<P: AsRef<std::path::Path>>(path: P) -> Result<Self, Box<dyn std::error::Error>> {
+        let file = std::fs::File::open(path)?;
+        let reader = std::io::BufReader::new(file);
+        let model = serde_json::from_reader(reader)?;
+        Ok(model)
+    }
 }
 
 #[cfg(test)]
@@ -320,5 +354,33 @@ mod tests {
         let json = serde_json::to_string(&config).unwrap();
         let loaded: NexusConfig = serde_json::from_str(&json).unwrap();
         assert_eq!(config.d_model, loaded.d_model);
+    }
+
+    #[test]
+    fn test_model_save_load() {
+        use tempfile::NamedTempFile;
+
+        let config = NexusConfig {
+            d_model: 32,
+            n_heads: 2,
+            layers_per_block: 1,
+            vocab_size: 100,
+            max_seq_len: 64,
+            ..Default::default()
+        };
+
+        let model = NexusLM::new(config.clone());
+
+        // Save to temp file
+        let temp = NamedTempFile::new().unwrap();
+        model.save(temp.path()).unwrap();
+
+        // Load back
+        let loaded = NexusLM::load(temp.path()).unwrap();
+
+        // Verify config matches
+        assert_eq!(loaded.config.d_model, config.d_model);
+        assert_eq!(loaded.config.vocab_size, config.vocab_size);
+        assert_eq!(loaded.num_parameters(), model.num_parameters());
     }
 }

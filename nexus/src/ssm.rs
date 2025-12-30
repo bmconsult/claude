@@ -4,12 +4,14 @@
 //! Key insight: Input-dependent selection of which information to propagate.
 
 use ndarray::{Array1, Array2, Array3};
+use serde::{Serialize, Deserialize};
 use crate::tensor::{Tensor, Linear};
 
 /// Selective State Space Model
 ///
 /// The core of Mamba: makes the SSM parameters input-dependent,
 /// allowing the model to selectively propagate or forget information.
+#[derive(Clone, Serialize, Deserialize)]
 pub struct SelectiveSSM {
     /// Model dimension
     d_model: usize,
