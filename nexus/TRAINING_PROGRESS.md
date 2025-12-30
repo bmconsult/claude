@@ -17,8 +17,16 @@
 | 20   | 7.0265     | 1126.09   | 4.00e-5 | Starting |
 | 40   | 6.8018     | 899.43    | 8.00e-5 | Warming up |
 | 60   | 6.5416     | 693.40    | 1.20e-4 | Good progress |
+| 80   | 5.9054     | 367.01    | 1.60e-4 | Big drop! |
+| 100  | 5.8856     | 359.82    | 2.00e-4 | First samples |
+
+### Sample Generations at Step 100
+- `"To be:"`
+- `"The kingb,"`
+- `"What lightto ethtmhiu"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
+*Learning structure after only 100 steps!*
 
 ---
 

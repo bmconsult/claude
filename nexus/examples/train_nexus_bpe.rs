@@ -240,11 +240,11 @@ impl Default for TrainingConfig {
             grad_accum_steps: 4,  // Effective batch = 16
             max_grad_norm: 1.0,
 
-            // Logging
+            // Logging - save every 100 for resumability
             log_every: 20,
-            eval_every: 200,
+            eval_every: 100,
             generate_every: 100,
-            save_every: 200,
+            save_every: 100,
             checkpoint_dir: "checkpoints/nexus_bpe".to_string(),
 
             // Data & tokenization
