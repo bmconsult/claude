@@ -91,7 +91,12 @@
 | 440  | 5.4306     | 228.29    | 2.92e-4 | Slight increase |
 | 460  | 5.3732     | 215.56    | 2.91e-4 | Back down |
 | 480  | 5.5661     | 261.42    | 2.90e-4 | Fluctuating |
-| 500  | 5.5783     | 264.62    | 2.89e-4 | **Val: 5.85, PPL 347** ⭐ |
+| 500  | 5.5783     | 264.62    | 2.89e-4 | **Val: 5.85, PPL 347** |
+| 520  | 5.5478     | 256.66    | 2.88e-4 | Continuing |
+| 540  | 5.4684     | 237.09    | 2.86e-4 | Improving |
+| 560  | 5.4847     | 240.97    | 2.85e-4 | Stable |
+| 580  | 5.4226     | 226.46    | 2.83e-4 | Good |
+| 600  | 5.3851     | 218.12    | 2.82e-4 | **Val: 5.84, PPL 343** ⭐ |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -117,6 +122,11 @@
 - `"To be"`
 - `"The king,"`  ← proper comma punctuation!
 - `"What lightes s cadnot onourand nill;"`
+
+### Sample Generations at Step 600
+- `"To beto mon the  the  browle"`
+- `"The kingv"`
+- `"What light"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
