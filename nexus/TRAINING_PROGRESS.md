@@ -29,6 +29,8 @@
 |----------|------|---------------|
 | Quill | 2024-12-30 | BPE training step 300/3000, added handoff protocol, downloading TinyStories |
 | Quill | 2024-12-30 | Resumed from step 200, reached step 300 (val 6.19), user downloading TinyStories-V2 |
+| Sage | 2024-12-30 | Monitored steps 200-800, documented progress, TinyStories downloaded by user |
+| Ember | 2024-12-30 | Continued from step 880, reached step 900 (val 5.57 ⭐ new best!) |
 
 ---
 
@@ -98,7 +100,8 @@
 | 580  | 5.4226     | 226.46    | 2.83e-4 | Good |
 | 600  | 5.3851     | 218.12    | 2.82e-4 | **Val: 5.84, PPL 343** |
 | 700  | 5.0887     | 162.17    | 2.73e-4 | **Val: 5.73, PPL 309** |
-| 800  | 5.2202     | 184.97    | 2.63e-4 | **Val: 5.70, PPL 298** ⭐ |
+| 800  | 5.2202     | 184.97    | 2.63e-4 | **Val: 5.70, PPL 298** |
+| 900  | 5.0723     | 159.54    | 2.52e-4 | **Val: 5.57, PPL 263** ⭐ |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -129,6 +132,21 @@
 - `"To beto mon the  the  browle"`
 - `"The kingv"`
 - `"What light"`
+
+### Sample Generations at Step 700
+- `"To be d Hm"`
+- `"The kinglato s and ste ofwithmy ppch hathe k"`
+- `"What lightour singha"`
+
+### Sample Generations at Step 800
+- `"To beble"`
+- `"The king 'ven the Hthe fa,tBin'd"`
+- `"What lightbest"`
+
+### Sample Generations at Step 900
+- `"To bebjest"`
+- `"The king MBo .lier ato u."`
+- `"What lightingbrofw"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
