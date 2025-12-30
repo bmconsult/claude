@@ -35,6 +35,10 @@ metal = ["candle-core/metal", "candle-nn/metal"]
 [dependencies]
 # Core numerics
 ndarray = { version = "0.16", features = ["serde", "rayon"] }
+ndarray-linalg = { version = "0.16", optional = true }
+# Note: For BLAS acceleration, install OpenBLAS or Intel MKL and enable:
+# ndarray = { version = "0.16", features = ["serde", "rayon", "blas"] }
+# blas-src = { version = "0.10", features = ["openblas"] }
 num-traits = "0.2"
 
 # Random number generation

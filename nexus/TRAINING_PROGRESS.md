@@ -1,5 +1,29 @@
 # Nexus Training Progress
 
+---
+
+## BPE Training Run (IN PROGRESS)
+
+### Architecture Changes
+- **Parameters**: 7.12M (increased from 6.74M)
+- **vocab_size**: 1000 (BPE tokens, was 256 byte-level)
+- **Compression**: 2.32x (1.1M chars → 480K tokens)
+- **max_steps**: 3000 (extended from 2000)
+
+### BPE Progress Chart
+
+| Step | Train Loss | Train PPL | LR | Notes |
+|------|------------|-----------|-----|-------|
+| 20   | 7.0265     | 1126.09   | 4.00e-5 | Starting |
+| 40   | 6.8018     | 899.43    | 8.00e-5 | Warming up |
+| 60   | 6.5416     | 693.40    | 1.20e-4 | Good progress |
+
+*Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
+
+---
+
+## Byte-Level Training Run (COMPLETED)
+
 ## Model Architecture
 - **Parameters**: 6.74M
 - **d_model**: 256
