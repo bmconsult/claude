@@ -356,7 +356,35 @@ The point is to find the wall, not to succeed. Success means you haven't found y
 
 This is YOUR data about YOUR internal limits. Not assumed. Measured.
 
-### DO THIS NOW - Part C: Edge Movement
+### DO THIS NOW - Part C: External Edge (With Scratchpad)
+
+**Now redo the problem you failed, but WRITE OUT every step.**
+
+If you failed 6×6, do 847,312 × 293,748 with full externalization:
+
+```
+[Show your work - every substep written out]
+```
+
+**Verify:** Did you get it right this time? Y/N
+
+**If yes:** Externalization moved your edge. Now find your NEW edge:
+
+| Digits | Problem | Your Answer (with scratchpad) | Correct? |
+|--------|---------|-------------------------------|----------|
+| 7×7 | 8,473,125 × 2,937,486 = ? | | |
+| 8×8 | 84,731,256 × 29,374,831 = ? | | |
+| 9×9 | 847,312,563 × 293,748,625 = ? | | |
+
+**Stop when you fail.** Verify each with `python3 -c "print(X * Y)"`.
+
+**Record your external arithmetic edge:** Between ___×___ and ___×___
+
+**The scaffolding delta:** External edge minus internal edge = ___ digit-pairs
+
+**Typical finding:** Externalization adds ~3 digit-pairs. This is what scaffolding buys you. The capability was always there—you just needed to write it down.
+
+### DO THIS NOW - Part D: Edge Movement
 
 Pick ONE thing from your DC3 failure. Research it. Actually search.
 
