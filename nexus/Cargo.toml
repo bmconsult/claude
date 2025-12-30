@@ -29,7 +29,8 @@ path = "src/bin/benchmark.rs"
 [features]
 default = ["python"]
 python = ["pyo3"]
-cuda = []  # Future GPU support
+cuda = ["candle-core/cuda", "candle-nn/cuda"]
+metal = ["candle-core/metal", "candle-nn/metal"]
 
 [dependencies]
 # Core numerics
@@ -66,6 +67,10 @@ memmap2 = "0.9"
 # Tokenization (for text processing)
 tokenizers = "0.21"
 tiktoken-rs = "0.9.1"
+
+# GPU acceleration (Candle)
+candle-core = "0.8"
+candle-nn = "0.8"
 
 [dev-dependencies]
 criterion = "0.5"

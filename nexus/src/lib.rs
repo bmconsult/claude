@@ -19,7 +19,10 @@ pub mod training;
 pub mod tokenizer;
 pub mod embedding;
 pub mod differentiable;
+pub mod differentiable_ssm;
+pub mod differentiable_memory;
 pub mod checkpoint;
+pub mod gpu;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -35,7 +38,12 @@ pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer, DifferentiableLin
 pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
 pub use tokenizer::{Tokenizer, SimpleBPE, TiktokenBPE};
 pub use embedding::Embedding;
-pub use differentiable::{DifferentiableNexusLM, DifferentiableBlock, DifferentiableMLP};
+pub use differentiable::{
+    DifferentiableNexusLM, DifferentiableBlock, DifferentiableMLP,
+    DifferentiableHybridBlock, DifferentiableHybridNexusLM,
+};
+pub use differentiable_ssm::DifferentiableSSM;
+pub use differentiable_memory::DifferentiableMemory;
 pub use checkpoint::{ModelCheckpoint, OptimizerCheckpoint, TensorData};
 
 // NexusLM is defined in this file, so just make it public (it already is)
