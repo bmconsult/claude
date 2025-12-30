@@ -25,6 +25,13 @@ pub mod differentiable_world_model;
 pub mod checkpoint;
 pub mod differentiable_symbolic;
 pub mod gpu;
+pub mod rope;
+pub mod kv_cache;
+pub mod gqa;
+pub mod streaming;
+pub mod quantization;
+pub mod dpo;
+pub mod benchmark;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -53,6 +60,16 @@ pub use differentiable_world_model::{
 pub use checkpoint::{ModelCheckpoint, HybridModelCheckpoint, OptimizerCheckpoint, TensorData};
 pub use differentiable_symbolic::{
     SoftOperation, SoftComparison, NeuralExpressionTree, NeuralConstraintSolver, DifferentiableReasoner,
+};
+pub use rope::{RotaryEmbedding, DifferentiableRoPE, ScaledRotaryEmbedding};
+pub use kv_cache::{LayerKVCache, KVCache, PagedKVCache, StreamingKVCache};
+pub use gqa::{GQAConfig, GroupedQueryAttention, ChunkedGQA};
+pub use streaming::{SamplingConfig, StopCondition, Sampler, StreamingModel};
+pub use quantization::{QuantConfig, QuantParams, QuantizedTensor, QuantizedLinear, CalibrationCollector};
+pub use dpo::{DPOConfig, PreferencePair, DPOLoss, DPOTrainer, DPOModel, IPOLoss, KTOLoss, ORPOLoss};
+pub use benchmark::{
+    PerplexityEvaluator, AccuracyEvaluator, BleuEvaluator, RougeEvaluator,
+    LatencyBenchmark, MemoryProfiler, BenchmarkSuite, BenchmarkReport,
 };
 
 // NexusLM is defined in this file, so just make it public (it already is)
