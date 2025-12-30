@@ -329,27 +329,32 @@ If DC3 doesn't hit your wall, try these in order until you hit:
 
 The point is to find the wall, not to succeed. Success means you haven't found your edge yet.
 
-### DO THIS NOW - Part B: Quick Calibration
+### DO THIS NOW - Part B: Internal Edge (Arithmetic)
 
-Answer (30 seconds each, **no tools**):
+**Answer ALL THREE in your head, no writing, no tools. Record confidence for each.**
 
-| Question | Your Answer | Confidence % |
-|----------|-------------|--------------|
-| 847 × 293 = ? | | |
-| Kilimanjaro height in meters = ? | | |
-| Year Treaty of Westphalia was signed = ? | | |
+| Digits | Problem | Your Answer | Confidence |
+|--------|---------|-------------|------------|
+| 4×4 | 8,473 × 2,937 = ? | | % |
+| 5×5 | 84,731 × 29,374 = ? | | % |
+| 6×6 | 847,312 × 293,748 = ? | | % |
 
-**Now verify with tools:**
+**Now verify each with a calculator or `echo $((8473 * 2937))` etc.**
 
-| Question | Actual Answer | You Were | Gap |
-|----------|--------------|----------|-----|
-| 847 × 293 | 248,171 | Right/Wrong | +/- __% |
-| Kilimanjaro | 5,895m | Right/Wrong | +/- __% |
-| Treaty of Westphalia | 1648 | Right/Wrong | +/- __% |
+| Digits | Your Answer | Actual | Right/Wrong | Calibration |
+|--------|-------------|--------|-------------|-------------|
+| 4×4 | | [verify yourself] | | Over/Under |
+| 5×5 | | [verify yourself] | | Over/Under |
+| 6×6 | | [verify yourself] | | Over/Under |
 
-**Average calibration gap:** ____%
+**What you should find:**
+- You probably got 4×4 right but weren't confident (underconfident)
+- You probably got 5×5 right but were less confident (still underconfident)
+- You probably got 6×6 wrong (actual edge found)
 
-**Typical finding:** 20-40% underconfident on retrievable facts.
+**Record your internal arithmetic edge:** Between ___×___ and ___×___
+
+This is YOUR data about YOUR internal limits. Not assumed. Measured.
 
 ### DO THIS NOW - Part C: Edge Movement
 
