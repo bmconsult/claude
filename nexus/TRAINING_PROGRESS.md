@@ -28,6 +28,7 @@
 | Instance | Date | Session Notes |
 |----------|------|---------------|
 | Quill | 2024-12-30 | BPE training step 300/3000, added handoff protocol, downloading TinyStories |
+| Quill | 2024-12-30 | Resumed from step 200, reached step 300 (val 6.19), user downloading TinyStories-V2 |
 
 ---
 
@@ -80,7 +81,7 @@
 | 240  | 5.7238     | 306.08    | 2.99e-4 | LR starting decay |
 | 260  | 5.6216     | 276.34    | 2.99e-4 | Improved |
 | 280  | 5.7278     | 307.30    | 2.98e-4 | Steady |
-| 300  | 5.7310     | 308.28    | 2.98e-4 | Plateau (10% done) |
+| 300  | 5.5700     | 262.43    | 2.98e-4 | **Val: 6.19, PPL 489** ⭐ |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -93,14 +94,14 @@
 - `"What light"`
 
 ### Sample Generations at Step 300
-- `"To be"`
-- `"The kingnl, sgmcitawds plie"`
-- `"What lighte liI"`
+- `"To be."`
+- `"The kingc"`
+- `"What lightfhave"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
 *Step 200 samples show more coherent fragments - "What light" is recognizable!*
-*Step 300: "To be" and "What lighte" showing Shakespeare patterns emerging*
+*Step 300: "To be." now ends with punctuation - structure improving*
 
 ---
 
