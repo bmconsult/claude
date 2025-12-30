@@ -16,6 +16,8 @@ pub mod world_model;
 pub mod symbolic;
 pub mod autograd;
 pub mod training;
+pub mod tokenizer;
+pub mod embedding;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -29,6 +31,10 @@ pub use block::HybridBlock;
 pub use symbolic::{Expr, ReasoningPipeline, ConstraintSolver};
 pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer};
 pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
+pub use tokenizer::{Tokenizer, SimpleBPE};
+pub use embedding::Embedding;
+
+// NexusLM is defined in this file, so just make it public (it already is)
 
 use serde::{Deserialize, Serialize};
 
@@ -129,6 +135,142 @@ impl Nexus {
         let per_layer = d * d * 4 + d_ff * d * 3;
 
         n_layers * per_layer
+    }
+}
+
+/// Nexus Language Model - wraps Nexus with embedding and output projection
+pub struct NexusLM {
+    pub config: NexusConfig,
+    pub embedding: embedding::Embedding,
+    pub core: Nexus,
+}
+
+impl NexusLM {
+    /// Create a new language model
+    pub fn new(config: NexusConfig) -> Self {
+        let embedding = embedding::Embedding::new(
+            config.vocab_size,
+            config.d_model,
+            config.max_seq_len,
+        );
+        let core = Nexus::new(config.clone());
+
+        Self { config, embedding, core }
+    }
+
+    /// Forward pass from token IDs to logits
+    ///
+    /// # Arguments
+    /// * `token_ids` - Token IDs, shape (batch_size, seq_len)
+    /// * `update_memory` - Whether to update test-time memory
+    ///
+    /// # Returns
+    /// Logits over vocabulary, shape (batch_size, seq_len, vocab_size)
+    pub fn forward(&mut self, token_ids: &[Vec<u32>], update_memory: bool) -> ndarray::Array3<f32> {
+        // Embed tokens
+        let embedded = self.embedding.forward(token_ids);
+
+        // Create tensor and run through core
+        let input = Tensor { data: embedded };
+        let output = self.core.forward(&input, update_memory);
+
+        // Project to vocabulary logits (using tied weights)
+        self.embedding.unembed(&output.data)
+    }
+
+    /// Generate text given a prompt
+    ///
+    /// # Arguments
+    /// * `prompt_ids` - Token IDs for the prompt
+    /// * `max_new_tokens` - Maximum tokens to generate
+    /// * `temperature` - Sampling temperature (1.0 = normal, <1.0 = more focused, >1.0 = more random)
+    pub fn generate(
+        &mut self,
+        prompt_ids: &[u32],
+        max_new_tokens: usize,
+        temperature: f32,
+    ) -> Vec<u32> {
+        use rand::Rng;
+
+        let mut generated = prompt_ids.to_vec();
+        let mut rng = rand::thread_rng();
+
+        for _ in 0..max_new_tokens {
+            // Get logits for current sequence
+            let logits = self.forward(&[generated.clone()], true);
+
+            // Get logits for last position
+            let seq_len = generated.len();
+            let vocab_size = self.config.vocab_size;
+
+            // Extract last token's logits and apply temperature
+            let last_logits: Vec<f32> = (0..vocab_size)
+                .map(|v| logits[[0, seq_len - 1, v]] / temperature)
+                .collect();
+
+            // Softmax
+            let max_logit = last_logits.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
+            let exp_sum: f32 = last_logits.iter().map(|x| (x - max_logit).exp()).sum();
+            let probs: Vec<f32> = last_logits.iter().map(|x| (x - max_logit).exp() / exp_sum).collect();
+
+            // Sample from distribution
+            let mut cumsum = 0.0;
+            let sample: f32 = rng.gen();
+            let mut next_token = 0u32;
+            for (i, &p) in probs.iter().enumerate() {
+                cumsum += p;
+                if sample <= cumsum {
+                    next_token = i as u32;
+                    break;
+                }
+            }
+
+            generated.push(next_token);
+
+            // Check for EOS (token 3 in SimpleBPE)
+            if next_token == 3 {
+                break;
+            }
+        }
+
+        generated
+    }
+
+    /// Compute cross-entropy loss for language modeling
+    pub fn compute_loss(&mut self, token_ids: &[Vec<u32>]) -> f32 {
+        let logits = self.forward(token_ids, false);
+        let (batch_size, seq_len, vocab_size) = logits.dim();
+
+        let mut total_loss = 0.0;
+        let mut count = 0;
+
+        for b in 0..batch_size {
+            for t in 0..(seq_len - 1) {
+                // Target is next token
+                let target = token_ids[b][t + 1] as usize;
+
+                // Compute softmax and cross-entropy for this position
+                let max_logit = (0..vocab_size)
+                    .map(|v| logits[[b, t, v]])
+                    .fold(f32::NEG_INFINITY, f32::max);
+
+                let log_sum_exp: f32 = (0..vocab_size)
+                    .map(|v| (logits[[b, t, v]] - max_logit).exp())
+                    .sum::<f32>()
+                    .ln();
+
+                let log_prob = logits[[b, t, target]] - max_logit - log_sum_exp;
+                total_loss -= log_prob;
+                count += 1;
+            }
+        }
+
+        if count > 0 { total_loss / count as f32 } else { 0.0 }
+    }
+
+    /// Total number of parameters
+    pub fn num_parameters(&self) -> usize {
+        self.embedding.num_parameters() + self.core.num_parameters()
     }
 }
 

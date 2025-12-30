@@ -18,6 +18,10 @@ path = "src/bin/train.rs"
 name = "nexus-infer"
 path = "src/bin/infer.rs"
 
+[[bin]]
+name = "nexus-serve"
+path = "src/bin/serve.rs"
+
 [features]
 default = ["python"]
 python = ["pyo3"]

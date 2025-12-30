@@ -1,0 +1,52 @@
+The quick brown fox jumps over the lazy dog. This is a simple sentence for testing.
+Machine learning is the study of algorithms that improve through experience.
+Neural networks are computing systems inspired by biological neural networks.
+Deep learning uses multiple layers to progressively extract higher-level features.
+Transformers use self-attention to process sequences in parallel.
+State space models provide an efficient alternative to attention for long sequences.
+The Nexus architecture combines the best of both approaches.
+Test-time learning allows models to adapt during inference.
+Memory augmented networks can store and retrieve information dynamically.
+Language models learn to predict the next word in a sequence.
+Training requires large amounts of text data and compute.
+Inference is the process of using a trained model to make predictions.
+The loss function measures how well the model's predictions match the targets.
+Gradient descent optimizes model parameters to minimize the loss.
+Backpropagation computes gradients efficiently through automatic differentiation.
+Adam is a popular optimizer that adapts learning rates per parameter.
+Batch normalization helps stabilize training of deep networks.
+Dropout prevents overfitting by randomly zeroing activations.
+Residual connections allow gradients to flow through very deep networks.
+Positional encoding adds sequence position information to embeddings.
+Attention computes weighted sums based on query-key similarities.
+The softmax function converts logits to probabilities.
+Cross-entropy loss measures the difference between predicted and true distributions.
+Temperature controls the sharpness of the probability distribution.
+Top-k sampling restricts sampling to the k most likely tokens.
+Nucleus sampling samples from the smallest set covering probability p.
+Beam search explores multiple hypotheses in parallel.
+Greedy decoding always picks the most likely next token.
+Perplexity measures how well a language model predicts a test set.
+BLEU score evaluates machine translation quality.
+Fine-tuning adapts a pretrained model to a specific task.
+Transfer learning leverages knowledge from related tasks.
+Self-supervised learning learns representations without labels.
+Contrastive learning brings similar examples together in embedding space.
+The encoder maps inputs to latent representations.
+The decoder generates outputs from latent representations.
+Autoregressive models generate one token at a time.
+Masked language models predict randomly masked tokens.
+Causal attention prevents positions from attending to future tokens.
+The key, query, and value projections transform the input for attention.
+Multi-head attention runs multiple attention operations in parallel.
+Layer normalization normalizes activations across features.
+Feed-forward networks apply non-linear transformations.
+The vocabulary maps tokens to integer indices.
+Subword tokenization handles out-of-vocabulary words gracefully.
+Byte pair encoding merges frequent character pairs iteratively.
+The embedding layer maps token indices to dense vectors.
+Weight tying shares parameters between embedding and output layers.
+Gradient clipping prevents exploding gradients.
+Learning rate warmup gradually increases the learning rate.
+Cosine annealing decays the learning rate following a cosine curve.
+Checkpointing saves model state for resuming training.
