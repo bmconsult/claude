@@ -2,11 +2,9 @@
 //!
 //! Complete training loop with JEPA-style loss, checkpointing, and logging.
 
-use crate::autograd::{Variable, AdamW};
 use crate::{Nexus, NexusConfig, Tensor};
-use ndarray::{Array3, Array1};
+use ndarray::{Array1, Array3};
 use serde::{Deserialize, Serialize};
-use std::path::Path;
 use std::fs::File;
 use std::io::{BufReader, BufWriter, Write};
 
@@ -557,10 +555,10 @@ impl Trainer {
 
     /// Training step (simplified - would need full autograd integration)
     pub fn train_step(&mut self, model: &mut Nexus, batch: &Batch) -> (f32, f32, f32, f32) {
-        let (batch_size, seq_len, d_model) = batch.input.dim();
+        let (_, seq_len, _) = batch.input.dim();
 
         // Generate JEPA mask
-        let (context_indices, target_indices) = self.masker.generate_mask(seq_len);
+        let (_context_indices, target_indices) = self.masker.generate_mask(seq_len);
 
         // Create context (masked input) and target views
         let context_input = self.masker.apply_mask(&batch.input, &target_indices);

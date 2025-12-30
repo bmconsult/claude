@@ -2,7 +2,7 @@
 //!
 //! Implements the attention mechanism used sparingly (1:7 ratio) in the hybrid architecture.
 
-use ndarray::{Array1, Array2, Array3, s};
+use ndarray::{Array2, Array3};
 use crate::tensor::{Tensor, Linear};
 
 /// Rotary Position Embedding

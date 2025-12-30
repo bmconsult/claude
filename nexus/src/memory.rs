@@ -4,7 +4,7 @@
 //! High surprise → store in long-term memory.
 //! Memory updates via mini-gradient descent on incoming tokens.
 
-use ndarray::{Array1, Array2, Array3, s};
+use ndarray::{Array1, Array2, Array3};
 use crate::tensor::Tensor;
 
 /// Memory entry with associated key and value

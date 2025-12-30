@@ -170,12 +170,12 @@ impl Expr {
             ),
 
             // Don't substitute bound variables
-            Expr::ForAll(bound, body) if bound == var => self.clone(),
+            Expr::ForAll(bound, _body) if bound == var => self.clone(),
             Expr::ForAll(bound, body) => Expr::ForAll(
                 bound.clone(),
                 Box::new(body.substitute(var, value)),
             ),
-            Expr::Exists(bound, body) if bound == var => self.clone(),
+            Expr::Exists(bound, _body) if bound == var => self.clone(),
             Expr::Exists(bound, body) => Expr::Exists(
                 bound.clone(),
                 Box::new(body.substitute(var, value)),

@@ -62,6 +62,10 @@ tokenizers = "0.21"
 criterion = "0.5"
 tempfile = "3.15"
 
+[[bench]]
+name = "benchmarks"
+harness = false
+
 [profile.release]
 opt-level = 3
 lto = true

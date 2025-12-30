@@ -3,7 +3,6 @@
 //! Key insight: Predict in latent space, not token space.
 //! More efficient and handles ambiguity better than generative models.
 
-use ndarray::{Array1, Array2, Array3};
 use crate::tensor::{Tensor, Linear};
 
 /// JEPA-style predictor

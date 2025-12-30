@@ -3,7 +3,7 @@
 //! Tape-based reverse-mode autodiff for training Nexus models.
 //! Records operations in a computational graph and computes gradients via backprop.
 
-use ndarray::{Array1, Array2, Array3, Axis};
+use ndarray::{Array2, Array3};
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
@@ -17,6 +17,9 @@ fn next_tensor_id() -> usize {
     TENSOR_ID.fetch_add(1, Ordering::SeqCst)
 }
 
+/// Shared gradient storage - allows clones to share the same gradient
+type SharedGrad = Rc<RefCell<Option<Array3<f32>>>>;
+
 /// A tensor with gradient tracking
 #[derive(Clone)]
 pub struct Variable {
@@ -24,8 +27,8 @@ pub struct Variable {
     pub id: usize,
     /// The actual data
     pub data: Array3<f32>,
-    /// Gradient (computed during backward pass)
-    pub grad: RefCell<Option<Array3<f32>>>,
+    /// Gradient (computed during backward pass) - SHARED across clones
+    pub grad: SharedGrad,
     /// Whether this variable requires gradient
     pub requires_grad: bool,
     /// Operation that created this variable (for backprop)
@@ -38,7 +41,7 @@ impl Variable {
         Self {
             id: next_tensor_id(),
             data,
-            grad: RefCell::new(None),
+            grad: Rc::new(RefCell::new(None)),
             requires_grad,
             creator: None,
         }
@@ -485,7 +488,6 @@ impl Parameter {
         let std = (2.0 / d as f32).sqrt();
         let normal = rand_distr::Normal::new(0.0, std).unwrap();
 
-        use rand::prelude::*;
         let mut rng = rand::thread_rng();
         let data = Array3::from_shape_fn(shape, |_| {
             use rand_distr::Distribution;

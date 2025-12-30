@@ -3,7 +3,7 @@
 //! Implements the SSM used in the majority (7:1 ratio) of layers.
 //! Key insight: Input-dependent selection of which information to propagate.
 
-use ndarray::{Array1, Array2, Array3, s};
+use ndarray::{Array1, Array2, Array3};
 use crate::tensor::{Tensor, Linear};
 
 /// Selective State Space Model
@@ -187,7 +187,7 @@ impl SelectiveSSM {
         // Project dt to d_inner and apply softplus
         let dt_tensor = Tensor { data: dt_rank };
         let delta_proj = self.dt_proj.forward(&dt_tensor);
-        let mut delta = delta_proj.data.mapv(|v| (1.0 + v.exp()).ln()); // softplus
+        let delta = delta_proj.data.mapv(|v| (1.0 + v.exp()).ln()); // softplus
 
         // Get A from learned log
         let a = self.a_log.mapv(|v| -v.exp()); // A is negative for stability

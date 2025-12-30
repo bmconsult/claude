@@ -3,8 +3,7 @@
 //! A minimal tensor implementation for prototyping.
 //! In production, this would use a proper ML framework.
 
-use ndarray::{Array, Array1, Array2, Array3, Axis, s};
-use rand::Rng;
+use ndarray::{Array1, Array2, Array3, Axis, s};
 use rand_distr::{Distribution, Normal};
 
 /// A simple tensor wrapper around ndarray
@@ -81,7 +80,7 @@ impl Tensor {
 
     /// Softmax along the last dimension
     pub fn softmax(&self) -> Self {
-        let (batch, seq_len, d_model) = self.shape();
+        let (batch, seq_len, _) = self.shape();
         let mut result = self.data.clone();
 
         for b in 0..batch {

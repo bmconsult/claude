@@ -77,7 +77,6 @@ fn text_to_tensor(text: &str, model: &Nexus) -> Tensor {
     let d_model = model.config.d_model;
     let seq_len = text.len().min(512);
 
-    use rand::prelude::*;
     use rand_distr::{Normal, Distribution};
 
     let mut rng = rand::thread_rng();

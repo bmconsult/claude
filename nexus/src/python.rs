@@ -12,7 +12,7 @@ use ndarray::Array3;
 #[cfg(feature = "python")]
 use crate::{Nexus, NexusConfig, Tensor};
 #[cfg(feature = "python")]
-use crate::training::{Trainer, TrainConfig, DataLoader, TrainState};
+use crate::training::{Trainer, TrainConfig};
 
 /// Python wrapper for NexusConfig
 #[cfg(feature = "python")]

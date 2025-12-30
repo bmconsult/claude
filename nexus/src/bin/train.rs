@@ -107,7 +107,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
-fn load_data(path: &PathBuf, config: &NexusConfig) -> Result<Vec<Array3<f32>>> {
+fn load_data(_path: &PathBuf, config: &NexusConfig) -> Result<Vec<Array3<f32>>> {
     // In a real implementation, this would load tokenized text data
     // For now, generate synthetic data as placeholder
     println!("Data loading not yet implemented, using synthetic data");
@@ -115,7 +115,6 @@ fn load_data(path: &PathBuf, config: &NexusConfig) -> Result<Vec<Array3<f32>>> {
 }
 
 fn generate_synthetic_data(config: &NexusConfig, n_samples: usize) -> Vec<Array3<f32>> {
-    use rand::prelude::*;
     use rand_distr::{Normal, Distribution};
 
     let mut rng = rand::thread_rng();
