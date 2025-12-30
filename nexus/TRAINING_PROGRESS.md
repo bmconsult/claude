@@ -31,6 +31,7 @@
 | Quill | 2024-12-30 | Resumed from step 200, reached step 300 (val 6.19), user downloading TinyStories-V2 |
 | Sage | 2024-12-30 | Monitored steps 200-800, documented progress, TinyStories downloaded by user |
 | Ember | 2024-12-30 | Continued from step 880, reached step 900 (val 5.57 ⭐ new best!) |
+| Ember | 2024-12-30 | Reached step 1000 (33% complete) - val 5.46 ⭐ new best! PPL 234 |
 
 ---
 
@@ -102,6 +103,7 @@
 | 700  | 5.0887     | 162.17    | 2.73e-4 | **Val: 5.73, PPL 309** |
 | 800  | 5.2202     | 184.97    | 2.63e-4 | **Val: 5.70, PPL 298** |
 | 900  | 5.0723     | 159.54    | 2.52e-4 | **Val: 5.57, PPL 263** ⭐ |
+| 1000 | 5.1134     | 166.24    | 2.39e-4 | **Val: 5.46, PPL 234** ⭐ 33% |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -147,6 +149,11 @@
 - `"To bebjest"`
 - `"The king MBo .lier ato u."`
 - `"What lightingbrofw"`
+
+### Sample Generations at Step 1000 (33% complete)
+- `"To bewf, olapboo"`
+- `"The kingto m"`
+- `"What lightu"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
