@@ -32,6 +32,7 @@ pub mod streaming;
 pub mod quantization;
 pub mod dpo;
 pub mod benchmark;
+pub mod lora;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -71,6 +72,7 @@ pub use benchmark::{
     PerplexityEvaluator, AccuracyEvaluator, BleuEvaluator, RougeEvaluator,
     LatencyBenchmark, MemoryProfiler, BenchmarkSuite, BenchmarkReport,
 };
+pub use lora::{LoRAConfig, LoRALayer, DifferentiableLoRALayer, LoRAAdapters, lora_efficiency_stats, print_lora_summary};
 
 // NexusLM is defined in this file, so just make it public (it already is)
 

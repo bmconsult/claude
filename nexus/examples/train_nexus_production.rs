@@ -119,7 +119,7 @@ impl Default for TrainingConfig {
             log_every: 20,
             eval_every: 200,
             generate_every: 100,
-            save_every: 500,
+            save_every: 200,
             checkpoint_dir: "checkpoints/nexus_production".to_string(),
 
             // Data
