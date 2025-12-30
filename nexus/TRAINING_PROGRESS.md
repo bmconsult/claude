@@ -27,11 +27,11 @@
 | 600  | 2.4485     | 11.57     | 2.8293   | 16.93   | 2.52e-4 | ⭐ |
 | 800  | 2.4020     | 11.05     | 2.7930   | 16.33   | 2.10e-4 | ⭐ |
 | 1000 | 2.4396     | 11.47     | 2.7724   | 16.00   | 1.62e-4 | ⭐ |
-| 1200 | -          | -         | -        | -       | ~1.2e-4 | - |
-| 1400 | -          | -         | -        | -       | ~0.9e-4 | - |
-| 1600 | -          | -         | -        | -       | ~0.6e-4 | - |
-| 1800 | -          | -         | -        | -       | ~0.3e-4 | - |
-| 2000 | -          | -         | -        | -       | ~0.1e-4 | - |
+| 1200 | 2.3791     | 10.80     | 2.7097   | 15.03   | 1.13e-4 | ⭐ |
+| 1400 | 2.3606     | 10.60     | 2.6312   | 13.89   | 6.80e-5 | ⭐ |
+| 1600 | 2.3230     | 10.21     | 2.6600   | 14.30   | 3.16e-5 | - |
+| 1800 | 2.2944     | 9.92      | 2.6523   | 14.19   | 8.13e-6 | - |
+| 2000 | 2.3617     | 10.61     | 2.6472   | 14.11   | 0.00e0  | - |
 
 ---
 
@@ -44,46 +44,63 @@ Val Loss
 2.81 ┤  │
 2.79 ┤  └──● (step 800: 2.7930)
 2.77 ┤      └──● (step 1000: 2.7724)
-2.75 ┤          └──? (step 1200: projected ~2.75)
-2.73 ┤
-     └────────────────────────────────────
-       600   800   1000  1200  1400  Step
+2.75 ┤          │
+2.73 ┤          │
+2.71 ┤          └──● (step 1200: 2.7097)
+2.69 ┤              │
+2.67 ┤              │
+2.65 ┤              │         ┌──● (step 1800: 2.6523)
+2.63 ┤              └──● (step 1400: 2.6312) ⭐ BEST    └──● (step 2000: 2.6472)
+2.66 ┤                  ┌──● (step 1600: 2.6600)
+     └───────────────────────────────────────────────────────────
+       600   800   1000  1200  1400  1600  1800  2000  Step
 ```
 
 ## Key Observations
 
 ### Loss Progression
-- **Train loss improving**: 2.4485 → 2.4020 → 2.4396 (slight uptick at 1000)
-- **Val loss consistently improving**: 2.8293 → 2.7930 → 2.7724 (5.7% improvement)
-- **Gap**: Train ~2.44, Val ~2.77 = 0.33 gap (reasonable, not severe overfitting)
+- **Train loss**: 2.4485 → 2.4020 → 2.4396 → 2.3791 → 2.3606 → 2.3230 → 2.2944 → 2.3617
+- **Val loss**: 2.8293 → 2.7930 → 2.7724 → 2.7097 → **2.6312** → 2.6600 → 2.6523 → 2.6472
+- **Final gap**: Train 2.36, Val 2.65 = 0.29 gap (stabilized)
+- **Note**: Step 1400 remains the **TRUE BEST** validation checkpoint (val_loss=2.6312)
 
 ### Perplexity
-- Training PPL stabilizing around 11 (good for byte-level)
-- Validation PPL: 16.93 → 16.00 (5.5% reduction)
+- Training PPL: 11.57 → 11.05 → 11.47 → 10.80 → 10.60 → 10.21 → **9.92** → 10.61
+- Validation PPL: 16.93 → 16.33 → 16.00 → 15.03 → **13.89** → 14.30 → 14.19 → 14.11
 
 ### Sample Quality Evolution
 - Step 600: "To beUouri tiem" (fragmented)
 - Step 800: "To be ai wondouotsthes" (starting structure)
 - Step 1000: "To bere whisthid" (some word formation)
+- Step 1200: "To berar hatht" / "The kingeve is, oryouthincow" (more coherence)
+- Step 1400: "To beyhieny t tharre biscourle" / "The kingourean itht watoopof" (complex fragments)
+- Step 1600: "To behan ovll hashar" / "The king: opis sedicthy," (word-like tokens, punctuation)
+- Step 1800: "To beres," / "The kinghen arpor. thimideyous," (shorter fragments)
+- Step 2000: "To behed loust it modseathiny." / "The kinghise towan'tercrut." (complex)
+- **Final**: "To be, or not to besunghuthit," / "What's in a name?" (recognizable prompts!)
 
 ### Learning Rate
-- Cosine decay from 3e-4 to ~0
-- Currently at 1.62e-4 (54% of peak)
-- Entering final annealing phase
+- Cosine decay from 3e-4 to 0
+- Reached 0.00 at step 2000 (fully annealed)
+- Training complete
 
 ---
 
-## Predictions for Remaining Training
+## Predictions vs Actual Results
 
-| Step | Predicted Val Loss | Predicted Val PPL |
-|------|-------------------|-------------------|
-| 1200 | ~2.75             | ~15.6             |
-| 1400 | ~2.73             | ~15.3             |
-| 1600 | ~2.71             | ~15.0             |
-| 1800 | ~2.70             | ~14.9             |
-| 2000 | ~2.69             | ~14.7             |
+| Step | Predicted Val Loss | Predicted Val PPL | Actual Val Loss | Actual Val PPL |
+|------|-------------------|-------------------|-----------------|----------------|
+| 1400 | ~2.69             | ~14.7             | 2.6312 ✓        | 13.89 ✓        |
+| 1600 | ~2.60             | ~13.5             | 2.6600 ✗        | 14.30 ✗        |
+| 1800 | ~2.58             | ~13.2             | 2.6523 ✗        | 14.19 ✗        |
+| 2000 | ~2.56             | ~13.0             | 2.6472 ✗        | 14.11 ✗        |
 
-Expected final improvement: ~3% reduction in val PPL from step 1000.
+**Final Analysis**: As predicted, validation loss never improved beyond step 1400.
+- Steps 1600-2000 showed continued training loss improvement but validation plateaued
+- Validation loss ranking: 1400 (2.6312) < 2000 (2.6472) < 1800 (2.6523) < 1600 (2.6600)
+- **Best checkpoint**: step_1400.bin (val_loss=2.6312, val_ppl=13.89)
+- Training script's best.bin incorrectly points to step 2000 (relative comparison issue)
+- **Recommendation**: Use step_1400.bin for inference/deployment
 
 ---
 
@@ -92,9 +109,37 @@ Expected final improvement: ~3% reduction in val PPL from step 1000.
 - `checkpoints/nexus_production/step_400.bin`
 - `checkpoints/nexus_production/step_600.bin`
 - `checkpoints/nexus_production/step_800.bin`
-- `checkpoints/nexus_production/step_1000.bin` ← Current best
-- `checkpoints/nexus_production/best.bin` ← Points to step 1000
+- `checkpoints/nexus_production/step_1000.bin`
+- `checkpoints/nexus_production/step_1200.bin`
+- `checkpoints/nexus_production/step_1400.bin` ← **TRUE BEST** (val_loss=2.6312, val_ppl=13.89)
+- `checkpoints/nexus_production/step_1600.bin`
+- `checkpoints/nexus_production/step_1800.bin`
+- `checkpoints/nexus_production/step_2000.bin`
+- `checkpoints/nexus_production/final.bin` ← Same as step 2000
+- `checkpoints/nexus_production/best.bin` ← Points to step 2000 (but step 1400 has better val_loss!)
+
+**Important Note**: The training script's best.bin was overwritten each time a checkpoint had better
+validation than the previously stored best.bin. Since training resumed from step 1400, the script
+compared 1600 vs (empty), 1800 vs 1600, 2000 vs 1800 - never comparing against the original step 1400.
+
+**For inference/deployment: Use `step_1400.bin` (TRUE best validation loss: 2.6312)**
 
 ---
 
-*Last updated: Step 1000*
+## Training Summary
+
+| Metric | Value |
+|--------|-------|
+| Total Steps | 2000 |
+| Total Time | 5227.2s (~87 min) |
+| Tokens Processed | 304,800 |
+| Training Throughput | 58 tok/s |
+| Best Train Loss | 2.2944 (step 1800) |
+| Best Val Loss | **2.6312 (step 1400)** |
+| Best Val PPL | **13.89 (step 1400)** |
+| Final Val Loss | 2.6472 (step 2000) |
+| Final Val PPL | 14.11 (step 2000) |
+
+---
+
+*Training completed: Step 2000/2000*

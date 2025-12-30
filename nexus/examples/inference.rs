@@ -73,12 +73,16 @@ fn main() -> anyhow::Result<()> {
     let n_params = model.num_parameters();
     println!("   Parameters: {} ({:.2}M)\n", n_params, n_params as f32 / 1e6);
 
-    // Sampling config
+    // Sampling config with all fields
     let sampling_config = SamplingConfig {
         temperature: 0.8,
         top_k: 40,
         top_p: 0.95,
+        min_p: 0.05,
         repetition_penalty: 1.1,
+        repetition_window: 64,
+        presence_penalty: 0.0,
+        frequency_penalty: 0.0,
         greedy: false,
         seed: None,
     };
