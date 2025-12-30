@@ -8,7 +8,7 @@
 //! Key insight: Use neural networks to predict symbolic structure,
 //! then use differentiable relaxations to train end-to-end.
 
-use ndarray::{Array1, Array2, Array3};
+use ndarray::Array3;
 use crate::autograd::{Variable, DifferentiableLinear};
 
 /// Soft symbolic operation - continuous relaxation of discrete ops

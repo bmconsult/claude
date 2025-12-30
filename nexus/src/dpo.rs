@@ -6,7 +6,7 @@
 //! Key insight: The optimal policy can be derived in closed form from the reward model,
 //! allowing direct training without separate reward modeling or RL.
 
-use ndarray::{Array1, Array2, Array3};
+use ndarray::{Array2, Array3};
 use crate::autograd::Variable;
 
 /// DPO training configuration

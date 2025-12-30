@@ -7,7 +7,6 @@
 //! - Latency and throughput benchmarks
 //! - Memory profiling
 
-use ndarray::{Array1, Array2, Array3};
 use std::collections::HashMap;
 use std::time::{Duration, Instant};
 

@@ -123,7 +123,7 @@ impl Embedding {
     }
 
     /// Get embedding for a single token (for weight tying)
-    pub fn get_token_embedding(&self, token_id: u32) -> ndarray::ArrayView1<f32> {
+    pub fn get_token_embedding(&self, token_id: u32) -> ndarray::ArrayView1<'_, f32> {
         let tid = (token_id as usize).min(self.vocab_size - 1);
         self.token_embed.slice(s![tid, ..])
     }
@@ -159,7 +159,7 @@ impl LearnedPositionalEmbedding {
     }
 
     /// Get positional embeddings for a sequence
-    pub fn forward(&self, seq_len: usize) -> ndarray::ArrayView2<f32> {
+    pub fn forward(&self, seq_len: usize) -> ndarray::ArrayView2<'_, f32> {
         self.embed.slice(s![..seq_len, ..])
     }
 }

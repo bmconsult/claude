@@ -8,7 +8,7 @@
 //! - GQA: n_kv_heads < n_heads (grouped query attention)
 //! - MQA: n_kv_heads == 1 (multi-query attention)
 
-use ndarray::{Array3, Array4, Axis};
+use ndarray::Array4;
 use crate::rope::RotaryEmbedding;
 use crate::kv_cache::LayerKVCache;
 use crate::autograd::{Variable, DifferentiableLinear};

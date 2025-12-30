@@ -9,8 +9,7 @@
 //! - Supports sequence length extrapolation
 //! - Compatible with KV-cache
 
-use ndarray::{Array2, Array3, Array4, Axis};
-use std::f32::consts::PI;
+use ndarray::{Array2, Array4, Axis};
 
 /// Rotary Position Embedding
 #[derive(Clone)]

@@ -7,7 +7,7 @@
 //! - Dynamic quantization (weights quantized, activations at runtime)
 //! - Static quantization (calibrated scales)
 
-use ndarray::{Array1, Array2, Array3, Axis};
+use ndarray::{Array1, Array2, Array3};
 use std::collections::HashMap;
 
 /// Quantization configuration

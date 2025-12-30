@@ -3,7 +3,7 @@
 //! Full autograd-enabled version of the test-time memory for training.
 //! Simplified version that focuses on the trainable projections.
 
-use ndarray::{Array1, Array2, Array3};
+use ndarray::{Array1, Array3};
 use crate::autograd::{Variable, DifferentiableLinear};
 
 /// Differentiable Memory Module

@@ -7,7 +7,7 @@
 //! - Memory-efficient sliding window (optional)
 //! - Batch inference with different sequence lengths
 
-use ndarray::{Array3, Array4, Axis, s};
+use ndarray::{Array4, s};
 
 /// KV-Cache for a single attention layer
 #[derive(Clone)]

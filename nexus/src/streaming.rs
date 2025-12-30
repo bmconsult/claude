@@ -7,7 +7,6 @@
 //! - Stop conditions
 //! - Speculative decoding
 
-use ndarray::Array3;
 use std::collections::HashSet;
 
 /// Sampling configuration for generation

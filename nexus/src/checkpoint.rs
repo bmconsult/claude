@@ -11,8 +11,7 @@ use std::path::Path;
 
 use crate::autograd::Variable;
 use crate::differentiable::{
-    DifferentiableAttention, DifferentiableBlock, DifferentiableMLP, DifferentiableNexusLM,
-    DifferentiableRMSNorm, DifferentiableHybridBlock, DifferentiableHybridNexusLM,
+    DifferentiableBlock, DifferentiableNexusLM, DifferentiableHybridBlock, DifferentiableHybridNexusLM,
 };
 use crate::differentiable_ssm::DifferentiableSSM;
 use crate::differentiable_memory::DifferentiableMemory;
