@@ -18,6 +18,7 @@ pub mod autograd;
 pub mod training;
 pub mod tokenizer;
 pub mod embedding;
+pub mod differentiable;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -33,6 +34,7 @@ pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer, DifferentiableLin
 pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
 pub use tokenizer::{Tokenizer, SimpleBPE, TiktokenBPE};
 pub use embedding::Embedding;
+pub use differentiable::{DifferentiableNexusLM, DifferentiableBlock, DifferentiableMLP};
 
 // NexusLM is defined in this file, so just make it public (it already is)
 
