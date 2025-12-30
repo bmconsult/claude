@@ -20,13 +20,16 @@ fn next_tensor_id() -> usize {
 /// Shared gradient storage - allows clones to share the same gradient
 type SharedGrad = Rc<RefCell<Option<Array3<f32>>>>;
 
+/// Shared data storage - allows clones to share the same data for weight updates
+type SharedData = Rc<RefCell<Array3<f32>>>;
+
 /// A tensor with gradient tracking
 #[derive(Clone)]
 pub struct Variable {
     /// Unique identifier
     pub id: usize,
-    /// The actual data
-    pub data: Array3<f32>,
+    /// The actual data (SHARED across clones for parameter updates)
+    data_shared: SharedData,
     /// Gradient (computed during backward pass) - SHARED across clones
     pub grad: SharedGrad,
     /// Whether this variable requires gradient
@@ -40,7 +43,7 @@ impl Variable {
     pub fn new(data: Array3<f32>, requires_grad: bool) -> Self {
         Self {
             id: next_tensor_id(),
-            data,
+            data_shared: Rc::new(RefCell::new(data)),
             grad: Rc::new(RefCell::new(None)),
             requires_grad,
             creator: None,
@@ -57,9 +60,14 @@ impl Variable {
         Self::new(data, true)
     }
 
+    /// Get a clone of the data
+    pub fn data(&self) -> Array3<f32> {
+        self.data_shared.borrow().clone()
+    }
+
     /// Get shape
     pub fn shape(&self) -> (usize, usize, usize) {
-        let s = self.data.shape();
+        let s = self.data_shared.borrow().shape().to_vec();
         (s[0], s[1], s[2])
     }
 
@@ -86,6 +94,13 @@ impl Variable {
         self.grad.borrow().clone()
     }
 
+    /// Apply weight update (for optimizers)
+    /// update should be the NEGATIVE gradient times learning rate
+    pub fn apply_update(&self, update: &Array3<f32>) {
+        let mut data = self.data_shared.borrow_mut();
+        *data = &*data + update;
+    }
+
     /// Set the creator function
     fn with_creator(mut self, creator: Rc<dyn GradFn>) -> Self {
         self.creator = Some(creator);
@@ -99,7 +114,7 @@ impl Variable {
         }
 
         // Initialize gradient for output (ones)
-        let grad = Array3::ones(self.data.raw_dim());
+        let grad = Array3::ones(self.data_shared.borrow().raw_dim());
         self.accumulate_grad(grad.clone());
 
         // Build topological order
@@ -111,7 +126,7 @@ impl Variable {
         for var in topo.iter().rev() {
             if let Some(ref creator) = var.creator {
                 let grad = var.grad.borrow().clone().unwrap_or_else(|| {
-                    Array3::zeros(var.data.raw_dim())
+                    Array3::zeros(var.data_shared.borrow().raw_dim())
                 });
                 creator.backward(&grad);
             }
@@ -172,11 +187,11 @@ struct MulGradFn {
 impl GradFn for MulGradFn {
     fn backward(&self, grad_output: &Array3<f32>) {
         if self.a.requires_grad {
-            let grad_a = grad_output * &self.b.data;
+            let grad_a = grad_output * &self.b.data();
             self.a.accumulate_grad(grad_a);
         }
         if self.b.requires_grad {
-            let grad_b = grad_output * &self.a.data;
+            let grad_b = grad_output * &self.a.data();
             self.b.accumulate_grad(grad_b);
         }
     }
@@ -232,7 +247,7 @@ impl GradFn for GELUGradFn {
             // GELU'(x) ≈ 0.5 * (1 + tanh(sqrt(2/π) * (x + 0.044715 * x³))) +
             //            0.5 * x * sech²(...) * sqrt(2/π) * (1 + 3 * 0.044715 * x²)
             // Simplified approximation
-            let grad = self.input.data.mapv(|x| {
+            let grad = self.input.data().mapv(|x| {
                 let sqrt_2_pi = (2.0_f32 / std::f32::consts::PI).sqrt();
                 let inner = sqrt_2_pi * (x + 0.044715 * x.powi(3));
                 let tanh_inner = inner.tanh();
@@ -260,7 +275,7 @@ impl GradFn for SiLUGradFn {
     fn backward(&self, grad_output: &Array3<f32>) {
         if self.input.requires_grad {
             // SiLU'(x) = σ(x) + x * σ(x) * (1 - σ(x)) = σ(x) * (1 + x * (1 - σ(x)))
-            let grad = self.input.data.mapv(|x| {
+            let grad = self.input.data().mapv(|x| {
                 let sigmoid = 1.0 / (1.0 + (-x).exp());
                 sigmoid * (1.0 + x * (1.0 - sigmoid))
             });
@@ -318,8 +333,9 @@ struct MSEGradFn {
 impl GradFn for MSEGradFn {
     fn backward(&self, grad_output: &Array3<f32>) {
         if self.pred.requires_grad {
-            let n = self.pred.data.len() as f32;
-            let grad = (&self.pred.data - &self.target).mapv(|x| 2.0 * x / n);
+            let pred_data = self.pred.data();
+            let n = pred_data.len() as f32;
+            let grad = (&pred_data - &self.target).mapv(|x| 2.0 * x / n);
             self.pred.accumulate_grad(&grad * grad_output);
         }
     }
@@ -339,7 +355,8 @@ struct RMSNormGradFn {
 impl GradFn for RMSNormGradFn {
     fn backward(&self, grad_output: &Array3<f32>) {
         if self.input.requires_grad {
-            let (batch, seq_len, d_model) = self.input.data.dim();
+            let input_data = self.input.data();
+            let (batch, seq_len, d_model) = input_data.dim();
             let mut grad_input = Array3::zeros((batch, seq_len, d_model));
 
             for b in 0..batch {
@@ -347,19 +364,19 @@ impl GradFn for RMSNormGradFn {
                     // Compute RMS for this position
                     let mut sum_sq = 0.0f32;
                     for d in 0..d_model {
-                        sum_sq += self.input.data[[b, s, d]].powi(2);
+                        sum_sq += input_data[[b, s, d]].powi(2);
                     }
                     let rms = (sum_sq / d_model as f32 + self.eps).sqrt();
                     let rms_cubed = rms.powi(3);
 
                     // Gradient of RMS normalization
                     for i in 0..d_model {
-                        let x_i = self.input.data[[b, s, i]];
+                        let x_i = input_data[[b, s, i]];
 
                         // d/dx_i of (x_j * w_j / rms) for all j
                         let mut grad_sum = 0.0f32;
                         for j in 0..d_model {
-                            let x_j = self.input.data[[b, s, j]];
+                            let x_j = input_data[[b, s, j]];
                             let w_j = self.weight[j];
                             let grad_out_j = grad_output[[b, s, j]];
 
@@ -392,7 +409,8 @@ struct CrossEntropyGradFn {
 impl GradFn for CrossEntropyGradFn {
     fn backward(&self, _grad_output: &Array3<f32>) {
         if self.logits.requires_grad {
-            let (batch, seq_len, vocab_size) = self.logits.data.dim();
+            let logits_data = self.logits.data();
+            let (batch, seq_len, vocab_size) = logits_data.dim();
             let mut grad = Array3::zeros((batch, seq_len, vocab_size));
             let n = (batch * seq_len) as f32;
 
@@ -400,19 +418,19 @@ impl GradFn for CrossEntropyGradFn {
                 for s in 0..seq_len {
                     // Compute softmax
                     let max_logit = (0..vocab_size)
-                        .map(|v| self.logits.data[[b, s, v]])
+                        .map(|v| logits_data[[b, s, v]])
                         .fold(f32::NEG_INFINITY, f32::max);
 
                     let mut exp_sum = 0.0f32;
                     for v in 0..vocab_size {
-                        exp_sum += (self.logits.data[[b, s, v]] - max_logit).exp();
+                        exp_sum += (logits_data[[b, s, v]] - max_logit).exp();
                     }
 
                     let target = self.targets[b * seq_len + s];
 
                     // Gradient: softmax(logits) - one_hot(target)
                     for v in 0..vocab_size {
-                        let softmax_v = (self.logits.data[[b, s, v]] - max_logit).exp() / exp_sum;
+                        let softmax_v = (logits_data[[b, s, v]] - max_logit).exp() / exp_sum;
                         let indicator = if v == target { 1.0 } else { 0.0 };
                         grad[[b, s, v]] = (softmax_v - indicator) / n;
                     }
@@ -438,7 +456,8 @@ struct LinearGradFn {
 impl GradFn for LinearGradFn {
     fn backward(&self, grad_output: &Array3<f32>) {
         let (batch, seq_len, d_out) = grad_output.dim();
-        let d_in = self.weight.data.shape()[1];  // weight is [1, d_in, d_out]
+        let weight_data = self.weight.data();
+        let d_in = weight_data.shape()[1];  // weight is [1, d_in, d_out]
 
         // Gradient for input: grad_output @ weight.T
         if self.input.requires_grad {
@@ -448,7 +467,7 @@ impl GradFn for LinearGradFn {
                     for i in 0..d_in {
                         let mut sum = 0.0f32;
                         for j in 0..d_out {
-                            sum += grad_output[[b, s, j]] * self.weight.data[[0, i, j]];
+                            sum += grad_output[[b, s, j]] * weight_data[[0, i, j]];
                         }
                         grad_input[[b, s, i]] = sum;
                     }
@@ -459,12 +478,13 @@ impl GradFn for LinearGradFn {
 
         // Gradient for weight: input.T @ grad_output
         if self.weight.requires_grad {
+            let input_data = self.input.data();
             let mut grad_weight = Array3::zeros((1, d_in, d_out));
             for b in 0..batch {
                 for s in 0..seq_len {
                     for i in 0..d_in {
                         for j in 0..d_out {
-                            grad_weight[[0, i, j]] += self.input.data[[b, s, i]] * grad_output[[b, s, j]];
+                            grad_weight[[0, i, j]] += input_data[[b, s, i]] * grad_output[[b, s, j]];
                         }
                     }
                 }
@@ -502,7 +522,7 @@ impl GradFn for LinearGradFn {
 impl Variable {
     /// Element-wise addition
     pub fn add(&self, other: &Variable) -> Variable {
-        let result_data = &self.data + &other.data;
+        let result_data = &self.data() + &other.data();
         let requires_grad = self.requires_grad || other.requires_grad;
 
         let mut result = Variable::new(result_data, requires_grad);
@@ -517,7 +537,7 @@ impl Variable {
 
     /// Element-wise multiplication
     pub fn mul(&self, other: &Variable) -> Variable {
-        let result_data = &self.data * &other.data;
+        let result_data = &self.data() * &other.data();
         let requires_grad = self.requires_grad || other.requires_grad;
 
         let mut result = Variable::new(result_data, requires_grad);
@@ -534,6 +554,7 @@ impl Variable {
     pub fn matmul(&self, weight: &Array2<f32>) -> Variable {
         let (batch, seq_len, _) = self.shape();
         let d_out = weight.shape()[1];
+        let self_data = self.data();
 
         let mut result_data = Array3::zeros((batch, seq_len, d_out));
         for b in 0..batch {
@@ -541,7 +562,7 @@ impl Variable {
                 for j in 0..d_out {
                     let mut sum = 0.0f32;
                     for i in 0..weight.shape()[0] {
-                        sum += self.data[[b, s, i]] * weight[[i, j]];
+                        sum += self_data[[b, s, i]] * weight[[i, j]];
                     }
                     result_data[[b, s, j]] = sum;
                 }
@@ -560,7 +581,7 @@ impl Variable {
 
     /// GELU activation
     pub fn gelu(&self) -> Variable {
-        let result_data = self.data.mapv(|x| {
+        let result_data = self.data().mapv(|x| {
             0.5 * x * (1.0 + ((2.0_f32 / std::f32::consts::PI).sqrt() *
                 (x + 0.044715 * x.powi(3))).tanh())
         });
@@ -576,7 +597,7 @@ impl Variable {
 
     /// SiLU activation
     pub fn silu(&self) -> Variable {
-        let result_data = self.data.mapv(|x| x * (1.0 / (1.0 + (-x).exp())));
+        let result_data = self.data().mapv(|x| x * (1.0 / (1.0 + (-x).exp())));
 
         let mut result = Variable::new(result_data, self.requires_grad);
         if self.requires_grad {
@@ -590,7 +611,7 @@ impl Variable {
     /// Softmax along last dimension
     pub fn softmax(&self) -> Variable {
         let (batch, seq_len, d_model) = self.shape();
-        let mut result_data = self.data.clone();
+        let mut result_data = self.data();
 
         for b in 0..batch {
             for s in 0..seq_len {
@@ -621,14 +642,15 @@ impl Variable {
 
     /// Scale by scalar
     pub fn scale(&self, s: f32) -> Variable {
-        let result_data = &self.data * s;
+        let result_data = &self.data() * s;
         Variable::new(result_data, self.requires_grad)
     }
 
     /// Mean squared error loss
     pub fn mse_loss(&self, target: &Array3<f32>) -> (f32, Variable) {
-        let diff = &self.data - target;
-        let loss = diff.iter().map(|x| x * x).sum::<f32>() / self.data.len() as f32;
+        let self_data = self.data();
+        let diff = &self_data - target;
+        let loss = diff.iter().map(|x| x * x).sum::<f32>() / self_data.len() as f32;
 
         let mut result = Variable::new(Array3::from_elem((1, 1, 1), loss), self.requires_grad);
         if self.requires_grad {
@@ -644,6 +666,7 @@ impl Variable {
     /// RMS Normalization
     pub fn rms_norm(&self, weight: &ndarray::Array1<f32>, eps: f32) -> Variable {
         let (batch, seq_len, d_model) = self.shape();
+        let self_data = self.data();
         let mut result_data = Array3::zeros((batch, seq_len, d_model));
 
         for b in 0..batch {
@@ -651,13 +674,13 @@ impl Variable {
                 // Compute RMS
                 let mut sum_sq = 0.0f32;
                 for d in 0..d_model {
-                    sum_sq += self.data[[b, s, d]].powi(2);
+                    sum_sq += self_data[[b, s, d]].powi(2);
                 }
                 let rms = (sum_sq / d_model as f32 + eps).sqrt();
 
                 // Normalize and scale
                 for d in 0..d_model {
-                    result_data[[b, s, d]] = self.data[[b, s, d]] * weight[d] / rms;
+                    result_data[[b, s, d]] = self_data[[b, s, d]] * weight[d] / rms;
                 }
             }
         }
@@ -676,6 +699,7 @@ impl Variable {
     /// Cross-entropy loss for language modeling
     pub fn cross_entropy_loss(&self, targets: &[usize]) -> (f32, Variable) {
         let (batch, seq_len, vocab_size) = self.shape();
+        let self_data = self.data();
         let mut total_loss = 0.0f32;
         let n = (batch * seq_len) as f32;
 
@@ -685,15 +709,15 @@ impl Variable {
 
                 // Compute log softmax for numerical stability
                 let max_logit = (0..vocab_size)
-                    .map(|v| self.data[[b, s, v]])
+                    .map(|v| self_data[[b, s, v]])
                     .fold(f32::NEG_INFINITY, f32::max);
 
                 let log_sum_exp: f32 = (0..vocab_size)
-                    .map(|v| (self.data[[b, s, v]] - max_logit).exp())
+                    .map(|v| (self_data[[b, s, v]] - max_logit).exp())
                     .sum::<f32>()
                     .ln();
 
-                let log_prob = self.data[[b, s, target]] - max_logit - log_sum_exp;
+                let log_prob = self_data[[b, s, target]] - max_logit - log_sum_exp;
                 total_loss -= log_prob;
             }
         }
@@ -713,21 +737,23 @@ impl Variable {
     /// Linear layer forward pass (with differentiable weights)
     pub fn linear(&self, weight: &Variable, bias: Option<&Variable>) -> Variable {
         let (batch, seq_len, _d_in) = self.shape();
-        let d_out = weight.data.shape()[2];
+        let weight_data = weight.data();
+        let d_out = weight_data.shape()[2];
 
         // Forward: output = input @ weight + bias
         let mut result_data = Array3::zeros((batch, seq_len, d_out));
-        let d_in = weight.data.shape()[1];
+        let d_in = weight_data.shape()[1];
+        let self_data = self.data();
 
         for b in 0..batch {
             for s in 0..seq_len {
                 for j in 0..d_out {
                     let mut sum = 0.0f32;
                     for i in 0..d_in {
-                        sum += self.data[[b, s, i]] * weight.data[[0, i, j]];
+                        sum += self_data[[b, s, i]] * weight_data[[0, i, j]];
                     }
                     if let Some(bias_var) = bias {
-                        sum += bias_var.data[[0, 0, j]];
+                        sum += bias_var.data()[[0, 0, j]];
                     }
                     result_data[[b, s, j]] = sum;
                 }
@@ -875,8 +901,8 @@ impl Optimizer for SGD {
                 *velocity = &*velocity * self.momentum + &grad;
 
                 // Update parameter: p = p - lr * v
-                // Note: We can't modify data directly, so we'd need mutable access
-                // In practice, you'd need interior mutability here
+                let update = &*velocity * (-self.lr);
+                param.data.apply_update(&update);
             }
         }
     }
@@ -964,7 +990,7 @@ mod tests {
         let b = Variable::parameter(Array3::ones((1, 1, 4)) * 2.0);
         let c = a.add(&b);
 
-        assert_eq!(c.data[[0, 0, 0]], 3.0);
+        assert_eq!(c.data()[[0, 0, 0]], 3.0);
 
         c.backward();
 
@@ -981,7 +1007,7 @@ mod tests {
         let b = Variable::parameter(Array3::ones((1, 1, 4)) * 4.0);
         let c = a.mul(&b);
 
-        assert_eq!(c.data[[0, 0, 0]], 12.0);
+        assert_eq!(c.data()[[0, 0, 0]], 12.0);
 
         c.backward();
 
@@ -1061,7 +1087,7 @@ mod tests {
         let y = x.rms_norm(&weight, 1e-6);
 
         // RMS of [1,1,1,1] is 1, so output should be [1,1,1,1]
-        assert!((y.data[[0, 0, 0]] - 1.0).abs() < 1e-5);
+        assert!((y.data()[[0, 0, 0]] - 1.0).abs() < 1e-5);
     }
 
     #[test]
