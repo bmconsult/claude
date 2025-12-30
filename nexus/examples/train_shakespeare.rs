@@ -3,8 +3,9 @@
 //! Full training with byte-level tokenization and cosine LR schedule.
 
 use std::fs;
+use std::path::Path;
 use std::time::Instant;
-use nexus::{DifferentiableNexusLM, NexusConfig, AdamW};
+use nexus::{DifferentiableNexusLM, NexusConfig, AdamW, ModelCheckpoint};
 
 /// Cosine learning rate schedule with warmup
 fn get_lr(step: usize, warmup_steps: usize, max_steps: usize, max_lr: f32, min_lr: f32) -> f32 {
@@ -47,6 +48,8 @@ fn main() -> anyhow::Result<()> {
     let warmup_steps = 50;
     let log_interval = 20;
     let eval_interval = 100;
+    let checkpoint_interval = 200;
+    let checkpoint_dir = "checkpoints";
 
     let config = NexusConfig {
         d_model,
@@ -66,8 +69,13 @@ fn main() -> anyhow::Result<()> {
     println!("  epochs: {}", epochs);
     println!("  max_lr: {}", max_lr);
 
+    // Create checkpoint directory
+    if !Path::new(checkpoint_dir).exists() {
+        fs::create_dir_all(checkpoint_dir)?;
+    }
+
     // Create model
-    let model = DifferentiableNexusLM::new(config);
+    let model = DifferentiableNexusLM::new(config.clone());
     let n_params = model.num_parameters();
     println!("  Parameters: {} ({:.2}M)\n", n_params, n_params as f32 / 1e6);
 
@@ -162,6 +170,17 @@ fn main() -> anyhow::Result<()> {
                 running_count = 0;
             }
 
+            // Save checkpoint
+            if global_step % checkpoint_interval == 0 {
+                let checkpoint = ModelCheckpoint::from_model(&model, global_step, avg_loss);
+                let path = format!("{}/step_{:05}.bin", checkpoint_dir, global_step);
+                if let Err(e) = checkpoint.save(&path) {
+                    eprintln!("Warning: Failed to save checkpoint: {}", e);
+                } else {
+                    println!("  ✓ Checkpoint saved: {}", path);
+                }
+            }
+
             // Generate sample
             if global_step % eval_interval == 0 {
                 print!("  Sample: ");
@@ -231,7 +250,13 @@ fn main() -> anyhow::Result<()> {
     println!("Training completed in {:.1}s", total_time);
     println!("Final tokens/sec: {:.0}", (total_steps * batch_size * seq_len) as f32 / total_time);
 
-    // Save model
+    // Save final checkpoint
+    let final_loss = running_loss / running_count.max(1) as f32;
+    let checkpoint = ModelCheckpoint::from_model(&model, global_step, final_loss);
+    let path = format!("{}/final.bin", checkpoint_dir);
+    checkpoint.save(&path)?;
+    println!("\n✓ Final checkpoint saved: {}", path);
+
     println!("\n✓ Training complete!");
 
     Ok(())

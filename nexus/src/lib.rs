@@ -19,6 +19,7 @@ pub mod training;
 pub mod tokenizer;
 pub mod embedding;
 pub mod differentiable;
+pub mod checkpoint;
 
 #[cfg(feature = "python")]
 pub mod python;
@@ -35,6 +36,7 @@ pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
 pub use tokenizer::{Tokenizer, SimpleBPE, TiktokenBPE};
 pub use embedding::Embedding;
 pub use differentiable::{DifferentiableNexusLM, DifferentiableBlock, DifferentiableMLP};
+pub use checkpoint::{ModelCheckpoint, OptimizerCheckpoint, TensorData};
 
 // NexusLM is defined in this file, so just make it public (it already is)
 
