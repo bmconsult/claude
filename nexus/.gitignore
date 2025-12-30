@@ -17,3 +17,8 @@ build/
 
 # OS
 .DS_Store
+
+# Model checkpoints
+/checkpoints/
+*.bin
+*.safetensors
