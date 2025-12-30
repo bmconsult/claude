@@ -254,7 +254,7 @@ fn main() -> anyhow::Result<()> {
     let final_loss = running_loss / running_count.max(1) as f32;
     let checkpoint = ModelCheckpoint::from_model(&model, global_step, final_loss);
     let path = format!("{}/final.bin", checkpoint_dir);
-    checkpoint.save(&path)?;
+    checkpoint.save(&path).map_err(|e| anyhow::anyhow!("{}", e))?;
     println!("\n✓ Final checkpoint saved: {}", path);
 
     println!("\n✓ Training complete!");

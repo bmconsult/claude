@@ -49,7 +49,7 @@ pub use differentiable_world_model::{
     DifferentiableWorldModel, DifferentiableWorldModelEncoder, DifferentiableWorldModelPredictor,
     MaskStrategy,
 };
-pub use checkpoint::{ModelCheckpoint, OptimizerCheckpoint, TensorData};
+pub use checkpoint::{ModelCheckpoint, HybridModelCheckpoint, OptimizerCheckpoint, TensorData};
 
 // NexusLM is defined in this file, so just make it public (it already is)
 
