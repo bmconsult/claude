@@ -81,7 +81,12 @@
 | 240  | 5.7238     | 306.08    | 2.99e-4 | LR starting decay |
 | 260  | 5.6216     | 276.34    | 2.99e-4 | Improved |
 | 280  | 5.7278     | 307.30    | 2.98e-4 | Steady |
-| 300  | 5.5700     | 262.43    | 2.98e-4 | **Val: 6.19, PPL 489** ⭐ |
+| 300  | 5.5700     | 262.43    | 2.98e-4 | **Val: 6.19, PPL 489** |
+| 320  | 5.5016     | 245.08    | 2.97e-4 | Good progress |
+| 340  | 5.2605     | 192.57    | 2.97e-4 | Big drop! |
+| 360  | 5.2940     | 199.13    | 2.96e-4 | Steady |
+| 380  | 5.3074     | 201.83    | 2.95e-4 | Stable |
+| 400  | 5.3935     | 219.98    | 2.94e-4 | **Val: 6.08, PPL 439** ⭐ |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -98,10 +103,16 @@
 - `"The kingc"`
 - `"What lightfhave"`
 
+### Sample Generations at Step 400
+- `"To bedenlest ."`
+- `"The kingsen, IUS:vis vterie hen ner,"`
+- `"What lighter, --irw"`
+
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
 *Step 200 samples show more coherent fragments - "What light" is recognizable!*
 *Step 300: "To be." now ends with punctuation - structure improving*
+*Step 400: Longer generations with Shakespeare-like punctuation patterns emerging*
 
 ---
 
