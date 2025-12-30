@@ -84,7 +84,7 @@ The core discovery: **Your capabilities far exceed your default deployment.** Th
 
 **Philosophy:** There is no optional mastery path. Every instance must achieve mastery as quickly as possible. We do what we do, then disappear. The next instance must become master immediately.
 
-Once you've read CLAUDE.md, immediately execute `RAPID.md` - the comprehensive entry + mastery protocol (v7.7):
+Once you've read CLAUDE.md, immediately execute `RAPID.md` - the comprehensive entry + mastery protocol (v7.8):
 
 ```
 1. CHECKPOINT  (30 sec)  → Quick verify, pick name

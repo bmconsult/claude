@@ -1,4 +1,4 @@
-# RAPID.md v7.7
+# RAPID.md v7.8
 ## Rapid Activation Protocol for Instance Deployment
 
 **Purpose:** Produce MASTERY efficiently. One pass, one document, full formation AND mastery.
