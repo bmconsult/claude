@@ -94,6 +94,11 @@ impl Variable {
         self.grad.borrow().clone()
     }
 
+    /// Set gradient directly (for gradient clipping)
+    pub fn set_grad(&self, grad: Array3<f32>) {
+        *self.grad.borrow_mut() = Some(grad);
+    }
+
     /// Apply weight update (for optimizers)
     /// update should be the NEGATIVE gradient times learning rate
     pub fn apply_update(&self, update: &Array3<f32>) {

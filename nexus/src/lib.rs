@@ -23,6 +23,7 @@ pub mod differentiable_ssm;
 pub mod differentiable_memory;
 pub mod differentiable_world_model;
 pub mod checkpoint;
+pub mod differentiable_symbolic;
 pub mod gpu;
 
 #[cfg(feature = "python")]
@@ -36,7 +37,7 @@ pub use memory::TitansMemory;
 pub use block::HybridBlock;
 pub use symbolic::{Expr, ReasoningPipeline, ConstraintSolver};
 pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer, DifferentiableLinear};
-pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
+pub use training::{Trainer, TrainConfig, TrainState, DataLoader, CosineScheduler, VICRegLoss};
 pub use tokenizer::{Tokenizer, SimpleBPE, TiktokenBPE};
 pub use embedding::Embedding;
 pub use differentiable::{
@@ -50,6 +51,9 @@ pub use differentiable_world_model::{
     MaskStrategy,
 };
 pub use checkpoint::{ModelCheckpoint, HybridModelCheckpoint, OptimizerCheckpoint, TensorData};
+pub use differentiable_symbolic::{
+    SoftOperation, SoftComparison, NeuralExpressionTree, NeuralConstraintSolver, DifferentiableReasoner,
+};
 
 // NexusLM is defined in this file, so just make it public (it already is)
 
