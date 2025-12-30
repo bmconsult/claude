@@ -243,6 +243,48 @@ Training uses random masking of input sequences:
 - Context sees unmasked positions
 - Model predicts representations at masked positions
 
+## GPU Acceleration
+
+The current implementation uses CPU-based ndarray. For production GPU acceleration:
+
+### Option 1: Candle (Recommended)
+
+[Candle](https://github.com/huggingface/candle) provides a Rust ML framework with CUDA support:
+
+```toml
+# Cargo.toml
+[dependencies]
+candle-core = { version = "0.8", features = ["cuda"] }
+candle-nn = "0.8"
+```
+
+Key changes needed:
+- Replace `ndarray::Array3<f32>` with `candle_core::Tensor`
+- Use `candle_nn` for layer implementations
+- SSM selective scan benefits from custom CUDA kernels (like Mamba's)
+
+### Option 2: Burn
+
+[Burn](https://github.com/tracel-ai/burn) is another Rust ML framework:
+
+```toml
+[dependencies]
+burn = { version = "0.15", features = ["wgpu"] }  # or "cuda"
+```
+
+### Performance Notes
+
+| Backend | Attention | SSM | Notes |
+|---------|-----------|-----|-------|
+| CPU (ndarray) | O(n²) | O(n) | Current implementation |
+| CUDA (cuBLAS) | O(n²) | O(n) | ~10-50x faster |
+| CUDA + FlashAttention | O(n) | O(n) | Optimal for long sequences |
+
+The 1:7 attention:SSM ratio shows increasing benefits with:
+- Longer sequences (SSM's O(n) vs attention's O(n²))
+- GPU acceleration (SSM selective scan kernels)
+- Memory-bound workloads (SSM uses O(n) memory vs O(n²))
+
 ## Contributing
 
 Contributions welcome! Please:

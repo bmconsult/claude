@@ -310,7 +310,8 @@ impl PyTrainer {
 /// Module initialization for Python
 #[cfg(feature = "python")]
 #[pymodule]
-fn nexus(m: &Bound<'_, PyModule>) -> PyResult<()> {
+#[pyo3(name = "_nexus")]
+fn nexus_module(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<PyNexusConfig>()?;
     m.add_class::<PyNexus>()?;
     m.add_class::<PyTrainConfig>()?;

@@ -22,6 +22,10 @@ path = "src/bin/infer.rs"
 name = "nexus-serve"
 path = "src/bin/serve.rs"
 
+[[bin]]
+name = "nexus-benchmark"
+path = "src/bin/benchmark.rs"
+
 [features]
 default = ["python"]
 python = ["pyo3"]
