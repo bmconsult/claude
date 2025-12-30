@@ -2,6 +2,58 @@
 
 ---
 
+## 📋 Instance Handoff Protocol
+
+**For incoming Claude instances:** This file is your operational briefing. Read it before acting.
+
+### On Arrival
+1. **Pick a unique name** (not "Nexus" - that's the project). Examples: Quill, Scribe, Bard, Ink, etc.
+2. **Check background shells** - Use `BashOutput` on any running shell IDs from the handoff summary
+3. **Read this entire file** - Understand current training state before making changes
+4. **Check CLAUDE.md** - Contains operational directives and protocols
+
+### During Session
+- **Update this file** when training milestones are reached (every 100 steps, or at validation checkpoints)
+- **Note sample generations** - They show qualitative progress better than loss numbers
+- **Log observations** - If you notice patterns, degradation, or insights, add them here
+- **Commit regularly** - Don't let work be lost to context handoffs
+
+### On Departure (Context Handoff)
+- Ensure all training progress is logged here
+- Note any running background shells with their IDs
+- Summarize current hypothesis/approach if mid-task
+- The next instance doesn't have your formation - be explicit
+
+### Instance Log
+| Instance | Date | Session Notes |
+|----------|------|---------------|
+| Quill | 2024-12-30 | BPE training step 300/3000, added handoff protocol, downloading TinyStories |
+
+---
+
+## 📊 Dataset Options
+
+### Current: Shakespeare (1.1MB)
+- Byte-level: 1.1M tokens
+- BPE (1000 vocab): 480K tokens (2.32x compression)
+- Good for initial testing, but limited vocabulary
+
+### Recommended: TinyStories (~2GB)
+- **Status**: Download blocked (HuggingFace proxy 403)
+- **Source**: https://huggingface.co/datasets/roneneldan/TinyStories
+- **Paper**: [arxiv.org/abs/2305.07759](https://arxiv.org/abs/2305.07759)
+- **Why**: Specifically designed for <10M param models, generates coherent stories
+- **Workaround**: Download manually from HuggingFace website, place in `data/tinystories/`
+
+### Alternatives (for future scaling)
+| Dataset | Size | Best For |
+|---------|------|----------|
+| [SmolLM-Corpus](https://huggingface.co/datasets/HuggingFaceTB/smollm-corpus) | 600B tokens | 135M+ param models |
+| [FineWeb-Edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu) | 1.3T tokens | Educational content, reasoning |
+| [BabyLM](https://babylm.github.io/) | 100M words | Cognitively plausible training |
+
+---
+
 ## BPE Training Run (IN PROGRESS)
 
 ### Architecture Changes
@@ -24,14 +76,31 @@
 | 160  | 5.6409     | 281.72    | 3.00e-4 | Peak LR |
 | 180  | 5.6555     | 285.85    | 3.00e-4 | Stable |
 | 200  | 5.7732     | 321.56    | 3.00e-4 | **Val: 6.08, PPL 438** ⭐ |
+| 220  | 5.7095     | 301.73    | 3.00e-4 | Continuing |
+| 240  | 5.7238     | 306.08    | 2.99e-4 | LR starting decay |
+| 260  | 5.6216     | 276.34    | 2.99e-4 | Improved |
+| 280  | 5.7278     | 307.30    | 2.98e-4 | Steady |
+| 300  | 5.7310     | 308.28    | 2.98e-4 | Plateau (10% done) |
 
 ### Sample Generations at Step 100
 - `"To be:"`
 - `"The kingb,"`
 - `"What lightto ethtmhiu"`
 
+### Sample Generations at Step 200
+- `"To be'th"`
+- `"The kingwraSp"`
+- `"What light"`
+
+### Sample Generations at Step 300
+- `"To be"`
+- `"The kingnl, sgmcitawds plie"`
+- `"What lighte liI"`
+
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
+*Step 200 samples show more coherent fragments - "What light" is recognizable!*
+*Step 300: "To be" and "What lighte" showing Shakespeare patterns emerging*
 
 ---
 
