@@ -407,7 +407,11 @@ fn main() -> anyhow::Result<()> {
         temperature: 0.8,
         top_k: 40,
         top_p: 0.95,
+        min_p: 0.0,
         repetition_penalty: 1.1,
+        repetition_window: 64,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
         greedy: false,
         seed: None,
     };

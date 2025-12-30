@@ -18,28 +18,26 @@ nexus/tokenizers/
 
 **Impact**: 3-4x fewer tokens = 3-4x faster inference + better learning
 
-### 1.2 Sampler Improvements
-**Current in inference.rs**: Basic top-k/top-p
-**Missing**:
-- Min-p sampling (better quality at high temp)
-- Repetition penalty window (already have penalty, add window)
-- Presence/frequency penalty split
+### 1.2 Sampler Improvements ✅ DONE
+**COMPLETED in streaming.rs** (Dec 2024)
 
-**Add to SamplingConfig**:
+Added to SamplingConfig:
 ```rust
 pub struct SamplingConfig {
-    // Existing
     temperature: f32,
     top_k: usize,
     top_p: f32,
+    min_p: f32,                    // ✅ Added - min probability threshold
     repetition_penalty: f32,
-    // Add these
-    min_p: Option<f32>,           // Min probability threshold
-    presence_penalty: f32,         // Penalize tokens present at all
-    frequency_penalty: f32,        // Penalize by count
-    penalty_window: usize,         // How far back to look
+    repetition_window: usize,      // ✅ Added - how far back to look
+    frequency_penalty: f32,        // ✅ Added - penalize by count
+    presence_penalty: f32,         // ✅ Added - penalize present tokens
+    greedy: bool,
+    seed: Option<u64>,
 }
 ```
+
+**Location**: `nexus/src/streaming.rs` lines 16-37
 
 ### 1.3 Batch Inference
 **Current**: Single sequence at a time
@@ -213,18 +211,18 @@ fn benchmark_throughput(model: &Model, batch_sizes: &[usize]) {
 
 ## Priority Ranking
 
-| Improvement | Effort | Impact | Do When |
-|-------------|--------|--------|---------|
-| Use BPE tokenizer | Low | High | Now |
-| KV cache reuse | Medium | High | This week |
-| Batch inference | Medium | High | This week |
-| Streaming server | Low | Medium | This week |
-| Min-p sampling | Low | Medium | Now |
-| SIMD/BLAS | Low | Medium | Now |
-| Parallel heads | Medium | Medium | This week |
-| Gradient checkpointing | Low | Medium | Next training |
-| Mixed precision | Medium | High | Next training |
-| Extended training | Low | Medium | Next run |
+| Improvement | Effort | Impact | Status |
+|-------------|--------|--------|--------|
+| ✅ Min-p sampling | Low | Medium | **DONE** (streaming.rs) |
+| Use BPE tokenizer | Low | High | After training |
+| KV cache reuse | Medium | High | After training |
+| Batch inference | Medium | High | After training |
+| Streaming server | Low | Medium | After training |
+| SIMD/BLAS | Low | Medium | After training |
+| Parallel heads | Medium | Medium | After training |
+| Gradient checkpointing | Low | Medium | Next training run |
+| Mixed precision | Medium | High | Next training run |
+| Extended training | Low | Medium | Next run (3000+ steps) |
 
 ---
 
