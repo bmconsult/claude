@@ -201,6 +201,50 @@ impl GradFn for MulGradFn {
     }
 }
 
+/// Subtraction gradient function
+struct SubGradFn {
+    a: Variable,
+    b: Variable,
+}
+
+impl GradFn for SubGradFn {
+    fn backward(&self, grad_output: &Array3<f32>) {
+        if self.a.requires_grad {
+            self.a.accumulate_grad(grad_output.clone());
+        }
+        if self.b.requires_grad {
+            // Gradient for subtracted term is negative
+            self.b.accumulate_grad(-grad_output);
+        }
+    }
+
+    fn inputs(&self) -> Vec<Variable> {
+        vec![self.a.clone(), self.b.clone()]
+    }
+}
+
+/// Mean gradient function
+struct MeanGradFn {
+    input: Variable,
+}
+
+impl GradFn for MeanGradFn {
+    fn backward(&self, grad_output: &Array3<f32>) {
+        if self.input.requires_grad {
+            let data = self.input.data();
+            let n = data.len() as f32;
+            // Gradient is 1/n for all elements, scaled by upstream gradient
+            let grad_val = grad_output[[0, 0, 0]] / n;
+            let grad = Array3::from_elem(data.raw_dim(), grad_val);
+            self.input.accumulate_grad(grad);
+        }
+    }
+
+    fn inputs(&self) -> Vec<Variable> {
+        vec![self.input.clone()]
+    }
+}
+
 /// Matrix multiplication gradient function
 struct MatMulGradFn {
     input: Variable,
@@ -548,6 +592,47 @@ impl Variable {
             }));
         }
         result
+    }
+
+    /// Element-wise subtraction
+    pub fn sub(&self, other: &Variable) -> Variable {
+        let result_data = &self.data() - &other.data();
+        let requires_grad = self.requires_grad || other.requires_grad;
+
+        let mut result = Variable::new(result_data, requires_grad);
+        if requires_grad {
+            result = result.with_creator(Rc::new(SubGradFn {
+                a: self.clone(),
+                b: other.clone(),
+            }));
+        }
+        result
+    }
+
+    /// Detach from computation graph (stop gradient)
+    pub fn detach(&self) -> Variable {
+        Variable::new(self.data(), false)
+    }
+
+    /// Mean over all elements
+    pub fn mean(&self) -> Variable {
+        let data = self.data();
+        let n = data.len() as f32;
+        let mean_val = data.iter().sum::<f32>() / n;
+        let result_data = Array3::from_elem((1, 1, 1), mean_val);
+
+        let mut result = Variable::new(result_data, self.requires_grad);
+        if self.requires_grad {
+            result = result.with_creator(Rc::new(MeanGradFn {
+                input: self.clone(),
+            }));
+        }
+        result
+    }
+
+    /// Check if this variable requires gradient
+    pub fn requires_grad(&self) -> bool {
+        self.requires_grad
     }
 
     /// Matrix multiplication with 2D weight

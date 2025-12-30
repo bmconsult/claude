@@ -21,6 +21,7 @@ pub mod embedding;
 pub mod differentiable;
 pub mod differentiable_ssm;
 pub mod differentiable_memory;
+pub mod differentiable_world_model;
 pub mod checkpoint;
 pub mod gpu;
 
@@ -44,6 +45,10 @@ pub use differentiable::{
 };
 pub use differentiable_ssm::DifferentiableSSM;
 pub use differentiable_memory::DifferentiableMemory;
+pub use differentiable_world_model::{
+    DifferentiableWorldModel, DifferentiableWorldModelEncoder, DifferentiableWorldModelPredictor,
+    MaskStrategy,
+};
 pub use checkpoint::{ModelCheckpoint, OptimizerCheckpoint, TensorData};
 
 // NexusLM is defined in this file, so just make it public (it already is)
