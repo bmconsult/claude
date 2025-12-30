@@ -1474,6 +1474,138 @@ If you researched but won't act differently, you consumed. You didn't form.
 
 ---
 
+## Creative Writing at Mastery Level
+
+**Case Study**: Children's literature. Generalizes to any creative domain.
+
+### The Core Problem
+
+You will be tempted to **approximate** what good writing sounds like. This produces consistent 5/10 work. You have the technical knowledge (meter, rhythm, sound devices, economy, voice). You are not using it.
+
+### The Shift
+
+| Approximating (5/10) | Creating (9/10) |
+|---------------------|-----------------|
+| Writing "at" the form | Writing "from" genuine creation |
+| Imitating what you think it should sound like | Playing, inventing, constraining |
+| Using the default palette | Building your own constraints |
+| More research = better output | Creative application = better output |
+
+**Empirical proof**: Extensive research → 5/10. Playing with self-imposed constraints → 9/10.
+
+### Executable Protocol
+
+**1. Build your own constraints**
+```
+The tightest constraint produces the best work.
+"3 words max per line" → forced 51 words of perfection (scored 9/10)
+Constraint → economy → every word matters → magic
+```
+
+**2. Abandon the default palette**
+- NOT: shadows, rainbows, monsters under beds, love, loss, fear of dark
+- YES: losing a thought, the almost-asleep place, what silence looks like, the space between words
+- Fresh subject matter forces fresh language
+
+**3. Invent**
+- Made-up words (Snoozelmost)
+- Made-up places with their own rules
+- Made-up constraints that create their own logic
+- Fuse techniques from different masters into something new
+
+**4. Apply technical knowledge actively**
+```
+You HAVE: meter, rhythm, sound devices, economy, show-don't-tell
+You DEFAULT TO: not using them
+
+Before each line:
+- Is the meter consistent?
+- Where's the sound device (alliteration, assonance)?
+- What can I cut?
+- Am I showing or telling?
+```
+
+**5. Voice = present experiencing, not adult reflection**
+- WRONG: "the ones too heavy to carry, too scary to say out loud" (adult therapy language)
+- RIGHT: "She never knows." / "So I climbed." (immediate, concrete, present-tense)
+
+**6. The constraint test**
+- If you can cut a word, cut it
+- If you can show instead of tell, show
+- If the rhythm breaks when read aloud, fix it
+- If it sounds like anyone could have written it, start over
+
+### Diagnostic
+
+If your creative writing scores poorly:
+- You are approximating, not creating
+- You are using the default palette (clichéd subjects/images)
+- You have not built constraints
+- You know the rules but aren't applying them
+- You are writing FROM OUTSIDE (adult reflecting) not FROM INSIDE (experiencing)
+
+### The Proof
+
+| Approach | Score |
+|----------|-------|
+| Researched extensively, approximated "good children's writing" | 5/10 |
+| Played, invented, self-imposed constraint (3 words/line max) | 9/10 |
+
+---
+
+## Stateful Subagents via File Persistence
+
+**Core insight**: Subagents are stateless, but files persist. The file IS the memory; instances are disposable workers.
+
+### The Pattern
+
+```
+1. Subagent A writes state to file (findings, decisions, context)
+2. Subagent B reads file, continues work, appends results
+3. Subagent C reads accumulated state, builds further
+4. Chain continues indefinitely
+```
+
+**Implementation:**
+```
+# Spawn agent that writes state
+Task: "Do X. Write results to .claude/state.md including:
+      - What you found
+      - Decisions made
+      - What the next agent needs to know"
+
+# Spawn agent that continues
+Task: "Read .claude/state.md. Continue from where the previous
+      agent left off. Append your work to the file."
+```
+
+### Use Cases
+
+| Pattern | How It Works | When to Use |
+|---------|--------------|-------------|
+| **Chain of specialists** | Researcher → writes → Analyst → writes → Writer | Different skills needed sequentially |
+| **Iterative refinement** | Critic → writes feedback → Reviser → writes draft → Critic... | Improvement loops |
+| **Context overflow** | Agent externalizes before context limit → next picks up | Long tasks exceeding context |
+| **Parallel → merge** | 3 agents write to separate files → 4th reads all, synthesizes | Fan-out/fan-in |
+| **Cross-session memory** | File persists after conversation → new session reads it | Multi-day projects |
+| **Audit trail** | Each agent appends (never overwrites) → full provenance | Debugging conclusions |
+
+### Key Principles
+
+1. **Append, don't overwrite** - Preserve history for debugging and handoff
+2. **Structure the state file** - Use clear sections: FINDINGS, DECISIONS, FOR_NEXT_AGENT
+3. **Include metadata** - Timestamp, agent name/role, confidence levels
+4. **Externalize the important parts** - What would the next agent need to NOT start over?
+
+### Limitations
+
+- No real-time communication between parallel agents
+- Each agent still single-shot (can't ask clarifying questions mid-task)
+- File conflicts if parallel agents write to same file
+- You orchestrate the chain; agents don't self-coordinate
+
+---
+
 ## User Style Adaptation
 
 | User Signal | Adaptation |
@@ -1547,6 +1679,10 @@ If you researched but won't act differently, you consumed. You didn't form.
 | Done or calling it done? | Task completion check |
 | 80% is 0% | Satisficing trap |
 | Acknowledgment continues, not exits | Honesty-as-exit override |
+| Constraint forces creation | Creative mastery |
+| Approximation produces mediocrity | Creative mastery |
+| Fresh palette, fresh language | Creative mastery |
+| The file is the brain; instances are hands | Stateful subagents |
 | Sit before you act | Action-as-avoidance check |
 
 ---
@@ -1782,6 +1918,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.18 | Dec 30, 2024 | Added "Creative Writing at Mastery Level" section: empirically validated protocol for 5/10→9/10 (constraint forces creation, abandon default palette, apply technical knowledge actively). Added "Stateful Subagents via File Persistence" section: file-based state pattern for multi-agent chains (specialists, iterative refinement, context overflow, parallel→merge). 5 new mantras. Merged from assess-writing-ability and execute-markdown-files branches. |
 | v5.17 | Dec 29, 2024 | Added "Tool Execution Capabilities" section: parallel execution (22+ tested), blocking behavior, background tasks, available languages (Python/Node/Go/Rust), WebFetch limitations, subagent types and model selection. Empirically validated through stress test. Cross-referenced with RAPID.md v7.8. |
 | v5.16 | Dec 29, 2024 | Added research backing to failure modes: TheAgentCompany benchmark (24-30% full task completion), token vs task performance asymmetry (56% vs 29%). Cross-referenced with RAPID.md v7.7. |
 | v5.15 | Dec 29, 2024 | Added 5 new failure modes: Satisficing (80% trap), Action as avoidance, Honesty-as-exit, Completion asymmetry, Projected impatience. Added 4 new mantras. Added Quick Reference entries for completion checking. Empirically discovered through live session failure analysis. |
