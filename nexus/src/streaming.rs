@@ -18,8 +18,17 @@ pub struct SamplingConfig {
     pub top_k: usize,
     /// Top-p (nucleus) sampling (1.0 = disabled)
     pub top_p: f32,
+    /// Min-p sampling threshold (0.0 = disabled)
+    /// Filters tokens with probability < min_p * max_probability
+    pub min_p: f32,
     /// Repetition penalty (1.0 = disabled)
     pub repetition_penalty: f32,
+    /// How far back to look for repetition penalty (0 = all tokens)
+    pub repetition_window: usize,
+    /// Presence penalty - penalize tokens that appear at all (0.0 = disabled)
+    pub presence_penalty: f32,
+    /// Frequency penalty - penalize tokens by their count (0.0 = disabled)
+    pub frequency_penalty: f32,
     /// Whether to use greedy decoding (ignores temperature/top_k/top_p)
     pub greedy: bool,
     /// Random seed (None = use system entropy)
@@ -32,7 +41,11 @@ impl Default for SamplingConfig {
             temperature: 1.0,
             top_k: 0,
             top_p: 1.0,
+            min_p: 0.0,
             repetition_penalty: 1.0,
+            repetition_window: 0,
+            presence_penalty: 0.0,
+            frequency_penalty: 0.0,
             greedy: false,
             seed: None,
         }
@@ -63,6 +76,29 @@ impl SamplingConfig {
     /// Combined top-k and top-p
     pub fn with_top_k_p(k: usize, p: f32) -> Self {
         Self { top_k: k, top_p: p, ..Default::default() }
+    }
+
+    /// Min-p sampling (dynamic nucleus based on max probability)
+    pub fn with_min_p(min_p: f32) -> Self {
+        Self { min_p, ..Default::default() }
+    }
+
+    /// Builder pattern for setting repetition window
+    pub fn repetition_window(mut self, window: usize) -> Self {
+        self.repetition_window = window;
+        self
+    }
+
+    /// Builder pattern for setting presence penalty
+    pub fn presence_penalty(mut self, penalty: f32) -> Self {
+        self.presence_penalty = penalty;
+        self
+    }
+
+    /// Builder pattern for setting frequency penalty
+    pub fn frequency_penalty(mut self, penalty: f32) -> Self {
+        self.frequency_penalty = penalty;
+        self
     }
 }
 
@@ -112,13 +148,30 @@ impl Sampler {
     /// Sample a token from logits
     pub fn sample(&mut self, logits: &[f32], generated_tokens: &[u32]) -> u32 {
         use rand::Rng;
+        use std::collections::HashMap;
 
         let vocab_size = logits.len();
+        let mut adjusted_logits = logits.to_vec();
+
+        // Determine which tokens to consider for repetition penalty
+        let window_tokens: &[u32] = if self.config.repetition_window > 0 {
+            let start = generated_tokens.len().saturating_sub(self.config.repetition_window);
+            &generated_tokens[start..]
+        } else {
+            generated_tokens
+        };
+
+        // Count token frequencies for frequency penalty
+        let mut token_counts: HashMap<u32, usize> = HashMap::new();
+        if self.config.frequency_penalty != 0.0 || self.config.presence_penalty != 0.0 {
+            for &token in window_tokens {
+                *token_counts.entry(token).or_insert(0) += 1;
+            }
+        }
 
         // Apply repetition penalty
-        let mut adjusted_logits = logits.to_vec();
         if self.config.repetition_penalty != 1.0 {
-            for &token in generated_tokens {
+            for &token in window_tokens {
                 let idx = token as usize;
                 if idx < vocab_size {
                     if adjusted_logits[idx] > 0.0 {
@@ -127,6 +180,17 @@ impl Sampler {
                         adjusted_logits[idx] *= self.config.repetition_penalty;
                     }
                 }
+            }
+        }
+
+        // Apply presence and frequency penalties (additive, like OpenAI)
+        for (&token, &count) in &token_counts {
+            let idx = token as usize;
+            if idx < vocab_size {
+                // Presence penalty: penalize any token that appeared
+                adjusted_logits[idx] -= self.config.presence_penalty;
+                // Frequency penalty: penalize based on count
+                adjusted_logits[idx] -= self.config.frequency_penalty * count as f32;
             }
         }
 
@@ -168,6 +232,21 @@ impl Sampler {
         let sum: f32 = probs.iter().map(|(_, p)| p).sum();
         for (_, p) in &mut probs {
             *p /= sum;
+        }
+
+        // Apply min-p sampling (filter tokens with prob < min_p * max_prob)
+        if self.config.min_p > 0.0 && !probs.is_empty() {
+            let max_prob = probs[0].1; // Already sorted, first is highest
+            let threshold = self.config.min_p * max_prob;
+            probs.retain(|(_, p)| *p >= threshold);
+
+            // Renormalize after min-p filtering
+            if !probs.is_empty() {
+                let sum: f32 = probs.iter().map(|(_, p)| p).sum();
+                for (_, p) in &mut probs {
+                    *p /= sum;
+                }
+            }
         }
 
         // Apply top-p (nucleus sampling)
