@@ -31,7 +31,7 @@ pub use block::HybridBlock;
 pub use symbolic::{Expr, ReasoningPipeline, ConstraintSolver};
 pub use autograd::{Variable, Parameter, AdamW, SGD, Optimizer, DifferentiableLinear};
 pub use training::{Trainer, TrainConfig, TrainState, DataLoader};
-pub use tokenizer::{Tokenizer, SimpleBPE};
+pub use tokenizer::{Tokenizer, SimpleBPE, TiktokenBPE};
 pub use embedding::Embedding;
 
 // NexusLM is defined in this file, so just make it public (it already is)

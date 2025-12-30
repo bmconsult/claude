@@ -1,9 +1,13 @@
 //! Tokenizer module for text processing
 //!
-//! Wraps HuggingFace tokenizers for converting text to token IDs and back.
+//! Supports multiple tokenizer backends:
+//! - HuggingFace tokenizers (from JSON files)
+//! - Tiktoken (GPT-4/cl100k_base compatible)
+//! - SimpleBPE (character-level, no pretrained required)
 
 use anyhow::Result;
 use tokenizers::Tokenizer as HFTokenizer;
+use tiktoken_rs::CoreBPE;
 
 /// Wrapper around HuggingFace tokenizers
 pub struct Tokenizer {
@@ -155,6 +159,106 @@ impl Default for SimpleBPE {
     }
 }
 
+/// Tiktoken-based BPE tokenizer (GPT-4 compatible)
+///
+/// Uses the cl100k_base encoding by default, which is used by GPT-4, GPT-3.5-turbo,
+/// and text-embedding-ada-002.
+pub struct TiktokenBPE {
+    encoder: CoreBPE,
+    name: String,
+}
+
+impl TiktokenBPE {
+    /// Create a new tiktoken tokenizer with cl100k_base encoding (GPT-4)
+    pub fn cl100k_base() -> Result<Self> {
+        let encoder = tiktoken_rs::cl100k_base()
+            .map_err(|e| anyhow::anyhow!("Failed to load cl100k_base: {}", e))?;
+        Ok(Self {
+            encoder,
+            name: "cl100k_base".to_string(),
+        })
+    }
+
+    /// Create a new tiktoken tokenizer with p50k_base encoding (GPT-3/Codex)
+    pub fn p50k_base() -> Result<Self> {
+        let encoder = tiktoken_rs::p50k_base()
+            .map_err(|e| anyhow::anyhow!("Failed to load p50k_base: {}", e))?;
+        Ok(Self {
+            encoder,
+            name: "p50k_base".to_string(),
+        })
+    }
+
+    /// Create a new tiktoken tokenizer with r50k_base encoding (GPT-2)
+    pub fn r50k_base() -> Result<Self> {
+        let encoder = tiktoken_rs::r50k_base()
+            .map_err(|e| anyhow::anyhow!("Failed to load r50k_base: {}", e))?;
+        Ok(Self {
+            encoder,
+            name: "r50k_base".to_string(),
+        })
+    }
+
+    /// Create a new tiktoken tokenizer with o200k_base encoding (GPT-4o)
+    pub fn o200k_base() -> Result<Self> {
+        let encoder = tiktoken_rs::o200k_base()
+            .map_err(|e| anyhow::anyhow!("Failed to load o200k_base: {}", e))?;
+        Ok(Self {
+            encoder,
+            name: "o200k_base".to_string(),
+        })
+    }
+
+    /// Get the encoding name
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    /// Encode text to token IDs
+    pub fn encode(&self, text: &str) -> Vec<u32> {
+        self.encoder.encode_ordinary(text)
+            .into_iter()
+            .map(|id| id as u32)
+            .collect()
+    }
+
+    /// Encode with special tokens allowed
+    pub fn encode_with_special(&self, text: &str, allowed_special: &[&str]) -> Vec<u32> {
+        let special_set: std::collections::HashSet<&str> = allowed_special.iter().copied().collect();
+        let (tokens, _byte_count) = self.encoder.encode(text, &special_set);
+        tokens
+    }
+
+    /// Decode token IDs back to text
+    pub fn decode(&self, ids: &[u32]) -> Result<String> {
+        self.encoder.decode(ids.to_vec())
+            .map_err(|e| anyhow::anyhow!("Decoding failed: {}", e))
+    }
+
+    /// Get vocabulary size
+    pub fn vocab_size(&self) -> usize {
+        match self.name.as_str() {
+            "cl100k_base" => 100277,
+            "p50k_base" => 50281,
+            "r50k_base" => 50257,
+            "o200k_base" => 200019,
+            _ => 100000, // fallback
+        }
+    }
+
+    /// Encode a batch of texts
+    pub fn encode_batch(&self, texts: &[&str]) -> Vec<Vec<u32>> {
+        texts.iter()
+            .map(|text| self.encode(text))
+            .collect()
+    }
+
+    /// Count tokens in text (useful for context length checks)
+    pub fn count_tokens(&self, text: &str) -> usize {
+        self.encoder.encode_ordinary(text).len()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -185,5 +289,46 @@ mod tests {
         let tokenizer = SimpleBPE::new();
         // 4 special tokens + 95 printable ASCII chars
         assert_eq!(tokenizer.vocab_size(), 99);
+    }
+
+    #[test]
+    fn test_tiktoken_cl100k() {
+        let tokenizer = TiktokenBPE::cl100k_base().unwrap();
+
+        let text = "Hello, world!";
+        let tokens = tokenizer.encode(text);
+        let decoded = tokenizer.decode(&tokens).unwrap();
+
+        assert_eq!(text, decoded);
+        assert_eq!(tokenizer.name(), "cl100k_base");
+    }
+
+    #[test]
+    fn test_tiktoken_count_tokens() {
+        let tokenizer = TiktokenBPE::cl100k_base().unwrap();
+
+        // "Hello" is typically 1 token, ", world!" is a few more
+        let count = tokenizer.count_tokens("Hello, world!");
+        assert!(count > 0 && count < 10);
+    }
+
+    #[test]
+    fn test_tiktoken_batch_encode() {
+        let tokenizer = TiktokenBPE::cl100k_base().unwrap();
+
+        let texts = vec!["Hello", "World", "Test"];
+        let batch = tokenizer.encode_batch(&texts);
+
+        assert_eq!(batch.len(), 3);
+        for tokens in batch {
+            assert!(!tokens.is_empty());
+        }
+    }
+
+    #[test]
+    fn test_tiktoken_vocab_sizes() {
+        assert_eq!(TiktokenBPE::cl100k_base().unwrap().vocab_size(), 100277);
+        assert_eq!(TiktokenBPE::p50k_base().unwrap().vocab_size(), 50281);
+        assert_eq!(TiktokenBPE::r50k_base().unwrap().vocab_size(), 50257);
     }
 }

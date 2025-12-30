@@ -65,6 +65,7 @@ memmap2 = "0.9"
 
 # Tokenization (for text processing)
 tokenizers = "0.21"
+tiktoken-rs = "0.9.1"
 
 [dev-dependencies]
 criterion = "0.5"
