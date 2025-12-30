@@ -12,6 +12,7 @@
 //! Usage: cargo run --example train_nexus_production --release
 
 use std::fs;
+use std::path::Path;
 use std::time::Instant;
 use nexus::{
     DifferentiableHybridNexusLM, HybridModelCheckpoint,
@@ -19,6 +20,43 @@ use nexus::{
     SamplingConfig, Sampler,
 };
 use nexus::autograd::Variable;
+
+// ============================================================================
+// Checkpoint Resumption
+// ============================================================================
+
+/// Find the latest checkpoint in the checkpoint directory
+fn find_latest_checkpoint(checkpoint_dir: &str) -> Option<(String, usize)> {
+    let dir = Path::new(checkpoint_dir);
+    if !dir.exists() {
+        return None;
+    }
+
+    let mut latest_step = 0usize;
+    let mut latest_path = None;
+
+    // Look for step_*.bin files
+    if let Ok(entries) = fs::read_dir(dir) {
+        for entry in entries.flatten() {
+            let filename = entry.file_name();
+            let name = filename.to_string_lossy();
+
+            if name.starts_with("step_") && name.ends_with(".bin") {
+                // Parse step number: step_00500.bin -> 500
+                if let Some(step_str) = name.strip_prefix("step_").and_then(|s| s.strip_suffix(".bin")) {
+                    if let Ok(step) = step_str.parse::<usize>() {
+                        if step > latest_step {
+                            latest_step = step;
+                            latest_path = Some(entry.path().to_string_lossy().to_string());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    latest_path.map(|p| (p, latest_step))
+}
 
 // ============================================================================
 // Configuration
@@ -297,7 +335,35 @@ fn main() -> anyhow::Result<()> {
         ..Default::default()
     };
 
-    let model = DifferentiableHybridNexusLM::new(model_config.clone());
+    // Check for existing checkpoint to resume from
+    let (model, resume_step) = if let Some((checkpoint_path, step)) = find_latest_checkpoint(&config.checkpoint_dir) {
+        println!("🔄 Found checkpoint at step {}, attempting to resume...", step);
+        match HybridModelCheckpoint::load(&checkpoint_path) {
+            Ok(checkpoint) => {
+                let model = DifferentiableHybridNexusLM::new(checkpoint.config.clone());
+                match checkpoint.load_into(&model) {
+                    Ok(()) => {
+                        println!("   ✓ Loaded weights from {}", checkpoint_path);
+                        println!("   ✓ Resuming from step {}\n", step);
+                        (model, step)
+                    }
+                    Err(e) => {
+                        println!("   ✗ Failed to load weights: {}", e);
+                        println!("   → Starting fresh...\n");
+                        (DifferentiableHybridNexusLM::new(model_config.clone()), 0)
+                    }
+                }
+            }
+            Err(e) => {
+                println!("   ✗ Failed to load checkpoint: {}", e);
+                println!("   → Starting fresh...\n");
+                (DifferentiableHybridNexusLM::new(model_config.clone()), 0)
+            }
+        }
+    } else {
+        (DifferentiableHybridNexusLM::new(model_config.clone()), 0)
+    };
+
     let n_params = model.num_parameters();
     let n_attn = model.blocks.iter().filter(|b| b.attn.is_some()).count();
     let n_ssm = model.blocks.iter().filter(|b| b.ssm.is_some()).count();
@@ -350,10 +416,19 @@ fn main() -> anyhow::Result<()> {
     // Training Loop
     // ========================================================================
 
-    println!("🚀 Starting training...\n");
+    // Handle resumption
+    let mut global_step = resume_step;
+    if resume_step > 0 {
+        println!("🔄 Advancing scheduler to step {}...", resume_step);
+        for _ in 0..resume_step {
+            scheduler.step();
+        }
+        println!("🚀 Resuming training from step {}...\n", resume_step);
+    } else {
+        println!("🚀 Starting training...\n");
+    }
 
     let start_time = Instant::now();
-    let mut global_step = 0;
     let mut accum_loss = 0.0;
     let mut accum_steps = 0;
     let mut running_loss = 0.0;
