@@ -311,7 +311,7 @@ impl<M: DPOModel> DPOTrainer<M> {
 
     /// Train on a batch of preference pairs
     pub fn train_step(&mut self, batch: &[PreferencePair]) -> (f32, DPOMetrics) {
-        let batch_size = batch.len();
+        let _batch_size = batch.len();
 
         // Prepare sequences
         let chosen_tokens: Vec<Vec<u32>> = batch.iter().map(|p| p.chosen_sequence()).collect();

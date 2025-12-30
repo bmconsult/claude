@@ -12,7 +12,7 @@ pub struct DifferentiableConv1D {
     pub weight: Variable,  // [kernel_size, d_inner]
     pub bias: Variable,    // [d_inner]
     kernel_size: usize,
-    d_inner: usize,
+    _d_inner: usize,
 }
 
 impl DifferentiableConv1D {
@@ -31,7 +31,7 @@ impl DifferentiableConv1D {
             weight: Variable::parameter(weight_data),
             bias: Variable::parameter(bias_data),
             kernel_size,
-            d_inner,
+            _d_inner: d_inner,
         }
     }
 
@@ -185,7 +185,7 @@ impl DifferentiableSSM {
     /// Forward pass
     pub fn forward(&self, x: &Variable) -> Variable {
         let (batch, seq_len, _) = x.shape();
-        let x_data = x.data();
+        let _x_data = x.data();
 
         // Project input to 2 * d_inner
         let xz = self.in_proj.forward(x);

@@ -144,7 +144,7 @@ pub struct DifferentiableWorldModel {
     /// Predictor: (latent, context) -> predicted_latent
     pub predictor: DifferentiableWorldModelPredictor,
     /// Model dimension
-    d_model: usize,
+    _d_model: usize,
 }
 
 impl DifferentiableWorldModel {
@@ -152,7 +152,7 @@ impl DifferentiableWorldModel {
         Self {
             encoder: DifferentiableWorldModelEncoder::new(d_input, d_model, n_encoder_layers),
             predictor: DifferentiableWorldModelPredictor::new(d_model, d_hidden),
-            d_model,
+            _d_model: d_model,
         }
     }
 

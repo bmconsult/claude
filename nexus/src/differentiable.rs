@@ -14,7 +14,7 @@ use crate::NexusConfig;
 pub struct DifferentiableRMSNorm {
     pub weight: Variable,
     pub eps: f32,
-    d_model: usize,
+    _d_model: usize,
 }
 
 impl DifferentiableRMSNorm {
@@ -23,7 +23,7 @@ impl DifferentiableRMSNorm {
         Self {
             weight: Variable::parameter(weight_data),
             eps,
-            d_model,
+            _d_model: d_model,
         }
     }
 
@@ -89,8 +89,8 @@ pub struct DifferentiableAttention {
     pub k_proj: DifferentiableLinear,
     pub v_proj: DifferentiableLinear,
     pub out_proj: DifferentiableLinear,
-    n_heads: usize,
-    head_dim: usize,
+    _n_heads: usize,
+    _head_dim: usize,
     d_model: usize,
 }
 
@@ -102,8 +102,8 @@ impl DifferentiableAttention {
             k_proj: DifferentiableLinear::new(d_model, d_model, false),
             v_proj: DifferentiableLinear::new(d_model, d_model, false),
             out_proj: DifferentiableLinear::new(d_model, d_model, false),
-            n_heads,
-            head_dim,
+            _n_heads: n_heads,
+            _head_dim: head_dim,
             d_model,
         }
     }

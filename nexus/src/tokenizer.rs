@@ -93,7 +93,7 @@ impl Tokenizer {
 pub struct SimpleBPE {
     vocab: std::collections::HashMap<String, u32>,
     reverse_vocab: std::collections::HashMap<u32, String>,
-    next_id: u32,
+    _next_id: u32,
 }
 
 impl SimpleBPE {
@@ -120,7 +120,7 @@ impl SimpleBPE {
             next_id += 1;
         }
 
-        Self { vocab, reverse_vocab, next_id }
+        Self { vocab, reverse_vocab, _next_id: next_id }
     }
 
     /// Get token ID, using <unk> for unknown characters

@@ -21,9 +21,9 @@ pub struct LayerKVCache {
     /// Maximum cache size (for sliding window)
     max_cache_size: Option<usize>,
     /// Number of heads
-    n_heads: usize,
+    _n_heads: usize,
     /// Head dimension
-    head_dim: usize,
+    _head_dim: usize,
 }
 
 impl LayerKVCache {
@@ -34,8 +34,8 @@ impl LayerKVCache {
             values: None,
             cached_len: 0,
             max_cache_size,
-            n_heads,
-            head_dim,
+            _n_heads: n_heads,
+            _head_dim: head_dim,
         }
     }
 
@@ -201,7 +201,7 @@ pub struct PagedKVCache {
     /// Number of tokens currently cached per layer
     cached_lens: Vec<usize>,
     /// Configuration
-    n_layers: usize,
+    _n_layers: usize,
     n_heads: usize,
     head_dim: usize,
 }
@@ -218,13 +218,14 @@ impl PagedKVCache {
             block_size,
             blocks: vec![Vec::new(); n_layers],
             cached_lens: vec![0; n_layers],
-            n_layers,
+            _n_layers: n_layers,
             n_heads,
             head_dim,
         }
     }
 
     /// Allocate a new block for a layer
+    #[allow(dead_code)]
     fn allocate_block(&self, batch_size: usize) -> (Array4<f32>, Array4<f32>) {
         let k_block = Array4::zeros((batch_size, self.n_heads, self.block_size, self.head_dim));
         let v_block = Array4::zeros((batch_size, self.n_heads, self.block_size, self.head_dim));

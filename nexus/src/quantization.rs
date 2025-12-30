@@ -62,8 +62,8 @@ pub struct QuantParams {
 impl QuantParams {
     /// Compute quantization parameters from float data
     pub fn from_data(data: &[f32], config: &QuantConfig) -> Self {
-        let qmin = if config.symmetric { -128 } else { 0 };
-        let qmax = 255_i32;
+        let _qmin = if config.symmetric { -128 } else { 0 };
+        let _qmax = 255_i32;
 
         let min_val = data.iter().cloned().fold(f32::INFINITY, f32::min);
         let max_val = data.iter().cloned().fold(f32::NEG_INFINITY, f32::max);
@@ -157,7 +157,7 @@ impl QuantizedTensor {
 
     fn quantize_with_params(
         data: &[f32],
-        shape: &[usize],
+        _shape: &[usize],
         params: &QuantParams,
         config: &QuantConfig,
     ) -> Vec<i8> {

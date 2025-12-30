@@ -301,7 +301,7 @@ pub struct ScaledRotaryEmbedding {
     /// Scaling factor for extrapolation
     scale: f32,
     /// Original trained sequence length
-    original_max_len: usize,
+    _original_max_len: usize,
 }
 
 impl ScaledRotaryEmbedding {
@@ -321,7 +321,7 @@ impl ScaledRotaryEmbedding {
         Self {
             base_rope: RotaryEmbedding::new(dim, target_max_len, scaled_base),
             scale,
-            original_max_len,
+            _original_max_len: original_max_len,
         }
     }
 

@@ -64,7 +64,7 @@ impl DifferentiableMemory {
     /// Query the memory using attention and return combined output.
     pub fn forward(&self, x: &Variable) -> Variable {
         let (batch, seq_len, d_model) = x.shape();
-        let x_data = x.data();
+        let _x_data = x.data();
 
         // Project input to query space
         let query = self.query_proj.forward(x);

@@ -11,9 +11,9 @@ use crate::tensor::{Tensor, Linear};
 /// representation z' of what comes next in latent space.
 pub struct WorldModelPredictor {
     /// Model dimension
-    d_model: usize,
+    _d_model: usize,
     /// Predictor hidden dimension
-    d_hidden: usize,
+    _d_hidden: usize,
     /// Input projection
     in_proj: Linear,
     /// Context projection
@@ -28,8 +28,8 @@ pub struct WorldModelPredictor {
 impl WorldModelPredictor {
     pub fn new(d_model: usize, d_hidden: usize) -> Self {
         Self {
-            d_model,
-            d_hidden,
+            _d_model: d_model,
+            _d_hidden: d_hidden,
             in_proj: Linear::new(d_model, d_hidden, false),
             ctx_proj: Linear::new(d_model, d_hidden, false),
             hidden1: Linear::new(d_hidden, d_hidden, false),
@@ -67,7 +67,7 @@ impl WorldModelPredictor {
 /// Here we use a simple MLP for prototyping.
 pub struct WorldModelEncoder {
     layers: Vec<Linear>,
-    d_model: usize,
+    _d_model: usize,
 }
 
 impl WorldModelEncoder {
@@ -82,7 +82,7 @@ impl WorldModelEncoder {
             layers.push(Linear::new(d_model, d_model, true));
         }
 
-        Self { layers, d_model }
+        Self { layers, _d_model: d_model }
     }
 
     pub fn encode(&self, x: &Tensor) -> Tensor {
@@ -107,7 +107,7 @@ pub struct WorldModel {
     pub predictor: WorldModelPredictor,
     /// Target encoder (for JEPA, this is EMA of encoder)
     /// In this prototype, we share weights
-    d_model: usize,
+    _d_model: usize,
 }
 
 impl WorldModel {
@@ -115,7 +115,7 @@ impl WorldModel {
         Self {
             encoder: WorldModelEncoder::new(d_input, d_model, n_encoder_layers),
             predictor: WorldModelPredictor::new(d_model, d_hidden),
-            d_model,
+            _d_model: d_model,
         }
     }
 

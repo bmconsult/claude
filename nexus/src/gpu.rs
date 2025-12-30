@@ -179,7 +179,7 @@ impl SelectiveSSM {
     pub fn new(
         d_model: usize,
         d_state: usize,
-        d_conv: usize,
+        _d_conv: usize,
         expand: usize,
         vb: VarBuilder,
     ) -> Result<Self> {
@@ -270,8 +270,8 @@ impl SelectiveSSM {
 
 /// Differentiable Memory for GPU
 pub struct Memory {
-    key_proj: Linear,
-    value_proj: Linear,
+    _key_proj: Linear,
+    _value_proj: Linear,
     query_proj: Linear,
     out_proj: Linear,
     memory_keys: Tensor,
@@ -300,8 +300,8 @@ impl Memory {
         )?;
 
         Ok(Self {
-            key_proj,
-            value_proj,
+            _key_proj: key_proj,
+            _value_proj: value_proj,
             query_proj,
             out_proj,
             memory_keys,
@@ -399,8 +399,8 @@ pub struct HybridNexusLM {
     memory: Memory,
     norm_f: RMSNorm,
     output: Linear,
-    d_model: usize,
-    vocab_size: usize,
+    _d_model: usize,
+    _vocab_size: usize,
 }
 
 impl HybridNexusLM {
@@ -452,8 +452,8 @@ impl HybridNexusLM {
             memory,
             norm_f,
             output,
-            d_model,
-            vocab_size,
+            _d_model: d_model,
+            _vocab_size: vocab_size,
         })
     }
 

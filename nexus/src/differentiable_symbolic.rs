@@ -200,7 +200,7 @@ pub struct NeuralExpressionTree {
     /// Embedding dimension
     d_model: usize,
     /// Maximum tree depth
-    max_depth: usize,
+    _max_depth: usize,
 
     /// Variable embeddings
     pub var_embed: Variable,
@@ -227,7 +227,7 @@ impl NeuralExpressionTree {
         Self {
             n_vars,
             d_model,
-            max_depth,
+            _max_depth: max_depth,
             var_embed: Variable::parameter(var_embed_data),
             const_proj: DifferentiableLinear::new(1, d_model, false),
             operations,

@@ -73,7 +73,7 @@ struct TrainingConfig {
 
     // Training hyperparameters
     learning_rate: f32,
-    min_lr: f32,
+    _min_lr: f32,
     weight_decay: f32,
     warmup_steps: usize,
     max_steps: usize,
@@ -106,7 +106,7 @@ impl Default for TrainingConfig {
 
             // Training
             learning_rate: 3e-4,
-            min_lr: 1e-5,
+            _min_lr: 1e-5,
             weight_decay: 0.1,
             warmup_steps: 100,
             max_steps: 2000,

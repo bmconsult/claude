@@ -485,7 +485,7 @@ where
     M: StreamingModel,
     T: Tokenizer,
 {
-    model: M,
+    _model: M,
     tokenizer: T,
     sampling_config: SamplingConfig,
 }
@@ -496,7 +496,7 @@ where
     T: Tokenizer + Clone,
 {
     pub fn new(model: M, tokenizer: T, sampling_config: SamplingConfig) -> Self {
-        Self { model, tokenizer, sampling_config }
+        Self { _model: model, tokenizer, sampling_config }
     }
 
     /// Generate for multiple prompts
