@@ -33,6 +33,8 @@ pub mod quantization;
 pub mod dpo;
 pub mod benchmark;
 pub mod lora;
+pub mod training_gpu;
+pub mod mamba2_ssd;
 
 #[cfg(feature = "python")]
 pub mod python;

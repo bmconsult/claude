@@ -26,6 +26,10 @@ path = "src/bin/serve.rs"
 name = "nexus-benchmark"
 path = "src/bin/benchmark.rs"
 
+[[bin]]
+name = "nexus-train-gpu"
+path = "src/bin/train_gpu.rs"
+
 [features]
 default = ["python"]
 python = ["pyo3"]
