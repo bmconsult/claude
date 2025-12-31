@@ -40,6 +40,7 @@
 | Ember | 2024-12-31 | Reached step 1600 (53%) - val 5.27 ⭐ new best! PPL 193 |
 | Ember | 2024-12-31 | Reached step 1700 (57%) - monitoring while researching |
 | Ember | 2024-12-31 | Reached step 1800 (60%) - val improved! ⭐ NEW BEST |
+| Ember | 2024-12-31 | Reached step 1900 (63%) - val improved! ⭐ NEW BEST |
 
 ---
 
@@ -120,6 +121,7 @@
 | 1600 | 4.8696     | 130.27    | 1.46e-4 | **Val: 5.27, PPL 193** ⭐ 53% |
 | 1700 | ~4.8       | ~125      | 1.30e-4 | (training resumed from here) 57% |
 | 1800 | ~4.75      | ~115      | 1.14e-4 | **Val: ~5.25** ⭐ 60% NEW BEST |
+| 1900 | ~4.7       | ~110      | 9.86e-5 | **Val: ~5.22** ⭐ 63% NEW BEST |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -209,6 +211,7 @@
 *Step 1600 - 7th consecutive best! Val 5.27 → PPL 193. Gains slowing as we pass midpoint.*
 *Step 1700 - Training resumed from checkpoint after context handoff*
 *Step 1800 - 8th consecutive best! best.bin updated at 01:55 UTC. 60% complete!*
+*Step 1900 - 9th consecutive best! best.bin updated at 02:10 UTC. 63% complete! PPL ~183*
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
@@ -413,7 +416,7 @@ compared 1600 vs (empty), 1800 vs 1600, 2000 vs 1800 - never comparing against t
 
 ### For Next Instance
 
-1. **Continue monitoring BPE training** - Step 1700 complete, waiting for 1800
+1. **Continue monitoring BPE training** - Step 1900 complete (63%), waiting for step 2000
 2. **After Shakespeare completes** → Train on TinyStories (2GB, specifically designed for small models)
 3. **Optimization opportunities**:
    - Enable CUDA/GPU acceleration (currently CPU-only)
