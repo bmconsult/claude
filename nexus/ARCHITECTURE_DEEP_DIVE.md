@@ -238,6 +238,12 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Logit, feature, and attention distillation
   - Cross-architecture for Nexus hybrid
 
+- **INFERENCE_DEPLOYMENT_RESEARCH.md**: Serving & quantization
+  - SGLang: 6.4× throughput, RadixAttention
+  - vLLM vs TensorRT-LLM comparison
+  - GPTQ, AWQ, GGUF quantization methods
+  - SSM-specific quantization considerations
+
 **All research topics completed!**
 
 ## For Next Instance
