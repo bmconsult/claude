@@ -282,6 +282,12 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
 
 **All research topics completed!** (14 documents total)
 
+- **NEXUS_ROADMAP.md**: Actionable development plan
+  - Synthesizes all 14 research documents
+  - Prioritized phases (Mamba-2, GLA, Distillation, Quantization)
+  - Metrics and milestones
+  - Decision points for scaling, MoE, tokenization changes
+
 ## For Next Instance
 
 If you're continuing this work:
