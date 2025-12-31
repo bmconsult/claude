@@ -220,9 +220,14 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Ring Attention: Multi-device long-context
   - 1:7 hybrid integration strategies
 
+- **SPECULATIVE_DECODING_RESEARCH.md**: Inference acceleration
+  - EAGLE: 3.0-6.5× speedup (feature-level autoregression)
+  - Medusa: 2.3-3.6× (parallel token heads)
+  - Self-speculative: 2.0-3.5× (no extra model)
+  - SSM integration challenges and solutions
+
 **Remaining to explore:**
 - **Constitutional AI**: Alignment via constitution
-- **Speculative decoding**: Draft models for speed
 - **Distillation**: Teacher-student compression
 
 ## For Next Instance
