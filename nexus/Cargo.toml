@@ -76,9 +76,13 @@ memmap2 = "0.9"
 tokenizers = "0.21"
 tiktoken-rs = "0.9.1"
 
-# GPU acceleration (Candle)
-candle-core = "0.8"
-candle-nn = "0.8"
+# GPU acceleration (Candle) - using git for CUDA 13.x support
+candle-core = { git = "https://github.com/huggingface/candle.git", branch = "main" }
+candle-nn = { git = "https://github.com/huggingface/candle.git", branch = "main" }
+
+[patch.crates-io]
+# Force newer cudarc for CUDA 13.1 support
+cudarc = { git = "https://github.com/coreylowman/cudarc.git", branch = "main" }
 
 [dev-dependencies]
 criterion = "0.5"
