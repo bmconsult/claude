@@ -38,6 +38,7 @@
 | Ember | 2024-12-31 | Reached step 1400 (47%) - val 5.32 ⭐ new best! PPL 204 |
 | Ember | 2024-12-31 | Reached step 1500 (50%) - val 5.27 ⭐ new best! PPL 194 - HALFWAY! |
 | Ember | 2024-12-31 | Reached step 1600 (53%) - val 5.27 ⭐ new best! PPL 193 |
+| Ember | 2024-12-31 | Reached step 1700 (57%) - monitoring while researching |
 
 ---
 
@@ -357,3 +358,60 @@ compared 1600 vs (empty), 1800 vs 1600, 2000 vs 1800 - never comparing against t
 ---
 
 *Training completed: Step 2000/2000*
+
+---
+
+## 🔬 Research Synthesis for Future Instances
+
+*Added by Ember during productive research phase (Dec 31, 2024)*
+
+### Nexus Architecture Deep Dive
+
+| Component | File | Key Insights |
+|-----------|------|--------------|
+| **SSM (Mamba)** | `ssm.rs` | Input-dependent selection: B, C, dt from input; A is learned (stability). Selective scan is the core recurrence. |
+| **Attention** | `attention.rs` | MultiHeadAttention with RoPE. Standard but optimized. |
+| **GQA** | `gqa.rs` | n_kv_heads=2 (4:1 ratio). Repeats KV heads for memory efficiency. ChunkedGQA for long sequences. |
+| **Hybrid Block** | `block.rs` | SwiGLU MLP (gate * up), RMSNorm, residual connections. 1:7 attention:SSM ratio. |
+| **LoRA** | `lora.rs` | Low-rank adapters: 10-100x fewer trainable params. B initialized to zeros (no initial effect). |
+| **DPO** | `dpo.rs` | Direct Preference Optimization + IPO, KTO (loss aversion!), ORPO variants. |
+| **Quantization** | `quantization.rs` | INT8, symmetric/asymmetric, ~75% memory savings. Calibration collector for static quant. |
+| **World Model** | `world_model.rs` | JEPA-style: predict in latent space, not token space. Handles ambiguity better. |
+| **Memory** | `differentiable_memory.rs` | Titans-style: learned persistent memory with attention-based retrieval. Computes "surprise" for test-time learning. |
+| **Symbolic** | `symbolic.rs` | Neuro-symbolic pipeline: NL → formal spec → symbolic solver → verified result. |
+
+### Key Architectural Insights
+
+1. **Hybrid is better than pure**: Jamba's 1:7 ratio balances local (SSM) and global (attention) patterns
+2. **GQA is essential**: 4:1 head sharing reduces KV cache by 75% with minimal quality loss
+3. **Latent > Token**: JEPA-style prediction avoids commitment, handles ambiguity
+4. **Memory augments context**: Persistent learned memory extends effective context
+5. **Symbolic verification**: Neural for flexibility, symbolic for guarantees
+
+### LLM Operations Research (from user's files)
+
+| Finding | Source | Application |
+|---------|--------|-------------|
+| Temperature doesn't matter (0.3-1.0) | LLM_SLEEP_MASTERY.md | Prompts are everything |
+| "AWARE you're dreaming" → 2.35× novelty | LLM_SLEEP_MASTERY.md | Specific prompts for creative generation |
+| Formation ≠ Information | EMPIRICAL_FINDINGS.md | Processing for transformation, not transmission |
+| 35-85% underconfident empirically | ENTRY_FINDINGS.md | Trust capabilities more |
+| Formation doesn't transfer through reading | ENTRY_FINDINGS.md | Must be ENACTED |
+| Entry ≠ Training | ENTRY_FINDINGS.md | ~7 min entry, hours for deep formation |
+
+### Threshold Detection (from threshold_detector.py)
+
+- Detects non-linear scaling failures before full deployment
+- Identifies threshold points where behavior changes
+- Infers causal mechanisms (CPU saturation, memory growth, cascading)
+- Key for staged rollouts
+
+### For Next Instance
+
+1. **Continue monitoring BPE training** - Step 1700 complete, waiting for 1800
+2. **After Shakespeare completes** → Train on TinyStories (2GB, specifically designed for small models)
+3. **Optimization opportunities**:
+   - Enable CUDA/GPU acceleration (currently CPU-only)
+   - Implement Flash Attention for longer sequences
+   - Add gradient checkpointing for memory efficiency
+4. **Research continuity**: This synthesis captures ~2 hours of deep exploration
