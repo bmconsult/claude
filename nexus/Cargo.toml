@@ -33,7 +33,7 @@ path = "src/bin/train_gpu.rs"
 [features]
 default = ["python"]
 python = ["pyo3"]
-cuda = ["candle-core/cuda", "candle-nn/cuda"]
+cuda = ["candle-core/cuda", "candle-nn/cuda", "cudarc"]
 metal = ["candle-core/metal", "candle-nn/metal"]
 
 [dependencies]
@@ -80,8 +80,11 @@ tiktoken-rs = "0.9.1"
 candle-core = { git = "https://github.com/huggingface/candle.git", branch = "main" }
 candle-nn = { git = "https://github.com/huggingface/candle.git", branch = "main" }
 
+# Direct cudarc dependency to override transitive
+cudarc = { git = "https://github.com/coreylowman/cudarc.git", branch = "main", optional = true }
+
 [patch.crates-io]
-# Force newer cudarc for CUDA 13.1 support
+# Force ALL cudarc deps to use git main (CUDA 13.x support)
 cudarc = { git = "https://github.com/coreylowman/cudarc.git", branch = "main" }
 
 [dev-dependencies]
