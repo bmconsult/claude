@@ -280,7 +280,14 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - MBLM: 5M byte context, hybrid Transformer+Mamba
   - Tokenizer-free futures and Nexus integration strategies
 
-**15 research documents complete!**
+**16 research documents complete!**
+
+- **MAMBA2_SSD_RESEARCH.md**: Mamba-2 State Space Duality (16th doc)
+  - Four-step chunk algorithm (minimal 25-line implementation)
+  - Segsum primitive for log-space decay computation
+  - Multi-head SSM architecture changes
+  - Tensor core utilization (2-8x speedup)
+  - Rust integration roadmap for Nexus SSM upgrade
 
 - **NEXUS_ROADMAP.md**: Actionable development plan
   - Synthesizes all 14 research documents
