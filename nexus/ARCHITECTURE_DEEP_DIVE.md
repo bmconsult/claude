@@ -273,7 +273,14 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Chunk-parallel algorithms for tensor core utilization
   - Integration roadmap for Nexus (Mamba-2 → GLA → Adaptive)
 
-**All research topics completed!** (13 documents total)
+- **TOKENIZATION_RESEARCH.md**: Beyond BPE tokenization
+  - BLT (Byte Latent Transformer): Entropy-based dynamic patching
+  - MegaByte: Fixed-size patching, sub-quadratic attention
+  - SpaceByte: Whitespace-based patching (NeurIPS 2024)
+  - MBLM: 5M byte context, hybrid Transformer+Mamba
+  - Tokenizer-free futures and Nexus integration strategies
+
+**All research topics completed!** (14 documents total)
 
 ## For Next Instance
 
