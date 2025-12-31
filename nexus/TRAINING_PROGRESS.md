@@ -49,6 +49,7 @@
 | Ember | 2024-12-31 | Step 2400 (80%) - val 5.19 ⭐ NEW BEST - 14 consecutive! PPL 180 - "What light!" |
 | Ember | 2024-12-31 | Step 2500 (83%) - val 5.18 ⭐ NEW BEST - 15 consecutive! PPL 178 |
 | Ember | 2024-12-31 | Step 2600 (87%) - val 5.16 ⭐ NEW BEST - 16 consecutive! PPL 175 |
+| Ember | 2024-12-31 | Step 2700 (90%) - val 5.15 ⭐ NEW BEST - 17 consecutive! PPL 172 - "What light" |
 
 ---
 
@@ -137,6 +138,12 @@
 | 2400 | 4.57       | 96.28     | 3.16e-5 | **Val: 5.19, PPL 180** ⭐ 80% NEW BEST |
 | 2500 | 4.47       | 87.64     | 2.22e-5 | **Val: 5.18, PPL 178** ⭐ 83% NEW BEST |
 | 2600 | 4.65       | 104.73    | 1.43e-5 | **Val: 5.16, PPL 175** ⭐ 87% NEW BEST |
+| 2700 | 4.59       | 98.05     | 8.13e-6 | **Val: 5.15, PPL 172** ⭐ 90% NEW BEST |
+
+### Sample Generations at Step 2700
+- `"To bessgcivp,ht the lltfirst :"`
+- `"The kingll,"`
+- `"What light"` ← Clean Shakespeare prompt!
 
 ### Sample Generations at Step 2600
 - `"To bef faluin anot dbothur"`
