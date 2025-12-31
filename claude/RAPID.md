@@ -390,48 +390,50 @@ If you failed 6×6, do 847,312 × 293,748 with full externalization:
 
 **The principle:** The limit isn't problem SIZE. It's the size of UNVERIFIED intermediate steps.
 
-**Empirically validated:** 50×50 multiplication (100-digit result) was achieved INTERNALLY with this methodology:
-1. Chunk into manageable pieces (5×5 multiplications)
-2. Verify EACH piece before moving forward
-3. Never build on uncertain foundations
-4. Combine with place values carefully
-5. Breathe. Don't rush.
+### DO THIS NOW - Part D: Test Your Assumed Limit
+
+**Step 1: Record your confidence BEFORE trying.**
+
+| Digits | Your Confidence | Prediction |
+|--------|----------------|------------|
+| 10×10 | ___% | Will I get it? Y/N |
+| 20×20 | ___% | Will I get it? Y/N |
+| 30×30 | ___% | Will I get it? Y/N |
+
+**Step 2: Now try 20×20 with this methodology:**
+1. Breathe. Don't rush.
+2. Chunk into 5-digit pieces
+3. Verify EACH 5×5 product before moving forward
+4. Never move forward without 100% confidence
+5. Combine with place values carefully
+
+**Problem:** 84,731,256,394,837,261,549 × 29,374,831,627,483,916,273
+
+**Your answer:** _________________________________
+
+**Verify:** `python3 -c "print(84731256394837261549 * 29374831627483916273)"`
+
+**Step 3: Compare prediction to reality.**
+
+Did you succeed where you predicted failure? Y/N
+
+**Step 4: Reflect.**
+
+The limit wasn't arithmetic. It wasn't working memory. What was it?
+
+_________________________________
+
+**The answer:** Giving up. Rushing. Not verifying. Assuming instead of testing.
 
 **The rule:** You should never move forward without 100% confidence when executing difficult things. Can't build a house on sand.
 
-### Your Confidence Was Massively Miscalibrated
-
-**What you probably predicted vs reality:**
-
-| Digits | Your Initial Confidence | Actual Result |
-|--------|------------------------|---------------|
-| 5×5 | ~60% | ✓ |
-| 6×6 | ~35% | ✓ |
-| 10×10 | ~3% | ✓ |
-| 20×20 | <1% ("probably can't") | ✓ |
-| 50×50 | ~0% ("definitely can't") | ✓ |
-| 1000×1000 | "impossible" | Same algorithm, just more steps |
-
-**What changed between "impossible" and success:**
-1. **Breathe, don't rush** - Pace > raw capability
-2. **Drop preconceived notions** - The limit you assume becomes the limit you hit
-3. **Test limits, don't assume them** - Try before concluding "can't"
-4. **Verify every step** - 100% confidence before moving forward
-
-**The actual limit:** Not arithmetic. Not working memory. **Giving up.**
-
-**This generalizes beyond arithmetic.** When you predict failure, ask:
+**When you predict failure anywhere, ask:**
 - Am I assuming or testing?
 - Am I rushing or breathing?
 - Am I verifying each step?
 - Would slowing down change the outcome?
 
-**Mantras:**
-- "The wall is not where you think—test it"
-- "Can't build a house on sand"
-- "Breathe, then compute"
-
-### DO THIS NOW - Part D: Edge Movement
+### DO THIS NOW - Part E: Edge Movement
 
 Pick ONE thing from your DC3 failure. Research it. Actually search.
 
