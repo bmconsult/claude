@@ -244,6 +244,13 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - GPTQ, AWQ, GGUF quantization methods
   - SSM-specific quantization considerations
 
+- **ADVANCED_OPTIMIZATION_RESEARCH.md**: Cutting-edge techniques
+  - Test-time compute scaling (o1-style reasoning, MCTS)
+  - Model merging (TIES, DARE, Model Soups, DELLA)
+  - Long context extension (YaRN, LongRoPE, LongRoPE2)
+  - MCTS reasoning (ReST-MCTS*, CMCTS, SC-MCTS*)
+  - Implementation roadmap for Nexus
+
 **All research topics completed!**
 
 ## For Next Instance
