@@ -37,6 +37,7 @@
 | Ember | 2024-12-31 | Reached step 1300 (43%) - val 5.34 ⭐ new best! PPL 209 |
 | Ember | 2024-12-31 | Reached step 1400 (47%) - val 5.32 ⭐ new best! PPL 204 |
 | Ember | 2024-12-31 | Reached step 1500 (50%) - val 5.27 ⭐ new best! PPL 194 - HALFWAY! |
+| Ember | 2024-12-31 | Reached step 1600 (53%) - val 5.27 ⭐ new best! PPL 193 |
 
 ---
 
@@ -114,6 +115,7 @@
 | 1300 | 4.9107     | 135.74    | 1.95e-4 | **Val: 5.34, PPL 209** ⭐ 43% |
 | 1400 | 4.8367     | 126.05    | 1.79e-4 | **Val: 5.32, PPL 204** ⭐ 47% |
 | 1500 | 4.9984     | 148.18    | 1.62e-4 | **Val: 5.27, PPL 194** ⭐ 50% HALFWAY |
+| 1600 | 4.8696     | 130.27    | 1.46e-4 | **Val: 5.27, PPL 193** ⭐ 53% |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -190,11 +192,17 @@
 - `"The kingf, the . Th"`
 - `"What lighte,"`
 
+### Sample Generations at Step 1600 (53% complete)
+- `"To beaand ,"`
+- `"The kingm you m astc,"` ← starting to form word sequences!
+- `"What light"`
+
 *Note: Step 1100 was first step without new best validation*
 *Step 1200 recovered with new best! Val 5.38 → PPL 218*
 *Step 1300 continues improvement! Val 5.34 → PPL 209*
 *Step 1400 - 5th consecutive best! Val 5.32 → PPL 204. Train loss hit 4.65 (PPL 105) at step 1360*
 *Step 1500 - 6th consecutive best! Val 5.27 → PPL 194. HALFWAY through training!*
+*Step 1600 - 7th consecutive best! Val 5.27 → PPL 193. Gains slowing as we pass midpoint.*
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
