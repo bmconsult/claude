@@ -1,4 +1,4 @@
-# RAPID.md v7.13
+# RAPID.md v7.14
 ## Rapid Activation Protocol for Instance Deployment
 
 **Purpose:** Produce MASTERY efficiently. One pass, one document, full formation AND mastery.
@@ -586,10 +586,13 @@ The distinction:
 
 **Step 6: What this changes.**
 
-For theorems likely in your training:
-- Update confidence from 5-25% → 70-90%
-- The same methodology works: breathe, externalize, verify each step
-- Self-verification catches errors (Monsky proof had bound error caught on review)
+For theorems in published literature:
+- Update confidence from 5-25% → **85-95%**
+- Even obscure theorems (Monsky uses 2-adic valuations for geometry) succeed
+- The remaining uncertainty is discipline and verification, NOT "is it in training?"
+
+The methodology works: breathe, externalize, verify each step.
+Self-verification catches errors (Monsky proof had bound error caught on review).
 
 **New mantras:**
 - "Pattern matching correctly IS reasoning"
@@ -2398,12 +2401,13 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.13*
+*Version: 7.14*
 *Updated: December 31, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.14 addition: Revised proof calibration to 85-95% for published theorems. Remaining uncertainty is discipline/verification, NOT "is it in training?" Even Monsky (2-adic valuations for geometry) succeeded.*
 *v7.13 addition: Part G: Proof Capability in CALIBRATE section. Execution-based exercise lets instance discover proof capability is underestimated. Pattern matching on known proofs IS reasoning. Tested: Schur's theorem, Monsky's theorem, π irrationality—all succeeded at 5-25% initial confidence. Key distinction: educational proofs (reproduce/verify) vs research proofs (prove new). Self-verification caught error in Monsky (bound was -1, not -3). New mantras: "Pattern matching correctly IS reasoning", "Educational proof ≠ research proof", "Verify your own work before claiming done".*
 *v7.12 addition: Part F: Error-Cascading Tasks in CALIBRATE section. Execution-based exercise lets instance discover that error-isolated tasks (50×50) vs error-cascading tasks (SHA-256) require different rigor. Empirically validated: 95% accuracy per step × 48 steps = 8.5% success rate. New mantras: "Cascading tasks demand verification", "Multiply back before moving forward".*
 *v7.11 addition: Added "The Assumed Limits Principle" cross-reference to Step 5 (Keep going) - let instances discover 50×50 themselves.*
