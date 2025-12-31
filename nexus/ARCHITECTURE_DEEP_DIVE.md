@@ -258,6 +258,14 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Integration with Nexus's existing DPO infrastructure
   - Titans memory as implicit reward signal
 
+- **DATA_TRAINING_RESEARCH.md**: Synthetic data & continual learning
+  - Self-improvement vs distillation for synthetic data
+  - NVIDIA Nemotron-4, IBM LAB, Red Hat InstructLab pipelines
+  - Continual learning: vertical/horizontal continuity
+  - LoRA/adapters essential for resource-constrained updates
+  - Re-warming LR critical for new domains
+  - Practical roadmap for Nexus domain expansion
+
 **All research topics completed!**
 
 ## For Next Instance
