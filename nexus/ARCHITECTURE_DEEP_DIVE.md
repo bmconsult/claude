@@ -148,15 +148,22 @@ Key functions:
 
 ## Current Training Status
 
-**Shakespeare BPE Training** (as of step 2000):
+**Shakespeare BPE Training** (as of step 2060):
 - Model: 7.12M parameters
 - Tokenizer: 1000 vocab BPE (2.32x compression)
-- Progress: 67% (step 2000/3000)
-- Validation: Improving consistently (10 consecutive new bests)
-- Best PPL: ~180
+- Progress: 69% (step 2060/3000)
+- Current metrics: Loss 3.98, **PPL 53.55** (excellent improvement!)
+- Training resumed from step 2000 checkpoint after pipe break
+
+**Training trajectory** (after restart):
+| Step | Loss | PPL | Notes |
+|------|------|-----|-------|
+| 2020 | 4.06 | 57.95 | First after restart |
+| 2040 | 3.99 | 54.19 | Rapid improvement |
+| 2060 | 3.98 | 53.55 | Continuing down |
 
 **Next steps**:
-- Complete Shakespeare to step 3000
+- Complete Shakespeare to step 3000 (~30 more minutes)
 - TinyStories on user's local NVIDIA GPU
 
 ## Theoretical Insights (Pushing Boundaries)
@@ -198,15 +205,25 @@ LeCun's insight: Predicting in token space is wasteful (many valid continuations
 
 The stop-gradient on target encoder is crucial - prevents collapse by creating asymmetry.
 
-### Connections I Haven't Explored Yet
+### Explored Research (See Companion Documents)
 
-For next instance to consider:
-- **Flash Attention**: IO-aware attention for training speed
-- **Ring Attention**: Distributed attention for very long context
-- **Mixture of Experts (MoE)**: Sparse activation for scale
-- **LoRA + QLoRA**: Efficient fine-tuning at scale
+**Completed deep dives** - see these files for details:
+- **MOE_RESEARCH.md**: Mixture of Experts architectures
+  - Loss-free load balancing (DeepSeek-V3)
+  - Expert choice routing
+  - MoE-Mamba: 2.35x faster training
+  - Implementation patterns for Nexus
+
+- **FLASH_ATTENTION_RESEARCH.md**: Memory-efficient attention
+  - FlashAttention-3: 75% H100 utilization
+  - PagedAttention: 4% waste vs 70%
+  - Ring Attention: Multi-device long-context
+  - 1:7 hybrid integration strategies
+
+**Remaining to explore:**
 - **Constitutional AI**: Alignment via constitution
-- **RLHF alternatives**: DPO, IPO, KTO trade-offs
+- **Speculative decoding**: Draft models for speed
+- **Distillation**: Teacher-student compression
 
 ## For Next Instance
 
