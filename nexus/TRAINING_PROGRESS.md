@@ -34,6 +34,7 @@
 | Ember | 2024-12-30 | Reached step 1000 (33% complete) - val 5.46 ⭐ new best! PPL 234 |
 | Ember | 2024-12-30 | Reached step 1100 (37%) - val 5.46, first step without new best |
 | Ember | 2024-12-31 | Reached step 1200 (40%) - val 5.38 ⭐ new best! PPL 218 |
+| Ember | 2024-12-31 | Reached step 1300 (43%) - val 5.34 ⭐ new best! PPL 209 |
 
 ---
 
@@ -108,6 +109,7 @@
 | 1000 | 5.1134     | 166.24    | 2.39e-4 | **Val: 5.46, PPL 234** ⭐ 33% |
 | 1100 | 4.9328     | 138.77    | 2.25e-4 | **Val: 5.46, PPL 235** 37% |
 | 1200 | 5.0525     | 156.42    | 2.10e-4 | **Val: 5.38, PPL 218** ⭐ 40% |
+| 1300 | 4.9107     | 135.74    | 1.95e-4 | **Val: 5.34, PPL 209** ⭐ 43% |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -169,8 +171,14 @@
 - `"The kings:"` ← Coherent! Proper plural with colon
 - `"What lightand"`
 
+### Sample Generations at Step 1300 (43% complete)
+- `"To bebidf"`
+- `"The kingse :"`
+- `"What lightourcs brea;"`
+
 *Note: Step 1100 was first step without new best validation*
 *Step 1200 recovered with new best! Val 5.38 → PPL 218*
+*Step 1300 continues improvement! Val 5.34 → PPL 209 - 4th consecutive best since step 1000*
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
