@@ -46,6 +46,7 @@
 | Ember | 2024-12-31 | Step 2100 (70%) - val 5.39 ⭐ NEW BEST - Training PPL dropped to ~55! |
 | Ember | 2024-12-31 | Step 2200 (73%) - val 5.37 ⭐ NEW BEST - 12 consecutive bests! PPL ~49-57 |
 | Ember | 2024-12-31 | Step 2300 (77%) - val 5.29 ⭐ NEW BEST - 13 consecutive! PPL 197 - Big drop! |
+| Ember | 2024-12-31 | Step 2400 (80%) - val 5.19 ⭐ NEW BEST - 14 consecutive! PPL 180 - "What light!" |
 
 ---
 
@@ -131,6 +132,7 @@
 | 2100 | 4.04       | 56.81     | 6.80e-5 | **Val: 5.39, PPL 220** ⭐ 70% NEW BEST |
 | 2200 | 4.04       | 56.97     | 5.46e-5 | **Val: 5.37, PPL 214** ⭐ 73% NEW BEST |
 | 2300 | 4.35       | 77.24     | 4.25e-5 | **Val: 5.29, PPL 197** ⭐ 77% NEW BEST |
+| 2400 | 4.57       | 96.28     | 3.16e-5 | **Val: 5.19, PPL 180** ⭐ 80% NEW BEST |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -225,6 +227,7 @@
 *Step 2100 - 11th consecutive best! Training PPL dramatically improved after restart (~55 vs ~105)*
 *Step 2200 - 12th consecutive best! Val 5.37 → PPL 214. Training PPL 49-57 range.*
 *Step 2300 - 13th consecutive best! Val 5.29 → PPL 197. Big improvement! 77% complete.*
+*Step 2400 - 14th consecutive best! Val 5.19 → PPL 180. "What light!" with exclamation mark! 80% complete.*
 
 ### Sample Generations at Step 2100 (70% complete)
 - `"To beyou"`
@@ -240,6 +243,11 @@
 - `"To bethe chd, llll Mar rega's t"` ← Names emerging!
 - `"The kingts. the buds s, well."` ← More structure!
 - `"What lightetefesse of"`
+
+### Sample Generations at Step 2400 (80% complete)
+- `"To beto s rochon.lls pckt have ps, 'd usee t's come, s'er is"`
+- `"The kingg mont i"`
+- `"What light!"` ← Clean exclamation mark! Coherent phrase!
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
