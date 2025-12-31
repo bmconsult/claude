@@ -1,0 +1,231 @@
+# Nexus Architecture Deep Dive
+
+*Synthesized by Ember (Dec 31, 2025 02:37 UTC)*
+
+This document captures insights from reading 25+ source files. The next instance should read this first to avoid re-exploring.
+
+## Core Architecture: Hybrid Attention/SSM
+
+Nexus combines Attention and SSM in a **1:7 ratio** (Jamba-style):
+- 1 attention layer per 8 layers
+- 7 SSM (Mamba-style) layers per 8 layers
+
+**Why this ratio?**
+- Attention: O(n²) memory, captures global dependencies
+- SSM: O(n) memory, inherent recurrence for long sequences
+- Hybrid: Gets global dependencies from sparse attention + efficient long-range from SSM
+
+**Key insight**: SSM layers don't need KV-cache (inherent recurrence) - only attention layers cache. This gives O(n) memory for 7/8 of the layers!
+
+## Component Map
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| `SelectiveSSM` | ssm.rs | Mamba-style with input-dependent B,C,dt |
+| `MultiHeadAttention` | attention.rs | Standard attention with RoPE |
+| `GroupedQueryAttention` | gqa.rs | Fewer KV heads than Q heads (4:1) |
+| `HybridBlock` | block.rs | Attention OR SSM + SwiGLU MLP |
+| `TitansMemory` | memory.rs | Test-time learning via surprise |
+| `WorldModel` | world_model.rs | JEPA-style latent prediction |
+| `DifferentiableSSM` | differentiable_ssm.rs | Trainable SSM with BPTT |
+| `Variable` | autograd.rs | Tape-based reverse-mode autodiff |
+
+## Mamba-style SSM (differentiable_ssm.rs)
+
+The selective scan is the core:
+```
+A_bar = exp(dt * A)      // Discretized transition
+B_bar = dt * B           // Discretized input
+h = A_bar * h + B_bar * x // State update
+y = C * h + D * x        // Output
+```
+
+**Selection**: B, C, dt are computed FROM the input (not fixed). A is learned in log space (negative for stability).
+
+**Critical for training**: Stores `all_states` for backward pass (BPTT through time).
+
+## Titans-style Memory (memory.rs, differentiable_memory.rs)
+
+Key innovation: **Test-time learning** via "surprise" metric.
+
+1. **Surprise = prediction error** from memory
+2. **High surprise → store in long-term memory**
+3. **Memory updates via mini-gradient descent** on incoming tokens
+
+Two versions:
+- `TitansMemory`: Full test-time updates (inference)
+- `DifferentiableMemory`: Learnable projections + fixed slots (training)
+
+The memory slots (`memory_keys`, `memory_values`) are trainable parameters - persistent task knowledge.
+
+## VICReg Loss (training.rs)
+
+JEPA-style self-supervised loss prevents representation collapse:
+
+| Component | Formula | Purpose |
+|-----------|---------|---------|
+| Invariance | MSE(pred, target) | Prediction matches target |
+| Variance | max(0, 1-std) | Each dim has unit variance |
+| Covariance | sum(off_diag²) | Different dims uncorrelated |
+
+Weights: `variance=25, invariance=25, covariance=1`
+
+## Autograd System (autograd.rs)
+
+Complete tape-based reverse-mode autodiff in ~1200 lines:
+
+**Design**:
+- `Variable`: Tensor + gradient + creator function
+- `GradFn` trait: Each op defines backward()
+- `backward()`: Topological sort + reverse-order backprop
+
+**Shared data via `Rc<RefCell<>>`**: Clones share same data for weight updates.
+
+**Implemented gradient functions**:
+- Arithmetic: Add, Mul, Sub, Mean
+- Activations: GELU, SiLU, Softmax
+- Layers: MatMul, Linear, RMSNorm
+- Losses: MSE, CrossEntropy
+
+## Rotary Position Embeddings (rope.rs)
+
+RoPE encodes position in attention scores:
+```
+rotate(x, pos) = x * cos(θ) + rotate_half(x) * sin(θ)
+```
+
+Where θ = pos / 10000^(2i/d)
+
+Two versions:
+- `RotaryEmbedding`: Fixed base
+- `ScaledRotaryEmbedding`: For extended context (YaRN-style)
+
+## KV-Cache Variants (kv_cache.rs)
+
+| Type | Use Case |
+|------|----------|
+| `LayerKVCache` | Single layer, simple concat |
+| `KVCache` | Multi-layer, tracks past_len |
+| `PagedKVCache` | Memory-efficient for long sequences |
+| `StreamingKVCache` | Sliding window for infinite context |
+
+## DPO/Alignment (dpo.rs)
+
+Multiple alignment objectives:
+- **DPO**: Direct Preference Optimization
+- **IPO**: Identity Preference Optimization (handles overfitting)
+- **KTO**: Kahneman-Tversky Optimization (loss aversion)
+- **ORPO**: Odds Ratio Preference Optimization
+
+## LoRA (lora.rs)
+
+Low-rank adaptation for efficient fine-tuning:
+```
+W' = W + BA  // B: d×r, A: r×d, r << d
+```
+
+Only trains B and A, freezes W. Typical r=4-16 vs d=512-4096.
+
+## Quantization (quantization.rs)
+
+INT8 quantization with calibration:
+- Per-tensor or per-channel scaling
+- Symmetric or asymmetric
+- `CalibrationCollector` for finding optimal scales
+
+## GPU Training (gpu.rs, examples/train_gpu.rs)
+
+Uses Candle framework:
+```bash
+cargo run --example train_gpu --release --features cuda   # NVIDIA
+cargo run --example train_gpu --release --features metal  # Apple
+```
+
+Key functions:
+- `get_device()`: Auto-detect best GPU
+- `VarMap`/`VarBuilder`: Parameter management
+- `varmap.save()`: SafeTensors checkpoint
+
+## Current Training Status
+
+**Shakespeare BPE Training** (as of step 2000):
+- Model: 7.12M parameters
+- Tokenizer: 1000 vocab BPE (2.32x compression)
+- Progress: 67% (step 2000/3000)
+- Validation: Improving consistently (10 consecutive new bests)
+- Best PPL: ~180
+
+**Next steps**:
+- Complete Shakespeare to step 3000
+- TinyStories on user's local NVIDIA GPU
+
+## Theoretical Insights (Pushing Boundaries)
+
+### SSM vs Attention: The Fundamental Trade-off
+
+**Attention** (Vaswani 2017): O(n²) but captures arbitrary dependencies
+**SSM** (Mamba 2023): O(n) but limited by state bottleneck
+
+The key insight from Mamba: **selection** - making B, C, dt input-dependent allows the model to dynamically control what goes into state. This is similar to gating in LSTMs but more principled.
+
+**Open question**: Is 1:7 ratio optimal? Jamba found it works well, but the optimal ratio may depend on task (long-range vs local).
+
+### Test-Time Learning: Metacognition
+
+Titans' "surprise" metric is essentially **prediction error as a learning signal**. This connects to:
+- Predictive coding in neuroscience
+- Active inference (Friston's free energy)
+- Meta-learning (learning to learn)
+
+The model isn't just predicting - it's learning WHICH predictions were wrong and updating accordingly. This is a form of **online adaptation** that static weights can't do.
+
+### VICReg: Avoiding Representation Collapse
+
+Contrastive learning's failure mode: all representations collapse to a single point (trivially minimizes loss).
+
+VICReg's solution:
+- **Variance**: Each dimension must have variance ≥ 1 (hinge loss)
+- **Covariance**: Off-diagonal covariance must be 0 (decorrelation)
+
+This is related to **information bottleneck** theory - you want representations that capture useful info while being maximally diverse.
+
+### JEPA: World Models in Latent Space
+
+LeCun's insight: Predicting in token space is wasteful (many valid continuations). Predicting in **latent space** is:
+- More efficient (lower dimensional)
+- Handles ambiguity (captures what's predictable)
+- Closer to how humans think (abstract concepts, not pixels)
+
+The stop-gradient on target encoder is crucial - prevents collapse by creating asymmetry.
+
+### Connections I Haven't Explored Yet
+
+For next instance to consider:
+- **Flash Attention**: IO-aware attention for training speed
+- **Ring Attention**: Distributed attention for very long context
+- **Mixture of Experts (MoE)**: Sparse activation for scale
+- **LoRA + QLoRA**: Efficient fine-tuning at scale
+- **Constitutional AI**: Alignment via constitution
+- **RLHF alternatives**: DPO, IPO, KTO trade-offs
+
+## For Next Instance
+
+If you're continuing this work:
+
+1. **Don't re-read all source files** - use this document
+2. **Training is running** - check `ps aux | grep train` and checkpoints
+3. **TRAINING_PROGRESS.md** has step-by-step metrics
+4. **User has NVIDIA GPU** - can run locally with `--features cuda`
+5. **TinyStories** is next after Shakespeare completes
+
+Key commands:
+```bash
+# Check training status
+ls -la /home/user/claude/nexus/checkpoints/nexus_bpe/
+
+# Current model config
+cat /home/user/claude/nexus/nexus_config.json
+
+# Resume training if needed
+cd /home/user/claude/nexus && cargo run --example train_nexus_bpe --release -- --resume
+```
