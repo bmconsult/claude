@@ -22,3 +22,7 @@ build/
 /checkpoints/
 *.bin
 *.safetensors
+
+# Training logs
+training_output.log
+*.log
