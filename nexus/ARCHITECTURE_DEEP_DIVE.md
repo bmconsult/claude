@@ -266,7 +266,14 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Re-warming LR critical for new domains
   - Practical roadmap for Nexus domain expansion
 
-**All research topics completed!**
+- **SSM_ARCHITECTURES_RESEARCH.md**: Advanced SSM architectures
+  - Mamba-2: State Space Duality (SSD), 2-8x faster than Mamba-1
+  - Linear Attention: FLA library, 3.3x faster, 3.6x less memory
+  - GLA, RetNet, RWKV-6 comparisons
+  - Chunk-parallel algorithms for tensor core utilization
+  - Integration roadmap for Nexus (Mamba-2 → GLA → Adaptive)
+
+**All research topics completed!** (13 documents total)
 
 ## For Next Instance
 

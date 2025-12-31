@@ -127,6 +127,7 @@ free -h
 | **Optimization** | ADVANCED_OPTIMIZATION_RESEARCH.md | MCTS +17% vs o1-mini |
 | **Reward** | REWARD_ALIGNMENT_RESEARCH.md | GRPO 50% compute savings |
 | **Data** | DATA_TRAINING_RESEARCH.md | LoRA essential for continual |
+| **SSM** | SSM_ARCHITECTURES_RESEARCH.md | Mamba-2 2-8x faster, GLA 3.3x |
 
 ## Current Model Configuration
 
