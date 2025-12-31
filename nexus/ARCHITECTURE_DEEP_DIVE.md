@@ -280,13 +280,20 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - MBLM: 5M byte context, hybrid Transformer+Mamba
   - Tokenizer-free futures and Nexus integration strategies
 
-**All research topics completed!** (14 documents total)
+**15 research documents complete!**
 
 - **NEXUS_ROADMAP.md**: Actionable development plan
   - Synthesizes all 14 research documents
   - Prioritized phases (Mamba-2, GLA, Distillation, Quantization)
   - Metrics and milestones
   - Decision points for scaling, MoE, tokenization changes
+
+- **EVALUATION_RESEARCH.md**: SLM benchmarks and evaluation (15th doc)
+  - BLiMP: Linguistic minimal pairs for grammar evaluation
+  - BabyLM Challenge: Child-scale data evaluation (10-100M words)
+  - TinyStories: GPT-4 as story evaluator
+  - SLM-Bench: Comprehensive 11-metric framework
+  - Integration roadmap for Nexus evaluation
 
 ## For Next Instance
 
