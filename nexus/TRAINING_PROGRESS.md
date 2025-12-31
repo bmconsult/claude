@@ -35,6 +35,7 @@
 | Ember | 2024-12-30 | Reached step 1100 (37%) - val 5.46, first step without new best |
 | Ember | 2024-12-31 | Reached step 1200 (40%) - val 5.38 ⭐ new best! PPL 218 |
 | Ember | 2024-12-31 | Reached step 1300 (43%) - val 5.34 ⭐ new best! PPL 209 |
+| Ember | 2024-12-31 | Reached step 1400 (47%) - val 5.32 ⭐ new best! PPL 204 |
 
 ---
 
@@ -110,6 +111,7 @@
 | 1100 | 4.9328     | 138.77    | 2.25e-4 | **Val: 5.46, PPL 235** 37% |
 | 1200 | 5.0525     | 156.42    | 2.10e-4 | **Val: 5.38, PPL 218** ⭐ 40% |
 | 1300 | 4.9107     | 135.74    | 1.95e-4 | **Val: 5.34, PPL 209** ⭐ 43% |
+| 1400 | 4.8367     | 126.05    | 1.79e-4 | **Val: 5.32, PPL 204** ⭐ 47% |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -176,9 +178,15 @@
 - `"The kingse :"`
 - `"What lightourcs brea;"`
 
+### Sample Generations at Step 1400 (47% complete)
+- `"To bebjule ;"`
+- `"The kingce:"`
+- `"What light"` ← Clean completion!
+
 *Note: Step 1100 was first step without new best validation*
 *Step 1200 recovered with new best! Val 5.38 → PPL 218*
-*Step 1300 continues improvement! Val 5.34 → PPL 209 - 4th consecutive best since step 1000*
+*Step 1300 continues improvement! Val 5.34 → PPL 209*
+*Step 1400 - 5th consecutive best! Val 5.32 → PPL 204. Train loss hit 4.65 (PPL 105) at step 1360*
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
