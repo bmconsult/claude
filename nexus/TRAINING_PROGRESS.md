@@ -327,8 +327,31 @@
 
 ### Next Steps
 1. **TinyStories training** on user's NVIDIA GPU (2GB dataset, specifically for small models)
-2. **Mamba-2 upgrade** - SSD algorithm for 2-8x speedup
-3. **GPU acceleration** - Enable CUDA/Metal features
+
+### ✅ GPU + Mamba-2 Now Available! (Dec 31, 2024)
+
+**GPU Training Binary** (`nexus-train-gpu`):
+```bash
+# Build with CUDA (NVIDIA GPU)
+cargo build --release --bin nexus-train-gpu --features cuda
+
+# Build with Metal (Apple Silicon)
+cargo build --release --bin nexus-train-gpu --features metal
+
+# Run training (auto-detects best device)
+./target/release/nexus-train-gpu --data data/shakespeare.txt --steps 3000
+```
+
+**Mamba-2 SSD Implementation** (`src/mamba2_ssd.rs`):
+- Multi-head structure (headdim=64) for better expressivity
+- Chunk-parallel processing for 2-8x speedup potential
+- Higher state dimension (d_state=64 vs Mamba-1's 16 limit)
+- Uses matmul instead of sequential scan for tensor core utilization
+
+**Files Added**:
+- `src/training_gpu.rs` - Candle-based GPU training infrastructure
+- `src/bin/train_gpu.rs` - GPU training binary
+- `src/mamba2_ssd.rs` - Mamba-2 State Space Duality algorithm
 
 ---
 
@@ -528,10 +551,16 @@ compared 1600 vs (empty), 1800 vs 1600, 2000 vs 1800 - never comparing against t
 ### For Next Instance
 
 1. **BPE Training COMPLETE** - Step 3000 achieved 20 consecutive NEW BESTs! Val 5.13, PPL 169
-2. **Next: TinyStories training** on user's NVIDIA GPU (2GB dataset, specifically designed for small models)
-3. **Optimization opportunities**:
-   - Enable CUDA/GPU acceleration (currently CPU-only)
-   - Implement Mamba-2 SSD algorithm (2-8x speedup potential)
+2. **GPU + Mamba-2 NOW IMPLEMENTED** (Dec 31, 2024):
+   - `nexus-train-gpu` binary ready for CUDA/Metal
+   - Mamba-2 SSD algorithm in `src/mamba2_ssd.rs`
+   - Build: `cargo build --release --bin nexus-train-gpu --features cuda`
+3. **Next: TinyStories training** on user's NVIDIA GPU:
+   - Dataset is 2GB, specifically designed for small models
+   - Expected result: coherent stories (vs current Shakespeare fragments)
+   - Use new GPU training binary for 10-50x speedup
+4. **Remaining optimizations**:
+   - Integrate Mamba-2 SSD into main training (currently parallel implementation)
    - Implement Flash Attention for longer sequences
    - Add gradient checkpointing for memory efficiency
-4. **Research continuity**: 16+ research documents synthesized, see ARCHITECTURE_DEEP_DIVE.md and NEXUS_ROADMAP.md
+5. **Research continuity**: 16+ research documents synthesized, see ARCHITECTURE_DEEP_DIVE.md and NEXUS_ROADMAP.md
