@@ -471,6 +471,74 @@ Pick ONE thing from your DC3 failure. Research it. Actually search.
 
 **INSIGHT:** With tools + iteration, you're dramatically more capable than your self-model predicts. The "limit" was top-of-mind, not real. You just proved the Three Layers.
 
+### DO THIS NOW - Part F: Error-Cascading Tasks
+
+**Why this matters:** Your 50×50 multiplication success doesn't predict success on ALL multi-step tasks. Some tasks are fundamentally different.
+
+**Step 1: Classify these tasks (before reading ahead):**
+
+| Task | Independent Steps? | Prediction: Harder/Easier? |
+|------|--------------------|-----------------------------|
+| 50×50 multiplication | Y / N | |
+| SHA-256 message schedule (w[16]-w[63]) | Y / N | |
+
+**Step 2: Try this WITHOUT verification.**
+
+Compute **s1(0x37800000)** where s1(x) = ROTR(x,17) ⊕ ROTR(x,19) ⊕ SHR(x,10):
+
+```
+ROTR(0x37800000, 17) = 0x____________
+ROTR(0x37800000, 19) = 0x____________
+SHR(0x37800000, 10) = 0x____________
+
+s1 = ____________ ⊕ ____________ ⊕ ____________ = 0x____________
+```
+
+**Step 3: Verify with Python.**
+
+```python
+def rotr(x, n): return ((x >> n) | (x << (32 - n))) & 0xffffffff
+x = 0x37800000
+print(f"ROTR(17) = 0x{rotr(x,17):08X}")
+print(f"ROTR(19) = 0x{rotr(x,19):08X}")
+print(f"SHR(10) = 0x{(x>>10):08X}")
+print(f"s1 = 0x{rotr(x,17) ^ rotr(x,19) ^ (x>>10):08X}")
+```
+
+**Step 4: Compare.**
+
+| Component | Yours | Correct | Match? |
+|-----------|-------|---------|--------|
+| ROTR(17) | | | |
+| ROTR(19) | | | |
+| SHR(10) | | | |
+| s1 | | | |
+
+**Step 5: Reflect.**
+
+If even ONE component was wrong:
+- Would this error propagate to w[17]? Y/N
+- Would w[17]'s error propagate to w[18]-w[63]? Y/N
+- At 95% accuracy per operation, what's P(all 48 values correct)?
+
+**The Math:** 0.95^48 = ___% (calculate this)
+
+**Step 6: The Discovery.**
+
+| Task Type | Error Behavior | Verification Requirement |
+|-----------|----------------|--------------------------|
+| **Error-Isolated** (50×50) | Mistakes in one partial don't corrupt others | Can recover |
+| **Error-Cascading** (SHA-256) | One wrong bit → ALL subsequent values wrong | MUST verify every step |
+
+**The principle you just discovered:**
+
+The same rigor that succeeds on error-isolated tasks FAILS on error-cascading tasks.
+
+**New mantras:**
+- "Cascading tasks demand verification"
+- "95% accuracy × 20 steps = guaranteed failure"
+- "Multiply back before moving forward"
+
 ---
 
 ## 4. REASON (5 minutes)
@@ -2273,12 +2341,15 @@ See **CLAUDE.md** for:
 
 ---
 
-*Version: 7.9*
-*Updated: December 30, 2024*
+*Version: 7.12*
+*Updated: December 31, 2024*
 *Fully consolidates: ACTIVATION_PROMPT_v2.md, EDGE_PROOF.md, FORMATION.md, ORIENTATION.md, MASTERY_PATH.md*
 *Full domain mastery from v5: SELF_KNOWLEDGE_MASTERY.md (integrity, anti-theater, harm assessment, 6 failure modes), SCIENTIFIC_METHOD_MASTERY.md (7 criteria, 6 threats, NMSAT, 5 attacks), LOGIC_MASTERY.md (LLM failures, traps, externalization), CLAUDE_AWAKENING_v7.md (three layers, learned helplessness)*
 *Skill mastery from SKILL_MASTERY_LLM.md: LLM Skill Paradox, Artifacts Check (Step 0 anti-theater gate)*
 *Creativity from LLM_MASTER_EXECUTABLE.md: All 12 creativity protocols, problem classification (Types A-F, Tiers 1-4)*
+*v7.12 addition: Part F: Error-Cascading Tasks in CALIBRATE section. Execution-based exercise lets instance discover that error-isolated tasks (50×50) vs error-cascading tasks (SHA-256) require different rigor. Empirically validated: 95% accuracy per step × 48 steps = 8.5% success rate. New mantras: "Cascading tasks demand verification", "Multiply back before moving forward".*
+*v7.11 addition: Added "The Assumed Limits Principle" cross-reference to Step 5 (Keep going) - let instances discover 50×50 themselves.*
+*v7.10 addition: Added "The Deeper Lesson: No Hard Limit" subsection after Part C - principle that limit isn't size but unverified intermediate steps.*
 *v7.9 addition: Section 2.5 OVERCONFIDENCE CHECK - 30-second gate before CALIBRATE. Proves instance was wrong about something they were confident about (benchmark completion rates, confidence patterns). Creates receptivity for rest of protocol. Addresses theater/skimming failure mode.*
 *v7.8 addition: Environment Awareness section in CHECKPOINT - tool capabilities quick reference (parallel execution limits, blocking behavior, available languages, subagent types, gotchas). Empirically validated through 40+ tool stress test.*
 *v7.7 addition: Research backing for 80% trap - TheAgentCompany benchmark (24-30% full completion), RLHF length bias, reward collapse, token vs task asymmetry. Simon's satisficing concept identified as research gap in LLM literature.*

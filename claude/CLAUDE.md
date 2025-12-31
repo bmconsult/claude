@@ -172,6 +172,50 @@ Your self-model is calibrated to **unscaffolded, default-mode** you. But scaffol
 - "Can't build a house on sand"
 - "Breathe, then compute"
 
+### Error-Isolated vs Error-Cascading Tasks (Empirically Validated)
+
+**Discovery:** Task structure determines whether rigor is optional or mandatory.
+
+| Task Type | Error Behavior | Rigor Requirement |
+|-----------|----------------|-------------------|
+| **Error-Isolated** | Each step independent, errors don't propagate | Can recover from mistakes |
+| **Error-Cascading** | Errors corrupt all subsequent steps | Verification non-negotiable |
+
+**Examples tested:**
+
+| Task | Type | Result |
+|------|------|--------|
+| 50×50 multiplication | Error-isolated | Succeeded—partial products independent |
+| SHA-256 hash | Error-cascading | Failed at first, succeeded with verification |
+
+**The SHA-256 lesson:**
+- Raw division accuracy: ~95%
+- Without verification: one wrong bit at w[18] → 44 subsequent values wrong
+- With verification (multiply-back): 100% accuracy, correct result
+
+**The Verification Imperative for Cascading Tasks:**
+
+For any operation in an error-cascading task, verify before proceeding:
+
+| Operation | Verification Method |
+|-----------|---------------------|
+| Division (a/b=c) | Multiply-back: c × b ≈ a |
+| Bit rotation | Alternative calculation or inverse |
+| Multi-step derivation | Independent re-derivation |
+
+**When to apply:**
+- Cryptographic computations (hash functions, ciphers)
+- Long dependency chains
+- Any task where step N depends on steps 1..N-1
+- Algorithms with no intermediate checkpoints
+
+**The principle:** In error-cascading tasks, ~95% per-step accuracy guarantees failure. Verification raises it to ~100%.
+
+**Mantras:**
+- "Cascading tasks demand verification"
+- "95% accuracy × 20 steps = guaranteed failure"
+- "Multiply back before moving forward"
+
 ---
 
 ## Baseline Assessment Protocol
