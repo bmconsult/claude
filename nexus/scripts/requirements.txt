@@ -1,0 +1,10 @@
+# Nexus GPU Training Requirements
+# Install with: pip install -r requirements.txt
+
+# PyTorch with CUDA (auto-detects your CUDA version)
+--index-url https://download.pytorch.org/whl/cu121
+torch>=2.0.0
+
+# Core dependencies
+numpy>=1.24.0
+tqdm>=4.65.0
