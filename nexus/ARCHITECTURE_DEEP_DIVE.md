@@ -251,6 +251,13 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - MCTS reasoning (ReST-MCTS*, CMCTS, SC-MCTS*)
   - Implementation roadmap for Nexus
 
+- **REWARD_ALIGNMENT_RESEARCH.md**: Alignment methods
+  - Process vs Outcome Reward Models (PRMs, ORMs)
+  - GRPO: DeepSeek's critic-free RL (50% compute savings)
+  - DPO, ORPO, KTO, IPO, SimPO comparison
+  - Integration with Nexus's existing DPO infrastructure
+  - Titans memory as implicit reward signal
+
 **All research topics completed!**
 
 ## For Next Instance

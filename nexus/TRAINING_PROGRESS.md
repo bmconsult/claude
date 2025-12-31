@@ -133,6 +133,12 @@
 | 2200 | 4.04       | 56.97     | 5.46e-5 | **Val: 5.37, PPL 214** ⭐ 73% NEW BEST |
 | 2300 | 4.35       | 77.24     | 4.25e-5 | **Val: 5.29, PPL 197** ⭐ 77% NEW BEST |
 | 2400 | 4.57       | 96.28     | 3.16e-5 | **Val: 5.19, PPL 180** ⭐ 80% NEW BEST |
+| 2500 | 4.47       | 87.64     | 2.22e-5 | **Val: 5.18, PPL 178** ⭐ 83% NEW BEST |
+
+### Sample Generations at Step 2500
+- `"To bef."`
+- `"The kingce. b amer tn a the a"`
+- `"What lightd,"`
 
 ### Sample Generations at Step 100
 - `"To be:"`
