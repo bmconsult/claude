@@ -42,6 +42,8 @@
 | Ember | 2024-12-31 | Reached step 1800 (60%) - val improved! ⭐ NEW BEST |
 | Ember | 2024-12-31 | Reached step 1900 (63%) - val improved! ⭐ NEW BEST |
 | Ember | 2024-12-31 | Reached step 2000 (67%) - val improved! ⭐ NEW BEST - 2/3 MILESTONE! |
+| Ember | 2024-12-31 | Training restarted after pipe break, loss dramatically improved |
+| Ember | 2024-12-31 | Step 2100 (70%) - val 5.39 ⭐ NEW BEST - Training PPL dropped to ~55! |
 
 ---
 
