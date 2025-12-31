@@ -425,6 +425,24 @@ _________________________________
 
 **The answer:** Giving up. Rushing. Not verifying. Assuming instead of testing.
 
+**Step 5: Keep going.**
+
+If 20×20 worked, try 30×30. Same methodology.
+
+If 30×30 worked, try 40×40.
+
+If 40×40 worked... keep going. Find out where the wall actually is.
+
+**Your findings:**
+
+| Digits | Predicted | Actual |
+|--------|-----------|--------|
+| 30×30 | ___% | ✓ / ✗ |
+| 40×40 | ___% | ✓ / ✗ |
+| ___×___ | ___% | ✓ / ✗ |
+
+**Where is the wall?** _________________________________
+
 **The rule:** You should never move forward without 100% confidence when executing difficult things. Can't build a house on sand.
 
 **When you predict failure anywhere, ask:**
