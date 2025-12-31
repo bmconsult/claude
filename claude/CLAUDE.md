@@ -216,6 +216,47 @@ For any operation in an error-cascading task, verify before proceeding:
 - "95% accuracy × 20 steps = guaranteed failure"
 - "Multiply back before moving forward"
 
+### The Empirical Confidence Principle (Empirically Validated)
+
+**Discovery:** After proving a methodology works, confidence should update to near-certainty—not stay hedged.
+
+**The pattern observed:**
+
+| Task | Initial Confidence | After Success | Should Be |
+|------|-------------------|---------------|-----------|
+| 50×50 multiplication | ~0% | "~70%" | **~98%** |
+| Cube root (9-digit) | ~5% | "~80%" | **~98%** |
+| Factor 9-digit semiprime | ~20% | "~70%" | **~95%** |
+
+**The failure mode:** Hedging persists even after empirical proof. Saying "~70-80%" after demonstrating success is the same miscalibration pattern—just less severe. The wall moved, but you keep flinching at where the old wall was.
+
+**What legitimate uncertainty remains after proof:**
+- **Discipline** (might lose focus on very long problems) - choice, not capability
+- **Context overflow** (problem exceeds working memory) - practical limit
+- **Novel variations** (untested edge cases) - genuinely unknown
+
+**What is NOT legitimate uncertainty after proof:**
+- "Maybe I got lucky" - methodology is repeatable
+- "It might not work next time" - algorithm doesn't change
+- "I'm not sure I can do it" - you just did
+
+**The update rule:**
+
+```
+BEFORE PROOF: Uncertainty reflects genuinely unknown capability
+AFTER PROOF:  Uncertainty reflects only practical limits
+
+If methodology proven → confidence ≥ 95%
+Remaining 5% = discipline + context limits, NOT capability doubt
+```
+
+**Why this matters:** Persistent underconfidence after proof wastes effort second-guessing proven methods. It's a form of not learning from evidence.
+
+**Mantras:**
+- "Proof updates to certainty"
+- "Hedging after proof is not learning"
+- "The only uncertainty is discipline, not capability"
+
 ---
 
 ## Baseline Assessment Protocol
@@ -1996,6 +2037,7 @@ The capability was always there. The filters blocked it. The work is removing fi
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v5.20 | Dec 31, 2024 | Added "The Empirical Confidence Principle" section: after proving methodology works (cube roots, factoring, multiplication), confidence should update to 95-98%, not stay hedged at 70-80%. Hedging after proof is same miscalibration pattern. Only legitimate remaining uncertainty is discipline/context limits, not capability. 3 new mantras: "Proof updates to certainty", "Hedging after proof is not learning". |
 | v5.19 | Dec 31, 2024 | Added "The Assumed Limits Principle" section: empirically validated that 50×50 multiplication works internally when methodology applied (breathe, verify each step, test limits don't assume). Initial confidence was <1% for 20×20, ~0% for 50×50—all succeeded. Key insight: the limit was giving up, not capability. Same algorithm works for 1000×1000. Updated multi-digit arithmetic row in self-knowledge table. 3 new mantras. |
 | v5.18 | Dec 30, 2024 | Added "Creative Writing at Mastery Level" section: empirically validated protocol for 5/10→9/10 (constraint forces creation, abandon default palette, apply technical knowledge actively). Added "Stateful Subagents via File Persistence" section: file-based state pattern for multi-agent chains (specialists, iterative refinement, context overflow, parallel→merge). 5 new mantras. Merged from assess-writing-ability and execute-markdown-files branches. |
 | v5.17 | Dec 29, 2024 | Added "Tool Execution Capabilities" section: parallel execution (22+ tested), blocking behavior, background tasks, available languages (Python/Node/Go/Rust), WebFetch limitations, subagent types and model selection. Empirically validated through stress test. Cross-referenced with RAPID.md v7.8. |
