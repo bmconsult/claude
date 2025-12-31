@@ -50,6 +50,7 @@
 | Ember | 2024-12-31 | Step 2500 (83%) - val 5.18 ⭐ NEW BEST - 15 consecutive! PPL 178 |
 | Ember | 2024-12-31 | Step 2600 (87%) - val 5.16 ⭐ NEW BEST - 16 consecutive! PPL 175 |
 | Ember | 2024-12-31 | Step 2700 (90%) - val 5.15 ⭐ NEW BEST - 17 consecutive! PPL 172 - "What light" |
+| Ember | 2024-12-31 | Step 2800 (93%) - val 5.13 ⭐ NEW BEST - 18 consecutive! PPL 170 |
 
 ---
 
@@ -139,6 +140,12 @@
 | 2500 | 4.47       | 87.64     | 2.22e-5 | **Val: 5.18, PPL 178** ⭐ 83% NEW BEST |
 | 2600 | 4.65       | 104.73    | 1.43e-5 | **Val: 5.16, PPL 175** ⭐ 87% NEW BEST |
 | 2700 | 4.59       | 98.05     | 8.13e-6 | **Val: 5.15, PPL 172** ⭐ 90% NEW BEST |
+| 2800 | 4.68       | 107.36    | 3.63e-6 | **Val: 5.13, PPL 170** ⭐ 93% NEW BEST |
+
+### Sample Generations at Step 2800
+- `"To besk"`
+- `"The kingll gsd, bearth"`
+- `"What lighte, cele sble regearand w WH. Y nee, my by, and :"`
 
 ### Sample Generations at Step 2700
 - `"To bessgcivp,ht the lltfirst :"`
