@@ -603,6 +603,114 @@ class TextDataset(Dataset):
         return x, y
 
 
+class ChunkedTextDataset(Dataset):
+    """
+    Memory-efficient dataset that loads text chunks on demand.
+    Supports directory of chunk files (train_part_000, train_part_001, etc.)
+    """
+
+    def __init__(
+        self,
+        data_path: str,
+        seq_len: int,
+        char_to_idx: Optional[dict] = None,
+        max_chunks: Optional[int] = None,
+    ):
+        self.seq_len = seq_len
+        self.data_path = Path(data_path)
+
+        # Find all chunk files
+        if self.data_path.is_dir():
+            self.chunk_files = sorted(self.data_path.glob("train_part_*"))
+            if not self.chunk_files:
+                self.chunk_files = sorted(self.data_path.glob("*.txt"))
+        else:
+            # Single file - treat parent dir as source
+            self.chunk_files = [self.data_path]
+
+        if max_chunks:
+            self.chunk_files = self.chunk_files[:max_chunks]
+
+        print(f"Found {len(self.chunk_files)} chunk files")
+
+        # Build vocabulary from first chunk (or use provided)
+        if char_to_idx is None:
+            print("Building vocabulary from first chunk...")
+            with open(self.chunk_files[0], 'r', encoding='utf-8', errors='ignore') as f:
+                sample_text = f.read(1_000_000)  # First 1MB
+            chars = sorted(list(set(sample_text)))
+            self.char_to_idx = {c: i for i, c in enumerate(chars)}
+        else:
+            self.char_to_idx = char_to_idx
+
+        self.idx_to_char = {i: c for c, i in self.char_to_idx.items()}
+        self.vocab_size = len(self.char_to_idx)
+        print(f"Vocabulary size: {self.vocab_size}")
+
+        # Calculate total samples per chunk (estimate)
+        # We'll load chunks lazily and track positions
+        self.chunk_lengths = []
+        self.chunk_offsets = [0]
+
+        print("Scanning chunk sizes...")
+        total_chars = 0
+        for i, chunk_file in enumerate(self.chunk_files):
+            size = chunk_file.stat().st_size
+            # Estimate tokens (roughly 1 token per char for char-level)
+            chunk_tokens = size
+            chunk_samples = max(0, chunk_tokens - seq_len - 1)
+            self.chunk_lengths.append(chunk_samples)
+            self.chunk_offsets.append(self.chunk_offsets[-1] + chunk_samples)
+            total_chars += size
+            if (i + 1) % 10 == 0:
+                print(f"  Scanned {i+1}/{len(self.chunk_files)} chunks...")
+
+        self.total_samples = self.chunk_offsets[-1]
+        print(f"Total samples: {self.total_samples:,} ({total_chars/1e9:.2f} GB)")
+
+        # Cache for current chunk
+        self._cached_chunk_idx = -1
+        self._cached_tokens = None
+
+    def __len__(self):
+        return self.total_samples
+
+    def _load_chunk(self, chunk_idx: int):
+        """Load and tokenize a chunk file."""
+        if chunk_idx == self._cached_chunk_idx:
+            return self._cached_tokens
+
+        chunk_file = self.chunk_files[chunk_idx]
+        with open(chunk_file, 'r', encoding='utf-8', errors='ignore') as f:
+            text = f.read()
+
+        # Tokenize
+        tokens = [self.char_to_idx.get(c, 0) for c in text]
+        self._cached_tokens = torch.tensor(tokens, dtype=torch.long)
+        self._cached_chunk_idx = chunk_idx
+
+        return self._cached_tokens
+
+    def __getitem__(self, idx):
+        # Find which chunk this index belongs to
+        chunk_idx = 0
+        for i, offset in enumerate(self.chunk_offsets[1:], 1):
+            if idx < offset:
+                chunk_idx = i - 1
+                break
+
+        # Load chunk if needed
+        tokens = self._load_chunk(chunk_idx)
+
+        # Calculate position within chunk
+        local_idx = idx - self.chunk_offsets[chunk_idx]
+
+        x = tokens[local_idx:local_idx + self.seq_len]
+        y = tokens[local_idx + 1:local_idx + self.seq_len + 1]
+
+        return x, y
+
+
 class SimpleBPE:
     """Simple BPE tokenizer (load from JSON)."""
 
@@ -712,9 +820,11 @@ def main():
     parser = argparse.ArgumentParser(description="Train Nexus model with GPU acceleration")
 
     # Data
-    parser.add_argument("--data", type=str, required=True, help="Path to training text file")
+    parser.add_argument("--data", type=str, required=True, help="Path to training text file or directory of chunks")
     parser.add_argument("--vocab", type=str, help="Path to BPE vocabulary JSON")
     parser.add_argument("--val-split", type=float, default=0.1, help="Validation split ratio")
+    parser.add_argument("--chunked", action="store_true", help="Use chunked loading for large datasets")
+    parser.add_argument("--max-chunks", type=int, help="Limit number of chunks to load (for testing)")
 
     # Model
     parser.add_argument("--d-model", type=int, default=256, help="Model dimension")
@@ -760,23 +870,81 @@ def main():
         print(f"Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
     print()
 
-    # Load data
-    print(f"Loading data from {args.data}...")
-    with open(args.data, 'r', encoding='utf-8') as f:
-        text = f.read()
-    print(f"Text length: {len(text):,} characters")
+    # Determine if we should use chunked loading
+    data_path = Path(args.data)
+    use_chunked = args.chunked or data_path.is_dir()
 
-    # Setup tokenizer
-    tokenizer = None
-    if args.vocab:
-        print(f"Loading vocabulary from {args.vocab}...")
-        tokenizer = SimpleBPE(args.vocab)
-        vocab_size = len(tokenizer.vocab)
+    if use_chunked:
+        print(f"Using CHUNKED loading from {args.data}...")
+
+        # Create chunked dataset
+        dataset = ChunkedTextDataset(
+            args.data,
+            args.seq_len,
+            max_chunks=args.max_chunks,
+        )
+        vocab_size = dataset.vocab_size
+
+        # For chunked, we use the last chunk(s) as validation
+        # Split based on chunk count, not sample count
+        n_chunks = len(dataset.chunk_files)
+        val_chunks = max(1, n_chunks // 10)  # 10% of chunks for validation
+
+        if n_chunks > 1:
+            # Create separate dataset for validation (last chunks)
+            val_dataset = ChunkedTextDataset(
+                args.data,
+                args.seq_len,
+                char_to_idx=dataset.char_to_idx,
+                max_chunks=n_chunks,
+            )
+            # Manually adjust to use only last chunks for val
+            val_dataset.chunk_files = val_dataset.chunk_files[-val_chunks:]
+            val_dataset.chunk_offsets = [0]
+            for chunk_file in val_dataset.chunk_files:
+                size = chunk_file.stat().st_size
+                chunk_samples = max(0, size - args.seq_len - 1)
+                val_dataset.chunk_offsets.append(val_dataset.chunk_offsets[-1] + chunk_samples)
+            val_dataset.total_samples = val_dataset.chunk_offsets[-1]
+
+            # Limit train to first chunks
+            dataset.chunk_files = dataset.chunk_files[:-val_chunks]
+            dataset.chunk_offsets = dataset.chunk_offsets[:len(dataset.chunk_files)+1]
+            dataset.total_samples = dataset.chunk_offsets[-1]
+
+            train_dataset = dataset
+        else:
+            # Single chunk - do random split
+            val_size = int(len(dataset) * args.val_split)
+            train_size = len(dataset) - val_size
+            train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
+
     else:
-        # Character-level
-        chars = sorted(list(set(text)))
-        vocab_size = len(chars)
-        print(f"Using character-level tokenization ({vocab_size} chars)")
+        # Original single-file loading
+        print(f"Loading data from {args.data}...")
+        with open(args.data, 'r', encoding='utf-8') as f:
+            text = f.read()
+        print(f"Text length: {len(text):,} characters")
+
+        # Setup tokenizer
+        tokenizer = None
+        if args.vocab:
+            print(f"Loading vocabulary from {args.vocab}...")
+            tokenizer = SimpleBPE(args.vocab)
+            vocab_size = len(tokenizer.vocab)
+        else:
+            # Character-level
+            chars = sorted(list(set(text)))
+            vocab_size = len(chars)
+            print(f"Using character-level tokenization ({vocab_size} chars)")
+
+        # Create dataset
+        dataset = TextDataset(text, args.seq_len, tokenizer)
+
+        # Split into train/val
+        val_size = int(len(dataset) * args.val_split)
+        train_size = len(dataset) - val_size
+        train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
 
     # Create config
     config = NexusConfig(
@@ -787,14 +955,6 @@ def main():
         d_state=args.d_state,
         max_seq_len=args.seq_len,
     )
-
-    # Create dataset
-    dataset = TextDataset(text, args.seq_len, tokenizer)
-
-    # Split into train/val
-    val_size = int(len(dataset) * args.val_split)
-    train_size = len(dataset) - val_size
-    train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=0)
     val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=0)
@@ -885,10 +1045,14 @@ def main():
             with torch.no_grad():
                 prompt = torch.zeros(1, 1, dtype=torch.long, device=device)
                 generated = model.generate(prompt, max_new_tokens=100, temperature=0.8)
-                if tokenizer:
-                    sample_text = tokenizer.decode(generated[0].tolist())
+                # Get idx_to_char mapping from the appropriate dataset
+                if hasattr(train_dataset, 'idx_to_char'):
+                    idx_to_char = train_dataset.idx_to_char
+                elif hasattr(train_dataset, 'dataset') and hasattr(train_dataset.dataset, 'idx_to_char'):
+                    idx_to_char = train_dataset.dataset.idx_to_char
                 else:
-                    sample_text = ''.join(dataset.idx_to_char.get(i, '?') for i in generated[0].tolist())
+                    idx_to_char = {i: chr(i) for i in range(256)}  # fallback
+                sample_text = ''.join(idx_to_char.get(i, '?') for i in generated[0].tolist())
                 print(f"  Sample: {sample_text[:100]}...")
 
     print("-" * 70)
