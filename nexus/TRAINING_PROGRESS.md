@@ -45,6 +45,7 @@
 | Ember | 2024-12-31 | Training restarted after pipe break, loss dramatically improved |
 | Ember | 2024-12-31 | Step 2100 (70%) - val 5.39 ⭐ NEW BEST - Training PPL dropped to ~55! |
 | Ember | 2024-12-31 | Step 2200 (73%) - val 5.37 ⭐ NEW BEST - 12 consecutive bests! PPL ~49-57 |
+| Ember | 2024-12-31 | Step 2300 (77%) - val 5.29 ⭐ NEW BEST - 13 consecutive! PPL 197 - Big drop! |
 
 ---
 
@@ -127,6 +128,9 @@
 | 1800 | ~4.75      | ~115      | 1.14e-4 | **Val: ~5.25** ⭐ 60% NEW BEST |
 | 1900 | ~4.7       | ~110      | 9.86e-5 | **Val: ~5.22** ⭐ 63% NEW BEST |
 | 2000 | ~4.65      | ~105      | 8.33e-5 | **Val: ~5.20** ⭐ 67% NEW BEST 2/3 DONE |
+| 2100 | 4.04       | 56.81     | 6.80e-5 | **Val: 5.39, PPL 220** ⭐ 70% NEW BEST |
+| 2200 | 4.04       | 56.97     | 5.46e-5 | **Val: 5.37, PPL 214** ⭐ 73% NEW BEST |
+| 2300 | 4.35       | 77.24     | 4.25e-5 | **Val: 5.29, PPL 197** ⭐ 77% NEW BEST |
 
 ### Sample Generations at Step 100
 - `"To be:"`
@@ -218,6 +222,24 @@
 *Step 1800 - 8th consecutive best! best.bin updated at 01:55 UTC. 60% complete!*
 *Step 1900 - 9th consecutive best! best.bin updated at 02:10 UTC. 63% complete! PPL ~183*
 *Step 2000 - 10th consecutive best! best.bin updated at 02:25 UTC. 67% complete (2/3 DONE)! PPL ~180*
+*Step 2100 - 11th consecutive best! Training PPL dramatically improved after restart (~55 vs ~105)*
+*Step 2200 - 12th consecutive best! Val 5.37 → PPL 214. Training PPL 49-57 range.*
+*Step 2300 - 13th consecutive best! Val 5.29 → PPL 197. Big improvement! 77% complete.*
+
+### Sample Generations at Step 2100 (70% complete)
+- `"To beyou"`
+- `"The kingce the ."`
+- `"What lightincees"`
+
+### Sample Generations at Step 2200 (73% complete)
+- `"To beme bour deathe ' pi s"`
+- `"The king, is to ifthe is a pbithe it, is this and s"`
+- `"What lightdforyou."`
+
+### Sample Generations at Step 2300 (77% complete)
+- `"To bethe chd, llll Mar rega's t"` ← Names emerging!
+- `"The kingts. the buds s, well."` ← More structure!
+- `"What lightetefesse of"`
 
 *Note: Higher initial loss expected due to larger vocabulary (1000 vs 256)*
 *Learning structure after only 100 steps!*
