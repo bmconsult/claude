@@ -226,9 +226,19 @@ The stop-gradient on target encoder is crucial - prevents collapse by creating a
   - Self-speculative: 2.0-3.5× (no extra model)
   - SSM integration challenges and solutions
 
-**Remaining to explore:**
-- **Constitutional AI**: Alignment via constitution
-- **Distillation**: Teacher-student compression
+- **CONSTITUTIONAL_AI_RESEARCH.md**: Alignment via constitution
+  - SL-CAI: Critique-revise self-improvement
+  - RL-CAI: RLAIF with constitutional principles
+  - Pareto improvement: More helpful AND more harmless
+  - Small model challenges and distillation approach
+
+- **DISTILLATION_RESEARCH.md**: Teacher-student compression
+  - MOHAWK: Transformer→SSM with <1% data
+  - Llamba: 8B SSM matching Llama-3-8B quality
+  - Logit, feature, and attention distillation
+  - Cross-architecture for Nexus hybrid
+
+**All research topics completed!**
 
 ## For Next Instance
 
