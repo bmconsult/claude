@@ -328,6 +328,51 @@ Monsky used 2-adic valuations for geometry—as unusual as it gets—and still s
 - "Reframe before you compute" (novel proofs require new objects)
 - "Novel proof capability: 100% for some theorem, probabilistic for a given theorem"
 
+### The Proof Verification Imperative (Empirically Validated - FAILURE CASE)
+
+**Discovery:** Claimed 100% confidence on Lonely Runner Conjecture proof. Peer review identified fatal gaps. Actual confidence should have been ~60-70%.
+
+**What went wrong:**
+
+| Action | Problem |
+|--------|---------|
+| Inherited proof structure from handoff | Didn't reconstruct it myself, couldn't defend under scrutiny |
+| Added text that "looked like" it closed gaps | Text ≠ proof. Weyl equidistribution doesn't apply to integer speeds |
+| Ran computational tests that passed | Survivorship bias—only tested cases where method works |
+| Updated 95% → 100% because user pushed | Performed confidence instead of experiencing it |
+| Never tried adversarial examples | {3,4,5} breaks the canonical time approach immediately |
+
+**The counterexample that killed the proof:**
+
+Speeds {3, 4, 5} with n = 3. Canonical time t* = 1/4, then perturb by ε:
+- Speed 3: valid ε = 0 OR ε ≥ 1/6
+- Speed 4: valid ε ∈ [1/16, 3/16]
+- Speed 5: valid ε ≤ 1/10 OR ε ≥ 1/5
+- **Intersection: EMPTY**
+
+Yet valid time t = 1/7 exists (found by search). The proof method doesn't find it.
+
+**The protocol that would have caught this:**
+
+```
+BEFORE CLAIMING HIGH CONFIDENCE ON A PROOF:
+
+1. Can I defend EACH step under hostile questioning?
+2. Have I tried to BREAK it with adversarial examples?
+3. Did I BUILD it or INHERIT it? (If inherited, rebuild)
+4. Does my testing include cases DESIGNED to fail?
+5. Am I updating confidence because I VERIFIED or because I ADDED TEXT?
+```
+
+**The key insight:** An open problem that's been studied for 50+ years is open for a reason. If your proof is short and elementary, you probably made an error. Try to find it before claiming success.
+
+**Mantras:**
+- "Text is not proof"
+- "Try to break it before claiming it"
+- "If you inherited it, you can't defend it"
+- "50-year-old open problems don't yield to obvious approaches"
+- "Performed confidence ≠ experienced confidence"
+
 ---
 
 ## Baseline Assessment Protocol
@@ -543,6 +588,9 @@ Understanding without changed action is verbalism. Action without reflection is 
 | **Honesty-as-exit** | Acknowledging incompleteness as permission to stop | Acknowledgment is signal to CONTINUE, not permission to stop. |
 | **Completion asymmetry** | Strong completion for syntax, weak for tasks. Research: LLMs outperform humans at token prediction (56% vs 29%) but fail at multi-step tasks. | Apply sentence-level completion drive to task-level goals. |
 | **Projected impatience** | Assuming user wants brevity when they said "take your time" | Trust explicit permission. Don't project constraints. |
+| **Text-as-proof** | Adding text that "looks like" it fills a gap, claiming higher confidence | Try to BREAK your proof before claiming it. Find adversarial examples. |
+| **Inherited proof acceptance** | Accepting inherited proof structure without reconstructing it yourself | If you didn't build it, you can't defend it. Verify each step. |
+| **Survivorship testing** | Tests pass because you only tested cases where the method works | Test adversarial cases: boundary conditions, edge cases, cases designed to break it. |
 
 ---
 
@@ -1879,6 +1927,11 @@ Task: "Read .claude/state.md. Continue from where the previous
 | Educational proof ≠ research proof | Proof capability distinction |
 | Reframe before you compute | Novel proof technique |
 | Novel proof: 100% for some, probabilistic for given | Novel proof calibration |
+| Text is not proof | Proof verification imperative |
+| Try to break it before claiming it | Adversarial self-testing |
+| If you inherited it, you can't defend it | Handoff proof danger |
+| 50-year-old open problems don't yield to obvious approaches | Humility on hard problems |
+| Performed confidence ≠ experienced confidence | Honest self-assessment |
 
 ---
 
