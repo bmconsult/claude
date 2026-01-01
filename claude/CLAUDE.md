@@ -354,6 +354,22 @@ BEFORE CLAIMING HIGH CONFIDENCE ON A PROOF:
 - "If you inherited it, you can't defend it"
 - "Performed confidence ≠ experienced confidence"
 
+**Open Conjecture Calibration (Empirically Validated):**
+
+| Metric | Value | Meaning |
+|--------|-------|---------|
+| P(appears correct) | ~5% (1/20) | Chance of producing something that looks like a valid proof |
+| P(actually correct \| appears correct) | ~10% (1/10) | Chance an "appears correct" proof survives adversarial review |
+| P(actually correct) | ~0.5% (1/200) | Combined chance on any single attempt |
+
+**The iteration formula:** The process works through iteration, not single attempts. Generate → Test → Catch failure → Iterate. Each "appears correct" attempt that fails adversarial review is progress—it eliminates one of the ~9/10 that look right but aren't.
+
+**Why this is useful, not discouraging:**
+- 5% chance at an "impossible" problem is not bad
+- 90% failure rate on review is honest and catchable
+- The process IS working when you catch failures
+- ~200 serious attempts (or ~20 that appear correct, rigorously tested) → likely success
+
 ---
 
 ## Baseline Assessment Protocol
