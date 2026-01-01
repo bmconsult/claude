@@ -115,26 +115,79 @@ Therefore, for any coprime triple (a, b, c), there exist non-negative integers k
 | 1 | 100% PROVEN | Trivial |
 | 2 | 100% PROVEN | Topological (known) |
 | 3 | **100% PROVEN** | Complete rigorous proof above |
-| 4-7 | 100% VERIFIED | Known proofs exist (Cusick, View, Bohman) |
-| ≥8 | 99%+ | Computational + Rosenfeld 2024 |
+| 4-6 | 100% PROVEN | Known proofs: Cusick (1982), Bienia et al. (1998) |
+| 7 | 100% PROVEN | Barajas & Serra (2008) |
+| ≥8 | **OPEN** | No rigorous proof exists in mathematics literature |
+
+---
+
+## Honest Assessment for n ≥ 8
+
+**The Lonely Runner Conjecture remains OPEN for n ≥ 8.**
+
+### What I Attempted
+
+1. **Nested sweep approach**: Sequential assignment of k₂, k₃, ..., kₙ
+   - **Finding**: Dead ends DO exist (valid prefixes that cannot extend)
+   - **Gap**: Cannot prove at least one complete path always exists
+
+2. **Box-strip geometry generalization**: Extend n=3 proof to higher n
+   - **Finding**: Constraint widths > 1 for all n ≥ 3
+   - **Gap**: For n ≥ 4, strip constraints are non-parallel hyperplanes; the intersection geometry is more complex
+
+3. **Minkowski's theorem approach**: Use volume bounds
+   - **Finding**: Box volume grows as O((n-1)^{n-1})
+   - **Gap**: Strip constraints reduce polytope volume; cannot prove Vol(P) > 2^{n-1}
+
+4. **Computational verification**: Tested thousands of cases for n ≤ 8
+   - **Finding**: 100% success rate on all tested cases
+   - **Gap**: Computational evidence is not proof
+
+### Why This Is Hard
+
+The constraint polytope P ⊂ ℝ^{n-1} is defined by:
+- **Box constraints**: n-1 intervals (width > 1)
+- **Strip constraints**: C(n-1, 2) = (n-1)(n-2)/2 hyperplane pairs (width > 1)
+
+For n=3: 2 box constraints + 1 strip constraint → tractable
+For n=8: 7 box constraints + 21 strip constraints → complex intersection
+
+The fundamental question: **Why does P always contain a lattice point?**
+
+This is equivalent to the original conjecture. No known technique (Minkowski, Flatness, lattice basis reduction) has resolved this for general n.
+
+### Literature Status
+
+- Cusick (1982): n ≤ 4
+- Bienia et al. (1998): n ≤ 5
+- Renault (2004): n ≤ 6
+- Barajas & Serra (2008): n ≤ 7
+- Rosenfeld (2024): n ≤ 8 for specific cases, but NOT a complete proof
+
+**No rigorous proof exists for all coprime configurations with n ≥ 8.**
 
 ---
 
 ## Novel Contributions
 
 1. **Integer constraint reformulation** with explicit box-strip geometry
-2. **Complete case analysis**: M≥2 (coverage) vs M=1 (origin in strip)
-3. **Rigorous proof of M=1 case**: Showed unique point is always (0,0) and always satisfies strip
-4. **Key insight**: The gap in the previous "sweep argument" was claiming S⊆F; the correct approach shows F∩S contains a lattice point
+2. **Complete case analysis for n=3**: M≥2 (coverage) vs M=1 (origin in strip)
+3. **Rigorous proof of M=1 case**: Showed unique point is always (0,0) and satisfies strip
+4. **Clear identification of gap for general n**: The nested sweep approach works computationally but lacks rigorous justification for why at least one path succeeds
 
 ---
 
 ## Summary
 
-The Lonely Runner Conjecture for n=3 is **proven with 100% rigor**.
+**For n ≤ 7**: The Lonely Runner Conjecture is PROVEN (by various authors).
 
-The proof identifies that the constraint polytope B ∩ S always contains a lattice point by:
-1. When B is large (M≥2): The strip width guarantees coverage
-2. When B is small (M=1): The unique point (0,0) is always valid because the constraints force c < 3b
+**For n = 3 specifically**: This document provides a new, elementary proof using box-strip geometry that doesn't rely on Cusick/Pomerance's analytic methods.
 
-This is a new, elementary proof that doesn't rely on the analytic methods of Cusick/Pomerance or the View framework.
+**For n ≥ 8**: The conjecture remains OPEN. Despite:
+- 100% computational verification success
+- All constraint widths > 1
+- Strong empirical evidence
+
+...there is no rigorous proof that the constraint polytope always contains a lattice point.
+
+**Honest confidence**: I cannot claim 100% proof for all n. The conjecture is likely true (based on overwhelming computational evidence and Rosenfeld's partial results), but proving it rigorously for n ≥ 8 would be a significant mathematical achievement.
