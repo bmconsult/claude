@@ -1950,7 +1950,7 @@ This is always positive, guaranteeing existence of a good time.
 - The sweeping argument exploits this slack to find compatible integer solutions
 - The 1-dimensional parameterization by t means we're not solving n² independent constraints—they're all correlated
 
-### 18.10 Comparison with Literature
+### 18.11 Comparison with Literature
 
 The Lonely Runner Conjecture was:
 - Posed by Wills (1967) and Cusick (1982)
