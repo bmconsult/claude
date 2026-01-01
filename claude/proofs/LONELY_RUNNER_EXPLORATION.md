@@ -1893,80 +1893,79 @@ For small aᵢ (i.e., aᵢ < n+1), the direct check at t* = 1/(n+1) handles them
 
 ---
 
-### 18.9 Confidence Assessment (FINAL)
+### 18.9 Confidence Assessment (REVISED - FATAL GAPS IDENTIFIED)
 
-| Component | Confidence | Notes |
-|-----------|------------|-------|
-| n = 1 | 100% | Trivial |
-| n = 2 (Bezout) | 100% | Fully rigorous |
-| n = 3 (Sweeping) | 100% | Rigorous + verified |
-| n ≥ 4 (Canonical Time + Covering Impossibility) | **100%** | Proven via Weyl equidistribution + periodic structure |
-| Overall proof | **100%** | |
+## ⚠️ PROOF RETRACTED
 
-**Why 100%:** The Covering Impossibility Theorem (Section 18.8.4) rigorously establishes that bad sets cannot cover all times. The proof uses:
-1. Weyl's equidistribution theorem for the trajectory
-2. The gcd = 1 condition ensuring the trajectory visits all regions
-3. The positive measure of the good region G in the torus
+**Peer review identified fatal gaps in this proof attempt.** The claimed proof is INVALID.
 
-**Verification:** The theorem has been verified computationally for all tested configurations.
+| Component | Status | Notes |
+|-----------|--------|-------|
+| n = 1 | ✓ Valid | Trivial |
+| n = 2 (Bezout) | ✓ Valid | Rigorous |
+| n = 3 (Sweeping) | ⚠️ Incomplete | Sweeping argument doesn't prove simultaneous satisfaction |
+| n ≥ 4 (Canonical Time) | ✗ INVALID | Counterexample: {3,4,5} — ε-ranges don't intersect |
+| n ≥ 4 (Covering Impossibility) | ✗ INVALID | Density ≠ intersection; trajectory is 1-dim in n-dim torus |
+| Overall proof | ✗ INVALID | |
 
-### 18.9.1 The Final Synthesis: Why the Proof Works
+### Fatal Gap 1: Sweeping Argument (Section 18.4)
 
-The complete proof rests on three pillars:
+The claim that constraints "sweep across each other" is hand-waving. Showing each constraint has width > 1 does NOT imply the O(n²) constraints can be simultaneously satisfied. The constraints shift at different rates as k₂ varies, and the intersection may never contain integers for all kⱼ.
 
-**Pillar 1: The Canonical Time (Case A)**
-When no speed is divisible by (n+1), t* = 1/(n+1) works directly because each {aᵢ/(n+1)} = (aᵢ mod (n+1))/(n+1) ∈ {1/(n+1), ..., n/(n+1)}.
+### Fatal Gap 2: Canonical Time + Perturbation (Section 18.8.2)
 
-**Pillar 2: The ε-Range Intersection (Case B)**
-When some speeds are divisible by (n+1), we perturb from t* and show the valid ε-ranges for all runners intersect. This uses:
-- Each runner's good ε-region covers (n-1)/(n+1) of each period
-- The gaps (bad regions) cover only 2/(n+1) of each period
-- With gcd = 1, gaps at different periods cannot align to cover everything
+**Counterexample: Speeds {3, 4, 5} with n = 3**
 
-**Pillar 3: The Covering Impossibility**
-The key insight: n sets each covering 2/(n+1) of [0, T] with different periodic structures (periods 1/a₁, ..., 1/aₙ) cannot cover all of [0, T] when gcd(a₁, ..., aₙ) = 1.
+At t* = 1/4:
+- Speed 3: position 3/4 (upper boundary)
+- Speed 4: position 0 (bad)
+- Speed 5: position 1/4 (lower boundary)
 
-This is because:
-1. The bad sets have measure n × 2/(n+1) = 2n/(n+1), which exceeds 1 for n ≥ 2
-2. BUT they must overlap significantly due to the coprimality constraint
-3. The overlaps reduce the union measure below 1, leaving room for the good set
+The ε-ranges are:
+- Speed 3: ε = 0 OR ε ≥ 1/6
+- Speed 4: ε ∈ [1/16, 3/16]
+- Speed 5: ε ≤ 1/10 OR ε ≥ 1/5
 
-**The Ultimate Bound:**
-For speeds with gcd = 1, the good set (intersection of all Gᵢ) has measure approximately ((n-1)/(n+1))ⁿ > 0.
+**INTERSECTION IS EMPTY.** Yet valid time t = 1/7 exists (found by search, not by this method).
 
-This is always positive, guaranteeing existence of a good time.
+### Fatal Gap 3: Covering Impossibility (Section 18.8.4)
 
-**QED for the Lonely Runner Conjecture.** ∎
+The trajectory ({a₁t}, ..., {aₙt}) is a 1-dimensional curve in [0,1)ⁿ. It has **measure zero** in the n-torus. Claiming it "visits enough of the torus" to hit the good region is exactly what the conjecture asserts—it cannot be assumed.
 
-### 18.10 What This Proof Establishes
+Weyl equidistribution implies density of the trajectory, but density in a measure-zero set doesn't imply intersection with a specific open region.
+
+### 18.9.1 What Remains Valid
 
 **Proven rigorously:**
-1. The Lonely Runner Conjecture for all n ≥ 1
-2. For any speed configuration, an explicit construction procedure exists
-3. The sweeping argument generalizes cleanly from n = 3
+1. n = 1: Trivial
+2. n = 2: Bezout argument is valid
+3. n ≤ 7: Proven in literature (Barajas-Serra 2008) by case analysis
 
-**The key insight that makes it work:**
-- All constraints have width ≥ 3(n-1)/(n+1) > 1 for n ≥ 2
-- The sweeping argument exploits this slack to find compatible integer solutions
-- The 1-dimensional parameterization by t means we're not solving n² independent constraints—they're all correlated
+**NOT proven:**
+1. General n: The Lonely Runner Conjecture remains OPEN
 
-### 18.11 Comparison with Literature
+### 18.10 Lessons Learned
 
-The Lonely Runner Conjecture was:
+**What went wrong:**
+1. Claimed width > 1 implies solvability — it doesn't (simultaneous constraints are harder)
+2. Claimed density implies intersection — it doesn't (measure-zero trajectory)
+3. Didn't verify the canonical time approach on adversarial examples like {3,4,5}
+
+**What would be needed for a valid proof:**
+1. Handle the global constraint: All n runners must be simultaneously safe
+2. Prove intersection, not just width: The system of constraints must have a solution
+3. Use quantitative bounds, not density arguments
+
+### 18.11 Current State of the Conjecture
+
+The Lonely Runner Conjecture:
 - Posed by Wills (1967) and Cusick (1982)
-- Proven for n ≤ 7 by Barajas and Serra (2008)
+- Proven for n ≤ 7 by Barajas and Serra (2008) via case analysis
 - Verified computationally for n ≤ 10
-
-This proof:
-- Uses elementary methods (Bezout, interval arithmetic, sweeping)
-- Provides explicit construction of good times
-- Generalizes the known approaches to all n
-
-**Note:** The proof should be verified by independent reviewers. The structure is sound and verified on examples, but a subtle error could remain.
+- **Remains OPEN for general n**
 
 ---
 
-*This completes the rigorous formalization of the Lonely Runner Conjecture proof.*
+*This document records an exploration and failed proof attempt. The conjecture remains open.*
 
 *Date: January 1, 2026*
-*Instance: Prover*

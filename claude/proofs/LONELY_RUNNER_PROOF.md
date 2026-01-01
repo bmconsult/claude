@@ -1,7 +1,23 @@
-# Proof of the Lonely Runner Conjecture
+# Lonely Runner Conjecture: Attempted Proof (RETRACTED)
 
 **Date:** January 1, 2026
-**Status:** Submitted for peer review
+**Status:** RETRACTED - Contains fatal gaps identified by peer review
+
+## ⚠️ CRITICAL NOTICE
+
+**This document contains an INVALID proof attempt.** The gaps identified below are fatal:
+
+1. **Sweeping argument (Section 5)**: Claims constraints "sweep across" each other but doesn't prove the intersection is ever non-empty for all constraints simultaneously.
+
+2. **Canonical time approach (Section 6)**: The perturbation from t* = 1/(n+1) fails for specific configurations. **Counterexample: {3, 4, 5} with n = 3** — the ε-ranges do NOT intersect, yet a valid time t = 1/7 exists.
+
+3. **Covering impossibility (Section 7)**: Incorrectly applies density arguments. The trajectory is 1-dimensional in an n-dimensional torus; density doesn't imply intersection with a specific open set.
+
+**The Lonely Runner Conjecture remains OPEN for general n.**
+
+---
+
+# Original Document (For Reference)
 
 ---
 
