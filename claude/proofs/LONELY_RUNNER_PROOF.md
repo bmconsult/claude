@@ -125,23 +125,40 @@ Therefore, for any coprime triple (a, b, c), there exist non-negative integers k
 
 **The Lonely Runner Conjecture remains OPEN for n ≥ 8.**
 
-### What I Attempted
+### 20 Proof Approaches Exhausted
 
-1. **Nested sweep approach**: Sequential assignment of k₂, k₃, ..., kₙ
-   - **Finding**: Dead ends DO exist (valid prefixes that cannot extend)
-   - **Gap**: Cannot prove at least one complete path always exists
+| # | Approach | Why It Fails |
+|---|----------|--------------|
+| 1 | Nested sweep | Dead ends exist; can't prove one path always works |
+| 2 | Box-strip geometry | Works for n=3; strip intersections complex for n≥4 |
+| 3 | Minkowski's theorem | Volume bounds insufficient for narrow polytopes |
+| 4 | Computational verification | Not a proof; only provides evidence |
+| 5 | Fourier analysis | Reduces to equivalent problem; no simplification |
+| 6 | Lovász Local Lemma | Dependencies too strong; LLL condition fails for all n≥2 |
+| 7 | Borsuk-Ulam topology | Problem lacks required antipodal structure |
+| 8 | Flatness theorem | Polytope not fat enough in all directions |
+| 9 | Diophantine approximation | Simultaneous bounds too weak for n speeds |
+| 10 | Continued fractions | Only works effectively for n=2 |
+| 11 | p-adic analysis | Interval constraints don't have p-adic analog |
+| 12 | Graph/Ramsey theory | Wrong abstraction for linear constraints |
+| 13 | Strong induction on n | Loneliness interval changes with n; no transfer |
+| 14 | View obstruction | Equivalent reformulation, not new technique |
+| 15 | Ergodic theory | Asymptotic only; no bound on first hitting time |
+| 16 | Pigeonhole refinement | Average bounds don't imply existence of zero |
+| 17 | Generating functions | Multi-variable complexity; no simplification |
+| 18 | Character sums / Weil | Fractional parts don't reduce mod p nicely |
+| 19 | LP relaxation | Non-integer vertices; no rounding guarantee |
+| 20 | Algebraic geometry | Too elementary for AG tools to apply |
 
-2. **Box-strip geometry generalization**: Extend n=3 proof to higher n
-   - **Finding**: Constraint widths > 1 for all n ≥ 3
-   - **Gap**: For n ≥ 4, strip constraints are non-parallel hyperplanes; the intersection geometry is more complex
+### Detailed Analysis of Key Approaches
 
-3. **Minkowski's theorem approach**: Use volume bounds
-   - **Finding**: Box volume grows as O((n-1)^{n-1})
-   - **Gap**: Strip constraints reduce polytope volume; cannot prove Vol(P) > 2^{n-1}
+**Fourier Analysis (Approach 5)**: Express the indicator function of [1/(n+1), n/(n+1)] as Fourier series. The main term is positive, but bounding error terms requires Diophantine properties of the specific speed set—equivalent to the original problem.
 
-4. **Computational verification**: Tested thousands of cases for n ≤ 8
-   - **Finding**: 100% success rate on all tested cases
-   - **Gap**: Computational evidence is not proof
+**Lovász Local Lemma (Approach 6)**: For LLL, we need P(bad event) · e · (degree+1) < 1. With P(bad) = 2/(n+1) and degree = n (full clique at each time), this gives 2en/(n+1) < 1, which fails for all n ≥ 2.
+
+**Strong Induction (Approach 13)**: The loneliness interval [1/(n+1), n/(n+1)] SHRINKS as n grows. IH for n-1 gives interval [1/n, (n-1)/n], which is LARGER than what we need. No transfer possible.
+
+**Ergodic Theory (Approach 15)**: Weyl's equidistribution guarantees the flow hits the good region, but for integer speeds the trajectory is periodic. We need to prove it hits within one period—no asymptotic argument available.
 
 ### Why This Is Hard
 
