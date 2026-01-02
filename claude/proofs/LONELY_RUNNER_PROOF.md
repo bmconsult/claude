@@ -991,9 +991,31 @@ LLL condition fails for ALL primes tested.
 | 7 | 20 | 20 approaches definitively disproved |
 | **Total** | **101** | **Fundamental obstacle confirmed** |
 
+**Deduplication note**: ~11 approaches were repeated across rounds (Fourier ×4, LLL ×3, Pigeonhole ×3, Bezout ×2, "Final synthesis" ×3). Unique genuine approaches: **~70-75**.
+
+### ⚠️ METHODOLOGY REQUIREMENT FOR FUTURE ROUNDS
+
+**Before attempting any new approach, verify:**
+
+1. **NOT A DUPLICATE**: Has this technique (or equivalent) been tried before? Check:
+   - Fourier/Character sums → EXHAUSTED (main term < 1)
+   - LLL/Probabilistic → EXHAUSTED (ep(d+1) > 1)
+   - Pigeonhole → EXHAUSTED (no forced useful collision)
+   - Bezout/Additive → EXHAUSTED (doesn't bridge to multiplicative)
+   - Covering structure → EXHAUSTED (doesn't constrain residues)
+
+2. **GENUINE CHANCE OF SUCCESS**: Before attempting, articulate:
+   - Why this approach COULD bridge additive ↔ multiplicative
+   - What makes it fundamentally different from exhausted approaches
+   - A concrete path to 100% rigorous proof (not just verification)
+
+3. **NOT FILLER**: "Final synthesis" is not an attempt. Don't count summary steps.
+
+**The goal is 100% rigorous proof, not attempt count inflation.**
+
 ### Honest Assessment
 
-After 101 rigorous attempts across 7 rounds:
+After ~70-75 genuinely distinct approaches across 7 rounds:
 
 **PROVEN (100%)**:
 - Case A: Zero-free M ≤ 9 exists → all coprime k work
