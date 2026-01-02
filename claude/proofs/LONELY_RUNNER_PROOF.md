@@ -520,3 +520,95 @@ Bridging this gap requires techniques we haven't found. The coprimality constrai
 | n ≥ 9 | ~90% | Same structure should generalize |
 
 The gap between ~99.99% empirical confidence and 100% proof remains open after 60 serious attempts across 3 rounds.
+
+---
+
+## Round 4: Deep Mathematical Analysis (20 Additional Attempts)
+
+### New Proven Results
+
+**ZERO-FREE M LEMMA:**
+For M ≤ 9, if no speed ≡ 0 (mod M), then ALL k coprime to M are lonely times.
+*Proof*: At M ≤ 9, good region = {1, 2, ..., M-1}. If no speed ≡ 0 (mod M), then all positions are non-zero, hence in the good region. ∎
+
+**CONSECUTIVE INTEGERS THEOREM:**
+For speeds {1, 2, ..., n}, t = 1/(n+1) is always lonely.
+*Proof*: Position of speed i at t = 1/(n+1) is i/(n+1) ∈ [1/(n+1), n/(n+1)]. ∎
+
+### Approaches Attempted
+
+| # | Approach | Result |
+|---|----------|--------|
+| 1 | Collision bound | Collisions exist but don't guarantee lonely time |
+| 2 | Pigeonhole on collision | Collision ≠ success |
+| 3 | Divisibility obstruction | Some speeds divisible by any small M |
+| 4 | Inclusion-exclusion | Bad set overlaps don't sum nicely |
+| 5 | Minimal bad region | Bad region = {0} only for M ≤ 9 |
+| 6 | Smallest clean M | Not always ≤ 9 |
+| 7 | Clean M ≤ n theorem | DISPROVED - counterexamples exist |
+| 8 | Bezout coefficients | Trivial when 1 ∈ speeds |
+| 9 | Prime avoidance via CRT | Primes often fail; composites needed |
+| 10 | 1-8 case analysis | Works via M = n+1 theorem |
+| 11 | n+1 theorem | Only works for consecutive integers |
+| 12 | Residue diversity at large primes | Large primes often fail |
+| 13 | Composite vs prime M | Composites work when primes fail |
+| 14 | Affine transformation view | Rotation metaphor, no proof |
+| 15 | Probabilistic counting | Success rate varies; no guarantee |
+| 16 | 100% success M values | Only at special M ≤ 9 with zero-free |
+| 17 | Zero-avoiding M theorem | 18% failure rate for random 8-tuples |
+| 18 | M > 9 analysis | Larger bad region to avoid |
+| 19 | Speed clustering | Clustering observed, not proven |
+| 20 | Final synthesis | Gap persists |
+
+### Key Discoveries from Round 4
+
+**Discovery 1: The Clean M ≤ n Theorem is FALSE**
+- Counterexamples exist: (1,2,3,4,5,6,7,8), (1,2,3,4,5,6,7,16), etc.
+- These have no M ≤ 8 where all speeds avoid 0 mod M
+- But they still have lonely times at M = 9 or larger
+
+**Discovery 2: 100% Success at Zero-Free M ≤ 9**
+- For (1,2,3,4,5,6,7,9) at M=8: ALL 4 coprime k values work
+- For (1,2,3,4,5,6,7,8) at M=9: ALL 6 coprime k values work
+- This is because good region = {1,...,M-1} and no speed ≡ 0
+
+**Discovery 3: Large Primes Often Fail**
+- For (1,2,3,4,5,6,7,8): Primes 11, 13, 17, ..., 59 all fail
+- But composite M=9 works
+- CRT structure of composites provides more "room"
+
+**Discovery 4: Working M is Typically Small**
+- For 998/998 random coprime 8-tuples: M ≤ max(speeds)
+- Average ratio M/max ≈ 0.09
+- The first working M is remarkably small
+
+### Round 4: Final Status
+
+**THEOREM STATUS FOR LONELY RUNNER (n=8):**
+
+| Case | Status | Proof Method |
+|------|--------|--------------|
+| Dense (max ≤ 8·min) | ✓ PROVEN | M = ⌈9·max/8⌉ with k=1 |
+| Consecutive {1,...,8} | ✓ PROVEN | M = 9 with k = 1 |
+| Sparse (general) | ✗ NOT PROVEN | Empirically verified on millions |
+
+**THE FUNDAMENTAL OBSTACLE (Confirmed):**
+
+The problem requires bridging:
+- **Additive structure**: coprimality (gcd = 1)
+- **Multiplicative structure**: residues (k·a mod M)
+
+No known technique converts coprimality to residue-avoidance guarantees.
+
+### Confidence Assessment (Updated)
+
+| Case | Confidence | Basis |
+|------|------------|-------|
+| n ≤ 7 | 100% | Published proofs |
+| n = 8, Dense | 100% | Rigorous proof |
+| n = 8, Consecutive | 100% | Rigorous proof |
+| n = 8, Sparse | ~99.99% | Millions verified |
+| Full n=8 | ~95% | Dense proven, sparse empirical |
+| n ≥ 9 | ~90% | Same structure should generalize |
+
+The gap between ~99.99% empirical confidence and 100% proof remains open after **80 serious attempts across 4 rounds**.
