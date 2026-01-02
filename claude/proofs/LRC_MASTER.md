@@ -39,8 +39,35 @@ where ||x|| = min({x}, 1-{x}) is distance to nearest integer.
 | Category | Count | Definition |
 |----------|-------|------------|
 | **DISPROVED** | 7 | Proven CANNOT work (counterexample or impossibility) |
-| **BLOCKED** | 50+ | Reduces to same fundamental gap |
+| **BLOCKED** | 70+ | Reduces to same fundamental gap |
 | **PROVEN** | 1 | Case 1 construction |
+
+### Latest: 20 Genuine Attempts (January 2, 2026)
+
+See `LRC_20_GENUINE_ATTEMPTS.md` for full details. All 20 blocked at additive-multiplicative gap:
+
+| # | Approach | Blocker |
+|---|----------|---------|
+| 1 | Bezout Coefficients | Additive → multiplicative bridge missing |
+| 2 | Collision Exploitation | Reduces constraints but not threshold |
+| 3 | CRT with Chosen Primes | Reduces to "some prime works" |
+| 4 | Equidistribution Bounds | Error terms not explicit |
+| 5 | Minimal Counterexample | Structure but no contradiction |
+| 6 | Prime Counting Extension | Heuristic only for general n |
+| 7 | Slack Phenomenon | Empirical only |
+| 8 | Pigeonhole on Arcs | Expected ≠ worst-case |
+| 9 | Covering Obstruction | Union bound fails |
+| 10 | Inverse Multiplicative | Same as arc intersection |
+| 11 | Cascade Construction | Coordinating all speeds is hard |
+| 12 | GCD Constraint | Necessary but not sufficient |
+| 13 | Probabilistic Rigorous | Error bounds too weak |
+| 14 | Fourier Analysis | Error > main term for large n |
+| 15 | Smooth Modulus | No leverage |
+| 16 | Density Contradiction | Pairwise overlap ≠ all intersect |
+| 17 | Speed Ratio Analysis | Residues don't control arcs |
+| 18 | Constructive Search | Concentration bounds missing |
+| 19 | Algebraic Geometry | Elegant but incomplete |
+| 20 | Fixed Point | Density ≠ finite-time hitting |
 
 ---
 
