@@ -211,9 +211,57 @@ This is equivalent to the original conjecture. No known technique (Minkowski, Fl
 
 ---
 
-## Round 2: Genuine Proof Attempts (20 Approaches with Full Belief)
+## n=8 Analysis: Consolidated Summary
 
-Following the directive to believe a solution is possible and try with full rigor:
+**Full details: [LONELY_RUNNER_N8_CONSOLIDATED.md](LONELY_RUNNER_N8_CONSOLIDATED.md)**
+
+### Status After ~65 Unique Proof Approaches
+
+| Category | Count | Status |
+|----------|-------|--------|
+| Prerequisites fail (Minkowski, LLL, Borsuk-Ulam) | 8 | BLOCKED |
+| Wrong domain (p-adic, continued fractions, ergodic) | 7 | BLOCKED |
+| Additive-multiplicative gap (Bezout, Fourier, etc.) | 18 | BLOCKED |
+| Computational only | 7 | BLOCKED |
+| Structural insight | 12 | Useful, no proof |
+| Disproved conjectures | 5 | CLOSED |
+
+### Proven Theorems (n=8)
+
+**Theorem 1 (Zero-Free Sufficiency)**: If some M ≤ 9 has no speed ≡ 0 (mod M), then ALL k coprime to M give lonely times. *Proof*: Bad region = {0} at M ≤ 9. ∎
+
+**Theorem 2 (Dense Case)**: For max ≤ 8·min, M = ⌈9·max/8⌉ works with k=1. ∎
+
+**Theorem 3 (Symmetric k-pairs)**: If k works at prime p, so does p-k. ∎
+
+### Verified Facts
+
+- **177,151** covering tuples (max≤25): 0 failures
+- **Max prime needed**: 43 (only 1 tuple: 3,4,9,13,15,17,21,24)
+- **Rotating holdouts**: Different speed fails at each prime 11-41
+
+### The Fundamental Gap
+
+```
+ADDITIVE (gcd=1, Bezout)  ←— NO BRIDGE —→  MULTIPLICATIVE (residues mod M)
+```
+
+### Open Paths
+
+1. Prove collision guaranteed at some effective prime
+2. Cyclotomic / 9th root of unity connection
+3. Computer-assisted finite type verification
+4. Formalize "coprimality → anti-covering" property
+
+---
+
+## Detailed Round History (Archived Below)
+
+The following sections contain the original round-by-round exploration. See the consolidated document above for the deduplicated summary.
+
+---
+
+## Round 2: Genuine Proof Attempts (20 Approaches)
 
 ### Key Discoveries
 
