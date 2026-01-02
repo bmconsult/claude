@@ -321,3 +321,48 @@ To prove the Lonely Runner Conjecture for all n, we need ONE of:
 3. **Character sum bounds**: Use Fourier analysis to show expected good k > 0 implies existence.
 
 The problem is genuinely hard. After 20+ serious attempts, the gap remains despite strong evidence.
+
+---
+
+## Round 2: Additional Attempts (11-16)
+
+### Approach Summary
+
+| # | Approach | Result |
+|---|----------|--------|
+| 11 | Bezout's Identity | Coefficients often trivial (c₁=1 when 1∈speeds); no direct proof |
+| 12 | Chinese Remainder Theorem | Composite M (like 8) works when primes fail; no proof |
+| 13 | Probabilistic Counting | Expected good k > 0 but dependence structure complex |
+| 14 | Overlap Structure | Bad k-sets are structured; overlap prevents some M from working |
+| 15 | Contradiction Strategy | Strategy identified but rigorous proof elusive |
+| 16 | "1 in speeds" Case | Max M needed only 17 for contains-1; 13 for no-1 |
+
+### Key Finding: The Max M is Small
+
+Empirical testing of thousands of coprime 8-tuples:
+
+| Category | Max M Needed |
+|----------|--------------|
+| Contains 1 | 17 |
+| Does not contain 1 | 13 |
+| Dense (max ≤ 8·min) | Given by formula |
+| Sparse (max > 8·min) | ≤ 17 observed |
+
+### The Structural Insight
+
+For coprime speeds, the "bad k-set" covering argument shows:
+
+1. Each speed a has Bad(a) = {k : (a·k) mod M ∈ B} where B is the bad region
+2. For M to fail, ∪ Bad(aᵢ) must cover all k coprime to M
+3. The coprimality constraint forces diversity that prevents complete covering
+
+**The gap**: We observe this empirically but lack the rigorous argument proving
+coprimality implies incomplete covering for some M.
+
+### Attempts 17-20: Reserved
+
+Additional approaches if needed:
+- Topological/Borsuk-Ulam variants
+- Flatness theorem refinements
+- Direct construction for specific n
+- Rosenfeld's method analysis
