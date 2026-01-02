@@ -293,32 +293,45 @@ Find or create a theorem that converts gcd=1 (additive) to residue-interval memb
 - **METHODOLOGY CHANGE:** Deep attack instead of shallow probes
 - **Approach:** Arc Intersection + Gap Coverage + Equidistribution
 
-#### MAJOR STRUCTURAL DISCOVERY:
+#### MAJOR STRUCTURAL DISCOVERY (Refined):
 
-**The proof splits into TWO cases:**
+**The proof splits into TWO cases based on residues mod (n+1):**
 
-**Case 1 (TIGHT):** Speeds = (1, 2, ..., n)
-- The bound 1/(n+1) is achieved EXACTLY at t = 1/(n+1)
-- The prime formulation FAILS (denominator n+1 is not prime for n ≥ 3)
-- But direct construction works: t = 1/(n+1) satisfies LRC
+**Case 1:** No speed v ≡ 0 (mod n+1)
+- Direct construction: t = 1/(n+1) satisfies LRC
+- At t = 1/(n+1), each speed v has distance ||v/(n+1)|| = min(r, n+1-r)/(n+1) where r = v mod (n+1)
+- Since r ∈ {1,...,n}, distance ≥ 1/(n+1)
+- **STATUS: ✓ COMPLETE**
 
-**Case 2 (SLACK):** Speeds are NOT consecutive
-- Optimal lonely time achieves distance > 1/(n+1)
-- There is "slack" allowing approximation by k/p for prime p
-- Equidistribution → some prime works → LRC holds
+**Case 2:** Some speed v ≡ 0 (mod n+1)
+- t = 1/(n+1) fails (problematic speed lands at origin)
+- A DIFFERENT lonely time must be found
+- Empirical observation: All Case 2 tuples have ML > 1/(n+1) (slack!)
+- Examples:
+  - (1,2,4): ML = 1/3 at t = 1/3 (all three speeds equidistant!)
+  - (1,2,5,6): ML = 2/7 at t = 2/7
+  - (1,4,5,10): ML = 1/3 at t = 1/3
+- **STATUS: OPEN - algebraic proof needed**
 
-#### Key Findings:
-1. For (1,2,3): NO prime has lonely k, but t=1/4 works (denominator 4)
-2. For (2,3,5): slack ≈ 0.036, primes p=17,23,29,31,... work
-3. For (1,5,7): slack ≈ 0.25, many primes work
-4. Tight cases are EXACTLY (1,2,...,n) - the known extremal cases
+#### Key Finding: Equidistant Configurations
+For (1,2,4) at t = 1/3:
+- 1 × 1/3 = 1/3, distance = 1/3
+- 2 × 1/3 = 2/3, distance = 1/3
+- 4 × 1/3 = 4/3 ≡ 1/3, distance = 1/3
+All three distances EQUAL! This suggests looking for t = 1/m where all speeds are coprime to m.
+
+#### Tight Cases Analysis
+Tight cases (ML = 1/(n+1) exactly) include:
+- (1,2,3): t = 1/4
+- (1,2,3,4): t = 1/5
+- (1,3,4,7): t = 1/5 (non-consecutive but still tight!)
+- (1,3,4,5,9): t = 1/6
+
+**Pattern:** All tight cases have no v ≡ 0 (mod n+1) and optimal t = 1/(n+1).
 
 #### Proof Status:
-- **Case 1 (TIGHT):** ✓ COMPLETE - direct construction t = 1/(n+1)
-- **Case 2 (SLACK):** NEEDS:
-  1. Prove non-consecutive coprime speeds always have slack > 0
-  2. Prove slack → some prime works (via equidistribution)
-  3. Establish effective bounds
+- **Case 1:** ✓ COMPLETE - direct construction t = 1/(n+1)
+- **Case 2:** NEEDS algebraic proof that alternative t exists with distance ≥ 1/(n+1)
 
 #### Literature Support (from Kravitz 2021 and subsequent work):
 - The "loneliness spectrum" is DISCRETE, not continuous
