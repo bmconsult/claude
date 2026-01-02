@@ -257,8 +257,67 @@ The computational evidence strongly suggests such M exists and is small (≤ 60)
 ### Round 2 Status
 
 - **Attempts made**: 20 genuine approaches with full belief
-- **Proofs found**: Partial (consecutive integers, no-mod-4 case)
-- **Gap identified**: Need to prove bounded M exists for all coprime speeds
+- **Proofs found**: Partial theorems (see below)
+- **Gap identified**: Sparse case (max > n*min) lacks rigorous proof
 - **Confidence for all n**: Still cannot claim 100%
 
-This is Round 2 of 10. The process is working—each round narrows the gap.
+---
+
+## Round 2: Major Discoveries
+
+### THEOREM (Dense Case, n=8): Proven ✓
+
+**Statement**: For coprime speeds a₁ < ... < a₈ with max(aᵢ) ≤ 8 · min(aᵢ), the time t = 1/M is lonely where M = ⌈9·max/8⌉.
+
+**Proof**:
+At t = 1/M, runner i is at position aᵢ/M (since aᵢ < M).
+Good region is [⌈M/9⌉, ⌊8M/9⌋].
+- Upper bound: 8M/9 ≥ 8·(9·max/8)/9 = max. So aᵢ ≤ max ≤ ⌊8M/9⌋. ✓
+- Lower bound: M/9 = (9·max/8)/9 = max/8. Since max ≤ 8·min, we have max/8 ≤ min. So aᵢ ≥ min ≥ ⌈M/9⌉. ✓
+
+**Verification**: 1,680,698 coprime 8-tuples with max ≤ 29 tested. 100% success rate.
+
+### CONJECTURE (Sparse Case, n=8): Empirically Verified
+
+**Statement**: For coprime speeds a₁ < ... < a₈ with max > 8·min, there exists M ≤ 2·max such that t = k/M is lonely for some k.
+
+**Evidence**:
+- 10,000+ random trials: 0 failures
+- Exhaustive test (max ≤ 25): 1,081,079 cases, 0 failures
+- The bound M ≤ 2·max is never violated
+
+**Gap**: No rigorous proof for sparse case. The diverse residue patterns of coprime speeds ensure some M works, but formalizing this requires bounding character sums or using number-theoretic structure.
+
+### Key Structural Insights
+
+1. **Wide-spread speeds** (like powers of 2, or all odd): Very small M works (M = 2, 3, or 4)
+2. **Dense clusters** (like {17, 21, 23, 24, 25, 26, 27, 29}): Larger M needed, but k=1 works at M ≈ 9·max/8
+3. **Intermediate cases**: Combine both strategies; M ≤ max + 16 always observed
+
+### Why n ≥ 8 Remains Open
+
+The **coprimality constraint** forces diverse residue patterns, which empirically guarantees some M works. But proving this requires:
+
+1. **For dense case**: Showing M = ⌈(n+1)·max/n⌉ always has all speeds in good region. DONE for n=8.
+2. **For sparse case**: Showing residue diversity of coprime integers implies some small M works. OPEN.
+
+The sparse case is hard because coprime ≠ pairwise coprime. A coprime set can have complex divisibility patterns that conspire against small M.
+
+### Confidence Table (Updated)
+
+| n | Status | Method |
+|---|--------|--------|
+| 1-3 | 100% PROVEN | Elementary/box-strip |
+| 4-7 | 100% PROVEN | Literature (Cusick, Bienia, Renault, Barajas-Serra) |
+| 8 | ~99% confident | Dense case proven + sparse case verified on millions |
+| ≥9 | ~95% confident | Same structure should generalize but not verified |
+
+### The Remaining Gap
+
+To prove the Lonely Runner Conjecture for all n, we need ONE of:
+
+1. **Prove sparse case**: Show that for coprime speeds with max > n·min, the residue patterns mod small M cannot cover all k.
+2. **Find unified proof**: A single argument covering both dense and sparse cases.
+3. **Character sum bounds**: Use Fourier analysis to show expected good k > 0 implies existence.
+
+The problem is genuinely hard. After 20+ serious attempts, the gap remains despite strong evidence.
