@@ -421,3 +421,102 @@ This work establishes:
 5. Exhaustive documentation of 20 proof approaches and why they fail
 
 The gap between ~99.9% empirical confidence and 100% proof remains the core challenge.
+
+---
+
+## Round 3: Deep Analysis (20 Additional Attempts)
+
+### Approaches Attempted
+
+| # | Approach | Result |
+|---|----------|--------|
+| 1 | Spread ≤ Width Hypothesis | FAILED - Counterexamples found |
+| 2 | M ≤ 16 for Sparse Case | FAILED - (1,2,3,4,5,7,8,18) needs M=17 |
+| 3 | Certificate Search | Found M ≤ 40 for all tested cases |
+| 4 | Position Constraint | Spread isn't sufficient; position matters |
+| 5 | Constructive Certificate | No rigorous construction |
+| 6 | Position Analysis | Margin tracking doesn't yield proof |
+| 7 | Quadratic Residue Patterns | QR structure constrains but doesn't prove |
+| 8 | Primitive Root / Discrete Log | Rotations in exponent space; no proof |
+| 9 | Pigeonhole on Primes | Diversity forced but not sufficient |
+| 10 | Constructive for Sparse | M ≤ 16 fails for some cases |
+| 11 | Fourier/Character Sums | Dependencies prevent direct analysis |
+| 12 | Hall's Theorem / Bipartite | Wrong abstraction level |
+| 13 | Additive Combinatorics / Sumsets | Sumset bounds don't apply directly |
+| 14 | LLL / Probabilistic | Total dependence (same k for all speeds) |
+| 15 | Orbit Structure | Group action view; no proof |
+| 16 | CRT Decomposition | Composite M works when primes fail |
+| 17 | Hard Case Deep Dive | Collisions key to M=8 working |
+| 18 | Covering Bound Analysis | Most M have perfect covering |
+| 19 | Algebraic / Collision | Collisions reduce constraints |
+| 20 | Final Synthesis | Gap persists |
+
+### Key Discoveries from Round 3
+
+**Discovery 1: The Collision Mechanism**
+
+For hard case (1,2,3,4,5,6,7,9):
+- Working M values ≤ 50: [8, 27, 35, 43, 45]
+- M=8 works because 9 ≡ 1 (mod 8)
+- This creates a "collision" reducing 8 constraints to 7
+- The reduced constraint count allows a gap in bad-set covering
+
+**Discovery 2: Counterexamples to M ≤ 16 Hypothesis**
+
+These sparse coprime 8-tuples require M > 16:
+- (1, 2, 3, 4, 5, 7, 8, 18): First working M = 17
+- (1, 2, 3, 4, 5, 7, 8, 36): First working M = 17
+- (1, 2, 3, 4, 5, 7, 9, 24): First working M = 17
+
+**Discovery 3: First Working M Distribution (100 sparse cases)**
+
+| M Value | Percentage |
+|---------|------------|
+| 7 | ~51% |
+| 8 | ~38% |
+| 9 | ~8% |
+| >9 | ~3% |
+
+Most sparse coprime 8-tuples have small first working M.
+
+**Discovery 4: The CRT Structure**
+
+When individual primes fail, composite M = p₁ × p₂ often works due to:
+- (Z/MZ)* ≅ (Z/p₁Z)* × (Z/p₂Z)*
+- The product structure provides more "room" for residues
+
+### Round 3: Final Status
+
+**THEOREM STATUS FOR LONELY RUNNER (n=8):**
+
+| Case | Status | Proof Method |
+|------|--------|--------------|
+| Dense (max ≤ 8·min) | ✓ PROVEN | M = ⌈9·max/8⌉ with k=1 |
+| Sparse (max > 8·min) | ✗ NOT PROVEN | Empirically verified on millions |
+
+**THE FUNDAMENTAL OBSTACLE:**
+
+The problem mixes:
+- **Additive structure**: coprimality, Bezout identity Σcᵢaᵢ = 1
+- **Multiplicative structure**: residues k·aᵢ mod M, group action
+
+Bridging this gap requires techniques we haven't found. The coprimality constraint is additive; the loneliness condition is multiplicative. Converting between them is the core challenge.
+
+**POTENTIAL APPROACHES FOR FUTURE ROUNDS:**
+
+1. **Collision Existence**: Prove that for coprime speeds, some M has enough collisions
+2. **Probabilistic with Dependencies**: Carefully analyze the dependency structure
+3. **Algebraic Geometry**: View as variety intersection problem
+4. **Analytic Number Theory**: Relate to prime distribution in arithmetic progressions
+
+### Confidence Assessment (Updated)
+
+| Case | Confidence | Basis |
+|------|------------|-------|
+| n ≤ 7 | 100% | Published proofs |
+| n = 8, Dense | 100% | Rigorous proof (this work) |
+| n = 8, Sparse | ~99.99% | Millions verified, no counterexample |
+| Full n=8 | ~95% | Dense proven, sparse empirically verified |
+| n ≥ 9 | ~90% | Same structure should generalize |
+
+The gap between ~99.99% empirical confidence and 100% proof remains open after 60 serious attempts across 3 rounds.
