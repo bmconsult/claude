@@ -1162,76 +1162,69 @@ All approaches that hit **definitive mathematical walls** and cannot lead to pro
 
 ---
 
-## OPEN PATHS (3 distinct approaches with potential)
+## OPEN PATHS — ALL DISPROVED/BLOCKED (Round 9)
 
-### Path 1: Product of Failing Primes Theorem ⭐ MOST PROMISING
+### Path 1: Product of Failing Primes Theorem ❌ DISPROVED
 
-**Status**: 426/426 covering tuples tested → **100% success rate**
+**Status**: COUNTEREXAMPLES FOUND
 
-**Observation**: When primes p₁ and p₂ both fail individually, M = p₁ × p₂ **always works**.
+**Original claim**: When primes p₁ and p₂ both fail individually, M = p₁ × p₂ always works.
 
-**Structural explanation**:
-| Prime pair | |good_p₁| × |good_p₂| | |good_M| | Ratio |
-|------------|------------------------|---------|-------|
-| (11, 13) | 80 | 112 | 1.40 |
-| (11, 17) | 112 | 146 | 1.30 |
-| (13, 17) | 140 | 172 | 1.23 |
-| (17, 19) | 196 | 252 | 1.29 |
+**Counterexamples**:
+| Speeds | p₁ | p₂ | M = p₁p₂ | Rescue Prime |
+|--------|----|----|----------|--------------|
+| (2, 6, 8, 9, 10, 11, 14, 17) | 11 | 19 | 209 FAILS | p=31, k=13 |
+| (2, 6, 8, 10, 11, 14, 17, 18) | 11 | 19 | 209 FAILS | p=31, k=13 |
+| (2, 9, 10, 12, 13, 14, 15, 16) | 11 | 13 | 143 FAILS | p=17, k=3 |
 
-**Why it might work**:
-1. CRT structure: (Z/p₁p₂Z)* ≅ (Z/p₁Z)* × (Z/p₂Z)*
-2. Good region at M is 1.2-1.5× LARGER than product of individual good regions
-3. Failure patterns at p₁ and p₂ are "incompatible" — different speeds block different k values
-4. When combined, the blocking patterns leave gaps
+**Why it fails**: The CRT "room expansion" (|good_M| > |good_p₁| × |good_p₂|) is NOT sufficient. The blocking patterns CAN align even with larger good region.
 
-**Proof path**: Show algebraically that if ∀k ∃i: aᵢk ∈ bad mod p₁, AND ∀k ∃j: aⱼk ∈ bad mod p₂, THEN ∃k: ∀i: aᵢk ∈ good mod p₁p₂.
+**Silver lining**: Every counterexample still has SOME working prime — the Combined Prime Guarantee holds.
 
-**Confidence**: 70% — real structural reason found, needs formal proof
+### Path 2: Finite Covering Type Classification ⚠️ COMPUTATIONALLY VERIFIED, NOT PROVEN
 
-### Path 2: Finite Covering Type Classification (Computer-Assisted)
+**Status**: All 3,660 types verified to have working primes, but no algebraic proof
 
-**Status**: ~721 covering types identified for max ≤ 15
+**Findings**:
+- Found 3,660 distinct covering types (max_speed=25)
+- ALL types verified computationally to have working primes
+- Only 48 distinct divisibility patterns exist (mod LCM(2..9) = 2520)
+- No universal prime works for all types
 
-**Observation**: The "covering structure" (which moduli 2-9 each speed covers) has finitely many types.
+**Prime coverage by type**:
+| Prime | Types covered |
+|-------|---------------|
+| p=43 | 89.2% |
+| p=17 | 87.4% |
+| p=41 | 86.2% |
 
-**Why it might work**:
-1. Each type is defined by: which speeds are divisible by 2, 3, 4, 5, 6, 7, 8, 9
-2. For each type, verify that some prime in {11, 13, 17, 19, 23, 29, 31, 37} works
-3. Computer-assisted proof: exhaustive type enumeration + algebraic verification per type
+**Blocked because**: Converting 3,660 computational checks into algebraic proof requires:
+- Proving types stabilize (don't grow unboundedly)
+- Proving each type algebraically has working prime
+- This is a computer-assisted proof infrastructure project, not a mathematical insight
 
-**Proof path**:
-1. Enumerate all valid covering structures (finite)
-2. For each structure, prove algebraically (or computationally with proof certificate) that some prime works
-3. Union of cases = full proof
+### Path 3: Fourier Correlation Bound ❌ BLOCKED
 
-**Confidence**: 60% — requires significant computational infrastructure
+**Status**: Correlation NOT uniformly helpful
 
-### Path 3: Fourier Correlation Bound
+**Findings**:
+| Prime | E[X] independence | E[X] actual | Ratio |
+|-------|-------------------|-------------|-------|
+| p=11 | 0.78 | 0.54 | 0.69 (WORSE) |
+| p=13 | 1.47 | 2.08 | 1.41 (better) |
+| p=17 | 3.39 | 3.94 | 1.16 (better) |
+| p=29 | 3.07 | 2.04 | 0.67 (WORSE) |
+| p=37 | 3.87 | 2.16 | 0.56 (WORSE) |
 
-**Status**: Positive correlation observed but not quantified
+**Why it fails**: The correlation is NOT uniformly positive. For some primes (11, 29, 31, 37), the actual count is LOWER than independence prediction. The arithmetic progression structure of positions creates both positive AND negative correlations depending on the prime.
 
-**Observation**: Actual count of good k values >> main term prediction
-
-| M | Main term (independence) | Actual count |
-|---|--------------------------|--------------|
-| 17 | 3.39 | 4 |
-| 19 | 1.56 | 0 |
-| 23 | 3.10 | 0 |
-
-**Why it might work**:
-1. The coprime speed structure creates **positive correlation** between "speed i avoids bad" events
-2. If correlation is strong enough, it could push expected count > 1 robustly
-3. This would convert to existence proof via second moment method
-
-**Proof path**: Quantify the correlation structure via Fourier analysis; show E[# good k] > 1 for some M.
-
-**Confidence**: 40% — correlation helps but quantifying it is hard
+**Blocked because**: Cannot prove uniform bound E[X] > 1 when correlation varies by prime.
 
 ---
 
 ## Honest Assessment
 
-After ~70-75 genuinely distinct approaches across 8 rounds:
+After ~70-75 genuinely distinct approaches across 9 rounds:
 
 **PROVEN (100%)**:
 - Case A: Zero-free M ≤ 9 exists → all coprime k work
@@ -1241,13 +1234,14 @@ After ~70-75 genuinely distinct approaches across 8 rounds:
 - Combined Prime Guarantee: primes {11,...,43} cover all cases
 - Maximum first working M: 43 (only 3 cases in entire test set)
 
-**OPEN PATHS (3)**:
-1. Product of Failing Primes — most promising, 70% confidence
-2. Finite Type Classification — computer-assisted, 60% confidence
-3. Fourier Correlation Bound — analytic, 40% confidence
+**ALL OPEN PATHS RESOLVED (Round 9)**:
+1. ~~Product of Failing Primes~~ — **DISPROVED** with 3 counterexamples
+2. ~~Finite Type Classification~~ — COMPUTATIONALLY VERIFIED but requires infrastructure (not a proof)
+3. ~~Fourier Correlation Bound~~ — **BLOCKED** (correlation varies by prime, no uniform bound)
 
 **GAP (not proven)**:
 - Algebraic proof that covering structure → some prime works
 - Bridge from coprimality (additive) to residue avoidance (multiplicative)
+- No remaining algebraic proof paths after Round 9
 
-**The Lonely Runner Conjecture for n = 8 remains at 99.9999% confidence but lacks a 100% rigorous proof. Three open paths remain viable for achieving full proof.**
+**The Lonely Runner Conjecture for n = 8 remains at 99.9999% empirical confidence but lacks a 100% rigorous proof. All known algebraic approaches have been exhausted or blocked. A proof may require fundamentally new techniques.**
