@@ -301,4 +301,71 @@ A proof would require bridging the additive-multiplicative gap—a fundamental n
 
 ---
 
-*Consolidated from 10 rounds of proof attempts, ~65 unique approaches, 177,151+ verified cases.*
+## Appendix B: The 4 "Open Paths" — All Blocked
+
+After the initial consolidation, 4 paths were identified as potentially open. All have now been tested and blocked:
+
+### Path 1: Collision Guarantee ❌ DISPROVED
+
+**Hypothesis**: Covering structure forces collision at some effective prime.
+
+**Finding**: Collision is NOT necessary for success.
+- 6.8% of working primes have all 8 distinct residues (no collision)
+- Example: (1,2,3,5,6,7,8,9) works at p=17 with all 8 distinct residues
+
+**Verdict**: Even proving collision exists wouldn't prove the conjecture.
+
+### Path 2: Cyclotomic / 9th Root Connection ❌ BLOCKED
+
+**Hypothesis**: The good region [1/9, 8/9] relates to cyclotomic structure.
+
+**Finding**: The "9" comes from n+1 where n=8 (problem definition), not number theory.
+- No correlation between p mod 9 and success rates
+- Working k values don't form subgroups or cosets of (ℤ/pℤ)*
+- The good region is an INTERVAL, not a union of cosets
+
+**Verdict**: No cyclotomic leverage exists; the 9 is problem-specific.
+
+### Path 3: Computer-Assisted Type Verification ❌ BLOCKED
+
+**Hypothesis**: Finite covering types can be enumerated and verified.
+
+**Finding**: Types don't stabilize.
+- 121,647 divisibility patterns at max≤25 (grows with max_speed)
+- 22% of patterns have VARIABLE first-working prime
+- Each tuple has a unique residue signature mod 2520
+
+**Verdict**: No finite reduction; would require verifying every individual tuple.
+
+### Path 4: Coprimality → Anti-Covering ❌ BLOCKED
+
+**Hypothesis**: Coprimality prevents bad k-sets from covering all (p,k) pairs.
+
+**Finding**: The additive-multiplicative gap is fundamental.
+- Coprimality gives: Bezout identity Σcᵢaᵢ = 1 (additive)
+- We need: k·aᵢ mod p ∈ [L,R] for some k (multiplicative interval)
+- The hard tuple (3,4,9,13,15,17,21,24) fails 8 consecutive primes before succeeding
+- At each failing prime, bad_k sets cover 100% of coprime k values
+
+**Verdict**: No known theorem bridges additive (Bezout) to multiplicative (interval membership).
+
+---
+
+## Final Summary
+
+After ~70 unique approaches including the 4 "open paths":
+
+| Path | Status | Reason |
+|------|--------|--------|
+| Collision guarantee | DISPROVED | Not necessary (6.8% succeed without) |
+| Cyclotomic connection | BLOCKED | 9 is problem-specific, not number-theoretic |
+| Type verification | BLOCKED | Types don't stabilize, no universal prime |
+| Anti-covering | BLOCKED | Additive-multiplicative gap is fundamental |
+
+**All known algebraic proof paths are now exhausted.**
+
+The Lonely Runner Conjecture for n=8 remains at 99.9999% empirical confidence but lacks a rigorous proof. The fundamental obstacle—bridging additive coprimality to multiplicative interval membership—appears to require a genuinely new technique not yet discovered in number theory.
+
+---
+
+*Consolidated from 10 rounds of proof attempts, ~70 unique approaches, 177,151+ verified cases, 4 "open paths" tested and blocked.*
