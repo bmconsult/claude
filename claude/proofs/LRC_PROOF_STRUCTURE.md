@@ -107,4 +107,38 @@ This would complete the proof since both cases imply LRC.
 
 ---
 
-*Status: Case 1 complete. Case 2 open.*
+## Coverage Analysis Insights
+
+For each speed v, define bad region B_v = {t : ||vt|| < 1/(n+1)}.
+LRC ⟺ ∪_v B_v ≠ [0,1], i.e., bad regions don't cover [0,1].
+
+**Empirical findings:**
+| Tuple | Good Region % | Type |
+|-------|--------------|------|
+| (1,2,3) | ~0.1% | Case 1 (tight) |
+| (1,2,4) | ~12.6% | Case 2 (slack) |
+| (1,2,5,6) | ~12.0% | Case 2 (slack) |
+| (2,3,5) | ~5.2% | Case 1 (slack) |
+
+**Key observation:** Case 2 tuples have much larger good regions than Case 1 tight tuples.
+This suggests that the "obstruction" at t = 1/(n+1) for Case 2 creates slack elsewhere.
+
+---
+
+## Summary
+
+1. **Case 1 is fully proven:** For tuples with no v ≡ 0 (mod n+1), t = 1/(n+1) satisfies LRC.
+
+2. **Case 2 is empirically verified:** All tested tuples with v ≡ 0 (mod n+1) have ML > 1/(n+1).
+
+3. **Algebraic gap:** Need formal proof that Case 2 tuples have ML ≥ 1/(n+1).
+
+**Potential approaches for Case 2:**
+- Diophantine approximation to find suitable m with gcd(v_i, m) = 1 for all i
+- Covering congruence arguments
+- Prime arc intersection with equidistribution
+
+---
+
+*Status: Case 1 complete. Case 2 empirically verified, algebraic proof open.*
+*Round 4 deep attack in progress.*
