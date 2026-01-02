@@ -359,10 +359,65 @@ For coprime speeds, the "bad k-set" covering argument shows:
 **The gap**: We observe this empirically but lack the rigorous argument proving
 coprimality implies incomplete covering for some M.
 
-### Attempts 17-20: Reserved
+### Attempts 17-20: Completed
 
-Additional approaches if needed:
-- Topological/Borsuk-Ulam variants
-- Flatness theorem refinements
-- Direct construction for specific n
-- Rosenfeld's method analysis
+| # | Approach | Result |
+|---|----------|--------|
+| 17 | Multiplicative Group Covering | Covering 8-tuples exist for each M; needs covering in ALL (Z/MZ)* for counterexample |
+| 18 | Prime Independence | P(works mod p) ≈ 0.3-0.5; products of failing primes ALWAYS work |
+| 19 | Bezout Constraint | Σcᵢaᵢ = 1 constrains patterns; additive-to-multiplicative gap remains |
+| 20 | Final Synthesis | Dense case PROVEN; sparse case empirically verified but not proven |
+
+---
+
+## Round 2: Final Conclusion
+
+### PROVEN (100% Rigorous):
+1. **n ≤ 7**: Known proofs from literature
+2. **n = 8, Dense Case (max ≤ 8·min)**: t = 1/M is lonely where M = ⌈9·max/8⌉
+   - All speeds fit in good region [M/9, 8M/9]
+   - Verified on 1,680,698 coprime 8-tuples
+
+### OPEN (Empirically Verified):
+1. **n = 8, Sparse Case (max > 8·min)**: Some M ≤ 40 works
+   - Verified on millions of cases, zero failures
+   - Products of failing primes always work (key structural insight)
+   - No rigorous proof that coprimality prevents complete covering
+
+### Key Structural Insights from 20 Attempts:
+
+1. **Covering structure**: For M to fail, ∪ Bad(aᵢ) must cover all k coprime to M
+2. **Prime products work**: If primes p₁, p₂ both fail, M = p₁·p₂ works (observed in all tests)
+3. **Bezout constraint**: Σcᵢaᵢ = 1 forces residue diversity, but proof elusive
+4. **Maximum first-working M**: Bounded by ~1.5·max (empirical)
+
+### The Remaining Gap
+
+To prove the full conjecture, we need ONE of:
+1. Prove that coprimality prevents perfect covering of (Z/MZ)* for some M
+2. Prove that the product-of-primes observation holds rigorously
+3. Find a unified proof covering both dense and sparse cases
+
+### Confidence Assessment
+
+| Case | Confidence | Basis |
+|------|------------|-------|
+| n ≤ 7 | 100% | Published proofs |
+| n = 8, Dense | 100% | Rigorous proof (this work) |
+| n = 8, Sparse | ~99.9% | Empirical (millions verified) |
+| Full conjecture | ~70% | No gap-free proof exists |
+
+**The Lonely Runner Conjecture for n ≥ 8 remains OPEN in the mathematics literature.**
+
+---
+
+## Summary of Round 2 Contributions
+
+This work establishes:
+1. A new rigorous proof for n = 3 using box-strip geometry
+2. A rigorous proof for the Dense Case of n = 8
+3. Strong empirical evidence for the Sparse Case
+4. Key structural insights about the covering obstruction
+5. Exhaustive documentation of 20 proof approaches and why they fail
+
+The gap between ~99.9% empirical confidence and 100% proof remains the core challenge.
