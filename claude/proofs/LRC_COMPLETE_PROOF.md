@@ -10,6 +10,20 @@ where ||x|| = min({x}, 1-{x}) is the distance to the nearest integer.
 
 ---
 
+## Current Status (January 2026)
+
+| Case | Condition | Status | Method |
+|------|-----------|--------|--------|
+| **Case 1** | No v ≡ 0 (mod n+1) | **PROVEN for ALL n** | Direct construction t = 1/(n+1) |
+| **Case 2** | Some v ≡ 0 (mod n+1), n ≤ 9 | **PROVEN** | Rosenfeld et al. 2025 (finite checking + computation) |
+| **Case 2** | Some v ≡ 0 (mod n+1), n ≥ 10 | **OPEN** | No complete proof yet |
+
+**Overall LRC Status:**
+- n ≤ 10 runners (k ≤ 9 speeds): **PROVEN** (Rosenfeld, Trakulthongchai 2025)
+- n > 10 runners: **OPEN**
+
+---
+
 ## Proof Structure
 
 The proof splits into two cases based on residues modulo (n+1).
@@ -124,18 +138,31 @@ Therefore, there exists k with t = k/p satisfying LRC. ∎
 
 ---
 
-### Remark on Proof Rigor
+### 2025 Breakthrough: Finite Checking Method
 
-The Case 2 proof relies on:
-1. **Empirical verification** (373,824 tuples, all successful)
-2. **Heuristic equidistribution** (main term positive)
-3. **Standard bounds from analytic number theory** (exponential sum estimates)
+The modern approach to Case 2 uses three key results:
 
-A fully rigorous proof would require:
-- Explicit error bounds for the intersection count
-- Proof that error < main term for some computable p₀(n, V)
+**1. Finite Checking (Tao 2018, Malikiosis-Santos-Schymura 2025):**
+- To prove LRC for n runners, only need to check speeds up to n^{2n}
+- Uses zonotopal reinterpretation of the conjecture
+- MSS improved Tao's original n^{O(n²)} bound
 
-The empirical evidence (100% success rate, ~98% of primes working) strongly supports the theorem. The gap is in making the error analysis fully explicit.
+**2. Prime Divisor Counting (Rosenfeld 2025):**
+- Any minimal counterexample must have specific prime structure
+- Count small prime divisors in speed product
+- Lower bound on product exceeds upper bound → contradiction
+
+**3. Computer Verification:**
+- Exhaustively check all cases within the bounded region
+- Combined with theoretical bounds = rigorous proof
+
+**Result:** LRC proven for n ≤ 10 runners (Rosenfeld, Trakulthongchai 2025).
+
+**References:**
+- Malikiosis, Santos, Schymura (2025): "Linearly exponential checking is enough for LRC"
+- Rosenfeld (2025): "The lonely runner conjecture holds for eight runners"
+- Rosenfeld (2025): "The lonely runner conjecture holds for nine runners"
+- Trakulthongchai (2025): "Nine and ten lonely runners"
 
 ---
 

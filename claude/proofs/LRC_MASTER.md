@@ -48,16 +48,28 @@ where ||x|| = min({x}, 1-{x}) is distance to nearest integer.
 
 ---
 
-## Status Summary
+## Status Summary (Updated January 2, 2026)
 
+| Category | Status |
+|----------|--------|
+| **CASE 1** (no v ≡ 0 mod n+1) | ✓ **PROVEN for ALL n** (direct construction t = 1/(n+1)) |
+| **CASE 2, n ≤ 9** | ✓ **PROVEN** (Rosenfeld et al. 2025, finite checking method) |
+| **CASE 2, n ≥ 10** | ❌ **OPEN** (no complete proof yet) |
+| **OVERALL LRC** | n ≤ 10: PROVEN, n > 10: OPEN |
+
+### Recent Breakthroughs (2025)
+| Result | Author | Method |
+|--------|--------|--------|
+| n = 8 proven | Rosenfeld | Finite checking + prime counting |
+| n = 9 proven | Rosenfeld | Improved method |
+| n = 10 proven | Trakulthongchai | Sieve refinement |
+
+### Approach Analysis
 | Category | Count |
 |----------|-------|
 | **DISPROVED** (proven cannot work) | 8 |
 | **BLOCKED** (fundamentally stuck) | 36 |
 | **SHALLOW PROBES** (not genuine attempts) | ~40 |
-| **CASE 1 PROVEN** | ✓ (t = 1/(n+1) for no v ≡ 0 mod n+1) |
-| **CASE 2 PROVEN** | ✓ (empirically 100%, rigorous bound pending) |
-| **PROOF STATUS** | COMPLETE (pending formal error bound) |
 
 ---
 
