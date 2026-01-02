@@ -1245,3 +1245,101 @@ After ~70-75 genuinely distinct approaches across 9 rounds:
 - No remaining algebraic proof paths after Round 9
 
 **The Lonely Runner Conjecture for n = 8 remains at 99.9999% empirical confidence but lacks a 100% rigorous proof. All known algebraic approaches have been exhausted or blocked. A proof may require fundamentally new techniques.**
+
+---
+
+## Round 10: Deep Structural Analysis (6 Approaches)
+
+After fixing a critical bug in the covering definition, Round 10 focused on understanding WHY p ≤ 43 suffices.
+
+### Corrected Covering Definition
+
+**Bug found**: Previous is_covering function checked wrong condition.
+
+**Correct definition**: A tuple is *covering* if for NO M ∈ {2,...,9} are ALL speeds in the good region [ceil(M/9), floor(8M/9)].
+
+**Impact**: With correct definition, 177,151 covering tuples exist (max_speed ≤ 25), all verified to have working prime ≤ 43.
+
+### Attempt 1: Interval Intersection Structure
+
+**Key finding**: For prime p and speed a, valid k values form circular intervals in ℤ/pℤ. Success requires 8 intervals to have non-empty intersection.
+
+**Result**: Hard tuples show "rotating holdouts" - at each prime, a DIFFERENT speed fails:
+- p=11: holdout 21 (misses by 1)
+- p=13: holdout 13 (misses by 2)
+- p=17: holdout 17 (misses by 2)
+- p=19: holdout 9 (misses by 2)
+- p=43: **all 8 succeed**
+
+**Status**: BLOCKED - reveals structure but no algebraic proof.
+
+### Attempt 2: Probability/Counting
+
+**Key finding**: Failure probabilities are positively correlated - tuples failing one prime are more likely to fail others.
+
+| Primes failed | Count | Cumulative P |
+|---------------|-------|--------------|
+| 0 | 57,020 | - |
+| 5 | 1,694 | 1.0% |
+| 9 | 1 | 5.6×10⁻⁶ |
+| 10 | 0 | **0** |
+
+**Status**: BLOCKED - shows probabilistic structure, no algebraic proof.
+
+### Attempt 3: CRT Structure
+
+**Key finding**: Residues mod p COMPLETELY determine whether p works. Zero inconsistency across all primes tested.
+
+**Result**: 177,151 distinct residue classes mod LCM(2,...,9)=2520, each with consistent prime behavior.
+
+**Status**: BLOCKED - confirms determinism but no closed-form condition.
+
+### Attempt 4: Extremal Construction
+
+**Finding**: Cannot construct covering tuple needing p > 43, even with max_speed = 100.
+
+**Deliberate attempts**:
+- Including primes {11, 13, 17, 19} as speeds → still works at p=37
+- Dense highly-composite tuples → work at small primes
+
+**Status**: BLOCKED - confirms bound but no proof of why.
+
+### Attempt 5: Graph Theory (Hypergraph Cover)
+
+**Model**: Vertices = covering tuples, Hyperedge_p = tuples where p works.
+
+**Findings**:
+- Every tuple has at least 1 working prime (min degree = 1)
+- 8 "bottleneck" tuples work at ONLY one prime each
+- Greedy set cover needs 6 primes: {43, 23, 17, 13, 29, 41}
+
+**Bottleneck tuples**:
+- (1, 2, 3, 5, 7, 8, 17, 18) → works ONLY at p=41
+- (1, 2, 6, 7, 8, 9, 10, 11) → works ONLY at p=17
+
+**Status**: BLOCKED - reveals essential primes but no algebraic proof.
+
+### Attempt 6: Algebraic Bound Derivation
+
+**Key quantitative finding**: "Bad" pattern rates drop rapidly with prime:
+- p=11: 88.9% of residue patterns are bad
+- p=13: 48.6% are bad
+- p=17: only 2.0% are bad
+
+**The algebraic question**: Is the intersection of "bad at all primes 11-43" with "covering constraint" empty?
+
+**Challenge**: Covering constraint (mod 2-9) is coprime to primes 11-43, so constraints interact indirectly through actual speed values.
+
+**Status**: BLOCKED - quantitative bounds but no algebraic proof.
+
+### Round 10 Conclusion
+
+All 6 approaches confirm and illuminate the computational result:
+- **177,151 covering tuples** verified (max_speed ≤ 25)
+- **Maximum prime needed: 43** (only 1 tuple)
+- **Bottleneck structure**: 8 tuples work at exactly 1 prime each
+- **Rotating holdouts**: Hard tuples fail at each prime due to different speeds
+
+**The fundamental gap remains**: We cannot prove algebraically that every covering tuple has SOME working prime ≤ 43. The constraint intersection appears to require computational verification.
+
+**This may be intrinsic to the problem**: The Lonely Runner Conjecture has resisted proof for 50+ years, and the n=8 case may genuinely require computer-assisted verification rather than purely algebraic proof.
