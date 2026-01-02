@@ -982,18 +982,18 @@ LLL condition fails for ALL primes tested.
 
 | Round | Attempts | Key Finding |
 |-------|----------|-------------|
-| 1 | 20 | Basic framework, Case A/B dichotomy |
+| 1 | 20 | Basic framework, 20 approaches exhausted |
 | 2 | 20 | Dense case proven, small M observation |
 | 3 | 20 | Collision mechanism, CRT structure |
 | 4 | 20 | Zero-free M lemma, probabilistic bounds |
-| 5 | 20 | Deep collision analysis, exhaustive testing |
-| 6 | 20 | Combined Prime Guarantee, p=17 near-universality |
+| 5 | 1 | Deep collision analysis (single deep approach per user guidance) |
+| 6 | — | Verification round: Combined Prime Guarantee, 663,566 cases |
 | 7 | 20 | 20 approaches definitively disproved |
-| **Total** | **140** | **Fundamental obstacle confirmed** |
+| **Total** | **101** | **Fundamental obstacle confirmed** |
 
 ### Honest Assessment
 
-After 140 rigorous attempts across 7 rounds:
+After 101 rigorous attempts across 7 rounds:
 
 **PROVEN (100%)**:
 - Case A: Zero-free M ≤ 9 exists → all coprime k work
