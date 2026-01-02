@@ -28,7 +28,23 @@ where ||x|| = min({x}, 1-{x}) is distance to nearest integer.
 | P(actually correct \| appears correct) | 10% (1/10) |
 | P(actually correct) | 0.5% (1/200) |
 | Strategy | 10 rounds × 20 attempts = 200 total |
-| Current round | 2 of 10 |
+| Current round | 4 of 10 |
+
+### METHODOLOGICAL CORRECTION (Round 4+)
+
+**Problem identified:** Rounds 2-3 were exploratory probes, not genuine attempts. "Does X apply?" ≠ "I believe X WILL crack this."
+
+**The difference:**
+| Exploratory Probe | Genuine Attempt |
+|-------------------|-----------------|
+| Quick check, hit wall, move on | Push through walls, find workarounds |
+| "Blocked" = I couldn't see how | "Blocked" = fundamentally impossible |
+| ~20 shallow attempts per round | ~1-3 deep attacks per round |
+
+**Correction for Round 4+:** Pick ONE promising direction. Attack with full belief until either:
+1. Proof succeeds
+2. Rigorous impossibility proven
+3. Every variation exhausted
 
 ---
 
@@ -36,9 +52,10 @@ where ||x|| = min({x}, 1-{x}) is distance to nearest integer.
 
 | Category | Count |
 |----------|-------|
-| **DISPROVED** (proven cannot work) | 7 |
-| **BLOCKED** (stuck, need new insight) | 18 |
-| **OPEN** (untried or partially explored) | ? |
+| **DISPROVED** (proven cannot work) | 8 |
+| **BLOCKED** (stuck, need new insight) | 37 |
+| **SHALLOW PROBES** (not genuine attempts) | ~40 |
+| **DEEP ATTACKS** | 0 |
 | **PROOF FOUND** | 0 |
 
 ---
@@ -80,11 +97,16 @@ where ||x|| = min({x}, 1-{x}) is distance to nearest integer.
 **Why it fails:** Works for (1,2,...,n) with t=1/(n+1), but no general construction found.
 **Verdict:** Special cases work, general case elusive.
 
+### 8. Ramsey Coloring
+**Idea:** Color residue classes, use Ramsey to force monochromatic structure.
+**Why it fails:** Ramsey numbers R(n,n) grow exponentially. Need R(n,n) colors distinguishable mod p, but p can be much smaller than R(n,n). No way to force the needed structure.
+**Verdict:** Ramsey numbers don't interact usefully with prime structure.
+
 ---
 
 ## BLOCKED APPROACHES (Need New Insight)
 
-### 8. Arc Intersection Problem
+### 9. Arc Intersection Problem
 **Idea:** At prime p, valid k values for speed vᵢ form an "arc" in Z/pZ. Need ∩ᵢ Arc(vᵢ) ≠ ∅.
 **Current state:** Each arc has size (n-1)p/(n+1). Intersection depends on arc positions (determined by speeds). Cannot prove intersection always nonempty.
 **What's needed:** Proof that coprime speeds force favorable arc positions.
@@ -252,14 +274,44 @@ Find or create a theorem that converts gcd=1 (additive) to residue-interval memb
 - Adversarial review found fatal gaps
 - **Status: DISPROVED**
 
-### Round 2 (Current Session)
-- 20 distinct approaches attempted
+### Round 2
+- 20 distinct approaches attempted (shallow probes)
 - 0 proofs found
 - 5 approaches definitively disproved
 - 15 approaches blocked
 - **Status: COMPLETE (no proof)**
 
-### Rounds 3-10
+### Round 3
+- 20 additional approaches attempted (still shallow probes)
+- Approaches: Ramsey coloring (DISPROVED), Combinatorial Nullstellensatz, Spectral graph theory, Entropy/Information theory, Symmetric functions, Matroid theory, Generating functions, Additive energy, Tensor methods, Lonely prime contrapositive, Hensel lifting, Bertrand's postulate, Quadratic reciprocity, Primitive roots, Large sieve, Inclusion-exclusion + Möbius, Probabilistic alteration, Extremal set theory, Weil bounds, Direct arc geometry
+- 0 proofs found
+- 1 approach disproved (Ramsey)
+- 19 approaches blocked
+- **Status: COMPLETE (no proof)**
+
+### Round 4: Deep Attack on Arc Intersection via Equidistribution
+- **METHODOLOGY CHANGE:** Deep attack instead of shallow probes
+- **Approach:** Arc Intersection + Gap Coverage + Equidistribution
+- **Key Findings:**
+  1. Arc intersection ⟺ Gap coverage < 100%
+  2. Random gaps cover circle with probability C(n) < 1 for all n ≥ 2
+     - n=3: C(3) ≈ 27%
+     - n=8: C(8) ≈ 6%
+  3. Gap positions = f(speed inverses mod p)
+  4. By equidistribution of multiplicative inverses, gap positions become "generic" as p → ∞
+  5. Therefore, density 1-C(n) > 0 of primes have non-covering gaps = working primes
+- **Proof Sketch:**
+  - Reformulate LRC as gap non-coverage
+  - Use equidistribution of (v₁⁻¹/p, ..., vₙ⁻¹/p) as p → ∞
+  - Conclude positive density of primes work
+- **Gap in Proof:**
+  - Need rigorous equidistribution theorem for tuples of multiplicative inverses
+  - Need effective bound on first working prime
+  - Standard Chebotarev/Linnik may not directly apply
+- **Empirical:** first_working_prime ≤ 0.22 × max(speed) for all tested tuples
+- **Status: BLOCKED - need number-theoretic formalization**
+
+### Rounds 5-10
 - **Status: PENDING**
 
 ---
@@ -283,5 +335,7 @@ Find or create a theorem that converts gcd=1 (additive) to residue-interval memb
 ---
 
 *Last updated: January 2, 2026*
-*Total unique approaches: ~25*
-*Status: Round 2 complete, Rounds 3-10 pending*
+*Shallow probes: ~60 (Rounds 1-3)*
+*Deep attacks: 1 (Round 4 - Equidistribution approach)*
+*Status: Round 4 BLOCKED on number-theoretic formalization*
+*Most promising lead: Equidistribution of inverses + coverage probability < 1*
