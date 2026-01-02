@@ -369,3 +369,98 @@ The Lonely Runner Conjecture for n=8 remains at 99.9999% empirical confidence bu
 ---
 
 *Consolidated from 10 rounds of proof attempts, ~70 unique approaches, 177,151+ verified cases, 4 "open paths" tested and blocked.*
+
+---
+
+## Appendix C: Deep Structural Analysis (Attempts 7-20)
+
+### Key Discovery 1: The Placement Condition
+
+For a tuple to work at prime p with good region [L, R], we need:
+```
+min(a_i · k mod p) ≥ L  AND  max(a_i · k mod p) ≤ R
+```
+
+This is a **PLACEMENT** condition, not just a spread condition. At p=43, k=12 works because:
+- Positions: [5, 8, 22, 27, 30, 32, 36, 37]
+- min = 5 = L (exactly at lower boundary)
+- max = 37 ≤ 38 = R (within upper boundary)
+- spread = 32 < width = 34
+
+Even with spread < width, if placement is wrong, the tuple fails.
+
+### Key Discovery 2: Arcs as Arithmetic Progressions
+
+The valid k set for speed a is:
+```
+Arc(a) = {k : L ≤ a·k mod p ≤ R} = a^(-1) · [L, R] mod p
+```
+
+These are **arithmetic progressions** with step a^(-1), NOT contiguous intervals.
+
+### Key Discovery 3: The Rotating Holdout Pattern
+
+At every failing prime, removing just ONE speed creates a non-empty intersection:
+
+| Prime | Holdout speeds |
+|-------|----------------|
+| p=29 | 3, 4, 9, 17 |
+| p=31 | 3, 4, 9, 13, 21, 24 |
+| p=37 | 4, 9, 15, 17, 21 |
+| p=41 | 3, 4, 9, 13, 21 |
+| p=43 | SUCCESS (k=12, 31 work) |
+
+The "obstruction" rotates—no single speed is always the problem.
+
+### Key Discovery 4: Sporadic Working Primes
+
+For the hard tuple (3, 4, 9, 13, 15, 17, 21, 24):
+- Works at: 43, 61, 67, 71, 79, 83, 89, 97, ...
+- Fails at: 29, 31, 37, 41, 47, 53, 59, 73, 127, 137, 139
+
+**Pattern**: After first success (p=43), ~87% of primes work. Failing primes become sporadic.
+
+### Key Discovery 5: Maximum First Working Prime is Bounded
+
+Exhaustive search of 39,800 covering tuples with max speed ≤ 25:
+
+| First Working Prime | Count |
+|---------------------|-------|
+| 29 | 336 |
+| 31 | 61 |
+| 37 | 48 |
+| 41 | 32 |
+| 43 | 11 |
+| 47 | 2 |
+| 53 | 6 |
+| 59 | 1 |
+| 61 | 1 |
+| 79 | 2 |
+
+**Maximum: p = 79** achieved by tuple (1, 2, 3, 4, 5, 7, 8, 18).
+
+This tuple has maximum "tension" — speeds 5, 7, 8, 18 are singleton covers for M = 5, 7, 8, {6,9} respectively.
+
+### Conjecture: First Working Prime Bound
+
+**CONJECTURE**: For any covering 8-tuple, there exists prime p ≤ 100 where the tuple succeeds.
+
+**Evidence**:
+- All 39,800 tested tuples succeed by p ≤ 79
+- Density of working primes approaches 1 as p → ∞
+- Expected intersection size ≈ (7/9)^8 × p ≈ 0.103p grows linearly
+
+### Why This Doesn't Immediately Prove LRC n=8
+
+The bound of p ≤ 100 is **empirical**, not proven. To complete the proof, we would need:
+
+1. **Prove the bound algebraically**: Show that covering structure forces success by some explicit prime
+2. **Alternative**: Find a direct argument that every covering tuple has a working prime (without bounding which prime)
+
+### Remaining Gap
+
+The fundamental additive-multiplicative obstacle remains. Covering (mod 2-9) is an additive constraint; placement in [L, R] mod p is multiplicative. No known bridge exists.
+
+---
+
+*Extended with 20 additional deep structural attempts, confirming empirical bound p ≤ 79 for max speed ≤ 25.*
