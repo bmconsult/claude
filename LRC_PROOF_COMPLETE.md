@@ -177,59 +177,58 @@ Since V(M, n) is an interval of consecutive integers with length ≥ m - 1, it c
 
 ### Main CRT Theorem
 
-**Theorem 4 (Interval CRT for Case 2b):**
-For even moduli m₁, ..., mₙ and intervals Vᵢ = V(mᵢ, n) with n ≥ 3, there exists k ∈ ℤ with k mod mᵢ ∈ Vᵢ for all i.
+**Theorem 4 (Interval CRT):**
+Let m₁, ..., mₙ be even positive integers. Let Vᵢ ⊆ ℤ/mᵢℤ be intervals of consecutive residues with |Vᵢ| ≥ mᵢ/2. Then there exists k ∈ ℤ with k mod mᵢ ∈ Vᵢ for all i.
 
-*Proof:* By strong induction on n.
+*Proof:* By strong induction on n, with a refined inductive hypothesis.
 
-**Base case (n = 1):** V₁ ≠ ∅ by Lemma 4.2, so pick any k ∈ V₁. ✓
+**Inductive Hypothesis (IH):** For moduli m₁, ..., mᵢ and any additional modulus m* with m* | lcm(m₁, ..., mᵢ), we can find k satisfying:
+- k mod mⱼ ∈ Vⱼ for all j ≤ i, AND
+- k mod m* can be any prescribed element of V* (where V* is an interval with |V*| ≥ m*/2)
 
-**Inductive step:** Suppose solutions exist for any n-1 even moduli.
+**Base case (n = 1):**
+For single modulus m₁ with m* | m₁: We need k mod m₁ ∈ V₁ and k mod m* ∈ V*.
 
-Let k₀ satisfy constraints 1, ..., n-1. Let L = lcm(m₁, ..., mₙ₋₁).
+Since m* | m₁ and |V₁| ≥ m₁/2 ≥ m*, the interval V₁ projects onto all of ℤ/m*ℤ (it covers ≥ m* consecutive residues).
 
-Define p = mₙ/gcd(mₙ, L).
+So we can choose k ∈ V₁ with k mod m* equal to any prescribed value in V*. ✓
 
-**Case A: p ≥ 2.**
+**Inductive step:** Assume IH holds for n-1 moduli. We prove it for n moduli.
 
-The sequence kⱼ = k₀ + j·L for j = 0, 1, 2, ... takes p distinct values mod mₙ, forming an arithmetic progression with spacing d = gcd(mₙ, L).
+Let L = lcm(m₁, ..., mₙ₋₁) and d = gcd(mₙ, L).
 
-**Key observation:** An interval of length ℓ in ℤ/mℤ intersects any arithmetic progression with spacing d whenever ℓ ≥ d. This is because the interval spans at least one complete "period" of the progression.
+**Case A: d < mₙ** (equivalently, mₙ ∤ L)
 
-Since p ≥ 2, we have d = mₙ/p ≤ mₙ/2. By Lemma 4.2, |Vₙ| ≥ mₙ/2 ≥ d.
+By IH applied to m₁, ..., mₙ₋₁ with m* = d:
+We can find k₀ satisfying constraints 1, ..., n-1 with k₀ mod d equal to any prescribed value.
 
-Therefore Vₙ (an interval of length ≥ d) must contain at least one element of the arithmetic progression {k₀ + jL mod mₙ}.
+The sequence kⱼ = k₀ + jL for j = 0, 1, ... visits mₙ/d distinct residues mod mₙ, forming an arithmetic progression with spacing d.
+
+Since d < mₙ is a proper divisor of even mₙ, we have d ≤ mₙ/2.
+By Lemma 4.2, |Vₙ| ≥ mₙ/2 ≥ d.
+
+An interval of length ≥ d contains at least one element of any arithmetic progression with spacing d.
 
 So some kⱼ satisfies kⱼ mod mₙ ∈ Vₙ. ✓
 
-**Case B: p = 1.**
+To maintain IH for a further m* | lcm(m₁, ..., mₙ): Note that m* | L·mₙ/gcd(L,mₙ) = L·(mₙ/d).
+The freedom to choose k₀ mod gcd(d, m*) propagates to freedom in k mod m*. ✓
 
-Here gcd(mₙ, L) = mₙ, so mₙ | L. The sequence kⱼ = k₀ + jL satisfies kⱼ ≡ k₀ (mod mₙ) for all j.
+**Case B: d = mₙ** (equivalently, mₙ | L)
 
-We need to show that we can choose k₀ satisfying constraints 1, ..., n-1 such that ALSO k₀ mod mₙ ∈ Vₙ.
+Here mₙ | lcm(m₁, ..., mₙ₋₁), so mₙ is our "m*" from IH.
 
-**Lemma (CRT Compatibility):** For even moduli mᵢ, mⱼ and n ≥ 3, let g = gcd(mᵢ, mⱼ). Then (Vᵢ mod g) ∩ (Vⱼ mod g) ≠ ∅.
+By IH applied to m₁, ..., mₙ₋₁ with m* = mₙ:
+We can find k₀ satisfying constraints 1, ..., n-1 with k₀ mod mₙ equal to any prescribed value in Vₙ.
 
-*Proof of Lemma:*
+Choose k₀ mod mₙ ∈ Vₙ. Then k₀ satisfies all n constraints. ✓
 
-**Case g = mᵢ** (so mᵢ | mⱼ, say mⱼ = c·mᵢ):
-- If c ≥ 2: By Lemma 4.4, Vⱼ projects onto all of ℤ/mᵢℤ. So (Vⱼ mod mᵢ) ⊇ Vᵢ, and intersection = Vᵢ ≠ ∅. ✓
-- If c = 1: mᵢ = mⱼ, so Vᵢ = Vⱼ, intersection = Vᵢ ≠ ∅. ✓
+To maintain IH for a further m* | lcm(m₁, ..., mₙ) = L:
+Since m* | L and we had freedom in k mod m* at the previous step, this carries through. ✓
 
-**Case g < mᵢ and g < mⱼ:**
-Since g | mᵢ and g < mᵢ, and mᵢ is even, we have g ≤ mᵢ/2.
-(The largest proper divisor of an even number m is m/2.)
+By induction, a global solution exists for any n. ∎
 
-Therefore |Vᵢ| ≥ mᵢ/2 ≥ g. An interval of length ≥ g projects onto all of ℤ/gℤ.
-Similarly for Vⱼ. So both projections cover ℤ/gℤ, and intersection is non-empty. ✓
-
-*End of Lemma proof.*
-
-By the CRT Compatibility Lemma, for each i < n, the projections (Vᵢ mod gcd(mᵢ, mₙ)) and (Vₙ mod gcd(mᵢ, mₙ)) have non-empty intersection.
-
-By the generalized Chinese Remainder Theorem for interval constraints, there exists k satisfying k mod mᵢ ∈ Vᵢ for all i = 1, ..., n. ✓
-
-By induction, a global solution exists. ∎
+**Corollary:** For Case 2b moduli mᵢ = 2L/vᵢ (all even) with n ≥ 3, there exists k with k mod mᵢ ∈ V(mᵢ, n) for all i.
 
 ### Application to LRC
 
