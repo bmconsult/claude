@@ -201,13 +201,23 @@ An interval of length ≥ d on ℤ/mₙℤ must contain at least one element of 
 
 **Case B: d = mₙ**
 
-Then mₙ | L. Since L = lcm(m₁, ..., mₙ₋₁) and each mᵢ ≥ mₙ for i < n, this means mₙ | mᵢ for some i < n.
+Then mₙ | L. We show that a solution k₀ to the first n-1 constraints can be chosen with k₀ mod mₙ ∈ Vₙ.
 
-Say mᵢ = c·mₙ with c ≥ 1.
+**Sub-case B1:** mₙ = mᵢ for some i < n.
 
-- **If c ≥ 2:** |Vᵢ| ≥ mᵢ/2 = c·mₙ/2 ≥ mₙ. So Vᵢ (an interval of length ≥ mₙ) contains all residues mod mₙ. The constraint k₀ mod mᵢ ∈ Vᵢ already guarantees k₀ mod mₙ can be any value, so we can ensure k₀ mod mₙ ∈ Vₙ. ✓
+Then Vₙ = Vᵢ (same modulus gives same valid set). The constraint k₀ mod mᵢ ∈ Vᵢ is exactly k₀ mod mₙ ∈ Vₙ. Already satisfied. ✓
 
-- **If c = 1:** mᵢ = mₙ, so Vᵢ = Vₙ (same valid set for same modulus). The constraint k₀ mod mᵢ ∈ Vᵢ is exactly k₀ mod mₙ ∈ Vₙ. Already satisfied. ✓
+**Sub-case B2:** mₙ < mᵢ for all i < n (mₙ is strictly the smallest).
+
+Write mₙ = ∏ⱼ qⱼ^{aⱼ} as a product of prime powers. Since mₙ | L = lcm(m₁,...,mₙ₋₁), for each prime power qⱼ^{aⱼ} || mₙ, there exists iⱼ < n with qⱼ^{aⱼ} | mᵢⱼ.
+
+Since mᵢⱼ > mₙ ≥ qⱼ^{aⱼ} and qⱼ^{aⱼ} | mᵢⱼ, we have mᵢⱼ ≥ 2·qⱼ^{aⱼ}.
+
+Therefore |Vᵢⱼ| ≥ mᵢⱼ/2 ≥ qⱼ^{aⱼ}. Since Vᵢⱼ is an interval of ≥ qⱼ^{aⱼ} consecutive integers, it projects surjectively onto ℤ/qⱼ^{aⱼ}ℤ.
+
+This holds for every prime power of mₙ. By CRT on ℤ/mₙℤ ≅ ∏ⱼ ℤ/qⱼ^{aⱼ}ℤ, the constraints from m₁,...,mₙ₋₁ allow every residue class mod mₙ.
+
+Therefore, among all solutions k₀ to the first n-1 constraints, we can choose one with k₀ mod mₙ ∈ Vₙ. ✓
 
 By induction, a global solution exists. ∎
 
@@ -270,8 +280,10 @@ All cases are exhaustive and covered algebraically. ∎
 
 ## Key Innovations
 
-1. **Projection Coverage Lemma (4.4):** When m | M with M ≥ 2m, the interval V(M, n) projects onto all residues mod m. This resolves the p = 1 case in CRT induction.
+1. **Prime-Power Projection (Theorem 4, Case B2):** When mₙ | L but mₙ is strictly the smallest modulus, each prime power of mₙ divides some larger mᵢ. Since mᵢ ≥ 2·qⱼ^{aⱼ}, the valid set Vᵢ projects surjectively onto ℤ/qⱼ^{aⱼ}ℤ. By CRT, all residues mod mₙ are achievable.
 
 2. **Measure-Theoretic Existence (3.1):** For coprime speeds, bad regions have total measure 8/9 < 1, so good times exist with positive measure.
 
-3. **Even Moduli Structure (4.3):** Case 2b moduli are always even, which enables the CRT induction to work.
+3. **Even Moduli Structure (4.3):** Case 2b moduli are always even, which ensures the majority bound |V| ≥ m/2 holds for n = 3.
+
+4. **Decreasing Order Processing:** Processing moduli in decreasing order (m₁ ≥ ... ≥ mₙ) ensures that in Case B, either mₙ equals some earlier modulus, or it's strictly smaller and the prime-power argument applies.
