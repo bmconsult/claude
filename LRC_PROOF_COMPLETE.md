@@ -204,13 +204,30 @@ So some kⱼ satisfies kⱼ mod mₙ ∈ Vₙ. ✓
 
 **Case B: p = 1.**
 
-Here gcd(mₙ, L) = mₙ, so mₙ | L = lcm(m₁, ..., mₙ₋₁).
+Here gcd(mₙ, L) = mₙ, so mₙ | L. The sequence kⱼ = k₀ + jL satisfies kⱼ ≡ k₀ (mod mₙ) for all j.
 
-This means mₙ | mᵢ for some i < n (or mₙ divides a product of prime powers from different moduli).
+We need to show that we can choose k₀ satisfying constraints 1, ..., n-1 such that ALSO k₀ mod mₙ ∈ Vₙ.
 
-By Lemma 4.4, the projection of Vᵢ mod mₙ covers all of ℤ/mₙℤ ⊇ Vₙ.
+**Lemma (CRT Compatibility):** For even moduli mᵢ, mⱼ and n ≥ 3, let g = gcd(mᵢ, mⱼ). Then (Vᵢ mod g) ∩ (Vⱼ mod g) ≠ ∅.
 
-Therefore, we can choose k₀ such that k₀ mod mₙ ∈ Vₙ. ✓
+*Proof of Lemma:*
+
+**Case g = mᵢ** (so mᵢ | mⱼ, say mⱼ = c·mᵢ):
+- If c ≥ 2: By Lemma 4.4, Vⱼ projects onto all of ℤ/mᵢℤ. So (Vⱼ mod mᵢ) ⊇ Vᵢ, and intersection = Vᵢ ≠ ∅. ✓
+- If c = 1: mᵢ = mⱼ, so Vᵢ = Vⱼ, intersection = Vᵢ ≠ ∅. ✓
+
+**Case g < mᵢ and g < mⱼ:**
+Since g | mᵢ and g < mᵢ, and mᵢ is even, we have g ≤ mᵢ/2.
+(The largest proper divisor of an even number m is m/2.)
+
+Therefore |Vᵢ| ≥ mᵢ/2 ≥ g. An interval of length ≥ g projects onto all of ℤ/gℤ.
+Similarly for Vⱼ. So both projections cover ℤ/gℤ, and intersection is non-empty. ✓
+
+*End of Lemma proof.*
+
+By the CRT Compatibility Lemma, for each i < n, the projections (Vᵢ mod gcd(mᵢ, mₙ)) and (Vₙ mod gcd(mᵢ, mₙ)) have non-empty intersection.
+
+By the generalized Chinese Remainder Theorem for interval constraints, there exists k satisfying k mod mᵢ ∈ Vᵢ for all i = 1, ..., n. ✓
 
 By induction, a global solution exists. ∎
 
