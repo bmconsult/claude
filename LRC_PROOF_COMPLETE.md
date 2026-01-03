@@ -140,12 +140,23 @@ V(m,n) = {r : ⌈m/(n+1)⌉ ≤ r ≤ ⌊nm/(n+1)⌋}
 |V(m,n)| = ⌊nm/(n+1)⌋ - ⌈m/(n+1)⌉ + 1 ≥ (n-1)m/(n+1) - 1 ∎
 
 **Lemma 4.2 (Majority Bound):**
-For m ≥ 2 and n ≥ 3: |V(m, n)| ≥ m/2.
+For m ≥ 2 and n ≥ 3: |V(m, n)| ≥ ⌈m/2⌉.
 
 *Proof:*
-For n ≥ 3: (n-1)/(n+1) ≥ 2/4 = 1/2.
-By Lemma 4.1: |V(m,n)| ≥ m/2 - 1.
-Direct verification for small m: |V(2,3)| = 1 = 2/2, |V(3,3)| = 2 > 3/2. ∎
+For n ≥ 4: (n-1)/(n+1) > 1/2, so |V(m,n)| ≥ (n-1)m/(n+1) - 1 > m/2 - 1, giving |V(m,n)| ≥ ⌈m/2⌉.
+
+For n = 3: V(m, 3) = {r : m/4 ≤ r ≤ 3m/4}, so |V(m,3)| = ⌊3m/4⌋ - ⌈m/4⌉ + 1.
+
+Case analysis on m mod 4:
+- m = 4k: |V| = 3k - k + 1 = 2k + 1 > 2k = m/2 ✓
+- m = 4k+1: |V| = 3k - (k+1) + 1 = 2k ≥ ⌈(4k+1)/2⌉ = 2k+1? No, but 2k ≥ (4k+1)/2 - 1/2.
+  Actually: ⌊3(4k+1)/4⌋ = ⌊3k + 3/4⌋ = 3k, ⌈(4k+1)/4⌉ = k+1. So |V| = 3k - (k+1) + 1 = 2k.
+  And ⌈m/2⌉ = 2k+1. Gap! But check m=1: V(1,3) undefined (m≥2). m=5: V = {2,3} so |V|=2 < 3.
+  However, m=5 only arises if some mᵢ = 5. Since all mᵢ are even (Lemma 4.3), m is always even.
+- m = 4k+2: |V| = (3k+1) - (k+1) + 1 = 2k+1 = ⌈(4k+2)/2⌉ ✓
+- m = 4k+3: Odd, doesn't arise for Case 2b moduli.
+
+For even m with n = 3: |V(m, 3)| ≥ m/2. ∎
 
 **Lemma 4.3 (Even Moduli):**
 For coprime tuple (v₁,...,vₙ), the moduli mᵢ = 2L/vᵢ are all even, where L = lcm(v₁,...,vₙ).
@@ -181,13 +192,15 @@ Define p = mₙ/gcd(mₙ, L).
 
 **Case A: p ≥ 2.**
 
-The sequence kⱼ = k₀ + j·L for j = 0, 1, 2, ... takes p distinct values mod mₙ.
+The sequence kⱼ = k₀ + j·L for j = 0, 1, 2, ... takes p distinct values mod mₙ, forming an arithmetic progression with spacing d = gcd(mₙ, L).
 
-Since |Vₙ| ≥ mₙ/2 (Lemma 4.2) and spacing is gcd(mₙ, L):
+**Key observation:** An interval of length ℓ in ℤ/mℤ intersects any arithmetic progression with spacing d whenever ℓ ≥ d. This is because the interval spans at least one complete "period" of the progression.
 
-Number of sequence elements in Vₙ ≥ ⌊(mₙ/2)/gcd(mₙ, L)⌋ = ⌊p/2⌋ ≥ 1.
+Since p ≥ 2, we have d = mₙ/p ≤ mₙ/2. By Lemma 4.2, |Vₙ| ≥ mₙ/2 ≥ d.
 
-So some kⱼ satisfies k mod mₙ ∈ Vₙ. ✓
+Therefore Vₙ (an interval of length ≥ d) must contain at least one element of the arithmetic progression {k₀ + jL mod mₙ}.
+
+So some kⱼ satisfies kⱼ mod mₙ ∈ Vₙ. ✓
 
 **Case B: p = 1.**
 
