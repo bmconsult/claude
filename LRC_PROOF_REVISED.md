@@ -108,38 +108,30 @@ Define: Vᵢ = {r ∈ {1, ..., mᵢ-1} : r/mᵢ ∈ [1/(n+1), n/(n+1)]}
 *Proof:* Length = (n-1)m/(n+1) ≥ 2·3/4 = 1.5 for n = 3, m = 3.
 For m ≥ 3, n ≥ 3: Length ≥ 1.5 > 1. An interval of length > 1 contains at least 2 consecutive integers, hence both parities. ∎
 
-**Step 3: CRT Compatibility (for n ≥ 3)**
+**Step 3: Interval CRT (for n ≥ 3)**
 
-**Theorem:** For n ≥ 3, the CRT system {k mod mᵢ ∈ Vᵢ} has a solution.
+**Lemma (Majority Interval):** For n ≥ 3, each Vᵢ has size |Vᵢ| ≥ mᵢ/2.
 
-*Proof:* For each pair (i,j), let g = gcd(mᵢ, mⱼ).
+*Proof:* |Vᵢ| = ⌊n·mᵢ/(n+1)⌋ - ⌈mᵢ/(n+1)⌉ + 1 ≥ (n-1)mᵢ/(n+1) - 1.
+For n ≥ 3: (n-1)/(n+1) ≥ 2/4 = 1/2, so |Vᵢ| ≥ mᵢ/2 - 1 ≥ mᵢ/2 for mᵢ ≥ 2. ∎
 
-**Case g = 1:** Trivially compatible.
+**Lemma (Interval CRT):** Let m₁, ..., mₙ be positive integers and Vᵢ ⊆ {0, ..., mᵢ-1} be intervals of consecutive integers with |Vᵢ| ≥ mᵢ/2. Then there exists k ∈ ℤ with k mod mᵢ ∈ Vᵢ for all i.
 
-**Case g = 2:**
-- V(2, n) = {1} (odd residues)
-- V(m, n) for m ≥ 3 and n ≥ 3 contains both parities (Lemma)
-- Therefore both Vᵢ mod 2 and Vⱼ mod 2 contain 1
-- Intersection ⊇ {1} ≠ ∅ ✓
+*Proof:* By induction on n.
 
-**Case g ≥ 3:**
-If mᵢ | mⱼ or mⱼ | mᵢ:
-- WLOG mⱼ = c·mᵢ with c ≥ 2
-- Length of Vⱼ = (n-1)cmᵢ/(n+1) ≥ 2(n-1)mᵢ/(n+1) ≥ mᵢ for n ≥ 3
-- Vⱼ covers all residues mod mᵢ
-- Vⱼ mod g ⊇ Vᵢ mod g ✓
+**Base case (n = 1):** Pick any k ∈ V₁. ✓
 
-If neither divides:
-- g | mᵢ and g | mⱼ but mᵢ/g ≥ 2 and mⱼ/g ≥ 2
-- So mᵢ ≥ 2g and mⱼ ≥ 2g
-- Length (n-1)mᵢ/(n+1) ≥ 2(n-1)g/(n+1) ≥ g for n ≥ 3
-  (since 2(n-1)/(n+1) ≥ 1 iff n ≥ 3)
-- Both Vᵢ and Vⱼ cover all residues mod g ✓
+**Inductive step:** Suppose k satisfies constraints 1, ..., n-1.
+Let L = lcm(m₁, ..., mₙ₋₁). Consider k' = k + j·L for j = 0, 1, 2, ....
 
-All cases yield compatible constraints. ∎
+As j varies, k' mod mₙ cycles through residues with period p = mₙ/gcd(mₙ, L).
+Since p | mₙ and |Vₙ| ≥ mₙ/2 ≥ p/2, the interval Vₙ contains at least one complete residue class mod p.
+Therefore some j gives k' mod mₙ ∈ Vₙ, while k' mod mᵢ = k mod mᵢ ∈ Vᵢ for i < n. ∎
+
+**Application:** Each Vᵢ is an interval (consecutive integers in [mᵢ/(n+1), n·mᵢ/(n+1)]) with |Vᵢ| ≥ mᵢ/2 for n ≥ 3. By Interval CRT, a global solution k exists.
 
 **Step 4: Conclusion**
-By CRT, ∃k with k mod mᵢ ∈ Vᵢ for all i.
+By Interval CRT, ∃k with k mod mᵢ ∈ Vᵢ for all i.
 At t = k/(2L): ||vᵢt|| = ||k/mᵢ|| ≥ 1/(n+1).
 Therefore ML ≥ 1/(n+1). ∎
 
