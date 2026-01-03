@@ -178,57 +178,40 @@ Since V(M, n) is an interval of consecutive integers with length ≥ m - 1, it c
 ### Main CRT Theorem
 
 **Theorem 4 (Interval CRT):**
-Let m₁, ..., mₙ be even positive integers. Let Vᵢ ⊆ ℤ/mᵢℤ be intervals of consecutive residues with |Vᵢ| ≥ mᵢ/2. Then there exists k ∈ ℤ with k mod mᵢ ∈ Vᵢ for all i.
+Let m₁ ≥ m₂ ≥ ... ≥ mₙ be positive integers (processed in decreasing order). For each i, let Vᵢ ⊆ {0, ..., mᵢ-1} be an interval with |Vᵢ| ≥ mᵢ/2. Then there exists k with k mod mᵢ ∈ Vᵢ for all i.
 
-*Proof:* By strong induction on n, with a refined inductive hypothesis.
+*Proof:* By induction on n.
 
-**Inductive Hypothesis (IH):** For moduli m₁, ..., mᵢ and any additional modulus m* with m* | lcm(m₁, ..., mᵢ), we can find k satisfying:
-- k mod mⱼ ∈ Vⱼ for all j ≤ i, AND
-- k mod m* can be any prescribed element of V* (where V* is an interval with |V*| ≥ m*/2)
+**Base case (n = 1):** Pick any k ∈ V₁. ✓
 
-**Base case (n = 1):**
-For single modulus m₁ with m* | m₁: We need k mod m₁ ∈ V₁ and k mod m* ∈ V*.
+**Inductive step:** By induction, there exists k₀ with k₀ mod mᵢ ∈ Vᵢ for i = 1, ..., n-1.
 
-Since m* | m₁ and |V₁| ≥ m₁/2 ≥ m*, the interval V₁ projects onto all of ℤ/m*ℤ (it covers ≥ m* consecutive residues).
+Let L = lcm(m₁, ..., mₙ₋₁). Since m₁ ≥ ... ≥ mₙ₋₁ ≥ mₙ, we have L ≥ m₁ ≥ mₙ.
 
-So we can choose k ∈ V₁ with k mod m* equal to any prescribed value in V*. ✓
+Let d = gcd(mₙ, L). Since mₙ ≤ L, we have d ≤ mₙ.
 
-**Inductive step:** Assume IH holds for n-1 moduli. We prove it for n moduli.
+**Case A: d < mₙ**
 
-Let L = lcm(m₁, ..., mₙ₋₁) and d = gcd(mₙ, L).
+Then p = mₙ/d ≥ 2. The sequence k₀ + jL for j = 0, 1, ... visits p ≥ 2 residues mod mₙ with spacing d.
 
-**Case A: d < mₙ** (equivalently, mₙ ∤ L)
-
-By IH applied to m₁, ..., mₙ₋₁ with m* = d:
-We can find k₀ satisfying constraints 1, ..., n-1 with k₀ mod d equal to any prescribed value.
-
-The sequence kⱼ = k₀ + jL for j = 0, 1, ... visits mₙ/d distinct residues mod mₙ, forming an arithmetic progression with spacing d.
-
-Since d < mₙ is a proper divisor of even mₙ, we have d ≤ mₙ/2.
+Since d < mₙ is a proper divisor, we have d ≤ mₙ/2 (the largest proper divisor of m is m/2).
 By Lemma 4.2, |Vₙ| ≥ mₙ/2 ≥ d.
 
-An interval of length ≥ d contains at least one element of any arithmetic progression with spacing d.
+An interval of length ≥ d on ℤ/mₙℤ must contain at least one element of any arithmetic progression with spacing d. (Reason: the p elements partition the circle into p arcs of d-1 non-progression elements each; an interval of d elements cannot fit in any single arc.) ✓
 
-So some kⱼ satisfies kⱼ mod mₙ ∈ Vₙ. ✓
+**Case B: d = mₙ**
 
-To maintain IH for a further m* | lcm(m₁, ..., mₙ): Note that m* | L·mₙ/gcd(L,mₙ) = L·(mₙ/d).
-The freedom to choose k₀ mod gcd(d, m*) propagates to freedom in k mod m*. ✓
+Then mₙ | L. Since L = lcm(m₁, ..., mₙ₋₁) and each mᵢ ≥ mₙ for i < n, this means mₙ | mᵢ for some i < n.
 
-**Case B: d = mₙ** (equivalently, mₙ | L)
+Say mᵢ = c·mₙ with c ≥ 1.
 
-Here mₙ | lcm(m₁, ..., mₙ₋₁), so mₙ is our "m*" from IH.
+- **If c ≥ 2:** |Vᵢ| ≥ mᵢ/2 = c·mₙ/2 ≥ mₙ. So Vᵢ (an interval of length ≥ mₙ) contains all residues mod mₙ. The constraint k₀ mod mᵢ ∈ Vᵢ already guarantees k₀ mod mₙ can be any value, so we can ensure k₀ mod mₙ ∈ Vₙ. ✓
 
-By IH applied to m₁, ..., mₙ₋₁ with m* = mₙ:
-We can find k₀ satisfying constraints 1, ..., n-1 with k₀ mod mₙ equal to any prescribed value in Vₙ.
+- **If c = 1:** mᵢ = mₙ, so Vᵢ = Vₙ (same valid set for same modulus). The constraint k₀ mod mᵢ ∈ Vᵢ is exactly k₀ mod mₙ ∈ Vₙ. Already satisfied. ✓
 
-Choose k₀ mod mₙ ∈ Vₙ. Then k₀ satisfies all n constraints. ✓
+By induction, a global solution exists. ∎
 
-To maintain IH for a further m* | lcm(m₁, ..., mₙ) = L:
-Since m* | L and we had freedom in k mod m* at the previous step, this carries through. ✓
-
-By induction, a global solution exists for any n. ∎
-
-**Corollary:** For Case 2b moduli mᵢ = 2L/vᵢ (all even) with n ≥ 3, there exists k with k mod mᵢ ∈ V(mᵢ, n) for all i.
+**Corollary:** For Case 2b moduli mᵢ = 2L/vᵢ (all even) with n ≥ 3, reorder moduli in decreasing order and apply Theorem 4. Since |V(mᵢ, n)| ≥ mᵢ/2 (Lemma 4.2), there exists k with k mod mᵢ ∈ V(mᵢ, n) for all i.
 
 ### Application to LRC
 
