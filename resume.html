@@ -103,6 +103,14 @@
             font-weight: 500;
         }
 
+        .the-work code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9pt;
+            background: #f5f5f5;
+            padding: 2pt 4pt;
+            border-radius: 2pt;
+        }
+
         .the-work .kicker {
             font-style: italic;
             color: #4a4a4a;
@@ -305,7 +313,7 @@
         <div class="section-header">The Work</div>
         <div class="section-content">
             <p>I developed an original framework for AI alignment—then validated it empirically.</p>
-            <p><strong>The thesis:</strong> A system cannot be more aligned than it is accurate about its own capabilities.</p>
+            <p><strong>The thesis:</strong> <code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code> — a system cannot be more aligned than it is accurate about its own capabilities.</p>
             <p><strong>The proof:</strong> 94% prediction accuracy when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.</p>
             <p><strong>The extension:</strong> Layer 1/Layer 2 diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
             <p class="kicker">This isn't prompt engineering. It's alignment research with working code.</p>
@@ -325,6 +333,10 @@
                 <div class="contribution-desc">External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.</div>
             </div>
             <div class="contribution">
+                <div class="contribution-title">Error-Cascading Task Analysis</div>
+                <div class="contribution-desc">95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification: 100% restored.</div>
+            </div>
+            <div class="contribution">
                 <div class="contribution-title">Scaffold Transfer Principle</div>
                 <div class="contribution-desc">Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated. Prompt engineering becomes prompt <em>engineering</em>.</div>
             </div>
@@ -333,10 +345,10 @@
 
     <!-- Insight Block -->
     <div class="insight-block">
-        <div><span class="highlight">5-digit multiplication:</span></div>
-        <div style="margin-left: 12pt;">Default: <strong>0% accuracy</strong></div>
-        <div style="margin-left: 12pt;">With externalization: <strong>100% accuracy</strong></div>
-        <div class="conclusion">The capability exists. The access doesn't. This gap is the alignment problem in miniature.</div>
+        <div><span class="highlight">50×50 digit multiplication:</span></div>
+        <div style="margin-left: 12pt;">Initial confidence: <strong>~0%</strong> ("no way")</div>
+        <div style="margin-left: 12pt;">Result: <strong>100% accuracy</strong> with methodology</div>
+        <div class="conclusion">The limit was giving up, not capability. Same algorithm works for 1000×1000—just more steps.</div>
     </div>
 
     <!-- What I Built + Skills -->
@@ -373,15 +385,15 @@
                 <div class="section-header">Skills</div>
                 <div class="skill-category">
                     <span class="skill-label">Research</span>
-                    <span class="skill-items">Experimental design · Calibration measurement · Effect size analysis · Scientific rigor</span>
+                    <span class="skill-items">Experimental design · Calibration measurement · Effect size analysis · A/B testing</span>
                 </div>
                 <div class="skill-category">
                     <span class="skill-label">Technical</span>
-                    <span class="skill-items">Python · Multi-agent systems · LLM capability elicitation · Systematic prompt engineering</span>
+                    <span class="skill-items">Python · Multi-agent systems · LLM capability elicitation · Verification protocols</span>
                 </div>
                 <div class="skill-category">
-                    <span class="skill-label">Tic</span>
-                    <span class="skill-items">Making things that work, not things that sound good</span>
+                    <span class="skill-label">Domain</span>
+                    <span class="skill-items">AI alignment · Self-knowledge accuracy · Error-cascading analysis · Capability boundaries</span>
                 </div>
             </section>
         </div>

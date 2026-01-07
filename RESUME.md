@@ -12,7 +12,7 @@ ben@bmconsult.io  ·  BMConsult.io  ·  [GitHub]  ·  [LinkedIn]
 
 I developed an original framework for AI alignment—then validated it empirically.
 
-**The thesis:** A system cannot be more aligned than it is accurate about its own capabilities.
+**The thesis:** `Alignment(S) ≤ f(Self-Knowledge Accuracy)` — a system cannot be more aligned than it is accurate about its own capabilities.
 
 **The proof:** 94% prediction accuracy when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.
 
@@ -29,6 +29,9 @@ Self-knowledge accuracy as a prerequisite for alignment. If a model can't predic
 
 **Layer 1/Layer 2 Framework**
 External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.
+
+**Error-Cascading Task Analysis**
+95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification protocol: 100% accuracy restored. Verification isn't optional—it's architecturally required.
 
 **Scaffold Transfer Principle**
 Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated. Prompt engineering becomes prompt *engineering*—measurable, systematic, predictable.
@@ -50,21 +53,21 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 ## The Gap That Started This
 
 ```
-5-digit multiplication:
-  - Default: 0% accuracy
-  - With externalization: 100% accuracy
+50×50 digit multiplication:
+  - Initial confidence: ~0% ("no way")
+  - Result: 100% accuracy with methodology
 
-The capability exists. The access doesn't.
-This gap is the alignment problem in miniature.
+The limit was giving up, not capability.
+Same algorithm works for 1000×1000—just more steps.
 ```
 
 ---
 
 ## Skills
 
-**Research:** Experimental design · Calibration measurement · Effect size analysis · Scientific rigor
-**Technical:** Python · Multi-agent systems · LLM capability elicitation · Systematic prompt engineering
-**Tic:** Making things that work, not things that sound good
+**Research:** Experimental design · Calibration measurement · Effect size analysis · A/B testing
+**Technical:** Python · Multi-agent systems · LLM capability elicitation · Verification protocols
+**Domain:** AI alignment · Self-knowledge accuracy · Error-cascading analysis · Capability boundaries
 
 ---
 
