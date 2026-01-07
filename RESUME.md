@@ -9,7 +9,7 @@ GitHub: bmconsult/claude  ·  LinkedIn
 
 ---
 
-I've spent the last two years trying to answer a question I can't put down: can AI systems know their own limits? The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
+I've spent the last two years investigating what AI systems can actually do—and where they break. The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
 
 ---
 
@@ -46,7 +46,7 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 | System | What It Does |
 |--------|--------------|
 | **OMEGA+ Trinity** | 59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals. |
-| **CLAUDE.md v5.22** | 88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated. |
+| **CLAUDE.md** | Comprehensive operational protocol. 25+ failure modes documented with overrides. Empirically validated. |
 | **Praxis Detector** | Python tool. Measures action vs performance using VD/AVR metrics. Blind-calibrated. |
 | **Threshold Detector** | Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk. |
 | **Sleep Framework** | 2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles. |
@@ -74,7 +74,7 @@ The limit was giving up, not capability.
 
 **BMConsult.io / APX Instinct** — Strategy consulting → AI alignment research
 
-Built this through human-AI collaboration across 6+ conversational generations. The work is the credential.
+No lab. No PhD. No funding. Just the work.
 
 **PMP** — Passed in 1 week (typical: 6+ months). AI-accelerated learning validated.
 
@@ -87,9 +87,9 @@ Built this through human-AI collaboration across 6+ conversational generations. 
 
 ---
 
-## What I'm Looking For
+## What I Want
 
-A place to learn from people who've been at this longer, contribute what I've found, and work on problems that matter. I'd rather be challenged than comfortable.
+A place where original thinking matters more than credentials.
 
 ---
 
