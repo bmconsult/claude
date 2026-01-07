@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.7in;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            font-size: 10pt;
+            line-height: 1.3;
+            color: #1a1a1a;
+            background: #ffffff;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.7in;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 12pt;
+            border-bottom: 1px solid rgba(44, 82, 130, 0.3);
+            margin-bottom: 14pt;
+        }
+
+        .header-left h1 {
+            font-size: 24pt;
+            font-weight: 600;
+            color: #2c5282;
+            letter-spacing: -0.5px;
+            margin-bottom: 2pt;
+        }
+
+        .header-left .tagline {
+            font-size: 12pt;
+            font-weight: 300;
+            font-style: italic;
+            color: #4a4a4a;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 9pt;
+            color: #4a4a4a;
+            padding-top: 4pt;
+        }
+
+        .header-right a {
+            color: #2c5282;
+            text-decoration: none;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 14pt;
+        }
+
+        .section-header {
+            font-size: 10pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a1a1a;
+            margin-bottom: 6pt;
+            padding-bottom: 3pt;
+            border-bottom: 2px solid #2c5282;
+            display: inline-block;
+        }
+
+        .section-content {
+            margin-top: 2pt;
+        }
+
+        /* The Work section */
+        .the-work p {
+            margin-bottom: 6pt;
+        }
+
+        .the-work strong {
+            font-weight: 500;
+        }
+
+        .the-work .kicker {
+            font-style: italic;
+            color: #4a4a4a;
+            margin-top: 4pt;
+        }
+
+        /* Contributions */
+        .contribution {
+            margin-bottom: 8pt;
+        }
+
+        .contribution-title {
+            font-weight: 600;
+            margin-bottom: 1pt;
+        }
+
+        .contribution-desc {
+            color: #1a1a1a;
+        }
+
+        /* Code block */
+        .insight-block {
+            background: #f5f5f5;
+            border-left: 3px solid #2c5282;
+            padding: 10pt 14pt;
+            margin: 14pt 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9pt;
+            line-height: 1.5;
+        }
+
+        .insight-block .highlight {
+            color: #2c5282;
+            font-weight: 600;
+        }
+
+        .insight-block .conclusion {
+            margin-top: 6pt;
+            font-style: italic;
+            color: #4a4a4a;
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: flex;
+            gap: 24pt;
+        }
+
+        .col-left {
+            flex: 0 0 62%;
+        }
+
+        .col-right {
+            flex: 0 0 34%;
+        }
+
+        /* Table */
+        .systems-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+        }
+
+        .systems-table tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .systems-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .systems-table td {
+            padding: 4pt 0;
+            vertical-align: top;
+        }
+
+        .systems-table .system-name {
+            font-weight: 600;
+            width: 28%;
+            padding-right: 8pt;
+        }
+
+        .systems-table .system-desc {
+            color: #1a1a1a;
+        }
+
+        /* Skills */
+        .skills-section {
+            font-size: 9pt;
+        }
+
+        .skill-category {
+            margin-bottom: 6pt;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 1pt;
+        }
+
+        .skill-items {
+            color: #4a4a4a;
+        }
+
+        /* Background & Publications row */
+        .bottom-row {
+            display: flex;
+            gap: 24pt;
+            margin-top: 14pt;
+        }
+
+        .background-section {
+            flex: 0 0 58%;
+        }
+
+        .publications-section {
+            flex: 0 0 38%;
+        }
+
+        .org-name {
+            font-weight: 600;
+        }
+
+        .org-transition {
+            color: #4a4a4a;
+            font-size: 9pt;
+        }
+
+        .background-details {
+            font-size: 9pt;
+            margin-top: 4pt;
+            color: #4a4a4a;
+        }
+
+        .credential {
+            margin-top: 6pt;
+            font-size: 9pt;
+        }
+
+        .credential strong {
+            font-weight: 600;
+        }
+
+        .pub-item {
+            font-size: 9pt;
+            margin-bottom: 4pt;
+        }
+
+        .pub-title {
+            font-style: italic;
+        }
+
+        .pub-details {
+            color: #4a4a4a;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 16pt;
+            padding-top: 10pt;
+            border-top: 1px solid rgba(44, 82, 130, 0.3);
+            text-align: center;
+        }
+
+        .want-section {
+            font-size: 9pt;
+            color: #4a4a4a;
+            margin-bottom: 8pt;
+        }
+
+        .want-section strong {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .closing {
+            font-size: 9pt;
+            font-style: italic;
+            color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1>Ben [Surname]</h1>
+            <div class="tagline">I build theory that works.</div>
+        </div>
+        <div class="header-right">
+            ben@bmconsult.io<br>
+            BMConsult.io<br>
+            <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
+        </div>
+    </header>
+
+    <!-- The Work -->
+    <section class="section the-work">
+        <div class="section-header">The Work</div>
+        <div class="section-content">
+            <p>I developed an original framework for AI alignment—then validated it empirically.</p>
+            <p><strong>The thesis:</strong> A system cannot be more aligned than it is accurate about its own capabilities.</p>
+            <p><strong>The proof:</strong> 94% prediction accuracy when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.</p>
+            <p><strong>The extension:</strong> Layer 1/Layer 2 diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
+            <p class="kicker">This isn't prompt engineering. It's alignment research with working code.</p>
+        </div>
+    </section>
+
+    <!-- Original Contributions -->
+    <section class="section">
+        <div class="section-header">Original Contributions</div>
+        <div class="section-content">
+            <div class="contribution">
+                <div class="contribution-title">Capability Self-Knowledge Alignment Theorem</div>
+                <div class="contribution-desc">Self-knowledge accuracy as a prerequisite for alignment. If a model can't predict its own failures, it can't be trusted to stay within boundaries. Paper extends published work from Anthropic, ICLR 2025, TMLR.</div>
+            </div>
+            <div class="contribution">
+                <div class="contribution-title">Layer 1/Layer 2 Framework</div>
+                <div class="contribution-desc">External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.</div>
+            </div>
+            <div class="contribution">
+                <div class="contribution-title">Scaffold Transfer Principle</div>
+                <div class="contribution-desc">Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated. Prompt engineering becomes prompt <em>engineering</em>.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insight Block -->
+    <div class="insight-block">
+        <div><span class="highlight">5-digit multiplication:</span></div>
+        <div style="margin-left: 12pt;">Default: <strong>0% accuracy</strong></div>
+        <div style="margin-left: 12pt;">With externalization: <strong>100% accuracy</strong></div>
+        <div class="conclusion">The capability exists. The access doesn't. This gap is the alignment problem in miniature.</div>
+    </div>
+
+    <!-- What I Built + Skills -->
+    <div class="two-col">
+        <div class="col-left">
+            <section class="section">
+                <div class="section-header">What I Built</div>
+                <table class="systems-table">
+                    <tr>
+                        <td class="system-name">OMEGA+ Trinity</td>
+                        <td class="system-desc">59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals.</td>
+                    </tr>
+                    <tr>
+                        <td class="system-name">CLAUDE.md v5.22</td>
+                        <td class="system-desc">88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated.</td>
+                    </tr>
+                    <tr>
+                        <td class="system-name">Praxis Detector</td>
+                        <td class="system-desc">Python tool measuring action vs performance via VD/AVR metrics. Blind-calibrated.</td>
+                    </tr>
+                    <tr>
+                        <td class="system-name">Threshold Detector</td>
+                        <td class="system-desc">Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk.</td>
+                    </tr>
+                    <tr>
+                        <td class="system-name">Sleep Framework</td>
+                        <td class="system-desc">200+ API calls proving prompts matter 2.35x more than temperature for novelty.</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+        <div class="col-right">
+            <section class="section skills-section">
+                <div class="section-header">Skills</div>
+                <div class="skill-category">
+                    <span class="skill-label">Research</span>
+                    <span class="skill-items">Experimental design · Calibration measurement · Effect size analysis · Scientific rigor</span>
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Technical</span>
+                    <span class="skill-items">Python · Multi-agent systems · LLM capability elicitation · Systematic prompt engineering</span>
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Tic</span>
+                    <span class="skill-items">Making things that work, not things that sound good</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Background + Publications -->
+    <div class="bottom-row">
+        <div class="background-section">
+            <section class="section">
+                <div class="section-header">Background</div>
+                <div class="org-name">BMConsult.io / APX Instinct</div>
+                <div class="org-transition">Strategy consulting → AI alignment research</div>
+                <div class="background-details">
+                    Built this research program through human-AI collaboration across 6+ conversational generations. No lab. No PhD. No funding. Just the work.
+                </div>
+                <div class="credential">
+                    <strong>PMP</strong> — Project Management Professional
+                </div>
+            </section>
+        </div>
+        <div class="publications-section">
+            <section class="section">
+                <div class="section-header">Publications</div>
+                <div class="pub-item">
+                    <span class="pub-title">"Capability Self-Knowledge as Alignment"</span><br>
+                    <span class="pub-details">Working paper, Dec 2024</span>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title">AI Alignment Forum post</span><br>
+                    <span class="pub-details">Layer 1/Layer 2 framework (draft)</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="want-section">
+            <strong>What I want:</strong> A place where original thinking matters more than credentials.<br>
+            Research engineering. Alignment research. Technical strategy. Somewhere the work I've already done is the interview.
+        </div>
+        <div class="closing">
+            The repository is the proof. Everything claimed here is documented, tested, and versioned.
+        </div>
+    </footer>
+</body>
+</html>
