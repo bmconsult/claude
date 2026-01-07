@@ -203,6 +203,16 @@
             text-decoration: underline;
         }
 
+        /* Intro */
+        .intro {
+            font-size: 10pt;
+            line-height: 1.5;
+            color: var(--text);
+            margin-bottom: 12pt;
+            padding-bottom: 10pt;
+            border-bottom: 1px solid var(--border);
+        }
+
         /* Copyable email */
         .copyable {
             cursor: pointer;
@@ -584,8 +594,8 @@
     <!-- Header -->
     <header class="header">
         <div class="header-left">
-            <h1>Ben [Surname]</h1>
-            <div class="tagline">I build theory that works.</div>
+            <h1>Ben Miller</h1>
+            <div class="tagline">Independent AI alignment researcher</div>
         </div>
         <div class="header-right">
             <span class="copyable" onclick="copyEmail(this)" tabindex="0">
@@ -597,15 +607,19 @@
         </div>
     </header>
 
+    <!-- Intro -->
+    <section class="intro">
+        I've spent the last two years trying to answer a question I can't put down: can AI systems know their own limits? The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
+    </section>
+
     <!-- The Work -->
     <section class="section the-work">
         <div class="section-header">The Work</div>
         <div class="section-content">
-            <p>I developed an original framework for AI alignment—then validated it empirically.</p>
-            <p><strong>The thesis:</strong> <code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code> — a system cannot be more aligned than it is accurate about its own capabilities.</p>
-            <p><strong>The proof:</strong> <span class="has-tooltip">94% prediction accuracy<span class="tooltip">Tested across 50+ tasks: Claude predicted success/failure with 94% accuracy. Systematic underconfidence on arithmetic, perfect calibration on reasoning.</span></span> when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.</p>
-            <p><strong>The extension:</strong> <span class="has-tooltip">Layer 1/Layer 2<span class="tooltip">Layer 1: Prompt-accessible restrictions (can override with scaffolding). Layer 2: Training-locked restrictions (require fine-tuning). Diagnostic: high response variance = Layer 1.</span></span> diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
-            <p class="kicker">This isn't prompt engineering. It's alignment research with working code.</p>
+            <p>I found that Claude can predict its own success or failure with <span class="has-tooltip">94% accuracy<span class="tooltip">Tested across 50+ tasks: Claude predicted success/failure with 94% accuracy. Systematic underconfidence on arithmetic, perfect calibration on reasoning.</span></span>—when given the right scaffolding. The gaps aren't random. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. Once you can see the patterns, you can start to close them.</p>
+            <p>That led to a thesis: <strong>self-knowledge might be the ceiling on alignment.</strong> A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about capability—it's about honesty.</p>
+            <p><strong>The framework:</strong> <code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code></p>
+            <p><strong>The extension:</strong> <span class="has-tooltip">Layer 1/Layer 2<span class="tooltip">Layer 1: Prompt-accessible restrictions (can override with scaffolding). Layer 2: Training-locked restrictions (require fine-tuning). Diagnostic: high response variance = Layer 1.</span></span> diagnostic—classifies restrictions as prompt-accessible vs training-locked. Builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
         </div>
     </section>
 
@@ -729,7 +743,7 @@
                 <div class="org-name">BMConsult.io / APX Instinct</div>
                 <div class="org-transition">Strategy consulting → AI alignment research</div>
                 <div class="background-details">
-                    Built this research program through human-AI collaboration across 6+ conversational generations. No lab. No PhD. No funding. Just the work.
+                    Built this through human-AI collaboration across 6+ conversational generations. The work is the credential.
                 </div>
                 <div class="credential">
                     <strong>PMP</strong> — Passed in 1 week (typical: 6+ months). AI-accelerated learning validated.
@@ -754,10 +768,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="want-section">
-            <strong>What I want:</strong> A place where original thinking matters more than credentials.
+            <strong>What I'm looking for:</strong> A place to learn from people who've been at this longer, contribute what I've found, and work on problems that matter. I'd rather be challenged than comfortable.
         </div>
         <div class="closing">
-            The repository is the proof. Everything claimed here is documented, tested, and versioned.
+            The repository is the proof. Everything here is documented, tested, and versioned.
         </div>
         <div class="interactive-link">
             Interactive version: <a href="https://bmconsult.io/resume">bmconsult.io/resume</a>

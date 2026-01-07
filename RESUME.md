@@ -1,25 +1,27 @@
-# Ben [SURNAME]
+# Ben Miller
 
-**I build theory that works.**
+**Independent AI alignment researcher · Greenbrae, CA**
 
 ```
-ben@bmconsult.io  ·  415-595-3029  ·  Greenbrae, CA
-BMConsult.io  ·  [GitHub]  ·  [LinkedIn]
+ben@bmconsult.io  ·  415-595-3029
+GitHub: bmconsult/claude  ·  LinkedIn
 ```
+
+---
+
+I've spent the last two years trying to answer a question I can't put down: can AI systems know their own limits? The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
 
 ---
 
 ## The Work
 
-I developed an original framework for AI alignment—then validated it empirically.
+I found that Claude can predict its own success or failure with 94% accuracy—when given the right scaffolding. The gaps aren't random. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. Once you can see the patterns, you can start to close them.
 
-**The thesis:** `Alignment(S) ≤ f(Self-Knowledge Accuracy)` — a system cannot be more aligned than it is accurate about its own capabilities.
+That led to a thesis: **self-knowledge might be the ceiling on alignment.** A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about capability—it's about honesty.
 
-**The proof:** 94% prediction accuracy when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.
+**The framework:** `Alignment(S) ≤ f(Self-Knowledge Accuracy)`
 
-**The extension:** Layer 1/Layer 2 diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address *unintentionally* unexpressed capabilities, not just hidden ones.
-
-This isn't prompt engineering. It's alignment research with working code.
+**The extension:** Layer 1/Layer 2 diagnostic—classifies restrictions as prompt-accessible vs training-locked. Builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address capabilities that are *unintentionally* unexpressed.
 
 ---
 
@@ -32,10 +34,10 @@ Self-knowledge accuracy as a prerequisite for alignment. If a model can't predic
 External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.
 
 **Error-Cascading Task Analysis**
-95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification protocol: 100% accuracy restored. Verification isn't optional—it's architecturally required.
+95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification: 100% accuracy restored.
 
 **Scaffold Transfer Principle**
-Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated. Prompt engineering becomes prompt *engineering*—measurable, systematic, predictable.
+Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated.
 
 ---
 
@@ -44,10 +46,10 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 | System | What It Does |
 |--------|--------------|
 | **OMEGA+ Trinity** | 59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals. |
-| **CLAUDE.md v5.22** | 88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated scaffolding. |
-| **Praxis Detector** | Python tool. Measures action vs performance using VD/AVR metrics. Calibrated through blind evaluation. |
+| **CLAUDE.md v5.22** | 88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated. |
+| **Praxis Detector** | Python tool. Measures action vs performance using VD/AVR metrics. Blind-calibrated. |
 | **Threshold Detector** | Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk. |
-| **Sleep Framework** | 2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles. Self-directed learning without human input. |
+| **Sleep Framework** | 2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles. |
 
 ---
 
@@ -72,9 +74,9 @@ The limit was giving up, not capability.
 
 **BMConsult.io / APX Instinct** — Strategy consulting → AI alignment research
 
-Built this research program through human-AI collaboration across 6+ conversational generations. No lab. No PhD. No funding. Just the work.
+Built this through human-AI collaboration across 6+ conversational generations. The work is the credential.
 
-**PMP** — Project Management Professional (passed in 1 week using AI-accelerated learning; typical prep is 6+ months)
+**PMP** — Passed in 1 week (typical: 6+ months). AI-accelerated learning validated.
 
 ---
 
@@ -85,10 +87,10 @@ Built this research program through human-AI collaboration across 6+ conversatio
 
 ---
 
-## What I Want
+## What I'm Looking For
 
-A place where original thinking matters more than credentials.
+A place to learn from people who've been at this longer, contribute what I've found, and work on problems that matter. I'd rather be challenged than comfortable.
 
 ---
 
-*The repository is the proof. Everything claimed here is documented, tested, and versioned.*
+*The repository is the proof. Everything here is documented, tested, and versioned.*
