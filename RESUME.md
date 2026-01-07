@@ -3,7 +3,8 @@
 **I build theory that works.**
 
 ```
-ben@bmconsult.io  ·  BMConsult.io  ·  [GitHub]  ·  [LinkedIn]
+ben@bmconsult.io  ·  415-595-3029  ·  Greenbrae, CA
+BMConsult.io  ·  [GitHub]  ·  [LinkedIn]
 ```
 
 ---
@@ -77,7 +78,7 @@ Same algorithm works for 1000×1000—just more steps.
 
 Built this research program through human-AI collaboration across 6+ conversational generations. No lab. No PhD. No funding. Just the work.
 
-**PMP** — Project Management Professional
+**PMP** — Project Management Professional (passed in 1 week using AI-accelerated learning; typical prep is 6+ months)
 
 ---
 
