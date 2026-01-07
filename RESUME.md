@@ -9,32 +9,28 @@ GitHub: bmconsult/claude  ·  LinkedIn
 
 ---
 
-I've spent the last two years investigating what AI systems can actually do—and where they break. The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
+I've spent the last two years investigating what AI systems can actually do—and where they break. The work started as curiosity and became a framework, tools, and findings I think matter. I'm looking for hard problems, people to collaborate with, and a place where I can contribute to pushing the field forward.
 
 ---
 
 ## The Work
 
-I found that Claude can predict its own success or failure with 94% accuracy—when given the right scaffolding. The gaps aren't random. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. Once you can see the patterns, you can start to close them.
+I kept finding the same thing: the gap between what AI can do and what it deploys by default is larger than anyone assumes. A model that predicts 0% confidence on a task can hit 100% accuracy with the right methodology. The limit isn't capability—it's knowing where the limits actually are.
 
-That led to a thesis: **self-knowledge might be the ceiling on alignment.** A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about capability—it's about honesty.
-
-**The framework:** `Alignment(S) ≤ f(Self-Knowledge Accuracy)`
-
-**The extension:** Layer 1/Layer 2 diagnostic—classifies restrictions as prompt-accessible vs training-locked. Builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address capabilities that are *unintentionally* unexpressed.
+That led to a thesis: **self-knowledge might be the ceiling on alignment.** A system that can't predict its own failures can't be trusted to stay within boundaries.
 
 ---
 
 ## Original Contributions
 
 **Capability Self-Knowledge Alignment Theorem**
-Self-knowledge accuracy as a prerequisite for alignment. If a model can't predict its own failures, it can't be trusted to stay within boundaries. Paper draft extends published work from Anthropic, ICLR 2025, TMLR.
+`Alignment(S) ≤ f(Self-Knowledge Accuracy)` — a system can't be more aligned than it is accurate about its own capabilities. Tested: 94% prediction accuracy when Claude predicts its own success/failure. Paper draft extends work from Anthropic, ICLR 2025, TMLR.
 
 **Layer 1/Layer 2 Framework**
-External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.
+Diagnostic for classifying restrictions as prompt-accessible (Layer 1) vs training-locked (Layer 2). High response variance = closable gap. Low variance = architectural limit. Builds on Greenblatt et al.'s Elicitation Game to address *unintentionally* unexpressed capabilities.
 
 **Error-Cascading Task Analysis**
-95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification: 100% accuracy restored.
+95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. Verification protocols restore 100% accuracy.
 
 **Scaffold Transfer Principle**
 Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated.
@@ -45,20 +41,11 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 
 | System | What It Does |
 |--------|--------------|
-| **OMEGA+ Trinity** | 59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals. |
-| **CLAUDE.md** | Comprehensive operational protocol. 25+ failure modes documented with overrides. Empirically validated. |
-| **Praxis Detector** | Python tool. Measures action vs performance using VD/AVR metrics. Blind-calibrated. |
-| **Threshold Detector** | Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk. |
-| **Sleep Framework** | 2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles. |
-
----
-
-## The Gap That Started This
-
-```
-50×50 multiplication: ~0% confidence → 100% accuracy with methodology
-The limit was giving up, not capability.
-```
+| **OMEGA+ Trinity** | 59-agent verification architecture. Prevents overconfidence spirals on hard problems. |
+| **CLAUDE.md** | Comprehensive operational protocol. 25+ failure modes with tested overrides. |
+| **Praxis Detector** | Distinguishes genuine action from performance theater. Blind-calibrated metrics. |
+| **Threshold Detector** | Catches non-linear scaling risks before deployment. Flags when "works at 50%" will fail at 100%. |
+| **Sleep Framework** | 2+ hours autonomous operation. Self-directed learning cycles without human input. |
 
 ---
 
@@ -66,7 +53,7 @@ The limit was giving up, not capability.
 
 **Research:** Experimental design · Calibration measurement · Effect size analysis · A/B testing
 **Technical:** Python · Multi-agent systems · LLM capability elicitation · Verification protocols
-**Domain:** AI alignment · Self-knowledge accuracy · Error-cascading analysis · Capability boundaries
+**Domain:** AI alignment · Capability boundaries · Error-cascading analysis · Self-knowledge accuracy
 
 ---
 
@@ -83,7 +70,7 @@ No lab. No PhD. No funding. Just the work.
 ## Publications
 
 - *"Capability Self-Knowledge as Alignment"* — Working paper, Dec 2024
-- AI Alignment Forum post (draft) — Layer 1/Layer 2 framework
+- *"Layer 1/Layer 2 Framework"* — AI Alignment Forum (draft)
 
 ---
 

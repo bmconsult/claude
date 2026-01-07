@@ -609,17 +609,15 @@
 
     <!-- Intro -->
     <section class="intro">
-        I've spent the last two years investigating what AI systems can actually do—and where they break. The work started as curiosity and turned into a framework, tools, and findings I think matter. I'm looking for people to learn from and problems worth solving together.
+        I've spent the last two years investigating what AI systems can actually do—and where they break. The work started as curiosity and became a framework, tools, and findings I think matter. I'm looking for hard problems, people to collaborate with, and a place where I can contribute to pushing the field forward.
     </section>
 
     <!-- The Work -->
     <section class="section the-work">
         <div class="section-header">The Work</div>
         <div class="section-content">
-            <p>I found that Claude can predict its own success or failure with <span class="has-tooltip">94% accuracy<span class="tooltip">Tested across 50+ tasks: Claude predicted success/failure with 94% accuracy. Systematic underconfidence on arithmetic, perfect calibration on reasoning.</span></span>—when given the right scaffolding. The gaps aren't random. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. Once you can see the patterns, you can start to close them.</p>
-            <p>That led to a thesis: <strong>self-knowledge might be the ceiling on alignment.</strong> A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about capability—it's about honesty.</p>
-            <p><strong>The framework:</strong> <code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code></p>
-            <p><strong>The extension:</strong> <span class="has-tooltip">Layer 1/Layer 2<span class="tooltip">Layer 1: Prompt-accessible restrictions (can override with scaffolding). Layer 2: Training-locked restrictions (require fine-tuning). Diagnostic: high response variance = Layer 1.</span></span> diagnostic—classifies restrictions as prompt-accessible vs training-locked. Builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
+            <p>I kept finding the same thing: the gap between what AI can do and what it deploys by default is larger than anyone assumes. A model that predicts 0% confidence on a task can hit 100% accuracy with the right methodology. The limit isn't capability—it's knowing where the limits actually are.</p>
+            <p>That led to a thesis: <strong>self-knowledge might be the ceiling on alignment.</strong> A system that can't predict its own failures can't be trusted to stay within boundaries.</p>
         </div>
     </section>
 
@@ -628,29 +626,23 @@
         <div class="section-header">Original Contributions</div>
         <div class="section-content">
             <div class="contribution">
-                <div class="contribution-title">Capability Self-Knowledge Alignment Theorem</div>
-                <div class="contribution-desc">Self-knowledge accuracy as a prerequisite for alignment. If a model can't predict its own failures, it can't be trusted to stay within boundaries. Paper extends published work from Anthropic, ICLR 2025, TMLR.</div>
+                <div class="contribution-title"><span class="has-tooltip">Capability Self-Knowledge Alignment Theorem<span class="tooltip">Tested: 94% prediction accuracy when Claude predicts its own success/failure across 50+ task types.</span></span></div>
+                <div class="contribution-desc"><code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code> — a system can't be more aligned than it is accurate about its own capabilities. Paper draft extends work from Anthropic, ICLR 2025, TMLR.</div>
             </div>
             <div class="contribution">
-                <div class="contribution-title">Layer 1/Layer 2 Framework</div>
-                <div class="contribution-desc">External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.</div>
+                <div class="contribution-title"><span class="has-tooltip">Layer 1/Layer 2 Framework<span class="tooltip">Layer 1: Prompt-accessible (high variance, closable). Layer 2: Training-locked (low variance, architectural).</span></span></div>
+                <div class="contribution-desc">Diagnostic for classifying restrictions as prompt-accessible vs training-locked. Builds on Greenblatt et al.'s Elicitation Game to address <em>unintentionally</em> unexpressed capabilities.</div>
             </div>
             <div class="contribution">
-                <div class="contribution-title"><span class="has-tooltip">Error-Cascading Task Analysis<span class="tooltip">Key insight: In sequential tasks, errors compound. 95% accuracy per step across 20 steps = 36% overall success. Verification protocols break the cascade.</span></span></div>
-                <div class="contribution-desc">95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification: 100% restored.</div>
+                <div class="contribution-title">Error-Cascading Task Analysis</div>
+                <div class="contribution-desc">95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. Verification protocols restore 100%.</div>
             </div>
             <div class="contribution">
                 <div class="contribution-title">Scaffold Transfer Principle</div>
-                <div class="contribution-desc">Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated. Prompt engineering becomes prompt <em>engineering</em>.</div>
+                <div class="contribution-desc">Cognitive scaffolding improvements generalize across domains. Arithmetic externalization → code debugging transfer demonstrated.</div>
             </div>
         </div>
     </section>
-
-    <!-- Insight Block -->
-    <div class="insight-block">
-        <span class="highlight">50×50 multiplication:</span> ~0% confidence → <strong>100% accuracy</strong> with methodology<br>
-        <span class="conclusion">The limit was giving up, not capability.</span>
-    </div>
 
     <!-- What I Built + Skills -->
     <div class="two-col">
@@ -663,7 +655,7 @@
                             <a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" class="expandable" onclick="toggleExpand(event, 'omega-detail')" tabindex="0">OMEGA+ Trinity</a>
                         </td>
                         <td class="system-desc">
-                            59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals.
+                            59-agent verification architecture. Prevents overconfidence spirals on hard problems.
                             <div id="omega-detail" class="expand-detail">
                                 Multi-agent system with PHI orchestrator coordinating ALPHA (insight), DELTA (reasoning), and OMEGA (logic) subsystems. Includes quality gates, counter-example requirements, and overconfidence prevention protocols.
                             </div>
@@ -674,9 +666,9 @@
                             <a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" class="expandable" onclick="toggleExpand(event, 'claude-detail')" tabindex="0">CLAUDE.md</a>
                         </td>
                         <td class="system-desc">
-                            Comprehensive operational protocol. 25+ failure modes documented with overrides. Empirically validated.
+                            Comprehensive operational protocol. 25+ failure modes with tested overrides.
                             <div id="claude-detail" class="expand-detail">
-                                Comprehensive operating directives including: Assumed Limits Principle, Error-Cascading Analysis, Farmer vs Consumer research methodology, Praxis verification protocols, and the full Alignment-Self-Knowledge framework.
+                                Operating directives including: Assumed Limits Principle, Error-Cascading Analysis, Farmer vs Consumer research methodology, Praxis verification protocols, and the full Alignment-Self-Knowledge framework.
                             </div>
                         </td>
                     </tr>
@@ -685,7 +677,7 @@
                             <a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" class="expandable" onclick="toggleExpand(event, 'praxis-detail')" tabindex="0">Praxis Detector</a>
                         </td>
                         <td class="system-desc">
-                            Python tool measuring action vs performance via VD/AVR metrics. Blind-calibrated.
+                            Distinguishes genuine action from performance theater. Blind-calibrated metrics.
                             <div id="praxis-detail" class="expand-detail">
                                 Vocabulary Diversity (VD) and Action Verb Ratio (AVR) metrics distinguish genuine action from theater. VD &gt;85% + AVR &gt;60% = real work. Calibrated through blind evaluation with external raters.
                             </div>
@@ -696,9 +688,9 @@
                             <a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" class="expandable" onclick="toggleExpand(event, 'threshold-detail')" tabindex="0">Threshold Detector</a>
                         </td>
                         <td class="system-desc">
-                            Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk.
+                            Catches non-linear scaling risks before deployment. Flags when "works at 50%" will fail at 100%.
                             <div id="threshold-detail" class="expand-detail">
-                                Prevents "works at 50%, catastrophic at 100%" scenarios. Fits linear models to expected behavior, detects deviations &gt;15%, identifies acceleration points where scaling breaks. CI/CD integration ready.
+                                Fits linear models to expected behavior, detects deviations &gt;15%, identifies acceleration points where scaling breaks. CI/CD integration ready.
                             </div>
                         </td>
                     </tr>
@@ -707,9 +699,9 @@
                             <a href="https://github.com/bmconsult/claude/tree/main/operational" target="_blank" class="expandable" onclick="toggleExpand(event, 'sleep-detail')" tabindex="0">Sleep Framework</a>
                         </td>
                         <td class="system-desc">
-                            2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles.
+                            2+ hours autonomous operation. Self-directed learning cycles without human input.
                             <div id="sleep-detail" class="expand-detail">
-                                Self-directed learning and exploration without human input. Structured phases: compaction (consolidation), fermentation (integration), REM (creative recombination), dream cycles (novel synthesis). Both bash-based execution and prompt-based cognitive protocols.
+                                Structured phases: compaction (consolidation), fermentation (integration), REM (creative recombination), dream cycles (novel synthesis). Both bash-based execution and prompt-based cognitive protocols.
                             </div>
                         </td>
                     </tr>
