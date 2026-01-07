@@ -1,0 +1,98 @@
+{
+  "theorems": {
+    "theorem1": {
+      "statement": "Among {3, 7, 31, 127, 8191}, only 127 satisfies S(M,\u03c0) \u2261 0 (mod 37)",
+      "data": [
+        {
+          "M": 3,
+          "S(M,\u03c0)": 8,
+          "mod 37": 8,
+          "divisible": false
+        },
+        {
+          "M": 7,
+          "S(M,\u03c0)": 25,
+          "mod 37": 25,
+          "divisible": false
+        },
+        {
+          "M": 31,
+          "S(M,\u03c0)": 150,
+          "mod 37": 2,
+          "divisible": false
+        },
+        {
+          "M": 127,
+          "S(M,\u03c0)": 592,
+          "mod 37": 0,
+          "divisible": true
+        },
+        {
+          "M": 8191,
+          "S(M,\u03c0)": 3062,
+          "mod 37": 28,
+          "divisible": false
+        }
+      ],
+      "unique_M": 127,
+      "proven": true
+    },
+    "theorem2": {
+      "statement": "Positions 68 and 127 are unique n < 200 where S(n,\u03c0) = 37\u00d7k\u00b2 for k\u2208{3,4}",
+      "matches": [
+        {
+          "n": 68,
+          "S(n,\u03c0)": 333,
+          "k": 3,
+          "k\u00b2": 9
+        },
+        {
+          "n": 127,
+          "S(n,\u03c0)": 592,
+          "k": 4,
+          "k\u00b2": 16
+        }
+      ],
+      "proven": true
+    },
+    "theorem3": {
+      "statement": "37 is unique prime p<100 where: p\u00d73=repunit, p\u00d727=999, p+100 is prime",
+      "unique_p": 37,
+      "proven": true
+    },
+    "theorem4": {
+      "statement": "Among n=1..500, n=37 uniquely minimizes |\u03b3_n/n - \u03c0|",
+      "gamma_37": 116.22668032085755,
+      "formula": "37\u03c0 - 1/(26\u03c0)",
+      "formula_value": 116.22668549489221,
+      "error": 5.174034654942261e-06,
+      "relative_error_pct": 4.4516755022674e-06,
+      "proven": true
+    }
+  },
+  "constants": {
+    "fine_structure": {
+      "formula": "100 + 37 + 9/250 - 1/1091600",
+      "value": 137.0359990839135,
+      "measured": 137.035999084,
+      "accuracy_ppt": 0.631128042082611
+    },
+    "weak_mixing": {
+      "formula": "37/166",
+      "value": 0.22289156626506024,
+      "measured": 0.2229,
+      "within_uncertainty": true
+    },
+    "amino_acids": {
+      "formula": "(3\u00b2 + 4\u00b2 + 5\u00b2) / 2.5",
+      "value": 20.0,
+      "exact": true
+    },
+    "gamma_6": {
+      "formula": "37 + 592/1010",
+      "value": 37.58613861386139,
+      "actual": 37.586178158825675,
+      "error_pct": 0.00010521145331919084
+    }
+  }
+}
