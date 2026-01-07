@@ -54,12 +54,8 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 ## The Gap That Started This
 
 ```
-50×50 digit multiplication:
-  - Initial confidence: ~0% ("no way")
-  - Result: 100% accuracy with methodology
-
+50×50 multiplication: ~0% confidence → 100% accuracy with methodology
 The limit was giving up, not capability.
-Same algorithm works for 1000×1000—just more steps.
 ```
 
 ---
@@ -92,8 +88,6 @@ Built this research program through human-AI collaboration across 6+ conversatio
 ## What I Want
 
 A place where original thinking matters more than credentials.
-
-Research engineering. Alignment research. Technical strategy. Somewhere the work I've already done is the interview.
 
 ---
 

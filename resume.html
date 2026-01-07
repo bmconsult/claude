@@ -167,9 +167,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding-bottom: 12pt;
+            padding-bottom: 10pt;
             border-bottom: 1px solid var(--accent-light);
-            margin-bottom: 14pt;
+            margin-bottom: 10pt;
         }
 
         .header-left h1 {
@@ -236,7 +236,7 @@
 
         /* Sections */
         .section {
-            margin-bottom: 14pt;
+            margin-bottom: 10pt;
         }
 
         .section-header {
@@ -257,7 +257,7 @@
 
         /* The Work section */
         .the-work p {
-            margin-bottom: 6pt;
+            margin-bottom: 4pt;
         }
 
         .the-work strong {
@@ -323,7 +323,7 @@
 
         /* Contributions */
         .contribution {
-            margin-bottom: 8pt;
+            margin-bottom: 5pt;
         }
 
         .contribution-title {
@@ -339,11 +339,11 @@
         .insight-block {
             background: var(--code-bg);
             border-left: 3px solid var(--accent);
-            padding: 10pt 14pt;
-            margin: 14pt 0;
+            padding: 8pt 12pt;
+            margin: 10pt 0;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 9pt;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .insight-block .highlight {
@@ -352,7 +352,7 @@
         }
 
         .insight-block .conclusion {
-            margin-top: 6pt;
+            margin-top: 2pt;
             font-style: italic;
             color: var(--text-muted);
         }
@@ -472,7 +472,7 @@
         .bottom-row {
             display: flex;
             gap: 24pt;
-            margin-top: 14pt;
+            margin-top: 10pt;
         }
 
         .background-section {
@@ -522,8 +522,8 @@
 
         /* Footer */
         .footer {
-            margin-top: 16pt;
-            padding-top: 10pt;
+            margin-top: 10pt;
+            padding-top: 8pt;
             border-top: 1px solid var(--accent-light);
             text-align: center;
         }
@@ -634,10 +634,8 @@
 
     <!-- Insight Block -->
     <div class="insight-block">
-        <div><span class="highlight">50×50 digit multiplication:</span></div>
-        <div style="margin-left: 12pt;">Initial confidence: <strong>~0%</strong> ("no way")</div>
-        <div style="margin-left: 12pt;">Result: <strong>100% accuracy</strong> with methodology</div>
-        <div class="conclusion">The limit was giving up, not capability. Same algorithm works for 1000×1000—just more steps.</div>
+        <span class="highlight">50×50 multiplication:</span> ~0% confidence → <strong>100% accuracy</strong> with methodology<br>
+        <span class="conclusion">The limit was giving up, not capability.</span>
     </div>
 
     <!-- What I Built + Skills -->
@@ -756,8 +754,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="want-section">
-            <strong>What I want:</strong> A place where original thinking matters more than credentials.<br>
-            Research engineering. Alignment research. Technical strategy. Somewhere the work I've already done is the interview.
+            <strong>What I want:</strong> A place where original thinking matters more than credentials.
         </div>
         <div class="closing">
             The repository is the proof. Everything claimed here is documented, tested, and versioned.
