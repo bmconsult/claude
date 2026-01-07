@@ -72,9 +72,11 @@ Research conducted in collaboration with Claude (Anthropic), demonstrating novel
 
 ---
 
-## Education
+## Credentials
 
-[DEGREE] • [UNIVERSITY] • [YEAR]
+**PMP** (Project Management Professional)
+
+Self-directed researcher. No traditional academic background in AI/ML - work stands on empirical merit and extends published research from Anthropic, ICLR 2025, and TMLR.
 
 ---
 
