@@ -42,7 +42,7 @@
         body {
             font-family: 'IBM Plex Sans', -apple-system, sans-serif;
             font-size: 11pt;
-            line-height: 1.5;
+            line-height: 1.6;
             color: var(--text);
             background: var(--bg);
             max-width: 8.5in;
@@ -131,35 +131,15 @@
 
         /* Body */
         .salutation {
-            margin-bottom: 12pt;
+            margin-bottom: 14pt;
         }
 
         .body p {
-            margin-bottom: 12pt;
-            text-align: justify;
+            margin-bottom: 14pt;
         }
 
         .body strong {
             font-weight: 600;
-        }
-
-        /* Highlights section */
-        .highlights {
-            margin: 16pt 0;
-            padding-left: 20pt;
-        }
-
-        .highlights li {
-            margin-bottom: 8pt;
-        }
-
-        /* Code styling */
-        code {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 10pt;
-            background: var(--code-bg);
-            padding: 2pt 4pt;
-            border-radius: 2pt;
         }
 
         /* Customize note */
@@ -175,34 +155,14 @@
             color: var(--accent);
         }
 
-        .customize-note ul {
-            margin-top: 8pt;
-            padding-left: 20pt;
-        }
-
-        .customize-note li {
-            margin-bottom: 4pt;
-        }
-
-        .customize-note em {
-            color: var(--text-muted);
-        }
-
         /* Closing */
         .closing {
             margin-top: 20pt;
         }
 
         .signature {
-            margin-top: 24pt;
+            margin-top: 4pt;
             font-weight: 500;
-        }
-
-        .attachments {
-            margin-top: 24pt;
-            font-size: 10pt;
-            color: var(--text-muted);
-            font-style: italic;
         }
     </style>
 </head>
@@ -235,45 +195,39 @@
     <!-- Body -->
     <div class="body">
         <p>
-            I developed an original framework for AI alignment and validated it empirically. The thesis: a system cannot be more aligned than it is accurate about its own capabilities. The proof: 94% prediction accuracy when Claude predicts its own success/failure, with systematic gaps identified and closed.
+            I've spent the last two years trying to answer a question that started as curiosity and turned into something I can't put down: can AI systems accurately know their own limits?
         </p>
 
         <p>
-            This isn't prompt engineering. It's alignment research with working code—88K lines of operational protocol, a 59-agent verification architecture, and tools that measure whether capability improvements actually transfer.
+            The answer surprised me. With the right scaffolding, Claude can predict its own success or failure with 94% accuracy. But what's interesting isn't the number—it's the patterns. The gaps are systematic. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. And once you can see the patterns, you can start to close them.
         </p>
 
-        <!-- Customization Section -->
+        <p>
+            That led me somewhere unexpected: the idea that self-knowledge might be the ceiling on alignment. A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about making models more powerful—it's about making them honest about what they can and can't do.
+        </p>
+
+        <p>
+            I built this independently. No PhD, no lab, no funding—just human-AI collaboration over thousands of hours, documenting what worked, throwing out what didn't. I ended up with 88K lines of operational protocol, tools I didn't plan to build, and a framework that keeps generating questions I want to answer. The work is real, if a little obsessive.
+        </p>
+
+        <!-- Customization Section (hidden on print) -->
         <div class="customize-note">
-            <strong>Why I'm reaching out to [COMPANY]:</strong>
-            <ul>
-                <li><em>For Anthropic:</em> My Layer 1/Layer 2 framework extends Greenblatt et al.'s Elicitation Game to address unintentionally unexpressed capabilities—the gap between what models can do and what they deploy by default.</li>
-                <li><em>For research roles:</em> I want to work where the research I've already done becomes the starting point, not a curiosity.</li>
-                <li><em>For engineering roles:</em> I've built the theory. Now I want to build systems that implement it at scale.</li>
-            </ul>
+            <strong>Why [COMPANY]:</strong><br><br>
+            [CUSTOMIZE: 2-3 sentences about why this specific organization. What draws you to their approach? What do you want to learn from them? How does your work connect to theirs?]
         </div>
 
-        <p><strong>What I bring:</strong></p>
-        <ul class="highlights">
-            <li>Original research that extends published work from Anthropic, ICLR 2025, and TMLR</li>
-            <li>Working code that demonstrates the methodology (the repository is public)</li>
-            <li>A track record of compressing learning curves—PMP certification in 1 week using the same AI-accelerated methods I research</li>
-        </ul>
-
         <p>
-            I built this research program without a lab, PhD, or funding. Just the work. I'm looking for a place where original thinking matters more than credentials.
+            I'm reaching out because I want to learn from people who've been at this longer than I have. I have ideas and tools that might be useful, but I also have gaps I know about and probably more I don't. I'd rather be somewhere I'm challenged than somewhere I'm comfortable.
         </p>
 
         <p>
-            The repository is the proof: <a href="https://github.com/bmconsult/claude" target="_blank">github.com/bmconsult/claude</a>
+            The repository: <a href="https://github.com/bmconsult/claude" target="_blank">github.com/bmconsult/claude</a>
         </p>
     </div>
 
     <!-- Closing -->
-    <div class="closing">Best,</div>
+    <div class="closing">Warmly,</div>
     <div class="signature">Ben Miller</div>
-
-    <!-- Attachments -->
-    <div class="attachments">Attachments: Resume, GitHub link</div>
 
     <script>
         // Theme management

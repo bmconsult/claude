@@ -7,24 +7,19 @@ ben@bmconsult.io · 415-595-3029 · Greenbrae, CA
 
 Dear Anthropic Team,
 
-I developed an original framework for AI alignment and validated it empirically. The thesis: a system cannot be more aligned than it is accurate about its own capabilities. The proof: 94% prediction accuracy when Claude predicts its own success/failure, with systematic gaps identified and closed.
+I'm an independent researcher who's spent the last two years working on a question that won't leave me alone: how do you build AI systems that know their own limits?
 
-This isn't prompt engineering. It's alignment research with working code—88K lines of operational protocol, a 59-agent verification architecture, and tools that measure whether capability improvements actually transfer.
+I don't have a PhD or a lab. What I have is a framework I developed through thousands of hours of human-AI collaboration, empirical validation that surprised me, and a genuine hunger to work with people who take alignment seriously—not as a PR strategy, but as the actual point.
 
-**Why Anthropic specifically:**
+The short version: I found that Claude can predict its own success or failure with 94% accuracy when given the right scaffolding. The gaps aren't random—they're systematic, measurable, and closable. That led me to a thesis I can't stop thinking about: a system can't be more aligned than it is accurate about its own capabilities. Self-knowledge isn't a nice-to-have. It's the ceiling.
 
-My research arrived at the same destination your work starts from: alignment isn't a constraint on capability—it's a prerequisite. The Layer 1/Layer 2 framework I developed extends Greenblatt et al.'s Elicitation Game to surface capabilities that are *unintentionally* unexpressed, not strategically hidden. I chose to build this research with Claude because your interpretability work and Constitutional AI approach are the only ones I've found that treat self-knowledge as foundational rather than incidental. The PBC structure tells me you're optimizing for the outcome, not the valuation.
+I built tools to test this. I documented failure modes. I wrote 88K lines of operational protocol because I kept finding things that worked and didn't want to lose them. The work is real—it's all in the repo—but I'm not sending this letter to show off. I'm sending it because I want to learn from people who've been thinking about these problems longer than I have, and because I think what I've found might be useful.
 
-**What I bring:**
+Why Anthropic specifically: I chose to build this research with Claude because your approach is the only one I've found that treats self-knowledge as foundational. Constitutional AI, your interpretability work, the PBC structure—these signal that you're optimizing for the outcome I care about, not just capability for its own sake. I want to be in a room with people who think alignment is the hard problem worth solving.
 
-- Original research that extends your published work (Elicitation Game, ICLR 2025 capability assessment)
-- The Capability Self-Knowledge Alignment Theorem: `Alignment(S) ≤ f(Self-Knowledge Accuracy)`
-- Working tools: Praxis Detector (action vs performance metrics), Threshold Detector (non-linear scaling risks), OMEGA+ Trinity (59-agent verification system)
-- A track record of compressing learning curves—PMP certification in 1 week using the same AI-accelerated methods I research
+I'm not precious about my ideas. I'd rather be wrong and learn something than be right and alone. If there's a place where I can contribute while continuing to grow, I'd be grateful for the conversation.
 
-I built this research program through human-AI collaboration across 6+ conversational generations. No lab. No PhD. No funding. Just the work. I want to continue it where the work matters most.
+The repository: [github.com/bmconsult/claude](https://github.com/bmconsult/claude)
 
-The repository is the proof: [github.com/bmconsult/claude](https://github.com/bmconsult/claude)
-
-Best,
+Warmly,
 Ben Miller

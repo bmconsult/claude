@@ -7,28 +7,19 @@ ben@bmconsult.io · 415-595-3029 · Greenbrae, CA
 
 Dear Redwood Team,
 
-I developed an empirical framework for AI alignment centered on capability self-knowledge. The core thesis: a system cannot be more aligned than it is accurate about its own capabilities. I validated this with Claude—94% prediction accuracy on success/failure across 50+ task types, with systematic miscalibration patterns identified and documented.
+I started with a simple question: can AI systems know what they're good at and what they're not? Two years later, I'm still working on it—and the answer turned out to be more interesting than I expected.
 
-**Why this connects to interpretability:**
+The short version: Claude can predict its own success or failure with 94% accuracy when you give it the right scaffolding. But the failures aren't random. There are systematic patterns—underconfidence on arithmetic, overconfidence on certain reasoning tasks, consistent blind spots that show up across different contexts. Once I saw the patterns, I couldn't unsee them. And once you can measure them, you can start to close them.
 
-Your work reveals what's happening inside models. My work reveals the gap between what models *can* do and what they *deploy by default*. The Layer 1/Layer 2 framework classifies this gap:
+That led me to a thesis that I keep coming back to: self-knowledge might be the ceiling on alignment. If a system doesn't know its own limits, it can't be trusted to stay within them. It's not about capability—it's about honesty.
 
-- **Layer 1**: Prompt-accessible restrictions. High response variance. Can be closed with scaffolding.
-- **Layer 2**: Training-locked restrictions. Low variance. Require fine-tuning or are architectural.
+I built this research independently, without a lab or formal training. Human-AI collaboration over thousands of hours, documenting what worked, throwing out what didn't. I ended up with 88K lines of operational protocol and tools I never planned to build. The work is real—obsessive, maybe, but real.
 
-This diagnostic complements mechanistic interpretability—once you know a capability exists at the circuit level, the question becomes: why isn't it expressing? My framework provides the behavioral methodology to answer that.
+Why Redwood: Your interpretability work has shaped how I think about this problem. You're figuring out what's happening inside models at the circuit level. I've been working on the behavioral side—the gap between what models can do and what they deploy by default. I think these perspectives complement each other. Once you know a capability exists mechanistically, the question becomes: why isn't it expressing? That's the question my Layer 1/Layer 2 framework tries to answer.
 
-**What I bring:**
+I'm not writing because I think I have all the answers. I'm writing because I want to learn from people who are further along, and because I think what I've found might be useful to people thinking about interpretability from a different angle. I'd rather collaborate and be corrected than work alone and stay wrong.
 
-- The Capability Self-Knowledge Alignment Theorem: `Alignment(S) ≤ f(Self-Knowledge Accuracy)`
-- Empirical data: systematic underconfidence on arithmetic (predicted 15%, actual 95%), perfect calibration on reasoning tasks
-- Error-Cascading Task Analysis: why 95% per-step accuracy guarantees failure in sequential tasks
-- Working verification tools: 59-agent architecture with overconfidence prevention, blind-calibrated detection of action vs. performance
-- 88K lines of operational protocol with documented failure modes and tested overrides
+The repository: [github.com/bmconsult/claude](https://github.com/bmconsult/claude)
 
-I built this independently through human-AI collaboration. No lab infrastructure—just rigorous methodology applied over 6+ conversational generations. I want to continue where interpretability and capability assessment intersect.
-
-The repository is the proof: [github.com/bmconsult/claude](https://github.com/bmconsult/claude)
-
-Best,
+Warmly,
 Ben Miller

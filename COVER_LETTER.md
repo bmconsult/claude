@@ -7,31 +7,21 @@ ben@bmconsult.io · 415-595-3029 · Greenbrae, CA
 
 Dear [Hiring Manager / Team],
 
-I developed an original framework for AI alignment and validated it empirically. The thesis: a system cannot be more aligned than it is accurate about its own capabilities. The proof: 94% prediction accuracy when Claude predicts its own success/failure, with systematic gaps identified and closed.
+I've spent the last two years trying to answer a question that started as curiosity and turned into something I can't put down: can AI systems accurately know their own limits?
 
-This isn't prompt engineering. It's alignment research with working code—88K lines of operational protocol, a 59-agent verification architecture, and tools that measure whether capability improvements actually transfer.
+The answer surprised me. With the right scaffolding, Claude can predict its own success or failure with 94% accuracy. But what's interesting isn't the number—it's the patterns. The gaps are systematic. Arithmetic gets underestimated. Certain reasoning tasks get overestimated. And once you can see the patterns, you can start to close them.
 
-**Why I'm reaching out to [COMPANY]:**
+That led me somewhere unexpected: the idea that self-knowledge might be the ceiling on alignment. A system that can't predict its own failures can't be trusted to stay within boundaries. It's not about making models more powerful—it's about making them honest about what they can and can't do.
 
-[CUSTOMIZE: 1-2 sentences on why this specific company/role. Examples below.]
+I built this independently. No PhD, no lab, no funding—just human-AI collaboration over thousands of hours, documenting what worked, throwing out what didn't. I ended up with 88K lines of operational protocol, tools I didn't plan to build, and a framework that keeps generating questions I want to answer. The work is real, if a little obsessive.
 
-- *For Anthropic:* My Layer 1/Layer 2 framework extends Greenblatt et al.'s Elicitation Game to address unintentionally unexpressed capabilities—the gap between what models can do and what they deploy by default.
-- *For research roles:* I want to work where the research I've already done becomes the starting point, not a curiosity.
-- *For engineering roles:* I've built the theory. Now I want to build systems that implement it at scale.
+**Why [COMPANY]:**
 
-**What I bring:**
+[CUSTOMIZE: 2-3 sentences about why this specific organization. What draws you to their approach? What do you want to learn from them? How does your work connect to theirs?]
 
-- Original research that extends published work from Anthropic, ICLR 2025, and TMLR
-- Working code that demonstrates the methodology (the repository is public)
-- A track record of compressing learning curves—PMP certification in 1 week using the same AI-accelerated methods I research
+I'm reaching out because I want to learn from people who've been at this longer than I have. I have ideas and tools that might be useful, but I also have gaps I know about and probably more I don't. I'd rather be somewhere I'm challenged than somewhere I'm comfortable.
 
-I built this research program without a lab, PhD, or funding. Just the work. I'm looking for a place where original thinking matters more than credentials.
+The repository: [github.com/bmconsult/claude](https://github.com/bmconsult/claude)
 
-The repository is the proof: [GitHub URL]
-
-Best,
+Warmly,
 Ben Miller
-
----
-
-*Attachments: Resume, GitHub link*
