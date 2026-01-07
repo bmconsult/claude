@@ -46,7 +46,7 @@ Cognitive scaffolding improvements generalize across domains. Arithmetic externa
 | **CLAUDE.md v5.22** | 88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated scaffolding. |
 | **Praxis Detector** | Python tool. Measures action vs performance using VD/AVR metrics. Calibrated through blind evaluation. |
 | **Threshold Detector** | Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk. |
-| **Sleep Framework** | 200+ API calls proving prompts matter 2.35x more than temperature for novelty. |
+| **Sleep Framework** | 2+ hours self-sustained autonomous operation. Compaction → fermentation → REM → dream cycles. Self-directed learning without human input. |
 
 ---
 
