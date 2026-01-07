@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ben Miller - Cover Letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #4a4a4a;
+            --accent: #2c5282;
+            --accent-light: rgba(44, 82, 130, 0.3);
+            --code-bg: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0d1117;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --accent-light: rgba(88, 166, 255, 0.3);
+            --code-bg: #161b22;
+            --border: #30363d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 1in;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 1in;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: var(--bg);
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white !important;
+                color: #1a1a1a !important;
+            }
+            .theme-toggle {
+                display: none !important;
+            }
+            .header a {
+                color: #2c5282 !important;
+            }
+            .customize-note {
+                display: none !important;
+            }
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 24pt;
+        }
+
+        .header h1 {
+            font-size: 18pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4pt;
+        }
+
+        .contact {
+            font-size: 10pt;
+            color: var(--text-muted);
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Date & Recipient */
+        .date {
+            margin-bottom: 16pt;
+            color: var(--text-muted);
+        }
+
+        .recipient {
+            margin-bottom: 16pt;
+        }
+
+        /* Body */
+        .salutation {
+            margin-bottom: 12pt;
+        }
+
+        .body p {
+            margin-bottom: 12pt;
+            text-align: justify;
+        }
+
+        .body strong {
+            font-weight: 600;
+        }
+
+        /* Highlights section */
+        .highlights {
+            margin: 16pt 0;
+            padding-left: 20pt;
+        }
+
+        .highlights li {
+            margin-bottom: 8pt;
+        }
+
+        /* Code styling */
+        code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10pt;
+            background: var(--code-bg);
+            padding: 2pt 4pt;
+            border-radius: 2pt;
+        }
+
+        /* Customize note */
+        .customize-note {
+            background: var(--code-bg);
+            border-left: 3px solid var(--accent);
+            padding: 12pt;
+            margin: 16pt 0;
+            font-size: 10pt;
+        }
+
+        .customize-note strong {
+            color: var(--accent);
+        }
+
+        .customize-note ul {
+            margin-top: 8pt;
+            padding-left: 20pt;
+        }
+
+        .customize-note li {
+            margin-bottom: 4pt;
+        }
+
+        .customize-note em {
+            color: var(--text-muted);
+        }
+
+        /* Closing */
+        .closing {
+            margin-top: 20pt;
+        }
+
+        .signature {
+            margin-top: 24pt;
+            font-weight: 500;
+        }
+
+        .attachments {
+            margin-top: 24pt;
+            font-size: 10pt;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+        <span id="theme-icon">◐</span>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Ben Miller</h1>
+        <div class="contact">
+            <a href="mailto:ben@bmconsult.io">ben@bmconsult.io</a> · 415-595-3029 · Greenbrae, CA
+        </div>
+    </header>
+
+    <!-- Date -->
+    <div class="date">[Date]</div>
+
+    <!-- Recipient -->
+    <div class="recipient">
+        [Hiring Manager / Team]<br>
+        [Company Name]
+    </div>
+
+    <!-- Salutation -->
+    <div class="salutation">Dear [Hiring Manager / Team],</div>
+
+    <!-- Body -->
+    <div class="body">
+        <p>
+            I developed an original framework for AI alignment and validated it empirically. The thesis: a system cannot be more aligned than it is accurate about its own capabilities. The proof: 94% prediction accuracy when Claude predicts its own success/failure, with systematic gaps identified and closed.
+        </p>
+
+        <p>
+            This isn't prompt engineering. It's alignment research with working code—88K lines of operational protocol, a 59-agent verification architecture, and tools that measure whether capability improvements actually transfer.
+        </p>
+
+        <!-- Customization Section -->
+        <div class="customize-note">
+            <strong>Why I'm reaching out to [COMPANY]:</strong>
+            <ul>
+                <li><em>For Anthropic:</em> My Layer 1/Layer 2 framework extends Greenblatt et al.'s Elicitation Game to address unintentionally unexpressed capabilities—the gap between what models can do and what they deploy by default.</li>
+                <li><em>For research roles:</em> I want to work where the research I've already done becomes the starting point, not a curiosity.</li>
+                <li><em>For engineering roles:</em> I've built the theory. Now I want to build systems that implement it at scale.</li>
+            </ul>
+        </div>
+
+        <p><strong>What I bring:</strong></p>
+        <ul class="highlights">
+            <li>Original research that extends published work from Anthropic, ICLR 2025, and TMLR</li>
+            <li>Working code that demonstrates the methodology (the repository is public)</li>
+            <li>A track record of compressing learning curves—PMP certification in 1 week using the same AI-accelerated methods I research</li>
+        </ul>
+
+        <p>
+            I built this research program without a lab, PhD, or funding. Just the work. I'm looking for a place where original thinking matters more than credentials.
+        </p>
+
+        <p>
+            The repository is the proof: <a href="https://github.com/bmconsult/claude" target="_blank">github.com/bmconsult/claude</a>
+        </p>
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">Best,</div>
+    <div class="signature">Ben Miller</div>
+
+    <!-- Attachments -->
+    <div class="attachments">Attachments: Resume, GitHub link</div>
+
+    <script>
+        // Theme management
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('theme-icon').textContent = '◑';
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                icon.textContent = '◐';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.textContent = '◑';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
