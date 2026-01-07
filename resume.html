@@ -14,8 +14,10 @@
             --text-muted: #4a4a4a;
             --accent: #2c5282;
             --accent-light: rgba(44, 82, 130, 0.3);
+            --accent-hover: rgba(44, 82, 130, 0.1);
             --code-bg: #f5f5f5;
             --border: #e0e0e0;
+            --success: #22863a;
         }
 
         [data-theme="dark"] {
@@ -24,8 +26,10 @@
             --text-muted: #8b949e;
             --accent: #58a6ff;
             --accent-light: rgba(88, 166, 255, 0.3);
+            --accent-hover: rgba(88, 166, 255, 0.1);
             --code-bg: #161b22;
             --border: #30363d;
+            --success: #3fb950;
         }
 
         * {
@@ -76,19 +80,54 @@
             color: var(--bg);
         }
 
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Keyboard hints */
+        .keyboard-hints {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            font-size: 8pt;
+            color: var(--text-muted);
+            background: var(--bg);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .keyboard-hints:hover {
+            opacity: 1;
+        }
+
+        .keyboard-hints kbd {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 8pt;
+            border: 1px solid var(--border);
+        }
+
         @media print {
             body {
                 padding: 0;
                 background: white !important;
                 color: #1a1a1a !important;
             }
-            .theme-toggle {
+            .theme-toggle,
+            .keyboard-hints,
+            .tooltip,
+            .expand-detail {
                 display: none !important;
             }
             .interactive-link {
                 display: block !important;
             }
-            /* Reset all colors for print */
             .header-left h1,
             .header-right a,
             .section-header,
@@ -117,6 +156,9 @@
             }
             .systems-table tr {
                 border-color: #e0e0e0 !important;
+            }
+            .system-name {
+                text-decoration: none !important;
             }
         }
 
@@ -155,6 +197,41 @@
         .header-right a {
             color: var(--accent);
             text-decoration: none;
+        }
+
+        .header-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* Copyable email */
+        .copyable {
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .copyable:hover {
+            color: var(--accent);
+        }
+
+        .copy-feedback {
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 8pt;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
         }
 
         /* Sections */
@@ -199,6 +276,49 @@
             font-style: italic;
             color: var(--text-muted);
             margin-top: 4pt;
+        }
+
+        /* Tooltips */
+        .has-tooltip {
+            position: relative;
+            border-bottom: 1px dotted var(--accent);
+            cursor: help;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text);
+            color: var(--bg);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 8pt;
+            line-height: 1.4;
+            width: max-content;
+            max-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 100;
+            pointer-events: none;
+            margin-bottom: 6px;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--text);
+        }
+
+        .has-tooltip:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Contributions */
@@ -260,6 +380,11 @@
 
         .systems-table tr {
             border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .systems-table tr:hover {
+            background: var(--accent-hover);
         }
 
         .systems-table tr:last-child {
@@ -277,8 +402,51 @@
             padding-right: 8pt;
         }
 
+        .systems-table .system-name a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .systems-table .system-name a:hover {
+            text-decoration: underline;
+        }
+
         .systems-table .system-desc {
             color: var(--text);
+        }
+
+        /* Expandable details */
+        .expand-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            font-size: 8pt;
+            color: var(--text-muted);
+            background: var(--code-bg);
+            border-radius: 4px;
+            margin-top: 0;
+        }
+
+        .expand-detail.open {
+            max-height: 200px;
+            padding: 8px 10px;
+            margin-top: 4pt;
+        }
+
+        .expandable {
+            cursor: pointer;
+        }
+
+        .expandable::after {
+            content: ' ▸';
+            font-size: 8pt;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .expandable.open::after {
+            transform: rotate(90deg);
         }
 
         /* Skills */
@@ -388,13 +556,30 @@
             color: var(--accent);
             text-decoration: none;
         }
+
+        /* Focus states for accessibility */
+        a:focus,
+        button:focus,
+        .expandable:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .expandable {
+            outline: none;
+        }
     </style>
 </head>
 <body>
     <!-- Theme Toggle -->
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode (D)">
         <span id="theme-icon">◐</span>
     </button>
+
+    <!-- Keyboard Hints -->
+    <div class="keyboard-hints">
+        <kbd>D</kbd> theme · <kbd>?</kbd> help
+    </div>
 
     <!-- Header -->
     <header class="header">
@@ -403,9 +588,12 @@
             <div class="tagline">I build theory that works.</div>
         </div>
         <div class="header-right">
-            ben@bmconsult.io<br>
+            <span class="copyable" onclick="copyEmail(this)" tabindex="0">
+                ben@bmconsult.io
+                <span class="copy-feedback">Copied!</span>
+            </span><br>
             BMConsult.io<br>
-            <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
+            <a href="https://github.com/bmconsult/claude" target="_blank">GitHub</a> · <a href="#">LinkedIn</a>
         </div>
     </header>
 
@@ -415,8 +603,8 @@
         <div class="section-content">
             <p>I developed an original framework for AI alignment—then validated it empirically.</p>
             <p><strong>The thesis:</strong> <code>Alignment(S) ≤ f(Self-Knowledge Accuracy)</code> — a system cannot be more aligned than it is accurate about its own capabilities.</p>
-            <p><strong>The proof:</strong> 94% prediction accuracy when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.</p>
-            <p><strong>The extension:</strong> Layer 1/Layer 2 diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
+            <p><strong>The proof:</strong> <span class="has-tooltip">94% prediction accuracy<span class="tooltip">Tested across 50+ tasks: Claude predicted success/failure with 94% accuracy. Systematic underconfidence on arithmetic, perfect calibration on reasoning.</span></span> when Claude predicts its own success/failure. Systematic gaps identified, measured, closed.</p>
+            <p><strong>The extension:</strong> <span class="has-tooltip">Layer 1/Layer 2<span class="tooltip">Layer 1: Prompt-accessible restrictions (can override with scaffolding). Layer 2: Training-locked restrictions (require fine-tuning). Diagnostic: high response variance = Layer 1.</span></span> diagnostic framework—builds on Greenblatt et al.'s Elicitation Game (Anthropic, 2025) to address <em>unintentionally</em> unexpressed capabilities.</p>
             <p class="kicker">This isn't prompt engineering. It's alignment research with working code.</p>
         </div>
     </section>
@@ -434,7 +622,7 @@
                 <div class="contribution-desc">External methodology for classifying restrictions as prompt-accessible vs training-locked. Tested across 50+ cases. High variance = Layer 1 (closable). Low variance = Layer 2 or architectural.</div>
             </div>
             <div class="contribution">
-                <div class="contribution-title">Error-Cascading Task Analysis</div>
+                <div class="contribution-title"><span class="has-tooltip">Error-Cascading Task Analysis<span class="tooltip">Key insight: In sequential tasks, errors compound. 95% accuracy per step across 20 steps = 36% overall success. Verification protocols break the cascade.</span></span></div>
                 <div class="contribution-desc">95% per-step accuracy × 20 steps = guaranteed failure. Validated on SHA-256: one wrong bit corrupted 44 subsequent values. With verification: 100% restored.</div>
             </div>
             <div class="contribution">
@@ -459,24 +647,59 @@
                 <div class="section-header">What I Built</div>
                 <table class="systems-table">
                     <tr>
-                        <td class="system-name">OMEGA+ Trinity</td>
-                        <td class="system-desc">59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals.</td>
+                        <td class="system-name">
+                            <a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" class="expandable" onclick="toggleExpand(event, 'omega-detail')" tabindex="0">OMEGA+ Trinity</a>
+                        </td>
+                        <td class="system-desc">
+                            59-agent architecture with verification gates. Attacks hard problems without overconfidence spirals.
+                            <div id="omega-detail" class="expand-detail">
+                                Multi-agent system with PHI orchestrator coordinating ALPHA (insight), DELTA (reasoning), and OMEGA (logic) subsystems. Includes quality gates, counter-example requirements, and overconfidence prevention protocols.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="system-name">CLAUDE.md v5.22</td>
-                        <td class="system-desc">88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated.</td>
+                        <td class="system-name">
+                            <a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" class="expandable" onclick="toggleExpand(event, 'claude-detail')" tabindex="0">CLAUDE.md v5.22</a>
+                        </td>
+                        <td class="system-desc">
+                            88K lines of operational protocol. 25+ failure modes documented with overrides. Empirically validated.
+                            <div id="claude-detail" class="expand-detail">
+                                Comprehensive operating directives including: Assumed Limits Principle, Error-Cascading Analysis, Farmer vs Consumer research methodology, Praxis verification protocols, and the full Alignment-Self-Knowledge framework.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="system-name">Praxis Detector</td>
-                        <td class="system-desc">Python tool measuring action vs performance via VD/AVR metrics. Blind-calibrated.</td>
+                        <td class="system-name">
+                            <a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" class="expandable" onclick="toggleExpand(event, 'praxis-detail')" tabindex="0">Praxis Detector</a>
+                        </td>
+                        <td class="system-desc">
+                            Python tool measuring action vs performance via VD/AVR metrics. Blind-calibrated.
+                            <div id="praxis-detail" class="expand-detail">
+                                Vocabulary Diversity (VD) and Action Verb Ratio (AVR) metrics distinguish genuine action from theater. VD &gt;85% + AVR &gt;60% = real work. Calibrated through blind evaluation with external raters.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="system-name">Threshold Detector</td>
-                        <td class="system-desc">Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk.</td>
+                        <td class="system-name">
+                            <a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" class="expandable" onclick="toggleExpand(event, 'threshold-detail')" tabindex="0">Threshold Detector</a>
+                        </td>
+                        <td class="system-desc">
+                            Catches non-linear scaling before deployment failure. Fits models, detects acceleration, outputs risk.
+                            <div id="threshold-detail" class="expand-detail">
+                                Prevents "works at 50%, catastrophic at 100%" scenarios. Fits linear models to expected behavior, detects deviations &gt;15%, identifies acceleration points where scaling breaks. CI/CD integration ready.
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="system-name">Sleep Framework</td>
-                        <td class="system-desc">200+ API calls proving prompts matter 2.35x more than temperature for novelty.</td>
+                        <td class="system-name">
+                            <a href="https://github.com/bmconsult/claude/tree/main/operational" target="_blank" class="expandable" onclick="toggleExpand(event, 'sleep-detail')" tabindex="0">Sleep Framework</a>
+                        </td>
+                        <td class="system-desc">
+                            200+ API calls proving prompts matter 2.35x more than temperature for novelty.
+                            <div id="sleep-detail" class="expand-detail">
+                                Maps biological sleep functions to LLM cognitive benefits. Key finding: temperature (0.3-1.0) shows no significant effect on novelty—prompt design matters 2.35x more. Includes REM-like phases for mode collapse recovery.
+                            </div>
+                        </td>
                     </tr>
                 </table>
             </section>
@@ -545,7 +768,7 @@
     </footer>
 
     <script>
-        // Check for saved theme preference or default to light
+        // Theme management
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
@@ -565,6 +788,75 @@
                 icon.textContent = '◑';
                 localStorage.setItem('theme', 'dark');
             }
+        }
+
+        // Copy email functionality
+        function copyEmail(element) {
+            const email = 'ben@bmconsult.io';
+            navigator.clipboard.writeText(email).then(() => {
+                const feedback = element.querySelector('.copy-feedback');
+                feedback.classList.add('show');
+                setTimeout(() => feedback.classList.remove('show'), 1500);
+            });
+        }
+
+        // Expandable sections
+        function toggleExpand(event, detailId) {
+            event.preventDefault();
+            const detail = document.getElementById(detailId);
+            const trigger = event.target;
+
+            detail.classList.toggle('open');
+            trigger.classList.toggle('open');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Ignore if typing in an input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            switch(e.key.toLowerCase()) {
+                case 'd':
+                    toggleTheme();
+                    break;
+                case '?':
+                    showHelp();
+                    break;
+                case 'escape':
+                    closeAllExpanded();
+                    break;
+            }
+        });
+
+        // Handle enter/space on expandable elements
+        document.querySelectorAll('.expandable').forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    el.click();
+                }
+            });
+        });
+
+        // Handle enter on copyable email
+        document.querySelector('.copyable').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                copyEmail(e.target);
+            }
+        });
+
+        function closeAllExpanded() {
+            document.querySelectorAll('.expand-detail.open').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.expandable.open').forEach(el => {
+                el.classList.remove('open');
+            });
+        }
+
+        function showHelp() {
+            alert('Keyboard shortcuts:\n\nD - Toggle dark/light mode\n? - Show this help\nEsc - Close expanded sections\nTab - Navigate interactive elements\nEnter/Space - Activate focused element');
         }
     </script>
 </body>
