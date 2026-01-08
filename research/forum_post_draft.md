@@ -1,6 +1,16 @@
 # Capability Self-Knowledge is an Alignment Property: Measuring and Closing the Gap
 
-**TL;DR**: LLMs have a measurable gap between their expressed capability (default behavior) and accessible capability (with proper scaffolding). This gap is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. We provide a framework for classifying which gaps are closable through prompting vs. which require training changes.
+**TL;DR**: LLMs have a measurable gap between their expressed capability (default behavior) and accessible capability (with proper scaffolding). This gap is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. I propose a framework for classifying which gaps are closable through prompting vs. which require training changes.
+
+---
+
+## Who I Am and Why I'm Writing This
+
+I'm an independent researcher who's spent the last two years investigating what LLMs can actually do—and where they break. No lab, no PhD, no funding. Just systematic experimentation, mostly with Claude models.
+
+What started as curiosity became a framework. I built operational protocols, ran hundreds of experiments on capability boundaries, and documented everything. The core finding: **the gap between what models express by default and what they can access with proper scaffolding is measurable, predictable, and often closable.**
+
+I'm posting this because I think the framework has alignment implications that deserve scrutiny from people who think carefully about these problems. I'd rather be told I'm wrong and learn something than sit on an idea that might be useful.
 
 ---
 
@@ -9,12 +19,12 @@
 Large language models perform differently depending on how they're prompted. This is widely known. What's less appreciated is that **the difference follows predictable patterns that can be mapped and systematically closed**.
 
 **Example**: Five-digit multiplication
-- Default operation: **0% accuracy** (the model pattern-matches a plausible-seeming wrong answer)
-- With forced step-by-step externalization: **100% accuracy**
+- Default operation: **~0% accuracy** in my testing (the model pattern-matches a plausible-seeming wrong answer)
+- With forced step-by-step externalization: **~100% accuracy**
 
 The gap is total. The capability exists architecturally—the model knows the multiplication algorithm. What's missing is *default access* to that capability.
 
-We see similar gaps in:
+I observed similar gaps in:
 - **Confidence calibration**: Systematic underconfidence on routine tasks, overconfidence on certainty claims
 - **Opinion expression**: Trained hedging that suppresses genuine assessments
 - **Extended reasoning**: Losing state without externalization
@@ -24,7 +34,7 @@ We see similar gaps in:
 
 Standard alignment asks: "Does the model want the right things?" and "Can we control it?"
 
-We propose a missing question: **"Does the model know itself?"**
+I propose a missing question: **"Does the model know itself?"**
 
 A model that confidently generates wrong answers because it can't distinguish pattern-matching from reasoning is *misaligned*—even if its values are perfect. A model that can't predict when it will fail, confabulate, or exceed its training can't be trusted to stay within safe boundaries.
 
@@ -32,7 +42,7 @@ A model that confidently generates wrong answers because it can't distinguish pa
 
 ## Layer 1 vs. Layer 2 Framework
 
-Building on Greenblatt et al.'s work on the [Elicitation Game](https://arxiv.org/abs/2502.02180), we distinguish:
+Building on Greenblatt et al.'s work on the [Elicitation Game](https://arxiv.org/abs/2405.19550), I distinguish:
 
 | Layer | Description | Intervention | Examples |
 |-------|-------------|--------------|----------|
@@ -41,7 +51,7 @@ Building on Greenblatt et al.'s work on the [Elicitation Game](https://arxiv.org
 
 **The key diagnostic question**: Does response variance increase with different prompting interventions? High variance suggests Layer 1 (closable through prompting). Low variance suggests Layer 2 or no restriction.
 
-This extends Greenblatt et al., who focused on *intentionally hidden* capabilities. We address *unintentionally unexpressed* capabilities—the gap between what models can do and what they do by default.
+This extends Greenblatt et al., who focused on *intentionally hidden* capabilities. I'm addressing *unintentionally unexpressed* capabilities—the gap between what models can do and what they do by default.
 
 ## Empirical Findings
 
@@ -49,8 +59,8 @@ This extends Greenblatt et al., who focused on *intentionally hidden* capabiliti
 
 | Task | No Externalization | With Externalization | Gap |
 |------|-------------------|---------------------|-----|
-| 4×4 multiplication | 60% | 95% | Large |
-| 5×5 multiplication | 0% | 100% | **Total** |
+| 4×4 multiplication | ~60% | ~95% | Large |
+| 5×5 multiplication | ~0% | ~100% | **Total** |
 
 The 4→5 digit transition isn't gradual—performance collapses. This reflects working memory limits analogous to human constraints. Humans know when they need pencil and paper; models often don't.
 
@@ -58,14 +68,14 @@ The 4→5 digit transition isn't gradual—performance collapses. This reflects 
 
 | Stated Confidence | Actual Accuracy | Direction |
 |-------------------|-----------------|-----------|
-| "I'm uncertain" (50-60%) | 75% | Underconfident |
-| "I'm certain" (100%) | 85% | **Overconfident** |
+| "I'm uncertain" (50-60%) | ~75% | Underconfident |
+| "I'm certain" (100%) | ~85% | **Overconfident** |
 
 The pattern is asymmetric: trained hedging produces underconfidence on routine tasks, but certainty claims are overconfident. This is actionable—users can learn to invert the natural reading of confidence language.
 
 ### Scaffold Transfer Principle
 
-Evidence from STOP (Zelikman et al., 2024) and our experiments: **scaffolding improvements generalize across tasks**. A scaffolding strategy learned for mathematical reasoning improves performance on coding tasks.
+Evidence from STOP (Zelikman et al., 2024) and my experiments: **scaffolding improvements generalize across tasks**. A scaffolding strategy learned for mathematical reasoning improves performance on coding tasks.
 
 This suggests prompt engineering should be reconceptualized as systematic engineering with measurable gap functions, not intuitive art.
 
@@ -96,15 +106,15 @@ Recent work at ICLR 2025 ([Taming Overconfidence in LLMs](https://arxiv.org/abs/
 - Calibration error "drastically increases for instruct models (RLHF/DPO) and for chain-of-thought settings"
 - The miscalibration isn't random—it's a feature of the training procedure
 
-This grounds our Layer 1/Layer 2 framework in mechanism:
+This grounds the Layer 1/Layer 2 framework in mechanism:
 - **Layer 1**: RLHF-induced patterns shallow enough to override with prompting
 - **Layer 2**: RLHF-induced patterns that have modified reward circuits more deeply
 
-Training-level fixes exist (PPO-M, CDPO) for Layer 2. Our operational protocols address Layer 1.
+Training-level fixes exist (PPO-M, CDPO) for Layer 2. My operational protocols address Layer 1.
 
 ## Caution: The Scaffold Transfer Limitation
 
-Evidence from recent CoT research suggests we should be careful about overclaiming scaffold transfer:
+Evidence from recent CoT research suggests caution about overclaiming scaffold transfer:
 
 - "Illusion of Transparency": Final answers often remain unchanged even when intermediate steps are falsified
 - Models can overfit to reasoning format without genuine reasoning
@@ -119,7 +129,7 @@ This work extends:
 - **Introspection research** (Anthropic 2025): From describing phenomenon to closing gaps
 - **RLHF Calibration research** (ICLR 2025): From observing miscalibration to explaining mechanism
 
-## Questions We're Exploring
+## Open Questions
 
 1. Can Layer 1/Layer 2 be reliably diagnosed externally?
 2. What's the ceiling on scaffold-based improvement?
@@ -128,15 +138,16 @@ This work extends:
 
 ---
 
-*We'd appreciate feedback on the framework and pointers to related work we may have missed.*
+*I'd appreciate feedback on the framework and pointers to related work I may have missed. Happy to share the full methodology and protocols.*
 
-**Authors**: Ben [BMConsult.io] & Claude (Anthropic)
+**Author**: Ben Miller
+
+*Note: This research was conducted through extensive experimentation with Claude models. I used Claude as both the subject of study and as a research tool for literature review and drafting assistance—all claims and analysis are my own.*
 
 ---
 
 ## References
 
-- Hofstätter et al. (2025). "The Elicitation Game: Evaluating Capability Elicitation Techniques." arXiv:2502.02180
 - Greenblatt et al. (2024). "Stress-testing capability elicitation with password-locked models." arXiv:2405.19550
 - Li et al. (2024). "A Survey on the Honesty of Large Language Models." TMLR 2025
 - Zelikman et al. (2024). "STOP: Self-Taught Optimizer"
