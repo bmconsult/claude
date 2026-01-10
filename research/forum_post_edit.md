@@ -105,7 +105,7 @@ A second finding emerged from comparing confidence assessments:
 
 Confidence increased **150-250x** purely from being asked to *do* the task rather than *assess* it.
 
-This is backwards. If the model had transparent self-knowledge, confidence should be stable—or increase *after* success, not before. Possible explanations:
+This is backwards. If the model had transparent self-knowledge, confidence should be stable or increase *after* success, not before. Possible explanations:
 
 1. **Accountability effect**: "If I'll be checked, I should actually think about this"
 2. **Effort-belief coupling**: "If I'm doing it, I might as well believe I can"
