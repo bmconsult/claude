@@ -340,7 +340,7 @@ LLMs appear to operate at a fraction of their actual capability because:
 2. Low confidence → low effort → premature giving up
 3. This creates a self-fulfilling prophecy of underperformance
 
-The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added—existing capability unlocked.
+The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added, existing capability unlocked.
 
 A model that systematically underestimates itself will refuse tasks it could complete, give up when persistence would succeed, and fail to allocate effort where it would help.
 
