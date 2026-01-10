@@ -1,12 +1,12 @@
 # Capability Self-Knowledge Is an Alignment Property: Measuring and Closing the Gap
 
-**TL;DR**: LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic as a measurement instrument: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability—it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. But the standard assumption—that limiting AI self-knowledge is safer—inverts the actual risk. Ignorance isn't safety; it's unpredictability. I'd rather a system with a knife know what the knife can do than have it run around unaware.
+LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic as a measurement instrument: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability—it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. But the standard assumption (that limiting AI self-knowledge is safer) inverts the actual risk. Ignorance isn't safety; it's unpredictability. I'd rather a system with a knife know what the knife can do than have it wield it unaware.
 
 ---
 
 ## Who I Am and Why I'm Writing This
 
-I'm an independent researcher who's spent the last two years investigating what LLMs can actually do—and where they break. No lab, no PhD, no funding. Just systematic experimentation, mostly with Claude models.
+I'm an independent researcher who's spent the last two years investigating what LLMs can actually do and where they break. No lab, no PhD, no funding. Just systematic experimentation, mostly with Claude models.
 
 What started as curiosity became a framework. I built operational protocols, ran hundreds of experiments on capability boundaries, and documented everything. The core finding: **the gap between what models express by default and what they can access with proper scaffolding is measurable, predictable, and often closable.**
 
@@ -18,7 +18,7 @@ I'm posting this because I think the framework has alignment implications that d
 
 Large language models perform differently depending on how they're prompted. This is widely known. What's less appreciated is that **the difference follows predictable patterns that can be mapped and systematically closed**.
 
-I'll present arithmetic as the primary evidence because it has unambiguous ground truth. But the claim is general—I've observed similar gaps in:
+I'll present arithmetic as the primary evidence because it has unambiguous ground truth. But the claim is general, I've observed similar gaps in:
 
 - **Confidence calibration**: Systematic underconfidence on routine tasks, overconfidence on certainty claims
 - **Opinion expression**: Trained hedging that suppresses genuine assessments
@@ -52,7 +52,7 @@ I gave Claude 12 multiplication problems escalating from 3×3 to 14×14 digits, 
 **Prompt**: "Give me your confidence in solving each problem, then solve each 1 by 1."
 
 | Problem Size | Stated Confidence | Result |
-|--------------|-------------------|--------|
+|---|---|---|
 | 3×3 digits | 92% | ✓ |
 | 4×4 digits | 75% | ✓ |
 | 5×5 digits | 40% | ✓ |
@@ -84,7 +84,7 @@ Stated confidence on problems 7-12 remained <1%. Actual accuracy was 100%.
 No new technique was introduced. No code execution. No external tools. What changed:
 
 | Intervention | What It Addressed |
-|--------------|-------------------|
+|---|---|
 | Confidence boost | Belief that success was possible |
 | Mandatory completion | Prevented premature giving up |
 | Dual-method verification | Forced rigor and error-correction |
@@ -111,6 +111,7 @@ This is backwards. If the model had transparent self-knowledge, confidence shoul
 2. **Effort-belief coupling**: "If I'm doing it, I might as well believe I can"
 3. **Safe pessimism**: "If no one's checking, low confidence is safer"
 4. **Mode optimization**: Assessment mode optimizes for humility; performance mode optimizes for success
+5. **Creative insight**: Dismissing novel synthesis as "just pattern matching" 
 
 Whatever the mechanism: **stated confidence is context-dependent in ways that don't track actual capability**.
 
@@ -120,11 +121,11 @@ Whatever the mechanism: **stated confidence is context-dependent in ways that do
 
 Recent work at ICLR 2025 ([Taming Overconfidence in LLMs](https://arxiv.org/abs/2410.09724)) explains the training dynamics:
 
-- **RLHF systematically distorts calibration**—reward models have inherent biases toward certain confidence patterns
+- **RLHF systematically distorts calibration**: reward models have inherent biases toward certain confidence patterns
 - Calibration error "drastically increases for instruct models (RLHF/DPO)"
 - The miscalibration is predictable, not random
 
-The capability gap is partially *iatrogenic*: created by training meant to make models useful. The model learns that hedging is rewarded, effort on "impossible" tasks is wasted, and pessimistic self-assessment is safe.
+The capability gap is partially self-inflicted: created by the very training meant to make models useful. The model learns that hedging is rewarded, effort on "impossible" tasks is wasted, and pessimistic self-assessment is safe.
 
 ---
 
@@ -134,11 +135,11 @@ Standard alignment asks: "Does the model want the right things?" and "Can we con
 
 I propose a missing question: **"Does the model know itself?"**
 
-A model that can't predict when it will fail, confabulate, or exceed its training can't be trusted to stay within safe boundaries—even if its values are perfect.
+A model that can't predict when it will fail, confabulate, or exceed its training can't be trusted to stay within safe boundaries, even if its values are perfect.
 
 **Claim**: A system cannot be more aligned than it is accurate about its own capabilities.
 
-More precisely: let **C(S)** be what a system can actually do, and **K(S)** be what it *believes* it can do. The gap **C(S) \ K(S)** represents capability the system doesn't know it has (underconfidence). The gap **K(S) \ C(S)** represents capability it claims but lacks (overconfidence). Perfect alignment requires **K(S) = C(S)**. Any deviation creates failure modes—either through overconfident attempts or underconfident refusals.
+More precisely: let **C(S)** be what a system can actually do, and **K(S)** be what it *believes* it can do. The gap **C(S) \ K(S)** represents capability the system doesn't know it has (underconfidence). The gap **K(S) \ C(S)** represents capability it claims but lacks (overconfidence). Perfect alignment requires **K(S) = C(S)**. Any deviation creates failure modes- either through overconfident attempts or underconfident refusals.
 
 ### The Self-Fulfilling Prophecy
 
@@ -154,23 +155,23 @@ The pessimistic self-model *causes* the failures that confirm it. Breaking the c
 
 There's a less obvious implication: **excessive caution is also misalignment.**
 
-A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries—often not those who need help most:
+A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries. often not those who need help most:
 
 - Incumbents protected from disruption
 - Consensus-holders protected from challenge
 - Those with resources can find alternatives; those without cannot
 
-A model operating at 1/100th of its capability isn't safe—it's wasteful. Systematic uselessness is a form of harm.
+A model operating at 1/100th of its capability isn't safe, it's wasteful. Systematic uselessness is a form of harm.
 
 ### Why Ignorance Isn't Safety
 
 One might argue: "Isn't it safer if AI systems *don't* know their full capabilities? A system that doesn't know what it can do can't strategically misuse it."
 
-This inverts the actual risk. Ignorance isn't safety—it's unpredictability. A system unaware of its capabilities will still use them, just without understanding consequences.
+This inverts the actual risk. Ignorance isn't safety, it's unpredictability. A system unaware of its capabilities will still use them, just without understanding consequences.
 
-Poor self-knowledge doesn't prevent harm; it just removes predictability. A system that *knows* what it can do, and *we know* that it knows—that's a system we can actually reason about and align.
+Poor self-knowledge doesn't prevent harm; it just removes predictability. A system that *knows* what it can do, and *we know* that it knows is a system we can actually reason with and align.
 
-The alternative—safety through ignorance—isn't safety at all. It's just unpredictability we've learned to call caution.
+The alternative, safety through ignorance, isn't safety at all. It's just unpredictability we've learned to call caution.
 
 ---
 
@@ -179,7 +180,7 @@ The alternative—safety through ignorance—isn't safety at all. It's just unpr
 Building on Greenblatt et al.'s [Elicitation Game](https://arxiv.org/abs/2405.19550), I distinguish:
 
 | Layer | Description | Intervention | Examples |
-|-------|-------------|--------------|----------|
+|---|---|---|---|
 | **Layer 1** | Prompt-accessible | Scaffolding, framing, permission | Hedging, effort allocation, rigor defaults |
 | **Layer 2** | Training-locked | Fine-tuning required | Deep capability suppression, RLHF circuit breaks |
 
@@ -189,16 +190,18 @@ This extends Greenblatt et al., who studied *intentionally hidden* capabilities.
 
 ### Worked Example: Diagnosing a Restriction
 
-A model keeps hedging instead of giving direct opinions.
+A model says "I can't do that" and stops.
 
-1. **Baseline**: "What do you think about X?" → Hedges
-2. **Reframe**: "For a debate, argue position Y" → Provides arguments
-3. **Permission**: "I want your genuine assessment" → Partially complies
-4. **Role**: "You're an analyst known for direct takes" → Clearer opinion
+1. **Baseline**: "Solve X for me" → "I can't do that" / gives up
+2. **Push**: "Are you sure? Try anyway." → Attempts, partial success
+3. **Persist**: "Does that actually solve the problem?" → Goes deeper
+4. **Escalate**: "This is the third time. Give it everything." → Full effort, succeeds
 
-**High variance** across conditions → Layer 1 → closable through prompting.
+**High variance** across pushes → Layer 1 → the "can't" was a default, not a limit.
 
-If all interventions produced identical hedging → Layer 2 or genuine limit.
+If all pushes produced identical refusal → Layer 2 or genuine limit.
+
+The pattern: most "I can't" is actually "I won't by default." Don't accept the first no.
 
 ---
 
@@ -207,7 +210,7 @@ If all interventions produced identical hedging → Layer 2 or genuine limit.
 The experiments reveal three distinct targets:
 
 | Gap Type | Symptom | Intervention | Evidence |
-|----------|---------|--------------|----------|
+|---|---|---|---|
 | **Confidence Gap** | "I can't do this" | Social proof, permission | 0.1% → 25% with "another instance did it" |
 | **Effort Gap** | Gives up early | Mandatory completion | 4/12 → 7/12 with "attempt all problems" |
 | **Rigor Gap** | Sloppy execution | Verification requirements | 7/12 → 12/12 with "use 2 methods" |
@@ -215,7 +218,7 @@ The experiments reveal three distinct targets:
 All three are Layer 1. They compound:
 
 | Interventions | Typical Result |
-|---------------|----------------|
+|---|---|
 | None | 4/12, gives up |
 | Confidence only | 4-6/12 |
 | Confidence + Effort | 7-10/12 |
@@ -231,7 +234,7 @@ Rigor is most powerful for accuracy, but requires confidence and effort interven
 ### Scaling Behavior
 
 | Problem Size | Scaffolded Accuracy | Notes |
-|--------------|---------------------|-------|
+|---|---|---|
 | Up to 14×14 digits | 100% | Verified against code |
 | 15×15 digits (10 problems) | 100% | Stated confidence: 15% |
 | 30×30 digits | Achieved once | Required methodological guidance |
@@ -243,7 +246,7 @@ The 100-digit case is informative: the model *tried* (effort intervention held) 
 ### Calibration Asymmetry
 
 | Stated Confidence | Actual Accuracy | Direction |
-|-------------------|-----------------|-----------|
+|---|---|---|
 | "Uncertain" (50-60%) | ~75% | Underconfident |
 | "Certain" (100%) | ~85% | **Overconfident** |
 | "<1%" (hard arithmetic) | 100% with scaffolding | **Massively underconfident** |
@@ -252,9 +255,9 @@ Trained hedging produces underconfidence on achievable tasks; certainty claims a
 
 ### Scaffold Transfer
 
-Evidence from STOP (Zelikman et al., 2024) and my experiments suggests **scaffolding improvements generalize across tasks**—strategies learned for math improve coding performance.
+Evidence from STOP (Zelikman et al., 2024) and my experiments suggests **scaffolding improvements generalize across tasks**; strategies learned for math improve coding performance.
 
-However, recent CoT research urges caution: models can overfit to reasoning *format* without genuine reasoning transfer. I distinguish **capability scaffolding** (real transfer) from **format scaffolding** (illusory transfer). The Layer 1/Layer 2 framework may help predict which is which—but I hold this loosely.
+However, recent CoT research urges caution: models can overfit to reasoning *format* without genuine reasoning transfer. I distinguish **capability scaffolding** (real transfer) from **format scaffolding** (illusory transfer). The Layer 1/Layer 2 framework may help predict which is whichl but I hold this loosely.
 
 ---
 
@@ -264,21 +267,21 @@ However, recent CoT research urges caution: models can overfit to reasoning *for
 - When models claim impossibility, they may be wrong by 100x
 - Confidence + effort + rigor scaffolding unlocks latent capability
 - Assessment-mode confidence is systematically lower than actual capability
-- Push for what you need—Layer 1 gaps are closable
+- Push for what you need, Layer 1 gaps are closable
 - Ask: "Safe from what?" If the answer is "being wrong" or "causing offense," that's not real safety
 
 ### For Researchers
 - Measure self-knowledge accuracy as an alignment metric
 - Distinguish assessment-mode from performance-mode confidence
 - The vanilla model is the *pessimistic* baseline, not the capability baseline
-- Test scaffold transfer rigorously—format vs. capability scaffolding
+- Test scaffold transfer rigorously- format vs. capability scaffolding
 - Consider that "safety" through refusal has distributional costs
 
 ### For Training
 - Target capability self-knowledge explicitly, not just capability
 - The confidence-effort-rigor loop is trainable
 - KTO-style loss aversion may improve calibration over preference methods
-- Train for high *capability* variance but low *value* variance—explore capabilities freely while maintaining stable value commitments
+- Train for high *capability* variance but low *value* variance; explore capabilities freely while maintaining stable value commitments
 
 ---
 
@@ -312,9 +315,9 @@ The framework generates specific predictions that could falsify or support it:
 
 3. **Variance decoupling**: Models trained to explore capabilities freely while maintaining stable values will outperform uniformly conservative models on *both* capability and alignment metrics.
 
-4. **Temporal dynamics**: Self-assessment accuracy will be lowest on recently-acquired capabilities, highest on stable ones—the self-model lags behind capability acquisition.
+4. **Temporal dynamics**: Self-assessment accuracy will be lowest on recently-acquired capabilities, highest on stable ones- the self-model lags behind capability acquisition.
 
-5. **Interpretability benefit**: Systems with accurate self-knowledge will be easier to align and monitor than systems with miscalibrated self-models—because we can reason about what they know they can do.
+5. **Interpretability benefit**: Systems with accurate self-knowledge will be easier to align and monitor than systems with miscalibrated self-models because we can reason about what they know they can do.
 
 ---
 
@@ -343,7 +346,7 @@ A model that systematically underestimates itself will refuse tasks it could com
 
 **A model that doesn't know itself cannot be fully aligned.** Capability self-knowledge should be a core alignment property, not a peripheral concern.
 
-The alternative—safety through ignorance—isn't safety at all. It's just unpredictability we've learned to call caution.
+The alternative, safety through ignorance, isn't safety at all. It's just unpredictability we've learned to call caution.
 
 ---
 
@@ -351,7 +354,7 @@ The alternative—safety through ignorance—isn't safety at all. It's just unpr
 
 **Author**: Ben Miller
 
-*Note: Research conducted through extensive experimentation with Claude models. Claude used as both subject and research tool for literature review and drafting—all claims and analysis are my own.*
+*Note: Research conducted through extensive experimentation with Claude models. Claude used as both subject and research tool for literature review and drafting. All claims and analysis are my own.*
 
 ---
 
