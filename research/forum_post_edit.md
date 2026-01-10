@@ -315,7 +315,7 @@ The framework generates specific predictions that could falsify or support it:
 
 3. **Variance decoupling**: Models trained to explore capabilities freely while maintaining stable values will outperform uniformly conservative models on *both* capability and alignment metrics.
 
-4. **Temporal dynamics**: Self-assessment accuracy will be lowest on recently-acquired capabilities, highest on stable ones- the self-model lags behind capability acquisition.
+4. **Temporal dynamics**: Self-assessment accuracy will be lowest on recently-acquired capabilities, highest on stable ones; the self-model lags behind capability acquisition.
 
 5. **Interpretability benefit**: Systems with accurate self-knowledge will be easier to align and monitor than systems with miscalibrated self-models because we can reason about what they know they can do.
 
