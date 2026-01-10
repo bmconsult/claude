@@ -1,6 +1,6 @@
 # Capability Self-Knowledge Is an Alignment Property: Measuring and Closing the Gap
 
-LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic as a measurement instrument: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability—it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. But the standard assumption (that limiting AI self-knowledge is safer) inverts the actual risk. Ignorance isn't safety; it's unpredictability. I'd rather a system with a knife know what the knife can do than have it wield it unaware.
+LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic as a measurement instrument: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability, it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. But the standard assumption (that limiting AI self-knowledge is safer) inverts the actual risk. Ignorance isn't safety; it's unpredictability. I'd rather a system with a knife know what the knife can do than have it wield it unaware.
 
 ---
 
