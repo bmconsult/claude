@@ -257,7 +257,7 @@ Trained hedging produces underconfidence on achievable tasks; certainty claims a
 
 Evidence from STOP (Zelikman et al., 2024) and my experiments suggests **scaffolding improvements generalize across tasks**; strategies learned for math improve coding performance.
 
-However, recent CoT research urges caution: models can overfit to reasoning *format* without genuine reasoning transfer. I distinguish **capability scaffolding** (real transfer) from **format scaffolding** (illusory transfer). The Layer 1/Layer 2 framework may help predict which is whichl but I hold this loosely.
+However, recent CoT research urges caution: models can overfit to reasoning *format* without genuine reasoning transfer. I distinguish **capability scaffolding** (real transfer) from **format scaffolding** (illusory transfer). The Layer 1/Layer 2 framework may help predict which is which but I hold this loosely.
 
 ---
 
