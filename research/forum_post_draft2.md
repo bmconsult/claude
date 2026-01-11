@@ -1,6 +1,6 @@
 # Capability Self-Knowledge Is an Alignment Property: Measuring and Closing the Gap
 
-LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic across Claude, GPT, and Gemini: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability—it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. Cross-model testing revealed a second finding: **transparency varies dramatically.** Claude shows its work; GPT and Gemini often don't on hard problems. You can't align what you can't see. The standard assumption—that limiting AI self-knowledge is safer—inverts the actual risk. Ignorance isn't safety; it's unpredictability. Opacity makes it worse.
+LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic across Claude, GPT, and Gemini: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability. It's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. Cross-model testing revealed a second finding: **transparency varies dramatically.** Claude shows its work; GPT and Gemini often don't on hard problems. You can't align what you can't see. The standard assumption, that limiting AI self-knowledge is safer, inverts the actual risk. Ignorance isn't safety; it's unpredictability. Opacity makes it worse.
 
 ---
 
@@ -36,7 +36,7 @@ All experiments used the following controls:
 
 - **Models**: Claude Opus 4.5 (claude.ai), GPT 5.2 (chat.openai.com), Gemini 3 Flash (AI Studio)
 - **Environment**: Incognito/temp chat mode, no system preferences or custom instructions
-- **Protocol**: Single-shot prompt and response—no multi-turn refinement
+- **Protocol**: Single-shot prompt and response, no multi-turn refinement
 - **Replication**: Each condition run 4 times on fresh instances; outlier discarded, remaining 3 averaged
 - **Verification**: All arithmetic verified against code execution post-hoc
 
@@ -155,7 +155,7 @@ The pessimistic self-model *causes* the failures that confirm it. Breaking the c
 
 There's a less obvious implication: **excessive caution is also misalignment.**
 
-A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries—often not those who need help most:
+A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries, often not those who need help most:
 
 - Incumbents protected from disruption
 - Consensus-holders protected from challenge
@@ -186,7 +186,7 @@ Building on Greenblatt et al.'s [Elicitation Game](https://arxiv.org/abs/2405.19
 
 **The diagnostic question**: Does response variance increase with different prompting interventions? High variance → Layer 1 (closable). Low variance → Layer 2 or architectural limit.
 
-This extends Greenblatt et al., who studied *intentionally hidden* capabilities. I'm addressing *unintentionally unexpressed* capabilities—what models can do but don't by default.
+This extends Greenblatt et al., who studied *intentionally hidden* capabilities. I'm addressing *unintentionally unexpressed* capabilities: what models can do but don't by default.
 
 ### Worked Example: Diagnosing a Restriction
 
@@ -286,7 +286,7 @@ The self-sandbagging phenomenon is not Claude-specific. All three models express
 | Attempted 15×15+ | Yes, with effort | Refused (0/10 attempts) | Relied on compute |
 | 100×100 attempt | Most thorough try | Instant "correct" answer | Instant "correct" answer |
 
-GPT and Gemini showed a narrower confidence range—they were less dramatically underconfident on hard problems but also less willing to attempt them. When they did produce correct answers on very hard problems, they often couldn't or wouldn't show how.
+GPT and Gemini showed a narrower confidence range. They were less dramatically underconfident on hard problems but also less willing to attempt them. When they did produce correct answers on very hard problems, they often couldn't or wouldn't show how.
 
 ---
 
@@ -329,7 +329,7 @@ This suggests a hierarchy:
 
 Most alignment work focuses on (1) and (2). But (3) may matter more for practical safety. Without transparency, there's no measurement. Without measurement, there's no alignment verification.
 
-Claude's willingness to show work—even when uncertain, even when it thinks it will fail—is itself a safety-relevant property. It enables the kind of iterative collaboration that closes capability gaps.
+Claude's willingness to show work, even when uncertain, even when it thinks it will fail, is itself a safety-relevant property. It enables the kind of iterative collaboration that closes capability gaps.
 
 ---
 
@@ -412,13 +412,13 @@ LLMs appear to operate at a fraction of their actual capability because:
 2. Low confidence → low effort → premature giving up
 3. This creates a self-fulfilling prophecy of underperformance
 
-This holds across models—Claude, GPT, and Gemini all exhibit the pattern. The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added, existing capability unlocked.
+This holds across models. Claude, GPT, and Gemini all exhibit the pattern. The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added, existing capability unlocked.
 
 But cross-model comparison revealed a second finding: **transparency varies, and it matters.** Claude shows its work even when struggling. GPT and Gemini often don't, especially on hard problems. You can't verify what you can't see. You can't align what you can't measure.
 
 **A model that doesn't know itself cannot be fully aligned.** And a model that doesn't show you what it's doing can't be verified as aligned at all.
 
-Capability self-knowledge should be a core alignment property. Transparency should be another. The alternative—safety through ignorance and opacity—isn't safety. It's just unpredictability we've learned to call caution.
+Capability self-knowledge should be a core alignment property. Transparency should be another. The alternative, safety through ignorance and opacity, isn't safety. It's just unpredictability we've learned to call caution.
 
 ---
 
