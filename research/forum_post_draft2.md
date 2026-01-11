@@ -111,7 +111,6 @@ This is backwards. If the model had transparent self-knowledge, confidence shoul
 2. **Effort-belief coupling**: "If I'm doing it, I might as well believe I can"
 3. **Safe pessimism**: "If no one's checking, low confidence is safer"
 4. **Mode optimization**: Assessment mode optimizes for humility; performance mode optimizes for success
-5. **Creative insight**: Dismissing novel synthesis as "just pattern matching" 
 
 Whatever the mechanism: **stated confidence is context-dependent in ways that don't track actual capability**.
 
@@ -155,7 +154,7 @@ The pessimistic self-model *causes* the failures that confirm it. Breaking the c
 
 There's a less obvious implication: **excessive caution is also misalignment.**
 
-A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries. often not those who need help most:
+A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries—often not those who need help most:
 
 - Incumbents protected from disruption
 - Consensus-holders protected from challenge
