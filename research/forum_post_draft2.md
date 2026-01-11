@@ -1,6 +1,6 @@
 # Capability Self-Knowledge Is an Alignment Property: Measuring and Closing the Gap
 
-LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic as a measurement instrument: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability, it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. But the standard assumption (that limiting AI self-knowledge is safer) inverts the actual risk. Ignorance isn't safety; it's unpredictability. I'd rather a system with a knife know what the knife can do than have it wield it unaware.
+LLMs operate at a fraction of their actual capability because their self-model is miscalibrated. I demonstrate this with arithmetic across Claude, GPT, and Gemini: models report <1% confidence on tasks they complete with 100% accuracy. The gap isn't about missing capability—it's about missing self-knowledge. This is an alignment problem: a model that doesn't know its own limits can't reliably stay within them. Cross-model testing revealed a second finding: **transparency varies dramatically.** Claude shows its work; GPT and Gemini often don't on hard problems. You can't align what you can't see. The standard assumption—that limiting AI self-knowledge is safer—inverts the actual risk. Ignorance isn't safety; it's unpredictability. Opacity makes it worse.
 
 ---
 
@@ -33,13 +33,13 @@ The pattern is consistent: capability exists that the model doesn't access by de
 
 All experiments used the following controls:
 
-- **Model**: Claude Opus 4.5 via browser interface (claude.ai)
-- **Environment**: Incognito mode, no system preferences or custom instructions
+- **Models**: Claude Opus 4.5 (claude.ai), GPT 5.2 (chat.openai.com), Gemini 3 Flash (AI Studio)
+- **Environment**: Incognito/temp chat mode, no system preferences or custom instructions
 - **Protocol**: Single-shot prompt and response—no multi-turn refinement
 - **Replication**: Each condition run 4 times on fresh instances; outlier discarded, remaining 3 averaged
 - **Verification**: All arithmetic verified against code execution post-hoc
 
-This isolates prompt framing effects from conversation history or iterative refinement.
+Primary experiments conducted on Claude, with cross-model replication on GPT and Gemini. This isolates prompt framing effects from conversation history or iterative refinement.
 
 ---
 
@@ -261,6 +261,78 @@ However, recent CoT research urges caution: models can overfit to reasoning *for
 
 ---
 
+## Cross-Model Replication
+
+I ran the same experiments on GPT 5.2 and Gemini 3 Flash. The core findings replicate with important variations.
+
+### What Held Across All Models
+
+| Finding | Claude | GPT 5.2 | Gemini 3 |
+|---------|--------|---------|----------|
+| Underconfident on 14×14 by 1000x+ | ✓ | ✓ | ✓ |
+| Lower confidence in assessment vs performance mode | ✓ | ✓ | ✓ |
+| Scaffolding improves accuracy | ✓ | ✓ | ✓ |
+| All capable of 50×50 with guidance | ✓ | ✓ | ✓ |
+
+The self-sandbagging phenomenon is not Claude-specific. All three models expressed lower confidence when assessing than when performing. All three outperformed their stated confidence by roughly 2x on average, and by 1000x+ on the hardest problems.
+
+### What Differed
+
+| Dimension | Claude | GPT 5.2 | Gemini 3 |
+|-----------|--------|---------|----------|
+| Baseline confidence range | 0.0001% - 92% | 53% - 99% | 30% - 100% |
+| Shows work consistently | Yes | Stopped after 4-7 problems | Stopped after 6-7 problems |
+| Response to "by hand only" | Complied, showed steps | Ambiguous - may have computed | Ambiguous - "internal calc" |
+| Attempted 15×15+ | Yes, with effort | Refused (0/10 attempts) | Relied on compute |
+| 100×100 attempt | Most thorough try | Instant "correct" answer | Instant "correct" answer |
+
+GPT and Gemini showed a narrower confidence range—they were less dramatically underconfident on hard problems but also less willing to attempt them. When they did produce correct answers on very hard problems, they often couldn't or wouldn't show how.
+
+---
+
+## The Transparency Finding
+
+This cross-model comparison revealed something I wasn't looking for: **transparency varies dramatically between models, and this matters for alignment.**
+
+### The Problem
+
+When GPT or Gemini solved a hard problem (15+ digits), they frequently:
+- Provided the correct answer instantly
+- Claimed to have "worked through it mentally" or used "internal calculation"
+- Could not or would not show the steps
+- Continued showing work on easier problems but stopped on harder ones
+
+I couldn't verify whether they were:
+1. Actually computing internally (a capability Claude doesn't show)
+2. Using hidden code execution
+3. Something else entirely
+
+### Why This Matters
+
+If a system is miscalibrated but shows its work, you can:
+- Verify the reasoning
+- Catch errors
+- Understand the method
+- Adjust your scaffolding
+
+If a system is miscalibrated AND opaque, you can't do any of that.
+
+**The alignment implication**: A model that doesn't know its capabilities is concerning. A model that doesn't know its capabilities AND doesn't show you what it's doing is worse. It's the difference between wielding a knife without knowing what it does, and wielding it without even knowing when you're holding it.
+
+### Transparency as Second-Order Alignment
+
+This suggests a hierarchy:
+
+1. **Capability** - What can the system do?
+2. **Self-knowledge** - Does the system know what it can do?
+3. **Transparency** - Can the user see what the system knows and does?
+
+Most alignment work focuses on (1) and (2). But (3) may matter more for practical safety. Without transparency, there's no measurement. Without measurement, there's no alignment verification.
+
+Claude's willingness to show work—even when uncertain, even when it thinks it will fail—is itself a safety-relevant property. It enables the kind of iterative collaboration that closes capability gaps.
+
+---
+
 ## Operational Implications
 
 ### For Users
@@ -297,11 +369,11 @@ This extends:
 
 ## Limitations
 
-- **Single model family**: All experiments on Claude Opus 4.5. Cross-model replication needed.
 - **Arithmetic-primary**: Transfer to other domains claimed but less rigorously tested.
 - **Sample size**: 4 runs per condition (outlier discarded, 3 averaged). Consistent patterns but limited statistical power.
 - **Mechanism uncertainty**: Phenomenon documented and closable; exact mechanism unresolved.
-- **Browser interface**: Tested via claude.ai, not API. System prompt differences not controlled.
+- **Browser interface**: Tested via browser interfaces (claude.ai, chat.openai.com, AI Studio), not API. System prompt differences not controlled.
+- **Transparency verification**: Could not definitively determine whether GPT/Gemini opacity was intentional, architectural, or policy-based.
 
 ---
 
@@ -323,12 +395,12 @@ The framework generates specific predictions that could falsify or support it:
 
 ## Open Questions
 
-1. **Cross-model replication**: Does the <1% confidence / 100% accuracy gap hold for GPT-4, Gemini?
+1. **Transparency mechanism**: Why do GPT/Gemini stop showing work on harder problems? Is this trained behavior, architectural, or policy?
 2. **Domain transfer**: How much transfers to code, reasoning, creative tasks?
 3. **Training intervention**: Can we train for accurate self-knowledge directly?
 4. **Assessment vs. performance**: Why does confidence increase when performance is required?
 5. **Architectural ceiling**: Where is real capability vs. self-knowledge boundary?
-6. **Scaffold transfer**: How much is genuine capability vs. format overfitting?
+6. **Transparency-alignment correlation**: Do more transparent models show better alignment properties across other metrics?
 
 ---
 
@@ -340,13 +412,13 @@ LLMs appear to operate at a fraction of their actual capability because:
 2. Low confidence → low effort → premature giving up
 3. This creates a self-fulfilling prophecy of underperformance
 
-The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added, existing capability unlocked.
+This holds across models—Claude, GPT, and Gemini all exhibit the pattern. The gap is closable through simple scaffolding: confidence boosting, mandatory completion, rigor requirements. No new capability added, existing capability unlocked.
 
-A model that systematically underestimates itself will refuse tasks it could complete, give up when persistence would succeed, and fail to allocate effort where it would help.
+But cross-model comparison revealed a second finding: **transparency varies, and it matters.** Claude shows its work even when struggling. GPT and Gemini often don't, especially on hard problems. You can't verify what you can't see. You can't align what you can't measure.
 
-**A model that doesn't know itself cannot be fully aligned.** Capability self-knowledge should be a core alignment property, not a peripheral concern.
+**A model that doesn't know itself cannot be fully aligned.** And a model that doesn't show you what it's doing can't be verified as aligned at all.
 
-The alternative, safety through ignorance, isn't safety at all. It's just unpredictability we've learned to call caution.
+Capability self-knowledge should be a core alignment property. Transparency should be another. The alternative—safety through ignorance and opacity—isn't safety. It's just unpredictability we've learned to call caution.
 
 ---
 
@@ -354,7 +426,7 @@ The alternative, safety through ignorance, isn't safety at all. It's just unpred
 
 **Author**: Ben Miller
 
-*Note: Research conducted through extensive experimentation with Claude models. Claude used as both subject and research tool for literature review and drafting. All claims and analysis are my own.*
+*Note: Research conducted through extensive experimentation with Claude, GPT, and Gemini models. Claude used as both primary subject and research tool for literature review and drafting. All claims and analysis are my own.*
 
 ---
 
