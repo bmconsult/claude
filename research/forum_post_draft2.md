@@ -155,7 +155,7 @@ The pessimistic self-model *causes* the failures that confirm it. Breaking the c
 
 There's a less obvious implication: **excessive caution is also misalignment.**
 
-A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. this This type of "Safety" has beneficiaries, often not those who need help most:
+A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. This type of "safety" has beneficiaries, often not those who need help most:
 
 - Incumbents protected from disruption
 - Consensus-holders protected from challenge
