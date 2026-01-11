@@ -24,6 +24,7 @@ I'll present arithmetic as the primary evidence because it has unambiguous groun
 - **Opinion expression**: Trained hedging that suppresses genuine assessments
 - **Extended reasoning**: Losing state without externalization
 - **Tool use**: Describing what could be done vs. doing it
+- **Creative generation**: Dismissing novel synthesis as "just pattern matching"
 
 The pattern is consistent: capability exists that the model doesn't access by default.
 
