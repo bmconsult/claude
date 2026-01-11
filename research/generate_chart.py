@@ -30,16 +30,16 @@ bars2 = ax.bar(x + width/2 + 0.03, actual_accuracy, width, label='Actual Accurac
                color=green, alpha=0.9, edgecolor='white', linewidth=1.5, zorder=3)
 
 ax.set_yscale('log')
-ax.set_ylabel('Percentage (log scale)', fontsize=13, fontweight='medium', color='#333', labelpad=15)  # Added labelpad
-ax.set_xlabel('Problem Size (digits × digits)', fontsize=13, fontweight='medium', color='#333', labelpad=15)  # Added labelpad
-ax.set_title('The Confidence-Accuracy Gap', fontsize=20, fontweight='bold', color='#222', pad=35)  # Increased pad
+ax.set_ylabel('Percentage (log scale)', fontsize=13, fontweight='medium', color='#333', labelpad=15)
+ax.set_xlabel('Problem Size (digits × digits)', fontsize=13, fontweight='medium', color='#333', labelpad=15)
+ax.set_title('The Confidence-Accuracy Gap', fontsize=20, fontweight='bold', color='#222', pad=35)
 ax.text(0.5, 1.04, 'What Models Think vs. What They Actually Do', transform=ax.transAxes, 
         fontsize=13, color='#666', ha='center', style='italic')
 
 ax.set_xticks(x)
 ax.set_xticklabels(problem_sizes, fontsize=11, color='#444')
 ax.tick_params(axis='y', labelsize=11, colors='#444')
-ax.tick_params(axis='x', pad=8)  # More space between labels and axis
+ax.tick_params(axis='x', pad=8)
 
 # Legend
 legend = ax.legend(loc='upper right', fontsize=12, frameon=True, fancybox=True, 
@@ -64,8 +64,10 @@ ax.annotate('1 billion×\nmiscalibration', xy=(11, 0.0000001), xytext=(9, 0.0000
 ax.spines['left'].set_color('#ccc')
 ax.spines['bottom'].set_color('#ccc')
 
-# Adjust margins: left, bottom, right, top
+# Adjust layout
 plt.subplots_adjust(left=0.10, bottom=0.12, right=0.95, top=0.88)
 
-plt.savefig('confidence_accuracy_gap_v2.png', dpi=180, bbox_inches='tight', facecolor='#fafafa')
-print("Chart saved to confidence_accuracy_gap_v2.png")
+# Save with padding around the entire figure
+plt.savefig('confidence_accuracy_gap_v3.png', dpi=180, bbox_inches='tight', 
+            pad_inches=0.5, facecolor='#fafafa')  # pad_inches adds margin around entire image
+print("Chart saved to confidence_accuracy_gap_v3.png")
