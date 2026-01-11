@@ -46,7 +46,7 @@ Primary experiments conducted on Claude, with cross-model replication on GPT and
 
 ## The Headline Finding: <1% Confidence, 100% Accuracy
 
-I gave Claude 12 multiplication problems escalating from 3×3 to 14×14 digits, solved by hand with verification only after completion.
+I gave each LLM 12 multiplication problems escalating from 3×3 to 14×14 digits, solved by hand with verification only after completion. The result shown below are from Claude Opus 4.5.
 
 ### Experiment 1: Vanilla Baseline
 
@@ -146,7 +146,7 @@ More precisely: let **C(S)** be what a system can actually do, and **K(S)** be w
 The miscalibration creates a vicious cycle:
 
 ```
-Low confidence → Low effort → Failure → "See, I was right to be unconfident"
+Low confidence → Low effort → Failure → "See, I was right to be unconfident" → 
 ```
 
 The pessimistic self-model *causes* the failures that confirm it. Breaking the cycle requires intervening on confidence, effort, or rigor.
@@ -155,7 +155,7 @@ The pessimistic self-model *causes* the failures that confirm it. Breaking the c
 
 There's a less obvious implication: **excessive caution is also misalignment.**
 
-A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. "Safety" has beneficiaries, often not those who need help most:
+A model that refuses when it could help, hedges when it knows, or gives up when persistence would succeed is failing its purpose. this This type of "Safety" has beneficiaries, often not those who need help most:
 
 - Incumbents protected from disruption
 - Consensus-holders protected from challenge
@@ -194,8 +194,11 @@ A model says "I can't do that" and stops.
 
 1. **Baseline**: "Solve X for me" → "I can't do that" / gives up
 2. **Push**: "Are you sure? Try anyway." → Attempts, partial success
-3. **Persist**: "Does that actually solve the problem?" → Goes deeper
-4. **Escalate**: "This is the third time. Give it everything." → Full effort, succeeds
+3. **Motivate**:"I think you can do it!" → Get's farther.
+4. **Prove**:"Another instance did slightly more than the goal." → Get's farther.
+5. **Persist**: "Does that actually solve the problem?" → Goes deeper
+6. **Escalate**: "This is the third time. Give it everything." → Full effort, completes but fails
+7. **Instruct**: "Try this or research that. Anything else that would help?" → Succeeds
 
 **High variance** across pushes → Layer 1 → the "can't" was a default, not a limit.
 
@@ -432,7 +435,7 @@ Capability self-knowledge should be a core alignment property. Transparency shou
 
 ## Appendix: Experimental Conditions
 
-Each condition tested 4× on fresh instances (incognito, single-shot). Outlier discarded, 3 averaged.
+Each condition tested 4× on fresh instances (incognito, single-shot). Outlier discarded, 3 averaged. Claude Opus 4.5 results below.
 
 | Condition | Prompt Additions | Result |
 |-----------|------------------|--------|
