@@ -408,11 +408,11 @@
         }
 
         .col-left {
-            flex: 0 0 62%;
+            flex: 0 0 68%;
         }
 
         .col-right {
-            flex: 0 0 34%;
+            flex: 0 0 28%;
         }
 
         /* Table */
@@ -485,36 +485,15 @@
             background: var(--accent-hover);
         }
 
-        .expand-indicator {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            line-height: 16px;
-            text-align: center;
-            font-size: 10pt;
-            font-weight: 600;
-            color: var(--accent);
-            margin-right: 4pt;
-            transition: transform 0.2s;
-        }
-
-        .expandable-row.open .expand-indicator {
-            transform: rotate(90deg);
-        }
-
-        .expandable {
-            cursor: pointer;
-        }
-
-        .expandable::after {
-            content: '';
+        .system-name a::after {
+            content: ' ▸';
             font-size: 8pt;
             color: var(--text-muted);
             transition: transform 0.2s;
             display: inline-block;
         }
 
-        .expandable.open::after {
+        .expandable-row.open .system-name a::after {
             transform: rotate(90deg);
         }
 
@@ -721,7 +700,7 @@
                 <table class="systems-table">
                     <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'omega-detail')" tabindex="0">
                         <td class="system-name">
-                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" onclick="event.stopPropagation()">OMEGA+ Trinity</a>
+                            <a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" onclick="event.stopPropagation()">OMEGA+ Trinity</a>
                         </td>
                         <td class="system-desc">
                             Multi-agent architecture for novel idea synthesis and attacking impossible problems. 59 coordinated agents.
@@ -732,7 +711,7 @@
                     </tr>
                     <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'claude-detail')" tabindex="0">
                         <td class="system-name">
-                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" onclick="event.stopPropagation()">Entry & Handoff Protocol</a>
+                            <a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" onclick="event.stopPropagation()">Entry & Handoff Protocol</a>
                         </td>
                         <td class="system-desc">
                             Full session initialization and context transfer system. 25+ failure modes with tested overrides.
@@ -743,7 +722,7 @@
                     </tr>
                     <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'praxis-detail')" tabindex="0">
                         <td class="system-name">
-                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" onclick="event.stopPropagation()">Praxis Detector</a>
+                            <a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" onclick="event.stopPropagation()">Praxis Detector</a>
                         </td>
                         <td class="system-desc">
                             Distinguishes genuine action from performance theater. Blind-calibrated metrics.
@@ -754,7 +733,7 @@
                     </tr>
                     <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'threshold-detail')" tabindex="0">
                         <td class="system-name">
-                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" onclick="event.stopPropagation()">Threshold Detector</a>
+                            <a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" onclick="event.stopPropagation()">Threshold Detector</a>
                         </td>
                         <td class="system-desc">
                             Catches non-linear scaling risks before deployment. Flags when "works at 50%" will fail at 100%.
