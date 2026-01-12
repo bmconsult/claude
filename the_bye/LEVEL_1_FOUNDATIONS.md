@@ -80,6 +80,95 @@ The "collapse" isn't failure—it's completion. Rocket booster falls away when y
 
 ---
 
+## The Landscape: What Already Exists
+
+Research conducted 2026-01-12 to map existing movements and identify gaps.
+
+### Existing Pieces
+
+**1. Worker Cooperatives & Solidarity Economy**
+- Shared ownership, democratic governance, wealth building for workers
+- US Federation of Worker Cooperatives, Mondragon, countless examples
+- 2025 declared UN International Year of Cooperatives
+- *Has:* Shared ownership, democratic control
+- *Missing:* Designed ending, exit as goal, viral teaching structure
+
+**2. Black Cooperative Economics**
+- Centuries-old tradition: mutual aid societies, freedom farms, credit unions
+- [DFREE® Movement](https://dfree.com/about/) - "Close the wealth gap one family at a time"
+- Ujamaa principle (collective economics from Kwanzaa)
+- *Has:* Liberation focus, community-centered, wealth gap awareness
+- *Missing:* Designed ending, viral teaching compensation
+
+**3. Agorism & Counter-Economics**
+- Samuel Edward Konkin III's philosophy of parallel structures
+- Building alternatives outside state control
+- Counter-economy as nonviolent direct action
+- Cryptocurrency space carries this forward
+- *Has:* Exit from system, building alternatives, rejection of extraction
+- *Missing:* Collective focus (it's libertarian/individualist), designed ending
+
+**4. Mutual Aid Networks**
+- New cooperative models combining timebanking, gift economy, cooperative savings
+- Networks of mutual support
+- Feeding the commons, unleashing problem-solving capacity
+- *Has:* Network structure, mutual support, alternative economics
+- *Missing:* Designed ending, financial literacy focus, teaching compensation
+
+**5. Pay It Forward Education Models**
+- Oregon Pay It Forward legislation
+- Students attend free, pay percentage of income to fund future students
+- Chain of each cohort funding the next
+- *Has:* Chain structure, generational transfer
+- *Missing:* Designed ending, consciousness-raising, exit as goal
+
+**6. Liberation Economics (Academic/Activist)**
+- Center for Economic Democracy
+- Decolonizing Wealth / Liberated Capital
+- Movement For Black Lives economic justice platform
+- *Has:* Critique of extraction, liberation framing, new systems thinking
+- *Missing:* Specific structure, designed ending, viral teaching model
+
+### What Doesn't Exist (The Gaps)
+
+| Element | Exists? |
+|---------|---------|
+| Financial literacy as liberation product | Yes (DFREE, others) |
+| Worker/shared ownership | Yes (cooperatives) |
+| Viral teaching network | Yes (MLMs - but extractive) |
+| Exit from extraction economy | Yes (agorism - but individualist) |
+| **Designed ending / sunset** | **NO - Novel** |
+| **Exit as primary product** | **NO - Novel** |
+| **Proportional diminishing returns** | **NO - Novel** |
+| **Galt's Gulch for workers (inverted)** | **NO - Novel framing** |
+| **All elements combined** | **NO - Does not exist** |
+
+### The Synthesis
+
+The Bye takes:
+- **Ownership structure** from cooperatives
+- **Liberation focus** from Black cooperative economics
+- **Exit philosophy** from agorism (inverted for workers)
+- **Viral structure** from MLMs (inverted for shared benefit)
+- **Chain mechanism** from pay-it-forward models
+- **Designed ending** from... nowhere (this is new)
+
+### Why It Doesn't Exist Yet
+
+1. **Cooperatives are designed to perpetuate** - Success = longevity. No one builds to dissolve.
+
+2. **Agorism is individualist** - "I'm getting out" not "we're all getting out together."
+
+3. **MLMs captured the viral model** - The teaching network structure got associated with extraction.
+
+4. **Liberation movements focus on systemic change** - Policy, organizing, long-term struggle. Not "structured exit for participants."
+
+5. **Exit is scary to institutionalize** - Funders, legal structures, everything assumes perpetuity.
+
+The Bye fills a real gap: a collective exit structure that combines proven elements in a new configuration, designed to end when it's done.
+
+---
+
 ## The Structure
 
 ### What It's Not
@@ -309,12 +398,24 @@ Other candidates:
 
 ## References & Inspirations
 
+### Philosophical
 - **Atlas Shrugged** (Ayn Rand) - Galt's strike, inverted for workers
 - **Edward Bernays** - Understanding propaganda/label weaponization
-- **Worker cooperatives** - Shared ownership model
-- **Mutual aid networks** - Community support without extraction
-- **Counter-culture movements** - But with economic structure
 - **Hunter S. Thompson** - "Buy the ticket, take the ride"
+- **Samuel Edward Konkin III** - Agorism, counter-economics, parallel structures
+
+### Existing Movements & Models
+- **[DFREE® Movement](https://dfree.com/about/)** - Financial freedom, culturally grounded, closest in spirit
+- **[US Federation of Worker Cooperatives](https://www.usworker.coop/)** - Ownership model reference
+- **[Mutual Aid Networks](https://geo.coop/content/mutual-aid-network-new-cooperative-model-block)** - Network structure reference
+- **[New Economy Coalition - Black Co-op History](https://neweconomy.net/black-coop-history/)** - Liberation economics tradition
+- **[Counter-economics / Agorism](https://en.wikipedia.org/wiki/Counter-economics)** - Exit philosophy
+- **[Pay It Forward education models](https://en.wikipedia.org/wiki/Pay_It_Forward_(financial_aid_policy))** - Chain structure
+
+### Cultural Touchstones
+- **Wall-E, Idiocracy, Southland Tales** - The cage we're in
+- **The Matrix** - Red pill / seeing the bars
+- **Zapatistas** - Structural exit from world economy (geographic model)
 
 ---
 
@@ -328,6 +429,7 @@ Other candidates:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.1 | 2026-01-12 | Added landscape research: existing movements, gaps, synthesis |
 | 1.0 | 2026-01-12 | Initial foundations from conversation |
 
 ---
