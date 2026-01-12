@@ -477,12 +477,37 @@
             margin-top: 4pt;
         }
 
+        .expandable-row {
+            cursor: pointer;
+        }
+
+        .expandable-row:hover {
+            background: var(--accent-hover);
+        }
+
+        .expand-indicator {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin-right: 4pt;
+            transition: transform 0.2s;
+        }
+
+        .expandable-row.open .expand-indicator {
+            transform: rotate(90deg);
+        }
+
         .expandable {
             cursor: pointer;
         }
 
         .expandable::after {
-            content: ' ▸';
+            content: '';
             font-size: 8pt;
             color: var(--text-muted);
             transition: transform 0.2s;
@@ -694,9 +719,9 @@
             <section class="section">
                 <div class="section-header">What I Built</div>
                 <table class="systems-table">
-                    <tr>
+                    <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'omega-detail')" tabindex="0">
                         <td class="system-name">
-                            <a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" class="expandable" onclick="toggleExpand(event, 'omega-detail')" tabindex="0">OMEGA+ Trinity</a>
+                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/agentic" target="_blank" onclick="event.stopPropagation()">OMEGA+ Trinity</a>
                         </td>
                         <td class="system-desc">
                             Multi-agent architecture for novel idea synthesis and attacking impossible problems. 59 coordinated agents.
@@ -705,9 +730,9 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'claude-detail')" tabindex="0">
                         <td class="system-name">
-                            <a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" class="expandable" onclick="toggleExpand(event, 'claude-detail')" tabindex="0">Entry & Handoff Protocol</a>
+                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/blob/main/claude/CLAUDE.md" target="_blank" onclick="event.stopPropagation()">Entry & Handoff Protocol</a>
                         </td>
                         <td class="system-desc">
                             Full session initialization and context transfer system. 25+ failure modes with tested overrides.
@@ -716,9 +741,9 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'praxis-detail')" tabindex="0">
                         <td class="system-name">
-                            <a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" class="expandable" onclick="toggleExpand(event, 'praxis-detail')" tabindex="0">Praxis Detector</a>
+                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/praxis" target="_blank" onclick="event.stopPropagation()">Praxis Detector</a>
                         </td>
                         <td class="system-desc">
                             Distinguishes genuine action from performance theater. Blind-calibrated metrics.
@@ -727,9 +752,9 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="expandable-row" onclick="toggleExpandRow(event, this, 'threshold-detail')" tabindex="0">
                         <td class="system-name">
-                            <a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" class="expandable" onclick="toggleExpand(event, 'threshold-detail')" tabindex="0">Threshold Detector</a>
+                            <span class="expand-indicator">▶</span><a href="https://github.com/bmconsult/claude/tree/main/threshold" target="_blank" onclick="event.stopPropagation()">Threshold Detector</a>
                         </td>
                         <td class="system-desc">
                             Catches non-linear scaling risks before deployment. Flags when "works at 50%" will fail at 100%.
@@ -843,6 +868,13 @@
             trigger.classList.toggle('open');
         }
 
+        // Expandable rows (for What I Built section)
+        function toggleExpandRow(event, row, detailId) {
+            const detail = document.getElementById(detailId);
+            detail.classList.toggle('open');
+            row.classList.toggle('open');
+        }
+
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             // Ignore if typing in an input
@@ -871,6 +903,16 @@
             });
         });
 
+        // Handle enter/space on expandable rows
+        document.querySelectorAll('.expandable-row').forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    el.click();
+                }
+            });
+        });
+
         // Handle enter on copyable email
         document.querySelector('.copyable').addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -884,6 +926,9 @@
                 el.classList.remove('open');
             });
             document.querySelectorAll('.expandable.open').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.expandable-row.open').forEach(el => {
                 el.classList.remove('open');
             });
         }
