@@ -155,7 +155,64 @@ results.append(verify_integer_match(
 ))
 
 print("\n" + "=" * 70)
-print("PART 3: CROSS-VALIDATION (NOT FITTED)")
+print("PART 3: QUARK MASS VERIFICATION (RIGOROUS)")
+print("=" * 70)
+
+# Quark masses (PDG 2023)
+QUARK_MASSES = {
+    'strange': {'central': 93.4, 'upper': 102.0, 'lower': 90.0},  # +8.6/-3.4
+    'charm': {'central': 1270, 'error': 20},
+    'bottom': {'central': 4180, 'upper': 4210, 'lower': 4160},  # +30/-20
+    'top': {'central': 172760, 'error': 300},  # MeV
+}
+
+m_e = MEASURED['m_e']
+
+# Strange quark: 5 × 37 × m_e
+s_pred = 5 * 37 * m_e
+s_meas = QUARK_MASSES['strange']
+s_within = s_meas['lower'] <= s_pred <= s_meas['upper']
+print(f"\nStrange Quark Mass")
+print("-" * 50)
+print(f"  Formula:    5 × 37 × m_e = {s_pred:.1f} MeV")
+print(f"  Measured:   {s_meas['central']} +{s_meas['upper']-s_meas['central']:.1f}/-{s_meas['central']-s_meas['lower']:.1f} MeV")
+print(f"  Within σ:   {'✓ YES' if s_within else '✗ NO'}")
+
+# Charm quark: 42 × 59 × m_e
+c_pred = 42 * 59 * m_e
+c_meas = QUARK_MASSES['charm']
+c_within = abs(c_pred - c_meas['central']) <= c_meas['error']
+print(f"\nCharm Quark Mass")
+print("-" * 50)
+print(f"  Formula:    42 × 59 × m_e = {c_pred:.1f} MeV")
+print(f"  Measured:   {c_meas['central']} ± {c_meas['error']} MeV")
+print(f"  Within σ:   {'✓ YES' if c_within else '✗ NO'}")
+
+# Bottom quark: 37 × 221 × m_e
+b_pred = 37 * 221 * m_e
+b_meas = QUARK_MASSES['bottom']
+b_within = b_meas['lower'] <= b_pred <= b_meas['upper']
+print(f"\nBottom Quark Mass")
+print("-" * 50)
+print(f"  Formula:    37 × 221 × m_e = {b_pred:.1f} MeV")
+print(f"  Measured:   {b_meas['central']} +{b_meas['upper']-b_meas['central']}/-{b_meas['central']-b_meas['lower']} MeV")
+print(f"  Within σ:   {'✓ YES' if b_within else '✗ NO'}")
+
+# Top/Bottom ratio: test if = 42
+t_meas = QUARK_MASSES['top']['central']
+b_meas_central = QUARK_MASSES['bottom']['central']
+ratio = t_meas / b_meas_central
+ratio_err = ratio * sqrt((300/t_meas)**2 + (25/b_meas_central)**2)  # propagated error
+t_within = abs(42 - ratio) <= ratio_err
+print(f"\nTop/Bottom Ratio")
+print("-" * 50)
+print(f"  Formula:    m_t/m_b = 42?")
+print(f"  Predicted:  42.00")
+print(f"  Measured:   {ratio:.2f} ± {ratio_err:.2f}")
+print(f"  Within σ:   {'✓ YES' if t_within else '✗ NO (FALSIFIED)'}")
+
+print("\n" + "=" * 70)
+print("PART 4: CROSS-VALIDATION (PATTERNS NOTED)")
 print("=" * 70)
 
 # Z Boson
@@ -182,7 +239,7 @@ print(f"  Measured:   {h_ratio:.2f}")
 print(f"  Error:      {h_error:.4f}%")
 
 print("\n" + "=" * 70)
-print("PART 4: MATHEMATICAL PROPERTIES OF 37 AND 42")
+print("PART 5: MATHEMATICAL PROPERTIES OF 37 AND 42")
 print("=" * 70)
 
 print(f"\n37 Properties:")
@@ -203,7 +260,7 @@ print(f"  100 + 37 = {100 + 37}")
 print(f"  Both equal 137 (fine structure base)")
 
 print("\n" + "=" * 70)
-print("PART 5: STATISTICAL SUMMARY")
+print("PART 6: STATISTICAL SUMMARY")
 print("=" * 70)
 
 # Simple probability calculation
