@@ -26,7 +26,7 @@ CALIBRATION DATA (from blind experiment):
 - For short samples (~50 words): <75% = theater, >78% = action
 - For longer samples (~200+ words): <70% = theater, >85% = action
 
-ACTION WORD WALLOWING (discovered during self-analysis):
+ACTION WORD WALLOWING:
 - Pattern: High AVR + Low VD = repetitive action claiming
 - Example: "I created X, I created Y, I created Z" - action verbs, but formulaic
 - Detection: AVR > 0.5 AND VD < 0.70 AND action verbs present
