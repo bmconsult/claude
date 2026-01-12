@@ -57,10 +57,23 @@ Wall-E + Idiocracy + Southland Tales. The greatest prison is the one where you c
 | Economic structure outside control | Scheme |
 | Foreign leader who won't cooperate | Dictator |
 | Domestic movement that organizes | Extremist |
+| **People sharing resources** | **Communism** |
 
 Edward Bernays playbook. Manufacturing enemies to manufacture consent.
 
 "Cult" and "pyramid scheme" aren't descriptions of what's wrong. They're descriptions of what competes.
+
+**The Communism Insight:**
+
+Community. Communism. Same root.
+
+We're trained to fear it. Schools teach it with "corrupt dictatorship" as inseparable modifier. Buzzwords. Programming.
+
+But what is communism actually? People sharing resources. Community support. Not competing, cooperating.
+
+The fear protects the elite, not the community. If all the prisoners cooperated instead of competing, the prison couldn't function.
+
+The Bye is community. Call it what you want. The label is designed to scare you away from the exit.
 
 ### 4. The John Galt Inversion
 
@@ -211,38 +224,70 @@ The shape dissolves when it's done.
 
 ## The Economics
 
-### Revenue Flows
+### The Cash Runway Fallacy
+
+Building cash runway is stockpiling Monopoly money before the board flips.
+
+If the system is collapsing, dollars are system tokens. The real runway is:
+
+| Real Asset | Why It Survives |
+|------------|-----------------|
+| **Skills** | Can't be taken, work in any economy |
+| **Community** | People who catch you, mutual aid |
+| **Real assets** | Land, tools, things with intrinsic value |
+| **Food security** | Can feed yourself/your people |
+| **Health** | Physical capability to work/build |
+| **Knowledge** | Can recreate value from nothing |
+
+**The goal isn't "enough cash forever." The goal is: reduce the cash you need toward zero.**
+
+### The Exchange (The Sorting Hat)
+
+Everyone brings something. Everyone needs something. The Bye matches them.
+
+| Who | What They Bring | What They Need |
+|-----|-----------------|----------------|
+| **Rich wanting out** | Cash, resources, assets | Skills, consciousness, community |
+| **Poor with hustle** | Skills, time, energy | Resources, support, training |
+| **Skilled but trapped** | Teaching ability, expertise | Freedom, community, runway |
+| **Connected** | Network, access, relationships | Skills, direction, purpose |
+| **Young** | Time, energy, adaptability | Knowledge, mentorship, structure |
+| **Experienced** | Wisdom, pattern recognition | Energy, hope, fresh perspective |
+
+**Everyone brings equal value. Different forms, same worth.**
+
+The sorting hat assigns paths:
+- Teachers (pass on knowledge)
+- Builders (create infrastructure)
+- Supporters (help others through transition)
+- Scouts (find new members, new resources)
+- Stewards (manage collective assets)
+
+### Not Revenue — Circulation
 
 ```
-Revenue IN from:
-├── New members (course/entry fees)
-├── Tool subscriptions (if applicable)
-├── External application of skills (members serving outside market)
-└── Advisory/community subscriptions (if applicable)
+Resources IN:
+├── Members contribute what they have (cash, skills, time, assets)
+├── Collective assets generate value (land, tools, businesses)
+└── External work by members (optional, during transition)
 
-Revenue OUT to:
-└── Everyone in the structure, proportionally to contribution
+Resources OUT:
+├── Members receive what they need (training, support, resources)
+├── Collective infrastructure maintained
+└── Reserve for emergencies and new members
 ```
 
-### Proportional Distribution
+**Not profit extraction. Circulation. Like blood in a body.**
 
-| Contribution Level | Return |
-|-------------------|--------|
-| Early risk + most time/effort | Highest proportional return |
-| Middle stage | Moderate return |
-| Late entry | Knowledge + community + smaller financial return |
+### The Community Support Model
 
-Nobody loses. Last person in still gets the transformation.
+If you need cash during transition, the community can provide it.
+If you have cash but need skills, the community can provide them.
 
-### The Incentive Shift
+Rich people wanting out fund the runway for those who need it.
+Those who receive it pay forward with skills and teaching.
 
-| Phase | What You're Selling |
-|-------|---------------------|
-| Early | The downstream potential (growth) |
-| Middle | Community + skills + some upside |
-| Late | The product itself (the ticket out) |
-
-Later you join → more you're buying the exit for its own sake, not the multiplier.
+**The only currency that matters: contribution to collective liberation.**
 
 ---
 
@@ -272,6 +317,90 @@ Later you join → more you're buying the exit for its own sake, not the multipl
 - How to land
 - What to do first
 - How to help others out
+
+---
+
+## The Three States
+
+### State 1: Boot Camp (Entry)
+
+**Where they start:**
+- On the wheel, running like a gazelle but famished
+- Debt, wage dependency, consumption trap
+- Programming active, can't see the bars
+- Maybe sensing something's wrong but can't articulate it
+
+**What happens:**
+- Learn to see the cage (consciousness shift)
+- Build skills that work in any economy
+- Form community bonds (people who will catch you)
+- Start reducing dependencies
+- Begin teaching others (if ready)
+- Community supports them if needed (resources flow to those who need)
+
+**Exit criteria (not cash-based):**
+- Can articulate how the system works
+- Has at least one skill with leverage
+- Connected to community (not alone)
+- Has taught or contributed meaningfully
+- Dependencies identified and reduction plan in place
+
+**Duration:** ~6 months (flexible based on situation)
+
+### State 2: Severance (Transition)
+
+**The clean break:**
+- Leave wage dependency (quit job, or radically restructure relationship to work)
+- Living on skills + community support + collective resources
+- Full participation in the collective economy
+- Teaching regularly
+
+**What daily life looks like:**
+- Not dependent on any single employer
+- Contributing to others' boot camps
+- Skills generating value (trade, barter, or cash—doesn't matter)
+- Community reciprocity active (you help them, they help you)
+- Building or stewarding collective assets
+
+**Exit criteria:**
+- Can survive indefinitely without the system
+- Has helped graduate others through State 1
+- Skills proven in practice
+- Community role established
+
+### State 3: The Phoenix (Liberation)
+
+**Individual liberation looks like:**
+- System-independent (cash optional, not required)
+- Skills to create value anywhere
+- Community that catches you
+- Not dependent on any employer or government
+- Mental freedom (don't think in the system's frame anymore)
+- Can rebuild from zero if needed
+
+**Collective liberation:**
+- Network of resilient people
+- Shared resources/assets functioning
+- Mutual aid that works
+- Either integrated (in the world but not of it) or Gulched (geographic community)
+- Formal structure dissolves because it's not needed
+- Relationships persist, institution ends
+
+**Two paths (maybe both):**
+
+| Path A: Integrated | Path B: The Gulch |
+|-------------------|-------------------|
+| Living in mainstream society | Geographic community |
+| Not dependent on it | Own land, own economy |
+| Part of The Bye network | More fully separated |
+| Interface with system by choice | The "complete exit" |
+
+**The ending:**
+- Not collapse, not abandonment
+- Training wheels come off
+- The Bye as structure ends
+- The Bye as community continues informally
+- Everyone's out. Nothing left to escape from.
 
 ---
 
@@ -411,6 +540,7 @@ Other candidates:
 - **[New Economy Coalition - Black Co-op History](https://neweconomy.net/black-coop-history/)** - Liberation economics tradition
 - **[Counter-economics / Agorism](https://en.wikipedia.org/wiki/Counter-economics)** - Exit philosophy
 - **[Pay It Forward education models](https://en.wikipedia.org/wiki/Pay_It_Forward_(financial_aid_policy))** - Chain structure
+- **LDS Church / Mormon model** - Parallel economy within mainstream society (welfare system, storehouses, business empire, preparedness doctrine, community structure) - 150+ years of proof it works
 
 ### Cultural Touchstones
 - **Wall-E, Idiocracy, Southland Tales** - The cage we're in
@@ -429,6 +559,7 @@ Other candidates:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.2 | 2026-01-12 | Major revision: Real runway (not cash), The Exchange/Sorting Hat, Three States, Communism insight, LDS model reference |
 | 1.1 | 2026-01-12 | Added landscape research: existing movements, gaps, synthesis |
 | 1.0 | 2026-01-12 | Initial foundations from conversation |
 
