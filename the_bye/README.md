@@ -18,6 +18,7 @@ A structured way to:
 
 | Doc | Purpose |
 |-----|---------|
+| [THE_PITCH.md](THE_PITCH.md) | The story - start here |
 | [LEVEL_1_FOUNDATIONS.md](LEVEL_1_FOUNDATIONS.md) | Philosophy, structure, principles, three states |
 | [LEVEL_2_IMPLEMENTATION.md](LEVEL_2_IMPLEMENTATION.md) | Four phases, governance, economy, locations, roles |
 | [LEVEL_3_THE_AFTER.md](LEVEL_3_THE_AFTER.md) | The destination: optimal systems, all pillars, new world |
