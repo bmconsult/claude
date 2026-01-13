@@ -18,10 +18,10 @@ A structured way to:
 
 | Doc | Purpose |
 |-----|---------|
-| [LEVEL_1_FOUNDATIONS.md](LEVEL_1_FOUNDATIONS.md) | Philosophy, structure, principles |
+| [LEVEL_1_FOUNDATIONS.md](LEVEL_1_FOUNDATIONS.md) | Philosophy, structure, principles, three states |
+| [LEVEL_2_IMPLEMENTATION.md](LEVEL_2_IMPLEMENTATION.md) | Four phases, governance, economy, locations, roles |
 | [SCRATCHPAD.md](SCRATCHPAD.md) | Ongoing ideas, questions, development |
-| LEVEL_2_IMPLEMENTATION.md | (Coming) Practical build-out |
-| LEVEL_3_LAUNCH.md | (Coming) First moves |
+| LEVEL_3_LAUNCH.md | (Coming) First moves, legal, timeline |
 
 ## The Core Insight
 
@@ -32,11 +32,16 @@ The problem with pyramids isn't the shape. It's:
 
 Invert all three → something different.
 
+## The Reality
+
+The elites are already building their exit (bunkers, islands, golden visas).
+We're building the workers' version.
+
 ## Status
 
-**Level 1: Complete** - Foundations documented
-**Level 2: Not started** - Implementation details
-**Level 3: Not started** - Launch strategy
+**Level 1: Complete** - Philosophy, three states, sorting hat, real runway
+**Level 2: Complete** - Four phases, governance (sociocracy), economy, location strategy
+**Level 3: Not started** - Legal formation, first location, launch timeline
 
 ## Origin
 
