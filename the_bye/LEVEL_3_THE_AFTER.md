@@ -467,6 +467,297 @@ The Bye is the seed bank. When the old system fails, these communities become th
 
 ---
 
+## Technology: The Filter
+
+### The Question
+
+Not "keep all tech" or "revert to medieval." The question: **Does this serve us, or do we serve it?**
+
+### The Amish Model
+
+The Amish aren't anti-technology. They evaluate each one:
+
+> "Does this serve our community or undermine it?"
+
+Telephones? Only in shared spaces - so they don't isolate families.
+Tractors? Some communities yes, some no - depends on scale.
+Modern medicine? Yes, when needed.
+
+They kept the filter. We lost it.
+
+**The After recovers the filter.** Every technology gets asked:
+- Does this create dependency or capability?
+- Does this connect us or isolate us?
+- Can we control it, or does it control us?
+- Can we repair it, or are we dependent on distant experts?
+- Does it serve life or extract from it?
+
+### Technology Assessment
+
+| Technology | Keep/Modify/Discard | Why |
+|------------|---------------------|-----|
+| Medical (antibiotics, surgery, diagnostics) | **Keep** | Reduces suffering directly |
+| Renewable energy (solar, wind, micro-hydro) | **Keep** | Independence from extraction grid |
+| Communication (mesh networks, radio) | **Keep/Modify** | Connection without surveillance |
+| Hand tools, appropriate tech | **Recover** | Independence, repairability |
+| Food preservation (fermentation, canning) | **Recover** | Resilience |
+| Industrial agriculture | **Discard** | Extraction, dependency, poison |
+| Surveillance tech | **Discard** | Control mechanism |
+| Attention/addiction tech | **Discard** | Extraction of human attention |
+| Planned obsolescence | **Discard** | Artificial scarcity |
+
+### AI Specifically
+
+**Could be useful:**
+- Knowledge preservation
+- Translation
+- Medical diagnostics
+- Teaching assistance
+
+**But the risk:**
+- Dependency on systems we don't control
+- Centralization tendency
+- Black box decision-making
+- Who owns/controls it?
+
+**Position:** AI as tool, not infrastructure. Useful for augmentation, dangerous as dependency. If the AI goes away, we should still function.
+
+### What We Recover
+
+The archaic stuff we lost wasn't primitive - it was **appropriate**:
+- Hand tools you can repair
+- Preservation methods that don't need electricity
+- Knowledge distributed in people, not servers
+- Skills that don't require supply chains
+
+---
+
+## Progress Redefined
+
+### Current Definition
+
+"Progress" under extraction means: faster, more, newer, bigger, shinier.
+
+Technology advances along these vectors:
+
+| Driver | What It Produces |
+|--------|------------------|
+| Profit | What can be sold |
+| Military | What can kill/control |
+| Convenience | What makes consumption easier |
+| Extraction | What gets more from less (for owners) |
+
+### New Definition
+
+When the game changes from accumulation to becoming, progress means: **Deeper, wiser, more beautiful, more sustainable.**
+
+| New Driver | What It Produces |
+|------------|------------------|
+| Reducing suffering | Medicine that heals, not profits |
+| Understanding | Science for knowledge, not patents |
+| Beauty | Art, craft, design that elevates |
+| Capability without dependency | Tools you control, can repair, can share |
+| Regeneration | Tech that heals ecosystems, not extracts |
+| Exploration | Inner and outer - because we wonder |
+
+### What We Probably Don't Pursue
+
+| Category | Why Not |
+|----------|---------|
+| Weapons advancement | No empire to arm |
+| Surveillance tech | No population to control |
+| Addiction tech | No attention to extract |
+| Planned obsolescence | No artificial scarcity needed |
+| Complexity for complexity | No one profits from confusion |
+
+### Direction: Cyclical, Not Linear
+
+Current model: Linear progress toward singularity/techno-utopia/Mars colonies (all extraction fantasies dressed as progress).
+
+The After model: **Cyclical, deepening, sustainable.**
+
+Seasons. Growth, harvest, rest, renewal. That's how life actually works. "Infinite growth" is cancer logic.
+
+### Space: Eventually
+
+The Mars obsession is another escape fantasy. Musk, Bezos - they want to leave because they've extracted everything here. Mars isn't exploration. It's the ultimate gated community.
+
+**Position:** Mars will still be there. The stars aren't going anywhere. The work is HERE - healing land, building community, becoming who we are. Space exploration comes after we've learned to live well on this planet.
+
+---
+
+## The Transition Ethics
+
+### The Abandonment Question
+
+If we leave, are we abandoning those who stay?
+
+| Thing | Are We Abandoning It? |
+|-------|----------------------|
+| The earth | **No** - leaving extraction HELPS the earth |
+| Institutions | **Yes** - but they failed us first |
+| Food supply for those inside | **This is real** |
+| Utilities for those inside | **This is real** |
+| People who can't leave | **This is the hardest** |
+
+### The Alabama Prison Insight
+
+When prisoners stop working, the system punishes them with filth. But the cruelty is the **system's response**, not the natural consequence of refusal.
+
+**Key distinction:** Are we maintaining the system, or being exploited by it?
+
+The prisoner who refuses to work isn't abandoning fellow prisoners. They're refusing to be a slave.
+
+### Structured Exodus, Not Abandonment
+
+Not "leave and let it burn." Not "stay and perpetuate."
+
+**Build bridges while you leave.**
+
+| Phase | Responsibility |
+|-------|----------------|
+| **Boot Camp** | Still participating, but building skills/awareness |
+| **Severance** | Reducing dependency, but not abandoning |
+| **Phoenix** | Out, but creating paths for others |
+| **Network** | The alternative exists - people can choose to come |
+
+**What we maintain during transition:**
+- Food access (teach people to grow, don't just leave them dependent)
+- Knowledge transfer (don't hoard the exit)
+- Open doors (anyone can come, anytime)
+- Emergency response (community helps when system fails people)
+
+**What we don't maintain:**
+- The extraction itself
+- The pretense that the system is fine
+- Our own exploitation
+
+### The People Who Can't Leave
+
+Some people:
+- **Don't know (yet)** → Our job: spread awareness
+- **Can't (disabled, trapped, dependent)** → Our job: build accessibility into the exit
+- **Won't (choose to stay)** → Their choice, not our responsibility
+
+For those who CAN'T: The alternative must be MORE accessible, not less. Elders, disabled, children - they come first, not last.
+
+For those who WON'T: We can't save people from themselves. We can leave the door open.
+
+### The Necessary Evil
+
+**Some suffering during transition is unavoidable.**
+
+The question isn't: "Can we prevent all harm?"
+The question is: "Does the harm of transition outweigh the harm of continuation?"
+
+The system is already killing people. Slowly, with poverty. Quickly, with war. Constantly, with despair.
+
+---
+
+## Life In The After (The Spectre Question)
+
+### The Problem With Utopia
+
+*Big Fish* reference: Spectre is the perfect town where your shoes get taken away because you'll never need to leave. It's frozen. Static. Perfect because nothing changes.
+
+Edward Bloom leaves because a life without becoming isn't a life.
+
+**The After isn't Spectre.** It's not an endpoint. It's a new kind of life.
+
+### What Changes
+
+The survival game ends. That's 60-80% of what people spend their lives on now - surviving, paying, keeping up. Gone.
+
+| Old Question | New Question |
+|--------------|--------------|
+| How do I pay rent? | What do I want to build? |
+| How do I keep my job? | What do I want to master? |
+| How do I afford healthcare? | How do I want to feel? |
+| How do I get ahead? | What do I want to become? |
+
+### What People Actually Do
+
+**Create.** When survival isn't consuming you, art happens. Music, craft, building, writing.
+
+**Master.** Blacksmithing. Fermentation. Healing. Music. Carpentry. Takes decades to get really good. People actually have decades.
+
+**Explore.** Inner (meditation, psychedelics, contemplation) and outer (the next valley, the stars eventually).
+
+**Connect.** Deep relationships take time. Elders pass on wisdom. Children get raised by people who know them.
+
+**Serve.** Some people's purpose IS helping others. Healers, teachers, mediators.
+
+**Tend.** The land. The community. The systems. Maintenance is sacred work.
+
+**Become.** Not "what do I have" but "who am I becoming?"
+
+### The Problems That Remain
+
+No utopia. Human problems stay:
+- People still die. Grief stays.
+- Relationships still break. Hearts still hurt.
+- Conflict still happens. Someone's loud, someone's difficult.
+- Meaning still needs making. Purpose doesn't auto-generate.
+- Children still need raising. Hard work, always.
+- The land needs tending. Work continues, just different work.
+
+These are **human problems** - the ones we evolved for. The ones community and ritual and craft were built to handle.
+
+What we have NOW are **system problems** - artificial scarcity, manufactured precarity, extraction by design. Those aren't human problems. Those are the cage.
+
+### The Difference From Spectre
+
+Spectre was frozen. The After is **alive.**
+
+Problems exist. Growth happens. People fail and try again. Generations rise and fall. Knowledge accumulates. Mistakes get made. The system evolves.
+
+The game changes:
+- Current game: Accumulate. Compete. Survive.
+- After game: Create. Connect. Become.
+
+Same humans. Different game. Different lives.
+
+---
+
+## The Inner Work
+
+### The Programmed Pessimism
+
+We've been trained to:
+- Distrust good things ("what's the catch?")
+- Assume suffering is inevitable
+- See hope as naive
+- Accept "that's just how it is"
+
+Mark Fisher called it **capitalist realism** - easier to imagine the end of the world than the end of capitalism.
+
+That programming protects the system. If you can't imagine better, you can't build better.
+
+### Personal Exploration
+
+The outer work (building communities, acquiring land, developing systems) requires inner work alongside it:
+
+| Outer Work | Inner Work |
+|------------|------------|
+| Building community | Who am I in relationship? |
+| Leaving the system | What am I afraid to let go of? |
+| Creating alternatives | What do I actually want? |
+| Facing collapse | How do I be with uncertainty? |
+| Living differently | What was I programmed to believe? |
+
+### The Questions
+
+- Who am I when I'm not surviving?
+- What do I actually want (vs. what I was told to want)?
+- What am I carrying that isn't mine?
+- What does it feel like to be free?
+
+This is decades of work. Lifetimes. Generations.
+
+The outer structures enable the inner exploration. The inner work makes the outer work sustainable.
+
+---
+
 ## What's Novel vs. Sourced
 
 ### Sourced (Proven)
@@ -582,12 +873,21 @@ That's the after. Not a return to the garden. A return to the community.
 - [Mondragon Corporation](https://en.wikipedia.org/wiki/Mondragon_Corporation)
 - [Swiss militia system](https://en.wikipedia.org/wiki/Swiss_Armed_Forces)
 
+### Technology & Progress
+- [Appropriate technology](https://en.wikipedia.org/wiki/Appropriate_technology) - E.F. Schumacher
+- [Amish technology adoption](https://en.wikipedia.org/wiki/Amish#Technology) - community filter model
+
+### Cultural/Theoretical
+- [Mark Fisher - Capitalist Realism](https://en.wikipedia.org/wiki/Capitalist_Realism) - "easier to imagine end of world than end of capitalism"
+- *Big Fish* (2003) - Spectre as frozen utopia critique
+
 ---
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 3.1 | 2026-01-13 | Added: Technology filter (Amish model), Progress redefined, Transition ethics, Life in The After (Spectre question), Inner work |
 | 3.0 | 2026-01-13 | Initial Level 3: The After |
 
 ---
