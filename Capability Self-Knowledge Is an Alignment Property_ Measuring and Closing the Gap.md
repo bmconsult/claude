@@ -129,15 +129,15 @@ Whatever the mechanism: stated confidence is context-dependent in ways that don'
 
 ---
 
-## Why This Happens: The RLHF Mechanism
+## A Possible Mechanism: RLHF-Induced Miscalibration
 
-Recent work at ICLR 2025 ([Taming Overconfidence in LLMs](https://arxiv.org/abs/2410.09724)) explains the training dynamics:
+Recent work at ICLR 2025 ([Taming Overconfidence in LLMs](https://arxiv.org/abs/2410.09724)) offers a plausible explanation for the training dynamics:
 
-* RLHF systematically distorts calibration: reward models have inherent biases toward certain confidence patterns  
-* Calibration error "drastically increases for instruct models (RLHF/DPO)"  
+* RLHF systematically distorts calibration: reward models have inherent biases toward certain confidence patterns
+* Calibration error "drastically increases for instruct models (RLHF/DPO)"
 * The miscalibration is predictable, not random
 
-The capability gap is partially self-inflicted: created by the very training meant to make models useful. The model learns that hedging is rewarded, effort on "impossible" tasks is wasted, and pessimistic self-assessment is safe.
+This suggests the capability gap may be partially self-inflicted: created by the very training meant to make models useful. If correct, models learn that hedging is rewarded, effort on "impossible" tasks is wasted, and pessimistic self-assessment is safe. I have not tested this causal claim directly - it remains a hypothesis consistent with the observed behavior.
 
 ---
 
@@ -149,9 +149,9 @@ I propose a missing question: **"Does the model know itself?"**
 
 A model that can't predict when it will fail, confabulate, or exceed its training can't be trusted to stay within safe boundaries, even if its values are perfect.
 
-**Claim**: A system cannot be more aligned than it is accurate about its own capabilities.
+**Core Hypothesis**: A system cannot be more aligned than it is accurate about its own capabilities.
 
-More precisely: let **C(S)** be what a system can actually do, and **K(S)** be what it *believes* it can do. The gap **C(S) \\ K(S)** represents capability the system doesn't know it has (underconfidence). The gap **K(S) \\ C(S)** represents capability it claims but lacks (overconfidence). Perfect alignment requires **K(S) \= C(S)**. Any deviation creates failure modes- either through overconfident attempts or underconfident refusals.
+To frame this more precisely: let **C(S)** represent what a system can actually do, and **K(S)** represent what it *believes* it can do. The gap **C(S) \ K(S)** represents capability the system doesn't know it has (underconfidence). The gap **K(S) \ C(S)** represents capability it claims but lacks (overconfidence). Full alignment would require **K(S) = C(S)**. Any deviation creates failure modes - either through overconfident attempts or underconfident refusals. This framing is informal; I'm using set notation as a thinking tool rather than claiming mathematical rigor.
 
 ### The Self-Fulfilling Prophecy
 
