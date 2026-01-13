@@ -20,8 +20,8 @@ A structured way to:
 |-----|---------|
 | [LEVEL_1_FOUNDATIONS.md](LEVEL_1_FOUNDATIONS.md) | Philosophy, structure, principles, three states |
 | [LEVEL_2_IMPLEMENTATION.md](LEVEL_2_IMPLEMENTATION.md) | Four phases, governance, economy, locations, roles |
+| [LEVEL_3_THE_AFTER.md](LEVEL_3_THE_AFTER.md) | The destination: optimal systems, all pillars, new world |
 | [SCRATCHPAD.md](SCRATCHPAD.md) | Ongoing ideas, questions, development |
-| LEVEL_3_LAUNCH.md | (Coming) First moves, legal, timeline |
 
 ## The Core Insight
 
@@ -41,7 +41,7 @@ We're building the workers' version.
 
 **Level 1: Complete** - Philosophy, three states, sorting hat, real runway
 **Level 2: Complete** - Four phases, governance (sociocracy), economy, location strategy
-**Level 3: Not started** - Legal formation, first location, launch timeline
+**Level 3: Complete** - The After: all 18 pillars redesigned, federated bioregionalism, sourced systems
 
 ## Origin
 
