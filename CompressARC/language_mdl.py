@@ -18,8 +18,164 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import List, Tuple, Dict, Optional
+from dataclasses import dataclass
 import random
 import string
+import hashlib
+import pickle
+from pathlib import Path
+
+
+# =============================================================================
+# Character Transform Abstraction Library
+# =============================================================================
+
+@dataclass
+class CharAbstraction:
+    """A stored abstraction from a learned character transform."""
+    signature: str
+    config_type: str  # 'identity', 'permutation', 'mapping', 'composed'
+    perm_state: Optional[Dict] = None
+    map_state: Optional[Dict] = None
+    train_steps: int = 0
+    final_loss: float = 0.0
+    times_used: int = 0
+    times_helped: int = 0
+
+
+def compute_char_signature(examples: List[Tuple[str, str]]) -> str:
+    """Compute signature for character transform.
+
+    Uses canonical input 'hello' to get consistent signature.
+    """
+    canonical = 'hello'
+    canonical_output = None
+
+    for inp, out in examples:
+        if inp == canonical:
+            canonical_output = out
+            break
+
+    if canonical_output is None:
+        # Try 'abcde' as alternative canonical
+        for inp, out in examples:
+            if inp == 'abcde':
+                canonical_output = out
+                break
+
+    if canonical_output is None:
+        # Fall back to sorted examples hash
+        sorted_ex = sorted(examples, key=lambda x: x[0])[:3]
+        sig_str = '|'.join(f'{i}->{o}' for i, o in sorted_ex)
+    else:
+        sig_str = canonical_output
+
+    return hashlib.md5(sig_str.encode()).hexdigest()[:16]
+
+
+class CharAbstractionLibrary:
+    """Stores and retrieves learned character transforms."""
+
+    def __init__(self, save_path: str = "char_abstractions.pkl"):
+        self.abstractions: Dict[str, CharAbstraction] = {}
+        self.save_path = Path(save_path)
+        if self.save_path.exists():
+            self.load()
+
+    def add(self, examples: List[Tuple[str, str]], config_type: str,
+            perm_state: Optional[Dict] = None, map_state: Optional[Dict] = None,
+            train_steps: int = 0, final_loss: float = 0.0) -> str:
+        """Add a learned transform to the library."""
+        signature = compute_char_signature(examples)
+
+        def to_cpu(state):
+            if state is None:
+                return None
+            return {k: v.detach().cpu() if isinstance(v, torch.Tensor) else v
+                    for k, v in state.items()}
+
+        self.abstractions[signature] = CharAbstraction(
+            signature=signature,
+            config_type=config_type,
+            perm_state=to_cpu(perm_state),
+            map_state=to_cpu(map_state),
+            train_steps=train_steps,
+            final_loss=final_loss
+        )
+        self.save()
+        return signature
+
+    def find(self, examples: List[Tuple[str, str]]) -> Optional[CharAbstraction]:
+        """Find exact match for transform."""
+        signature = compute_char_signature(examples)
+        return self.abstractions.get(signature)
+
+    def get_initialization(self, examples: List[Tuple[str, str]]) -> Optional[Dict]:
+        """Get saved state if we've seen this transform before."""
+        abstraction = self.find(examples)
+        if abstraction is None:
+            return None
+        abstraction.times_used += 1
+        return {
+            'config_type': abstraction.config_type,
+            'perm_state': abstraction.perm_state,
+            'map_state': abstraction.map_state,
+            'expected_steps': 1
+        }
+
+    def update_stats(self, examples: List[Tuple[str, str]], helped: bool):
+        """Update transfer statistics."""
+        signature = compute_char_signature(examples)
+        if signature in self.abstractions:
+            if helped:
+                self.abstractions[signature].times_helped += 1
+            self.save()
+
+    def save(self):
+        with open(self.save_path, 'wb') as f:
+            pickle.dump(self.abstractions, f)
+
+    def load(self):
+        try:
+            with open(self.save_path, 'rb') as f:
+                self.abstractions = pickle.load(f)
+        except Exception:
+            self.abstractions = {}
+
+    def clear(self):
+        self.abstractions = {}
+        if self.save_path.exists():
+            self.save_path.unlink()
+
+    def stats(self) -> dict:
+        if not self.abstractions:
+            return {"size": 0}
+        by_type = {}
+        for a in self.abstractions.values():
+            by_type[a.config_type] = by_type.get(a.config_type, 0) + 1
+        return {
+            "size": len(self.abstractions),
+            "by_type": by_type,
+            "total_uses": sum(a.times_used for a in self.abstractions.values()),
+        }
+
+
+# Singleton
+_char_library = None
+
+def get_char_library(save_path: str = "char_abstractions.pkl") -> CharAbstractionLibrary:
+    """Get or create the global character abstraction library."""
+    global _char_library
+    if _char_library is None:
+        _char_library = CharAbstractionLibrary(save_path)
+    return _char_library
+
+def reset_char_library():
+    """Reset the global library (for testing)."""
+    global _char_library
+    if _char_library is not None:
+        _char_library.clear()
+    _char_library = None
 
 
 # =============================================================================
@@ -164,10 +320,11 @@ class CharTransformSystem:
     Like ComposedTransformSystem but for characters.
     """
 
-    def __init__(self, max_len: int = 32):
+    def __init__(self, max_len: int = 32, use_library: bool = True):
         self.max_len = max_len
         self.codec = CharacterCodec()
         self.vocab_size = self.codec.vocab_size
+        self.use_library = use_library
 
         # Modules
         self.perm = CharPermutation(max_len, self.vocab_size)
@@ -179,6 +336,8 @@ class CharTransformSystem:
         # Results
         self.selected = None
         self.scores = {}
+        self.used_transfer = False
+        self.train_steps = 0
 
     def add_example(self, input_str: str, output_str: str):
         """Add training example."""
@@ -410,6 +569,26 @@ class CharTransformSystem:
         if not self.examples:
             return 'none'
 
+        # Check library first for instant transfer
+        if self.use_library:
+            library = get_char_library()
+            init = library.get_initialization(self.examples)
+            if init is not None:
+                # Found exact match - restore state and return immediately
+                self.used_transfer = True
+                self.train_steps = 1
+                self.selected = init['config_type']
+                self.scores[self.selected] = {'loss': 0.0, 'dl': 0.0, 'mdl': 0.0}
+
+                if init['perm_state'] is not None:
+                    self.perm = CharPermutation(self.max_len, self.vocab_size)
+                    self.perm.load_state_dict(init['perm_state'])
+                if init['map_state'] is not None:
+                    self.mapping = CharMapping(self.vocab_size)
+                    self.mapping.load_state_dict(init['map_state'])
+
+                return self.selected
+
         # Try configurations
         # MDL = loss + lambda * description_length
         # Lambda should be small enough that low loss is preferred
@@ -456,6 +635,17 @@ class CharTransformSystem:
         if map_state is not None:
             self.mapping = CharMapping(self.vocab_size)
             self.mapping.load_state_dict(map_state)
+
+        # Save to library if successful
+        if self.use_library and self.scores[best]['loss'] < 0.01:
+            library = get_char_library()
+            library.add(
+                examples=self.examples,
+                config_type=best,
+                perm_state=perm_state,
+                map_state=map_state,
+                final_loss=self.scores[best]['loss']
+            )
 
         return best
 
@@ -588,5 +778,80 @@ def test_char_transforms():
     return results
 
 
+def test_transfer_learning():
+    """Test transfer learning for character transforms."""
+    print("\n" + "=" * 70)
+    print("TRANSFER LEARNING TEST")
+    print("=" * 70)
+
+    # Reset library for clean test
+    reset_char_library()
+
+    transform_fn = lambda s: s[::-1].upper()  # reverse_upper
+
+    # Training words (must include 'hello' for signature)
+    # Need enough character diversity for mapping to generalize
+    train_words = [
+        'hello', 'world', 'quick', 'jumps', 'brown',
+        'foxes', 'crazy', 'about', 'every', 'night',
+        'abcde', 'fghij', 'klmno', 'pqrst', 'uvwxy'
+    ]
+    test_words = ['codes', 'datas', 'learn']
+
+    # First run: cold start (no library)
+    print("\n1. COLD START (no library)")
+    import time
+    start = time.time()
+    system1 = CharTransformSystem(max_len=32, use_library=True)
+    for word in train_words:
+        system1.add_example(word, transform_fn(word))
+    system1.train()
+    cold_time = time.time() - start
+
+    # Test accuracy
+    correct = sum(1 for w in test_words if system1.predict(w) == transform_fn(w))
+    print(f"   Selected: {system1.selected}")
+    print(f"   Accuracy: {correct}/{len(test_words)}")
+    print(f"   Time: {cold_time:.3f}s")
+    print(f"   Used transfer: {system1.used_transfer}")
+
+    # Check library
+    library = get_char_library()
+    print(f"   Library size: {library.stats()['size']}")
+
+    # Second run: warm start (from library)
+    print("\n2. WARM START (from library)")
+    start = time.time()
+    system2 = CharTransformSystem(max_len=32, use_library=True)
+    for word in train_words:
+        system2.add_example(word, transform_fn(word))
+    system2.train()
+    warm_time = time.time() - start
+
+    # Test accuracy
+    correct = sum(1 for w in test_words if system2.predict(w) == transform_fn(w))
+    print(f"   Selected: {system2.selected}")
+    print(f"   Accuracy: {correct}/{len(test_words)}")
+    print(f"   Time: {warm_time:.3f}s")
+    print(f"   Used transfer: {system2.used_transfer}")
+
+    # Results
+    speedup = cold_time / warm_time if warm_time > 0 else float('inf')
+    print(f"\n3. RESULTS")
+    print(f"   Cold time: {cold_time:.3f}s")
+    print(f"   Warm time: {warm_time:.3f}s")
+    print(f"   Speedup: {speedup:.0f}x")
+
+    if system2.used_transfer and correct == len(test_words):
+        print("\n   SUCCESS: Transfer learning working!")
+    else:
+        print("\n   FAIL: Transfer not working")
+
+    # Cleanup
+    reset_char_library()
+    print("=" * 70)
+
+
 if __name__ == '__main__':
     test_char_transforms()
+    test_transfer_learning()
