@@ -605,36 +605,45 @@ We tested all three alternatives. Results:
 
 ## PHASE 10: REAL-WORLD VALIDATION
 
-### Experiment 26: Real ARC Tasks (SUCCESS!)
+### Experiment 26: Real ARC Tasks (FLAWED METRIC - RETRACTED)
 
-**What we tested:** Run the complete system on actual ARC benchmark puzzles (not toy transforms).
+**What we tested:** Run solve.py on actual ARC benchmark puzzles.
 
-**Result:** 20/20 puzzles solved (100%)!
+**Result:** 20/20 puzzles "converged" BUT NOT ACTUALLY SOLVED.
 
-| Metric | Value |
-|--------|-------|
-| Puzzles solved | 20/20 (100%) |
-| Steps per puzzle | 1 (with transfer) |
-| Baseline steps | ~157 |
-| Speedup | 99.4% |
-| Library growth | 25 → 45 patterns |
+| Metric | Value | Problem |
+|--------|-------|---------|
+| KL convergence | 20/20 (100%) | ⚠️ This is what we measured |
+| Actual accuracy | **UNKNOWN** | ❌ Never verified! |
+| Steps per puzzle | 1 (with transfer) | Fast convergence ≠ correct answer |
 
-**All 20 puzzles solved in 1 step** thanks to transfer learning from Game of Life abstractions.
+**⚠️ CRITICAL FLAW DISCOVERED:**
+- `solve.py` declares "solved" when `KL_loss < 50` (compression convergence)
+- This does NOT check if predicted output matches expected answer
+- Manual verification showed **predictions are completely wrong**:
+  ```
+  Predicted: [[0 1 0 0 0...]  ← mostly 0s, 1s, 3s
+  Expected:  [[7 0 7 0 0...]  ← mostly 7s and 0s
+  Match: False
+  ```
 
-**What this proves:**
-- The system works on REAL ARC tasks, not just designed toy transforms
-- Transfer learning is universal - GoL abstractions transfer to completely different puzzles
-- 99.4% speedup is consistent across diverse puzzle types
-- The MDL + transfer approach generalizes to the actual benchmark
+**What this actually proves:**
+- Transfer learning helps KL loss converge fast
+- Fast convergence does NOT mean correct prediction
+- We need proper accuracy verification before claiming success
+- **"Did we rig the test?" - YES, inadvertently. The metric was wrong.**
+
+**TODO: Implement actual accuracy verification (compare predicted vs expected grid)**
 
 ---
 
 ## CURRENT STATUS
 
-**GRIDS: ✅ COMPLETE + VALIDATED ON REAL ARC**
-- MDL + transfer + cross-domain ALL WORK
-- **20/20 real ARC puzzles solved in 1 step each**
-- 76K params, laptop CPU, 99.4% speedup
+**GRIDS: ⚠️ WORKS ON TOY TRANSFORMS, UNVALIDATED ON REAL ARC**
+- MDL + transfer + cross-domain ALL WORK on designed transforms
+- **Real ARC accuracy: UNKNOWN** (Experiment 26 measured convergence, not correctness)
+- 76K params, laptop CPU
+- **TODO: Implement actual accuracy verification**
 
 **SEQUENCES: ✅ COMPLETE**
 - Positional transforms: 100% (permutation matrix, 100 params)
@@ -865,7 +874,8 @@ If not, keep going until it does.
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v4.3 | 2026-01-22 | **Phase 10: Real-world validation.** Experiment 26: 20/20 real ARC puzzles solved (100%), all in 1 step, 99.4% speedup. System validated on actual ARC benchmark. |
+| v4.4 | 2026-01-22 | **RETRACTION.** Experiment 26 used flawed metric (KL convergence, not accuracy). Manual verification showed predictions are wrong. Honest status: grids unvalidated on real ARC. |
+| v4.3 | 2026-01-22 | ~~Phase 10: Real-world validation. Experiment 26: 20/20 puzzles "solved".~~ **RETRACTED - metric was wrong.** |
 | v4.2 | 2026-01-22 | **Phase 9 COMPLETE.** Unified system: 100% (10/10 tests). Cross-modal transfer: 100% (sequence→word permutation). All modalities unified under single interface. |
 | v4.1 | 2026-01-22 | Phase 9 started. Added Experiments 24-25 (unified system, cross-modal transfer). Initial 90% accuracy. |
 | v4.0 | 2026-01-22 | **Phase 8 COMPLETE.** Added Experiments 20-23 (language MDL). Character: 100% (12 transforms), 37,375× transfer. Word: 100% (7 transforms), OOV generalization. Sentence: 100% (7 transforms), pattern detection. Ready for Phase 9: Unified System. |
