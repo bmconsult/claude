@@ -633,7 +633,23 @@ We tested all three alternatives. Results:
 - We need proper accuracy verification before claiming success
 - **"Did we rig the test?" - YES, inadvertently. The metric was wrong.**
 
-**TODO: Implement actual accuracy verification (compare predicted vs expected grid)**
+**ROOT CAUSE IDENTIFIED:**
+`solve.py` only uses KL loss, but `train.py` uses `loss = KL + 10 * reconstruction_error`.
+The reconstruction term includes cross-entropy on actual pixel colors (line 96).
+
+- `solve.py`: `loss = total_KL` ← NO prediction signal!
+- `train.py`: `loss = total_KL + 10 * reconstruction_error` ← Forces correct colors!
+
+**Test result with KL-only loss:**
+- Task 0 predicts `[3,3,3,3...]` when answer is `[7,0,7,0...]`
+- Low loss (14.8) but completely wrong predictions
+
+**FIX:** Use `train.py` training loop which includes reconstruction loss, NOT `solve.py`.
+The original CompressARC paper's results used reconstruction loss - we accidentally
+dropped it when creating the transfer learning experiments.
+
+**ACTION NEEDED:** Re-run experiments with proper `train.py` loss function, then
+measure actual accuracy on held-out test examples.
 
 ---
 
