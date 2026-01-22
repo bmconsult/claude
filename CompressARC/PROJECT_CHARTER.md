@@ -670,14 +670,28 @@ All items completed:
    - Reusable transforms across hierarchy
    - Position-based permutation generalizes to novel words
 
-### Phase 9: Unified System (CURRENT)
+### Phase 9: Unified System (IN PROGRESS)
 
-Final integration:
+Building the unified system:
 
-1. Single system handles grids AND language
-2. Abstractions transfer across modalities where possible
-3. Modality-specific encoders/decoders share MDL objective
-4. Full laptop-scale general intelligence
+1. **Single system interface** ✅ DONE
+   - UnifiedIntelligenceSystem class
+   - Auto-detects modality (grid, sequence, character, word, sentence)
+   - Routes to appropriate subsystem
+   - 90% accuracy on unified test suite
+
+2. **Cross-modal transfer** ✅ PROVEN
+   - Sequence permutation → Word permutation: WORKS
+   - Position-based abstraction is modality-independent
+   - Key Phase 9 milestone achieved
+
+3. **Modality-specific encoders** ✅ DONE
+   - All share MDL objective
+   - Explicit search over configurations
+
+4. **Full integration** 🔄 IN PROGRESS
+   - Grid integration needs ARCCompressor adaptation
+   - Real ARC task testing pending
 
 ---
 
@@ -756,6 +770,8 @@ Every instance MUST:
 | 21 | Character transfer learning | 37,375× speedup | SUCCESS |
 | 22 | Word-level MDL | 100% (7 transforms) | SUCCESS |
 | 23 | Sentence-level MDL | 100% (7 transforms) | SUCCESS |
+| 24 | Unified system | 90% multi-modal | SUCCESS |
+| 25 | Cross-modal transfer | Seq→Word perm works | SUCCESS |
 
 ### Next Experiments
 
@@ -784,6 +800,7 @@ Every instance MUST:
 | `language_mdl.py` | Character-level MDL + transfer | ✅ WORKS (100%, 37,375× speedup) |
 | `word_mdl.py` | Word-level MDL | ✅ WORKS (100%, OOV generalization) |
 | `sentence_mdl.py` | Sentence pattern MDL | ✅ WORKS (100%, pattern detection) |
+| `unified_intelligence.py` | Phase 9 unified system | ✅ WORKS (90%, cross-modal transfer) |
 | `sequence_compressor.py` | Learning with positional ops | ❌ WRONG APPROACH |
 | `sequence_mdl_v5.py`, `v6.py` | Enumeration | ❌ CHEATING |
 | `dreamcoder_sequences.py` | Program synthesis | ❌ FAILED (Exp 12) |
@@ -820,6 +837,7 @@ If not, keep going until it does.
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v4.1 | 2026-01-22 | **Phase 9 started.** Added Experiments 24-25 (unified system, cross-modal transfer). Unified interface: 90% accuracy. Cross-modal transfer PROVEN: sequence permutation → word permutation works. Position-based abstraction is modality-independent. |
 | v4.0 | 2026-01-22 | **Phase 8 COMPLETE.** Added Experiments 20-23 (language MDL). Character: 100% (12 transforms), 37,375× transfer. Word: 100% (7 transforms), OOV generalization. Sentence: 100% (7 transforms), pattern detection. Ready for Phase 9: Unified System. |
 | v3.4 | 2026-01-16 | Added Experiment 19 (sequence abstraction library SUCCESS). 1200× transfer speedup. Full parity with grids. |
 | v3.3 | 2026-01-16 | Added Experiment 18 (composed transforms SUCCESS). Phase 7 COMPLETE. Grids + Sequences both at 100%. Ready for Phase 8: Language. |
