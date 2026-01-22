@@ -644,12 +644,27 @@ The reconstruction term includes cross-entropy on actual pixel colors (line 96).
 - Task 0 predicts `[3,3,3,3...]` when answer is `[7,0,7,0...]`
 - Low loss (14.8) but completely wrong predictions
 
-**FIX:** Use `train.py` training loop which includes reconstruction loss, NOT `solve.py`.
-The original CompressARC paper's results used reconstruction loss - we accidentally
-dropped it when creating the transfer learning experiments.
+**FIX IMPLEMENTED:** Updated `solve.py` to use proper loss function:
+- Added `compute_reconstruction_loss()` with cross-entropy on pixel colors
+- Added `check_accuracy()` to compare predicted vs expected grid
+- "Solved" now means ACTUALLY CORRECT, not just low loss
 
-**ACTION NEEDED:** Re-run experiments with proper `train.py` loss function, then
-measure actual accuracy on held-out test examples.
+### Experiment 27: Real ARC Tasks with Proper Loss (RIGOROUS)
+
+**What we tested:** Run fixed solve.py with reconstruction loss + accuracy checking.
+
+**Result (so far):**
+| Puzzle | Status | Steps | Time |
+|--------|--------|-------|------|
+| 007bbfb7 | ✗ WRONG | 200 | 295s |
+
+**Honest Assessment:**
+- Even with proper reconstruction loss, puzzle 1 was WRONG after 200 steps
+- This is 5 minutes per puzzle for a wrong answer
+- The grid system may need MORE training steps or architectural changes
+- **No claims of success until we see actual correct predictions**
+
+**Status:** Grid system unvalidated. Need to investigate why even proper training doesn't produce correct answers in 200 steps.
 
 ---
 
