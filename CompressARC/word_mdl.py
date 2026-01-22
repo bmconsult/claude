@@ -200,7 +200,7 @@ class WordTransformSystem:
         loss = self._compute_loss(preds)
         return loss, 0.0
 
-    def _train_permutation(self, max_steps: int = 300) -> Tuple[float, float]:
+    def _train_permutation(self, max_steps: int = 500) -> Tuple[float, float]:
         """Train word permutation.
 
         Key insight: Train on POSITIONS, not vocabulary.
@@ -255,7 +255,7 @@ class WordTransformSystem:
         dl = self.perm.description_length(len(self.examples[0][0]))
         return loss, dl
 
-    def _train_mapping(self, max_steps: int = 300) -> Tuple[float, float]:
+    def _train_mapping(self, max_steps: int = 500) -> Tuple[float, float]:
         """Train word mapping."""
         self.mapping = WordMapping(self.vocab_size)
         optimizer = torch.optim.Adam(self.mapping.parameters(), lr=0.3)

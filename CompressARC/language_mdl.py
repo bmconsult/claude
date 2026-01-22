@@ -401,7 +401,7 @@ class CharTransformSystem:
         dl = self.perm.description_length(len(self.examples[0][0]))
         return loss, dl
 
-    def _train_mapping(self, max_steps: int = 300) -> Tuple[float, float]:
+    def _train_mapping(self, max_steps: int = 500) -> Tuple[float, float]:
         """Train character mapping."""
         self.mapping = CharMapping(self.codec.vocab_size)
         optimizer = torch.optim.Adam(self.mapping.parameters(), lr=0.3)
