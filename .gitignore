@@ -1,2 +1,6 @@
 __pycache__/
 train_part_001.txt
+
+# ARC dataset (downloaded for benchmarking)
+CompressARC/ARC-AGI-master/
+CompressARC/arc.zip
