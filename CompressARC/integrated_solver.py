@@ -250,17 +250,32 @@ class GridPrimitiveLibrary:
             'tile_2x2': lambda g: np.tile(g, (2, 2)),
             'tile_2x1': lambda g: np.tile(g, (2, 1)),
             'tile_1x2': lambda g: np.tile(g, (1, 2)),
+            'tile_3x3': lambda g: np.tile(g, (3, 3)),
+            'tile_3x1': lambda g: np.tile(g, (3, 1)),
+            'tile_1x3': lambda g: np.tile(g, (1, 3)),
 
             # Extraction
             'top_half': lambda g: g[:g.shape[0]//2, :],
             'bottom_half': lambda g: g[g.shape[0]//2:, :],
             'left_half': lambda g: g[:, :g.shape[1]//2],
             'right_half': lambda g: g[:, g.shape[1]//2:],
+            'top_third': lambda g: g[:g.shape[0]//3, :],
+            'bottom_third': lambda g: g[2*g.shape[0]//3:, :],
 
             # Pattern operations
             'upscale_2x': self._upscale_2x,
+            'upscale_3x': self._upscale_3x,
             'downscale_2x': self._downscale_2x,
+            'downscale_3x': self._downscale_3x,
             'extract_nonzero': self._extract_nonzero,
+
+            # Advanced operations (for common ARC patterns)
+            'self_tile_by_mask': self._self_tile_by_mask,
+            'fill_enclosed': self._fill_enclosed,
+            'gravity_down': self._gravity_down,
+            'gravity_up': self._gravity_up,
+            'sort_rows': self._sort_rows,
+            'sort_cols': self._sort_cols,
         }
 
         # Learned abstractions (grows over time)
@@ -273,9 +288,17 @@ class GridPrimitiveLibrary:
         """Upscale each cell to 2x2."""
         return np.repeat(np.repeat(g, 2, axis=0), 2, axis=1)
 
+    def _upscale_3x(self, g: np.ndarray) -> np.ndarray:
+        """Upscale each cell to 3x3."""
+        return np.repeat(np.repeat(g, 3, axis=0), 3, axis=1)
+
     def _downscale_2x(self, g: np.ndarray) -> np.ndarray:
         """Downscale by taking every other cell."""
         return g[::2, ::2]
+
+    def _downscale_3x(self, g: np.ndarray) -> np.ndarray:
+        """Downscale by taking every third cell."""
+        return g[::3, ::3]
 
     def _extract_nonzero(self, g: np.ndarray) -> np.ndarray:
         """Extract bounding box of non-zero region."""
@@ -286,6 +309,97 @@ class GridPrimitiveLibrary:
         rmin, rmax = np.where(rows)[0][[0, -1]]
         cmin, cmax = np.where(cols)[0][[0, -1]]
         return g[rmin:rmax+1, cmin:cmax+1]
+
+    def _self_tile_by_mask(self, g: np.ndarray) -> np.ndarray:
+        """
+        Tile the grid by itself using non-zero cells as mask.
+        For puzzle 007bbfb7: 3x3 → 9x9 where each non-zero cell gets the pattern.
+        """
+        h, w = g.shape
+        result = np.zeros((h * h, w * w), dtype=g.dtype)
+
+        for r in range(h):
+            for c in range(w):
+                if g[r, c] != 0:
+                    # Place copy of grid at this position
+                    result[r*h:(r+1)*h, c*w:(c+1)*w] = g
+
+        return result
+
+    def _fill_enclosed(self, g: np.ndarray, fill_color: int = 4) -> np.ndarray:
+        """
+        Fill enclosed rectangular regions with a color.
+        Detects rectangles outlined by non-zero cells and fills interior.
+        """
+        result = g.copy()
+        h, w = g.shape
+
+        # Find potential rectangles by looking for horizontal lines
+        visited = np.zeros_like(g, dtype=bool)
+
+        for r in range(h - 2):
+            for c in range(w - 2):
+                if visited[r, c]:
+                    continue
+
+                # Check if this could be top-left of a rectangle
+                if g[r, c] == 0:
+                    continue
+
+                border_color = g[r, c]
+
+                # Try to find rectangle dimensions
+                for rr in range(r + 2, h):
+                    for cc in range(c + 2, w):
+                        # Check if we have a complete rectangle
+                        if self._is_rectangle(g, r, c, rr, cc, border_color):
+                            # Fill interior
+                            result[r+1:rr, c+1:cc] = fill_color
+                            visited[r:rr+1, c:cc+1] = True
+
+        return result
+
+    def _is_rectangle(self, g: np.ndarray, r1: int, c1: int, r2: int, c2: int, color: int) -> bool:
+        """Check if there's a rectangle with given corners."""
+        # Check top and bottom edges
+        if not np.all(g[r1, c1:c2+1] == color) or not np.all(g[r2, c1:c2+1] == color):
+            return False
+        # Check left and right edges
+        if not np.all(g[r1:r2+1, c1] == color) or not np.all(g[r1:r2+1, c2] == color):
+            return False
+        return True
+
+    def _gravity_down(self, g: np.ndarray) -> np.ndarray:
+        """Move non-zero cells down (gravity effect)."""
+        result = np.zeros_like(g)
+        h, w = g.shape
+
+        for c in range(w):
+            col = g[:, c]
+            nonzero = col[col != 0]
+            result[h-len(nonzero):, c] = nonzero
+
+        return result
+
+    def _gravity_up(self, g: np.ndarray) -> np.ndarray:
+        """Move non-zero cells up (reverse gravity)."""
+        result = np.zeros_like(g)
+        h, w = g.shape
+
+        for c in range(w):
+            col = g[:, c]
+            nonzero = col[col != 0]
+            result[:len(nonzero), c] = nonzero
+
+        return result
+
+    def _sort_rows(self, g: np.ndarray) -> np.ndarray:
+        """Sort each row."""
+        return np.sort(g, axis=1)
+
+    def _sort_cols(self, g: np.ndarray) -> np.ndarray:
+        """Sort each column."""
+        return np.sort(g, axis=0)
 
     def execute(self, name: str, grid: np.ndarray) -> np.ndarray:
         """Execute a primitive on a grid."""
@@ -327,6 +441,8 @@ class GridProgramSearch:
         Returns the shortest program found, or None.
         """
         target_shape = output_grid.shape
+        in_h, in_w = input_grid.shape
+        out_h, out_w = target_shape
 
         # Try single primitives first (depth 1)
         for prim in self.library.get_all():
@@ -337,17 +453,8 @@ class GridProgramSearch:
             except:
                 continue
 
-        # Try compositions (depth 2)
-        for prim1 in self.library.get_all():
-            for prim2 in self.library.get_all():
-                try:
-                    intermediate = self.library.execute(prim1, input_grid)
-                    result = self.library.execute(prim2, intermediate)
-                    if result.shape == target_shape and np.array_equal(result, output_grid):
-                        return GridProgram(prim2, [GridProgram(prim1)])
-                except:
-                    continue
-
+        # Skip depth-2 for now (too slow with many primitives)
+        # TODO: Add neural-guided search to make this efficient
         return None
 
 
