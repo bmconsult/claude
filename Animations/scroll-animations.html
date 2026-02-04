@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Animations</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--void:#08080c;--teal:#0891b2;--magenta:#a855f7;--frost:rgba(255,255,255,0.85);--mist:rgba(255,255,255,0.5);--smoke:rgba(255,255,255,0.15)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--void);font-family:system-ui,sans-serif;color:var(--frost);overflow:hidden}
+.scroll-canvas{width:100vw;height:100vh;position:relative;overflow:hidden}
+.scroll-viewport{width:100%;height:100%;overflow-y:scroll;overflow-x:hidden;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--teal) #111;-webkit-overflow-scrolling:touch}
+.scroll-track{width:100%;height:600vh;position:relative}
+.animation-stage{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:1;pointer-events:none}
+.animation-stage::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(8,145,178,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(8,145,178,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 0%,transparent 70%)}
+.animation-stage::after{content:'';position:absolute;top:50%;left:50%;width:120%;height:120%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(8,145,178,0.08) 0%,rgba(168,85,247,0.04) 30%,transparent 60%)}
+.anim-panel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0.95);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);pointer-events:none}
+.anim-panel.active{opacity:1;transform:scale(1);pointer-events:auto}
+.content-layer{position:relative;z-index:10}
+.content-section{min-height:200vh;display:flex;align-items:flex-end;padding:0 8vw 15vh}
+.content-section:first-child{padding-top:30vh;align-items:center}
+.content-section.align-left .content-card{margin-right:auto}
+.content-section.align-right .content-card{margin-left:auto}
+.content-card{max-width:420px;padding:40px 44px;background:linear-gradient(135deg,rgba(15,15,21,0.9),rgba(8,8,12,0.95));border:1px solid rgba(255,255,255,0.06);border-radius:2px;backdrop-filter:blur(20px);pointer-events:auto;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(8,145,178,0.1),0 20px 60px -20px rgba(0,0,0,0.7),0 0 100px -50px rgba(8,145,178,0.4);opacity:0;transform:translateY(60px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+.content-card.visible{opacity:1;transform:translateY(0)}
+.content-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--magenta));opacity:0.8}
+.card-phase{font-family:'JetBrains Mono',monospace;font-size:0.65rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.card-phase::before{content:'';width:24px;height:1px;background:linear-gradient(90deg,var(--teal),transparent)}
+.card-title{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;line-height:1.15;color:var(--frost);margin-bottom:16px;letter-spacing:-0.02em}
+.card-title .accent{background:linear-gradient(90deg,var(--teal),var(--magenta));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.card-body{font-size:0.95rem;line-height:1.75;color:var(--mist)}
+.card-stats{display:flex;gap:32px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06)}
+.stat{display:flex;flex-direction:column;gap:4px}
+.stat-value{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--frost)}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--smoke)}
+.progress-track{position:fixed;right:32px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:16px}
+.progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.progress-dot.active{background:var(--teal);border-color:var(--teal);box-shadow:0 0 20px rgba(8,145,178,0.4);transform:scale(1.2)}
+.section-label{position:fixed;left:32px;bottom:32px;z-index:100;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--smoke);display:flex;align-items:center;gap:16px;opacity:0;transform:translateY(10px);transition:all 0.5s ease}
+.section-label.visible{opacity:1;transform:translateY(0)}
+.section-label::before{content:'';width:40px;height:1px;background:linear-gradient(90deg,var(--teal),transparent)}
+.intro-overlay{position:fixed;inset:0;z-index:1000;background:var(--void);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;pointer-events:none}
+.intro-overlay.hidden{opacity:0;visibility:hidden}
+.intro-title{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;letter-spacing:-0.03em;background:linear-gradient(135deg,var(--frost),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
+.intro-sub{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--smoke);margin-bottom:48px}
+.intro-cta{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:12px;animation:bounce 2s ease-in-out infinite}
+.intro-cta::after{content:'↓';font-size:1rem}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* Beaker styles */
+.liquid-container{width:280px;height:460px;position:relative}
+.liquid-container svg{width:100%;height:100%;overflow:visible}
+.scene-container{filter:url(#underglow) saturate(0);transition:filter 0.3s ease}
+.liquid-main{fill:url(#liquidRedGradient)}
+.liquid-secondary{fill:url(#ribbonGradient)}
+.meniscus-fill{fill:url(#meniscusFillGradient)}
+.meniscus-rim-fill{fill:url(#meniscusHighlightGradient);stroke:url(#meniscusHighlightGradient);stroke-width:3;stroke-linejoin:round}
+.beaker-outline{fill:none;stroke:#231f20;stroke-miterlimit:10;stroke-width:12px}
+.beaker-highlight{fill:none;stroke:#0891b2;stroke-miterlimit:10;stroke-width:12px}
+.beaker-marking{fill:#0891b2;opacity:0.7}
+#liquid-scaler{transform-origin:center 670px}
+
+/* Controller styles */
+.controller-container{width:680px;height:500px;perspective:1000px;position:relative;filter:grayscale(1);transition:filter 0.15s ease;transform:scale(0.72);transform-origin:center}
+svg.controller-svg{width:100%;height:auto;position:absolute;top:0;left:0;z-index:1;overflow:visible}
+.bumper{transition:transform 0.1s ease-out}
+.bumper.is-pressed{transform:translateY(15px)}
+.button-assembly{position:absolute;display:flex;justify-content:center;align-items:center;z-index:10}
+#dpad-location{top:20%;left:14%;width:20%;height:20%;transform:scale(0.85)}
+.face-button-location{width:110px;height:110px;transform:scale(0.85)}
+#btn-y-location{top:12%;left:70%}
+#btn-x-location{top:22%;left:63%}
+#btn-b-location{top:22%;left:77%}
+#btn-a-location{top:32%;left:70%}
+.grommet-css{width:100%;height:100%;position:relative;display:flex;justify-content:center;align-items:center;background:linear-gradient(145deg,#636363,#575757,#636363);border-radius:50%;box-shadow:inset 4px 4px 12px rgba(0,0,0,.6),inset -4px -4px 12px rgba(255,255,255,.18);transition:all 0.12s}
+.grommet-css.is-pressed{background:linear-gradient(145deg,#545454,#484848,#545454);transform:translateY(2px) scale(0.95)}
+.face-button-location .grommet-css{width:79%;height:79%}
+.game-button{width:60%;height:60%;border:none;border-radius:50%;cursor:pointer;position:relative;display:flex;justify-content:center;align-items:center;transition:transform 0.1s,box-shadow 0.1s;box-shadow:inset 0 -4px 6px rgba(0,0,0,0.3),inset 0 4px 5px rgba(255,255,255,0.4),2px 2px 5px rgba(0,0,0,0.6)}
+.game-button span{font-family:'Poppins',sans-serif;font-weight:700;font-size:28px;color:#fff}
+.game-button.is-pressed{transform:translateY(4px) scale(0.9)}
+.face-button-location .game-button{width:71%;height:71%}
+.button-yellow{background:#FDD835}
+.button-green{background:#7CB342}
+.button-red{background:#e53935}
+.button-blue{background:#005cfa}
+#dpad-location.is-pressed-up .dpad{transform:perspective(1000px) rotateX(10deg)}
+#dpad-location.is-pressed-down .dpad{transform:perspective(1000px) rotateX(-10deg)}
+#dpad-location.is-pressed-left .dpad{transform:perspective(1000px) rotateY(-10deg)}
+#dpad-location.is-pressed-right .dpad{transform:perspective(1000px) rotateY(10deg)}
+.grommet-svg{position:absolute;width:200px;height:200px}
+.dpad{position:relative;width:180px;height:180px;perspective:1000px}
+.dpad-svg{position:absolute;inset:0;width:100%;height:100%}
+.joystick-assembly{position:absolute;width:13%;padding-bottom:13%;height:0;z-index:10}
+#l-joystick-assembly{top:45%;left:28%}
+#r-joystick-assembly{top:45%;left:59%}
+.joystick-assembly .grommet-css{position:absolute;inset:0}
+.joystick-stick{--rotateX:0deg;--rotateY:0deg;--translateX:0px;--translateY:0px;position:absolute;width:67%;height:67%;inset:0;margin:auto;transform-style:preserve-3d;transform:translateX(var(--translateX)) translateY(var(--translateY)) rotateX(var(--rotateX)) rotateY(var(--rotateY));z-index:10}
+.joystick-top{width:100%;height:100%;border-radius:50%;position:absolute;transform:translateZ(45px);background:#005cfa;box-shadow:inset 8px 8px 16px rgba(0,25,70,0.85),inset -8px -8px 16px rgba(120,200,255,0.8)}
+.joystick-axis{position:absolute;width:73%;height:73%;background:radial-gradient(#3a86ff,#003a94,#00225a);border-radius:50%;opacity:0;transition:opacity 0.2s}
+.joystick-axis.is-visible{opacity:1}
+#l-joystick-assembly .joystick-top{background:#FDD835;box-shadow:inset 8px 8px 16px rgba(180,140,0,0.85),inset -8px -8px 16px rgba(255,250,224,0.7)}
+.start-select-assembly{position:absolute;width:8%;height:5%;z-index:10}
+#btn-select-location{top:36%;left:40.5%}
+#btn-start-location{top:36%;left:51.5%}
+.start-select-button{width:100%;height:100%;border:none;background:transparent;padding:0;cursor:pointer}
+.ss-grommet{fill:#575757}
+.ss-button{transition:transform 0.1s}
+.start-select-button.is-pressed .ss-button{transform:translateY(1px)}
+#btn-select-location .ss-button{fill:#0891b2}
+#btn-start-location .ss-button{fill:#a855f7}
+#btn-select-location.is-lit{filter:drop-shadow(0 0 8px var(--teal))}
+#btn-start-location.is-lit{filter:drop-shadow(0 0 8px var(--magenta))}
+#transmission-beams>*{clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);transition:clip-path 0.7s ease-out}
+#transmission-beams.animate-in>*{clip-path:polygon(0% 0%,100% 0%,100% 100%,0% 100%)}
+.controller-body-fill{fill:url(#bodyGradient)}
+.controller-body-stroke{stroke:#0f1f44;stroke-miterlimit:10;stroke-width:15px}
+.shadow-layer{fill:#132b50;opacity:0.27}
+.highlight-layer{fill:#fff;opacity:0.78}
+.left-bumper-fill{fill:url(#leftBumperGradient)}
+.right-bumper-fill{fill:url(#rightBumperGradient)}
+.bumper-outline-stroke{fill:none;stroke:#101f43;stroke-width:13}
+
+/* Wrench styles */
+.wrench-container{position:relative;width:320px;height:400px;filter:grayscale(100%) opacity(0.7);transition:filter 0.3s ease}
+.wrench-container>*{position:absolute;top:50%;left:50%}
+.wrench-purple{width:100%;transform:translate(-45%,-50%);filter:drop-shadow(0 0 30px rgba(168,85,247,0.6))}
+.wrench-orange{width:100%;transform:translate(-55%,-50%);filter:drop-shadow(0 0 30px rgba(8,145,178,0.7))}
+.cog{width:50%;transform:translate(-50%,-50%) rotate(0deg);filter:drop-shadow(0 0 40px rgba(34,211,238,0.8));z-index:2}
+.cog-backdrop{background:var(--void);border-radius:50%;transform:translate(-50%,-50%);width:16%;height:16%}
+.celebration-effects{width:110%;transform:translate(-50%,-50%) scale(0.5);opacity:0;z-index:1;transition:transform 0.15s,opacity 0.15s}
+@keyframes ember-fade{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(1.3);opacity:0}}
+.celebration-effects.fade-out{animation:ember-fade 2.5s ease-out forwards}
+</style>
+</head>
+<body>
+<div class="intro-overlay" id="introOverlay">
+<h1 class="intro-title">Scroll Animations</h1>
+<p class="intro-sub">Three experiments in motion</p>
+<span class="intro-cta">Scroll to begin</span>
+</div>
+<div class="progress-track">
+<div class="progress-dot active" data-section="0"></div>
+<div class="progress-dot" data-section="1"></div>
+<div class="progress-dot" data-section="2"></div>
+</div>
+<div class="section-label" id="sectionLabel">01 — The Reaction</div>
+<div class="scroll-canvas">
+<div class="scroll-viewport" id="scrollViewport">
+<div class="scroll-track">
+<div class="animation-stage">
+<!-- Panel 1: Beaker -->
+<div class="anim-panel active" id="beakerPanel">
+<div class="liquid-container">
+<svg viewBox="0 0 714.64 900.77">
+<defs>
+<filter id="underglow" x="-50%" y="-50%" width="200%" height="200%"><feFlood flood-color="#0891b2" result="glow-color"/><feComposite in="glow-color" in2="SourceAlpha" operator="in" result="glow-outline"/><feGaussianBlur stdDeviation="8" in="glow-outline" result="blurred"/><feGaussianBlur stdDeviation="20" in="glow-outline" result="wider"/><feMerge><feMergeNode in="wider"/><feMergeNode in="blurred"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="fluid-blob" x="-50%" y="-50%" width="200%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="1" seed="2" result="tX"/><feTurbulence type="fractalNoise" baseFrequency="0.005 0.01" numOctaves="1" seed="9" result="tY"/><feDisplacementMap id="displacementX" in="SourceGraphic" in2="tX" scale="0" xChannelSelector="R" yChannelSelector="G" result="dX"/><feDisplacementMap id="displacementY" in="dX" in2="tY" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter>
+<linearGradient id="liquidRedGradient" x1="100" y1="850" x2="650" y2="500" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0891b2"/><stop offset="0.4" stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+<linearGradient id="meniscusFillGradient" x1="190" y1="500" x2="380" y2="500" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0891b2"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+<linearGradient id="ribbonGradient" x1="240" y1="700" x2="550" y2="550" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a855f7" stop-opacity="0.5"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0.8"/></linearGradient>
+<linearGradient id="meniscusHighlightGradient" x1="182" y1="500" x2="518" y2="500" gradientUnits="userSpaceOnUse"><stop offset="0.1" stop-color="#0891b2"/><stop offset="0.5" stop-color="#06b6d4"/><stop offset="0.9" stop-color="#a855f7"/></linearGradient>
+<path id="meniscus-main-fill" d="M380.19,481.93s-20.27-1.76-30.77-3.51c-65-10.83-58-16-81.2-22.84-24.72-7.31-46.62-8.64-49.61-8.4-13,1.07-28.46,1.84-34.8,25.15-4.31,15.84,7.37,43.24,29.23,52.5,3.41,1.44,20,13.16,51.78,14.4,19.17.74,21.91,2.31,61.8-13.46,7.86-3.11,32.68-23.33,45.24-35.66C374.62,487.41,377.58,484.5,380.19,481.93Z"/>
+<radialGradient id="bubbleHighlight" cx="25%" cy="25%" r="65%"><stop offset="0%" stop-color="#a5f3fc" stop-opacity="0.9"/><stop offset="60%" stop-color="#0891b2" stop-opacity="0.7"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0.5"/></radialGradient>
+<g id="finalBubbleLook"><circle cx="0" cy="0" r="25" fill="transparent"/><circle cx="0" cy="0" r="25" fill="none" stroke="#0891b2" stroke-width="2.5" stroke-opacity="0.9"/><circle cx="0" cy="0" r="25" fill="url(#bubbleHighlight)" opacity="0.5"/><circle cx="-6" cy="-9" r="4" fill="white" opacity="0.8"/></g>
+<path id="wobblePath" d="M0,0 C 25,-50,-25,-100,0,-150" fill="none"/>
+<path id="custom-path-bubble-1" d="M500,819.06 C 478,419,390,320,440,120" fill="none"/>
+</defs>
+<g class="scene-container"><g class="beaker-back" transform="translate(15.6,4)"><path class="beaker-outline" d="M360.16,875.25h0c-14.12,0-29-.38-44.1-1.14C273.45,872,128.74,859.59,53.47,789.38c-19.2-16.48-32-32.47-39-48.88C.53,708.15,3.49,678.37,25.75,626.7c22.18-51.45,64.14-127,140.3-264.27,18.81-33.88,40.12-72.29,63.42-114.45,3.93-7.11,8.39-27.93,7.35-86.75-.08-4.63-.12-6.89,0-8.53l-.3-63.42c-25-10.61-30.7-25.68-30.7-37.19,0-18.15,15.26-30.93,45.38-38C274.16,8.73,306.9,6,348.45,6c41.25,0,73.85,2.92,96.88,8.68,12.4,3.1,21.87,7,28.94,11.83,13.49,9.27,15.51,20.64,15.51,26.59,0,12.12-6.23,27.8-33.62,38.13.55,19.51,1,41.09,1.36,62.09.5,25.84,1,52.56,1.77,75,.85,12.26,11.24,38.48,17.64,49.24,55.63,93.47,159.5,283.72,176.3,314.83C685.9,652.94,696,696,685.84,732,676.19,766.3,649,793.64,595,823.39,531.66,858.29,454.83,875.25,360.16,875.25Z"/><path class="beaker-highlight" d="M217.78,51.92c0-22.62,44-34.09,130.67-34.09,59,0,129.33,6.09,129.33,35.09"/></g><g id="liquid-scaler"><g class="liquid-group-back" filter="url(#fluid-blob)"><path class="liquid-main" d="M167.57,479.26c-1.89,8.88-2.27,19.17,1.26,27.79,5.11,18.13,29.06,43.35,97.23,50.5,56.94,6,94.56-29.28,122.2-55.68,15.95-15.23,26.14-33.52,57.12-50.54,28.6-19.4,74.13-10.32,77-8.93,7.91,5.63,76.41,126.56,91.51,155,7.62,14.37,29.3,59.43,32.35,75.32,8.61,44.79-3.14,90.26-87.75,125.74-33.14,13.9-82,30.7-179.39,34.6-72.63,2.91-191.64-6.65-279.25-69.6-47.38-34-31.31-93.37-29.52-98.87C85.59,617.76,167.8,478.57,167.57,479.26Z"/><use href="#meniscus-main-fill" class="meniscus-fill"/></g><g id="all-bubbles-container"><g id="bubble-1" style="opacity:0"><use href="#finalBubbleLook"/></g><g id="bubble-2" style="opacity:0"><use href="#finalBubbleLook"/></g><g id="bubble-3" style="opacity:0"><use href="#finalBubbleLook"/></g><g id="bubble-4" style="opacity:0"><use href="#finalBubbleLook"/></g><g id="bubble-5" style="opacity:0"><use href="#finalBubbleLook"/></g><g id="bubble-6" style="opacity:0"><use href="#finalBubbleLook"/></g></g><g class="liquid-group-front" filter="url(#fluid-blob)"><path class="liquid-secondary" d="M647.63,686.11c0,.09.94,9.71.83,13.7-.13,4.47-3,21.07-3,21.28-.59-11.14-3.09-44-19.24-69.24-10.53-16.49-15.39-19.79-40.12-39.58-13.47-10.44-55.17-22.89-89.23-14.65-18.09,4.37-29.32,7.69-54.24,21.8-26.47,21.34-51.51,44.61-79.42,64-20.17,14-52.47,17-82.75,15.44a85.52,85.52,0,0,1-38.94-11.72L237,684.55c9.27,3.72,22.53,14,78.33-2.74,25.5-7.67,24.18-10.17,64.11-40.52,19.16-16.65,26.58-23.25,61.76-45.51a145,145,0,0,1,39.44-17.27,136.58,136.58,0,0,1,43.12-4.28c1.16.06,2.31.14,3.46.23a134.89,134.89,0,0,1,75.64,31.22l8.71,7.25a94.86,94.86,0,0,1,19.68,22.42C640.88,650.69,646.05,668.9,647.63,686.11Z"/><path class="meniscus-rim-fill" fill-rule="evenodd" d="M167.57,479.26c2-8.67,5.74-17.25,8.11-19.83,9.13-9.92,16-14.06,30-16.66,14.92-2.76,41.15,0,65.29,7.89,17.23,5.62,11.81,4.61,33.18,12.52,0,0,27.07,9.19,79.44,14.07L379.73,481s-20.25-1.76-30.73-3.49c-64.91-10.76-57.93-15.86-81.08-22.67-24.68-7.26-46.54-8.58-49.53-8.34-13,1.06-28.42,1.83-34.75,25a42.46,42.46,0,0,0-1.07,8.1"/></g></g><g class="beaker-front"><path class="beaker-highlight" d="M375.79,867.61c-13.92,0-28.56-.38-43.51-1.13-47.27-2.36-96.07-10.13-137.4-21.87C143.58,830,104,809.92,77.14,784.84l-.09-.09c-17.87-15.31-29.63-29.91-36-44.63C28.52,710.9,31.38,684.58,52.4,635.81c21.93-50.9,66.28-130.8,139.76-263.19l.45-.82c18.69-33.67,39.87-71.83,63-113.66,10.17-18.39,9.17-74.37,8.85-92.76-.09-5.14-.11-6.89,0-8l-.34-71.82,7.57,2c21.78,5.74,52.87,8.64,92.41,8.64,37.51,0,67.23-2.48,88.36-7.37l7.18-1.66.89,36.24c.57,20,.84,36.22,1.1,51.85.31,18.45,.6,35.84,1.35,58v.05c1,15.5,13.07,44.22,19.31,54.72,55.6,93.41,159.29,283.34,176,314.4,31.08,57.57,40.83,97.84,31.62,130.59-8.7,30.95-34.14,56.12-85.06,84.17C543.31,851.13,468.38,867.61,375.79,867.61Z"/><rect class="beaker-marking" x="291.5" y="126.98" width="17.27" height="96.27" rx="7.42"/></g></g>
+</svg>
+</div>
+</div>
+<!-- Panel 2: Controller -->
+<div class="anim-panel" id="controllerPanel">
+<div class="controller-container" id="controllerContainer">
+<svg class="controller-svg" viewBox="0 0 800 500">
+<defs>
+<linearGradient id="beamGradient1" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#0891b2"/><stop offset="80%" stop-color="#0891b2" stop-opacity="0"/></linearGradient>
+<linearGradient id="beamGradient2" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#22d3ee"/><stop offset="80%" stop-color="#22d3ee" stop-opacity="0"/></linearGradient>
+<linearGradient id="beamGradient3" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#7c3aed"/><stop offset="80%" stop-color="#7c3aed" stop-opacity="0"/></linearGradient>
+<linearGradient id="beamGradient4" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#a855f7"/><stop offset="80%" stop-color="#a855f7" stop-opacity="0"/></linearGradient>
+<linearGradient id="beamGradient5" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#c084fc"/><stop offset="80%" stop-color="#c084fc" stop-opacity="0"/></linearGradient>
+<linearGradient id="bodyGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFF"/><stop offset="50%" stop-color="#FDF8DF"/><stop offset="100%" stop-color="#97BABF"/></linearGradient>
+<linearGradient id="leftBumperGradient" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#67e8f9"/><stop offset="50%" stop-color="#0891b2"/><stop offset="100%" stop-color="#0e7490"/></linearGradient>
+<linearGradient id="rightBumperGradient" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#c4b5fd"/><stop offset="50%" stop-color="#a855f7"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+<clipPath id="beam-clip"><rect x="290" y="-270" width="250" height="270"/></clipPath>
+</defs>
+<g><g id="transmission-beams" transform="translate(-20,10)" clip-path="url(#beam-clip)"><path class="beam-1" fill="url(#beamGradient1)" d="M320.27,270.43H297.8A34.08,34.08,0,0,0,309,244.8V0H331.5V244.66C331.5,253.25,327.59,266.15,320.27,270.43Z"/><rect class="beam-2" fill="url(#beamGradient2)" x="366.48" width="10.47" height="270.43"/><rect class="beam-3" fill="url(#beamGradient3)" x="413.46" width="10.47" height="270.43"/><rect class="beam-4" fill="url(#beamGradient4)" x="460.44" width="10.47" height="270.43"/><path class="beam-5" fill="url(#beamGradient5)" d="M511.25,270.43h22.46a34.08,34.08,0,0,1-11.23-25.63V0H500V244.66C500,253.25,503.93,266.15,511.25,270.43Z"/></g><g id="l-bumper" class="bumper"><path class="left-bumper-fill" d="M263,13.71c0-13.58-5.87-41.15-75.5-41.15s-76.34,37.74-76.34,51.32"/><path class="bumper-outline-stroke" d="M263,13.71c0-13.58-5.87-41.15-75.5-41.15s-76.34,37.74-76.34,51.32"/></g><g id="r-bumper" class="bumper"><path class="right-bumper-fill" d="M686.68,29.11c0-5.25-1.84-53.49-79.79-53.49S535.74,8.46,535.74,13.71"/><path class="bumper-outline-stroke" d="M686.68,29.11c0-5.25-1.84-53.49-79.79-53.49S535.74,8.46,535.74,13.71"/></g><path class="controller-body-fill controller-body-stroke" d="M776,254.38C739.76,95.93,722.66,10.73,621.46,7.68c-30.53-.92-53.71,1.79-71,7.32h-303c-17.31-5.53-40.5-8.24-71-7.32C75.15,10.73,58.06,95.93,21.8,254.38c-30.67,134-12.77,222,61,223,79,1.09,130.63-114.84,134.8-124.58l0,0a2.73,2.73,0,0,1,4.32-1,84.36,84.36,0,0,0,132-28.52,8.46,8.46,0,0,1,7.69-4.94h74.6a8.4,8.4,0,0,1,7.63,4.89,84.35,84.35,0,0,0,132,28.57,2.74,2.74,0,0,1,4.33,1v0C584.36,362.54,636,478.47,715,477.38,788.78,476.36,806.68,388.4,776,254.38Z"/></g>
+</svg>
+<div class="start-select-assembly" id="btn-select-location"><button class="start-select-button"><svg viewBox="0 0 49.53 20.38"><path class="ss-grommet" d="M40.49,20.38H9a9.06,9.06,0,0,1-9-9V9A9.06,9.06,0,0,1,9,0H40.49a9,9,0,0,1,9,9v2.3A9,9,0,0,1,40.49,20.38Z"/><rect class="ss-button" x="3.13" y="3.12" width="43.28" height="14.13" rx="5.91"/></svg></button></div>
+<div class="start-select-assembly" id="btn-start-location"><button class="start-select-button"><svg viewBox="0 0 49.53 20.38"><path class="ss-grommet" d="M40.49,20.38H9a9.06,9.06,0,0,1-9-9V9A9.06,9.06,0,0,1,9,0H40.49a9,9,0,0,1,9,9v2.3A9,9,0,0,1,40.49,20.38Z"/><rect class="ss-button" x="3.13" y="3.12" width="43.28" height="14.13" rx="5.91"/></svg></button></div>
+<div class="joystick-assembly" id="l-joystick-assembly"><div class="grommet-css joystick-base"><div class="joystick-axis"></div><div class="joystick-stick"><div class="joystick-top"></div></div></div></div>
+<div class="joystick-assembly" id="r-joystick-assembly"><div class="grommet-css joystick-base"><div class="joystick-axis"></div><div class="joystick-stick"><div class="joystick-top"></div></div></div></div>
+<div id="dpad-location" class="button-assembly">
+<svg class="grommet-svg" viewBox="0 0 210 210"><rect width="210" height="210" fill="#575757" mask="url(#grom_grommetMask)"/></svg>
+<div class="dpad"><svg class="dpad-svg" viewBox="0 0 180 180"><path fill="#404040" d="M50,5 L50,50 L5,50 L5,100 L50,100 L50,145 L100,145 L100,100 L145,100 L145,50 L100,50 L100,5 Z" transform="translate(15,10)"/><g class="arrows-group"><polygon class="arrow-fill arrow-up" points="75,25 85,40 65,40" fill="#888"/><polygon class="arrow-fill arrow-down" points="75,125 85,110 65,110" fill="#888"/><polygon class="arrow-fill arrow-left" points="25,75 40,65 40,85" fill="#888"/><polygon class="arrow-fill arrow-right" points="125,75 110,65 110,85" fill="#888"/></g></svg></div>
+</div>
+<div id="btn-a-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-green"><span>A</span></button></div></div>
+<div id="btn-b-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-red"><span>B</span></button></div></div>
+<div id="btn-x-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-blue"><span>X</span></button></div></div>
+<div id="btn-y-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-yellow"><span>Y</span></button></div></div>
+</div>
+</div>
+<!-- Panel 3: Wrench -->
+<div class="anim-panel" id="wrenchPanel">
+<div class="wrench-container" id="wrenchContainer">
+<svg class="wrench-purple" viewBox="0 0 200 200"><path fill="#a855f7" d="M165,85c-5-5-12-8-20-8c-3,0-7,1-10,2l-14-14c2-3,2-7,2-10c0-8-3-15-8-20c-8-8-20-10-30-6l17,17l-3,14l-14,3l-17-17c-4,10-2,22,6,30c5,5,12,8,20,8c3,0,7-1,10-2l14,14c-2,3-2,7-2,10c0,8,3,15,8,20c8,8,20,10,30,6l-17-17l3-14l14-3l17,17c4-10,2-22-6-30Z"/></svg>
+<svg class="wrench-orange" viewBox="0 0 200 200"><path fill="#0891b2" d="M165,85c-5-5-12-8-20-8c-3,0-7,1-10,2l-14-14c2-3,2-7,2-10c0-8-3-15-8-20c-8-8-20-10-30-6l17,17l-3,14l-14,3l-17-17c-4,10-2,22,6,30c5,5,12,8,20,8c3,0,7-1,10-2l14,14c-2,3-2,7-2,10c0,8,3,15,8,20c8,8,20,10,30,6l-17-17l3-14l14-3l17,17c4-10,2-22-6-30Z"/></svg>
+<div class="cog-backdrop"></div>
+<svg class="cog" viewBox="0 0 100 100"><path fill="#22d3ee" d="M50,18c-2,0-4,1-4,4v6c-4,1-7,3-10,5l-4-4c-2-2-4-2-6,0l-4,4c-2,2-2,4,0,6l4,4c-2,3-4,6-5,10h-6c-3,0-4,2-4,4v8c0,2,1,4,4,4h6c1,4,3,7,5,10l-4,4c-2,2-2,4,0,6l4,4c2,2,4,2,6,0l4-4c3,2,6,4,10,5v6c0,3,2,4,4,4h8c2,0,4-1,4-4v-6c4-1,7-3,10-5l4,4c2,2,4,2,6,0l4-4c2-2,2-4,0-6l-4-4c2-3,4-6,5-10h6c3,0,4-2,4-4v-8c0-2-1-4-4-4h-6c-1-4-3-7-5-10l4-4c2-2,2-4,0-6l-4-4c-2-2-4-2-6,0l-4,4c-3-2-6-4-10-5v-6c0-3-2-4-4-4h-8ZM54,38c9,0,16,7,16,16s-7,16-16,16s-16-7-16-16s7-16,16-16Z"/></svg>
+<svg class="celebration-effects" viewBox="0 0 200 200"><circle cx="40" cy="50" r="6" fill="#22d3ee"/><circle cx="160" cy="45" r="4" fill="#a855f7"/><circle cx="30" cy="140" r="4" fill="#0891b2"/><circle cx="170" cy="150" r="6" fill="#a855f7"/><circle cx="100" cy="25" r="4" fill="#22d3ee"/><circle cx="100" cy="175" r="4" fill="#0891b2"/></svg>
+</div>
+</div>
+</div>
+<!-- Content layer -->
+<div class="content-layer">
+<div class="content-section align-right" data-section="0">
+<div class="content-card" id="card0">
+<span class="card-phase">Phase 01</span>
+<h2 class="card-title">The viewport is the <span class="accent">catalyst</span></h2>
+<p class="card-body">Scroll position drives a chemical reaction. Saturation builds, bubbles rise through custom bezier paths, and at critical mass—a cascade of particle physics.</p>
+<div class="card-stats"><div class="stat"><span class="stat-value">14</span><span class="stat-label">Bubbles</span></div><div class="stat"><span class="stat-value">60</span><span class="stat-label">Particles</span></div><div class="stat"><span class="stat-value">∞</span><span class="stat-label">Frames</span></div></div>
+</div>
+</div>
+<div class="content-section align-left" data-section="1">
+<div class="content-card" id="card1">
+<span class="card-phase">Phase 02</span>
+<h2 class="card-title">Input as <span class="accent">choreography</span></h2>
+<p class="card-body">A scripted combo executes as you scroll. D-pad directions, face buttons, analog sticks rotating through full range—culminating in transmission beams firing skyward.</p>
+<div class="card-stats"><div class="stat"><span class="stat-value">12</span><span class="stat-label">Inputs</span></div><div class="stat"><span class="stat-value">5</span><span class="stat-label">Beams</span></div><div class="stat"><span class="stat-value">360°</span><span class="stat-label">Rotation</span></div></div>
+</div>
+</div>
+<div class="content-section align-right" data-section="2">
+<div class="content-card" id="card2">
+<span class="card-phase">Phase 03</span>
+<h2 class="card-title">Precision <span class="accent">engineered</span></h2>
+<p class="card-body">Two wrenches lock around a central gear. As you scroll, the mechanism engages—720° of rotation, grayscale bleeding into full spectrum, celebration particles erupting.</p>
+<div class="card-stats"><div class="stat"><span class="stat-value">720°</span><span class="stat-label">Rotation</span></div><div class="stat"><span class="stat-value">2</span><span class="stat-label">Wrenches</span></div><div class="stat"><span class="stat-value">8</span><span class="stat-label">Embers</span></div></div>
+</div>
+</div>
+<div style="height:50vh"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const viewport=document.getElementById('scrollViewport');
+const introOverlay=document.getElementById('introOverlay');
+const sectionLabel=document.getElementById('sectionLabel');
+const dots=document.querySelectorAll('.progress-dot');
+const panels=document.querySelectorAll('.anim-panel');
+const cards=document.querySelectorAll('.content-card');
+const sections=document.querySelectorAll('.content-section');
+const sectionLabels=['01 — The Reaction','02 — The Sequence','03 — The Mechanism'];
+let currentSection=0;
+let introHidden=false;
+
+viewport.addEventListener('scroll',()=>{
+if(!introHidden&&viewport.scrollTop>50){introOverlay.classList.add('hidden');sectionLabel.classList.add('visible');introHidden=true}
+},{passive:true});
+
+function updateSection(newSection){
+if(newSection===currentSection)return;
+panels.forEach((p,i)=>p.classList.toggle('active',i===newSection));
+dots.forEach((d,i)=>d.classList.toggle('active',i===newSection));
+sectionLabel.textContent=sectionLabels[newSection];
+currentSection=newSection;
+}
+
+dots.forEach(dot=>{
+dot.addEventListener('click',()=>{
+const s=parseInt(dot.dataset.section);
+sections[s]?.scrollIntoView({behavior:'smooth',block:'center'});
+});
+});
+
+// Beaker
+const sceneContainer=document.querySelector('.scene-container');
+const liquidScaler=document.querySelector('#liquid-scaler');
+const displacementX=document.querySelector('#displacementX');
+const displacementY=document.querySelector('#displacementY');
+const wobblePath=document.querySelector('#wobblePath');
+const customPath=document.querySelector('#custom-path-bubble-1');
+const wobbleLen=wobblePath?wobblePath.getTotalLength():150;
+const customLen=customPath?customPath.getTotalLength():700;
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+const bubbles=[
+{id:'bubble-1',custom:true,endScale:1.37,start:0.25,end:1},
+{id:'bubble-2',endPos:{x:349.6,y:-140},cp:{x:330,y:300},endScale:1.1,start:0.3,end:1},
+{id:'bubble-3',endPos:{x:280,y:-100},endScale:1,start:0.35,end:1},
+{id:'bubble-4',endPos:{x:378,y:198},endScale:1.16,start:0.4,end:1},
+{id:'bubble-5',endPos:{x:402,y:327},endScale:0.95,start:0.45,end:1},
+{id:'bubble-6',endPos:{x:266,y:383},endScale:0.89,start:0.5,end:1},
+].map(c=>{
+const el=document.querySelector('#'+c.id);
+const sx=c.endPos?c.endPos.x+(Math.random()-0.5)*80:500;
+const sy=700+Math.random()*80;
+return{...c,el,startPos:{x:sx,y:sy},startScale:0.1};
+});
+
+function getBubblePos(c,t){
+if(c.custom&&customPath){const pt=customPath.getPointAtLength(t*customLen);return{x:pt.x,y:pt.y-150}}
+if(!c.endPos)return c.startPos;
+if(c.cp){return{x:(1-t)**2*c.startPos.x+2*(1-t)*t*c.cp.x+t**2*c.endPos.x,y:(1-t)**2*c.startPos.y+2*(1-t)*t*c.cp.y+t**2*c.endPos.y}}
+const wp=wobblePath?wobblePath.getPointAtLength(t*wobbleLen):{x:0,y:0};
+return{x:lerp(c.startPos.x,c.endPos.x,t)+wp.x,y:lerp(c.startPos.y,c.endPos.y,t)};
+}
+
+function updateBeaker(p){
+if(sceneContainer)sceneContainer.style.filter='url(#underglow) saturate('+Math.max(0,(p-0.1)/0.9)+')';
+if(liquidScaler)liquidScaler.setAttribute('transform','scale('+lerp(0.9,1,p)+')');
+const blobAmp=Math.sin(p**3*Math.PI);
+if(displacementX)displacementX.setAttribute('scale',Math.sin(p*4*Math.PI)*50*blobAmp);
+if(displacementY)displacementY.setAttribute('scale',Math.sin(p*3*Math.PI)*50*blobAmp);
+bubbles.forEach(c=>{
+if(!c.el)return;
+const seg=(p-c.start)/(c.end-c.start);
+const t=Math.max(0,Math.min(1,seg));
+if(t>0){const pos=getBubblePos(c,t);const sc=lerp(c.startScale,c.endScale,t);c.el.style.transform='translate('+pos.x+'px,'+pos.y+'px) scale('+sc+')';c.el.style.opacity=1}
+else{c.el.style.opacity=0}
+});
+}
+
+// Controller
+const controllerContainer=document.getElementById('controllerContainer');
+const dpad=document.getElementById('dpad-location');
+const beams=document.getElementById('transmission-beams');
+const timeline=[
+{type:'dpad',dir:'up',start:0.05,end:0.12},
+{type:'button',id:'btn-y-location',start:0.12,end:0.2},
+{type:'dpad',dir:'right',start:0.2,end:0.27},
+{type:'button',id:'btn-x-location',start:0.27,end:0.35},
+{type:'dpad',dir:'down',start:0.35,end:0.42},
+{type:'button',id:'btn-b-location',start:0.42,end:0.5},
+{type:'dpad',dir:'left',start:0.5,end:0.57},
+{type:'button',id:'btn-a-location',start:0.57,end:0.65},
+{type:'joystick',id:'l-joystick-assembly',start:0.65,end:0.85},
+{type:'joystick',id:'r-joystick-assembly',start:0.7,end:0.9},
+{type:'bumper',id:'l-bumper',start:0.85,end:0.92},
+{type:'bumper',id:'r-bumper',start:0.85,end:0.92},
+{type:'select',id:'btn-select-location',start:0.88,end:0.94},
+{type:'start',id:'btn-start-location',start:0.92,end:0.98},
+];
+let beamState='hidden';
+
+function updateController(p){
+if(controllerContainer)controllerContainer.style.filter='grayscale('+(1-p)+')';
+timeline.forEach(a=>{
+const active=p>=a.start&&p<a.end;
+if(a.type==='button'){
+const loc=document.getElementById(a.id);
+const btn=loc?.querySelector('.game-button');
+const grom=loc?.querySelector('.grommet-css');
+if(btn)btn.classList.toggle('is-pressed',active);
+if(grom)grom.classList.toggle('is-pressed',active);
+}else if(a.type==='dpad'&&dpad){
+dpad.classList.toggle('is-pressed-'+a.dir,active);
+}else if(a.type==='joystick'){
+const asm=document.getElementById(a.id);
+const stick=asm?.querySelector('.joystick-stick');
+const axis=asm?.querySelector('.joystick-axis');
+if(active&&stick){
+axis?.classList.add('is-visible');
+const t=(p-a.start)/(a.end-a.start);
+const angle=t*2*Math.PI;
+const x=Math.cos(angle),y=Math.sin(angle),maxR=28;
+stick.style.setProperty('--rotateX',maxR*y*-1+'deg');
+stick.style.setProperty('--rotateY',maxR*x+'deg');
+stick.style.setProperty('--translateX',8*x+'px');
+stick.style.setProperty('--translateY',8*y+'px');
+}else if(stick){
+axis?.classList.remove('is-visible');
+stick.style.setProperty('--rotateX','0deg');
+stick.style.setProperty('--rotateY','0deg');
+stick.style.setProperty('--translateX','0px');
+stick.style.setProperty('--translateY','0px');
+}
+}else if(a.type==='bumper'){
+document.getElementById(a.id)?.classList.toggle('is-pressed',active);
+}else if(a.type==='select'||a.type==='start'){
+const loc=document.getElementById(a.id);
+loc?.querySelector('.start-select-button')?.classList.toggle('is-pressed',active);
+loc?.classList.toggle('is-lit',active);
+}
+});
+if(p>=0.85&&beamState==='hidden'&&beams){beamState='active';beams.classList.add('animate-in')}
+else if(p<0.85&&beamState!=='hidden'&&beams){beamState='hidden';beams.classList.remove('animate-in')}
+}
+
+// Wrench
+const wrenchContainer=document.getElementById('wrenchContainer');
+const cog=wrenchContainer?.querySelector('.cog');
+const celebration=wrenchContainer?.querySelector('.celebration-effects');
+let celebTriggered=false;
+
+function updateWrench(p){
+if(wrenchContainer)wrenchContainer.style.filter='grayscale('+(100-p*100)+'%) opacity('+(0.7+p*0.3)+')';
+if(cog)cog.style.transform='translate(-50%,-50%) rotate('+p*720+'deg)';
+if(celebration){
+if(p<1){celebration.classList.remove('fade-out');celebration.style.transform='translate(-50%,-50%) scale('+(0.5+p*0.5)+')';celebration.style.opacity=p;celebTriggered=false}
+else if(!celebTriggered){celebration.classList.add('fade-out');celebTriggered=true}
+}
+}
+
+// Main scroll
+function onScroll(){
+const scrollTop=viewport.scrollTop;
+const scrollHeight=viewport.scrollHeight-viewport.clientHeight;
+const globalProgress=scrollTop/scrollHeight;
+const sectionProgress=globalProgress*3;
+const sectionIndex=Math.min(2,Math.floor(sectionProgress));
+const localProgress=Math.min(1,Math.max(0,sectionProgress-sectionIndex));
+updateSection(sectionIndex);
+if(sectionIndex===0)updateBeaker(localProgress);
+else if(sectionIndex===1)updateController(localProgress);
+else updateWrench(localProgress);
+cards.forEach((card,i)=>{
+const rect=sections[i]?.getBoundingClientRect();
+if(rect){const vis=rect.top<window.innerHeight*0.8&&rect.bottom>window.innerHeight*0.2;card.classList.toggle('visible',vis)}
+});
+}
+
+viewport.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+});
+</script>
+</body>
+</html>
