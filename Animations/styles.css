@@ -1,0 +1,574 @@
+/* ============================================================
+   ANIMATION SHOWCASE – styles.css
+   Parallax layout (from scroll-animations) + proper graphics
+   ============================================================ */
+
+/* --- Root Variables --- */
+:root {
+    --void: #08080c;
+    --teal: #0891b2;
+    --magenta: #a855f7;
+    --frost: rgba(255,255,255,0.85);
+    --mist: rgba(255,255,255,0.5);
+    --smoke: rgba(255,255,255,0.15);
+}
+
+/* --- Reset & Base --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--void);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--frost);
+    overflow: hidden;
+}
+
+/* ============================================================
+   PARALLAX SCROLL SYSTEM
+   ============================================================ */
+.scroll-canvas { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+.scroll-viewport {
+    width: 100%; height: 100%;
+    overflow-y: scroll; overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal) #111;
+    -webkit-overflow-scrolling: touch;
+}
+.scroll-track { width: 100%; height: 600vh; position: relative; }
+
+/* --- Fixed Animation Stage --- */
+.animation-stage {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100vh;
+    z-index: 1; pointer-events: none;
+}
+.animation-stage::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(8,145,178,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8,145,178,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+.animation-stage::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    width: 120%; height: 120%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(ellipse at center, rgba(8,145,178,0.08) 0%, rgba(168,85,247,0.04) 30%, transparent 60%);
+}
+
+/* --- Panels --- */
+.anim-panel {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0.95);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    pointer-events: none;
+}
+.anim-panel.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+
+/* --- Content Layer --- */
+.content-layer { position: relative; z-index: 10; }
+.content-section {
+    min-height: 200vh;
+    display: flex; align-items: flex-end;
+    padding: 0 8vw 15vh;
+}
+.content-section:first-child { padding-top: 30vh; align-items: center; }
+.content-section.align-left .content-card { margin-right: auto; }
+.content-section.align-right .content-card { margin-left: auto; }
+
+/* --- Content Cards --- */
+.content-card {
+    max-width: 420px; padding: 40px 44px;
+    background: linear-gradient(135deg, rgba(15,15,21,0.9), rgba(8,8,12,0.95));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
+    backdrop-filter: blur(20px);
+    pointer-events: auto; position: relative; overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(8,145,178,0.1),
+        0 20px 60px -20px rgba(0,0,0,0.7),
+        0 0 100px -50px rgba(8,145,178,0.4);
+    opacity: 0; transform: translateY(60px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.content-card.visible { opacity: 1; transform: translateY(0); }
+.content-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--magenta));
+    opacity: 0.8;
+}
+.card-phase {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+}
+.card-phase::before {
+    content: ''; width: 24px; height: 1px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+}
+.card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 700;
+    line-height: 1.15; color: var(--frost);
+    margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.card-title .accent {
+    background: linear-gradient(90deg, var(--teal), var(--magenta));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.card-body { font-size: 0.95rem; line-height: 1.75; color: var(--mist); }
+.card-stats {
+    display: flex; gap: 32px; margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--frost);
+}
+.stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--smoke);
+}
+
+/* --- Progress Track --- */
+.progress-track {
+    position: fixed; right: 32px; top: 50%; transform: translateY(-50%);
+    z-index: 100;
+    display: flex; flex-direction: column; gap: 16px;
+}
+.progress-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.progress-dot.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    box-shadow: 0 0 20px rgba(8,145,178,0.4);
+    transform: scale(1.2);
+}
+
+/* --- Section Label --- */
+.section-label {
+    position: fixed; left: 32px; bottom: 32px; z-index: 100;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--smoke);
+    display: flex; align-items: center; gap: 16px;
+    opacity: 0; transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+.section-label.visible { opacity: 1; transform: translateY(0); }
+.section-label::before {
+    content: ''; width: 40px; height: 1px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+}
+
+/* --- Intro Overlay --- */
+.intro-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: var(--void);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    pointer-events: none;
+}
+.intro-overlay.hidden { opacity: 0; visibility: hidden; }
+.intro-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem; font-weight: 800; letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--frost), var(--mist));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+}
+.intro-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--smoke); margin-bottom: 48px;
+}
+.intro-cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--teal);
+    display: flex; align-items: center; gap: 12px;
+    animation: bounce 2s ease-in-out infinite;
+}
+.intro-cta::after { content: '\2193'; font-size: 1rem; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+
+/* ============================================================
+   BEAKER STYLES (from old showcase – proper graphics)
+   ============================================================ */
+.liquid-container {
+    width: 380px; height: 620px;
+    position: relative;
+}
+.liquid-container svg { width: 100%; height: 100%; overflow: visible; }
+.scene-container {
+    filter: url(#underglow) saturate(0);
+    transition: filter 0.2s linear;
+}
+.liquid-main { fill: url(#liquidRedGradient); stroke: none; }
+.liquid-secondary { fill: url(#ribbonGradient); stroke: none; }
+.meniscus-fill { fill: url(#meniscusFillGradient); }
+.meniscus-rim-fill {
+    fill: url(#meniscusHighlightGradient);
+    stroke: url(#meniscusHighlightGradient);
+    stroke-width: 3; stroke-linejoin: round;
+}
+.beaker-outline { fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 12px; }
+.beaker-highlight { fill: none; stroke: #41c2d0; stroke-miterlimit: 10; stroke-width: 12px; }
+.beaker-marking { fill: #27c0d5; opacity: 0.7; }
+#liquid-scaler { transform-origin: center 670px; }
+
+
+/* ============================================================
+   CONTROLLER STYLES (from old showcase – proper graphics)
+   ============================================================ */
+.controller-container {
+    width: 950px; height: 680px;
+    max-width: 100%;
+    perspective: 1000px; position: relative;
+    filter: grayscale(1);
+    transition: filter 0.1s linear;
+    transform: scale(0.85);
+    transform-origin: center;
+}
+.controller-container * {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+}
+svg.controller-svg {
+    width: 100%; height: auto;
+    position: absolute; top: 0; left: 0;
+    z-index: 1; overflow: visible;
+}
+.bumper-trigger { cursor: pointer; z-index: 2; position: relative; }
+.bumper { transition: transform 0.1s ease-out; pointer-events: none; }
+.bumper.is-pressed { transform: translateY(15px); }
+
+/* --- Button Assemblies --- */
+.button-assembly {
+    position: absolute;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10;
+}
+#dpad-location { top: 20%; left: 14%; width: 20%; height: 20%; transform: scale(0.85); }
+.face-button-location { width: 110px; height: 110px; transform: scale(0.85); }
+#btn-y-location { top: 12%; left: 70%; }
+#btn-x-location { top: 22%; left: 63%; }
+#btn-b-location { top: 22%; left: 77%; }
+#btn-a-location { top: 32%; left: 70%; }
+
+/* --- Grommet (button socket) --- */
+.grommet-css {
+    --grommet-shadow-x: 4px; --grommet-shadow-y: 4px;
+    width: 100%; height: 100%;
+    position: relative;
+    display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(145deg, #636363 0%, #575757 50%, #636363 100%);
+    border-radius: 50%;
+    box-shadow:
+        inset var(--grommet-shadow-x) var(--grommet-shadow-y) 12px rgba(0,0,0,.6),
+        inset calc(var(--grommet-shadow-x) * -1) calc(var(--grommet-shadow-y) * -1) 12px rgba(255,255,255,.18);
+    transition: box-shadow 0.12s, background 0.12s, transform 0.12s;
+    perspective: 800px; transform-style: preserve-3d;
+}
+.grommet-css::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent 60%);
+    border-radius: 50%; transition: inherit;
+}
+.grommet-css.is-pressed,
+.grommet-css:has(.game-button:active) {
+    background: linear-gradient(145deg, #545454 0%, #484848 50%, #545454 100%);
+    box-shadow: inset -4px -4px 12px rgba(0,0,0,.6), inset 4px 4px 12px rgba(255,255,255,.18);
+    transform: translateY(2px) scale(0.95);
+}
+.face-button-location .grommet-css { width: 79%; height: 79%; }
+.grommet-css::after {
+    content: ''; position: absolute; width: 71%; height: 71%;
+    background-color: #fff; border-radius: 50%;
+    filter: blur(12px); z-index: 2; opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+.grommet-css:has(.game-button:active)::after,
+.grommet-css:has(.game-button.is-pressed)::after { opacity: 0.75; }
+
+/* --- Face Buttons --- */
+.game-button {
+    width: 60%; height: 60%;
+    border: none; border-radius: 50%;
+    cursor: pointer; position: relative;
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden; z-index: 3;
+    transition: transform 0.1s cubic-bezier(0.2,1,0.8,1), box-shadow 0.1s cubic-bezier(0.2,1,0.8,1);
+    box-shadow:
+        inset 0 -4px 6px rgba(0,0,0,0.3),
+        inset 0 4px 5px rgba(255,255,255,0.4),
+        2px 2px 5px rgba(0,0,0,0.6),
+        -2px -2px 5px rgba(0,0,0,0.6),
+        0 10px 20px rgba(0,0,0,0.15);
+}
+.game-button span {
+    font-size: 28px; color: #fff;
+    position: relative; z-index: 3;
+    transition: text-shadow 0.15s ease-out, color 0.15s ease-out;
+}
+.game-button::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; z-index: 2; border-radius: 50%;
+    background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 65%);
+    transition: background 0.1s ease-out;
+}
+.game-button::after {
+    content: ''; position: absolute; top: 5px; left: 5px;
+    width: calc(100% - 10px); height: calc(100% - 10px);
+    z-index: 1; border-radius: 50%;
+    box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.3);
+}
+.game-button.is-pressed, .game-button:active {
+    transform: translateY(4px) scale(0.9);
+    box-shadow:
+        inset 0 -2px 4px rgba(0,0,0,0.4),
+        inset 0 2px 2px rgba(255,255,255,0.3),
+        2px 2px 5px rgba(0,0,0,0.7),
+        -2px -2px 5px rgba(0,0,0,0.7),
+        0 5px 10px rgba(0,0,0,0.2);
+}
+.game-button.is-pressed::before, .game-button:active::before {
+    background: radial-gradient(circle at 25% 15%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 55%);
+}
+.face-button-location .game-button { width: 71%; height: 71%; }
+.button-blue { background-color: #005cfa; }
+.button-blue span {
+    text-shadow: 1px 1px 0 #004ac7, 2px 2px 0 #004ac7, 3px 4px 5px rgba(0,0,0,0.25);
+}
+.game-button span.is-lit, .game-button:active span {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #3a86ff, 0 0 20px #3a86ff;
+}
+
+/* --- D-Pad --- */
+.grommet-svg, .dpad, .dpad-pivot-group, .arrow-fill, .arrows-group > g {
+    transition: all 0.15s cubic-bezier(0.2,1,0.8,1);
+}
+.grommet-svg { position: absolute; width: 200px; height: 200px; }
+.dpad {
+    position: relative; width: 180px; height: 180px;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.2));
+    perspective: 1000px; transform-style: preserve-3d;
+}
+.dpad-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; }
+.dpad-pivot-group { transform-origin: 50% 50%; }
+.dpad-triggers {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    z-index: 20;
+}
+.trigger { cursor: pointer; }
+#trigger-up    { grid-area: 1 / 2 / 2 / 3; }
+#trigger-down  { grid-area: 3 / 2 / 4 / 3; }
+#trigger-left  { grid-area: 2 / 1 / 3 / 2; }
+#trigger-right { grid-area: 2 / 3 / 3 / 4; }
+
+/* D-Pad press states */
+#dpad-location.is-pressed-up .dpad,
+#dpad-location:has(#trigger-up:active) .dpad { transform: perspective(1000px) rotateX(10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-down .dpad,
+#dpad-location:has(#trigger-down:active) .dpad { transform: perspective(1000px) rotateX(-10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-left .dpad,
+#dpad-location:has(#trigger-left:active) .dpad { transform: perspective(1000px) rotateY(-10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-right .dpad,
+#dpad-location:has(#trigger-right:active) .dpad { transform: perspective(1000px) rotateY(10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-up .dpad-pivot-group,
+#dpad-location:has(#trigger-up:active) .dpad-pivot-group { transform: perspective(800px) rotateX(15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-down .dpad-pivot-group,
+#dpad-location:has(#trigger-down:active) .dpad-pivot-group { transform: perspective(800px) rotateX(-15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-left .dpad-pivot-group,
+#dpad-location:has(#trigger-left:active) .dpad-pivot-group { transform: perspective(800px) rotateY(-15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-right .dpad-pivot-group,
+#dpad-location:has(#trigger-right:active) .dpad-pivot-group { transform: perspective(800px) rotateY(15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-up .grommet-svg,
+#dpad-location:has(#trigger-up:active) .grommet-svg { transform: perspective(1000px) rotateX(8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-down .grommet-svg,
+#dpad-location:has(#trigger-down:active) .grommet-svg { transform: perspective(1000px) rotateX(-8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-left .grommet-svg,
+#dpad-location:has(#trigger-left:active) .grommet-svg { transform: perspective(1000px) rotateY(-8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-right .grommet-svg,
+#dpad-location:has(#trigger-right:active) .grommet-svg { transform: perspective(1000px) rotateY(8deg) translateZ(-2px) scale(0.97); }
+
+.grommet-graphic-active { display: none; }
+.arrow-fill.is-lit,
+#dpad-location.is-pressed-up .arrow-up .arrow-fill, #dpad-location:has(#trigger-up:active) .arrow-up .arrow-fill,
+#dpad-location.is-pressed-down .arrow-down .arrow-fill, #dpad-location:has(#trigger-down:active) .arrow-down .arrow-fill,
+#dpad-location.is-pressed-left .arrow-left .arrow-fill, #dpad-location:has(#trigger-left:active) .arrow-left .arrow-fill,
+#dpad-location.is-pressed-right .arrow-right .arrow-fill, #dpad-location:has(#trigger-right:active) .arrow-right .arrow-fill {
+    fill: #fff;
+    filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #FDD835);
+}
+
+/* --- Joysticks --- */
+.joystick-assembly { position: absolute; width: 13%; padding-bottom: 13%; height: 0; z-index: 10; }
+#l-joystick-assembly { top: 45%; left: 28%; }
+#r-joystick-assembly { top: 45%; left: 59%; }
+.joystick-assembly .grommet-css {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+}
+.joystick-stick {
+    --rotateX: 0deg; --rotateY: 0deg;
+    --translateX: 0px; --translateY: 0px;
+    position: absolute; width: 67%; height: 67%;
+    top: 0; left: 0; right: 0; bottom: 0; margin: auto;
+    transform-style: preserve-3d;
+    transform: translateX(var(--translateX)) translateY(var(--translateY)) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+    z-index: 10; cursor: grab;
+}
+.joystick-stick.return-to-center {
+    transition: transform 0.2s cubic-bezier(0.2,1,0.8,1);
+}
+.joystick-top {
+    width: 100%; height: 100%;
+    border-radius: 50%; pointer-events: none;
+    position: absolute; transform: translateZ(45px);
+    background-color: #005cfa;
+    box-shadow: inset 8px 8px 16px rgba(0,25,70,0.85), inset -8px -8px 16px rgba(120,200,255,0.8);
+}
+.joystick-top::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border-radius: 50%;
+    box-shadow: 0 6px 15px rgba(0,20,60,0.4); z-index: -1;
+}
+.joystick-axis {
+    --axis-light-x: 35%; --axis-light-y: 35%;
+    position: absolute; width: 73%; height: 73%;
+    background: radial-gradient(circle at var(--axis-light-x) var(--axis-light-y), #3a86ff 0%, #003a94 60%, #00225a 100%);
+    border-radius: 50%; z-index: 0; opacity: 0;
+    transition: opacity 0.2s ease-out, background 0.2s ease-out;
+}
+.joystick-axis.is-visible { opacity: 1; }
+#l-joystick-assembly .joystick-top {
+    background-color: #FDD835;
+    box-shadow: inset 8px 8px 16px rgba(180,140,0,0.85), inset -8px -8px 16px rgba(255,250,224,0.7);
+}
+#l-joystick-assembly .joystick-axis {
+    background: radial-gradient(circle at var(--axis-light-x) var(--axis-light-y), #FDD835 0%, #F57C00 60%, #BF360C 100%);
+}
+
+/* --- Start / Select --- */
+.start-select-assembly { position: absolute; width: 8%; height: 5%; z-index: 10; }
+#btn-select-location { top: 36%; left: 40.5%; }
+#btn-start-location { top: 36%; left: 51.5%; }
+.start-select-button {
+    width: 100%; height: 100%;
+    border: none; background-color: transparent; padding: 0; cursor: pointer;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+    transition: filter 0.15s ease-out;
+}
+.ss-grommet { fill: url(#grommet_baseGradient_ss); transition: fill 0.12s; }
+.ss-button { transition: transform 0.1s ease, fill 0.1s ease; }
+.start-select-button.is-pressed .ss-button,
+.start-select-button:active .ss-button { transform: translateY(1px); }
+.start-select-button.is-pressed .ss-grommet,
+.start-select-button:active .ss-grommet { fill: url(#grommet_baseGradient_ss_active); }
+#btn-select-location .ss-button { fill: #FDD835; }
+#btn-select-location .start-select-button.is-pressed .ss-button,
+#btn-select-location .start-select-button:active .ss-button { fill: #FBC02D; }
+#btn-start-location .ss-button { fill: #005cfa; }
+#btn-start-location .start-select-button.is-pressed .ss-button,
+#btn-start-location .start-select-button:active .ss-button { fill: #004ac7; }
+#btn-select-location.is-lit,
+#btn-select-location .start-select-button:is(.is-pressed, :active) { filter: url(#glow-yellow); }
+#btn-start-location.is-lit,
+#btn-start-location .start-select-button:is(.is-pressed, :active) { filter: url(#glow-blue); }
+
+/* --- Transmission Beams --- */
+#transmission-beams > * {
+    transform: translateY(-270px) scaleY(1); opacity: 1;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    transition: clip-path 0.7s ease-out;
+}
+#transmission-beams.animate-in > * { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+#transmission-beams.animate-out-phase1 > * { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); transition: clip-path 0.5s ease-in; }
+#transmission-beams.animate-out-phase2 > * { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); transition: clip-path 0.5s ease-out; }
+#transmission-beams.animate-out-phase3 > * { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); transition: clip-path 0.5s ease-in; }
+#transmission-beams.animate-in .beam-1 { transition-delay: 0s; }
+#transmission-beams.animate-in .beam-2 { transition-delay: 0.1s; }
+#transmission-beams.animate-in .beam-3 { transition-delay: 0.2s; }
+#transmission-beams.animate-in .beam-4 { transition-delay: 0.15s; }
+#transmission-beams.animate-in .beam-5 { transition-delay: 0.05s; }
+
+/* --- Controller SVG Inline Styles --- */
+.beam-1 { fill: url(#beamGradient1); }
+.beam-2 { fill: url(#beamGradient2); }
+.beam-3 { fill: url(#beamGradient3); }
+.beam-4 { fill: url(#beamGradient4); }
+.beam-5 { fill: url(#beamGradient5); }
+.controller-body-fill { fill: url(#bodyGradient); }
+.controller-body-stroke { stroke: #0f1f44; stroke-miterlimit: 10; stroke-width: 15px; }
+.shadow-layer { fill: #132b50; opacity: 0.27; }
+.highlight-layer { fill: #fff; opacity: 0.78; }
+.left-bumper-fill { fill: url(#leftBumperGradient); }
+.right-bumper-fill { fill: url(#rightBumperGradient); }
+.bumper-outline-stroke { fill: none; stroke: #101f43; stroke-width: 13; stroke-miterlimit: 10; }
+
+
+/* ============================================================
+   WRENCH STYLES (inline SVG with old showcase color scheme)
+   ============================================================ */
+.wrench-container {
+    position: relative;
+    width: 420px; height: 520px;
+    filter: grayscale(100%) opacity(0.7);
+    transition: filter 0.3s ease;
+}
+.wrench-container > * { position: absolute; top: 50%; left: 50%; }
+.wrench-purple {
+    width: 110%;
+    transform: translate(-45%, -50%);
+    filter: drop-shadow(0 0 20px rgba(178,93,255,0.6)) drop-shadow(0 0 8px rgba(178,93,255,0.8));
+}
+.wrench-orange {
+    width: 110%;
+    transform: translate(-55%, -50%);
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4)) drop-shadow(0 0 20px rgba(255,136,0,0.7)) drop-shadow(0 0 8px rgba(255,136,0,0.9));
+}
+.cog {
+    width: 58%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    filter: drop-shadow(0 0 30px rgba(255,165,0,0.8)) drop-shadow(0 0 15px rgba(255,200,0,1));
+    z-index: 2;
+}
+.cog-backdrop {
+    background-color: var(--void);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    width: 18%; height: 18%;
+}
+.celebration-effects {
+    width: 110%;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+    filter: drop-shadow(0 0 8px rgba(255,165,0,0.7)) drop-shadow(0 0 8px rgba(178,93,255,0.7));
+    z-index: 1;
+    transition: transform 0.1s linear, opacity 0.1s linear;
+}
+@keyframes ember-fade {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+}
+.celebration-effects.fade-out { animation: ember-fade 2s ease-out forwards; }
