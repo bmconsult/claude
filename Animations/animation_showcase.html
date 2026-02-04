@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Animation Showcase</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* --- General Body and Page Styles --- */
+body {
+    background-color: #110c1f;
+    margin: 0;
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+}
+.page-spacer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.page-spacer h1 { font-size: 2.5rem; }
+.page-spacer p { font-size: 1.5rem; color: rgba(255,255,255,0.2); }
+.spacer {
+    height: 100vh;
+    width: 100%;
+}
+
+/* --- UNIFIED FEATURE SECTION LAYOUT --- */
+.feature-section {
+    display: flex;
+    gap: 4rem; /* Reduced gap slightly */
+    padding: 15vh 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+.animation-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text-column h2 { font-size: 2.2rem; margin-bottom: 0.5rem; color: #fff; }
+.text-column p {
+    font-size: 0.95rem;
+    max-width: 70ch;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #c0c0d0;
+}
+
+/* --- Layout Ordering --- */
+/* Default is Anim-Left, Text-Right. These rules flip the layout for an alternating effect. */
+.beaker-section, .wrench-section {
+    flex-direction: row-reverse;
+}
+
+/* ====================================================================== */
+/* --- BEAKER-SPECIFIC STYLES --- */
+/* ====================================================================== */
+.beaker-section .animation-column { flex: 0 0 350px; }
+.liquid-container { width: 300px; height: 500px; position: relative; transform: translateX(-20px); }
+.beaker-section svg { width: 100%; height: 100%; overflow: visible; }
+.scene-container { filter: url(#underglow) saturate(0); transition: filter 0.2s linear; }
+.liquid-main { fill: url(#liquidRedGradient); stroke: none; }
+.liquid-secondary { fill: url(#ribbonGradient); stroke: none; }
+.meniscus-fill { fill: url(#meniscusFillGradient); }
+.meniscus-rim-fill { fill: url(#meniscusHighlightGradient); stroke: url(#meniscusHighlightGradient); stroke-width: 3; stroke-linejoin: round; }
+.beaker-outline { fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 12px; }
+.beaker-highlight { fill: none; stroke: #41c2d0; stroke-miterlimit: 10; stroke-width: 12px; }
+.beaker-marking { fill: #27c0d5; opacity: 0.7; }
+#liquid-scaler { transform-origin: center 670px; }
+
+/* ====================================================================== */
+/* <!-- CONTROLLER-SPECIFIC STYLES --> */
+/* ====================================================================== */
+.controller-section .animation-column {
+    flex: 0 0 550px; /* Give controller more space */
+}
+.controller-container {
+    width: 850px; height: 620px;
+    max-width: 100%;
+    perspective: 1000px; position: relative;
+    filter: grayscale(1);
+    transition: filter 0.1s linear;
+    transform: scale(0.75); /* Scale it down to fit the column */
+    margin: 0;
+}
+svg.controller-svg {
+    width: 100%; height: auto;
+    position: absolute; top: 0; left: 0;
+    z-index: 1; overflow: visible;
+}
+.controller-container * { font-family: 'Poppins', sans-serif; font-weight: 700; }
+.bumper-trigger { cursor: pointer; z-index: 2; position: relative; }
+.bumper { transition: transform 0.1s ease-out; pointer-events: none; }
+.bumper.is-pressed { transform: translateY(15px); }
+.button-assembly { position: absolute; display: flex; justify-content: center; align-items: center; z-index: 10; }
+#dpad-location { top: 20%; left: 14%; width: 20%; height: 20%; transform: scale(0.85); }
+.face-button-location { width: 110px; height: 110px; transform: scale(0.85); }
+#btn-y-location { top: 12%; left: 70%; }
+#btn-x-location { top: 22%; left: 63%; }
+#btn-b-location { top: 22%; left: 77%; }
+#btn-a-location { top: 32%; left: 70%; }
+.grommet-css {
+    --grommet-shadow-x: 4px; --grommet-shadow-y: 4px;
+    width: 100%; height: 100%; position: relative; display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(145deg, #636363 0%, #575757 50%, #636363 100%);
+    border-radius: 50%;
+    box-shadow: inset var(--grommet-shadow-x) var(--grommet-shadow-y) 12px rgba(0,0,0,.6), inset calc(var(--grommet-shadow-x) * -1) calc(var(--grommet-shadow-y) * -1) 12px rgba(255,255,255,.18);
+    transition: box-shadow 0.12s, background 0.12s, transform 0.12s;
+    perspective: 800px; transform-style: preserve-3d;
+}
+.grommet-css::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent 60%);
+    border-radius: 50%; transition: inherit;
+}
+.grommet-css.is-pressed, .grommet-css:has(.game-button:active) {
+    background: linear-gradient(145deg, #545454 0%, #484848 50%, #545454 100%);
+    box-shadow: inset -4px -4px 12px rgba(0,0,0,.6), inset 4px 4px 12px rgba(255,255,255,.18);
+    transform: translateY(2px) scale(0.95);
+}
+.face-button-location .grommet-css { width: 79%; height: 79%; }
+.game-button {
+    width: 60%; height: 60%; border: none; border-radius: 50%; cursor: pointer; position: relative; display: flex; justify-content: center; align-items: center; overflow: hidden; z-index: 3;
+    transition: transform 0.1s cubic-bezier(0.2, 1, 0.8, 1), box-shadow 0.1s cubic-bezier(0.2, 1, 0.8, 1);
+    box-shadow: inset 0px -4px 6px rgba(0, 0, 0, 0.3), inset 0px 4px 5px rgba(255, 255, 255, 0.4), 2px 2px 5px rgba(0, 0, 0, 0.6), -2px -2px 5px rgba(0, 0, 0, 0.6), 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+.game-button span { font-size: 28px; color: #ffffff; position: relative; z-index: 3; transition: text-shadow 0.15s ease-out, color 0.15s ease-out; }
+.game-button::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; border-radius: 50%; background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 65%); transition: background 0.1s ease-out; }
+.game-button::after { content: ''; position: absolute; top: 5px; left: 5px; width: calc(100% - 10px); height: calc(100% - 10px); z-index: 1; border-radius: 50%; box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.3); }
+.game-button.is-pressed, .game-button:active {
+    transform: translateY(4px) scale(0.9);
+    box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.4), inset 0px 2px 2px rgba(255, 255, 255, 0.3), 2px 2px 5px rgba(0, 0, 0, 0.7), -2px -2px 5px rgba(0, 0, 0, 0.7), 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.game-button.is-pressed::before, .game-button:active::before { background: radial-gradient(circle at 25% 15%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 55%); }
+.face-button-location .game-button { width: 71%; height: 71%; }
+.button-blue { background-color: #005cfa; }
+.button-blue span { text-shadow: 1px 1px 0 #004ac7, 2px 2px 0 #004ac7, 3px 4px 5px rgba(0,0,0,0.25); }
+.game-button span.is-lit, .game-button:active span {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #3a86ff, 0 0 20px #3a86ff;
+}
+.grommet-css::after {
+    content: ''; position: absolute; width: 71%; height: 71%; background-color: #fff;
+    border-radius: 50%; filter: blur(12px); z-index: 2; opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+.grommet-css:has(.game-button:active)::after, .grommet-css:has(.game-button.is-pressed)::after { opacity: 0.75; }
+.grommet-svg, .dpad, .dpad-pivot-group, .arrow-fill, .arrows-group > g { transition: all 0.15s cubic-bezier(0.2, 1, 0.8, 1); }
+.grommet-svg { position: absolute; width: 200px; height: 200px; }
+.dpad { position: relative; width: 180px; height: 180px; filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2)); perspective: 1000px; transform-style: preserve-3d; }
+.dpad-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; }
+.dpad-pivot-group { transform-origin: 50% 50%; }
+.dpad-triggers { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; z-index: 20; }
+.trigger { cursor: pointer; }
+#trigger-up    { grid-area: 1 / 2 / 2 / 3; }
+#trigger-down  { grid-area: 3 / 2 / 4 / 3; }
+#trigger-left  { grid-area: 2 / 1 / 3 / 2; }
+#trigger-right { grid-area: 2 / 3 / 3 / 4; }
+#dpad-location.is-pressed-up .dpad, #dpad-location:has(#trigger-up:active) .dpad { transform: perspective(1000px) rotateX(10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-down .dpad, #dpad-location:has(#trigger-down:active) .dpad { transform: perspective(1000px) rotateX(-10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-left .dpad, #dpad-location:has(#trigger-left:active) .dpad { transform: perspective(1000px) rotateY(-10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-right .dpad, #dpad-location:has(#trigger-right:active) .dpad { transform: perspective(1000px) rotateY(10deg) translateZ(-3px) scale(0.98); }
+#dpad-location.is-pressed-up .dpad-pivot-group, #dpad-location:has(#trigger-up:active) .dpad-pivot-group { transform: perspective(800px) rotateX(15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-down .dpad-pivot-group, #dpad-location:has(#trigger-down:active) .dpad-pivot-group { transform: perspective(800px) rotateX(-15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-left .dpad-pivot-group, #dpad-location:has(#trigger-left:active) .dpad-pivot-group { transform: perspective(800px) rotateY(-15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-right .dpad-pivot-group, #dpad-location:has(#trigger-right:active) .dpad-pivot-group { transform: perspective(800px) rotateY(15deg) translateZ(-5px) scale(0.95); }
+#dpad-location.is-pressed-up .grommet-svg, #dpad-location:has(#trigger-up:active) .grommet-svg { transform: perspective(1000px) rotateX(8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-down .grommet-svg, #dpad-location:has(#trigger-down:active) .grommet-svg { transform: perspective(1000px) rotateX(-8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-left .grommet-svg, #dpad-location:has(#trigger-left:active) .grommet-svg { transform: perspective(1000px) rotateY(-8deg) translateZ(-2px) scale(0.97); }
+#dpad-location.is-pressed-right .grommet-svg, #dpad-location:has(#trigger-right:active) .grommet-svg { transform: perspective(1000px) rotateY(8deg) translateZ(-2px) scale(0.97); }
+.grommet-graphic-active { display: none; }
+.arrow-fill.is-lit,
+#dpad-location.is-pressed-up .arrow-up .arrow-fill, #dpad-location:has(#trigger-up:active) .arrow-up .arrow-fill,
+#dpad-location.is-pressed-down .arrow-down .arrow-fill, #dpad-location:has(#trigger-down:active) .arrow-down .arrow-fill,
+#dpad-location.is-pressed-left .arrow-left .arrow-fill, #dpad-location:has(#trigger-left:active) .arrow-left .arrow-fill,
+#dpad-location.is-pressed-right .arrow-right .arrow-fill, #dpad-location:has(#trigger-right:active) .arrow-right .arrow-fill {
+    fill: #fff;
+    filter: drop-shadow(0 0 8px #fff) drop-shadow(0 0 16px #FDD835);
+}
+.joystick-assembly { position: absolute; width: 13%; padding-bottom: 13%; height: 0; z-index: 10; }
+#l-joystick-assembly { top: 45%; left: 28%; }
+#r-joystick-assembly { top: 45%; left: 59%; }
+.joystick-assembly .grommet-css { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; }
+.joystick-stick {
+    --rotateX: 0deg; --rotateY: 0deg; --translateX: 0px; --translateY: 0px;
+    position: absolute; width: 67%; height: 67%; top: 0; left: 0; right: 0; bottom: 0; margin: auto;
+    transform-style: preserve-3d;
+    transform: translateX(var(--translateX)) translateY(var(--translateY)) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+    z-index: 10; cursor: grab;
+}
+.joystick-stick.return-to-center { transition: transform 0.2s cubic-bezier(0.2, 1, 0.8, 1); }
+.joystick-top {
+    width: 100%; height: 100%; border-radius: 50%; pointer-events: none;
+    position: absolute;
+    transform: translateZ(45px); background-color: #005cfa;
+    box-shadow: inset 8px 8px 16px rgba(0, 25, 70, 0.85), inset -8px -8px 16px rgba(120, 200, 255, 0.8);
+}
+.joystick-top::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0px 6px 15px rgba(0, 20, 60, 0.4); z-index: -1; }
+.joystick-axis {
+    --axis-light-x: 35%; --axis-light-y: 35%;
+    position: absolute; width: 73%; height: 73%;
+    background: radial-gradient(circle at var(--axis-light-x) var(--axis-light-y), #3a86ff 0%, #003a94 60%, #00225a 100%);
+    border-radius: 50%; z-index: 0; opacity: 0;
+    transition: opacity 0.2s ease-out, background 0.2s ease-out;
+}
+.joystick-axis.is-visible { opacity: 1; }
+#l-joystick-assembly .joystick-top { background-color: #FDD835; box-shadow: inset 8px 8px 16px rgba(180, 140, 0, 0.85), inset -8px -8px 16px rgba(255, 250, 224, 0.7); }
+#l-joystick-assembly .joystick-axis { background: radial-gradient(circle at var(--axis-light-x) var(--axis-light-y), #FDD835 0%, #F57C00 60%, #BF360C 100%); }
+.start-select-assembly { position: absolute; width: 8%; height: 5%; z-index: 10; }
+#btn-select-location { top: 36%; left: 40.5%; }
+#btn-start-location { top: 36%; left: 51.5%; }
+.start-select-button { width: 100%; height: 100%; border: none; background-color: transparent; padding: 0; cursor: pointer; filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3)); transition: filter 0.15s ease-out; }
+.ss-grommet { fill: url(#grommet_baseGradient_ss); transition: fill 0.12s; }
+.ss-button { transition: transform 0.1s ease, fill 0.1s ease; }
+.start-select-button.is-pressed .ss-button, .start-select-button:active .ss-button { transform: translateY(1px); }
+.start-select-button.is-pressed .ss-grommet, .start-select-button:active .ss-grommet { fill: url(#grommet_baseGradient_ss_active); }
+#btn-select-location .ss-button { fill: #FDD835; }
+#btn-select-location .start-select-button.is-pressed .ss-button, #btn-select-location .start-select-button:active .ss-button { fill: #FBC02D; }
+#btn-start-location .ss-button { fill: #005cfa; }
+#btn-start-location .start-select-button.is-pressed .ss-button, #btn-start-location .start-select-button:active .ss-button { fill: #004ac7; }
+#btn-select-location.is-lit, #btn-select-location .start-select-button:is(.is-pressed, :active) { filter: url(#glow-yellow); }
+#btn-start-location.is-lit, #btn-start-location .start-select-button:is(.is-pressed, :active) { filter: url(#glow-blue); }
+#transmission-beams > * {
+    transform: translateY(-270px) scaleY(1); opacity: 1;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    transition: clip-path 0.7s ease-out;
+}
+#transmission-beams.animate-in > * { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+#transmission-beams.animate-out-phase1 > * { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); transition: clip-path 0.5s ease-in; }
+#transmission-beams.animate-out-phase2 > * { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); transition: clip-path 0.5s ease-out; }
+#transmission-beams.animate-out-phase3 > * { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); transition: clip-path 0.5s ease-in; }
+#transmission-beams.animate-in .beam-1 { transition-delay: 0s; }
+#transmission-beams.animate-in .beam-2 { transition-delay: 0.1s; }
+#transmission-beams.animate-in .beam-3 { transition-delay: 0.2s; }
+#transmission-beams.animate-in .beam-4 { transition-delay: 0.15s; }
+#transmission-beams.animate-in .beam-5 { transition-delay: 0.05s; }
+#transmission-beams.animate-out-phase1 .beam-1 { transition-delay: 0s; }
+#transmission-beams.animate-out-phase1 .beam-2 { transition-delay: 0.1s; }
+#transmission-beams.animate-out-phase1 .beam-3 { transition-delay: 0.2s; }
+#transmission-beams.animate-out-phase1 .beam-4 { transition-delay: 0.15s; }
+#transmission-beams.animate-out-phase1 .beam-5 { transition-delay: 0.05s; }
+#transmission-beams.animate-out-phase2 .beam-1 { transition-delay: 0.2s; }
+#transmission-beams.animate-out-phase2 .beam-2 { transition-delay: 0.1s; }
+#transmission-beams.animate-out-phase2 .beam-3 { transition-delay: 0s; }
+#transmission-beams.animate-out-phase2 .beam-4 { transition-delay: 0.05s; }
+#transmission-beams.animate-out-phase2 .beam-5 { transition-delay: 0.15s; }
+#transmission-beams.animate-out-phase3 .beam-1 { transition-delay: 0.2s; }
+#transmission-beams.animate-out-phase3 .beam-2 { transition-delay: 0.1s; }
+#transmission-beams.animate-out-phase3 .beam-3 { transition-delay: 0s; }
+#transmission-beams.animate-out-phase3 .beam-4 { transition-delay: 0.05s; }
+#transmission-beams.animate-out-phase3 .beam-5 { transition-delay: 0.15s; }
+
+/* ====================================================================== */
+/* --- WRENCH-SPECIFIC ANIMATION STYLES --- */
+/* ====================================================================== */
+.wrench-section .animation-column { flex: 0 0 350px; }
+.wrench-section .animation-container { position: relative; width: 300px; height: 400px; filter: grayscale(100%) opacity(0.7); }
+.wrench-section .animation-container > * { position: absolute; top: 50%; left: 50%; }
+.wrench-purple { width: 110%; transform: translate(-45%, -50%); filter: drop-shadow(0 0 20px rgba(178, 93, 255, 0.6)) drop-shadow(0 0 8px rgba(178, 93, 255, 0.8)); }
+.wrench-orange { width: 110%; transform: translate(-55%, -50%); filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.4)) drop-shadow(0 0 20px rgba(255, 136, 0, 0.7)) drop-shadow(0 0 8px rgba(255, 136, 0, 0.9)); }
+.cog { width: 58%; transform: translate(-50%, -50%) rotate(0deg); filter: drop-shadow(0 0 30px rgba(255, 165, 0, 0.8)) drop-shadow(0 0 15px rgba(255, 200, 0, 1)); z-index: 2; }
+.cog-backdrop { background-color: #110c1f; border-radius: 50%; transform: translate(-50%, -50%); width: 18%; height: 18%; }
+.celebration-effects { width: 110%; transform: translate(-50%, -50%) scale(0.5); opacity: 0; filter: drop-shadow(0 0 8px rgba(255, 165, 0, 0.7)) drop-shadow(0 0 8px rgba(178, 93, 255, 0.7)); z-index: 1; transition: transform 0.1s linear, opacity 0.1s linear; }
+@keyframes ember-fade {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+}
+.celebration-effects.fade-out { animation: ember-fade 2s ease-out forwards; }
+
+</style>
+</head>
+<body>
+
+<!-- Load external SVG definitions first -->
+<script>
+(function() {
+    // Fetch and inject SVG definitions
+    fetch('svg-definitions.svg')
+        .then(response => response.text())
+        .then(svgContent => {
+            const container = document.createElement('div');
+            container.innerHTML = svgContent;
+            container.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
+            document.body.insertBefore(container, document.body.firstChild);
+        })
+        .catch(err => console.warn('Could not load svg-definitions.svg:', err));
+})();
+</script>
+
+
+
+<div class="page-spacer">
+    <h1>Full Animation Showcase</h1>
+    <p>Scroll Down to Begin</p>
+</div>
+
+<!-- === BEAKER ANIMATION SECTION (Anim-Right, Text-Left) === -->
+<div class="feature-section beaker-section">
+    <div class="animation-column">
+        <div class="liquid-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 714.64 900.77">
+                 <defs>
+                    <filter id="underglow" x="-50%" y="-50%" width="200%" height="200%"><feFlood flood-color="#00d4ff" result="glow-color"/><feComposite in="glow-color" in2="SourceAlpha" operator="in" result="glow-outline"/><feGaussianBlur stdDeviation="8" in="glow-outline" result="blurred-glow-outline"/><feGaussianBlur stdDeviation="20" in="glow-outline" result="wider-blurred-glow"/><feMerge><feMergeNode in="wider-blurred-glow"/><feMergeNode in="blurred-glow-outline"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <filter id="fluid-blob" x="-50%" y="-50%" width="200%" height="200%"><feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="1" seed="2" result="turbulenceX"/><feTurbulence type="fractalNoise" baseFrequency="0.005 0.01" numOctaves="1" seed="9" result="turbulenceY"/><feDisplacementMap id="displacementX" in="SourceGraphic" in2="turbulenceX" scale="0" xChannelSelector="R" yChannelSelector="G" result="displacedX"/><feDisplacementMap id="displacementY" in="displacedX" in2="turbulenceY" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter>
+                    <filter id="bubble-distortion"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.03" numOctaves="1" result="warp"/><feDisplacementMap in="SourceGraphic" in2="warp" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
+                    <linearGradient id="liquidRedGradient" x1="100" y1="850" x2="650" y2="500" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff6b6b"/><stop offset="0.4" stop-color="#c63d91"/><stop offset="1" stop-color="#3a0d4a"/></linearGradient>
+                    <linearGradient id="meniscusFillGradient" gradientUnits="userSpaceOnUse" x1="190" y1="500" x2="380" y2="500"><stop offset="0" stop-color="#48c9d9" /><stop offset="1" stop-color="#37a7b9" /></linearGradient>
+                    <linearGradient id="ribbonGradient" gradientUnits="userSpaceOnUse" x1="240" y1="700" x2="550" y2="550"><stop offset="0" stop-color="#e54b6d" stop-opacity="0.5"/><stop offset="1" stop-color="#c63d91" stop-opacity="0.8"/></linearGradient>
+                    <linearGradient id="meniscusHighlightGradient" x1="182" y1="500" x2="518" y2="500" gradientUnits="userSpaceOnUse"><stop offset="0.1" stop-color="#41c2d0"/><stop offset="0.5" stop-color="#ff6b6b"/><stop offset="0.9" stop-color="#c63d91"/></linearGradient>
+                    <path id="meniscus-main-fill" d="M380.19,481.93s-20.27-1.76-30.77-3.51c-65-10.83-58-16-81.2-22.84-24.72-7.31-46.62-8.64-49.61-8.4-13,1.07-28.46,1.84-34.8,25.15-4.31,15.84,7.37,43.24,29.23,52.5,3.41,1.44,20,13.16,51.78,14.4,19.17.74,21.91,2.31,61.8-13.46,7.86-3.11,32.68-23.33,45.24-35.66C374.62,487.41,377.58,484.5,380.19,481.93Z"/>
+                    <path id="meniscus-front-edge" d="M182.57,479.57c-.35,15.87,11.16,36,30.26,44,3.4,1.43,19.93,13.07,51.7,14.3,19.15.73,21.87,2.29,61.7-13.37,7.85-3.08,32.64-23.16,45.18-35.4l8.32-8.11c27.21-26.53,46.93-45,68.37-49.76,43.73-9.68,55.66,2.21,74.3,11.15-2.89-1.39-48.42-10.47-77,8.93-31,17-41.17,35.31-57.12,50.54-27.64,26.4-65.26,61.65-122.2,55.68-68.17-7.15-92.12-32.37-97.23-50.5-3.53-8.62-3.15-18.91-1.26-27.79"/>
+                    <path id="meniscus-back-edge" d="M167.57,479.26c2-8.67,5.74-17.25,8.11-19.83,9.13-9.92,16-14.06,30-16.66,14.92-2.76,41.15,0,65.29,7.89,17.23,5.62,11.81,4.61,33.18,12.52,0,0,27.07,9.19,79.44,14.07L379.73,481s-20.25-1.76-30.73-3.49c-64.91-10.76-57.93-15.86-81.08-22.67-24.68-7.26-46.54-8.58-49.53-8.34-13,1.06-28.42,1.83-34.75,25a42.46,42.46,0,0,0-1.07,8.1"/>
+                    <radialGradient id="bubbleHighlight" cx="25%" cy="25%" r="65%"><stop offset="0%" stop-color="#f9d3d9" stop-opacity="0.9" /><stop offset="60%" stop-color="#d88c9a" stop-opacity="0.7" /><stop offset="100%" stop-color="#a8314b" stop-opacity="0.5" /></radialGradient>
+                    <g id="finalBubbleLook"><circle cx="0" cy="0" r="25" fill="transparent" /><circle cx="0" cy="0" r="25" fill="none" stroke="#e54b6d" stroke-width="2.5" stroke-opacity="0.9" /><circle cx="0" cy="0" r="25" fill="url(#bubbleHighlight)" opacity="0.5" /><circle cx="-6" cy="-9" r="4" fill="white" opacity="0.8" /></g>
+                    <path id="wobblePath" d="M0,0 C 25, -50, -25, -100, 0, -150" fill="none"/>
+                    <path id="custom-path-bubble-1" d="M500,819.06 C 478, 419, 390, 320, 440, 120" fill="none"/>
+                    <g id="shockwave-pool"><circle cx="0" cy="0" r="0" fill="none" stroke="#e54b6d" stroke-width="2.5" opacity="0"/><circle cx="0" cy="0" r="0" fill="none" stroke="#f9d3d9" stroke-width="2" opacity="0"/><circle cx="0" cy="0" r="0" fill="none" stroke="#e54b6d" stroke-width="2.5" opacity="0"/></g>
+                    <g id="particle-pool"><script>for (let i = 0; i < 60; i++) { document.write('<g opacity="0"><circle r="3" fill="#f9d3d9"/></g>'); }</script></g>
+                </defs>
+                <g class="scene-container"><g class="beaker-container"><g class="beaker-back" transform="translate(15.6, 4)"><path class="beaker-outline" d="M360.16,875.25h0c-14.12,0-29-.38-44.1-1.14C273.45,872,128.74,859.59,53.47,789.38c-19.2-16.48-32-32.47-39-48.88C.53,708.15,3.49,678.37,25.75,626.7c22.18-51.45,64.14-127,140.3-264.27,18.81-33.88,40.12-72.29,63.42-114.45,3.93-7.11,8.39-27.93,7.35-86.75-.08-4.63-.12-6.89,0-8.53l-.3-63.42c-25-10.61-30.7-25.68-30.7-37.19,0-18.15,15.26-30.93,45.38-38C274.16,8.73,306.9,6,348.45,6c41.25,0,73.85,2.92,96.88,8.68,12.4,3.1,21.87,7,28.94,11.83,13.49,9.27,15.51,20.64,15.51,26.59,0,12.12-6.23,27.8-33.62,38.13.55,19.51,1,41.09,1.36,62.09.5,25.84,1,52.56,1.77,75,.85,12.26,11.24,38.48,17.64,49.24,55.63,93.47,159.5,283.72,176.3,314.83C685.9,652.94,696,696,685.84,732,676.19,766.3,649,793.64,595,823.39,531.66,858.29,454.83,875.25,360.16,875.25Z"/><path class="beaker-highlight" d="M217.78,51.92c0-22.62,44-34.09,130.67-34.09,59,0,129.33,6.09,129.33,35.09"/></g></g><g id="liquid-scaler"><g class="liquid-content-wrapper"><g class="liquid-group-back" filter="url(#fluid-blob)"><path class="liquid-main" d="M167.57,479.26c-1.89,8.88-2.27,19.17,1.26,27.79,5.11,18.13,29.06,43.35,97.23,50.5,56.94,6,94.56-29.28,122.2-55.68,15.95-15.23,26.14-33.52,57.12-50.54,28.6-19.4,74.13-10.32,77-8.93,7.91,5.63,76.41,126.56,91.51,155,7.62,14.37,29.3,59.43,32.35,75.32,8.61,44.79-3.14,90.26-87.75,125.74-33.14,13.9-82,30.7-179.39,34.6-72.63,2.91-191.64-6.65-279.25-69.6-47.38-34-31.31-93.37-29.52-98.87C85.59,617.76,167.8,478.57,167.57,479.26Z"/><use href="#meniscus-main-fill" class="meniscus-fill"/></g><g id="middle-layer"><g id="all-bubbles-container" filter="url(#bubble-distortion)"><g id="bubble-1" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-2" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-3" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-4" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-5" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-6" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-7" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-8" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-9" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-10" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-11" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-12" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-13" style="opacity:0;"><use href="#finalBubbleLook"/></g><g id="bubble-14" style="opacity:0;"><use href="#finalBubbleLook"/></g></g><g id="pop-effects-container"></g></g><g class="liquid-group-front" filter="url(#fluid-blob)"><path class="liquid-secondary" d="M647.63,686.11c0,.09.94,9.71.83,13.7-.13,4.47-3,21.07-3,21.28-.59-11.14-3.09-44-19.24-69.24-10.53-16.49-15.39-19.79-40.12-39.58-13.47-10.44-55.17-22.89-89.23-14.65-18.09,4.37-29.32,7.69-54.24,21.8-26.47,21.34-51.51,44.61-79.42,64-20.17,14-52.47,17-82.75,15.44a85.52,85.52,0,0,1-38.94-11.72L237,684.55c9.27,3.72,22.53,14,78.33-2.74,25.5-7.67,24.18-10.17,64.11-40.52,19.16-16.65,26.58-23.25,61.76-45.51a145,145,0,0,1,39.44-17.27,136.58,136.58,0,0,1,43.12-4.28c1.16.06,2.31.14,3.46.23a134.89,134.89,0,0,1,75.64,31.22l8.71,7.25a94.86,94.86,0,0,1,19.68,22.42C640.88,650.69,646.05,668.9,647.63,686.11Z"/><path class="meniscus-rim-fill" fill-rule="evenodd" d="M167.57,479.26c2-8.67,5.74-17.25,8.11-19.83,9.13-9.92,16-14.06,30-16.66,14.92-2.76,41.15,0,65.29,7.89,17.23,5.62,11.81,4.61,33.18,12.52,0,0,27.07,9.19,79.44,14.07L379.73,481s-20.25-1.76-30.73-3.49c-64.91-10.76-57.93-15.86-81.08-22.67-24.68-7.26-46.54-8.58-49.53-8.34-13,1.06-28.42,1.83-34.75,25a42.46,42.46,0,0,0-1.07,8.1 M182.57,479.57c-.35,15.87,11.16,36,30.26,44,3.4,1.43,19.93,13.07,51.7,14.3,19.15.73,21.87,2.29,61.7-13.37,7.85-3.08,32.64-23.16,45.18-35.4l8.32-8.11c27.21-26.53,46.93-45,68.37-49.76,43.73-9.68,55.66,2.21,74.3,11.15-2.89-1.39-48.42-10.47-77,8.93-31,17-41.17,35.31-57.12,50.54-27.64,26.4-65.26,61.65-122.2,55.68-68.17-7.15-92.12-32.37-97.23-50.5-3.53-8.62-3.15-18.91-1.26-27.79"/></g></g></g><g class="beaker-front"><path class="beaker-highlight" d="M375.79,867.61c-13.92,0-28.56-.38-43.51-1.13-47.27-2.36-96.07-10.13-137.4-21.87C143.58,830,104,809.92,77.14,784.84l-.09-.09c-17.87-15.31-29.63-29.91-36-44.63C28.52,710.9,31.38,684.58,52.4,635.81c21.93-50.9,66.28-130.8,139.76-263.19l.45-.82c18.69-33.67,39.87-71.83,63-113.66,10.17-18.39,9.17-74.37,8.85-92.76-.09-5.14-.11-6.89,0-8l-.34-71.82,7.57,2c21.78,5.74,52.87,8.64,92.41,8.64,37.51,0,67.23-2.48,88.36-7.37l7.18-1.66.89,36.24c.57,20,.84,36.22,1.1,51.85.31,18.45,.6,35.84,1.35,58v.05c1,15.5,13.07,44.22,19.31,54.72,55.6,93.41,159.29,283.34,176,314.4,31.08,57.57,40.83,97.84,31.62,130.59-8.7,30.95-34.14,56.12-85.06,84.17C543.31,851.13,468.38,867.61,375.79,867.61Z"/><path class="beaker-outline" d="M468.15,95.81c-2.59.81-7.49,2.44-10.36,3.16-22.19,5.5-53.7,8.3-93.64,8.3-42.75,0-76.07-3.38-99-10-2.43-.71-8.31-2.78-10.49-3.55"/><path class="beaker-highlight" d="M493.44,56.59c0,14.09-13,24.46-38.59,30.81-21.24,5.27-51.78,7.95-90.74,7.95-41.62,0-73.82-3.22-95.7-9.56-28.91-8.37-35-21-35-30.2"/><rect class="beaker-marking" x="291.5" y="126.98" width="17.27" height="96.27" rx="7.42"/></g></g>
+            </svg>
+        </div>
+    </div>
+    <div class="text-column">
+        <div>
+            <h2>The Reaction Begins</h2>
+            <p>As the experiment scrolls into view, the solution activates. Colors bloom and catalysts begin to rise, preparing for the main event.</p>
+            <h2>Reaching a Critical Point</h2>
+            <p>The mixture becomes volatile, churning with potential energy. This is where the core transformation takes shape, just before the finale.</p>
+            <h2>A Flawless Finish</h2>
+            <p>The final reaction triggers automatically, signifying the successful conclusion of the experiment with a brilliant cascade.</p>
+        </div>
+    </div>
+</div>
+
+<!-- === CONTROLLER ANIMATION SECTION (Anim-Left, Text-Right) === -->
+<div class="feature-section controller-section">
+    <div class="animation-column">
+        <div class="controller-container">
+            <svg class="controller-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -35 797.81 519.89">
+                <defs>
+                    <style>
+                        .beam-1 { fill: url(#beamGradient1); } .beam-2 { fill: url(#beamGradient2); } .beam-3 { fill: url(#beamGradient3); } .beam-4 { fill: url(#beamGradient4); } .beam-5 { fill: url(#beamGradient5); }
+                        .controller-body-fill { fill:url(#bodyGradient); } .controller-body-stroke { stroke:#0f1f44; stroke-miterlimit:10; stroke-width:15px; }
+                        .shadow-layer { fill:#132b50; opacity:0.27; } .highlight-layer { fill:#fff; opacity:0.78; }
+                        .left-bumper-fill { fill: url(#leftBumperGradient); } .right-bumper-fill { fill: url(#rightBumperGradient); }
+                        .bumper-outline-stroke { fill: none; stroke: #101f43; stroke-width: 13; stroke-miterlimit:10; }
+                    </style>
+                    <linearGradient id="beamGradient1" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#FDD835"/><stop offset="80%" stop-color="#FDD835" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="beamGradient2" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#C7C967"/><stop offset="80%" stop-color="#C7C967" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="beamGradient3" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#80A39B"/><stop offset="80%" stop-color="#80A39B" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="beamGradient4" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#407FCA"/><stop offset="80%" stop-color="#407FCA" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="beamGradient5" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#005CFA"/><stop offset="80%" stop-color="#005CFA" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="bodyGradient" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(-45)"><stop offset="0%" stop-color="#FFFFFF" /><stop offset="50%" stop-color="#FDF8DF" /><stop offset="100%" stop-color="#97BABF" /></linearGradient>
+                    <linearGradient id="leftBumperGradient" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#FFF59D"/><stop offset="50%" stop-color="#FDD835"/><stop offset="100%" stop-color="#FBC02D"/></linearGradient>
+                    <linearGradient id="rightBumperGradient" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#AECBFF"/><stop offset="50%" stop-color="#005cfa"/><stop offset="100%" stop-color="#003a94"/></linearGradient>
+                    <linearGradient id="grommet_baseGradient_ss" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#636363" /><stop offset="50%" stop-color="#575757" /><stop offset="100%" stop-color="#636363" /></linearGradient>
+                    <linearGradient id="grommet_baseGradient_ss_active" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#545454"/><stop offset="50%" stop-color="#484848"/><stop offset="100%" stop-color="#545454"/></linearGradient>
+                    <filter id="glow-yellow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" /><feFlood flood-color="#FDD835" result="flood" /><feComposite in="flood" in2="blur" operator="in" result="glow" /><feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" /><feFlood flood-color="#3a86ff" result="flood" /><feComposite in="flood" in2="blur" operator="in" result="glow" /><feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                    <clipPath id="beam-clip"><rect x="290" y="-270" width="250" height="270" /></clipPath>
+                </defs>
+                <g><g id="transmission-beams" transform="translate(-20, 10)" clip-path="url(#beam-clip)"><path class="beam-1" d="M320.27,270.43H297.8A34.08,34.08,0,0,0,309,244.8V0H331.5V244.66C331.5,253.25,327.59,266.15,320.27,270.43Z"/><rect class="beam-2" x="366.48" width="10.47" height="270.43"/><rect class="beam-3" x="413.46" width="10.47" height="270.43"/><rect class="beam-4" x="460.44" width="10.47" height="270.43"/><path class="beam-5" d="M511.25,270.43h22.46a34.08,34.08,0,0,1-11.23-25.63V0H500V244.66C500,253.25,503.93,266.15,511.25,270.43Z"/></g><g class="bumper-trigger"><path id="l-bumper-trigger" d="M263,13.71c0-13.58-5.87-41.15-75.5-41.15s-76.34,37.74-76.34,51.32" fill="transparent"/><path id="r-bumper-trigger" d="M686.68,29.11c0-5.25-1.84-53.49-79.79-53.49S535.74,8.46,535.74,13.71" fill="transparent"/></g><g id="l-bumper" class="bumper"><path class="left-bumper-fill" d="M263,13.71c0-13.58-5.87-41.15-75.5-41.15s-76.34,37.74-76.34,51.32"/><path class="bumper-outline-stroke" d="M263,13.71c0-13.58-5.87-41.15-75.5-41.15s-76.34,37.74-76.34,51.32"/></g><g id="r-bumper" class="bumper"><path class="right-bumper-fill" d="M686.68,29.11c0-5.25-1.84-53.49-79.79-53.49S535.74,8.46,535.74,13.71"/><path class="bumper-outline-stroke" d="M686.68,29.11c0-5.25-1.84-53.49-79.79-53.49S535.74,8.46,535.74,13.71"/></g><g><path id="main-controller-body-path" class="controller-body-fill controller-body-stroke" d="M776,254.38C739.76,95.93,722.66,10.73,621.46,7.68c-30.53-.92-53.71,1.79-71,7.32h-303c-17.31-5.53-40.5-8.24-71-7.32C75.15,10.73,58.06,95.93,21.8,254.38c-30.67,134-12.77,222,61,223,79,1.09,130.63-114.84,134.8-124.58l0,0a2.73,2.73,0,0,1,4.32-1,84.36,84.36,0,0,0,132-28.52,8.46,8.46,0,0,1,7.69-4.94h74.6a8.4,8.4,0,0,1,7.63,4.89,84.35,84.35,0,0,0,132,28.57,2.74,2.74,0,0,1,4.33,1v0C584.36,362.54,636,478.47,715,477.38,788.78,476.36,806.68,388.4,776,254.38Z"/><path class="shadow-layer" d="M744.56,439.24c-7.42,9.45-17.39,13.94-31.36,14.14h-.7c-29.51,0-55.76-25.82-72.63-47.58-22-28.45-35.25-59-35.81-60.33l0-.1a30.33,30.33,0,0,0-18.25-16.72,76,76,0,0,0,10.38-29.77,76.28,76.28,0,0,1-149-30.59,76.38,76.38,0,0,0-2.92,20.92c0,2.18.11,4.33.29,6.46a35.33,35.33,0,0,0-9.66-1.36h-74.6a35.93,35.93,0,0,0-6.82.68c.14-1.91.24-3.83.24-5.78a76.77,76.77,0,0,0-1.81-16.51c.12,1.74.2,3.49.2,5.25a76.39,76.39,0,0,1-2.13,17.89h0c-.24,1-.5,2-.79,3l-.06.23q-.42,1.47-.9,2.91l0,.12a76.09,76.09,0,0,1-6.42,14.2l-.11.19c-.48.82-1,1.62-1.48,2.41-.08.14-.17.27-.26.41q-.73,1.15-1.53,2.28l-.26.36a76.51,76.51,0,0,1-7.54,9.1l-.33.34q-.84.86-1.71,1.68l-.72.68c-.54.51-1.09,1-1.64,1.49l-.89.77c-.54.46-1.08.92-1.64,1.36l-1,.78-1.66,1.27-1,.73c-1,.74-2.1,1.45-3.18,2.14l-1.17.76-1.51.88-1.47.85-1.5.79c-.52.28-1.05.55-1.58.81s-1,.48-1.49.72l-1.69.76-1.45.63c-.63.26-1.26.5-1.9.74l-1.32.51c-.85.3-1.7.59-2.56.86l-.74.25c-1.1.34-2.21.65-3.33.94l-1.13.28c-.77.19-1.54.37-2.32.53l-1.34.27c-.73.14-1.46.27-2.2.39l-1.39.21c-.74.11-1.49.2-2.25.29l-1.35.14c-.82.08-1.65.14-2.48.19l-1.15.08c-1.22,0-2.44.09-3.68.09-1,0-2,0-3-.07l-.67,0c-1,0-2-.11-3-.19l-.36,0c-.89-.08-1.78-.18-2.66-.29l-.64-.08c-.95-.13-1.89-.27-2.83-.44L262,353c-.81-.14-1.62-.31-2.42-.48l-.59-.13c-.91-.2-1.8-.42-2.7-.65l-.73-.2c-.78-.22-1.55-.44-2.31-.68l-.5-.15c-.85-.27-1.7-.56-2.55-.86l-.83-.3c-.77-.29-1.55-.58-2.31-.89l-.66-.28c-.7-.29-1.38-.59-2.06-.9l-.88-.4c-.76-.36-1.53-.73-2.28-1.11l-.76-.4-1.71-.92-.87-.49c-.71-.41-1.42-.83-2.11-1.26l-.86-.54-1.53-1-.81-.55q-1-.69-2-1.41l-.86-.65c-.5-.38-1-.77-1.48-1.16-.3-.23-.59-.47-.88-.71-.56-.46-1.12-.93-1.66-1.41-.27-.23-.54-.46-.8-.7-.56-.5-1.1-1-1.65-1.52l-.7-.68q-.72-.7-1.44-1.44l-.66-.68c-.58-.62-1.16-1.25-1.72-1.88-.17-.18-.32-.37-.48-.55a76.09,76.09,0,0,1-16.94-33.55A75.88,75.88,0,0,0,211.64,328,30.25,30.25,0,0,0,191,345.38l0,.1c-.55,1.28-13.75,31.87-35.81,60.32-17,21.93-52.85,51.32-82.64,50.92-12.36-.17-35.77-11.15-36.42-11.53a29.67,29.67,0,0,1-4.57-3.55,66.66,66.66,0,0,0,4.51,6.5c11.14,14.18,26.89,21.5,46.81,21.78h1c74.58,0,124.69-115.12,126.8-120a10.23,10.23,0,0,1,16.15-3.73,76.85,76.85,0,0,0,120.24-26,16,16,0,0,1,14.51-9.31h74.6a15.93,15.93,0,0,1,14.44,9.27,76.85,76.85,0,0,0,120.26,26,10.29,10.29,0,0,1,6.75-2.52,10.42,10.42,0,0,1,2.28.26,10.28,10.28,0,0,1,7.11,6c2.12,5,52.24,120.06,126.81,120.08h1c19.92-.28,35.67-7.6,46.81-21.78,25.44-32.38,27.93-100.58,7-192l-2.48-10.84c-17-74.29-30.38-133-51.23-171.74-11.65-21.67-25.36-36.68-42.68-46.06,44.14,54.08,81.87,233.06,81.87,233.06C773.34,344.73,765.89,412.1,744.56,439.24Z"/><path class="highlight-layer" d="M31.22,440c1.36.67,6.39,2.74,7.75,3.41-21.11-33.7.3-137.67,8.92-175.15l4-17.55C68.51,178,83,110.59,102.41,74.44c17.5-32.52,38.54-45.62,75.05-46.73,25.81-.77,46.4,1.22,61.17,5.94l4.38,1.4L551.8,31.79l19.93-8.46c24.36-7.46,51-6.2,76.85-5.43a137.66,137.66,0,0,0-28.12-3.55c-28.31-.86-51.36,1.49-68.52,7l-1.12.35H245.45l-1.12-.35c-17.16-5.48-40.21-7.83-68.52-7-44.46,1.34-72.5,18.78-93.76,58.3C61.2,111.41,47.79,170.09,30.82,244.38l-2.48,10.85C9.26,338.6,9.52,403.27,29,438.48"/></g></g>
+                <div class="start-select-assembly" id="btn-select-location"><button class="start-select-button"><svg viewBox="0 0 49.53 20.38"><path class="ss-grommet" d="M40.49,20.38H9a9.06,9.06,0,0,1-9-9V9A9.06,9.06,0,0,1,9,0H40.49a9,9,0,0,1,9,9v2.3A9,9,0,0,1,40.49,20.38Z"/><rect class="ss-button" x="3.13" y="3.12" width="43.28" height="14.13" rx="5.91"/></svg></button></div>
+                <div class="start-select-assembly" id="btn-start-location"><button class="start-select-button"><svg viewBox="0 0 49.53 20.38"><path class="ss-grommet" d="M40.49,20.38H9a9.06,9.06,0,0,1-9-9V9A9.06,9.06,0,0,1,9,0H40.49a9,9,0,0,1,9,9v2.3A9,9,0,0,1,40.49,20.38Z"/><rect class="ss-button" x="3.13" y="3.12" width="43.28" height="14.13" rx="5.91"/></svg></button></div>
+                <div class="joystick-assembly" id="l-joystick-assembly"><div class="grommet-css joystick-base"><div class="joystick-axis"></div><div class="joystick-stick"><div class="joystick-top"></div></div></div></div>
+                <div class="joystick-assembly" id="r-joystick-assembly"><div class="grommet-css joystick-base"><div class="joystick-axis"></div><div class="joystick-stick"><div class="joystick-top"></div></div></div></div>
+                <div id="dpad-location" class="button-assembly">
+                    <svg class="grommet-svg" viewBox="0 0 210 210"><defs><path id="grom_dpadGraphicPath" d="M 60 12 C 60 6, 66 0, 72 0 L 108 0 C 114 0, 120 6, 120 12 L 120 60 L 168 60 C 174 60, 180 66, 180 72 L 180 108 C 180 114, 174 120, 168 120 L 120 120 L 120 168 C 120 174, 114 180, 108 180 L 72 180 C 66 180, 60 174, 60 168 L 60 120 L 12 120 C 6 120, 0 114, 0 108 L 0 72 C 0 66, 6 60, 12 60 L 60 60 Z" /><mask id="grom_grommetMask"><use href="#grom_dpadGraphicPath" transform="translate(15, 15)" fill="none" stroke="white" stroke-width="30" stroke-linejoin="miter" /></mask><linearGradient id="grom_baseGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#636363" /><stop offset="50%" stop-color="#575757" /><stop offset="100%" stop-color="#636363" /></linearGradient><linearGradient id="grom_glossGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.2)" /><stop offset="60%" stop-color="transparent" /></linearGradient><linearGradient id="grom_baseGradientActive" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#545454"/><stop offset="50%" stop-color="#484848"/><stop offset="100%" stop-color="#545454"/></linearGradient><linearGradient id="grom_glossGradientActive" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="50%" stop-color="transparent"/></linearGradient><filter id="grom_true-inset-shadow-matched"><feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur-dark"/><feOffset in="blur-dark" dx="-4" dy="-4" result="offset-dark"/><feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur-light"/><feOffset in="blur-light" dx="4" dy="4" result="offset-light"/><feComposite in="offset-dark" in2="SourceAlpha" operator="in" result="inset-dark-shape"/><feComposite in="offset-light" in2="SourceAlpha" operator="in" result="inset-light-shape"/><feFlood flood-color="#000" flood-opacity="0.8" result="dark-color"/><feComposite in="dark-color" in2="inset-dark-shape" operator="in" result="final-dark"/><feFlood flood-color="#FFF" flood-opacity="0.12" result="light-color"/><feComposite in="light-color" in2="inset-light-shape" operator="in" result="final-light"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="final-dark"/><feMergeNode in="final-light"/></feMerge></filter><filter id="grom_true-inset-shadow-matched-active"><feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur-dark-a"/><feOffset in="blur-dark-a" dx="6" dy="6" result="offset-dark-a"/><feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur-light-a"/><feOffset in="blur-light-a" dx="-6" dy="-6" result="offset-light-a"/><feComposite in="offset-dark-a" in2="SourceAlpha" operator="in" result="inset-dark-shape-a"/><feComposite in="offset-light-a" in2="SourceAlpha" operator="in" result="inset-light-shape-a"/><feFlood flood-color="#000" flood-opacity="0.9" result="dark-color-a"/><feComposite in="dark-color-a" in2="inset-dark-shape-a" operator="in" result="final-dark-a"/><feFlood flood-color="#FFF" flood-opacity="0.15" result="light-color-a"/><feComposite in="light-color-a" in2="inset-light-shape-a" operator="in" result="final-light-a"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="final-dark-a"/><feMergeNode in="final-light-a"/></feMerge></filter></defs>
+                    <g class="grommet-graphic-default" filter="url(#grom_true-inset-shadow-matched)"><rect width="210" height="210" mask="url(#grom_grommetMask)" fill="url(#grom_baseGradient)"/><rect width="210" height="210" mask="url(#grom_grommetMask)" fill="url(#grom_glossGradient)"/></g>
+                    <g class="grommet-graphic-active" filter="url(#grom_true-inset-shadow-matched-active)"><rect width="210" height="210" mask="url(#grom_grommetMask)" fill="url(#grom_baseGradientActive)"/><rect width="210" height="210" mask="url(#grom_grommetMask)" fill="url(#grom_glossGradientActive)"/></g>
+                    </svg>
+                    <div class="dpad"><svg class="dpad-svg" viewBox="0 0 180 180"><defs><path id="dpad_dpadGraphicPath" d="M 60 12 C 60 6, 66 0, 72 0 L 108 0 C 114 0, 120 6, 120 12 L 120 60 L 168 60 C 174 60, 180 66, 180 72 L 180 108 C 180 114, 174 120, 168 120 L 120 120 L 120 168 C 120 174, 114 180, 108 180 L 72 180 C 66 180, 60 174, 60 168 L 60 120 L 12 120 C 6 120, 0 114, 0 108 L 0 72 C 0 66, 6 60, 12 60 L 60 60 Z" /><path id="dpad_arrowShape" d="M -10 10 L 10 10 L 0 -10 Z" /><filter id="dpad_softBlur"><feGaussianBlur stdDeviation="3" /></filter><linearGradient id="dpad_plasticGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFEB3B;" /><stop offset="100%" style="stop-color:#F9A825;" /></linearGradient><radialGradient id="dpad_glossGradientDpad" cx="25%" cy="25%" r="70%"><stop offset="0%" style="stop-color:white; stop-opacity:0.6;" /><stop offset="100%" style="stop-color:white; stop-opacity:0;" /></radialGradient><linearGradient id="dpad_dpadBevelShadow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.15)" /><stop offset="100%" stop-color="rgba(0,0,0,0.6)" /></linearGradient><mask id="dpad_dpadMask"><use href="#dpad_dpadGraphicPath" fill="white"/></mask></defs><g class="dpad-pivot-group"><use href="#dpad_dpadGraphicPath" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="10" filter="url(#dpad_softBlur)" /><g class="dpad-main-group"><use href="#dpad_dpadGraphicPath" fill="url(#dpad_plasticGradient)"/><use href="#dpad_dpadGraphicPath" fill="none" stroke="url(#dpad_dpadBevelShadow)" stroke-width="18" mask="url(#dpad_dpadMask)" style="filter: blur(6px)" /><use href="#dpad_dpadGraphicPath" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="4" mask="url(#dpad_dpadMask)" opacity="0.9" transform="translate(-0.8,-0.8)"/><use href="#dpad_dpadGraphicPath" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="4" mask="url(#dpad_dpadMask)" opacity="0.8" transform="translate(0.8,0.8)"/><use href="#dpad_dpadGraphicPath" fill="url(#dpad_glossGradientDpad)" opacity="0.7" mask="url(#dpad_dpadMask)"/></g><g class="arrows-group" mask="url(#dpad_dpadMask)"><g class="arrow-up" transform="translate(90 30)"><use class="arrow-fill" href="#dpad_arrowShape" fill="rgba(255,255,255,0.8)" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.75" transform="translate(0, -0.4)" /></g><g class="arrow-down" transform="translate(90 150) rotate(180)"><use class="arrow-fill" href="#dpad_arrowShape" fill="rgba(255,255,255,0.8)" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.75" transform="translate(0, -0.4)" /></g><g class="arrow-left" transform="translate(30 90) rotate(-90)"><use class="arrow-fill" href="#dpad_arrowShape" fill="rgba(255,255,255,0.8)" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.75" transform="translate(0, -0.4)" /></g><g class="arrow-right" transform="translate(150 90) rotate(90)"><use class="arrow-fill" href="#dpad_arrowShape" fill="rgba(255,255,255,0.8)" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(0,0,0,0.4)" stroke-width="1" /><use href="#dpad_arrowShape" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.75" transform="translate(0, -0.4)" /></g></g></g></svg><div class="dpad-triggers"><div class="trigger" id="trigger-up"></div><div class="trigger" id="trigger-left"></div><div class="trigger" id="trigger-right"></div><div class="trigger" id="trigger-down"></div></div></div>
+                </div>
+                <div id="btn-a-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-blue"><span>A</span></button></div></div>
+                <div id="btn-b-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-blue"><span>B</span></button></div></div>
+                <div id="btn-x-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-blue"><span>X</span></button></div></div>
+                <div id="btn-y-location" class="button-assembly face-button-location"><div class="grommet-css"><button class="game-button button-blue"><span>Y</span></button></div></div>
+        </div>
+    </div>
+    <div class="text-column">
+        <div>
+            <h2>Precision Control</h2>
+            <p>Every element is designed for interaction. As the controller comes into view, its full potential is unlocked, ready for input.</p>
+            <h2>Executing the Sequence</h2>
+            <p>Watch as a pre-programmed sequence activates, showcasing the device's responsiveness and lighting up each component in perfect sync.</p>
+            <h2>Signal Transmitted</h2>
+            <p>At the peak of the animation, a signal bursts forth, representing the successful transmission of a command—a perfect execution of player input.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- === WRENCH ANIMATION SECTION (Anim-Right, Text-Left) === -->
+<div class="feature-section wrench-section">
+    <div class="animation-column">
+        <div class="animation-container">
+            <!-- NOTE: You must provide the images for this to work -->
+            <img class="wrench-purple" src="wrench-purple.png" alt="Purple Wrench">
+            <img class="wrench-orange" src="wrench-orange.png" alt="Orange Wrench">
+            <div class="cog-backdrop"></div>
+            <img class="cog" src="cog.png" alt="Cog">
+            <img class="celebration-effects" src="celebration.png" alt="Celebration Effects">
+        </div>
+    </div>
+    <div class="text-column">
+        <div>
+            <h2>Built to Perfection</h2>
+            <p>As you scroll, watch as precision engineering comes to life. Every component is designed to work in perfect harmony.</p>
+            <h2>Igniting the Process</h2>
+            <p>Now, the gears begin to turn. This is where ideas meet action, symbolizing the dynamic process of building and creating.</p>
+            <h2>A Flawless Finish</h2>
+            <p>The final result is a celebration of craftsmanship, a system perfectly tuned and ready for any challenge.</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-spacer" style="height: 50vh;"></div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- SCOPE 1: BEAKER ANIMATION ---
+    function setupBeakerAnimation() {
+        const featureSection = document.querySelector('.beaker-section');
+        if (!featureSection) return;
+
+        const sceneContainer = featureSection.querySelector('.scene-container');
+        const displacementX = featureSection.querySelector('#displacementX');
+        const displacementY = featureSection.querySelector('#displacementY');
+        const liquidScaler = featureSection.querySelector('#liquid-scaler');
+        const wobblePath = featureSection.querySelector('#wobblePath');
+        const popEffectsContainer = featureSection.querySelector('#pop-effects-container');
+        const shockwavePool = featureSection.querySelectorAll('#shockwave-pool circle');
+        const particlePool = featureSection.querySelectorAll('#particle-pool g');
+        
+        const animationStartVh = 85; 
+        const animationEndVh = 20;   
+        const wobblePathLength = wobblePath.getTotalLength();
+        const Y_OFFSET = -150;
+        const HORIZONTAL_DRIFT_RANGE = 80;
+        const START_Y_RANGE = { min: 700, max: 780 };
+        const ANTICIPATION_DURATION = 50;
+        const SATURATION_START_PROGRESS = 0.1; 
+        let popAnimationTriggered = false;
+
+        const targetBubbles = [
+            { elId: 'bubble-1', customPathId: 'custom-path-bubble-1', endScale: 1.37, startProgress: 0.25, endProgress: 1.0 }, { elId: 'bubble-2', endPos: { x: 349.6,  y: 10.00  + Y_OFFSET }, controlPoint: { x: 330, y: 300 }, endScale: 1.10, startProgress: 0.30, endProgress: 1.0 }, { elId: 'bubble-3', endPos: { x: 280,  y: 50 + Y_OFFSET }, controlPoint1: { x: 180, y: 500 }, controlPoint2: { x: 380, y: 200 }, endScale: 1.00, startProgress: 0.35, endProgress: 1.0 }, { elId: 'bubble-4', endPos: { x: 378.29, y: 347.6  + Y_OFFSET }, endScale: 1.16, startProgress: 0.40, endProgress: 1.0 }, { elId: 'bubble-5', endPos: { x: 402.43, y: 477.15 + Y_OFFSET }, endScale: 0.95, startProgress: 0.45, endProgress: 1.0 }, { elId: 'bubble-6', endPos: { x: 265.98, y: 532.7  + Y_OFFSET }, endScale: 0.89, startProgress: 0.50, endProgress: 1.0 }, { elId: 'bubble-7', endPos: { x: 379.8,  y: 571.53 + Y_OFFSET }, endScale: 0.72, startProgress: 0.55, endProgress: 1.0 }, { elId: 'bubble-8', endPos: { x: 489.67, y: 663.93 + Y_OFFSET }, endScale: 0.64, startProgress: 0.60, endProgress: 1.0 },
+            { elId: 'bubble-9', endPos: { x: 393.89, y: 732.59 + Y_OFFSET }, endScale: 0.64, startProgress: 0.65, endProgress: 1.0 }, { elId: 'bubble-10', endPos: { x: 290.07, y: 785.19 + Y_OFFSET }, endScale: 0.49, startProgress: 0.70, endProgress: 1.0 }, { elId: 'bubble-11', endPos: { x: 182.44, y: 872.3  + Y_OFFSET }, endScale: 0.49, startProgress: 0.72, endProgress: 1.0 }, { elId: 'bubble-12', endPos: { x: 266.06, y: 922.35 + Y_OFFSET }, endScale: 0.29, startProgress: 0.75, endProgress: 1.0 }, { elId: 'bubble-13', endPos: { x: 474.95, y: 909.27 + Y_OFFSET }, endScale: 0.29, startProgress: 0.78, endProgress: 1.0 }, { elId: 'bubble-14', endPos: { x: 533.47, y: 849.04 + Y_OFFSET }, endScale: 0.44, startProgress: 0.80, endProgress: 1.0 },
+        ];
+        const allBubbleConfigs = targetBubbles.map(config => {
+            const el = featureSection.querySelector(`#${config.elId}`);
+            const newConfig = { ...config, el, startScale: 0.1, isPopping: false };
+            if (config.customPathId) {
+                const pathEl = featureSection.querySelector(`#${config.customPathId}`);
+                if (pathEl) { newConfig.customPath = pathEl; newConfig.customPathLength = pathEl.getTotalLength(); }
+            } else {
+                const startX = (config.endPos.x) + (Math.random() - 0.5) * HORIZONTAL_DRIFT_RANGE;
+                const startY = START_Y_RANGE.min + Math.random() * (START_Y_RANGE.max - START_Y_RANGE.min);
+                newConfig.startPos = { x: startX, y: startY };
+            }
+            return newConfig;
+        });
+        const popBubbles = allBubbleConfigs.filter(b => ['bubble-1', 'bubble-2', 'bubble-3'].includes(b.elId));
+
+        const lerp = (a, b, t) => a + (b - a) * t;
+        const getBubblePosition = (config, t) => {
+            const { startPos, controlPoint, controlPoint1, controlPoint2, endPos, customPath, customPathLength } = config;
+            if (customPath) { const point = customPath.getPointAtLength(t * customPathLength); return { x: point.x, y: point.y + Y_OFFSET }; }
+            const p0x = startPos.x, p0y = startPos.y, p3x = endPos.x, p3y = endPos.y;
+            if (controlPoint1 && controlPoint2) { return { x: (1-t)**3*p0x + 3*(1-t)**2*t*controlPoint1.x + 3*(1-t)*t**2*controlPoint2.x + t**3*p3x, y: (1-t)**3*p0y + 3*(1-t)**2*t*controlPoint1.y + 3*(1-t)*t**2*controlPoint2.y + t**3*p3y }; }
+            if (controlPoint) { const p1x = controlPoint.x, p1y = controlPoint.y; return { x: (1-t)**2*p0x + 2*(1-t)*t*p1x + t**2*p3x, y: (1-t)**2*p0y + 2*(1-t)*t*p1y + t**2*p3y }; }
+            const wobblePoint = wobblePath.getPointAtLength(t * wobblePathLength);
+            return { x: lerp(p0x, p3x, t) + wobblePoint.x, y: lerp(p0y, p3y, t) };
+        };
+        const triggerFinale = () => {
+            if (!popAnimationTriggered) { popAnimationTriggered = true; setTimeout(() => triggerPopAnimation(popBubbles[1]), 100); setTimeout(() => triggerPopAnimation(popBubbles[0]), 20); setTimeout(() => triggerPopAnimation(popBubbles[2]), 320); }
+        };
+        const triggerPopAnimation = (bubbleConfig) => {
+            const el = bubbleConfig.el; if (!el || bubbleConfig.isPopping) return; bubbleConfig.isPopping = true; const initialTransform = window.getComputedStyle(el).transform; if (initialTransform === 'none') return; const matrix = new DOMMatrix(initialTransform); const startThePop = () => { const popX = matrix.e, popY = matrix.f, preAnticipationScale = matrix.a, duration = 300, start = performance.now(); function animateBubble(timestamp) { const progress = Math.min((timestamp - start) / duration, 1); const startScale = preAnticipationScale * 0.9; el.style.transform = `translate(${popX}px, ${popY}px) scale(${lerp(startScale, preAnticipationScale * 1.5, progress)})`; el.style.opacity = 1 - progress; if (progress < 1) requestAnimationFrame(animateBubble); } requestAnimationFrame(animateBubble); animateShockwave(popX, popY, 25 * preAnticipationScale); animateParticles(popX, popY); }; animateAnticipation(el, matrix, startThePop);
+        };
+        let shockwaveIndex = 0;
+        const animateShockwave = (x, y, initialRadius) => {
+            const shockwave = shockwavePool[shockwaveIndex++ % shockwavePool.length]; popEffectsContainer.appendChild(shockwave); const duration = 500, start = performance.now(); function frame(timestamp) { const progress = Math.min((timestamp - start) / duration, 1), easedProgress = 1 - (1 - progress)**2; shockwave.setAttribute('cx', x); shockwave.setAttribute('cy', y); shockwave.setAttribute('r', lerp(initialRadius, initialRadius + 120, easedProgress)); shockwave.style.opacity = lerp(0.7, 0, progress); if (progress < 1) requestAnimationFrame(frame); } requestAnimationFrame(frame);
+        };
+        let particleIndex = 0;
+        const animateParticles = (x, y) => {
+            const particleCount = 20; for (let i = 0; i < particleCount; i++) { const particle = particlePool[particleIndex++ % particlePool.length]; popEffectsContainer.appendChild(particle); const angle = Math.random() * Math.PI * 2, distance = lerp(20, 80, Math.random()), duration = lerp(400, 800, Math.random()), start = performance.now(); function frame(timestamp) { const progress = Math.min((timestamp - start) / duration, 1), easedProgress = Math.sin(progress * Math.PI / 2); const currentX = x + Math.cos(angle) * distance * easedProgress, currentY = y + Math.sin(angle) * distance * easedProgress; particle.style.transform = `translate(${currentX}px, ${currentY}px)`; particle.style.opacity = 1 - progress; if (progress < 1) requestAnimationFrame(frame); } requestAnimationFrame(frame); }
+        };
+        const animateAnticipation = (el, initialMatrix, onComplete) => {
+            const start = performance.now(), initialScale = initialMatrix.a, targetScale = initialScale * 0.9, popX = initialMatrix.e, popY = initialMatrix.f; function frame(timestamp) { const progress = Math.min((timestamp - start) / ANTICIPATION_DURATION, 1); el.style.transform = `translate(${popX}px, ${popY}px) scale(${lerp(initialScale, targetScale, progress)})`; if (progress < 1) { requestAnimationFrame(frame); } else { onComplete(); } } requestAnimationFrame(frame);
+        };
+        
+        const updateBeakerAnimation = () => {
+            const rect = featureSection.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const startPosition = vh * (animationStartVh / 100);
+            const endPosition = vh * (animationEndVh / 100);
+            const animationRange = startPosition - endPosition;
+            const distanceTraveled = startPosition - rect.top;
+            const mainProgress = Math.max(0, Math.min(1, distanceTraveled / animationRange));
+            
+            const saturationProgress = Math.max(0, (mainProgress - SATURATION_START_PROGRESS) / (1 - SATURATION_START_PROGRESS));
+            sceneContainer.style.filter = `url(#underglow) saturate(${saturationProgress})`;
+            liquidScaler.setAttribute('transform', `scale(${lerp(0.9, 1, mainProgress)})`);
+            
+            const blobAmplitude = Math.sin((mainProgress ** 3) * Math.PI);
+            displacementX.setAttribute('scale', Math.sin(mainProgress * 4 * Math.PI) * 50 * blobAmplitude);
+            displacementY.setAttribute('scale', Math.sin(mainProgress * 3 * Math.PI) * 50 * blobAmplitude);
+            
+            allBubbleConfigs.forEach(config => {
+                if (!config.el || config.isPopping) return;
+                const progressInSegment = (mainProgress - config.startProgress) / (config.endProgress - config.startProgress);
+                const clampedSegmentProgress = Math.max(0, Math.min(1, progressInSegment));
+                if (clampedSegmentProgress > 0) { const { x, y } = getBubblePosition(config, clampedSegmentProgress); const currentBubbleScale = lerp(config.startScale, config.endScale, clampedSegmentProgress); config.el.style.transform = `translate(${x}px, ${y}px) scale(${currentBubbleScale})`; config.el.style.opacity = 1; } else { config.el.style.opacity = 0; }
+            });
+            
+            if (mainProgress >= 1.0 && !popAnimationTriggered) { triggerFinale(); } 
+            else if (mainProgress < 0.95 && popAnimationTriggered) { popAnimationTriggered = false; popBubbles.forEach(b => b.isPopping = false); }
+        };
+        
+        window.addEventListener('scroll', updateBeakerAnimation, { passive: true });
+        updateBeakerAnimation();
+    }
+
+
+    // --- SCOPE 2: CONTROLLER ANIMATION ---
+    function setupControllerAnimation() {
+        const controllerContainer = document.querySelector('.controller-container');
+        if (!controllerContainer) return;
+
+        const joystickDragState = { 'l-joystick-assembly': false, 'r-joystick-assembly': false };
+        function initializeJoystick(containerId) {
+            const joystickContainer = document.getElementById(containerId); if (!joystickContainer) return;
+            const joystickStick = joystickContainer.querySelector('.joystick-stick');
+            const joystickBase = joystickContainer.querySelector('.joystick-base');
+            const joystickAxis = joystickContainer.querySelector('.joystick-axis');
+            if (!joystickStick || !joystickBase || !joystickAxis) return;
+            let isDragging = false;
+            const startDrag = e => {
+                joystickDragState[containerId] = true; isDragging = true;
+                joystickStick.classList.remove('return-to-center');
+                joystickAxis.classList.add('is-visible');
+                document.addEventListener('mousemove', onDrag);
+                document.addEventListener('touchmove', onDrag, { passive: false });
+                document.addEventListener('mouseup', endDrag);
+                document.addEventListener('touchend', endDrag);
+                e.preventDefault(); e.stopPropagation();
+            };
+            const onDrag = e => {
+                if (!isDragging) return; e.preventDefault(); const t = e.touches ? e.touches[0] : e, o = joystickBase.getBoundingClientRect(), s = o.left + o.width / 2, c = o.top + o.height / 2, a = o.width / 2, i = 28, n = 8; let r = t.clientX - s, l = t.clientY - c; const d = Math.sqrt(r * r + l * l); if (d > a) { r = r / d * a; l = l / d * a; } const g = i * (-l / a), k = i * (r / a), p = n * (r / a), _ = n * (l / a); joystickStick.style.setProperty('--rotateX', `${g}deg`); joystickStick.style.setProperty('--rotateY', `${k}deg`); joystickStick.style.setProperty('--translateX', `${p}px`); joystickStick.style.setProperty('--translateY', `${_}px`); const m = 35 + k / i * 20, y = 35 - g / i * 20; joystickAxis.style.setProperty('--axis-light-x', `${m}%`); joystickAxis.style.setProperty('--axis-light-y', `${y}%`); const v = 4 + k / i * 4, u = 4 - g / i * 4; joystickBase.style.setProperty('--grommet-shadow-x', `${v}px`); joystickBase.style.setProperty('--grommet-shadow-y', `${u}px`);
+            };
+            const endDrag = () => {
+                joystickDragState[containerId] = false; if (!isDragging) return; isDragging = false;
+                document.removeEventListener('mousemove', onDrag); document.removeEventListener('touchmove', onDrag);
+                document.removeEventListener('mouseup', endDrag); document.removeEventListener('touchend', endDrag);
+                joystickStick.classList.add('return-to-center');
+                joystickAxis.classList.remove('is-visible');
+                joystickStick.style.setProperty('--rotateX', '0deg'); joystickStick.style.setProperty('--rotateY', '0deg');
+                joystickStick.style.setProperty('--translateX', '0px');
+                joystickStick.style.setProperty('--translateY', '0px');
+                joystickAxis.style.setProperty('--axis-light-x', '35%');
+                joystickAxis.style.setProperty('--axis-light-y', '35%');
+                joystickBase.style.setProperty('--grommet-shadow-x', '4px');
+                joystickBase.style.setProperty('--grommet-shadow-y', '4px');
+            };
+            joystickStick.addEventListener('mousedown', startDrag);
+            joystickStick.addEventListener('touchstart', startDrag, { passive: false });
+        }
+        function setupBumper(triggerId, visualId) {
+            const trigger = document.getElementById(triggerId), visualBumper = document.getElementById(visualId);
+            if (!trigger || !visualBumper) return;
+            const pressBumper = e => { visualBumper.classList.add('is-pressed'); e.preventDefault(); };
+            const releaseBumper = () => { visualBumper.classList.remove('is-pressed'); };
+            trigger.addEventListener('mousedown', pressBumper);
+            trigger.addEventListener('mouseup', releaseBumper);
+            trigger.addEventListener('mouseleave', releaseBumper);
+            trigger.addEventListener('touchstart', pressBumper, { passive: false });
+            trigger.addEventListener('touchend', releaseBumper);
+        }
+        const dpadLocation = document.getElementById('dpad-location');
+        const defaultGrommet = dpadLocation?.querySelector('.grommet-graphic-default');
+        const activeGrommet = dpadLocation?.querySelector('.grommet-graphic-active');
+        const pressDpadGrommet = () => {
+            if (activeGrommet) activeGrommet.style.display = 'block';
+            if (defaultGrommet) defaultGrommet.style.display = 'none';
+        };
+        const releaseDpadGrommet = () => {
+            if (activeGrommet) activeGrommet.style.display = 'none';
+            if (defaultGrommet) defaultGrommet.style.display = 'block';
+        };
+        function setupDpadGrommetManualTriggers() {
+            const triggers = dpadLocation?.querySelectorAll('.trigger');
+            if (!triggers) return;
+            triggers.forEach(trigger => {
+                trigger.addEventListener('mousedown', pressDpadGrommet);
+                trigger.addEventListener('mouseup', releaseDpadGrommet);
+                trigger.addEventListener('mouseleave', releaseDpadGrommet);
+                trigger.addEventListener('touchstart', (e) => { e.preventDefault(); pressDpadGrommet(); }, { passive: false });
+                trigger.addEventListener('touchend', (e) => { e.preventDefault(); releaseDpadGrommet(); });
+            });
+        }
+        const beams = document.getElementById('transmission-beams');
+        const elements = {
+            'btn-start':  { press: document.querySelector('#btn-start-location'), light: document.querySelector('#btn-start-location .start-select-button') },
+            'btn-select': { press: document.querySelector('#btn-select-location'), light: document.querySelector('#btn-select-location .start-select-button') },
+            'btn-a':      { press: document.querySelector('#btn-a-location .game-button'), light: document.querySelector('#btn-a-location span') },
+            'btn-b':      { press: document.querySelector('#btn-b-location .game-button'), light: document.querySelector('#btn-b-location span') },
+            'btn-x':      { press: document.querySelector('#btn-x-location .game-button'), light: document.querySelector('#btn-x-location span') },
+            'btn-y':      { press: document.querySelector('#btn-y-location .game-button'), light: document.querySelector('#btn-y-location span') },
+            'l-bumper':   { press: document.getElementById('l-bumper'), light: null },
+            'r-bumper':   { press: document.getElementById('r-bumper'), light: null },
+            'dpad':       document.getElementById('dpad-location'),
+            'l-stick':    { stick: document.getElementById('l-joystick-assembly')?.querySelector('.joystick-stick'), axis: document.getElementById('l-joystick-assembly')?.querySelector('.joystick-axis'), id: 'l-joystick-assembly' },
+            'r-stick':    { stick: document.getElementById('r-joystick-assembly')?.querySelector('.joystick-stick'), axis: document.getElementById('r-joystick-assembly')?.querySelector('.joystick-axis'), id: 'r-joystick-assembly' },
+            'lights-all': document.querySelectorAll('.game-button span, .arrow-fill, #btn-select-location .start-select-button, #btn-start-location .start-select-button'),
+        };
+        const animationTimeline = [
+            { type: 'dpad', dir: 'up',    start: 0.05, end: 0.10 }, { type: 'press', el: elements['btn-y'], start: 0.10, end: 0.15 },
+            { type: 'dpad', dir: 'right', start: 0.15, end: 0.20 }, { type: 'press', el: elements['btn-x'], start: 0.20, end: 0.25 },
+            { type: 'dpad', dir: 'down',  start: 0.25, end: 0.30 }, { type: 'press', el: elements['btn-b'], start: 0.30, end: 0.35 },
+            { type: 'dpad', dir: 'left',  start: 0.35, end: 0.40 }, { type: 'press', el: elements['btn-a'], start: 0.40, end: 0.45 },
+            { type: 'joystick', el: elements['l-stick'], start: 0.45, end: 0.65 }, { type: 'joystick', el: elements['r-stick'], start: 0.50, end: 0.70 },
+            { type: 'press', el: elements['l-bumper'],   start: 0.70, end: 0.78 }, { type: 'press', el: elements['r-bumper'],   start: 0.70, end: 0.78 },
+            { type: 'press', el: elements['btn-select'], start: 0.74, end: 0.78 }, { type: 'press', el: elements['btn-start'],  start: 0.79, end: 0.83 },
+        ];
+        let dpadPressedByAnimation = false;
+        let beamState = 'hidden';
+        function handleControllerScroll() {
+            const rect = controllerContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const startPoint = viewportHeight * 0.85;
+            const endPoint = viewportHeight * 0.15;
+            const travelDistance = startPoint - endPoint;
+            const progress = Math.max(0, Math.min(1, (startPoint - rect.top) / travelDistance));
+            controllerContainer.style.filter = `grayscale(${1 - progress})`;
+            let isAnyDpadActionActive = false;
+            animationTimeline.forEach(action => {
+                const isActive = progress >= action.start && progress < action.end;
+                if (action.type === 'press') {
+                    if (!action.el.press) return;
+                    action.el.press.classList.toggle('is-pressed', isActive);
+                    if (action.el.light) action.el.light.classList.toggle('is-lit', isActive);
+                    const grommet = action.el.press.closest('.grommet-css, .start-select-assembly');
+                    if (grommet) grommet.classList.toggle('is-pressed', isActive);
+                } else if (action.type === 'dpad') {
+                    elements['dpad'].classList.toggle(`is-pressed-${action.dir}`, isActive);
+                    if (isActive) isAnyDpadActionActive = true;
+                }
+            });
+            if (isAnyDpadActionActive && !dpadPressedByAnimation) { pressDpadGrommet(); dpadPressedByAnimation = true;
+            } else if (!isAnyDpadActionActive && dpadPressedByAnimation) { releaseDpadGrommet(); dpadPressedByAnimation = false; }
+            ['l-stick', 'r-stick'].forEach(stickId => {
+                const stick = elements[stickId];
+                if (!stick || !stick.stick || joystickDragState[stick.id]) return;
+                const activeAction = animationTimeline.find(a => a.type === 'joystick' && a.el.id === stick.id && progress >= a.start && progress < a.end);
+                if (activeAction) {
+                    stick.axis?.classList.add('is-visible');
+                    const p = (progress - activeAction.start) / (activeAction.end - activeAction.start);
+                    const angle = p * 2 * Math.PI, x = Math.cos(angle), y = Math.sin(angle), maxR = 28;
+                    stick.stick.style.setProperty('--rotateX', `${maxR * y * -1}deg`);
+                    stick.stick.style.setProperty('--rotateY', `${maxR * x}deg`);
+                    stick.stick.style.setProperty('--translateX', `${8 * x}px`);
+                    stick.stick.style.setProperty('--translateY', `${8 * y}px`);
+                } else {
+                    stick.axis?.classList.remove('is-visible');
+                    stick.stick.style.setProperty('--rotateX', '0deg');
+                    stick.stick.style.setProperty('--rotateY', '0deg');
+                    stick.stick.style.setProperty('--translateX', '0px');
+                    stick.stick.style.setProperty('--translateY', '0px');
+                }
+            });
+            const shouldBeamsBeVisible = progress >= 0.70;
+            if (shouldBeamsBeVisible && beamState !== 'visible') {
+                beamState = 'entering';
+                beams.classList.remove('animate-out-simple');
+                beams.classList.add('animate-in');
+                setTimeout(() => {
+                    if (beamState !== 'entering') return;
+                    beams.classList.remove('animate-in');
+                    beams.classList.add('animate-out-phase1');
+                    setTimeout(() => {
+                        if (beamState !== 'entering') return;
+                        beams.classList.remove('animate-out-phase1');
+                        beams.classList.add('animate-out-phase2');
+                        setTimeout(() => { if (beamState === 'entering') { beamState = 'visible'; } }, 700);
+                    }, 700);
+                }, 700);
+            } else if (!shouldBeamsBeVisible && beamState === 'visible') {
+                beamState = 'hidden';
+                beams.classList.remove('animate-in', 'animate-out-phase1', 'animate-out-phase2');
+                beams.classList.add('animate-out-simple');
+            }
+        }
+        window.addEventListener('scroll', handleControllerScroll, { passive: true });
+        
+        setTimeout(() => {
+            handleControllerScroll();
+            initializeJoystick('l-joystick-assembly');
+            initializeJoystick('r-joystick-assembly');
+            setupBumper('l-bumper-trigger', 'l-bumper');
+            setupBumper('r-bumper-trigger', 'r-bumper');
+            setupDpadGrommetManualTriggers();
+        }, 100);
+    }
+
+    // --- SCOPE 3: WRENCH ANIMATION ---
+    function setupWrenchAnimation() {
+        const featureSection = document.querySelector('.wrench-section');
+        if (!featureSection) return;
+
+        const container = featureSection.querySelector('.animation-container');
+        const cog = featureSection.querySelector('.cog');
+        const celebration = featureSection.querySelector('.celebration-effects');
+
+        const animationStartVh = 80;
+        const animationEndVh = 20;
+
+        const updateWrenchAnimation = () => {
+            const rect = featureSection.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const startPosition = vh * (animationStartVh / 100);
+            const endPosition = vh * (animationEndVh / 100);
+            const animationRange = startPosition - endPosition;
+            const distanceTraveled = startPosition - rect.top;
+
+            let progress = 0;
+            if (animationRange > 0) { progress = distanceTraveled / animationRange; }
+            
+            const clampedProgress = Math.min(1, Math.max(0, progress));
+            const cogRotation = clampedProgress * 720;
+            cog.style.transform = `translate(-50%, -50%) rotate(${cogRotation}deg)`;
+            const containerGrayscale = 100 - (clampedProgress * 100);
+            const containerOpacity = 0.7 + (clampedProgress * 0.3);
+            container.style.filter = `grayscale(${containerGrayscale}%) opacity(${containerOpacity})`;
+
+            if (clampedProgress < 1) {
+                celebration.classList.remove('fade-out');
+                const celebrationScale = 0.5 + (clampedProgress * 0.5);
+                const celebrationOpacity = clampedProgress;
+                celebration.style.transform = `translate(-50%, -50%) scale(${celebrationScale})`;
+                celebration.style.opacity = celebrationOpacity;
+            } else {
+                celebration.classList.add('fade-out');
+            }
+        };
+
+        window.addEventListener('scroll', updateWrenchAnimation, { passive: true });
+        updateWrenchAnimation();
+    }
+    
+    // --- INITIALIZE ALL ANIMATIONS ---
+    setupBeakerAnimation();
+    setupControllerAnimation();
+    setupWrenchAnimation();
+});
+</script>
+</body>
+</html>
