@@ -387,7 +387,7 @@ function TecView({ t, tf, setTf }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w, color) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : (color || t.textGhost), borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 7, cursor: "pointer", width: w, letterSpacing: 0.3 }}>{label}{sortBy === col ? (asc ? "↑" : "↓") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : (color || t.textGhost), borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 7, cursor: "pointer", width: w, letterSpacing: 0.3 }}>{label}{sortBy === col ? (asc ? "↑" : "↓") : ""}</div>
   );
   
   // Column definitions per timeframe
@@ -491,7 +491,7 @@ function FunView({ t }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(col === 'fr'); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
   );
   const fmt = (v) => v != null ? v : "—";
   return (
@@ -740,7 +740,7 @@ function SignalsTecView({ t, tf }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
   );
   return (
     <ScrollArea style={{ padding: "6px 8px" }}>
@@ -778,7 +778,7 @@ function SignalsFunView({ t }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
   );
   return (
     <ScrollArea style={{ padding: "6px 8px" }}>
@@ -879,7 +879,7 @@ function SignalsEvtView({ t, tf }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? "\u2191" : "\u2193") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? "\u2191" : "\u2193") : ""}</div>
   );
   return (
     <ScrollArea style={{ padding: "6px 8px" }}>
@@ -926,7 +926,7 @@ function SignalsPatView({ t, tf }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? "\u2191" : "\u2193") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? "\u2191" : "\u2193") : ""}</div>
   );
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
@@ -1055,7 +1055,7 @@ function PipelineScreen({ t, tf, setTf }) {
   });
   const doSort = (col) => { if (sortBy === col) setAsc(!asc); else { setSortBy(col); setAsc(false); }};
   const hdr = (label, col, w) => (
-    <div onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
+    <div key={col} onClick={() => doSort(col)} style={{ padding: "4px 0", color: sortBy === col ? "#22c55e" : t.textGhost, borderBottom: `1px solid ${t.border}`, fontWeight: 600, fontSize: 8, cursor: "pointer", width: w }}>{label}{sortBy === col ? (asc ? " ↑" : " ↓") : ""}</div>
   );
 
 
