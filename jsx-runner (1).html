@@ -133,6 +133,8 @@
 
     #app-root { padding-top: 38px; min-height: 100vh; }
     #app-root.with-console { padding-bottom: 200px; }
+    body.console-hidden #console-panel { display: none !important; }
+    body.console-hidden #app-root { padding-bottom: 0 !important; }
     body.light-mode #app-root { background: #fff; color: #000; }
     body.light-mode { background: #fff; }
   </style>
@@ -169,7 +171,7 @@
 
   <div id="app-root"></div>
 
-  <div id="console-panel" class="console-panel" style="display:none">
+  <div id="console-panel" class="console-panel">
     <div class="console-header">
       <span>Console</span>
       <span class="badge" id="error-count" style="display:none">0</span>
@@ -477,7 +479,10 @@
 
     var lastFileContent = null;
     var lastFileName = null;
-    var consoleVisible = false;
+    // Persist user's hide choice across reloads so incoming logs/errors
+    // can't resurrect the console panel.
+    var consoleVisible = sessionStorage.getItem('jsxRunnerConsoleVisible') === '1';
+    if (!consoleVisible) document.body.classList.add('console-hidden');
 
     // Events
     document.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('dragover'); });
@@ -509,9 +514,10 @@
 
     function toggleConsole() {
       consoleVisible = !consoleVisible;
-      consolePanel.style.display = consoleVisible ? 'flex' : 'none';
+      document.body.classList.toggle('console-hidden', !consoleVisible);
       appRoot.classList.toggle('with-console', consoleVisible);
       document.getElementById('btn-console').classList.toggle('active', consoleVisible);
+      sessionStorage.setItem('jsxRunnerConsoleVisible', consoleVisible ? '1' : '0');
     }
 
 
