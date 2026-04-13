@@ -176,6 +176,7 @@
       <span class="badge warn" id="warn-count" style="display:none">0</span>
       <div style="flex:1"></div>
       <button onclick="clearConsole()" style="background:none;border:none;color:#666;cursor:pointer;font-size:11px">Clear</button>
+      <button onclick="toggleConsole()" title="Hide console" style="background:none;border:none;color:#666;cursor:pointer;font-size:14px;padding:0 4px;margin-left:4px">&#x2715;</button>
     </div>
     <div class="console-body" id="console-body"></div>
   </div>
@@ -453,8 +454,6 @@
       var warnBadge = document.getElementById('warn-count');
       if (errBadge) { errBadge.textContent = errorCount; errBadge.style.display = errorCount ? '' : 'none'; }
       if (warnBadge) { warnBadge.textContent = warnCount; warnBadge.style.display = warnCount ? '' : 'none'; }
-
-      if (errorCount > 0 && !consoleVisible) toggleConsole();
     }
 
     function clearConsole() {
