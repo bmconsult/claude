@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSX Runner</title>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  CORE                                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  REQUIRED PEER DEPS (must load before libs) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://unpkg.com/prop-types@15/prop-types.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  CHARTING & DATA VIZ                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  3D & AUDIO                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  UTILITIES                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@13.0.3/lib/browser/math.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  ICONS (after React so forwardRef exists)   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script>
+    // Ensure React is on window before lucide-react loads
+    window.React = window.React || {};
+  </script>
+  <script src="https://unpkg.com/lucide-react@0.383.0/dist/umd/lucide-react.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; }
+
+    .drop-zone {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: #0a0a0a; color: #666;
+      transition: all 0.2s; cursor: pointer; user-select: none;
+    }
+    .drop-zone.dragover {
+      background: #0d1117; color: #fff;
+      outline: 2px dashed #3b82f6; outline-offset: -24px;
+    }
+    .drop-zone * { pointer-events: none; }
+    .drop-zone h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #ccc; }
+    .drop-zone p { font-size: 0.95rem; color: #555; margin-bottom: 1.5rem; }
+    .drop-zone .libs {
+      display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+      max-width: 520px; font-size: 11px;
+    }
+    .drop-zone .libs span {
+      background: #161616; border: 1px solid #222; padding: 3px 8px;
+      border-radius: 4px; color: #555;
+    }
+
+    .toolbar {
+      position: fixed; top: 0; left: 0; right: 0; height: 38px;
+      background: #111; border-bottom: 1px solid #222;
+      display: flex; align-items: center; padding: 0 12px;
+      font-size: 13px; color: #888; z-index: 99999; gap: 8px;
+    }
+    .toolbar .filename { color: #3b82f6; font-weight: 600; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .toolbar .status { font-size: 12px; }
+    .toolbar .spacer { flex: 1; }
+    .toolbar button {
+      background: #1a1a1a; border: 1px solid #2a2a2a; color: #999;
+      padding: 3px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; white-space: nowrap;
+    }
+    .toolbar button:hover { background: #252525; color: #fff; }
+    .toolbar button.active { background: #1e3a5f; border-color: #3b82f6; color: #7db8ff; }
+    .toolbar .separator { width: 1px; height: 18px; background: #2a2a2a; }
+
+    .theme-toggle {
+      display: flex; border: 1px solid #2a2a2a; border-radius: 4px; overflow: hidden;
+    }
+    .theme-toggle button { border: none; border-radius: 0; padding: 3px 8px; font-size: 11px; }
+    .theme-toggle button.active { background: #3b82f6; color: #fff; }
+
+    .console-panel {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      height: 200px; background: #0d0d0d; border-top: 1px solid #222;
+      z-index: 99998; display: flex; flex-direction: column;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+    }
+    .console-header {
+      display: flex; align-items: center; padding: 4px 12px;
+      background: #111; border-bottom: 1px solid #1a1a1a;
+      font-size: 12px; color: #888; gap: 12px;
+    }
+    .console-header .badge {
+      background: #ff4444; color: #fff; font-size: 10px;
+      padding: 1px 6px; border-radius: 8px; font-weight: 600;
+    }
+    .console-header .badge.warn { background: #cc8800; }
+    .console-body { flex: 1; overflow-y: auto; padding: 8px 12px; font-size: 12px; }
+    .console-line { padding: 2px 0; border-bottom: 1px solid #111; display: flex; gap: 8px; }
+    .console-line .prefix { color: #555; min-width: 50px; flex-shrink: 0; }
+    .console-line.log .content { color: #ccc; }
+    .console-line.warn .content { color: #ffaa00; }
+    .console-line.error .content { color: #ff6b6b; }
+    .console-line.info .content { color: #66aaff; }
+    .console-line .content { white-space: pre-wrap; word-break: break-word; }
+
+    .error-display {
+      background: #1a0000; color: #ff6b6b; padding: 24px;
+      margin: 48px 24px 24px; border-radius: 8px;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 14px; white-space: pre-wrap; border: 1px solid #330000;
+    }
+
+    #app-root { padding-top: 38px; min-height: 100vh; }
+    #app-root.with-console { padding-bottom: 200px; }
+    body.light-mode #app-root { background: #fff; color: #000; }
+    body.light-mode { background: #fff; }
+  </style>
+</head>
+<body>
+
+  <div id="drop-zone" class="drop-zone">
+    <h1>⚡ JSX Runner</h1>
+    <p>Drop a .jsx file — or click to browse</p>
+    <input type="file" id="file-input" accept=".jsx,.tsx,.js" style="display:none" />
+    <div class="libs">
+      <span>React 18</span><span>Tailwind</span><span>Recharts</span>
+      <span>Chart.js</span><span>Plotly</span><span>D3</span>
+      <span>Three.js</span><span>Tone.js</span><span>Lodash</span>
+      <span>MathJS</span><span>PapaParse</span><span>SheetJS</span>
+      <span>Mammoth</span><span>Lucide Icons</span>
+    </div>
+  </div>
+
+  <div id="toolbar" class="toolbar" style="display:none">
+    <span class="filename" id="loaded-filename"></span>
+    <span class="status" id="status-text"></span>
+    <div class="spacer"></div>
+    <div class="theme-toggle">
+      <button id="btn-dark" class="active" title="Dark">&#x25CF;</button>
+      <button id="btn-light" title="Light">&#x25CB;</button>
+    </div>
+    <div class="separator"></div>
+    <button id="btn-console">Console</button>
+    <button id="btn-reload">&#x21BB; Reload</button>
+    <button id="btn-redrop">&#x1F4C2; New</button>
+    <button id="btn-reset">&#x2715;</button>
+  </div>
+
+  <div id="app-root"></div>
+
+  <div id="console-panel" class="console-panel" style="display:none">
+    <div class="console-header">
+      <span>Console</span>
+      <span class="badge" id="error-count" style="display:none">0</span>
+      <span class="badge warn" id="warn-count" style="display:none">0</span>
+      <div style="flex:1"></div>
+      <button onclick="clearConsole()" style="background:none;border:none;color:#666;cursor:pointer;font-size:11px">Clear</button>
+    </div>
+    <div class="console-body" id="console-body"></div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════
+    //  IMPORT RESOLUTION MAP
+    // ═══════════════════════════════════════════════
+
+    function namedFromGlobal(obj) {
+      if (!obj) return {};
+      var result = {};
+      for (var k in obj) { if (obj.hasOwnProperty(k)) result[k] = true; }
+      return result;
+    }
+
+    var IMPORT_MAP = {
+      'react': {
+        global: 'React',
+        named: function() {
+          return {
+            useState: true, useEffect: true, useRef: true, useMemo: true,
+            useCallback: true, useReducer: true, useContext: true, createContext: true,
+            forwardRef: true, memo: true, lazy: true, Suspense: true,
+            Fragment: true, Children: true, cloneElement: true, createElement: true,
+            isValidElement: true, useId: true, useTransition: true, useDeferredValue: true,
+            useImperativeHandle: true, useLayoutEffect: true, useDebugValue: true,
+            useSyncExternalStore: true, startTransition: true,
+            Component: true, PureComponent: true, StrictMode: true
+          };
+        }
+      },
+      'react-dom': { global: 'ReactDOM' },
+      'react-dom/client': { global: 'ReactDOM' },
+      'prop-types': { global: 'PropTypes' },
+
+      'recharts': { global: 'Recharts', named: function() { return namedFromGlobal(window.Recharts); } },
+      'chart.js': { global: 'Chart', named: function() { return namedFromGlobal(window.Chart); } },
+      'chart.js/auto': { global: 'Chart' },
+      'plotly': { global: 'Plotly' },
+      'plotly.js': { global: 'Plotly' },
+      'plotly.js-dist': { global: 'Plotly' },
+      'd3': { global: 'd3', named: function() { return namedFromGlobal(window.d3); } },
+
+      'three': { global: 'THREE', named: function() { return namedFromGlobal(window.THREE); } },
+      'tone': { global: 'Tone', named: function() { return namedFromGlobal(window.Tone); } },
+
+      'lodash': { global: '_' },
+      'lodash-es': { global: '_' },
+      'mathjs': { global: 'math', named: function() { return namedFromGlobal(window.math); } },
+      'papaparse': { global: 'Papa' },
+      'xlsx': { global: 'XLSX', named: function() { return namedFromGlobal(window.XLSX); } },
+      'mammoth': { global: 'mammoth' },
+
+      'lucide-react': { global: 'lucideReact', named: function() { return namedFromGlobal(window.lucideReact || window.LucideReact); } },
+    };
+
+    ['scale','shape','array','axis','brush','chord','color','contour','delaunay',
+     'dispatch','drag','dsv','ease','fetch','force','format','geo','hierarchy',
+     'interpolate','path','polygon','quadtree','random','selection','time',
+     'timer','transition','zoom'
+    ].forEach(function(mod) {
+      IMPORT_MAP['d3-' + mod] = { global: 'd3', named: function() { return namedFromGlobal(window.d3); } };
+    });
+
+
+    // ═══════════════════════════════════════════════
+    //  IMPORT TRANSFORMER
+    // ═══════════════════════════════════════════════
+
+    function transformImports(code) {
+      var lines = code.split('\n');
+      var output = [];
+      var warnings = [];
+
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        var trimmed = line.trim();
+
+        // Side-effect imports
+        if (/^import\s+['"]/.test(trimmed)) {
+          output.push('// [stripped] ' + trimmed);
+          continue;
+        }
+
+        // Standard imports
+        var importMatch = trimmed.match(
+          /^import\s+([\s\S]+?)\s+from\s+['"]([^'"]+)['"]\s*;?\s*$/
+        );
+
+        if (importMatch) {
+          var specPart = importMatch[1];
+          var moduleName = importMatch[2];
+
+          if (moduleName.charAt(0) === '.' || moduleName.charAt(0) === '/') {
+            output.push('// [stripped relative] ' + trimmed);
+            warnings.push('Stripped relative import: ' + moduleName);
+            continue;
+          }
+
+          if (/\.css$/.test(moduleName)) {
+            output.push('// [stripped css] ' + trimmed);
+            continue;
+          }
+
+          var mapping = IMPORT_MAP[moduleName];
+          if (!mapping) {
+            var parentPkg = moduleName.split('/')[0];
+            if (moduleName.charAt(0) === '@') parentPkg = moduleName.split('/').slice(0, 2).join('/');
+            mapping = IMPORT_MAP[parentPkg];
+          }
+
+          if (!mapping) {
+            output.push('// [UNKNOWN: ' + moduleName + '] ' + trimmed);
+            warnings.push('Unknown module: ' + moduleName);
+            continue;
+          }
+
+          var globalName = mapping.global;
+
+          // import * as X from 'mod'
+          var nsMatch = specPart.match(/^\*\s+as\s+(\w+)$/);
+          if (nsMatch) {
+            output.push('var ' + nsMatch[1] + ' = window["' + globalName + '"];');
+            continue;
+          }
+
+          var defaultName = null;
+          var namedStr = null;
+          var comboMatch = specPart.match(/^(\w+)\s*,\s*\{(.+)\}$/);
+          var namedOnly = specPart.match(/^\{(.+)\}$/);
+          var defaultOnly = specPart.match(/^(\w+)$/);
+
+          if (comboMatch) {
+            defaultName = comboMatch[1];
+            namedStr = comboMatch[2];
+          } else if (namedOnly) {
+            namedStr = namedOnly[1];
+          } else if (defaultOnly) {
+            defaultName = defaultOnly[1];
+          }
+
+          if (defaultName) {
+            output.push('var ' + defaultName + ' = window["' + globalName + '"];');
+          }
+
+          if (namedStr) {
+            var names = namedStr.split(',').map(function(s) { return s.trim(); }).filter(Boolean);
+            var destructured = names.map(function(n) {
+              var aliasMatch = n.match(/^(\w+)\s+as\s+(\w+)$/);
+              return aliasMatch ? (aliasMatch[1] + ': ' + aliasMatch[2]) : n;
+            }).join(', ');
+            output.push('var { ' + destructured + ' } = window["' + globalName + '"];');
+          }
+
+          continue;
+        }
+
+        // Exports
+        if (/^\s*export\s+default\s+/.test(trimmed)) {
+          output.push(line.replace(/export\s+default\s+/, ''));
+          continue;
+        }
+        if (/^\s*export\s+(const|let|var|function|class)\s+/.test(trimmed)) {
+          output.push(line.replace(/export\s+/, ''));
+          continue;
+        }
+        if (/^\s*export\s*\{/.test(trimmed)) {
+          output.push('// [stripped] ' + trimmed);
+          continue;
+        }
+
+        output.push(line);
+      }
+
+      for (var w = 0; w < warnings.length; w++) {
+        console.warn(warnings[w]);
+      }
+
+      return output.join('\n');
+    }
+
+
+    // ═══════════════════════════════════════════════
+    //  COMPONENT DETECTION
+    // ═══════════════════════════════════════════════
+
+    function detectComponentName(code) {
+      var skip = ['React','ReactDOM','Fragment','Component','PureComponent',
+                  'Suspense','StrictMode','Children','PropTypes'];
+      var fnRe = /function\s+([A-Z]\w*)\s*\(/g;
+      var constRe = /(?:const|let|var)\s+([A-Z]\w*)\s*=/g;
+      var fnMatches = [], constMatches = [], m;
+      while ((m = fnRe.exec(code)) !== null) fnMatches.push(m);
+      while ((m = constRe.exec(code)) !== null) constMatches.push(m);
+
+      var all = fnMatches.concat(constMatches)
+        .map(function(m) { return { name: m[1], index: m.index }; })
+        .filter(function(c) { return skip.indexOf(c.name) === -1; })
+        .sort(function(a, b) { return a.index - b.index; });
+
+      var seen = {};
+      var unique = [];
+      for (var i = 0; i < all.length; i++) {
+        if (!seen[all[i].name]) {
+          seen[all[i].name] = true;
+          unique.push(all[i]);
+        }
+      }
+
+      if (seen['App']) return 'App';
+      return unique.length > 0 ? unique[unique.length - 1].name : null;
+    }
+
+
+    // ═══════════════════════════════════════════════
+    //  CONSOLE CAPTURE
+    // ═══════════════════════════════════════════════
+    var consoleLogs = [];
+    var errorCount = 0;
+    var warnCount = 0;
+
+    var noop = function() {};
+    function safeBind(fn) { try { return fn.bind(console); } catch(e) { return noop; } }
+    var origConsole = {
+      log: safeBind(console.log),
+      warn: safeBind(console.warn),
+      error: safeBind(console.error),
+      info: safeBind(console.info),
+    };
+
+    function captureConsole() {
+      ['log', 'warn', 'error', 'info'].forEach(function(level) {
+        console[level] = function() {
+          var args = Array.prototype.slice.call(arguments);
+          origConsole[level].apply(console, args);
+          var text = args.map(function(a) {
+            if (typeof a === 'object') try { return JSON.stringify(a, null, 2); } catch(e) { return String(a); }
+            return String(a);
+          }).join(' ');
+          consoleLogs.push({ level: level, text: text, time: new Date() });
+          if (level === 'error') errorCount++;
+          if (level === 'warn') warnCount++;
+          renderConsole();
+        };
+      });
+
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.indexOf('ResizeObserver') !== -1) return;
+        consoleLogs.push({ level: 'error', text: (e.message || '') + '\n  at ' + (e.filename || '') + ':' + (e.lineno || ''), time: new Date() });
+        errorCount++;
+        renderConsole();
+      });
+
+      window.addEventListener('unhandledrejection', function(e) {
+        var msg = e.reason ? (e.reason.message || String(e.reason)) : 'Unknown';
+        consoleLogs.push({ level: 'error', text: 'Unhandled: ' + msg, time: new Date() });
+        errorCount++;
+        renderConsole();
+      });
+    }
+
+    function renderConsole() {
+      var body = document.getElementById('console-body');
+      if (!body) return;
+      body.innerHTML = consoleLogs.map(function(log) {
+        var time = log.time.toLocaleTimeString('en-US', { hour12: false });
+        return '<div class="console-line ' + log.level + '">' +
+          '<span class="prefix">' + time + '</span>' +
+          '<span class="content">' + escapeHtml(log.text) + '</span></div>';
+      }).join('');
+      body.scrollTop = body.scrollHeight;
+
+      var errBadge = document.getElementById('error-count');
+      var warnBadge = document.getElementById('warn-count');
+      if (errBadge) { errBadge.textContent = errorCount; errBadge.style.display = errorCount ? '' : 'none'; }
+      if (warnBadge) { warnBadge.textContent = warnCount; warnBadge.style.display = warnCount ? '' : 'none'; }
+
+      if (errorCount > 0 && !consoleVisible) toggleConsole();
+    }
+
+    function clearConsole() {
+      consoleLogs = []; errorCount = 0; warnCount = 0;
+      renderConsole();
+    }
+
+    captureConsole();
+
+
+    // ═══════════════════════════════════════════════
+    //  DOM & STATE
+    // ═══════════════════════════════════════════════
+    var dropZone = document.getElementById('drop-zone');
+    var fileInput = document.getElementById('file-input');
+    var toolbar = document.getElementById('toolbar');
+    var appRoot = document.getElementById('app-root');
+    var filenameEl = document.getElementById('loaded-filename');
+    var statusEl = document.getElementById('status-text');
+    var consolePanel = document.getElementById('console-panel');
+
+    var lastFileContent = null;
+    var lastFileName = null;
+    var consoleVisible = false;
+
+    // Events
+    document.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('dragover'); });
+    document.addEventListener('dragleave', function(e) {
+      if (!e.relatedTarget || e.relatedTarget === document.documentElement) dropZone.classList.remove('dragover');
+    });
+    document.addEventListener('drop', function(e) {
+      e.preventDefault(); dropZone.classList.remove('dragover');
+      if (e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]);
+    });
+
+    dropZone.addEventListener('click', function() { fileInput.click(); });
+    fileInput.addEventListener('change', function(e) { if (e.target.files[0]) loadFile(e.target.files[0]); });
+
+    document.getElementById('btn-reload').addEventListener('click', function() {
+      if (lastFileContent) renderJSX(lastFileContent, lastFileName);
+    });
+    document.getElementById('btn-reset').addEventListener('click', resetToDropZone);
+    document.getElementById('btn-redrop').addEventListener('click', function() { fileInput.value = ''; fileInput.click(); });
+    document.getElementById('btn-console').addEventListener('click', toggleConsole);
+    document.getElementById('btn-dark').addEventListener('click', function() { setTheme('dark'); });
+    document.getElementById('btn-light').addEventListener('click', function() { setTheme('light'); });
+
+    function setTheme(mode) {
+      document.body.classList.toggle('light-mode', mode === 'light');
+      document.getElementById('btn-dark').classList.toggle('active', mode === 'dark');
+      document.getElementById('btn-light').classList.toggle('active', mode === 'light');
+    }
+
+    function toggleConsole() {
+      consoleVisible = !consoleVisible;
+      consolePanel.style.display = consoleVisible ? 'flex' : 'none';
+      appRoot.classList.toggle('with-console', consoleVisible);
+      document.getElementById('btn-console').classList.toggle('active', consoleVisible);
+    }
+
+
+    // ═══════════════════════════════════════════════
+    //  CORE: LOAD & RENDER
+    // ═══════════════════════════════════════════════
+
+    function loadFile(file) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        lastFileContent = e.target.result;
+        lastFileName = file.name;
+        renderJSX(lastFileContent, lastFileName);
+      };
+      reader.readAsText(file);
+    }
+
+    function renderJSX(code, filename) {
+      clearConsole();
+      dropZone.style.display = 'none';
+      toolbar.style.display = 'flex';
+      filenameEl.textContent = filename;
+      statusEl.textContent = '\u25CF Running';
+      statusEl.style.color = '#4ade80';
+      appRoot.innerHTML = '<div id="root"></div>';
+
+      var old = document.querySelectorAll('script[data-jsx-runner]');
+      for (var j = 0; j < old.length; j++) old[j].remove();
+
+      try {
+        console.info('Processing ' + filename + '...');
+
+        var withImports = transformImports(code);
+        var componentName = detectComponentName(withImports);
+        if (componentName) {
+          console.info('Detected component: ' + componentName);
+        } else {
+          console.warn('No PascalCase component detected');
+        }
+
+        var transformed = Babel.transform(withImports, {
+          presets: ['react'],
+          filename: filename,
+        }).code;
+
+        // Build code via array join — never use template literals near user code
+        var parts = [];
+        parts.push('(function() {');
+        parts.push('try {');
+        parts.push(transformed);
+        if (componentName) {
+          parts.push('var _root = ReactDOM.createRoot(document.getElementById("root"));');
+          parts.push('_root.render(React.createElement(' + componentName + '));');
+          parts.push('console.info("Mounted: ' + componentName + '");');
+        } else {
+          parts.push('document.getElementById("status-text").textContent = "\u26A0 No component";');
+          parts.push('document.getElementById("status-text").style.color = "#fbbf24";');
+        }
+        parts.push('} catch(_e) {');
+        parts.push('  document.getElementById("status-text").textContent = "\u25CF Runtime Error";');
+        parts.push('  document.getElementById("status-text").style.color = "#ff6b6b";');
+        parts.push('  document.getElementById("app-root").innerHTML = "<div class=\\"error-display\\">" + (_e.message || _e) + "<\\/div>";');
+        parts.push('  console.error(_e);');
+        parts.push('}');
+        parts.push('})();');
+
+        var fullCode = parts.join('\n');
+
+        // Inject via Blob URL — avoids textContent escaping issues entirely
+        // Blob URLs work on file:// for same-origin scripts (no imports)
+        var blob = new Blob([fullCode], { type: 'application/javascript' });
+        var url = URL.createObjectURL(blob);
+        var script = document.createElement('script');
+        script.src = url;
+        script.setAttribute('data-jsx-runner', 'true');
+        script.onload = function() { URL.revokeObjectURL(url); };
+        script.onerror = function() {
+          URL.revokeObjectURL(url);
+          statusEl.textContent = '\u25CF Load Error';
+          statusEl.style.color = '#ff6b6b';
+          console.error('Failed to execute transpiled code');
+        };
+        document.body.appendChild(script);
+
+      } catch (err) {
+        statusEl.textContent = '\u25CF Transpile Error';
+        statusEl.style.color = '#ff6b6b';
+        appRoot.innerHTML = '<div class="error-display">' + escapeHtml(err.message) + '</div>';
+        console.error('Babel transpile failed:', err);
+      }
+    }
+
+    function resetToDropZone() {
+      toolbar.style.display = 'none';
+      dropZone.style.display = 'flex';
+      appRoot.innerHTML = '';
+      if (consoleVisible) toggleConsole();
+      var old = document.querySelectorAll('script[data-jsx-runner]');
+      for (var j = 0; j < old.length; j++) old[j].remove();
+      lastFileContent = null;
+      lastFileName = null;
+      setTheme('dark');
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+
+    // ═══════════════════════════════════════════════
+    //  AUTO-LOAD (for context menu / Open With)
+    //  Injected by jsx-inject.ps1 as base64 data
+    // ═══════════════════════════════════════════════
+    (function() {
+      var el = document.getElementById('auto-jsx-data');
+      if (el) {
+        var b64 = el.getAttribute('data-jsx');
+        var name = el.getAttribute('data-name') || 'component.jsx';
+        if (b64) {
+          try {
+            var code = atob(b64);
+            // Wait for all CDN scripts to finish
+            window.addEventListener('load', function() {
+              renderJSX(code, name);
+            });
+          } catch(e) {
+            console.error('Failed to decode auto-load data:', e);
+          }
+        }
+      }
+    })();
+  </script>
+
+  <!-- AUTO_LOAD_MARKER -->
+</body>
+</html>
