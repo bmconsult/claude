@@ -1297,16 +1297,55 @@ function PipelineScreen({ t, tf, setTf }) {
 function WatchlistScreen({ t }) {
   const [filter, setFilter] = useState("ALL");
   const [expandedTick, setExpandedTick] = useState({});
-  const W = WATCHLIST_LIVE;
+  // Rank by pipeline composite score (psc) — same formula PipelineScreen uses,
+  // pulled from PIPELINE_DATA for the position timeframe. RSI-based entry
+  // readiness is the only additional layer (used as the tiebreaker).
+  const W = React.useMemo(() => {
+    const narLookup = {};
+    if (typeof SIGNALS_NAR_DATA !== 'undefined') {
+      Object.entries(SIGNALS_NAR_DATA).forEach(([thesis, data]) => {
+        (data.stocks || []).forEach(s => {
+          if (!narLookup[s.t] || s.rel > narLookup[s.t].rel) {
+            narLookup[s.t] = { rel: s.rel, thesis };
+          }
+        });
+      });
+    }
+    const pipeLookup = {};
+    PIPELINE_DATA.forEach(d => { pipeLookup[d.t] = d; });
+    const cfg = TF_CONFIG.pos;
+    return WATCHLIST_LIVE.map(w => {
+      const d = pipeLookup[w.t];
+      let psc = 0;
+      if (d) {
+        const tecSc = Math.pow(d[cfg.ok] || d.opp, cfg.ow) * Math.pow(d[cfg.mk] || d.tec, cfg.mw);
+        const base = Math.pow(tecSc, cfg.tw) * Math.pow(d.fun, cfg.fw);
+        const narData = narLookup[d.t];
+        const iNAR = narData && narData.rel >= 60;
+        const narRel = narData ? narData.rel : 0;
+        const bonus = (d.iEBPOS ? 3 : 0) + (d.iPBW ? 3 : 0) + (d.iFLO ? 5 : 0) +
+                      (d.iTRD ? (d.trdNar >= 80 ? 5 : 3) : 0) +
+                      (d.iNTH ? (d.nthNar >= 80 ? 5 : 3) : 0) +
+                      (iNAR ? (narRel >= 85 ? 5 : 3) : 0);
+        psc = Math.min(100, Math.round((base + bonus) * 10) / 10);
+      }
+      // Entry readiness: peaks at RSI 42 (ideal pullback zone), 0–10 scale.
+      // Used only as a tiebreaker against psc — pipeline already scored the stock,
+      // this just answers "how ready is the entry right now?".
+      const entryReady = Math.round(Math.max(0, 10 - Math.abs((w.rsi || 50) - 42) * 0.5) * 10) / 10;
+      return { ...w, psc, entryReady };
+    });
+  }, []);
   const filters = [
     {key:"ALL",label:"ALL",ct:W.length},
     {key:"READY",label:"READY NOW",ct:W.filter(w=>w.status==="READY").length},
     {key:"BREAKOUT WATCH",label:"BREAKOUT",ct:W.filter(w=>w.status==="BREAKOUT WATCH"||w.status==="EARLY ENTRY").length},
     {key:"WAIT FOR DIP",label:"WAIT FOR DIP",ct:W.filter(w=>w.status==="WAIT FOR DIP").length},
     {key:"DEVELOPING",label:"DEVELOPING",ct:W.filter(w=>w.status==="DEVELOPING").length},
-    
+
   ];
-  const filtered = filter === "ALL" ? W : filter === "BREAKOUT WATCH" ? W.filter(w=>w.status==="BREAKOUT WATCH"||w.status==="EARLY ENTRY") : W.filter(w=>w.status===filter);
+  const baseFiltered = filter === "ALL" ? W : filter === "BREAKOUT WATCH" ? W.filter(w=>w.status==="BREAKOUT WATCH"||w.status==="EARLY ENTRY") : W.filter(w=>w.status===filter);
+  const filtered = [...baseFiltered].sort((a, b) => (b.psc - a.psc) || (b.entryReady - a.entryReady));
   const statusColors = {"READY":"#22c55e","BREAKOUT WATCH":"#f59e0b","EARLY ENTRY":"#a855f7","DEVELOPING":"#3b82f6","WAIT FOR DIP":"#ef4444","TRAILING":"#64748b","HOLD BY THESIS":"#94a3b8","MONITOR":"#475569"};
   const actionColor = (a) => a.includes("BUY") ? "#22c55e" : a.includes("ALERT")||a.includes("SQUEEZE") ? "#f59e0b" : a.includes("OVERBOUGHT") ? "#ef4444" : a.includes("HOLD") ? "#3b82f6" : a.includes("EARLY") ? "#a855f7" : "#64748b";
   return (
@@ -1326,10 +1365,11 @@ function WatchlistScreen({ t }) {
           return (
             <div key={i} style={{ margin: "3px 0", background: t.bgCard, borderRadius: 6, borderLeft: `3px solid ${ac}` }}>
               <button onClick={() => setExpandedTick(p => ({...p, [w.t]: !p[w.t]}))} style={{
-                width: "100%", display: "grid", gridTemplateColumns: "50px 80px 55px 60px 60px 60px 44px 35px 70px auto 16px",
+                width: "100%", display: "grid", gridTemplateColumns: "50px 38px 80px 55px 60px 60px 60px 44px 35px 70px auto 16px",
                 gap: 4, padding: "6px 8px", background: "none", border: "none", cursor: "pointer", textAlign: "left", alignItems: "center"
               }}>
                 <span style={{ color: w.core ? "#f59e0b" : "#22c55e", fontWeight: 700, fontSize: 11 }}>{w.core ? "★ " : ""}{w.t}</span>
+                <span style={{ ...M, fontSize: 10, fontWeight: 700, color: w.psc >= 75 ? "#22c55e" : w.psc >= 60 ? "#f59e0b" : t.textBody }} title={`PSC ${w.psc} · entry readiness ${w.entryReady}/10`}>{w.psc}</span>
                 <span style={{ ...M, fontSize: 8, padding: "2px 4px", borderRadius: 3, background: `${(statusColors[w.status]||"#64748b")}22`, color: statusColors[w.status]||"#64748b", fontWeight: 700, textAlign: "center" }}>{w.status}</span>
                 <span style={{ color: t.text, fontSize: 10, ...M }}>${w.p}</span>
                 <span style={{ color: "#22c55e", fontSize: 10, ...M }}>→${w.entry}</span>
@@ -1377,7 +1417,7 @@ function WatchlistScreen({ t }) {
                       ))}
                     </div>
                     <div style={{ color: t.textGhost, ...M, fontSize: 8, marginBottom: 2 }}>TECHNICALS</div>
-                    <div style={{ color: t.textMuted }}>TEC:{w.sc} RSI:{w.rsi} Grade:{w.g} 1mo:{w.p1m > 0 ? "+" : ""}{w.p1m}%</div>
+                    <div style={{ color: t.textMuted }}>PSC:<span style={{ color: w.psc >= 75 ? "#22c55e" : w.psc >= 60 ? "#f59e0b" : t.textBody, fontWeight: 700 }}>{w.psc}</span> ENTRY:{w.entryReady}/10 RSI:{w.rsi} Grade:{w.g} 1mo:{w.p1m > 0 ? "+" : ""}{w.p1m}%</div>
                   </div>
                 </div>
               </div>}
