@@ -1104,12 +1104,12 @@ function PipelineScreen({ t, tf, setTf }) {
   );
 }
 
-function WatchlistScreen({ t }) {
+function WatchlistScreen({ t, tf, setTf }) {
   const [filter, setFilter] = useState("ALL");
   const [expandedTick, setExpandedTick] = useState({});
   // Rank by pipeline composite score (psc) — same formula PipelineScreen uses,
-  // pulled from PIPELINE_DATA for the position timeframe. RSI-based entry
-  // readiness is the only additional layer (used as the tiebreaker).
+  // pulled from PIPELINE_DATA for the active timeframe (swing/position/long-term).
+  // RSI-based entry readiness is the only additional layer (tiebreaker).
   const W = React.useMemo(() => {
     const narLookup = {};
     if (typeof SIGNALS_NAR_DATA !== 'undefined') {
@@ -1123,17 +1123,19 @@ function WatchlistScreen({ t }) {
     }
     const pipeLookup = {};
     PIPELINE_DATA.forEach(d => { pipeLookup[d.t] = d; });
-    const cfg = TF_CONFIG.pos;
+    const cfg = TF_CONFIG[tf];
     return WATCHLIST_LIVE.map(w => {
       const d = pipeLookup[w.t];
       let psc = 0;
       if (d) {
         const tecSc = Math.pow(d[cfg.ok] || d.opp, cfg.ow) * Math.pow(d[cfg.mk] || d.tec, cfg.mw);
         const base = Math.pow(tecSc, cfg.tw) * Math.pow(d.fun, cfg.fw);
+        const patPass = tf==="sw"?d.iPB:tf==="lt"?d.iPBM:d.iPBW;
+        const evtPass = tf==="sw"?d.iEBSW:tf==="lt"?d.iEBLT:d.iEBPOS;
         const narData = narLookup[d.t];
         const iNAR = narData && narData.rel >= 60;
         const narRel = narData ? narData.rel : 0;
-        const bonus = (d.iEBPOS ? 3 : 0) + (d.iPBW ? 3 : 0) + (d.iFLO ? 5 : 0) +
+        const bonus = (evtPass ? 3 : 0) + (patPass ? 3 : 0) + (d.iFLO ? 5 : 0) +
                       (d.iTRD ? (d.trdNar >= 80 ? 5 : 3) : 0) +
                       (d.iNTH ? (d.nthNar >= 80 ? 5 : 3) : 0) +
                       (iNAR ? (narRel >= 85 ? 5 : 3) : 0);
@@ -1145,7 +1147,7 @@ function WatchlistScreen({ t }) {
       const entryReady = Math.round(Math.max(0, 10 - Math.abs((w.rsi || 50) - 42) * 0.5) * 10) / 10;
       return { ...w, psc, entryReady };
     });
-  }, []);
+  }, [tf]);
   const filters = [
     {key:"ALL",label:"ALL",ct:W.length},
     {key:"READY",label:"READY NOW",ct:W.filter(w=>w.status==="READY").length},
@@ -1160,6 +1162,7 @@ function WatchlistScreen({ t }) {
   const actionColor = (a) => a.includes("BUY") ? "#22c55e" : a.includes("ALERT")||a.includes("SQUEEZE") ? "#f59e0b" : a.includes("OVERBOUGHT") ? "#ef4444" : a.includes("HOLD") ? "#3b82f6" : a.includes("EARLY") ? "#a855f7" : "#64748b";
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      <TimeframeToggle t={t} tf={tf} setTf={setTf} />
       <div style={{ display: "flex", gap: 4, padding: "6px 8px", borderBottom: `1px solid ${t.border}`, flexShrink: 0 }}>
         {filters.map(f => (
           <button key={f.key} onClick={() => setFilter(f.key)} style={{
@@ -1333,7 +1336,7 @@ export default function SignalTerminal() {
       case "intel": return <IntelScreen t={t} tf={tf} setTf={setTf} />;
       case "signals": return <SignalsScreen t={t} tf={tf} setTf={setTf} />;
       case "pipeline": return <PipelineScreen t={t} tf={tf} setTf={setTf} />;
-      case "watchlist": return <WatchlistScreen t={t} />;
+      case "watchlist": return <WatchlistScreen t={t} tf={tf} setTf={setTf} />;
       case "portfolio": return <PortfolioScreen t={t} />;
       default: return null;
     }
