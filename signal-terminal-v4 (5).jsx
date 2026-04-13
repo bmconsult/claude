@@ -1357,15 +1357,15 @@ export default function SignalTerminal() {
           <span style={{ ...M, fontSize: 13, fontWeight: 700, color: "#22c55e", letterSpacing: 2 }}>SIGNAL</span>
           <span style={{ ...M, fontSize: 10, color: t.textGhost }}>v0.4</span>
           <div style={{ width: 1, height: 16, background: t.border, margin: "0 4px" }} />
-          <span style={{ fontSize: 9, ...M, color: "#ef4444", fontWeight: 600, letterSpacing: 1 }}>⚠ HORMUZ CLOSED · DAY 31</span>
+          <span style={{ fontSize: 9, ...M, color: "#ef4444", fontWeight: 600, letterSpacing: 1 }}>⚠ HORMUZ BLOCKADE · DAY 1 · TALKS FAILED</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", gap: 12 }}>
             {[
-              { label: "BRENT", val: "$107.35", color: "#ef4444", delta: "+2.1%" },
-              { label: "GOLD", val: "$4,591", color: "#f59e0b", delta: "+1.4%" },
-              { label: "VIX", val: "30.61", color: "#f59e0b", delta: "-1.4%" },
-              { label: "DXY", val: "99.1", color: "#22c55e", delta: "-0.1%" },
+              { label: "BRENT", val: "$101.82", color: "#ef4444", delta: "+6.9%" },
+              { label: "GOLD", val: "$4,700", color: "#f59e0b", delta: "-2.1%" },
+              { label: "VIX", val: "19.23", color: "#f59e0b", delta: "-1.4%" },
+              { label: "DXY", val: "99.02", color: "#22c55e", delta: "+0.4%" },
             ].map(tk => (
               <div key={tk.label} style={{ textAlign: "right" }}>
                 <div style={{ fontSize: 8, ...M, color: t.textGhost, letterSpacing: 1 }}>{tk.label}</div>
