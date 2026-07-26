@@ -178,14 +178,13 @@ The current system you're running on:
 - **Adversarial verification**: DIABOLOS attacks all claims
 
 **Known limitations to address:**
-1. High token cost (56 agents × long prompts)
+1. Prose & Instruction (Prompt layout)
 2. Sequential phases may miss cross-system insights
-3. Agent overlap unclear (do we need 14 ALPHA agents?)
+3. Agent overlap unclear
 4. No dynamic adaptation (same structure for all problems)
-5. Adversarial phase at END may be too late
-6. No learning across runs (each execution is independent)
+5. No learning across runs (each execution is independent)
 
-**Your job**: Improve this, replace this, or prove this is optimal.
+**Your job**: Run this, Improve this, replace this, or prove this is optimal.
 
 ---
 
